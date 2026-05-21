@@ -4,6 +4,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const repoRoot = path.join(__dirname, '..');
+const dataIssuesDir = path.join(repoRoot, 'data', 'issues');
 const publishDate = process.argv[2];
 
 if (!publishDate) {
@@ -17,7 +18,7 @@ const openclawAgentName = process.env.OPENCLAW_AGENT_NAME || 'main';
 const openclawTimeoutSeconds = process.env.OPENCLAW_TIMEOUT_SECONDS || '3600';
 const openclawThinking = process.env.OPENCLAW_THINKING || 'low';
 
-const jsonPath = path.join(repoRoot, `ai-builders-digest-${publishDate}.json`);
+const jsonPath = path.join(dataIssuesDir, `ai-builders-digest-${publishDate}.json`);
 
 const prompt = `你正在目录 ${repoRoot} 中工作。
 
@@ -33,8 +34,8 @@ ${jsonPath}
 2. 只使用最新 feed 中的内容，不要编造，不要补外部信息。
 
 3. 参考当前仓库里这两份文件的结构和语气：
-   - ${path.join(repoRoot, 'ai-builders-digest-2026-05-20.json')}
-   - ${path.join(repoRoot, 'ai-builders-digest-2026-05-21.json')}
+   - ${path.join(dataIssuesDir, 'ai-builders-digest-2026-05-20.json')}
+   - ${path.join(dataIssuesDir, 'ai-builders-digest-2026-05-21.json')}
 
 4. 同时参考这些用户 prompt，保持现在已经调好的“编辑判断力 + 朋友式讲述”的风格：
    - ~/.follow-builders/prompts/digest-intro-html.md

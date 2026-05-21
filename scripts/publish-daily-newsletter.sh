@@ -7,14 +7,18 @@ export TZ="${TZ:-Asia/Shanghai}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 DATE="${NEWSLETTER_DATE:-$(date +%Y-%m-%d)}"
-JSON_PATH="${REPO_ROOT}/ai-builders-digest-${DATE}.json"
-HTML_PATH="${REPO_ROOT}/ai-builders-digest-${DATE}-rerun.html"
+DATA_ISSUES_DIR="${REPO_ROOT}/data/issues"
+JSON_PATH="${DATA_ISSUES_DIR}/ai-builders-digest-${DATE}.json"
+ISSUES_DIR="${REPO_ROOT}/issues"
+HTML_PATH="${ISSUES_DIR}/ai-builders-digest-${DATE}-rerun.html"
 INDEX_PATH="${REPO_ROOT}/index.html"
 
 FOLLOW_BUILDERS_SCRIPTS="${FOLLOW_BUILDERS_SCRIPTS:-${HOME}/.claude/skills/follow-builders/scripts}"
 
 GIT_AUTHOR_NAME_DEFAULT="${GIT_AUTHOR_NAME_DEFAULT:-luolan0214}"
 GIT_AUTHOR_EMAIL_DEFAULT="${GIT_AUTHOR_EMAIL_DEFAULT:-luolan0214@users.noreply.github.com}"
+
+mkdir -p "${ISSUES_DIR}" "${DATA_ISSUES_DIR}"
 
 if [[ ! -d "${FOLLOW_BUILDERS_SCRIPTS}" ]]; then
   echo "Follow Builders scripts not found: ${FOLLOW_BUILDERS_SCRIPTS}" >&2
@@ -46,7 +50,7 @@ if [[ ! -f "${JSON_PATH}" ]]; then
   exit 0
 fi
 
-node "${REPO_ROOT}/render-ai-builders-digest.js" "${JSON_PATH}" "${HTML_PATH}"
+node "${REPO_ROOT}/scripts/render-ai-builders-digest.js" "${JSON_PATH}" "${HTML_PATH}"
 node "${REPO_ROOT}/sync-site-avatars.js"
 node "${REPO_ROOT}/scripts/update-index-archive.js" "${INDEX_PATH}"
 
@@ -56,7 +60,7 @@ if [[ -z "${CHANGED_FILES}" ]]; then
   exit 0
 fi
 
-git -C "${REPO_ROOT}" add "${JSON_PATH}" "${HTML_PATH}" "${INDEX_PATH}" "${REPO_ROOT}/assets"
+git -C "${REPO_ROOT}" add "${JSON_PATH}" "${HTML_PATH}" "${INDEX_PATH}" "${REPO_ROOT}/assets" "${ISSUES_DIR}" "${DATA_ISSUES_DIR}"
 
 GIT_AUTHOR_NAME="${GIT_AUTHOR_NAME:-${GIT_AUTHOR_NAME_DEFAULT}}"
 GIT_AUTHOR_EMAIL="${GIT_AUTHOR_EMAIL:-${GIT_AUTHOR_EMAIL_DEFAULT}}"

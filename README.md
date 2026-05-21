@@ -258,24 +258,33 @@
 ```text
 .
 ├── index.html
-├── ai-builders-digest-2026-05-19-rerun.html
-├── ai-builders-digest-2026-05-20.json
-├── ai-builders-digest-2026-05-20-rerun.html
-├── ai-builders-digest-2026-05-21.json
-├── ai-builders-digest-2026-05-21-rerun.html
-├── ai-builders-digest.example.json
-├── ai-builders-digest.example.html
+├── assets/
+│   └── avatars/
+├── data/
+│   └── issues/
+│       ├── ai-builders-digest-2026-05-20.json
+│       └── ai-builders-digest-2026-05-21.json
+├── examples/
+│   ├── ai-builders-digest.example.html
+│   └── ai-builders-digest.example.json
+├── issues/
+│   ├── ai-builders-digest-2026-05-19-rerun.html
+│   ├── ai-builders-digest-2026-05-20-rerun.html
+│   └── ai-builders-digest-2026-05-21-rerun.html
 ├── launchd/
 │   └── com.luolan.follow-builders-newsletter.plist.template
-├── render-ai-builders-digest.js
 ├── scripts/
 │   ├── build-daily-newsletter-json.js
 │   ├── install-launchd.sh
 │   ├── publish-daily-newsletter.sh
+│   ├── render-ai-builders-digest.js
 │   └── update-index-archive.js
-├── sync-site-avatars.js
-└── assets/
-    └── avatars/
+├── src/
+│   ├── archive/
+│   │   └── update-index-archive.js
+│   └── render/
+│       └── render-ai-builders-digest.js
+└── sync-site-avatars.js
 ```
 
 ---
@@ -311,15 +320,24 @@ Follow Builders feed
 
 ```bash
 node sync-site-avatars.js
-node render-ai-builders-digest.js <input.json> <output.html>
+node scripts/render-ai-builders-digest.js <input.json> <output.html>
 ```
 
 示例：
 
 ```bash
-node render-ai-builders-digest.js ai-builders-digest-2026-05-20.json ai-builders-digest-2026-05-20-rerun.html
-node render-ai-builders-digest.js ai-builders-digest-2026-05-21.json ai-builders-digest-2026-05-21-rerun.html
+node scripts/render-ai-builders-digest.js data/issues/ai-builders-digest-2026-05-20.json issues/ai-builders-digest-2026-05-20-rerun.html
+node scripts/render-ai-builders-digest.js data/issues/ai-builders-digest-2026-05-21.json issues/ai-builders-digest-2026-05-21-rerun.html
 ```
+
+为了让项目结构更清楚：
+
+- `src/` 放核心 JavaScript 逻辑
+- `scripts/` 放运行入口与自动化命令
+- `data/issues/` 放每日结构化 JSON 数据
+- `issues/` 放最终发布到 GitHub Pages 的 HTML 页面
+- `examples/` 放示例输入与示例输出
+- 首页 `index.html` 只负责封面和目录跳转
 
 ---
 

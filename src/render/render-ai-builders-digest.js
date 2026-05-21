@@ -4,9 +4,12 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const AUTHOR_IDENTITIES_PATH = path.join(os.homedir(), '.follow-builders/assets/author-identities.json');
 const AVATAR_MANIFEST_PATH = path.join(os.homedir(), '.follow-builders/assets/avatar-manifest.json');
 const SITE_AVATAR_DIR = path.join('assets', 'avatars');
+const ISSUE_HTML_DIR = 'issues';
+const DATA_ISSUES_DIR = path.join('data', 'issues');
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -35,20 +38,29 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function formatIssueNumber(publishDateString) {
-  const baseDate = new Date('2026-05-01T00:00:00+08:00');
-  const publishDate = new Date(`${publishDateString}T00:00:00+08:00`);
-
-  if (Number.isNaN(baseDate.getTime()) || Number.isNaN(publishDate.getTime())) {
-    return null;
-  }
-
-  const diffDays = Math.round((publishDate - baseDate) / (1000 * 60 * 60 * 24));
-  return diffDays + 1;
-}
-
 function pad2(value) {
   return String(value).padStart(2, '0');
+}
+
+function collectIssueDates(repoRoot) {
+  const issueDates = new Set();
+  const scanDir = (targetDir) => {
+    if (!fs.existsSync(targetDir)) return;
+    fs.readdirSync(targetDir).forEach((fileName) => {
+      const match = fileName.match(/^ai-builders-digest-(\d{4}-\d{2}-\d{2})(?:-rerun)?\.(?:json|html)$/);
+      if (match) issueDates.add(match[1]);
+    });
+  };
+  scanDir(path.join(repoRoot, DATA_ISSUES_DIR));
+  scanDir(path.join(repoRoot, ISSUE_HTML_DIR));
+  return Array.from(issueDates).sort();
+}
+
+function formatIssueNumber(publishDateString, issueDates) {
+  const orderedDates = Array.isArray(issueDates) && issueDates.length ? issueDates : [];
+  const issueIndex = orderedDates.indexOf(publishDateString);
+  if (issueIndex === -1) return null;
+  return pad2(issueIndex + 1);
 }
 
 function formatThemeLabel(index) {
@@ -78,9 +90,10 @@ function toLocalPath(value) {
   return value;
 }
 
-function toSiteAvatarPath(sourcePath) {
-  const fileName = path.basename(sourcePath || '');
-  return fileName ? `./${SITE_AVATAR_DIR}/${fileName}`.replace(/\\/g, '/') : '';
+function toRelativeUrl(fromDir, targetPath) {
+  const relativePath = path.relative(fromDir, targetPath).replace(/\\/g, '/');
+  if (!relativePath) return './';
+  return relativePath.startsWith('.') ? relativePath : `./${relativePath}`;
 }
 
 function renderBlock(block) {
@@ -114,16 +127,19 @@ function renderBlocks(blocks) {
   return (blocks || []).map(renderBlock).join('\n');
 }
 
-function resolveAuthorMeta(card, authorIdentities, avatarManifest) {
+function resolveAuthorMeta(card, authorIdentities, avatarManifest, outputPath) {
   const key = card.authorKey || '';
   const identity = authorIdentities[key] || {};
   const avatar = avatarManifest[key] || {};
   const avatarSourcePath = toLocalPath(avatar.localPath || avatar.fileUrl || card.authorAvatar || '');
+  const outputDir = path.dirname(outputPath);
 
   const name = identity.name || card.authorName || '';
   const handle = normalizeHandle(identity.handle || card.authorHandle || '');
   const tag = identity.label || card.authorTag || '';
-  const avatarUrl = toSiteAvatarPath(avatarSourcePath);
+  const avatarUrl = avatarSourcePath
+    ? toRelativeUrl(outputDir, path.join(REPO_ROOT, SITE_AVATAR_DIR, path.basename(avatarSourcePath)))
+    : '';
 
   return {
     key,
@@ -141,14 +157,13 @@ function ensureDir(dirPath) {
 }
 
 function copyUsedAvatars(outputPath, data, authorIdentities, avatarManifest) {
-  const outputDir = path.dirname(outputPath);
-  const targetDir = path.join(outputDir, SITE_AVATAR_DIR);
+  const targetDir = path.join(REPO_ROOT, SITE_AVATAR_DIR);
   ensureDir(targetDir);
 
   const copied = new Set();
   (data.sections || []).forEach((section) => {
     (section.cards || []).forEach((card) => {
-      const author = resolveAuthorMeta(card, authorIdentities, avatarManifest);
+      const author = resolveAuthorMeta(card, authorIdentities, avatarManifest, outputPath);
       if (!author.avatarSourcePath || copied.has(author.avatarSourcePath) || !fs.existsSync(author.avatarSourcePath)) {
         return;
       }
@@ -160,8 +175,8 @@ function copyUsedAvatars(outputPath, data, authorIdentities, avatarManifest) {
   });
 }
 
-function renderCard(card, authorIdentities, avatarManifest, labels) {
-  const author = resolveAuthorMeta(card, authorIdentities, avatarManifest);
+function renderCard(card, authorIdentities, avatarManifest, labels, outputPath) {
+  const author = resolveAuthorMeta(card, authorIdentities, avatarManifest, outputPath);
   const sourceLabel = card.sourceLabel || '原始链接 / Source →';
 
   return `    <article class="card" data-author-key="${escapeHtml(author.key)}" data-author-name="${escapeHtml(author.name)}" data-author-tag="${escapeHtml(author.tag)}" data-author-handle="${escapeHtml(author.handle)}" data-author-avatar="${escapeHtml(author.avatarUrl)}">
@@ -180,17 +195,6 @@ function renderCard(card, authorIdentities, avatarManifest, labels) {
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">${escapeHtml(card.englishLabel || 'English')}</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-${indent(renderBlocks(card.en?.rewrite || []), 14)}
-            </div>
-            <div class="content-variant" data-view="original">
-${indent(renderBlocks(card.en?.original || []), 14)}
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">${escapeHtml(card.chineseLabel || '中文')}</div>
           <div class="content-shell">
@@ -199,6 +203,17 @@ ${indent(renderBlocks(card.cn?.rewrite || []), 14)}
             </div>
             <div class="content-variant" data-view="original">
 ${indent(renderBlocks(card.cn?.original || []), 14)}
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">${escapeHtml(card.englishLabel || 'English')}</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+${indent(renderBlocks(card.en?.rewrite || []), 14)}
+            </div>
+            <div class="content-variant" data-view="original">
+${indent(renderBlocks(card.en?.original || []), 14)}
             </div>
           </div>
         </div>
@@ -215,9 +230,9 @@ function indent(value, spaces) {
     .join('\n');
 }
 
-function renderSection(section, index, authorIdentities, avatarManifest, labels) {
+function renderSection(section, index, authorIdentities, avatarManifest, labels, outputPath) {
   const cards = (section.cards || [])
-    .map((card) => renderCard(card, authorIdentities, avatarManifest, labels))
+    .map((card) => renderCard(card, authorIdentities, avatarManifest, labels, outputPath))
     .join('\n\n');
 
   return `  <section class="section-header">
@@ -230,9 +245,12 @@ ${cards}
   </section>`;
 }
 
-function renderPage(data, authorIdentities, avatarManifest) {
+function renderPage(data, authorIdentities, avatarManifest, outputPath) {
+  const issueDates = collectIssueDates(REPO_ROOT);
   const publishDate = data.publishDate;
-  const issueNumber = formatIssueNumber(publishDate) || '';
+  const issueNumber = formatIssueNumber(publishDate, issueDates) || '';
+  const outputDir = path.dirname(outputPath);
+  const returnHref = toRelativeUrl(outputDir, path.join(REPO_ROOT, 'index.html'));
   const labels = {
     rewrite: data.viewLabels?.rewrite || '速读',
     original: data.viewLabels?.original || '原文',
@@ -254,7 +272,7 @@ function renderPage(data, authorIdentities, avatarManifest) {
   const themeCount = (data.sections || []).length;
   const editionStrip = `第 ${issueNumber} 期｜${publishDate}｜${editionName}｜${selectedCount} 条精选｜${authorKeys.size} 位作者｜${themeCount} 个主题`;
   const sectionsHtml = (data.sections || [])
-    .map((section, index) => renderSection(section, index, authorIdentities, avatarManifest, labels))
+    .map((section, index) => renderSection(section, index, authorIdentities, avatarManifest, labels, outputPath))
     .join('\n\n');
 
   return `<!DOCTYPE html>
@@ -353,8 +371,8 @@ function renderPage(data, authorIdentities, avatarManifest) {
 
   .card-body { display: grid; grid-template-columns: 1fr 1fr; }
   .lang-col { padding: 18px 20px 22px; }
-  .lang-col.en { background: var(--en-bg); border-right: 1px solid #f0ece4; }
-  .lang-col.cn { background: var(--cn-bg); font-family: 'Noto Serif SC', serif; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
   .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
   .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
   .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
@@ -374,14 +392,14 @@ function renderPage(data, authorIdentities, avatarManifest) {
     .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
     .card-controls { margin-left: 0; }
     .card-body { grid-template-columns: 1fr; }
-    .lang-col.en { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
     .edition-strip .edition-sep { margin: 0 5px; }
     .intro-inner { padding-left: 14px; }
     .intro p { line-height: 1.84; }
   }
 </style>
 </head>
-<body data-publish-date="${escapeHtml(publishDate)}" data-edition-name="${escapeHtml(editionName)}" data-view-label-rewrite="${escapeHtml(labels.rewrite)}" data-view-label-original="${escapeHtml(labels.original)}" data-author-identities-path="${escapeHtml(AUTHOR_IDENTITIES_PATH)}" data-avatar-manifest-path="${escapeHtml(AVATAR_MANIFEST_PATH)}">
+<body data-publish-date="${escapeHtml(publishDate)}" data-issue-number="${escapeHtml(issueNumber)}" data-edition-name="${escapeHtml(editionName)}" data-view-label-rewrite="${escapeHtml(labels.rewrite)}" data-view-label-original="${escapeHtml(labels.original)}" data-author-identities-path="${escapeHtml(AUTHOR_IDENTITIES_PATH)}" data-avatar-manifest-path="${escapeHtml(AVATAR_MANIFEST_PATH)}">
   <header class="masthead">
     <hr class="masthead-rule">
     <div class="masthead-inner">
@@ -390,7 +408,7 @@ function renderPage(data, authorIdentities, avatarManifest) {
     <div class="masthead-subtitle">${escapeHtml(subtitle)}</div>
     <div class="edition-strip">
       <span class="edition-strip-text" id="edition-strip-text">${escapeHtml(editionStrip)}</span>
-      <a class="edition-return-link" href="./index.html">返回目录</a>
+      <a class="edition-return-link" href="${escapeHtml(returnHref)}">返回目录</a>
     </div>
   </header>
 
@@ -406,14 +424,6 @@ ${sectionsHtml}
   <footer data-source-note="${escapeHtml(sourceNote)}">${escapeHtml(sourceNote)}</footer>
 
   <script>
-    function formatIssueNumber(publishDateString) {
-      const baseDate = new Date('2026-05-01T00:00:00+08:00');
-      const publishDate = new Date(publishDateString + 'T00:00:00+08:00');
-      if (Number.isNaN(baseDate.getTime()) || Number.isNaN(publishDate.getTime())) return null;
-      const diffDays = Math.round((publishDate - baseDate) / (1000 * 60 * 60 * 24));
-      return diffDays + 1;
-    }
-
     function getTemplateAuthorSources() {
       const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
       return { identities: sources.identities || {}, avatars: sources.avatars || {} };
@@ -481,8 +491,8 @@ ${sectionsHtml}
       const editionStrip = document.getElementById('edition-strip-text');
       if (!publishDate || !editionStrip) return;
 
-      const issueNumber = formatIssueNumber(publishDate);
-      if (!issueNumber || issueNumber < 1) return;
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
 
       const selectedCount = document.querySelectorAll('.card').length;
       const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
@@ -593,15 +603,20 @@ function main() {
   const input = readJson(path.resolve(inputPath));
   const outputPath = outputPathArg
     ? path.resolve(outputPathArg)
-    : path.resolve(process.cwd(), `ai-builders-digest-${input.publishDate || 'output'}.html`);
+    : path.resolve(REPO_ROOT, ISSUE_HTML_DIR, `ai-builders-digest-${input.publishDate || 'output'}.html`);
 
   const authorIdentities = loadEntries(AUTHOR_IDENTITIES_PATH);
   const avatarManifest = loadEntries(AVATAR_MANIFEST_PATH);
-  const html = renderPage(input, authorIdentities, avatarManifest);
+  const html = renderPage(input, authorIdentities, avatarManifest, outputPath);
 
+  ensureDir(path.dirname(outputPath));
   fs.writeFileSync(outputPath, html, 'utf8');
   copyUsedAvatars(outputPath, input, authorIdentities, avatarManifest);
   console.log(`Rendered ${outputPath}`);
 }
 
-main();
+module.exports = { main };
+
+if (require.main === module) {
+  main();
+}

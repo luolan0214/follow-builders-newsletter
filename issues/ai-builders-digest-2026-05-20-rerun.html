@@ -94,8 +94,8 @@
 
   .card-body { display: grid; grid-template-columns: 1fr 1fr; }
   .lang-col { padding: 18px 20px 22px; }
-  .lang-col.en { background: var(--en-bg); border-right: 1px solid #f0ece4; }
-  .lang-col.cn { background: var(--cn-bg); font-family: 'Noto Serif SC', serif; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
   .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
   .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
   .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
@@ -115,14 +115,14 @@
     .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
     .card-controls { margin-left: 0; }
     .card-body { grid-template-columns: 1fr; }
-    .lang-col.en { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
     .edition-strip .edition-sep { margin: 0 5px; }
     .intro-inner { padding-left: 14px; }
     .intro p { line-height: 1.84; }
   }
 </style>
 </head>
-<body data-publish-date="2026-05-20" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+<body data-publish-date="2026-05-20" data-issue-number="02" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
   <header class="masthead">
     <hr class="masthead-rule">
     <div class="masthead-inner">
@@ -130,8 +130,8 @@
     </div>
     <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
     <div class="edition-strip">
-      <span class="edition-strip-text" id="edition-strip-text">第 20 期｜2026-05-20｜双语精选版｜9 条精选｜9 位作者｜5 个主题</span>
-      <a class="edition-return-link" href="./index.html">返回目录</a>
+      <span class="edition-strip-text" id="edition-strip-text">第 02 期｜2026-05-20｜双语精选版｜9 条精选｜9 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
     </div>
   </header>
 
@@ -148,9 +148,9 @@
     <p class="section-desc">有些时候，比起一个新产品上线，更能说明风向的反而是谁回到了哪间实验室。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:karpathy" data-author-name="Andrej Karpathy" data-author-tag="AI Researcher" data-author-handle="@karpathy" data-author-avatar="./assets/avatars/x-karpathy.jpg">
+    <article class="card" data-author-key="x:karpathy" data-author-name="Andrej Karpathy" data-author-tag="AI Researcher" data-author-handle="@karpathy" data-author-avatar="../assets/avatars/x-karpathy.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-karpathy.jpg" alt="Andrej Karpathy avatar"><span class="avatar-fallback">AK</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-karpathy.jpg" alt="Andrej Karpathy avatar"><span class="avatar-fallback">AK</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Andrej Karpathy</div>
@@ -164,21 +164,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Andrej Karpathy announced that he has joined Anthropic, framing the move as a return to frontier R&amp;D at a moment he believes will be especially formative for LLMs.</p>
-              <p>The signal is larger than a career update: when one of the field&#39;s most influential builders decides lab affiliation matters right now, it suggests the next phase of frontier work is accelerating.</p>
-              <p>He also leaves the door open to resume his education work later, which makes this feel like a deliberate refocus rather than a total reset.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Personal update: I&#39;ve joined Anthropic.</p>
-              <p>I think the next few years at the frontier of LLMs will be especially formative. I am very excited to join the team here and get back to R&amp;D.</p>
-              <p>I remain deeply passionate about education and plan to resume my work on it in time.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -194,6 +179,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Andrej Karpathy announced that he has joined Anthropic, framing the move as a return to frontier R&amp;D at a moment he believes will be especially formative for LLMs.</p>
+              <p>The signal is larger than a career update: when one of the field&#39;s most influential builders decides lab affiliation matters right now, it suggests the next phase of frontier work is accelerating.</p>
+              <p>He also leaves the door open to resume his education work later, which makes this feel like a deliberate refocus rather than a total reset.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Personal update: I&#39;ve joined Anthropic.</p>
+              <p>I think the next few years at the frontier of LLMs will be especially formative. I am very excited to join the team here and get back to R&amp;D.</p>
+              <p>I remain deeply passionate about education and plan to resume my work on it in time.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/karpathy/status/2056753169888334312" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -205,9 +205,9 @@
     <p class="section-desc">Agent 不再只是你打开窗口问一句答一句，它开始更像一个长期在线、会主动帮你做事的产品。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:joshwoodward" data-author-name="Josh Woodward" data-author-tag="VP @ Google Labs" data-author-handle="@joshwoodward" data-author-avatar="./assets/avatars/x-joshwoodward.jpg">
+    <article class="card" data-author-key="x:joshwoodward" data-author-name="Josh Woodward" data-author-tag="VP @ Google Labs" data-author-handle="@joshwoodward" data-author-avatar="../assets/avatars/x-joshwoodward.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-joshwoodward.jpg" alt="Josh Woodward avatar"><span class="avatar-fallback">JW</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-joshwoodward.jpg" alt="Josh Woodward avatar"><span class="avatar-fallback">JW</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Josh Woodward</div>
@@ -221,21 +221,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Gemini Spark positions Google&#39;s agent effort as a persistent personal layer, not just another chat interface.</p>
-              <p>The promise is explicit: a 24/7 agent that proactively manages tasks and helps navigate your digital life while still operating under your direction.</p>
-              <p>That rollout language matters too. Moving from trusted testers to paid beta access makes this look like the early shape of a real agent product, not a research demo.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Introducing Gemini Spark!</p>
-              <p>Our 24/7 personal AI agent designed to proactively manage tasks and help you navigate your digital life, all under your direction.</p>
-              <p>Coming to trusted testers this week, and as a Beta for US Google AI Ultra subscribers next week!</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -251,13 +236,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Gemini Spark positions Google&#39;s agent effort as a persistent personal layer, not just another chat interface.</p>
+              <p>The promise is explicit: a 24/7 agent that proactively manages tasks and helps navigate your digital life while still operating under your direction.</p>
+              <p>That rollout language matters too. Moving from trusted testers to paid beta access makes this look like the early shape of a real agent product, not a research demo.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Introducing Gemini Spark!</p>
+              <p>Our 24/7 personal AI agent designed to proactively manage tasks and help you navigate your digital life, all under your direction.</p>
+              <p>Coming to trusted testers this week, and as a Beta for US Google AI Ultra subscribers next week!</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/joshwoodward/status/2056873495116845485" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:GoogleLabs" data-author-name="Google Labs" data-author-tag="Google Product Team" data-author-handle="@GoogleLabs" data-author-avatar="./assets/avatars/x-GoogleLabs.jpg">
+    <article class="card" data-author-key="x:GoogleLabs" data-author-name="Google Labs" data-author-tag="Google Product Team" data-author-handle="@GoogleLabs" data-author-avatar="../assets/avatars/x-GoogleLabs.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-GoogleLabs.jpg" alt="Google Labs avatar"><span class="avatar-fallback">GL</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-GoogleLabs.jpg" alt="Google Labs avatar"><span class="avatar-fallback">GL</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Google Labs</div>
@@ -271,21 +271,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Project Genie is evolving from a neat generative demo into a more complete creation platform.</p>
-              <p>The biggest shift is grounding: users can now generate worlds from real places through Google Maps Street View, which ties imagination back to physical context.</p>
-              <p>Library and external sharing features complete the loop by making generated worlds persistent, editable, and socially distributable.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Have you explored Project Genie yet? We just launched a huge set of updates! You can now simulate worlds grounded in Google Maps Street View, manage your creations in a new library, and share them externally.</p>
-              <p>Street View Grounding: You can now generate worlds starting from real places.</p>
-              <p>Library: You can now store and organize your generated worlds. External sharing: You can now share your generated worlds.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -301,6 +286,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Project Genie is evolving from a neat generative demo into a more complete creation platform.</p>
+              <p>The biggest shift is grounding: users can now generate worlds from real places through Google Maps Street View, which ties imagination back to physical context.</p>
+              <p>Library and external sharing features complete the loop by making generated worlds persistent, editable, and socially distributable.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Have you explored Project Genie yet? We just launched a huge set of updates! You can now simulate worlds grounded in Google Maps Street View, manage your creations in a new library, and share them externally.</p>
+              <p>Street View Grounding: You can now generate worlds starting from real places.</p>
+              <p>Library: You can now store and organize your generated worlds. External sharing: You can now share your generated worlds.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/GoogleLabs/status/2056872996988756228" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -312,9 +312,9 @@
     <p class="section-desc">企业现在关心的，已经不是能不能上 AI，而是钱怎么算、算力怎么拿、权限怎么管。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="./assets/avatars/x-levie.jpg">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Aaron Levie</div>
@@ -328,21 +328,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Levie&#39;s posts capture the real enterprise shift: the question is no longer whether to use AI, but how to budget and govern it.</p>
-              <p>CIOs are already experimenting with workload routing, spend caps, and differentiated agent access, yet no one feels they have a settled operating model.</p>
-              <p>At the same time, model quality keeps improving. Box&#39;s internal evals suggest Gemini 3.5 Flash materially lifts complex document work, which only intensifies the pressure to adopt.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Token costs will become a dominant topic in enterprises going forward with AI. Just got out of a dinner with many Fortune 500 enterprise CIOs and this was the most heated topic.</p>
-              <p>A mix of strategies are being employed, but basically no one feels like they have the right solution: prioritizing workloads to different models, giving out access to better or worse agents by user type, setting different spend caps by team.</p>
-              <p>Gemini 3.5 Flash is out, and it&#39;s a major jump over Gemini 3 Flash in model capability for knowledge work. In our tests, the model delivered a 12 percentage point jump on complex document tasks.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -358,13 +343,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s posts capture the real enterprise shift: the question is no longer whether to use AI, but how to budget and govern it.</p>
+              <p>CIOs are already experimenting with workload routing, spend caps, and differentiated agent access, yet no one feels they have a settled operating model.</p>
+              <p>At the same time, model quality keeps improving. Box&#39;s internal evals suggest Gemini 3.5 Flash materially lifts complex document work, which only intensifies the pressure to adopt.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Token costs will become a dominant topic in enterprises going forward with AI. Just got out of a dinner with many Fortune 500 enterprise CIOs and this was the most heated topic.</p>
+              <p>A mix of strategies are being employed, but basically no one feels like they have the right solution: prioritizing workloads to different models, giving out access to better or worse agents by user type, setting different spend caps by team.</p>
+              <p>Gemini 3.5 Flash is out, and it&#39;s a major jump over Gemini 3 Flash in model capability for knowledge work. In our tests, the model delivered a 12 percentage point jump on complex document tasks.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/levie/status/2056965292753146019" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="./assets/avatars/x-sama.jpg">
+    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="../assets/avatars/x-sama.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-sama.jpg" alt="Sam Altman avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-sama.jpg" alt="Sam Altman avatar"><span class="avatar-fallback">SA</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Sam Altman</div>
@@ -378,21 +378,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Altman is treating tokens as more than metered usage. They are becoming a financing instrument, a distribution lever, and a capacity contract.</p>
-              <p>The $2M token offer for every YC startup is effectively a bet on compute-native companies built around abundant model access.</p>
-              <p>At the same time, OpenAI is selling longer-term discounted commitments to customers seeking capacity certainty, which makes compute look increasingly like an economic resource with allocation politics.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>I am excited to see what will happen with tokenmaxxing startups, both for how they work internally and the products they can build.</p>
-              <p>OpenAI offered to invest $2M in tokens into every startup in the current YC batch.</p>
-              <p>Customers are increasingly asking us for certainty on capacity. We are offering discounted tokens for 1-3 year commits.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -408,13 +393,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman is treating tokens as more than metered usage. They are becoming a financing instrument, a distribution lever, and a capacity contract.</p>
+              <p>The $2M token offer for every YC startup is effectively a bet on compute-native companies built around abundant model access.</p>
+              <p>At the same time, OpenAI is selling longer-term discounted commitments to customers seeking capacity certainty, which makes compute look increasingly like an economic resource with allocation politics.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>I am excited to see what will happen with tokenmaxxing startups, both for how they work internally and the products they can build.</p>
+              <p>OpenAI offered to invest $2M in tokens into every startup in the current YC batch.</p>
+              <p>Customers are increasingly asking us for certainty on capacity. We are offering discounted tokens for 1-3 year commits.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/sama/status/2056933166875857290" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="./assets/avatars/x-nikunj.jpg">
+    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="../assets/avatars/x-nikunj.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-nikunj.jpg" alt="Nikunj Kothari avatar"><span class="avatar-fallback">NK</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-nikunj.jpg" alt="Nikunj Kothari avatar"><span class="avatar-fallback">NK</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Nikunj Kothari</div>
@@ -428,21 +428,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Nikunj offers a useful stage model for the market: assistant, then coworker, then autonomous worker.</p>
-              <p>His point is not that autonomy works today, but that the enabling stack is getting real fast through long-horizon task data, better harnesses, and stronger recursive correction.</p>
-              <p>That turns autonomy from science-fiction rhetoric into a product roadmap for a large class of jobs.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>We have already gone from assistant -&gt; coworker -&gt; and soon entering autonomous workers.</p>
-              <p>&quot;Autonomy&quot; truly doesn&#39;t work yet, but the harnesses and the model capabilities are going to get us there within this area for a large faction of jobs.</p>
-              <p>This is evident from labs&#39; desire to collect long horizon task data, model harnesses allowing longer and longer tasks, and how good these models are able to recursively correct mistakes.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -458,6 +443,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj offers a useful stage model for the market: assistant, then coworker, then autonomous worker.</p>
+              <p>His point is not that autonomy works today, but that the enabling stack is getting real fast through long-horizon task data, better harnesses, and stronger recursive correction.</p>
+              <p>That turns autonomy from science-fiction rhetoric into a product roadmap for a large class of jobs.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>We have already gone from assistant -&gt; coworker -&gt; and soon entering autonomous workers.</p>
+              <p>&quot;Autonomy&quot; truly doesn&#39;t work yet, but the harnesses and the model capabilities are going to get us there within this area for a large faction of jobs.</p>
+              <p>This is evident from labs&#39; desire to collect long horizon task data, model harnesses allowing longer and longer tasks, and how good these models are able to recursively correct mistakes.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/nikunj/status/2056865808832397344" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -469,9 +469,9 @@
     <p class="section-desc">大家开始慢慢摸出一套更像样的 AI 开发流程：先测、再拆、边做边验，不是靠灵感硬冲。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="./assets/avatars/x-swyx.jpg">
+    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="../assets/avatars/x-swyx.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Swyx</div>
@@ -485,21 +485,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Swyx is defining an AI-native SDLC, not just a prompt recipe.</p>
-              <p>The loop starts with tests and explicit visual QA, then moves into planning, file isolation, logging, error boundaries, and slice-by-slice execution until the work is actually done.</p>
-              <p>The final step is post-deploy verification and bug steering, which makes the workflow operational and continuous rather than one-shot.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>There&#39;s 4 parts to this AI SDLC.</p>
-              <p>1. Have ~50 tests in place and use computer vision to visually spot check design and UX issues on mobile, desktop, ipad, ultrawide.</p>
-              <p>2. /plan break up and edit hot paths so you isolate files for easier editing and reading. Add proper logging and error boundaries. 3. Map out all remaining work, proceed on the next slice, do not stop until all work is done. 4. Periodically spot check deployed functionality and steer bugs as it goes along.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -515,13 +500,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx is defining an AI-native SDLC, not just a prompt recipe.</p>
+              <p>The loop starts with tests and explicit visual QA, then moves into planning, file isolation, logging, error boundaries, and slice-by-slice execution until the work is actually done.</p>
+              <p>The final step is post-deploy verification and bug steering, which makes the workflow operational and continuous rather than one-shot.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>There&#39;s 4 parts to this AI SDLC.</p>
+              <p>1. Have ~50 tests in place and use computer vision to visually spot check design and UX issues on mobile, desktop, ipad, ultrawide.</p>
+              <p>2. /plan break up and edit hot paths so you isolate files for easier editing and reading. Add proper logging and error boundaries. 3. Map out all remaining work, proceed on the next slice, do not stop until all work is done. 4. Periodically spot check deployed functionality and steer bugs as it goes along.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/swyx/status/2056877529991205072" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:ryolu_" data-author-name="Ryo Lu" data-author-tag="Builder" data-author-handle="@ryolu_" data-author-avatar="./assets/avatars/x-ryolu_.jpg">
+    <article class="card" data-author-key="x:ryolu_" data-author-name="Ryo Lu" data-author-tag="Builder" data-author-handle="@ryolu_" data-author-avatar="../assets/avatars/x-ryolu_.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-ryolu_.jpg" alt="Ryo Lu avatar"><span class="avatar-fallback">RL</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-ryolu_.jpg" alt="Ryo Lu avatar"><span class="avatar-fallback">RL</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Ryo Lu</div>
@@ -535,21 +535,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Ryo Lu&#39;s workflow suggests consolidation: one strong general-purpose model can now cover planning, building, iteration, and debugging.</p>
-              <p>The important detail is context continuity, especially for UI work where flow matters as much as raw correctness.</p>
-              <p>By connecting the loop back to Jira, the model stops being just an editor assistant and starts acting across the backlog-execution boundary.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>I now use: Composer 2.5 for planning, Composer 2.5 for building and iterations, Composer 2.5 for debugging.</p>
-              <p>A great all-rounder, especially for UI work. Gets you in flow with Design Mode in Cursor.</p>
-              <p>Turn the backlog into reality. Just @cursor_ai in jira.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -565,6 +550,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Ryo Lu&#39;s workflow suggests consolidation: one strong general-purpose model can now cover planning, building, iteration, and debugging.</p>
+              <p>The important detail is context continuity, especially for UI work where flow matters as much as raw correctness.</p>
+              <p>By connecting the loop back to Jira, the model stops being just an editor assistant and starts acting across the backlog-execution boundary.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>I now use: Composer 2.5 for planning, Composer 2.5 for building and iterations, Composer 2.5 for debugging.</p>
+              <p>A great all-rounder, especially for UI work. Gets you in flow with Design Mode in Cursor.</p>
+              <p>Turn the backlog into reality. Just @cursor_ai in jira.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/ryolu_/status/2056892527626817935" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -576,9 +576,9 @@
     <p class="section-desc">这期长内容最有意思的地方，是它在认真讨论：下一代企业软件到底该怎么从头重做。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="podcast:training-data" data-author-name="Training Data" data-author-tag="Sequoia Podcast" data-author-handle="" data-author-avatar="./assets/avatars/podcast-training-data.jpg">
+    <article class="card" data-author-key="podcast:training-data" data-author-name="Training Data" data-author-tag="Sequoia Podcast" data-author-handle="" data-author-avatar="../assets/avatars/podcast-training-data.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/podcast-training-data.jpg" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="avatar"><img src="../assets/avatars/podcast-training-data.jpg" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Training Data</div>
@@ -592,21 +592,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>The core Serval thesis is that next-generation enterprise software should make automation creation simpler than doing the work manually.</p>
-              <p>In that framing, the breakthrough is not replacing workflows and databases, but generating and maintaining them with AI quickly enough to match changing business processes.</p>
-              <p>Jake Stauch also argues that the real product moat is not raw model strength, but the controls, approvals, permissions, and boundaries that make enterprises comfortable deploying AI widely.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>We want to be the tool that actually closes the gap between what you think your job is gonna be and what your job actually is.</p>
-              <p>If it were actually easier to build the automation, you would build the automation. You want that decision to be very easy to opt for the automation, not the manual step.</p>
-              <p>For us, we think the product is the boundaries. The product is the controls. The product is actually what limits the capabilities of the model.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -622,6 +607,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The core Serval thesis is that next-generation enterprise software should make automation creation simpler than doing the work manually.</p>
+              <p>In that framing, the breakthrough is not replacing workflows and databases, but generating and maintaining them with AI quickly enough to match changing business processes.</p>
+              <p>Jake Stauch also argues that the real product moat is not raw model strength, but the controls, approvals, permissions, and boundaries that make enterprises comfortable deploying AI widely.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>We want to be the tool that actually closes the gap between what you think your job is gonna be and what your job actually is.</p>
+              <p>If it were actually easier to build the automation, you would build the automation. You want that decision to be very easy to opt for the automation, not the manual step.</p>
+              <p>For us, we think the product is the boundaries. The product is the controls. The product is actually what limits the capabilities of the model.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://www.youtube.com/watch?v=j7ypvRUFY7M" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -630,14 +630,6 @@
   <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-20 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-20 source feeds.</footer>
 
   <script>
-    function formatIssueNumber(publishDateString) {
-      const baseDate = new Date('2026-05-01T00:00:00+08:00');
-      const publishDate = new Date(publishDateString + 'T00:00:00+08:00');
-      if (Number.isNaN(baseDate.getTime()) || Number.isNaN(publishDate.getTime())) return null;
-      const diffDays = Math.round((publishDate - baseDate) / (1000 * 60 * 60 * 24));
-      return diffDays + 1;
-    }
-
     function getTemplateAuthorSources() {
       const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
       return { identities: sources.identities || {}, avatars: sources.avatars || {} };
@@ -705,8 +697,8 @@
       const editionStrip = document.getElementById('edition-strip-text');
       if (!publishDate || !editionStrip) return;
 
-      const issueNumber = formatIssueNumber(publishDate);
-      if (!issueNumber || issueNumber < 1) return;
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
 
       const selectedCount = document.querySelectorAll('.card').length;
       const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;

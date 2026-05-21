@@ -94,8 +94,8 @@
 
   .card-body { display: grid; grid-template-columns: 1fr 1fr; }
   .lang-col { padding: 18px 20px 22px; }
-  .lang-col.en { background: var(--en-bg); border-right: 1px solid #f0ece4; }
-  .lang-col.cn { background: var(--cn-bg); font-family: 'Noto Serif SC', serif; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
   .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
   .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
   .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
@@ -115,14 +115,14 @@
     .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
     .card-controls { margin-left: 0; }
     .card-body { grid-template-columns: 1fr; }
-    .lang-col.en { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
     .edition-strip .edition-sep { margin: 0 5px; }
     .intro-inner { padding-left: 14px; }
     .intro p { line-height: 1.84; }
   }
 </style>
 </head>
-<body data-publish-date="2026-05-21" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+<body data-publish-date="2026-05-21" data-issue-number="03" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
   <header class="masthead">
     <hr class="masthead-rule">
     <div class="masthead-inner">
@@ -130,8 +130,8 @@
     </div>
     <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
     <div class="edition-strip">
-      <span class="edition-strip-text" id="edition-strip-text">第 21 期｜2026-05-21｜双语精选版｜8 条精选｜8 位作者｜4 个主题</span>
-      <a class="edition-return-link" href="./index.html">返回目录</a>
+      <span class="edition-strip-text" id="edition-strip-text">第 03 期｜2026-05-21｜双语精选版｜8 条精选｜8 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
     </div>
   </header>
 
@@ -148,9 +148,9 @@
     <p class="section-desc">这组内容其实都在回答同一个问题：当 AI 真开始替人操作软件时，下面那层接口到底该怎么重做。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:danshipper" data-author-name="Dan Shipper" data-author-tag="CEO @ Every" data-author-handle="@danshipper" data-author-avatar="./assets/avatars/x-danshipper.jpg">
+    <article class="card" data-author-key="x:danshipper" data-author-name="Dan Shipper" data-author-tag="CEO @ Every" data-author-handle="@danshipper" data-author-avatar="../assets/avatars/x-danshipper.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-danshipper.jpg" alt="Dan Shipper avatar"><span class="avatar-fallback">DS</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-danshipper.jpg" alt="Dan Shipper avatar"><span class="avatar-fallback">DS</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Dan Shipper</div>
@@ -164,21 +164,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Dan Shipper frames the Stainless acquisition as a sign that the AI stack&#39;s boring middle layer is becoming strategic.</p>
-              <p>APIs, SDKs, and MCP servers are no longer passive plumbing. They are becoming the execution substrate that determines whether agents can actually do useful work reliably.</p>
-              <p>His strongest design takeaway is that the winning interface layer may converge toward code execution plus documentation lookup, instead of giant menus of brittle tools.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Anthropic just acquired developer tool startup StainlessAPI, whose biggest customers were OpenAI and Google.</p>
-              <p>Alex essentially walks me through the design thinking for building APIs, SDKs, and MCP servers that Anthropic paid a reported $300 million for.</p>
-              <p>The future of MCP is code execution. Instead of giving models hundreds of tools, Alex believes the most powerful setup will be a simple code execution tool and a doc search tool.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -191,6 +176,21 @@
               <p>Dan 说，这次 Anthropic 收购 Stainless，让他此前和 Alex Rattray 那期对谈的意义完全不一样了。</p>
               <p>那期对谈本质上是在讲：为什么 API、SDK、MCP server 这层东西，会在 AI 时代变得这么值钱。</p>
               <p>他的核心提炼是：MCP 的未来更像 code execution + doc search，而不是海量工具列表。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper frames the Stainless acquisition as a sign that the AI stack&#39;s boring middle layer is becoming strategic.</p>
+              <p>APIs, SDKs, and MCP servers are no longer passive plumbing. They are becoming the execution substrate that determines whether agents can actually do useful work reliably.</p>
+              <p>His strongest design takeaway is that the winning interface layer may converge toward code execution plus documentation lookup, instead of giant menus of brittle tools.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Anthropic just acquired developer tool startup StainlessAPI, whose biggest customers were OpenAI and Google.</p>
+              <p>Alex essentially walks me through the design thinking for building APIs, SDKs, and MCP servers that Anthropic paid a reported $300 million for.</p>
+              <p>The future of MCP is code execution. Instead of giving models hundreds of tools, Alex believes the most powerful setup will be a simple code execution tool and a doc search tool.</p>
             </div>
           </div>
         </div>
@@ -214,21 +214,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>This episode gives the cleanest systems view of the day: the internet was built for humans and software clients, and now the stack has to be reinterpreted for language models as first-class operators.</p>
-              <p>Alex Rattray argues that MCP becomes fragile when teams expose too much product surface at once. The winning pattern today is fewer tools, tighter schemas, clearer names, and sometimes a dynamic discovery flow.</p>
-              <p>His deeper bet is that agent infrastructure may move from giant tool catalogs toward code execution, documentation lookup, and API-layer security with granular permissions.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>The internet runs on computers talking to each other, but its entire architecture was built for a pre AI world. Now we&#39;re trying to hook AI up to the internet with MCP, Model Context Protocol.</p>
-              <p>MCP is hard to scale because exposing everything a human can do in a dashboard means exposing huge APIs, which can burn through the model&#39;s context budget.</p>
-              <p>The future may be code execution plus doc search rather than giant tool catalogs. Security should happen at the API layer through OAuth scopes and granular permissions.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -244,6 +229,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>This episode gives the cleanest systems view of the day: the internet was built for humans and software clients, and now the stack has to be reinterpreted for language models as first-class operators.</p>
+              <p>Alex Rattray argues that MCP becomes fragile when teams expose too much product surface at once. The winning pattern today is fewer tools, tighter schemas, clearer names, and sometimes a dynamic discovery flow.</p>
+              <p>His deeper bet is that agent infrastructure may move from giant tool catalogs toward code execution, documentation lookup, and API-layer security with granular permissions.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The internet runs on computers talking to each other, but its entire architecture was built for a pre AI world. Now we&#39;re trying to hook AI up to the internet with MCP, Model Context Protocol.</p>
+              <p>MCP is hard to scale because exposing everything a human can do in a dashboard means exposing huge APIs, which can burn through the model&#39;s context budget.</p>
+              <p>The future may be code execution plus doc search rather than giant tool catalogs. Security should happen at the API layer through OAuth scopes and granular permissions.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -255,9 +255,9 @@
     <p class="section-desc">模型越强，越能看出哪些底层工具是真的有用，尤其是搜索和 agent 工作流这一层。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="./assets/avatars/x-garrytan.jpg">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Garry Tan</div>
@@ -271,21 +271,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Garry Tan is making a strong infrastructure call, not a casual endorsement.</p>
-              <p>In his framing, web search is now a core dependency for agents, and Exa is emerging as the default layer for that job in real operator workflows like YC, OpenClaw, and Hermes.</p>
-              <p>That makes this less about brand preference and more about which tools are becoming the default stack primitives for agents.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Exa is what I trust for all my agents. We use it at YC. We use it in all my OpenClaw and Hermes Agents.</p>
-              <p>There is no other option that is as fast, as reliable, and as complete.</p>
-              <p>When your agents need to search the web, accept no substitutes.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -301,13 +286,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan is making a strong infrastructure call, not a casual endorsement.</p>
+              <p>In his framing, web search is now a core dependency for agents, and Exa is emerging as the default layer for that job in real operator workflows like YC, OpenClaw, and Hermes.</p>
+              <p>That makes this less about brand preference and more about which tools are becoming the default stack primitives for agents.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Exa is what I trust for all my agents. We use it at YC. We use it in all my OpenClaw and Hermes Agents.</p>
+              <p>There is no other option that is as fast, as reliable, and as complete.</p>
+              <p>When your agents need to search the web, accept no substitutes.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/garrytan/status/2057202833251000503" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="./assets/avatars/x-swyx.jpg">
+    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="../assets/avatars/x-swyx.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Swyx</div>
@@ -321,21 +321,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Swyx points to a business category that compounds with model progress instead of getting commoditized by it.</p>
-              <p>His claim is operational: he is already seeing a direct correlation between model performance and agent-lab revenue, with a visible discontinuity in late 2025.</p>
-              <p>That makes &#39;a business that gets better when models get better&#39; feel less like a slogan and more like an investable company pattern.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>I think Sam Altman&#39;s mythical &#39;build a business that gets better when models get better&#39; is basically what I called Agent Labs here.</p>
-              <p>Seeing a very direct correlation with model performance and agent lab revenue.</p>
-              <p>Discontinuity in Q4 2025.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -351,6 +336,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx points to a business category that compounds with model progress instead of getting commoditized by it.</p>
+              <p>His claim is operational: he is already seeing a direct correlation between model performance and agent-lab revenue, with a visible discontinuity in late 2025.</p>
+              <p>That makes &#39;a business that gets better when models get better&#39; feel less like a slogan and more like an investable company pattern.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>I think Sam Altman&#39;s mythical &#39;build a business that gets better when models get better&#39; is basically what I called Agent Labs here.</p>
+              <p>Seeing a very direct correlation with model performance and agent lab revenue.</p>
+              <p>Discontinuity in Q4 2025.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/swyx/status/2057119153337545096" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -362,9 +362,9 @@
     <p class="section-desc">AI 落地不是公司里多装一个工具那么简单，它正在慢慢改写岗位分工和团队配合方式。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="./assets/avatars/x-levie.jpg">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Aaron Levie</div>
@@ -378,21 +378,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Levie&#39;s argument is that AI deployment is not a one-time migration project. Agents change human workflows directly, which creates a long tail of technical implementation plus change management.</p>
-              <p>His deeper point is speed. Models evolve too fast for best practices to settle, so today&#39;s scaffolding can quickly become tomorrow&#39;s drag.</p>
-              <p>That is why he sees roles like FDEs as durable rather than transitional: they sit at the boundary between technical capability, workflow redesign, and enterprise adoption.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>This is a job that is going to be around as long as AI keeps changing rapidly, which it inevitably will.</p>
-              <p>With agents, the work to implement them is not only highly technical, but they directly impact the underlying workflows that people participate in.</p>
-              <p>Every model change means either something new can be done that wasn&#39;t possible before, or some piece of scaffolding is now redundant or holding you back.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -408,13 +393,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s argument is that AI deployment is not a one-time migration project. Agents change human workflows directly, which creates a long tail of technical implementation plus change management.</p>
+              <p>His deeper point is speed. Models evolve too fast for best practices to settle, so today&#39;s scaffolding can quickly become tomorrow&#39;s drag.</p>
+              <p>That is why he sees roles like FDEs as durable rather than transitional: they sit at the boundary between technical capability, workflow redesign, and enterprise adoption.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>This is a job that is going to be around as long as AI keeps changing rapidly, which it inevitably will.</p>
+              <p>With agents, the work to implement them is not only highly technical, but they directly impact the underlying workflows that people participate in.</p>
+              <p>Every model change means either something new can be done that wasn&#39;t possible before, or some piece of scaffolding is now redundant or holding you back.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/levie/status/2057315272156135501" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="./assets/avatars/x-zarazhangrui.jpg">
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Zara Zhang</div>
@@ -428,21 +428,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Zara&#39;s core idea is that AI-native teams invert old role assumptions.</p>
-              <p>ICs need to think more like managers by delegating, specifying standards, and verifying agent output, while managers need to become more builder-like and hands-on again.</p>
-              <p>She pairs that with a broader capability model: deeper domain expertise, wider adjacent knowledge, and strong AI fluency on top.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>In an AI-native team, ICs should start thinking like managers: how to delegate tasks to agents, how to set standards and verify output.</p>
-              <p>Managers should start thinking like ICs: how to be more hands-on builders instead of just doing people management.</p>
-              <p>This T-shape will apply to not just developers but every job function.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -458,6 +443,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara&#39;s core idea is that AI-native teams invert old role assumptions.</p>
+              <p>ICs need to think more like managers by delegating, specifying standards, and verifying agent output, while managers need to become more builder-like and hands-on again.</p>
+              <p>She pairs that with a broader capability model: deeper domain expertise, wider adjacent knowledge, and strong AI fluency on top.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>In an AI-native team, ICs should start thinking like managers: how to delegate tasks to agents, how to set standards and verify output.</p>
+              <p>Managers should start thinking like ICs: how to be more hands-on builders instead of just doing people management.</p>
+              <p>This T-shape will apply to not just developers but every job function.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2057324988009685208" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -469,9 +469,9 @@
     <p class="section-desc">同一天里，一边是模型在往前冲能力上限，另一边是这些能力开始被做成普通人也能直接用的产品。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="./assets/avatars/x-sama.jpg">
+    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="../assets/avatars/x-sama.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-sama.jpg" alt="Sam Altman avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-sama.jpg" alt="Sam Altman avatar"><span class="avatar-fallback">SA</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Sam Altman</div>
@@ -485,21 +485,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Taken together, Sam Altman&#39;s posts sketch OpenAI&#39;s current stack of ambition: AI should accelerate science, accelerate companies, and eventually become personal leverage for everyone.</p>
-              <p>The math result matters because it acts as a proof point that frontier progress is still translating into genuinely new capability, not just better demos.</p>
-              <p>His line about having &#39;complicated feelings&#39; keeps the milestone from reading like pure triumphalism and hints at the emotional weight of these advances.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Three of the things we are most excited about: 1. AGI accelerating research 2. AGI accelerating companies 3. personal AGI accelerating everyone in achieving their goals.</p>
-              <p>A general-purpose model solved a major open problem in mathematics. We&#39;ll be saying this a lot over the coming years, but this is a kinda big milestone.</p>
-              <p>I&#39;m very excited for AI to greatly extend our understanding of the world, but still, I have complicated feelings today.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -515,13 +500,28 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Taken together, Sam Altman&#39;s posts sketch OpenAI&#39;s current stack of ambition: AI should accelerate science, accelerate companies, and eventually become personal leverage for everyone.</p>
+              <p>The math result matters because it acts as a proof point that frontier progress is still translating into genuinely new capability, not just better demos.</p>
+              <p>His line about having &#39;complicated feelings&#39; keeps the milestone from reading like pure triumphalism and hints at the emotional weight of these advances.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Three of the things we are most excited about: 1. AGI accelerating research 2. AGI accelerating companies 3. personal AGI accelerating everyone in achieving their goals.</p>
+              <p>A general-purpose model solved a major open problem in mathematics. We&#39;ll be saying this a lot over the coming years, but this is a kinda big milestone.</p>
+              <p>I&#39;m very excited for AI to greatly extend our understanding of the world, but still, I have complicated feelings today.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/sama/status/2057218997503086888" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:GoogleLabs" data-author-name="Google Labs" data-author-tag="Google Product Team" data-author-handle="@GoogleLabs" data-author-avatar="./assets/avatars/x-GoogleLabs.jpg">
+    <article class="card" data-author-key="x:GoogleLabs" data-author-name="Google Labs" data-author-tag="Google Product Team" data-author-handle="@GoogleLabs" data-author-avatar="../assets/avatars/x-GoogleLabs.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-GoogleLabs.jpg" alt="Google Labs avatar"><span class="avatar-fallback">GL</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-GoogleLabs.jpg" alt="Google Labs avatar"><span class="avatar-fallback">GL</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Google Labs</div>
@@ -535,21 +535,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Google Labs is showing the productization side of frontier AI. Project Genie is no longer just a flashy experiment; it is becoming a subscriber-facing experience.</p>
-              <p>The framing is simple and powerful: move from playing games to designing them in minutes by choosing characters, setting the scene, and letting the model do the rest.</p>
-              <p>This is what capability packaging looks like when it starts crossing over from demo culture into consumer product surfaces.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Project Genie is now fully available to all Google AI Ultra subscribers globally.</p>
-              <p>From playing the games to designing the games in minutes.</p>
-              <p>Just choose your characters, set the scene, and let Project Genie do the rest.</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -565,6 +550,21 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Google Labs is showing the productization side of frontier AI. Project Genie is no longer just a flashy experiment; it is becoming a subscriber-facing experience.</p>
+              <p>The framing is simple and powerful: move from playing games to designing them in minutes by choosing characters, setting the scene, and letting the model do the rest.</p>
+              <p>This is what capability packaging looks like when it starts crossing over from demo culture into consumer product surfaces.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Project Genie is now fully available to all Google AI Ultra subscribers globally.</p>
+              <p>From playing the games to designing the games in minutes.</p>
+              <p>Just choose your characters, set the scene, and let Project Genie do the rest.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/GoogleLabs/status/2057179491693470166" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -573,14 +573,6 @@
   <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-21 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-21 source feeds.</footer>
 
   <script>
-    function formatIssueNumber(publishDateString) {
-      const baseDate = new Date('2026-05-01T00:00:00+08:00');
-      const publishDate = new Date(publishDateString + 'T00:00:00+08:00');
-      if (Number.isNaN(baseDate.getTime()) || Number.isNaN(publishDate.getTime())) return null;
-      const diffDays = Math.round((publishDate - baseDate) / (1000 * 60 * 60 * 24));
-      return diffDays + 1;
-    }
-
     function getTemplateAuthorSources() {
       const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
       return { identities: sources.identities || {}, avatars: sources.avatars || {} };
@@ -648,8 +640,8 @@
       const editionStrip = document.getElementById('edition-strip-text');
       if (!publishDate || !editionStrip) return;
 
-      const issueNumber = formatIssueNumber(publishDate);
-      if (!issueNumber || issueNumber < 1) return;
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
 
       const selectedCount = document.querySelectorAll('.card').length;
       const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;

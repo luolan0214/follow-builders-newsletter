@@ -94,8 +94,8 @@
 
   .card-body { display: grid; grid-template-columns: 1fr 1fr; }
   .lang-col { padding: 18px 20px 22px; }
-  .lang-col.en { background: var(--en-bg); border-right: 1px solid #f0ece4; }
-  .lang-col.cn { background: var(--cn-bg); font-family: 'Noto Serif SC', serif; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
   .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
   .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
   .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
@@ -115,14 +115,14 @@
     .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
     .card-controls { margin-left: 0; }
     .card-body { grid-template-columns: 1fr; }
-    .lang-col.en { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
     .edition-strip .edition-sep { margin: 0 5px; }
     .intro-inner { padding-left: 14px; }
     .intro p { line-height: 1.84; }
   }
 </style>
 </head>
-<body data-publish-date="2026-05-19" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+<body data-publish-date="2026-05-19" data-issue-number="01" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
   <header class="masthead">
     <hr class="masthead-rule">
     <div class="masthead-inner">
@@ -130,8 +130,8 @@
     </div>
     <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
     <div class="edition-strip">
-      <span class="edition-strip-text" id="edition-strip-text">第 19 期｜2026-05-19｜双语精选版｜2 条精选｜2 位作者｜1 个主题</span>
-      <a class="edition-return-link" href="./index.html">返回目录</a>
+      <span class="edition-strip-text" id="edition-strip-text">第 01 期｜2026-05-19｜双语精选版｜2 条精选｜2 位作者｜1 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
     </div>
   </header>
 
@@ -148,9 +148,9 @@
     <p class="section-desc">最有价值的人不是“会不会被 AI 替代”，而是有没有足够深的专业能力去驾驭 AI。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="./assets/avatars/x-levie.jpg">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Aaron Levie</div>
@@ -164,6 +164,21 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>很多行业正在出现新的错配：过去热门的岗位，和现在真正开始被需要的岗位，已经不是一回事。</p>
+              <p>如果 AI 会让写代码本身变得更充裕，那么几乎所有行业都会更需要技术人才去落地 agentic systems，这会直接扩大工程师应该考虑的岗位范围。</p>
+              <p>岗位形态会变，但对技术能力的需求并没有消失。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>眼下很多行业都出现了一种暂时性的错配：过去最热门的岗位，和现在真正开始被需要的岗位，已经不是一回事。以 CS 专业为例，过去很多人的标准路径是进入科技公司，去做面向客户的软件；整个从大学到招聘的 pipeline 也是围绕这件事搭起来的。</p>
+              <p>但如果你接受“AI 会让写代码本身变得更充裕”这个判断，那下一步就会看到，几乎所有行业都需要更强的技术人才去落地 agentic systems。这意味着工程师应该考虑的岗位范围会急剧扩张。我上周和一家《财富》500 强制药公司的 CEO 聊天，对方就提到，他们现在对技术人才的需求明显更高。岗位形态也许和 5 年前理解中的 tech job 不一样了，但对这类能力的需求并没有消失。我几乎从各行各业的 CIO 和 CEO 那里都听到类似判断。</p>
+              <p>大学当然需要尽快醒过来；但同样重要的是，公司也得重新思考，怎么为这些新岗位建立进入路径。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -181,28 +196,13 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>很多行业正在出现新的错配：过去热门的岗位，和现在真正开始被需要的岗位，已经不是一回事。</p>
-              <p>如果 AI 会让写代码本身变得更充裕，那么几乎所有行业都会更需要技术人才去落地 agentic systems，这会直接扩大工程师应该考虑的岗位范围。</p>
-              <p>岗位形态会变，但对技术能力的需求并没有消失。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>眼下很多行业都出现了一种暂时性的错配：过去最热门的岗位，和现在真正开始被需要的岗位，已经不是一回事。以 CS 专业为例，过去很多人的标准路径是进入科技公司，去做面向客户的软件；整个从大学到招聘的 pipeline 也是围绕这件事搭起来的。</p>
-              <p>但如果你接受“AI 会让写代码本身变得更充裕”这个判断，那下一步就会看到，几乎所有行业都需要更强的技术人才去落地 agentic systems。这意味着工程师应该考虑的岗位范围会急剧扩张。我上周和一家《财富》500 强制药公司的 CEO 聊天，对方就提到，他们现在对技术人才的需求明显更高。岗位形态也许和 5 年前理解中的 tech job 不一样了，但对这类能力的需求并没有消失。我几乎从各行各业的 CIO 和 CEO 那里都听到类似判断。</p>
-              <p>大学当然需要尽快醒过来；但同样重要的是，公司也得重新思考，怎么为这些新岗位建立进入路径。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/levie/status/2056219645796090197" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="./assets/avatars/x-sama.jpg">
+    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="../assets/avatars/x-sama.jpg">
       <div class="card-header">
-        <div class="avatar"><img src="./assets/avatars/x-sama.jpg" alt="Sam Altman avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="avatar"><img src="../assets/avatars/x-sama.jpg" alt="Sam Altman avatar"><span class="avatar-fallback">SA</span></div>
         <div class="author-info">
           <div class="author-name-row">
             <div class="author-name">Sam Altman</div>
@@ -216,6 +216,18 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>ChatGPT Images 2.0 在印度已经生成了超过 10 亿张图片。</p>
+              <p>这意味着生成式图像能力已经进入了大规模、持续使用的阶段，而不只是一次性的 demo 热度。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>ChatGPT Images 2.0 在印度的使用量已经超过 10 亿张图片，这说明生成式图像能力已经不只是 demo，而是在非常大规模的用户场景里持续被消耗。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -229,18 +241,6 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>ChatGPT Images 2.0 在印度已经生成了超过 10 亿张图片。</p>
-              <p>这意味着生成式图像能力已经进入了大规模、持续使用的阶段，而不只是一次性的 demo 热度。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>ChatGPT Images 2.0 在印度的使用量已经超过 10 亿张图片，这说明生成式图像能力已经不只是 demo，而是在非常大规模的用户场景里持续被消耗。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/sama/status/2056165722804654196" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -249,14 +249,6 @@
   <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-19 source draft.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-19 source draft.</footer>
 
   <script>
-    function formatIssueNumber(publishDateString) {
-      const baseDate = new Date('2026-05-01T00:00:00+08:00');
-      const publishDate = new Date(publishDateString + 'T00:00:00+08:00');
-      if (Number.isNaN(baseDate.getTime()) || Number.isNaN(publishDate.getTime())) return null;
-      const diffDays = Math.round((publishDate - baseDate) / (1000 * 60 * 60 * 24));
-      return diffDays + 1;
-    }
-
     function getTemplateAuthorSources() {
       const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
       return { identities: sources.identities || {}, avatars: sources.avatars || {} };
@@ -324,8 +316,8 @@
       const editionStrip = document.getElementById('edition-strip-text');
       if (!publishDate || !editionStrip) return;
 
-      const issueNumber = formatIssueNumber(publishDate);
-      if (!issueNumber || issueNumber < 1) return;
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
 
       const selectedCount = document.querySelectorAll('.card').length;
       const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;

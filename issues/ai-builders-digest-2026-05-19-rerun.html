@@ -308,14 +308,14 @@
     padding: 18px 20px 22px;
   }
 
-  .lang-col.en {
-    background: var(--en-bg);
-    border-right: 1px solid #f0ece4;
-  }
-
   .lang-col.cn {
     background: var(--cn-bg);
+    border-right: 1px solid #f0ece4;
     font-family: 'Noto Serif SC', serif;
+  }
+
+  .lang-col.en {
+    background: var(--en-bg);
   }
 
   .lang-label {
@@ -425,7 +425,7 @@
       grid-template-columns: 1fr;
     }
 
-    .lang-col.en {
+    .lang-col.cn {
       border-right: none;
       border-bottom: 1px solid #f0ece4;
     }
@@ -444,7 +444,7 @@
   }
 </style>
 </head>
-<body data-publish-date="2026-05-19" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+<body data-publish-date="2026-05-19" data-issue-number="01" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
   <header class="masthead">
     <hr class="masthead-rule">
     <div class="masthead-inner">
@@ -452,8 +452,8 @@
     </div>
     <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
     <div class="edition-strip">
-      <span class="edition-strip-text" id="edition-strip-text">第 19 期｜2026-05-19｜双语精选版｜9 条精选｜7 位作者｜5 个主题</span>
-      <a class="edition-return-link" href="./index.html">返回目录</a>
+      <span class="edition-strip-text" id="edition-strip-text">第 01 期｜2026-05-19｜双语精选版｜9 条精选｜7 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
     </div>
   </header>
 
@@ -470,7 +470,7 @@
     <p class="section-desc">这组内容反复在说一件事：AI 时代真正吃香的，还是那些本来就有真本事的人。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="./assets/avatars/x-levie.jpg">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -486,6 +486,21 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>很多行业现在都在出现一种新的错位：以前最热门的岗位，和现在真正开始缺人的岗位，已经不是一回事了。</p>
+              <p>如果 AI 真的让写代码变得更容易，那接下来几乎所有行业都会更需要能把 agentic systems 真正落地的人。</p>
+              <p>岗位名字也许会变，但对技术能力的需求并没有少。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>眼下很多行业都出现了一种暂时性的错配：过去最热门的岗位，和现在真正开始被需要的岗位，已经不是一回事。以 CS 专业为例，过去很多人的标准路径是进入科技公司，去做面向客户的软件；整个从大学到招聘的 pipeline 也是围绕这件事搭起来的。</p>
+              <p>但如果你接受“AI 会让写代码本身变得更充裕”这个判断，那下一步就会看到，几乎所有行业都需要更强的技术人才去落地 agentic systems。这意味着工程师应该考虑的岗位范围会急剧扩张。我上周和一家《财富》500 强制药公司的 CEO 聊天，对方就提到，他们现在对技术人才的需求明显更高。岗位形态也许和 5 年前理解中的 tech job 不一样了，但对这类能力的需求并没有消失。我几乎从各行各业的 CIO 和 CEO 那里都听到类似判断。</p>
+              <p>大学当然需要尽快醒过来；但同样重要的是，公司也得重新思考，怎么为这些新岗位建立进入路径。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -503,26 +518,11 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>很多行业现在都在出现一种新的错位：以前最热门的岗位，和现在真正开始缺人的岗位，已经不是一回事了。</p>
-              <p>如果 AI 真的让写代码变得更容易，那接下来几乎所有行业都会更需要能把 agentic systems 真正落地的人。</p>
-              <p>岗位名字也许会变，但对技术能力的需求并没有少。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>眼下很多行业都出现了一种暂时性的错配：过去最热门的岗位，和现在真正开始被需要的岗位，已经不是一回事。以 CS 专业为例，过去很多人的标准路径是进入科技公司，去做面向客户的软件；整个从大学到招聘的 pipeline 也是围绕这件事搭起来的。</p>
-              <p>但如果你接受“AI 会让写代码本身变得更充裕”这个判断，那下一步就会看到，几乎所有行业都需要更强的技术人才去落地 agentic systems。这意味着工程师应该考虑的岗位范围会急剧扩张。我上周和一家《财富》500 强制药公司的 CEO 聊天，对方就提到，他们现在对技术人才的需求明显更高。岗位形态也许和 5 年前理解中的 tech job 不一样了，但对这类能力的需求并没有消失。我几乎从各行各业的 CIO 和 CEO 那里都听到类似判断。</p>
-              <p>大学当然需要尽快醒过来；但同样重要的是，公司也得重新思考，怎么为这些新岗位建立进入路径。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/levie/status/2056219645796090197" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="./assets/avatars/x-levie.jpg">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -538,6 +538,21 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI 很容易让人产生一种错觉：好像以后没必要再把一个领域学深了。</p>
+              <p>但真正更强的，始终会是“懂行的人 + AI”，而不是“什么都不懂的人 + AI”。能把 agent 带进真实工作流、知道怎么验收和修正的人，最后会更有优势。</p>
+              <p>所以别急着放弃自己的基本功。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>对学生和学校来说，眼下最不该做的一件事，就是放弃对某个领域基本功的学习和训练。AI 很容易让人误以为“不需要再钻深”，但这是错的。</p>
+              <p>真正有竞争力的，永远是“懂行的人 + AI”，而不是“门外汉 + AI”。能正确指挥 AI agents、评估它们的结果、修正错误、再把这些成果嵌入工作流的人，会是这波工具里最强的使用者。做过复杂系统并且能借助 agents 扩展能力的资深工程师，一定会跑赢只会 vibe coding 的人；懂设计的人用 AI，会做出更好的产品和 campaign；懂金融模型的 banker 或 analyst，也会用 agents 做出更多成果。</p>
+              <p>尽管硅谷现在有一些声音，好像在暗示“深度能力没那么重要了”，但现实恰恰相反。不要放弃在自己专业上的深耕。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -554,26 +569,11 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>AI 很容易让人产生一种错觉：好像以后没必要再把一个领域学深了。</p>
-              <p>但真正更强的，始终会是“懂行的人 + AI”，而不是“什么都不懂的人 + AI”。能把 agent 带进真实工作流、知道怎么验收和修正的人，最后会更有优势。</p>
-              <p>所以别急着放弃自己的基本功。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>对学生和学校来说，眼下最不该做的一件事，就是放弃对某个领域基本功的学习和训练。AI 很容易让人误以为“不需要再钻深”，但这是错的。</p>
-              <p>真正有竞争力的，永远是“懂行的人 + AI”，而不是“门外汉 + AI”。能正确指挥 AI agents、评估它们的结果、修正错误、再把这些成果嵌入工作流的人，会是这波工具里最强的使用者。做过复杂系统并且能借助 agents 扩展能力的资深工程师，一定会跑赢只会 vibe coding 的人；懂设计的人用 AI，会做出更好的产品和 campaign；懂金融模型的 banker 或 analyst，也会用 agents 做出更多成果。</p>
-              <p>尽管硅谷现在有一些声音，好像在暗示“深度能力没那么重要了”，但现实恰恰相反。不要放弃在自己专业上的深耕。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/levie/status/2056051851439857933" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:adityaag" data-author-name="Aditya Agarwal" data-author-tag="GP @ South Park Commons" data-author-handle="@adityaag" data-author-avatar="./assets/avatars/x-adityaag.jpg">
+    <article class="card" data-author-key="x:adityaag" data-author-name="Aditya Agarwal" data-author-tag="GP @ South Park Commons" data-author-handle="@adityaag" data-author-avatar="../assets/avatars/x-adityaag.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -589,6 +589,18 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>周五我用 AI 写了很多代码，周六照样去看球，也去看孩子跳舞。</p>
+              <p>所以我并不担心，人会因为 AI 就突然失去生活里的意义感。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>周五我用 AI 写了很多代码；周六我去看人类踢球，也去看我家孩子跳舞。我并不担心人类会失去意义和目的感。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -604,18 +616,7 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>周五我用 AI 写了很多代码，周六照样去看球，也去看孩子跳舞。</p>
-              <p>所以我并不担心，人会因为 AI 就突然失去生活里的意义感。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>周五我用 AI 写了很多代码；周六我去看人类踢球，也去看我家孩子跳舞。我并不担心人类会失去意义和目的感。</p>
-            </div>
-          </div>
-        </div>
+      </div>
       </div>
       <div class="card-footer"><a href="https://x.com/adityaag/status/2056015684145127612" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -627,7 +628,7 @@
     <p class="section-desc">这组内容更像是在回答一个很实际的问题：agent 到底该怎么用，才不是做做样子。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="./assets/avatars/x-petergyang.jpg">
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -643,6 +644,20 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>eval 最好建在真实 traces 和真实反馈上，而不是只看那些离用户很远的标准题。</p>
+              <p>真的有用的做法，是去读用户和模型的真实对话，先建立产品感觉，再用 Claude 帮你把问题归成几个主题。</p>
+              <p>别把 eval 做成只在 PPT 上好看的样子。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>第五点：基于真实 traces 和真实反馈去构建 evals。</p>
+              <p>去读你产品里用户和模型的真实对话，借此建立产品 sense；再用 Claude 把这些反馈归纳成最重要的主题。不要在通用学术 benchmark 上演“eval theater”。随着模型越来越强，eval 也必须变得更难，才能继续产出真正有信号的结论。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -658,25 +673,11 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>eval 最好建在真实 traces 和真实反馈上，而不是只看那些离用户很远的标准题。</p>
-              <p>真的有用的做法，是去读用户和模型的真实对话，先建立产品感觉，再用 Claude 帮你把问题归成几个主题。</p>
-              <p>别把 eval 做成只在 PPT 上好看的样子。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>第五点：基于真实 traces 和真实反馈去构建 evals。</p>
-              <p>去读你产品里用户和模型的真实对话，借此建立产品 sense；再用 Claude 把这些反馈归纳成最重要的主题。不要在通用学术 benchmark 上演“eval theater”。随着模型越来越强，eval 也必须变得更难，才能继续产出真正有信号的结论。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/petergyang/status/2056178053848703019" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="./assets/avatars/x-nikunj.jpg">
+    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="../assets/avatars/x-nikunj.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -692,19 +693,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>&gt; claude --dangerously-skip-permissions</p>
-              <p>&gt; /goal improve the codebase for performance and add a bit of aura</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p class="inline-code">claude --dangerously-skip-permissions</p>
-              <p class="inline-code">/goal improve the codebase for performance and add a bit of aura</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -715,6 +703,19 @@
             <div class="content-variant" data-view="original">
               <p><span class="inline-code">claude --dangerously-skip-permissions</span></p>
               <p><span class="inline-code">/goal improve the codebase for performance and add a bit of aura</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>&gt; claude --dangerously-skip-permissions</p>
+              <p>&gt; /goal improve the codebase for performance and add a bit of aura</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p class="inline-code">claude --dangerously-skip-permissions</p>
+              <p class="inline-code">/goal improve the codebase for performance and add a bit of aura</p>
             </div>
           </div>
         </div>
@@ -729,7 +730,7 @@
     <p class="section-desc">现在真正难的，往往已经不是把东西做出来，而是做出来之后怎么被看见、被用起来。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="./assets/avatars/x-zarazhangrui.jpg">
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -745,17 +746,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>People consistently overestimate how hard it is to build something and underestimate how hard it is to win people’s attention once you’ve built it.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>People consistently overestimate how hard it is to build something and underestimate how hard it is to win people’s attention once you’ve built it</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -767,11 +757,22 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>People consistently overestimate how hard it is to build something and underestimate how hard it is to win people’s attention once you’ve built it.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>People consistently overestimate how hard it is to build something and underestimate how hard it is to win people’s attention once you’ve built it</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2056132881630826952" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
 
-    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="./assets/avatars/x-garrytan.jpg">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -787,20 +788,6 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="lang-col en">
-          <div class="lang-label">English</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>Ken Griffin doesn’t understand the ceiling just got raised.</p>
-              <p>Some 20-something maybe reading this will build the cracked AI-human-computer-symbiosis team that will supersede his whole operation because he is too distracted about lowering cost.</p>
-              <p>Boil the ocean, don’t cut your costs.</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>Ken Griffin doesn’t understand the ceiling just got raised. Some 20-something maybe reading this will build the cracked AI-human-computer-symbiosis team that will supersede his whole operation because he is too distracted about lowering cost</p>
-              <p>Boil the ocean don’t cut your costs</p>
-            </div>
-          </div>
-        </div>
         <div class="lang-col cn">
           <div class="lang-label">中文</div>
           <div class="content-shell">
@@ -815,6 +802,20 @@
             </div>
           </div>
         </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Ken Griffin doesn’t understand the ceiling just got raised.</p>
+              <p>Some 20-something maybe reading this will build the cracked AI-human-computer-symbiosis team that will supersede his whole operation because he is too distracted about lowering cost.</p>
+              <p>Boil the ocean, don’t cut your costs.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Ken Griffin doesn’t understand the ceiling just got raised. Some 20-something maybe reading this will build the cracked AI-human-computer-symbiosis team that will supersede his whole operation because he is too distracted about lowering cost</p>
+              <p>Boil the ocean don’t cut your costs</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/garrytan/status/2056123737544757733" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -826,7 +827,7 @@
     <p class="section-desc">有时候看起来很漂亮的股权包，真正算下来未必有你以为的那么值钱。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="./assets/avatars/x-nikunj.jpg">
+    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="../assets/avatars/x-nikunj.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -842,6 +843,21 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>最近加入一些新晋 unicorn 的员工，常常会发现纸面上的股权，看起来和真正到手的价值不是一回事。</p>
+              <p>tranched valuations 会把 strike price、409a 和行权成本一起抬上去，所以 package 看着大，真实价值可能没那么高。</p>
+              <p>加入之前，最好还是像投资人一样把账算清楚，别只看那张 offer 上的数字。 </p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>最近加入一些新晋 unicorn 的员工，往往会同时面对三重打击。</p>
+              <p>第一，市场上越来越常见的是 tranched valuations，这意味着你的入职 strike price 往往会高于 lead investor 的 preferred price，很多时候甚至高出两倍以上。第二，这会直接抬高你的 409a 和行权成本；如果你想 early exercise，会很贵，不想早行权，就只能等公司慢慢“长进”那个估值。第三，很多股票 package 看起来纸面很漂亮，但因为 tranched valuation 的存在，真实价值其实被明显高估了。公司也因此更容易用“更高估值”来包装“更低稀释”的薪酬。</p>
+              <p>所以，加入 unicorn 当然可能带来学习、经历、使命感和团队质量，但在股权这件事上，一定要像投资人一样自己做 due diligence，最好直接用 Claude 或 ChatGPT 把 exit math 算清楚。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -862,21 +878,6 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>最近加入一些新晋 unicorn 的员工，常常会发现纸面上的股权，看起来和真正到手的价值不是一回事。</p>
-              <p>tranched valuations 会把 strike price、409a 和行权成本一起抬上去，所以 package 看着大，真实价值可能没那么高。</p>
-              <p>加入之前，最好还是像投资人一样把账算清楚，别只看那张 offer 上的数字。 </p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>最近加入一些新晋 unicorn 的员工，往往会同时面对三重打击。</p>
-              <p>第一，市场上越来越常见的是 tranched valuations，这意味着你的入职 strike price 往往会高于 lead investor 的 preferred price，很多时候甚至高出两倍以上。第二，这会直接抬高你的 409a 和行权成本；如果你想 early exercise，会很贵，不想早行权，就只能等公司慢慢“长进”那个估值。第三，很多股票 package 看起来纸面很漂亮，但因为 tranched valuation 的存在，真实价值其实被明显高估了。公司也因此更容易用“更高估值”来包装“更低稀释”的薪酬。</p>
-              <p>所以，加入 unicorn 当然可能带来学习、经历、使命感和团队质量，但在股权这件事上，一定要像投资人一样自己做 due diligence，最好直接用 Claude 或 ChatGPT 把 exit math 算清楚。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/nikunj/status/2056125669466333672" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -888,7 +889,7 @@
     <p class="section-desc">真正值得记下来的，不是又发了一个功能，而是已经有多少人开始反复在用它。</p>
   </section>
   <section class="feed">
-    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="./assets/avatars/x-sama.jpg">
+    <article class="card" data-author-key="x:sama" data-author-name="Sam Altman" data-author-tag="CEO @ OpenAI" data-author-handle="@sama" data-author-avatar="../assets/avatars/x-sama.jpg">
       <div class="card-header">
         <div class="avatar"><img src="" alt=""><span class="avatar-fallback"></span></div>
         <div class="author-info">
@@ -904,6 +905,18 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>ChatGPT Images 2.0 在印度已经生成了超过 10 亿张图片。</p>
+              <p>这说明这类能力已经不只是大家试一下就走的 demo，而是真的进入了大规模、持续被使用的阶段。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>ChatGPT Images 2.0 在印度的使用量已经超过 10 亿张图片，这说明生成式图像能力已经不只是 demo，而是在非常大规模的用户场景里持续被消耗。</p>
+            </div>
+          </div>
+        </div>
         <div class="lang-col en">
           <div class="lang-label">English</div>
           <div class="content-shell">
@@ -917,18 +930,6 @@
             </div>
           </div>
         </div>
-        <div class="lang-col cn">
-          <div class="lang-label">中文</div>
-          <div class="content-shell">
-            <div class="content-variant is-active" data-view="rewrite">
-              <p>ChatGPT Images 2.0 在印度已经生成了超过 10 亿张图片。</p>
-              <p>这说明这类能力已经不只是大家试一下就走的 demo，而是真的进入了大规模、持续被使用的阶段。</p>
-            </div>
-            <div class="content-variant" data-view="original">
-              <p>ChatGPT Images 2.0 在印度的使用量已经超过 10 亿张图片，这说明生成式图像能力已经不只是 demo，而是在非常大规模的用户场景里持续被消耗。</p>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="card-footer"><a href="https://x.com/sama/status/2056165722804654196" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
     </article>
@@ -938,18 +939,6 @@
   </footer>
 
   <script>
-    function formatIssueNumber(publishDateString) {
-      const baseDate = new Date('2026-05-01T00:00:00+08:00');
-      const publishDate = new Date(`${publishDateString}T00:00:00+08:00`);
-
-      if (Number.isNaN(baseDate.getTime()) || Number.isNaN(publishDate.getTime())) {
-        return null;
-      }
-
-      const diffDays = Math.round((publishDate - baseDate) / (1000 * 60 * 60 * 24));
-      return diffDays + 1;
-    }
-
     function hydrateTemplateCopy() {
       const intro = document.querySelector('.intro');
       if (intro) {
@@ -1033,8 +1022,8 @@
       const editionStrip = document.getElementById('edition-strip-text');
       if (!publishDate || !editionStrip) return;
 
-      const issueNumber = formatIssueNumber(publishDate);
-      if (!issueNumber || issueNumber < 1) return;
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
 
       const selectedCount = document.querySelectorAll('.card').length;
       const authorCount = new Set(
