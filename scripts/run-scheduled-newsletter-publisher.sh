@@ -91,7 +91,6 @@ ensure_clean_worktree() {
 
   log "Worktree is clean after auto-stash; continuing ${reason}."
 }
-
 sync_pending_push() {
   if [[ "${SKIP_PUSH:-0}" == "1" ]]; then
     log "SKIP_PUSH=1; leaving local commits unpushed."
