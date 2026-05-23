@@ -405,7 +405,6 @@ bash scripts/install-launchd.sh
 ```
 
 安装完成后，系统会在每天 `19:00`（`Asia/Shanghai`）自动执行发布脚本。
-
 ---
 
 ## 部署目标

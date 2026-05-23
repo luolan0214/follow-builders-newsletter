@@ -112,7 +112,6 @@ sync_pending_push() {
 
   git_authenticated_push_main
 }
-
 emit_candidate_dates() {
   local raw_dates="${NEWSLETTER_DATES:-}"
   if [[ -n "${raw_dates}" ]]; then
@@ -189,9 +188,7 @@ main() {
     exit 0
   fi
   trap 'rmdir "${LOCK_DIR}" >/dev/null 2>&1 || true' EXIT
-
   ensure_clean_worktree "scheduled publisher startup"
-
   while IFS= read -r publish_date; do
     [[ -n "${publish_date}" ]] || continue
 

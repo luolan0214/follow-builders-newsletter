@@ -4,6 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+LAUNCHD_REPO_ROOT="${LAUNCHD_REPO_ROOT:-${REPO_ROOT}}"
 TEMPLATE_PATH="${REPO_ROOT}/launchd/com.luolan.follow-builders-newsletter.plist.template"
 TARGET_DIR="${HOME}/Library/LaunchAgents"
 TARGET_PATH="${TARGET_DIR}/com.luolan.follow-builders-newsletter.plist"
@@ -13,7 +14,7 @@ USER_UID="$(id -u)"
 mkdir -p "${TARGET_DIR}" "${LOG_DIR}"
 
 sed \
-  -e "s|__REPO_ROOT__|${REPO_ROOT}|g" \
+  -e "s|__REPO_ROOT__|${LAUNCHD_REPO_ROOT}|g" \
   -e "s|__HOME__|${HOME}|g" \
   "${TEMPLATE_PATH}" > "${TARGET_PATH}"
 
@@ -27,6 +28,8 @@ launchctl enable "gui/${USER_UID}/com.luolan.follow-builders-newsletter"
 
 echo "Installed launchd job:"
 echo "  ${TARGET_PATH}"
+echo "Launchd repo root:"
+echo "  ${LAUNCHD_REPO_ROOT}"
 echo
 echo "It is scheduled to run at 19:00 Asia/Shanghai."
 echo "RunAtLoad is enabled so the publisher catches up after reboot/login as well."
