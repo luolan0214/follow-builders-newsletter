@@ -10,7 +10,8 @@ REMOTE_URL="${AUTOMATION_REMOTE_URL:-$(git -C "${SOURCE_REPO_ROOT}" remote get-u
 mkdir -p "$(dirname "${AUTOMATION_REPO_ROOT}")"
 
 if [[ ! -d "${AUTOMATION_REPO_ROOT}/.git" ]]; then
-  git clone "${REMOTE_URL}" "${AUTOMATION_REPO_ROOT}"
+  git clone "${SOURCE_REPO_ROOT}" "${AUTOMATION_REPO_ROOT}"
+  git -C "${AUTOMATION_REPO_ROOT}" remote set-url origin "${REMOTE_URL}"
 else
   git -C "${AUTOMATION_REPO_ROOT}" pull --rebase origin main
 fi
