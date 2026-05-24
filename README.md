@@ -346,7 +346,7 @@ node scripts/render-ai-builders-digest.js data/issues/ai-builders-digest-2026-05
 目前已经补上本机自动发布的第一版链路，思路是：
 
 ```text
-08:00 / 08:30 / 08:50 / 10:00 / 11:00 / 12:00 / 16:00 launchd 多次触发
+19:00 launchd 定时触发
   -> scripts/run-scheduled-newsletter-publisher.sh
   -> 自动补跑最近缺失日期
   -> 自动重试瞬时失败
@@ -404,7 +404,7 @@ SKIP_AGENT=1 SKIP_PUSH=1 SKIP_GIT_PULL=1 NEWSLETTER_DATE=2026-05-21 bash scripts
 bash scripts/install-launchd.sh
 ```
 
-安装完成后，系统会在每天 `08:00 / 08:30 / 08:50 / 10:00 / 11:00 / 12:00 / 16:00`（`Asia/Shanghai`）自动执行发布脚本，并在开机/登录后立即补跑一次。
+安装完成后，系统会在每天 `19:00`（`Asia/Shanghai`）自动执行发布脚本，并在开机/登录后立即补跑一次。
 
 ---
 

@@ -28,5 +28,5 @@ launchctl enable "gui/${USER_UID}/com.luolan.follow-builders-newsletter"
 echo "Installed launchd job:"
 echo "  ${TARGET_PATH}"
 echo
-echo "It is scheduled to run at 08:00 / 08:30 / 08:50 / 10:00 / 11:00 / 12:00 / 16:00 Asia/Shanghai."
+echo "It is scheduled to run at 19:00 Asia/Shanghai."
 echo "RunAtLoad is enabled so the publisher catches up after reboot/login as well."
