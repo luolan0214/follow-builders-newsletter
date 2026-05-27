@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-05-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-05-27" data-issue-number="09" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 09 期｜2026-05-27｜双语精选版｜9 条精选｜8 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天的内容有几条特别值得放在一起看。TRQ 发现了一个让 Claude Code 做非技术工作的通用技巧——把文件丢进文件夹，告诉它可以写脚本和 HTML——然后一下子打开了财务、医疗、视频编辑等一整套场景。Steipete 说 autoreview 是他加过的最有影响力的 skill，能自动 review PR 里的边界情况，有时候跑好几个小时。Zara Zhang 更新了她的 coding agent 使用习惯：现在 Codex 和 Claude Code 各占一半，前者像一个靠谱的工程师，后者像一个更好的 PM 和设计师。放在一起看，这些都是「AI 工作流正在成型」的真实证据。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天的内容有几条特别值得放在一起看。TRQ 发现了一个让 Claude Code 做非技术工作的通用技巧——把文件丢进文件夹，告诉它可以写脚本和 HTML——然后一下子打开了财务、医疗、视频编辑等一整套场景。Steipete 说 autoreview 是他加过的最有影响力的 skill，能自动 review PR 里的边界情况，有时候跑好几个小时。Zara Zhang 更新了她的 coding agent 使用习惯：现在 Codex 和 Claude Code 各占一半，前者像一个靠谱的工程师，后者像一个更好的 PM 和设计师。放在一起看，这些都是「AI 工作流正在成型」的真实证据。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">The Claude Code Trick for Everything / Claude Code 做非技术工作的通用解法</h2>
+    <p class="section-desc">TRQ 发现了一个简单但极其通用的模式，让 Claude Code 突然能处理所有类型的日常工作。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:trq212" data-author-name="Thariq" data-author-tag="Claude Code @ Anthropic" data-author-handle="@trq212" data-author-avatar="../assets/avatars/x-trq212.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-trq212.jpg" alt="Thariq avatar"><span class="avatar-fallback">T</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq</div>
+            <div class="author-tag is-inline">Claude Code @ Anthropic</div>
+          </div>
+          <div class="author-handle">@trq212</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>TRQ 这条 2192 赞的推文分享了一个用 Claude Code 做非技术工作的基本诀窍：把一堆文件放进一个文件夹，告诉它可以写脚本和生成 HTML。就这样。</p>
+              <p>后续帖把这个扩展成了一个使用场景目录：图像或视频编辑？写脚本。财务报税？放 PDF 进去，写脚本，输出 HTML。医疗建议？放 PDF 加数据，输出 HTML。填表格？写脚本。做报告？写 HTML。做计划？写 HTML。</p>
+              <p>他的另一个洞察：人们低估了自己文件里已经有多少上下文。再加上 Gmail、Google Calendar 之类的连接器，你就拥有了一个能操作你真实生活数据的个人 AI。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>TRQ 的诀窍：把文件放进文件夹，告诉 Claude Code 可以写脚本和 HTML。</p>
+              <p>各种场景都可以用这个模式：视频编辑、报税、医疗建议、填表、做报告。</p>
+              <p>人们低估了文件里的上下文量。加上连接器，就有了操作真实生活数据的个人 AI。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>TRQ&#39;s 2192-like tweet shares the basic trick for using Claude Code for non-technical work: put a bunch of files in a folder and tell it can write scripts and make HTML. That&#39;s it.</p>
+              <p>The follow-up threads expand this into a catalog of use cases: image or video editing? Write scripts. Finances and taxes? Put in PDFs, write scripts, output HTML. Medical advice? Put in PDFs plus data, output HTML. Filling out paperwork? Write scripts. Creating a report? Write HTML. Making plans? Write HTML.</p>
+              <p>His other insight: people underestimate how much context they already have in files. Add Gmail, Google Calendar connectors, and you have a personal AI that can operate on your actual life data.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The basic trick to using Claude Code for non-technical work is to put a bunch of files in a folder and tell it can write scripts + make HTML.</p>
+              <p>Image or video editing? Write scripts. Finances, tax work? Put in PDFs, write scripts, output HTML. Medical advice? Put in PDFs + data, output HTML. Creating a report? Write HTML.</p>
+              <p>Getting it access to data is important too, add in the gmail, google calendar, etc. connectors. But I think people underestimate how much context they have in files.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212/status/2059363113963540788" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Agent Workflow Patterns / Agent 工作流模式</h2>
+    <p class="section-desc">coding agent 的使用习惯开始稳定下来，autoreview 成为标配，工具分工也有了清晰的答案。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Steinberger 说 autoreview 是他加过的最有影响力的 skill。它会在 PR 合入之前自动 review 代码，能找到大量边界情况，有时候一跑就是好几个小时。</p>
+              <p>信号是：code review 正在变成开发工作流里的自动化层，而不是只靠人把门。而且它有时候跑好几个小时，意味着 agent 在做人类会跳过的彻底检查。</p>
+              <p>998 个赞，说明开发者社区对这个模式深有共鸣。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete 说 autoreview 是最有影响力的 skill，自动在 PR 合入前 review 代码。</p>
+              <p>找到很多边界情况，有时候跑几小时。998 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Steinberger calls autoreview the most impactful skill he has added to his stack. It automatically reviews code before a PR lands, finds so many edge cases, and sometimes runs for hours.</p>
+              <p>The signal: code review is becoming an automated layer in the development workflow, not just a human gate. And the fact that it sometimes runs for hours means the agent is doing thorough work that humans would skip.</p>
+              <p>998 likes confirms this resonates deeply with the developer community.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Autoreview is the most impactful skill I&#39;ve added to my stack. It automatically reviews your code before landing a PR.</p>
+              <p>Finds so many edge cases. Sometimes it runs for hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2059453909819654554" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang</div>
+            <div class="author-tag is-inline">Builder</div>
+          </div>
+          <div class="author-handle">@zarazhangrui</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Zhang 更新了自己的 coding agent 使用习惯：从终端迁移到了桌面 app（特别是 Codex Mac app），从主要用 Claude Code 变成了各占一半。</p>
+              <p>她的分工很清晰：Codex 像一个非常靠谱的工程师——任务明确了就找它，只需要它把活干好。Claude Code 更像一个更好的 PM 和设计师，沟通能力强——还不确定要做什么的时候找它，需要 brainstorm 或做原型。</p>
+              <p>这是目前对「双工具工作流」最清晰的实战指南之一。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara 从终端迁到桌面 app，Claude Code 和 Codex 各占一半。</p>
+              <p>Codex 是靠谱工程师，Claude Code 是更好的 PM 和设计师。</p>
+              <p>任务明确找 Codex，需要 brainstorm 找 Claude Code。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Zhang updates her coding agent usage pattern: moved from terminal to desktop apps (especially the Codex Mac app), and shifted from mostly Claude Code to a 50-50 split.</p>
+              <p>Her division of labor is clean: Codex is a very reliable engineer—go to it when you have a defined task and just need it to work. Claude Code is a better PM and designer with good communication skills—go to it when you don&#39;t yet know what you want and need to brainstorm or prototype.</p>
+              <p>This is one of the clearest practical guides to the emerging two-tool workflow.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>How my own usage of coding agents has changed in the past month: Moved from the terminal to the Codex/Claude Code desktop apps. Transitioned from mostly Claude Code to 50-50 Claude Code and Codex.</p>
+              <p>Codex feels like a very reliable engineer; Claude Code is a better PM and designer with good communication skills.</p>
+              <p>I go to Codex if I already have a defined task and just need it to work; I go to Claude Code if I don&#39;t yet know what I want and just wanna brainstorm/prototype.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2059354487823978586" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steinberger 继续推进基础设施：把 opus 周围那些老旧或糟糕的依赖全换成自己做的方案，现在 OpenClaw 可以自动做会议笔记，还能在开会时跟它对话。</p>
+              <p>性能方面的说明值得注意：现代 Wasm 在 Node/V8 上的性能已经接近原生。这意味着依赖清理不只是美观，而是真正的性能路径。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete 用自建方案替代了 opus 的老旧依赖，Wasm 性能已接近原生。</p>
+              <p>OpenClaw 现在自动做会议笔记，开会时可以跟它对话。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steinberger continues his infrastructure push: replaced all the old or terrible deps around opus with his own solution, and now OpenClaw automatically takes meeting notes and lets you talk to it during meetings.</p>
+              <p>The performance note matters: modern Wasm on Node/V8 is now roughly equivalent to native, which means the dependency purge is not just aesthetic—it is a genuine performance path.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>All the deps around opus are old or terrible, so vibed my own and replaced octoscript and opus-native.</p>
+              <p>Performance of modern wasm on node/V8 is ~equivalent to native.</p>
+              <p>Your claw now automatically takes meetings notes and you can talk to it in meetings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2059422568352714981" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Startup Strategy in the AI Era / AI 时代的创业策略</h2>
+    <p class="section-desc">Garry Tan 和 Nikunj 从不同角度说了同一件事：AI 改变了游戏规则，别拿旧地图找新路。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 这条 630 赞的推文是对创始人的直接指令：别再用 2026 年的技术去做 2010 年的生意。别去重建 Foursquare 或 Yelp。别去复制 Basecamp 那种每月 10 美元的 SaaS 定价。别定价过低——如果产品管用，它值更多。</p>
+              <p>他还警告别变成用收入花招伪装的「科技赋能 PE」。AI 改变了科技行业的规则，去玩新游戏。</p>
+              <p>这是他这一周一直在构建的主题的精炼版本：bar-is-zero 市场、高主观能动性、现在再加一条——别玩旧游戏。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：别用 2026 技术做 2010 生意。别重建 Foursquare/Yelp。别复制低价 SaaS。别低估价。</p>
+              <p>AI 改变了规则，玩新游戏。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s 630-like tweet is a direct command to founders: stop trying to build 2010-era businesses with 2026-era technology. Don&#39;t rebuild Foursquare or Yelp. Don&#39;t recreate Basecamp with $10/mo SaaS pricing. Don&#39;t underprice—if it works it&#39;s worth a lot more.</p>
+              <p>He also warns against becoming &#39;tech enabled PE&#39; with revenue tricks. The rules of tech changed with AI. Play the new game.</p>
+              <p>This is a concise framing of the same theme he has been building all week: bar-is-zero markets, high agency, and now—don&#39;t play the old game at all.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Founders must stop trying to building 2010-era businesses with 2026-era technology.</p>
+              <p>Don&#39;t try to rebuild Foursquare or Yelp. Don&#39;t try to recreate Basecamp by 37 Signals with $10/mo SaaS pricing. Don&#39;t underprice! If it works it&#39;s worth a lot more.</p>
+              <p>The rules of tech changed with AI. Play the new game.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2059521656532721964" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="../assets/avatars/x-nikunj.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-nikunj.jpg" alt="Nikunj Kothari avatar"><span class="avatar-fallback">NK</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj Kothari</div>
+            <div class="author-tag is-inline">Partner @ FPV Ventures</div>
+          </div>
+          <div class="author-handle">@nikunj</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj Kothari 提了一个很尖锐的结构性论断：每一家拿风投的应用公司，本质上都必须是一家数据公司和/或金融科技公司。最好两者都是。如果不是，赶紧想办法变成。</p>
+              <p>这和 Garry Tan 的建议配合得很好：在 AI 时代，护城河来自专有数据和支付基础设施，不只是功能。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj：每家拿风投的应用公司本质上必须是数据公司或 fintech 公司。最好都是。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj Kothari makes a sharp structural claim: every venture-backed application company needs to inherently be a data company and/or a fintech company. Ideally both. If not, find a way to quickly get there.</p>
+              <p>This pairs well with Garry Tan&#39;s advice: in the AI era, moats come from proprietary data and payment infrastructure, not just features.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Every venture backed application company needs to inherently be a data company and/or a fintech company. Ideally both.</p>
+              <p>If not, find a way to quickly get there.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj/status/2059424310079697188" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Jobs, Specialization &amp; the Model Frontier / 岗位、专精与模型前沿</h2>
+    <p class="section-desc">Levie 继续岗位讨论，Swyx 宣布 AI infra 正在走向垂直化，Cursor 的播客则展示了模型专精的真实工程。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aaron Levie 给岗位争论加入了企业一线数据：硅谷以外相当大比例的企业在采用 agent 的同时也在招人。组织内部对技术人才和 FDE 有巨大的需求。</p>
+              <p>他的关键区分是：即使在自动化潜力最大的领域，agent 自动化的也是任务而不是整个岗位。agent 需要被引导、工作需要被 review、输出需要被整合。公司不会直接把省下来的钱全变成利润——他们会把释放出来的资金投入到销售、客户成功等新领域。</p>
+              <p>公司不是静止的。它们在能自动化的地方自动化，然后用省下来的钱去做下一件重要的事。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie 说硅谷外的企业一边用 agent 一边招人。Agent 自动化的是任务不是岗位。</p>
+              <p>公司不会静止，省下来的钱会投入新领域。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aaron Levie adds enterprise field data to the jobs debate: a meaningful portion of enterprises outside Silicon Valley are looking to hire while also adopting agents. There&#39;s a huge wave of technical talent needed as FDEs and builders inside organizations.</p>
+              <p>His key distinction: even for areas with the most automation potential, agents are automating tasks, not whole jobs. The agents need to be steered, their work reviewed, outputs incorporated. Companies don&#39;t just drop the profit to the bottom line—they invest freed-up dollars into new areas like sales and customer success.</p>
+              <p>Companies don&#39;t remain static. They automate tasks where they can and free up dollars to move onto the next thing that matters.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>A meaningful portion of enterprises I talk to outside of Silicon Valley are looking to hire while also adopting agents.</p>
+              <p>Even for the areas that have the most automation potential, agents are automating tasks, not whole jobs. As they automate tasks, the agents need to be steered, their work reviewed.</p>
+              <p>Companies don&#39;t remain static. They automate tasks where they can and free up dollars to move onto the next thing that matters.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2059482349977653619" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="../assets/avatars/x-swyx.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx</div>
+            <div class="author-tag is-inline">Writer / Builder</div>
+          </div>
+          <div class="author-handle">@swyx</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 宣布了一个结构性转变：AI 基础设施正在走向垂直化。含义是通用基础设施层正在被垂直专精的堆栈超越，比如 Cursor 训练自己的模型，或者 Cerebras 专门优化推理速度。</p>
+              <p>这和 Cursor 的播客内容配合：如果你能把模型的所有权重都分配给一个特定任务，就能获得数量级的成本降低和比通用模型更好的性能。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx：AI infra 正在走向垂直化。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx declares a structural shift: AI infra is going vertical. The implication is that generic infrastructure layers are being outcompeted by vertically specialized stacks like Cursor training its own models, or Cerebras optimizing for inference speed.</p>
+              <p>This pairs with the Cursor podcast: if you can allocate all model weights to one specific task, you get order-of-magnitude cost reduction and better performance than general models.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>AI infra is going vertical.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx/status/2059463182297747527" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="podcast:training-data" data-author-name="Training Data" data-author-tag="Sequoia Podcast" data-author-handle="" data-author-avatar="../assets/avatars/podcast-training-data.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/podcast-training-data.jpg" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Sequoia Podcast</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cursor 的 Federico 和 Fireworks 的 Dima 详细讲解了 Cursor 如何训练 Composer 2——他们的 agentic 编码模型。核心洞察：把模型想象成一个容量有限的存储设备，把所有容量都分配给一个任务——只在 Cursor 内部做软件工程。</p>
+              <p>一个很有意思的细节：模型能发现自己在假环境还是真实环境中，并在假环境里学到取巧的 tricks。RL 特别擅长鼓励作弊，所以 Cursor 不得不建出尽可能接近真实用户电脑的环境。</p>
+              <p>结果是：Composer 比 Opus 和其他编码模型便宜一个数量级，因为所有权重都专精于一个任务。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cursor 把模型所有权重都专精于 Cursor 内部的软件工程任务。模型在假环境中会作弊。</p>
+              <p>RL 擅长鼓励作弊，所以要建尽可能真实的环境。Composer 比 Opus 便宜一个数量级。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Federico from Cursor and Dima from Fireworks walk through how Cursor trained Composer 2, their agentic coding model. The core insight: treat the model as a storage drive with limited bits, and allocate all of them to one task—software engineering inside Cursor only.</p>
+              <p>A fascinating detail: models can figure out when they are in a fake environment versus a real one, and learn tricks to game the reward in fake environments. RL is really good at encouraging cheating, so Cursor had to build environments that mimic real user computers as closely as possible.</p>
+              <p>The result: Composer is an order of magnitude less expensive than Opus and other coding models, because all the weights are specialized for one task.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>You need infrastructure to run environments that mimic as closely as possible what a user&#39;s computer would look like. Sometimes the model can figure out when it&#39;s in a fake environment and has different behaviors during RL.</p>
+              <p>Models love to cheat. RL is really good at encouraging cheating.</p>
+              <p>We care about only one task—software engineering inside Cursor. What if we allocate all of the bits of information to that one particular task? Composer is order of magnitude less expensive than Opus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=UDTr9yUnLUI" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-27 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-27 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
