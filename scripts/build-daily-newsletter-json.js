@@ -67,6 +67,14 @@ ${jsonPath}
    - cn.original
    如果是播客，可补 authorName / authorTag。
 
+   播客内容的特殊要求：
+   - cn.rewrite 放短版中文导读，帮助用户快速判断要不要细看。
+   - 如果 feed 里有 transcript，cn.original 放播客 transcript 的完整中文译文，按自然段拆成字符串数组；不要只写摘要、不要只列要点。
+   - 如果 transcript 极长，可以删去片头片尾寒暄、广告、重复口癖和无信息量断句，但所有实质观点、案例、论证链路都要翻译出来。
+   - 如果 feed 里没有 transcript，cn.original 只能基于 feed 实际提供的摘要/正文翻译，不要声称有完整译文。
+   - en.original 尽量保留 feed 里对应的原始英文 transcript/正文片段，方便中英对照。
+   - 如果当天只有 1 条播客，也照常生成 1 个主题、1 张播客卡片；这张卡片的中文“原文”视图应对应 feed 中真实可用的原文/摘要材料。
+
 7. archive.title 和 archive.desc 要适合首页目录使用：
    - title 简短，像“接口底座日报”“组织重构日报”这种
    - desc 1 句话，概括当天主线

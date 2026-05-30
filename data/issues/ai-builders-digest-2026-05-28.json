@@ -1,0 +1,49 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-05-28",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的 feed 只有 1 条播客，因此本期是轻量版单主题日报。MAD Podcast 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的真实状态：token 成本、headless 软件、内部 FDE，以及创业公司的机会。"
+  },
+  "archive": {
+    "title": "企业 AI 实况",
+    "desc": "token 成本上升、headless 兴起、FDE 涌现——Aaron Levie 在 MAD Podcast 上分享的企业 AI 真实部署状态。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-28 source feeds.",
+  "sections": [
+    {
+      "title": "State of Enterprise AI 2026 / 2026 年企业 AI 实况",
+      "desc": "MAD Podcast 专访 Box CEO Aaron Levie，给出企业 AI 部署的第一手观察。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad",
+          "authorName": "The MAD Podcast",
+          "authorTag": "Matt Turck 主导的 AI/数据行业播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=Gs2styCcwro",
+          "en": {
+            "rewrite": [
+              "Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本、headless 软件兴起、FDE（Field Deployment Engineers）角色、以及创业公司的机会。Levie 指出企业 AI 正在从 chat 向 agent 过渡，而 breakthroughs 出现的速度快于企业能够实施标准架构的速度，这是一个 bittersweet 的现实。"
+            ],
+            "original": [
+              "In this episode, we get into the most pressing topics in enterprise AI right now, including soaring token costs, why AI model progress is paradoxically slowing down enterprise deployment, the rise of headless software, the emergence of internal FDEs, and where startups can still win."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本、headless 软件兴起、FDE（Field Deployment Engineers）角色、以及创业公司的机会。Levie 指出企业 AI 正在从 chat 向 agent 过渡，而 breakthroughs 出现的速度快于企业能够实施标准架构的速度，这是一个 bittersweet 的现实。"
+            ],
+            "original": [
+              "对话涵盖：token 成本飙升、模型进步 paradoxically 减缓部署、headless 软件兴起、内部 FDE 涌现、创业公司还能在哪里赢。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
