@@ -130,22 +130,270 @@
     </div>
     <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
     <div class="edition-strip">
-      <span class="edition-strip-text" id="edition-strip-text">第 10 期｜2026-05-28｜双语精选版｜1 条精选｜1 位作者｜1 个主题</span>
+      <span class="edition-strip-text" id="edition-strip-text">第 10 期｜2026-05-28｜双语精选版｜6 条精选｜6 位作者｜4 个主题</span>
       <a class="edition-return-link" href="../index.html">返回目录</a>
     </div>
   </header>
 
-  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天的 feed 只有 1 条播客，因此本期是轻量版单主题日报。MAD Podcast 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的真实状态：token 成本、headless 软件、内部 FDE，以及创业公司的机会。">
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天这批内容有几条特别有意思。Matt Turck 用一篇讽刺小品精准地描绘了 2026 年 VC 的日常：从早到晚围着 Anthropic/OpenAI 转，做尽职调查时问 Claude 和 ChatGPT 会不会在下一个版本里直接做这个 startup 的事。Rauchg 说 Vercel CLI 现在变成了「agent 的云基础设施」的关键接口，每天有客户通过 OpenClaw、Claude Code、Codex 发现 Vercel。Garry Tan 说 Opus 4.8 加上 OpenClaw 非常厉害，表达更清晰、协作更好。加上 MAD Podcast 专访 Levie 谈企业 AI 实况——这天的主线是：agent 基础设施正在成型，而围绕它的整个生态（VC、工具链、课程）都在加速。">
     <div class="intro-inner">
       <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
-      <p class="intro-copy">今天的 feed 只有 1 条播客，因此本期是轻量版单主题日报。MAD Podcast 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的真实状态：token 成本、headless 软件、内部 FDE，以及创业公司的机会。</p>
+      <p class="intro-copy">今天这批内容有几条特别有意思。Matt Turck 用一篇讽刺小品精准地描绘了 2026 年 VC 的日常：从早到晚围着 Anthropic/OpenAI 转，做尽职调查时问 Claude 和 ChatGPT 会不会在下一个版本里直接做这个 startup 的事。Rauchg 说 Vercel CLI 现在变成了「agent 的云基础设施」的关键接口，每天有客户通过 OpenClaw、Claude Code、Codex 发现 Vercel。Garry Tan 说 Opus 4.8 加上 OpenClaw 非常厉害，表达更清晰、协作更好。加上 MAD Podcast 专访 Levie 谈企业 AI 实况——这天的主线是：agent 基础设施正在成型，而围绕它的整个生态（VC、工具链、课程）都在加速。</p>
     </div>
   </section>
 
   <section class="section-header">
     <div class="section-label">Theme 01</div>
-    <h2 class="section-title">State of Enterprise AI 2026 / 2026 年企业 AI 实况</h2>
-    <p class="section-desc">MAD Podcast 专访 Box CEO Aaron Levie，给出企业 AI 部署的第一手观察。</p>
+    <h2 class="section-title">Agent Infrastructure Takes Shape / Agent 基础设施成型</h2>
+    <p class="section-desc">CLI、MCP、SDK——这些曾经只是开发者工具的东西，正在变成 agent 时代的核心接口。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Guillermo Rauch 宣布 Vercel CLI 变成零外部依赖的自更新二进制文件。他把这框定为启用「agent 的云」的关键接口——每天他都听到客户通过 OpenClaw、Claude Code 或 Codex 发现并接入 Vercel 的 agentic 基础设施。</p>
+              <p>背后故事：他们几年前就为这个愿景做了 pkg，但当时 Git 和 Web 爆发就搁置了。现在情况反转了——CLI、MCP、SDK 成了新一波 agent 浪潮的关键使能器。</p>
+              <p>这是一个具体案例，说明 agent 工具链正在重塑云基础设施的优先级。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg 说 Vercel CLI 现在是零依赖自更新二进制文件，是启用「agent 的云」的关键接口。</p>
+              <p>每天有客户通过 OpenClaw、Claude Code、Codex 发现 Vercel。CLI、MCP、SDK 是新 agent 浪潮的关键使能器。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Guillermo Rauch announces Vercel CLI as a self-updating binary with zero external dependencies. He frames it as a key interface enabling the &#39;cloud for agents&#39;—every day he hears from customers discovering Vercel after OpenClaw, Claude Code, or Codex onboard them to agentic infrastructure.</p>
+              <p>The backstory: they built pkg years ago for this exact vision, but deprioritized it when Git and Web took off. Now the situation is inverted—the CLI, MCP, and SDKs are key enablers of the new agent wave.</p>
+              <p>This is a concrete example of how agent toolchains are reshaping cloud infrastructure priorities.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Vercel CLI as a self-updating binary with zero external dependencies. Our CLI is one of the key interfaces enabling the &#39;cloud for agents&#39;.</p>
+              <p>Every day, I hear from customers discovering Vercel after OpenClaw, Claude Code, or Codex not only introduce, but also onboard users to our agentic infrastructure. Our CLI (as well as our MCP and SDKs) is a key enabler of this new wave.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2060105470460010993" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 给了一个很直接的产品评价：Opus 4.8 配合 OpenClaw 非常厉害。它对自己的修复、思考过程、以及怎么跟你协作解决问题，表达得更清晰了。</p>
+              <p>618 个赞，这不是随口一说——说明最新的模型更新在 agent 协作体验上有了实质性的提升。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan 说 Opus 4.8 配 OpenClaw 非常厉害，修复更清晰、思考过程更透明、协作更好。618 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan gives a direct product endorsement: Opus 4.8 is fucking awesome with OpenClaw. It&#39;s much more clear about its fixes, what it&#39;s thinking, and how it works with you to fix problems.</p>
+              <p>With 618 likes, this is not a casual remark—it signals that the latest model update has meaningfully improved the agent collaboration experience for power users.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Have to report: Opus 4.8 is fucking awesome with OpenClaw. It&#39;s much more clear about its fixes, what it&#39;s thinking, and how it works with you to fix problems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2060387204774633720" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">The VC Ecosystem in 2026 / 2026 年的 VC 生态</h2>
+    <p class="section-desc">Matt Turck 用一篇讽刺小品画出了一张非常准确的行业快照。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:mattturck" data-author-name="Matt Turck" data-author-tag="VC @ FirstMark" data-author-handle="@mattturck" data-author-avatar="../assets/avatars/x-mattturck.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-mattturck.jpg" alt="Matt Turck avatar"><span class="avatar-fallback">MT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Matt Turck</div>
+            <div class="author-tag is-inline">VC @ FirstMark</div>
+          </div>
+          <div class="author-handle">@mattturck</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck 这条 619 赞的爆款帖是一篇讽刺版的「2026 年 VC 的一天」。早上 9 点开董事会，他的核心 value-add 是推动非工程部门用 Anthropic/OpenAI——他短暂地反思了一下自己怎么变成了 foundation model 公司的 SDR。</p>
+              <p>中午跟另一个 VC 吃饭：讨论 startup 怎么在 Anthropic/OpenAI 之外找蓝海。结论：大概应该直接把钱投进 Anthropic/OpenAI。下午看项目：创始人说用 Anthropic 也用 OpenAI。做尽调时问 Claude 和 ChatGPT 会不会在下个版本直接做这个 startup——都说会，pass。</p>
+              <p>晚上 6 点收到 portfolio 公司 CTO 的紧急电话，需要帮忙升级 Anthropic tier。8 点想下一期播客嘉宾——你猜对了，Anthropic 和 OpenAI 的人。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Turck 的讽刺小品：VC 一天从推 Anthropic/OpenAI 开始，到午饭讨论蓝海（结论是直接投 Anthropic/OpenAI），到尽调问 Claude/ChatGPT 会不会做这个产品（都说会，pass），到帮 portco 升级 Anthropic tier，到播客嘉宾想请 Anthropic/OpenAI 的人。619 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck&#39;s viral 619-like post is a satirical day-in-the-life of a VC in 2026. The day starts with a board meeting where his main value-add is pushing for Anthropic/OpenAI usage in non-engineering functions—he briefly ponders how he became an SDR for foundation model companies.</p>
+              <p>Lunch with another VC: discussing how startups can find blue ocean away from Anthropic/OpenAI. Conclusion: probably just invest directly into Anthropic/OpenAI. Pitch meeting: founder runs on both. Due diligence: asking Claude and ChatGPT if they plan to build this startup natively—both say yes, deal passed.</p>
+              <p>The day ends with an urgent call from a portfolio CTO needing an intro to upgrade their Anthropic tier, and brainstorming podcast guests from—you guessed it—Anthropic and OpenAI.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>A day in the life of a VC in 2026: 9am Board meeting, pushing for Anthropic/OpenAI usage. 1pm Lunch, discussing blue ocean away from Anthropic/OpenAI, conclude to invest directly. 3pm Pitch, founder runs on both. 4:30pm Due diligence, ask Claude and ChatGPT if they&#39;ll build this startup—both say yes, pass. 6pm Urgent call to help portco upgrade Anthropic tier. 8pm Brainstorming podcast guests from Anthropic and OpenAI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/mattturck/status/2060136766238028213" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Learning, Building &amp; the Agent Layer / 学习、构建与 Agent 层</h2>
+    <p class="section-desc">Google 推出免费 agent 课程，Replit 发布多模态 Canvas，Steipete 继续精简依赖。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-petergyang.jpg" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Product @ Roblox</div>
+          </div>
+          <div class="author-handle">@petergyang</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 推荐了 Google 免费的 5 天 AI Agents 课程，这次主打 vibe coding with agents。上一期有 150 万学习者。Day 1：agent + vibe coding。Day 2：工具 + 互操作。Day 3：记忆 + 上下文。Day 4：质量 + 安全。Day 5：从原型到生产。</p>
+              <p>每天 1-2 小时，Google 工程师授课，免费。803 个赞，说明主流市场对实用 agent 构建技能有巨大需求。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Google 免费 5 天 AI Agents 课程回归，主打 vibe coding。上期 150 万学习者。5 天覆盖 agent、工具、记忆、安全、部署。803 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang highlights Google&#39;s free 5-day AI Agents course, now focused on vibe coding with agents. The last edition had 1.5M learners. Day 1: agents + vibe coding with Google Agents CLI. Day 2: tools + interop. Day 3: memory + context. Day 4: quality + security. Day 5: prototype to production.</p>
+              <p>1-2 hours a day, taught by Google engineers, free. With 803 likes, this signals massive mainstream demand for practical agent building skills.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Google&#39;s free 5-day AI Agents course is back, and this time it&#39;s all about vibe coding with agents. The last one had 1.5M learners.</p>
+              <p>Day 1: Agents + vibe coding. Day 2: Tools + interop. Day 3: Memory + context. Day 4: Quality + security. Day 5: Prototype to production. 1-2 hours a day, taught by Google engineers, free.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang/status/2060149158615609474" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:amasad" data-author-name="Amjad Masad" data-author-tag="CEO @ Replit" data-author-handle="@amasad" data-author-avatar="../assets/avatars/x-amasad.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-amasad.jpg" alt="Amjad Masad avatar"><span class="avatar-fallback">AM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad Masad</div>
+            <div class="author-tag is-inline">CEO @ Replit</div>
+          </div>
+          <div class="author-handle">@amasad</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad Masad 发布 Replit Canvas：生成图片、视频、音频并混搭。画个草图就能变成真的。点击编辑、拖拽移动。邀请朋友一起做 marketing、网站、或者艺术作品。</p>
+              <p>这把 Replit 从 coding 工具定位到了多模态创意平台，coding 和 creating 的边界消失了。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Masad 发布 Replit Canvas：生成多模态内容并混搭，画草图变真实，邀请朋友协作。coding 和 creating 边界消失。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad Masad announces Replit Canvas: generate images, video, audio and remix them. Draw something and make it real. Point-click edit, move things around. Invite a friend and cook some marketing, websites, or art.</p>
+              <p>This positions Replit not just as a coding tool but as a multi-modal creative platform where the boundary between coding and creating disappears.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Generate images, video, audio and remix them. Draw something and make it real. Point-click edit, move things around, drag them, drop them. Invite a friend and cook some marketing, websites, or art. All on Replit Canvas!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad/status/2060122956429472027" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">State of Enterprise AI / 企业 AI 实况</h2>
+    <p class="section-desc">MAD Podcast 专访 Aaron Levie，给出企业 AI 部署的第一手观察。</p>
   </section>
   <section class="feed">
     <article class="card" data-author-key="podcast:mad" data-author-name="The MAD Podcast" data-author-tag="Matt Turck 主导的 AI/数据行业播客" data-author-handle="" data-author-avatar="">
@@ -168,10 +416,17 @@
           <div class="lang-label">中文</div>
           <div class="content-shell">
             <div class="content-variant is-active" data-view="rewrite">
-              <p>Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本、headless 软件兴起、FDE（Field Deployment Engineers）角色、以及创业公司的机会。Levie 指出企业 AI 正在从 chat 向 agent 过渡，而 breakthroughs 出现的速度快于企业能够实施标准架构的速度，这是一个 bittersweet 的现实。</p>
+              <p>Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本飙升、模型进步 paradoxically 减缓企业部署（因为每次突破都会让上一次部署的东西过时）、headless 软件兴起、内部 FDE 角色涌现、创业公司可以在 foundation model 层之上构建而不是与之竞争。</p>
             </div>
             <div class="content-variant" data-view="original">
-              <p>对话涵盖：token 成本飙升、模型进步 paradoxically 减缓部署、headless 软件兴起、内部 FDE 涌现、创业公司还能在哪里赢。</p>
+              <p>Levie 说，假设你现在冻结 GPT-5.5 或 Opus 的能力线，可能两三年内整个生态就能完成 change management。但问题是，breakthroughs 出现的速度总是快于企业能实施任何标准架构的速度，而且每次突破经常让之前部署的东西过时。这是一个 bittersweet 的现实。</p>
+              <p>我们仍然处于非常早期的阶段。这是最核心的 TLDR。即使 AI 浪潮已经三四年了，很多企业刚刚才搞定 chat system 的 rollout。我们还有五年的 chat 增长空间。</p>
+              <p>但现在能力又进一步扩展了。大家从 chat（我提问、得到回答，生产力受限于人的对话速度）开始转向 agent——它能做事、产出真实工作，可能通过 chat 启动，也可能在 stateful 模式下自己跑。</p>
+              <p>企业 mood 实际上比少数愤世嫉俗的 CIO 描述的更乐观。CIO 看到工程团队用 Cloud Code、Codex、Cursor 后生产力大涨，然后问怎么把同样的提升带到非 IT 部门。业务方也在 demand，说想上 agentic train。</p>
+              <p>不过大家也清醒了——没有免费午餐，不是部署就 magically 变换业务。实际问题是 token 成本、怎么 rollout、有没有 talent 部署。</p>
+              <p>最热的话题之一是 internal FDE（Field Deployment Engineers）角色——需要什么技术人才来部署 agent 系统。有些是内部 IT 人或工程师重新定位，有些是直接 hire 新类型人才。</p>
+              <p>关于 headless 软件，Levie 认为它不会完全取代有界面的产品，而是共存。复杂查询（涉及 Box、Salesforce、Workday 数据）会 headless 地在 co-work 或 Codex 里完成；简单交互还是会用界面。</p>
+              <p>任何企业软件公司三年后如果度过 AI 转型期，会同时有 seat business model 和 consumption business model。consumption model 在有些业务里可能是 token-based 的。</p>
             </div>
           </div>
         </div>
@@ -179,10 +434,13 @@
           <div class="lang-label">English</div>
           <div class="content-shell">
             <div class="content-variant is-active" data-view="rewrite">
-              <p>Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本、headless 软件兴起、FDE（Field Deployment Engineers）角色、以及创业公司的机会。Levie 指出企业 AI 正在从 chat 向 agent 过渡，而 breakthroughs 出现的速度快于企业能够实施标准架构的速度，这是一个 bittersweet 的现实。</p>
+              <p>Matt Turck interviews Box CEO Aaron Levie on the state of Enterprise AI 2026. Key topics: token costs are soaring, model progress is paradoxically slowing enterprise deployment because breakthroughs obsolete the last thing you implemented, headless software is rising, internal FDEs are emerging as a critical role, and startups can still win by building on top of the foundation model layer rather than competing with it.</p>
             </div>
             <div class="content-variant" data-view="original">
               <p>In this episode, we get into the most pressing topics in enterprise AI right now, including soaring token costs, why AI model progress is paradoxically slowing down enterprise deployment, the rise of headless software, the emergence of internal FDEs, and where startups can still win.</p>
+              <p>The problem is the breakthroughs keep happening faster than the customer can implement any kind of standard architecture. And those breakthroughs oftentimes make obsolete the last thing you implemented.</p>
+              <p>We are still incredibly early. That&#39;s the really big TLDR. Everybody just started figuring out their final rollout plans for the chat system in the enterprise.</p>
+              <p>Any enterprise software company in three years from now that gets through this AI transformation period, it will have a seat business model and a consumption business model.</p>
             </div>
           </div>
         </div>

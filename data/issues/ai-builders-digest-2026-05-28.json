@@ -5,11 +5,11 @@
   "editionName": "双语精选版",
   "intro": {
     "kicker": "编者导语 / Editor's Note",
-    "text": "今天的 feed 只有 1 条播客，因此本期是轻量版单主题日报。MAD Podcast 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的真实状态：token 成本、headless 软件、内部 FDE，以及创业公司的机会。"
+    "text": "今天这批内容有几条特别有意思。Matt Turck 用一篇讽刺小品精准地描绘了 2026 年 VC 的日常：从早到晚围着 Anthropic/OpenAI 转，做尽职调查时问 Claude 和 ChatGPT 会不会在下一个版本里直接做这个 startup 的事。Rauchg 说 Vercel CLI 现在变成了「agent 的云基础设施」的关键接口，每天有客户通过 OpenClaw、Claude Code、Codex 发现 Vercel。Garry Tan 说 Opus 4.8 加上 OpenClaw 非常厉害，表达更清晰、协作更好。加上 MAD Podcast 专访 Levie 谈企业 AI 实况——这天的主线是：agent 基础设施正在成型，而围绕它的整个生态（VC、工具链、课程）都在加速。"
   },
   "archive": {
-    "title": "企业 AI 实况",
-    "desc": "token 成本上升、headless 兴起、FDE 涌现——Aaron Levie 在 MAD Podcast 上分享的企业 AI 真实部署状态。"
+    "title": "Agent 基建成型日报",
+    "desc": "Agent 基础设施加速成型：CLI 成为 agent 的云接口、Opus 4.8 协作体验大幅提升、Google 推出免费 agent 课程、VC 生态开始全面围绕 foundation model 公司运转。"
   },
   "viewLabels": {
     "rewrite": "速读",
@@ -18,8 +18,143 @@
   "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-28 source feeds.",
   "sections": [
     {
-      "title": "State of Enterprise AI 2026 / 2026 年企业 AI 实况",
-      "desc": "MAD Podcast 专访 Box CEO Aaron Levie，给出企业 AI 部署的第一手观察。",
+      "title": "Agent Infrastructure Takes Shape / Agent 基础设施成型",
+      "desc": "CLI、MCP、SDK——这些曾经只是开发者工具的东西，正在变成 agent 时代的核心接口。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2060105470460010993",
+          "en": {
+            "rewrite": [
+              "Guillermo Rauch announces Vercel CLI as a self-updating binary with zero external dependencies. He frames it as a key interface enabling the 'cloud for agents'—every day he hears from customers discovering Vercel after OpenClaw, Claude Code, or Codex onboard them to agentic infrastructure.",
+              "The backstory: they built pkg years ago for this exact vision, but deprioritized it when Git and Web took off. Now the situation is inverted—the CLI, MCP, and SDKs are key enablers of the new agent wave.",
+              "This is a concrete example of how agent toolchains are reshaping cloud infrastructure priorities."
+            ],
+            "original": [
+              "Vercel CLI as a self-updating binary with zero external dependencies. Our CLI is one of the key interfaces enabling the 'cloud for agents'.",
+              "Every day, I hear from customers discovering Vercel after OpenClaw, Claude Code, or Codex not only introduce, but also onboard users to our agentic infrastructure. Our CLI (as well as our MCP and SDKs) is a key enabler of this new wave."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Guillermo Rauch 宣布 Vercel CLI 变成零外部依赖的自更新二进制文件。他把这框定为启用「agent 的云」的关键接口——每天他都听到客户通过 OpenClaw、Claude Code 或 Codex 发现并接入 Vercel 的 agentic 基础设施。",
+              "背后故事：他们几年前就为这个愿景做了 pkg，但当时 Git 和 Web 爆发就搁置了。现在情况反转了——CLI、MCP、SDK 成了新一波 agent 浪潮的关键使能器。",
+              "这是一个具体案例，说明 agent 工具链正在重塑云基础设施的优先级。"
+            ],
+            "original": [
+              "Rauchg 说 Vercel CLI 现在是零依赖自更新二进制文件，是启用「agent 的云」的关键接口。",
+              "每天有客户通过 OpenClaw、Claude Code、Codex 发现 Vercel。CLI、MCP、SDK 是新 agent 浪潮的关键使能器。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2060387204774633720",
+          "en": {
+            "rewrite": [
+              "Garry Tan gives a direct product endorsement: Opus 4.8 is fucking awesome with OpenClaw. It's much more clear about its fixes, what it's thinking, and how it works with you to fix problems.",
+              "With 618 likes, this is not a casual remark—it signals that the latest model update has meaningfully improved the agent collaboration experience for power users."
+            ],
+            "original": [
+              "Have to report: Opus 4.8 is fucking awesome with OpenClaw. It's much more clear about its fixes, what it's thinking, and how it works with you to fix problems."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 给了一个很直接的产品评价：Opus 4.8 配合 OpenClaw 非常厉害。它对自己的修复、思考过程、以及怎么跟你协作解决问题，表达得更清晰了。",
+              "618 个赞，这不是随口一说——说明最新的模型更新在 agent 协作体验上有了实质性的提升。"
+            ],
+            "original": [
+              "Garry Tan 说 Opus 4.8 配 OpenClaw 非常厉害，修复更清晰、思考过程更透明、协作更好。618 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The VC Ecosystem in 2026 / 2026 年的 VC 生态",
+      "desc": "Matt Turck 用一篇讽刺小品画出了一张非常准确的行业快照。",
+      "cards": [
+        {
+          "authorKey": "x:mattturck",
+          "sourceUrl": "https://x.com/mattturck/status/2060136766238028213",
+          "en": {
+            "rewrite": [
+              "Matt Turck's viral 619-like post is a satirical day-in-the-life of a VC in 2026. The day starts with a board meeting where his main value-add is pushing for Anthropic/OpenAI usage in non-engineering functions—he briefly ponders how he became an SDR for foundation model companies.",
+              "Lunch with another VC: discussing how startups can find blue ocean away from Anthropic/OpenAI. Conclusion: probably just invest directly into Anthropic/OpenAI. Pitch meeting: founder runs on both. Due diligence: asking Claude and ChatGPT if they plan to build this startup natively—both say yes, deal passed.",
+              "The day ends with an urgent call from a portfolio CTO needing an intro to upgrade their Anthropic tier, and brainstorming podcast guests from—you guessed it—Anthropic and OpenAI."
+            ],
+            "original": [
+              "A day in the life of a VC in 2026: 9am Board meeting, pushing for Anthropic/OpenAI usage. 1pm Lunch, discussing blue ocean away from Anthropic/OpenAI, conclude to invest directly. 3pm Pitch, founder runs on both. 4:30pm Due diligence, ask Claude and ChatGPT if they'll build this startup—both say yes, pass. 6pm Urgent call to help portco upgrade Anthropic tier. 8pm Brainstorming podcast guests from Anthropic and OpenAI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck 这条 619 赞的爆款帖是一篇讽刺版的「2026 年 VC 的一天」。早上 9 点开董事会，他的核心 value-add 是推动非工程部门用 Anthropic/OpenAI——他短暂地反思了一下自己怎么变成了 foundation model 公司的 SDR。",
+              "中午跟另一个 VC 吃饭：讨论 startup 怎么在 Anthropic/OpenAI 之外找蓝海。结论：大概应该直接把钱投进 Anthropic/OpenAI。下午看项目：创始人说用 Anthropic 也用 OpenAI。做尽调时问 Claude 和 ChatGPT 会不会在下个版本直接做这个 startup——都说会，pass。",
+              "晚上 6 点收到 portfolio 公司 CTO 的紧急电话，需要帮忙升级 Anthropic tier。8 点想下一期播客嘉宾——你猜对了，Anthropic 和 OpenAI 的人。"
+            ],
+            "original": [
+              "Turck 的讽刺小品：VC 一天从推 Anthropic/OpenAI 开始，到午饭讨论蓝海（结论是直接投 Anthropic/OpenAI），到尽调问 Claude/ChatGPT 会不会做这个产品（都说会，pass），到帮 portco 升级 Anthropic tier，到播客嘉宾想请 Anthropic/OpenAI 的人。619 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Learning, Building & the Agent Layer / 学习、构建与 Agent 层",
+      "desc": "Google 推出免费 agent 课程，Replit 发布多模态 Canvas，Steipete 继续精简依赖。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2060149158615609474",
+          "en": {
+            "rewrite": [
+              "Peter Yang highlights Google's free 5-day AI Agents course, now focused on vibe coding with agents. The last edition had 1.5M learners. Day 1: agents + vibe coding with Google Agents CLI. Day 2: tools + interop. Day 3: memory + context. Day 4: quality + security. Day 5: prototype to production.",
+              "1-2 hours a day, taught by Google engineers, free. With 803 likes, this signals massive mainstream demand for practical agent building skills."
+            ],
+            "original": [
+              "Google's free 5-day AI Agents course is back, and this time it's all about vibe coding with agents. The last one had 1.5M learners.",
+              "Day 1: Agents + vibe coding. Day 2: Tools + interop. Day 3: Memory + context. Day 4: Quality + security. Day 5: Prototype to production. 1-2 hours a day, taught by Google engineers, free."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 推荐了 Google 免费的 5 天 AI Agents 课程，这次主打 vibe coding with agents。上一期有 150 万学习者。Day 1：agent + vibe coding。Day 2：工具 + 互操作。Day 3：记忆 + 上下文。Day 4：质量 + 安全。Day 5：从原型到生产。",
+              "每天 1-2 小时，Google 工程师授课，免费。803 个赞，说明主流市场对实用 agent 构建技能有巨大需求。"
+            ],
+            "original": [
+              "Google 免费 5 天 AI Agents 课程回归，主打 vibe coding。上期 150 万学习者。5 天覆盖 agent、工具、记忆、安全、部署。803 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2060122956429472027",
+          "en": {
+            "rewrite": [
+              "Amjad Masad announces Replit Canvas: generate images, video, audio and remix them. Draw something and make it real. Point-click edit, move things around. Invite a friend and cook some marketing, websites, or art.",
+              "This positions Replit not just as a coding tool but as a multi-modal creative platform where the boundary between coding and creating disappears."
+            ],
+            "original": [
+              "Generate images, video, audio and remix them. Draw something and make it real. Point-click edit, move things around, drag them, drop them. Invite a friend and cook some marketing, websites, or art. All on Replit Canvas!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad Masad 发布 Replit Canvas：生成图片、视频、音频并混搭。画个草图就能变成真的。点击编辑、拖拽移动。邀请朋友一起做 marketing、网站、或者艺术作品。",
+              "这把 Replit 从 coding 工具定位到了多模态创意平台，coding 和 creating 的边界消失了。"
+            ],
+            "original": [
+              "Masad 发布 Replit Canvas：生成多模态内容并混搭，画草图变真实，邀请朋友协作。coding 和 creating 边界消失。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "State of Enterprise AI / 企业 AI 实况",
+      "desc": "MAD Podcast 专访 Aaron Levie，给出企业 AI 部署的第一手观察。",
       "cards": [
         {
           "authorKey": "podcast:mad",
@@ -28,18 +163,28 @@
           "sourceUrl": "https://www.youtube.com/watch?v=Gs2styCcwro",
           "en": {
             "rewrite": [
-              "Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本、headless 软件兴起、FDE（Field Deployment Engineers）角色、以及创业公司的机会。Levie 指出企业 AI 正在从 chat 向 agent 过渡，而 breakthroughs 出现的速度快于企业能够实施标准架构的速度，这是一个 bittersweet 的现实。"
+              "Matt Turck interviews Box CEO Aaron Levie on the state of Enterprise AI 2026. Key topics: token costs are soaring, model progress is paradoxically slowing enterprise deployment because breakthroughs obsolete the last thing you implemented, headless software is rising, internal FDEs are emerging as a critical role, and startups can still win by building on top of the foundation model layer rather than competing with it."
             ],
             "original": [
-              "In this episode, we get into the most pressing topics in enterprise AI right now, including soaring token costs, why AI model progress is paradoxically slowing down enterprise deployment, the rise of headless software, the emergence of internal FDEs, and where startups can still win."
+              "In this episode, we get into the most pressing topics in enterprise AI right now, including soaring token costs, why AI model progress is paradoxically slowing down enterprise deployment, the rise of headless software, the emergence of internal FDEs, and where startups can still win.",
+              "The problem is the breakthroughs keep happening faster than the customer can implement any kind of standard architecture. And those breakthroughs oftentimes make obsolete the last thing you implemented.",
+              "We are still incredibly early. That's the really big TLDR. Everybody just started figuring out their final rollout plans for the chat system in the enterprise.",
+              "Any enterprise software company in three years from now that gets through this AI transformation period, it will have a seat business model and a consumption business model."
             ]
           },
           "cn": {
             "rewrite": [
-              "Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本、headless 软件兴起、FDE（Field Deployment Engineers）角色、以及创业公司的机会。Levie 指出企业 AI 正在从 chat 向 agent 过渡，而 breakthroughs 出现的速度快于企业能够实施标准架构的速度，这是一个 bittersweet 的现实。"
+              "Matt Turck 专访 Box CEO Aaron Levie，讨论 2026 年企业 AI 的核心话题：token 成本飙升、模型进步 paradoxically 减缓企业部署（因为每次突破都会让上一次部署的东西过时）、headless 软件兴起、内部 FDE 角色涌现、创业公司可以在 foundation model 层之上构建而不是与之竞争。"
             ],
             "original": [
-              "对话涵盖：token 成本飙升、模型进步 paradoxically 减缓部署、headless 软件兴起、内部 FDE 涌现、创业公司还能在哪里赢。"
+              "Levie 说，假设你现在冻结 GPT-5.5 或 Opus 的能力线，可能两三年内整个生态就能完成 change management。但问题是，breakthroughs 出现的速度总是快于企业能实施任何标准架构的速度，而且每次突破经常让之前部署的东西过时。这是一个 bittersweet 的现实。",
+              "我们仍然处于非常早期的阶段。这是最核心的 TLDR。即使 AI 浪潮已经三四年了，很多企业刚刚才搞定 chat system 的 rollout。我们还有五年的 chat 增长空间。",
+              "但现在能力又进一步扩展了。大家从 chat（我提问、得到回答，生产力受限于人的对话速度）开始转向 agent——它能做事、产出真实工作，可能通过 chat 启动，也可能在 stateful 模式下自己跑。",
+              "企业 mood 实际上比少数愤世嫉俗的 CIO 描述的更乐观。CIO 看到工程团队用 Cloud Code、Codex、Cursor 后生产力大涨，然后问怎么把同样的提升带到非 IT 部门。业务方也在 demand，说想上 agentic train。",
+              "不过大家也清醒了——没有免费午餐，不是部署就 magically 变换业务。实际问题是 token 成本、怎么 rollout、有没有 talent 部署。",
+              "最热的话题之一是 internal FDE（Field Deployment Engineers）角色——需要什么技术人才来部署 agent 系统。有些是内部 IT 人或工程师重新定位，有些是直接 hire 新类型人才。",
+              "关于 headless 软件，Levie 认为它不会完全取代有界面的产品，而是共存。复杂查询（涉及 Box、Salesforce、Workday 数据）会 headless 地在 co-work 或 Codex 里完成；简单交互还是会用界面。",
+              "任何企业软件公司三年后如果度过 AI 转型期，会同时有 seat business model 和 consumption business model。consumption model 在有些业务里可能是 token-based 的。"
             ]
           }
         }
