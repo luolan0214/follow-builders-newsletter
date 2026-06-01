@@ -1,0 +1,231 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-05-31",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天内容量很大，几条特别值得放在一起看。Sam Altman 宣布 OpenAI Robotics 正式成立，要造真正有用的机器人。Swyx 指出 PewDiePie 用 vibecode 做了一个完整的个人 AI 生产力套件，登顶 Hacker News，如果你做 Knowledge Work Agents 做不过 PewDiePie 就该收拾回家了。Garry Tan 说「你应该想控制并托管自己的记忆」，并预告了 AI harness wars of 2027。Rauchg 发现 CEO 和 CTO 们正在疯狂地重新写代码，coding agents 是企业 PLG 的终极形式。Steipete 让 Codex 当 QA 助手，自动测试并开 PR 修 bug。"
+  },
+  "archive": {
+    "title": "机器人与记忆之战",
+    "desc": "OpenAI 成立机器人部门、PewDiePie 的 vibecode 产品登顶 HN、CEO 们重新爱上写代码、AI 记忆控制权成为下一个战场。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-31 source feeds.",
+  "sections": [
+    {
+      "title": "OpenAI Robotics & the Physical World / OpenAI 机器人与物理世界",
+      "desc": "Sam Altman 正式宣布 OpenAI 进军机器人。",
+      "cards": [
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2061117302528188712",
+          "en": {
+            "rewrite": [
+              "Sam Altman announces OpenAI Robotics is hiring: looking for full-stack hardware, ops, systems, and ML engineers to program and manufacture robots useful for society. The thesis: AI should help people in the physical world. Short term: robots supporting skilled workers to build infrastructure. Long term: everyone has a personal robot.",
+              "The program evolved from their world simulation research led by Aditya Ramesh. Progress is rapid, based on co-design between robotics hardware and ML research. 11049 likes makes this one of the biggest announcements of the week."
+            ],
+            "original": [
+              "OpenAI Robotics is hiring, looking for exceptional full-stack hardware, ops, systems, and ML engineers to help us program and manufacture robots that are useful for society.",
+              "AI should be able to help people in the physical world. In the short term, we are focused on robots to support skilled workers to build our future infrastructure; in the long term, we imagine everyone having a personal robot doing anything they need.",
+              "Our world simulation research program, led by Aditya Ramesh, has evolved over the past year into OpenAI Robotics."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 宣布 OpenAI Robotics 开始招聘：寻找全栈硬件、运维、系统和 ML 工程师来编程和制造对社会有用的机器人。核心论点是：AI 应该能在物理世界帮助人。短期：支持技术工人建设基础设施的机器人。长期：每个人都有一个个人机器人。",
+              "这个项目从 Aditya Ramesh 领导的世界模拟研究演变而来。进展迅速，基于机器人硬件和 ML 研究的协同设计。11049 个赞，这是本周最大的新闻之一。"
+            ],
+            "original": [
+              "Altman 宣布 OpenAI Robotics 招聘，造有用机器人。短期支持工人建设基础设施，长期人人有个人机器人。从世界模拟研究演变而来。11049 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Vibe Shift & Consumer AI / 潮流转变与消费级 AI",
+      "desc": "当 PewDiePie 都开始做 AI 产品了，说明一件事：AI 构建工具的门槛已经低到了创作者层面。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2061256096719970337",
+          "en": {
+            "rewrite": [
+              "Swyx provides a sharp zoom-out on the vibe shift: in Feb 2025, Soumith Chintala talked about his dream of personal, local, private agents and most people didn't believe him. It's June 2026 and PewDiePie has released his vibecoded opencode wrapper—a complete personal AI productivity suite including email, docs, and calendar. Top of HN, easily >1M views, >10K stars in a day.",
+              "His challenge: if your Knowledge Work Agents startup can't beat PewDiePie you might as well pack up and go home. His is the benchmark for what you can DIY."
+            ],
+            "original": [
+              "In Feb 2025 @soumithchintala was talking about his dream of personal, local, private agents, most people didn't believe him.",
+              "It's June 2026 and @pewdiepie has just released his vibecoded @opencode wrapper that is a complete personal AI productivity suite including email, docs, and calendar. Top of HN, easily >1m views, >10k stars in a day.",
+              "If your Knowledge Work Agents startup can't beat pewdiepie you might as well pack up and go home at this point, his is the benchmark for what you can DIY."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 提供了一个很锐利的视角：2025 年 2 月 Soumith Chintala 谈他的个人本地私有 agent 梦想时，大多数人都不信。到了 2026 年 6 月，PewDiePie 发布了他 vibecode 的 opencode 包装器——一个完整的个人 AI 生产力套件，包括邮件、文档和日历。登顶 Hacker News，轻松超过 100 万浏览，一天内超过 1 万 star。",
+              "他的挑战是：如果你做 Knowledge Work Agents 的创业公司做不过 PewDiePie，还不如收拾回家。他的产品就是你能 DIY 的 benchmark。"
+            ],
+            "original": [
+              "Swyx：2025 年 2 月谈个人私有 agent 没人信，2026 年 6 月 PewDiePie 做出完整 AI 生产力套件登顶 HN。做不过 PewDiePie 就回家。137 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2061135404942974982",
+          "en": {
+            "rewrite": [
+              "Guillermo Rauch reports an unexpected trend: CEOs and CTOs are back to coding with a fury thanks to coding agents. He has public company CEOs sliding into his DMs telling him about falling in love with shipping software again thanks to Claude Code and Vercel.",
+              "His framing: coding agents are the ultimate PLG-fication of the enterprise. Dream accounts that previously had C-suite who could barely understand the infrastructure—now they get it firsthand. Bad legacy software can't hide anymore. The stack that works is self-evident to the entire organization, from intern to CEO.",
+              "1226 likes confirms this is a real and widespread phenomenon."
+            ],
+            "original": [
+              "Unclear if a durable trend, but CEOs and CTOs are back to coding with a fury, thanks to coding agents.",
+              "I have public company CEOs sliding into my DMs telling me about falling in love with shipping software again thanks to Claude Code and Vercel.",
+              "Coding agents are the ultimate PLG-fication of the enterprise. Bad, legacy software can't hide anymore. The stack that works is self-evident to the entire organization, from intern to CEO."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Guillermo Rauch 报告了一个出人意料的趋势：CEO 和 CTO 们正在疯狂地重新写代码，因为 coding agents。他收到了上市公司的 CEO 们的私信，说因为 Claude Code 和 Vercel 重新爱上了 ship 软件。",
+              "他的框架是：coding agents 是企业 PLG 的终极形式。以前 C-suite 基本不理解基础设施的 dream accounts——现在他们亲手体验了。差的遗留软件再也藏不住了。真正有效的技术栈对整个组织来说是不言自明的，从实习生到 CEO。",
+              "1226 个赞，确认这是一个真实且广泛的现象。"
+            ],
+            "original": [
+              "Rauchg 说 CEO/CTO 们因 coding agents 疯狂重拾编码。上市公司 CEO 私信说重新爱上 ship。Coding agents 是企业 PLG 终极形式。差的软件藏不住了。1226 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Memory, Context & the AI Harness Wars / 记忆、上下文与 AI Harness 战争",
+      "desc": "Garry Tan 和 Levie 从不同角度讨论了同一个问题：谁控制你的 AI 记忆和上下文？",
+      "cards": [
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2061174413513678941",
+          "en": {
+            "rewrite": [
+              "Garry Tan makes a bold claim: you should want to control and host your own memory. It's the one thing you should be able to take to any platform. Watch for this to be a defining battle in the new browser war: the AI harness wars of 2027.",
+              "With 1423 likes, this clearly struck a nerve. The implication: whoever controls your AI memory controls lock-in, and the battle over memory portability will define the next platform war."
+            ],
+            "original": [
+              "You should want to control and host your own memory. It's the one thing that you should be able to take to any platform.",
+              "Watch for this to be a defining battle in the new browser war: the AI harness wars of 2027."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 提了一个大胆的主张：你应该想控制并托管自己的记忆。这是你唯一应该能带到任何平台的东西。注意，这将成为新浏览器战争中的决定性战役：2027 年的 AI harness wars。",
+              "1423 个赞，显然戳中了很多人的神经。含义是：谁控制你的 AI 记忆谁就控制了锁定，围绕记忆可移植性的争夺将定义下一个平台战争。"
+            ],
+            "original": [
+              "Garry Tan：应该控制并托管自己的记忆，能带到任何平台。这将是 2027 年 AI harness wars 的决定性战役。1423 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2061176075288453333",
+          "en": {
+            "rewrite": [
+              "Garry Tan follows up on the memory theme: platforms need to stay open and it shouldn't require a lot of work to get your data. Because where the AI harness wars are going, someone else's harness is just going to be you sharecropping someone else's AI ecosystem."
+            ],
+            "original": [
+              "Platforms need to stay open and it shouldn't require a lot of work to get your data. Because where the AI harness wars are going... someone else's harness is just going to be you sharecropping someone else's AI ecosystem."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 继续跟进记忆主题：平台需要保持开放，获取你自己的数据不应该很费事。因为 AI harness wars 的走向是——用别人的 harness 就是在给别人的 AI 生态系统当佃农。"
+            ],
+            "original": [
+              "Garry Tan：平台要开放，获取数据要简单。用别人的 harness 就是给别人当佃农。300 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2061247380897579500",
+          "en": {
+            "rewrite": [
+              "Aaron Levie identifies the #1 problem for AI agents in the enterprise: the context problem. Going from agentic coding (where context is in the codebase) to knowledge work agents, context becomes much more acute.",
+              "At Box, they see this every day: existing digital knowledge is fragmented across legacy systems with access controls that don't map to real work. And companies haven't captured critical context—decisions, processes, workflows often live in people's heads as tribal knowledge.",
+              "His conclusion: this is the biggest point of leverage for applied AI companies, and one reason why FDEs and new system integrator plays will work so well right now."
+            ],
+            "original": [
+              "This is effectively the #1 problem for AI agents in the enterprise.",
+              "As we go from agentic coding to a world of knowledge work agents, the context problem becomes much more acute.",
+              "Companies often haven't captured and digitized some of the critical context that agents need to work with. Decisions, processes, and workflows often live in people's heads and tribal knowledge.",
+              "This is actually one of the biggest points of leverage for applied AI companies."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Aaron Levie 指出了企业 AI agent 的头号问题：上下文问题。从 agentic coding（上下文在代码库里）到知识工作 agent，上下文问题变得更加尖锐。",
+              "在 Box 他们每天都在看到这个情况：现有的数字知识散落在遗留系统中，访问控制跟实际工作不匹配。而且公司往往没有捕获关键上下文——决策、流程、工作流通常存在于人们脑中的隐性知识里。",
+              "他的结论是：这是应用型 AI 公司最大的杠杆点，也是 FDE 和新型系统集成商会在这个阶段有效的原因之一。"
+            ],
+            "original": [
+              "Levie 说上下文是企业 AI agent 的头号问题。数字知识散落在遗留系统，关键上下文在人们脑子里。这是应用 AI 公司最大杠杆点。479 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agent Engineering in Practice / Agent 工程实践",
+      "desc": "Steipete 让 Codex 当 QA、Swyx 说 evals 公司都在升级——agent 工程正在进化。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2061208638027395490",
+          "en": {
+            "rewrite": [
+              "Steipete has been teaching Codex to be his QA assistant: for every commit it creates a user-test scenario, uses webVNC (crabbox) and computer/browser use (peekaboo/mcporter) to test OpenClaw like a user/QA person would. This runs in the background and opens PRs with fixes.",
+              "This is the next level of autoreview: not just reviewing code, but actually testing the product as a user would and fixing what it finds. 1008 likes."
+            ],
+            "original": [
+              "Been teaching codex to be my QA assistant. For every commit it creates a user-test scenario and uses webVNC (crabbox), computer/browser use (peekaboo/mcporter) to test OpenClaw like a user/QA person would. This runs in the background and opens PRs with fixes."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 一直在教 Codex 当他的 QA 助手：对每一个 commit，它创建用户测试场景，用 webVNC（crabbox）和 computer/browser use（peekaboo/mcporter）像用户/QA 人员一样测试 OpenClaw。在后台运行，发现问题就开 PR 修复。",
+              "这是 autoreview 的下一层：不只是 review 代码，而是像用户一样实际测试产品并修复发现的问题。1008 赞。"
+            ],
+            "original": [
+              "Steipete 教 Codex 当 QA：每次 commit 创建测试场景，用 webVNC 和 browser use 测试，后台运行开 PR 修 bug。1008 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2061106703446450392",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) announces Codex usage limits have been reset for all paid ChatGPT subscriptions. Back to 100% weekly and hourly limits. His sign-off: 'Let the tokens do incredible things today and have fun.' 6064 likes."
+            ],
+            "original": [
+              "The Codex usage limits have been reset for all paid ChatGPT subscriptions. You should be back to 100% weekly and 100% hourly limits. Let the tokens do incredible things today and have fun."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 宣布 Codex 使用限额已为所有付费 ChatGPT 订阅重置，恢复到 100% 的周限额和小时限额。他的结语：「让 tokens 做出不可思议的事，好好玩。」6064 赞。"
+            ],
+            "original": [
+              "OpenAI 重置 Codex 所有限额至 100%。6064 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
