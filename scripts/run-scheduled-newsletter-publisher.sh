@@ -13,6 +13,7 @@ RETRY_ATTEMPTS="${PUBLISH_RETRY_ATTEMPTS:-2}"
 RETRY_SLEEP_SECONDS="${PUBLISH_RETRY_SLEEP_SECONDS:-90}"
 OPENCLAW_TIMEOUT_SECONDS="${OPENCLAW_TIMEOUT_SECONDS:-1800}"
 ALLOW_GIT_PULL_FAILURE="${ALLOW_GIT_PULL_FAILURE:-1}"
+AUTO_STASH_DIRTY_WORKTREE="${AUTO_STASH_DIRTY_WORKTREE:-1}"
 
 log() {
   printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S %Z')" "$*"
@@ -54,11 +55,48 @@ has_pending_push() {
   [[ "${ahead_count}" != "0" ]]
 }
 
+worktree_status() {
+  git -C "${REPO_ROOT}" status --porcelain --untracked-files=all
+}
+
+ensure_clean_worktree() {
+  local reason="$1"
+  local status_output
+  status_output="$(worktree_status)"
+
+  if [[ -z "${status_output}" ]]; then
+    return 0
+  fi
+
+  if [[ "${AUTO_STASH_DIRTY_WORKTREE}" != "1" ]]; then
+    log "Repository is not clean before ${reason}, and AUTO_STASH_DIRTY_WORKTREE is disabled."
+    printf '%s\n' "${status_output}" >&2
+    return 1
+  fi
+
+  log "Repository is not clean before ${reason}; saving local changes to a scheduled-publisher stash."
+  printf '%s\n' "${status_output}" >&2
+
+  git -C "${REPO_ROOT}" stash push --include-untracked \
+    -m "scheduled-publisher-autostash before ${reason} at $(date '+%Y-%m-%d %H:%M:%S %Z')"
+
+  status_output="$(worktree_status)"
+  if [[ -n "${status_output}" ]]; then
+    log "Repository is still not clean after auto-stash; aborting ${reason}."
+    printf '%s\n' "${status_output}" >&2
+    return 1
+  fi
+
+  log "Worktree is clean after auto-stash; continuing ${reason}."
+}
+
 sync_pending_push() {
   if [[ "${SKIP_PUSH:-0}" == "1" ]]; then
     log "SKIP_PUSH=1; leaving local commits unpushed."
     return 0
   fi
+
+  ensure_clean_worktree "syncing pending commits"
 
   if [[ "${SKIP_GIT_PULL:-0}" != "1" ]]; then
     if ! git -C "${REPO_ROOT}" pull --rebase origin main; then
@@ -109,6 +147,10 @@ publish_date() {
     else
       log "Publishing ${publish_date} (attempt ${attempt}/${RETRY_ATTEMPTS})..."
 
+      if ! ensure_clean_worktree "publishing ${publish_date}"; then
+        return 1
+      fi
+
       if NEWSLETTER_DATE="${publish_date}" \
         OPENCLAW_TIMEOUT_SECONDS="${OPENCLAW_TIMEOUT_SECONDS}" \
         ALLOW_GIT_PULL_FAILURE="${ALLOW_GIT_PULL_FAILURE}" \
@@ -144,6 +186,8 @@ main() {
     exit 0
   fi
   trap 'rmdir "${LOCK_DIR}" >/dev/null 2>&1 || true' EXIT
+
+  ensure_clean_worktree "scheduled publisher startup"
 
   while IFS= read -r publish_date; do
     [[ -n "${publish_date}" ]] || continue

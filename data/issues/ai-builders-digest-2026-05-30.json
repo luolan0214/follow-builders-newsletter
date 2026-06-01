@@ -1,0 +1,195 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-05-30",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批内容有一条特别突出的主线：agent 的使用正在从「玩玩看」变成「真正能跑的工作流」。Steipete 说他的 prompt 任务从 30-60 分钟变成了 4-10 小时的自主运行，信心也高了很多——「yielding agents is a skill」。Dan Shipper 报告他 Codex 最长跑了 56 小时，41 天连续使用。OpenAI 的 Thibault Sottiaux 宣布 GPT-5.5 是他们最好的模型，500 万用户同意。Rauchg 说了一句简洁的话：做出最好的产品就行，用很多 AI 也行、一点 AI 也行、不用 AI 也行，只要是最好的。"
+  },
+  "archive": {
+    "title": "长时运行日报",
+    "desc": "Agent 任务从分钟级扩展到小时级甚至 56 小时，GPT-5.5 发布并被确认为最佳模型，而「yielding agents」正在成为一种新技能。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-05-30 source feeds.",
+  "sections": [
+    {
+      "title": "Yielding Agents Is a Skill / 让 Agent 自主跑是一种技能",
+      "desc": "当 agent 能跑 4-10 小时甚至 56 小时的时候，怎么跟它协作就不再是写好 prompt 就行了。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2060678430031597696",
+          "en": {
+            "rewrite": [
+              "Steipete reports that with GPT-5.5, /goal, autoreview and crabbox, his prompts moved from 30-60 minute tasks to often 4-10 hour tasks, and his confidence that the result is ready is much higher. His one-liner: 'Yielding agents is a skill.'",
+              "With 2905 likes, this resonates deeply—the shift from micro-managing agents to trusting them with long-running tasks is the emerging meta-skill of the AI era."
+            ],
+            "original": [
+              "With GPT 5.5, /goal, autoreview and crabbox my prompts moved from ~30-60min to often 4-10h tasks and my confidence that it's ready is much much higher.",
+              "Yielding agents is a skill."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 报告说，用 GPT-5.5 加上 /goal、autoreview 和 crabbox 之后，他的 prompt 任务从 30-60 分钟变成了 4-10 小时的自主运行，而且他对结果的信心也高了很多。他的一句话总结：「yielding agents 是一种技能。」",
+              "2905 个赞，说明很多人有共鸣——从微观管理 agent 到信任它们跑长时间任务，这个转变正是 AI 时代正在浮现的元技能。"
+            ],
+            "original": [
+              "Steipete 说 GPT-5.5 + /goal + autoreview + crabbox 让任务从 30-60 分钟变成 4-10 小时。Yielding agents 是一种技能。2905 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2060672154727825718",
+          "en": {
+            "rewrite": [
+              "Steipete shares a practical trick with Codex: ask it to review code for bugs and it will say all good. Tell it there IS a bug and it will loop and loop and find issues.",
+              "This is a subtle but powerful prompt engineering insight: framing the same task differently—neutral review vs. assuming a bug exists—produces dramatically different results. 2698 likes."
+            ],
+            "original": [
+              "I do this with codex all the time. Ask it to review code for bugs and it will tell you all good, tell it there is a bug and it will LOOP AND LOOP and will find issues."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 分享了一个跟 Codex 协作的实用技巧：让它 review 代码找 bug，它会说没问题。但如果你告诉它「这里有一个 bug」，它就会一直循环找，直到真的找到问题。",
+              "这是一个微妙但强大的 prompt engineering 洞察：同一个任务换个表述——中性 review vs 假设 bug 存在——会产生截然不同的结果。2698 赞。"
+            ],
+            "original": [
+              "Steipete 的技巧：让 Codex review 代码说没问题，但说「有 bug」它就会一直找。同一个任务换个表述结果完全不同。2698 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:danshipper",
+          "sourceUrl": "https://x.com/danshipper/status/2060771279280513362",
+          "en": {
+            "rewrite": [
+              "Dan Shipper shares his Codex usage stats: 38 billion tokens processed, longest task ran for 56 hours, 41-day current streak. His sign-off: 'lfg codex'.",
+              "These numbers are remarkable—56 hours of autonomous agent work means the agent is handling entire project-level tasks, not just snippets."
+            ],
+            "original": [
+              "38b tokens and a 56h longest task. 41 day current streak. lfg codex."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 分享了他的 Codex 使用数据：38 billion tokens，最长任务跑了 56 小时，41 天连续使用。",
+              "这些数字很惊人——56 小时的自主 agent 工作意味着 agent 在处理整个项目级别的任务，而不只是代码片段。"
+            ],
+            "original": [
+              "Dan Shipper：38b tokens，56 小时最长任务，41 天连续使用。169 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:ryolu_",
+          "sourceUrl": "https://x.com/ryolu_/status/2060766674203353190",
+          "en": {
+            "rewrite": [
+              "A user highlights what they love about auto-review: Cursor explains the command and risk, making it much easier for new coders to learn and just do things.",
+              "This is the educational layer of agentic coding—the agent doesn't just do the work, it teaches you why it's doing what it's doing."
+            ],
+            "original": [
+              "What I love about auto-review: Cursor explains the command and risk, makes it much easier for new coders to learn and just do things."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "一位用户说他最喜欢 auto-review 的地方是：Cursor 会解释命令和风险，这让新手程序员更容易学习并直接上手做事。",
+              "这是 agentic coding 的教育层——agent 不只是干活，它还教你为什么这么做。"
+            ],
+            "original": [
+              "用户说 auto-review 让 Cursor 解释命令和风险，新手更容易学习和上手。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "GPT-5.5 & the Model Frontier / GPT-5.5 与模型前沿",
+      "desc": "OpenAI 发布 GPT-5.5，被称为他们最好的模型。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2060627747760984429",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) explains the versioning strategy: going from GPT-5.0 to 5.1 to 5.5, the incrementing goes with improvements in capabilities and token efficiency (which translates to speed gains). GPT-5.5 is their best model yet. A simple strategy they want to continue.",
+              "With 3842 likes, this is the most-liked tweet of the day. The framing is clear: version numbers map to real capability and efficiency improvements."
+            ],
+            "original": [
+              "When we go from GPT-5.0 -> GPT-5.1 -> ... -> GPT-5.5, the number incrementing goes with improvements in capabilities and token efficiency (which translates to speed gains). With GPT-5.5 our best model yet. A simple strategy that we would like to continue."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 解释了版本号策略：从 GPT-5.0 到 5.1 到 5.5，版本号递增对应的是能力和 token 效率的提升（效率提升翻译成速度提升）。GPT-5.5 是他们最好的模型。一个他们想继续的简单策略。",
+              "3842 赞，这是今天最多赞的推文。表述很清楚：版本号对应真实的能力和效率提升。"
+            ],
+            "original": [
+              "OpenAI 的 Sottiaux：GPT-5.0→5.1→5.5，版本号对应能力和 token 效率提升。5.5 是最好的模型。3842 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Product Philosophy & Jobs / 产品哲学与岗位",
+      "desc": "Rauchg 和 Levie 从不同角度说了同一件事：做好产品、投资回业务。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2060803480823193840",
+          "en": {
+            "rewrite": [
+              "Guillermo Rauch's 2599-like one-liner: Ship the best product. Use lots of AI, some AI, maybe no AI. Just be the best.",
+              "This is a corrective to the AI-everything hype: the goal is not to use AI for its own sake, but to make the best product possible. AI is a tool, not the end."
+            ],
+            "original": [
+              "Ship the best product. Use lots of AI, some AI, maybe no AI. Just be the best."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Guillermo Rauch 的 2599 赞一句话：做出最好的产品。用很多 AI 也行、一点 AI 也行、不用 AI 也行。只要是最好的就行。",
+              "这是对 AI 万能论的一个纠偏：目标不是用 AI 而用 AI，而是做出最好的产品。AI 是工具，不是目的。"
+            ],
+            "original": [
+              "Rauchg：做出最好的产品。用很多 AI、一点 AI、不用 AI 都行。只要最好。2599 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2060923684295221390",
+          "en": {
+            "rewrite": [
+              "Aaron Levie continues his jobs crusade with enterprise field data: in the majority of conversations with CIOs, CTOs, and CEOs in large enterprises, they are either growing due to AI (new job functions like FDEs, engineering) or reinvesting efficiency savings back into the business.",
+              "He cites Goldman Sachs CEO David Solomon's NYT OpEd: the AI boom creates new jobs in the build-out and implementation, while freeing up dollars to invest in areas that have been underfunded. Most businesses have been constrained by how much software they can produce, how many sales reps they can hire, how many campaigns they can run. When AI makes it possible to do more, investment goes back into the business."
+            ],
+            "original": [
+              "In the majority of conversations I have with CIOs, CTOs, and CEOs in large enterprises, they are either growing due to AI or at a minimum reinvesting efficiency savings back into the business.",
+              "Most businesses have been constrained by how much software they can produce at a given cost, how many sales reps they can hire, how many marketing campaigns they can run. When AI makes it possible to do more of this, investment goes back into the business."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Aaron Levie 继续用企业一线数据推进岗位讨论：在他与 CIO、CTO、CEO 的大多数对话中，他们要么因为 AI 而在增长（FDE、工程等新岗位），要么至少把效率节省下来的钱重新投资回业务。",
+              "他引用了 Goldman Sachs CEO David Solomon 在纽约时报的文章：AI 繁荣在系统建设和跨行业实施中创造了新岗位，同时释放资金投入到以前资金不足的领域。大多数企业一直受限于能生产多少软件、能雇多少销售、能跑多少营销活动。当 AI 让做更多成为可能时，投资就回到了业务本身。"
+            ],
+            "original": [
+              "Levie 说大多数大企业在因为 AI 增长或把效率节省重新投资。引用 Goldman Sachs CEO 的观点：AI 创造新岗位，释放资金投资不足领域。企业受限于软件产量、销售人数、营销活动数。AI 让投资回归业务。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
