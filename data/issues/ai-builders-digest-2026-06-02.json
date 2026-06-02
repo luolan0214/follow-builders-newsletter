@@ -1,0 +1,221 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-02",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批内容信息密度很高。OpenAI 正式入驻 AWS——Thibault Sottiaux 说「听说 AWS 是酷小孩去的地方，你好，我们有 GPT-5.5」，835 赞。Peter Yang 整理了 Josh Shpigford 用 AI agent 独自运营多个产品的 6 条实战经验，其中最有用的是「让 GPT review Claude 的工作，反过来也一样」和「建一个 /learnings skill 让 agent 从错误中学习」。Steipete 让 Codex 在他分心时主动语音提醒他解锁阻塞项，说是「最酷的事情」。Rauchg 报告 MiniMax M3 成了 Next.js agent 评测中领先的开源模型，比 Opus 和 GPT-5 便宜 10 倍。"
+  },
+  "archive": {
+    "title": "多云竞争日报",
+    "desc": "OpenAI 入驻 AWS、MiniMax M3 成开源模型新标杆、Anthropic 内部用 Claude 做自己的产品、agent 开始主动语音提醒人类。"
+  },
+  "viewLabels.rewrite": "速读",
+  "viewLabels.original": "原文",
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-02 source feeds.",
+  "sections": [
+    {
+      "title": "Cloud Wars & Model Competition / 云战争与模型竞争",
+      "desc": "OpenAI 入驻 AWS，开源模型开始追赶闭源，token 经济的竞争格局在变。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2061644307111796984",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) announces GPT-5.5 on AWS with a cheeky one-liner: 'Heard that AWS is where the cool kids are. Hello. We have GPT-5.5.' 835 likes.",
+              "Levie adds context: AWS has massive enterprise traction with large committed contracts. This partnership opens up increased distribution for OpenAI's models and likely drives an increase in token consumption overall across model providers."
+            ],
+            "original": [
+              "Heard that AWS is where the cool kids are. Hello. We have GPT-5.5."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 用一条俏皮话宣布 GPT-5.5 登陆 AWS：「听说 AWS 是酷小孩去的地方。你好，我们有 GPT-5.5。」835 赞。",
+              "Levie 补充了背景：AWS 在企业端有巨大的 traction，大量的承诺合同。这个合作不仅为 OpenAI 打开了更多分发渠道，也可能推动所有模型提供商的 token 消费总量增长。"
+            ],
+            "original": [
+              "OpenAI 宣布 GPT-5.5 登陆 AWS。Levie 说 AWS 有大量企业合同，合作增加分发和 token 消费。835 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2061593874498531707",
+          "en": {
+            "rewrite": [
+              "Rauchg reports MiniMax M3 is now the leading open model on the Next.js agent evaluations—right behind Opus and GPT-5, but 10x cheaper (and 20x cheaper on Vercel AI Gateway). 596 likes.",
+              "This is a significant signal: open models are closing the gap with proprietary ones on real-world agent benchmarks, not just academic tests."
+            ],
+            "original": [
+              "MiniMax M3 is now the leading open model on the Next.js agent evaluations. Right behind Opus & GPT5, but 10x cheaper (And 20x cheaper right now on AI Gateway!)"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 报告 MiniMax M3 成了 Next.js agent 评测中领先的开源模型——紧追 Opus 和 GPT-5，但便宜 10 倍（在 Vercel AI Gateway 上便宜 20 倍）。596 赞。",
+              "这是一个重要信号：开源模型在真实世界的 agent benchmark 上正在缩小和闭源模型的差距，不只是学术测试。"
+            ],
+            "original": [
+              "Rauchg 说 MiniMax M3 是 Next.js agent 评测中领先的开源模型，追 Opus/GPT-5 但便宜 10 倍。596 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Solo Building with AI Agents / 用 AI Agent 独自构建",
+      "desc": "Josh Shpigford 的实战经验：25 年的 solo builder，现在用 AI agent 同时运营多个产品。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2061452068792287622",
+          "en": {
+            "rewrite": [
+              "Peter Yang distills Josh Shpigford's top 6 lessons for building multiple products solo with AI agents. The most practical: have GPT review Claude's work and vice versa ('GPT invariably finds 3-5 bugs that Opus overlooked'). Different models spot different mistakes.",
+              "Second key insight: build a /learnings skill that runs at the end of each phase so every 'no, that didn't work' moment gets distilled into new rules. And use git worktrees to build features in parallel without context rot.",
+              "The humility note: Josh credits 25 years of building before AI for how fast he ships now. His advice for newer builders is to 'just fail a lot, because the only way to figure out what not to do is by doing the thing incorrectly.'"
+            ],
+            "original": [
+              "Top 6 takeaways from Josh Shpigford on how to build multiple products solo with AI agents:",
+              "1. Keep shipping even if the fear of embarrassment never goes away. 2. Charge from day one, and kill products that can't pay for themselves. 3. Build features in parallel with separate git worktrees. 4. Have GPT review Claude's work and vice versa. 5. Build a skill to make AI better over time. 6. AI lets anyone ship, but real experience still matters."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 整理了 Josh Shpigford 用 AI agent 独自运营多个产品的 6 条实战经验。最实用的是：让 GPT review Claude 的工作，反过来也一样（「GPT 总能找到 Opus 遗漏的 3-5 个 bug」）。不同模型会发现不同的错误。",
+              "第二个关键洞察：建一个 /learnings skill，在每个阶段结束时运行，把每个「不行，这样做不对」的瞬间提炼成新规则。用 git worktree 并行开发功能，避免 context rot。",
+              "谦虚的部分：Josh 把现在用 agent 的速度归功于之前 25 年的积累。对新手 builder 的建议是「多失败，因为唯一能知道什么不该做的方式就是把事做错」。"
+            ],
+            "original": [
+              "Shpigford 6 条经验：1. 持续 ship 别怕丢人 2. 第一天就收费，养不活就砍 3. git worktree 并行开发 4. GPT review Claude 反过来也一样 5. /learnings skill 积累经验 6. 经验仍然重要。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:danshipper",
+          "sourceUrl": "https://x.com/danshipper/status/2061443674311999739",
+          "en": {
+            "rewrite": [
+              "Dan Shipper's one-liner captures the new work ethic: you don't have to work 7 days a week if you just have a swarm of Codex's running on /goal all the time. But you'll probably want to. 248 likes."
+            ],
+            "original": [
+              "You don't have to work 7 days a week if you just have a swarm of Codex's running on /goal all the time. But you'll probably want to."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 的一句话抓住了新的工作伦理：如果你有一群 Codex 一直在 /goal 上跑，你不需要每周工作 7 天。但你可能还是会想。248 赞。"
+            ],
+            "original": [
+              "Dan Shipper：有一群 Codex 在跑就不用 7x24，但你可能还是会想。248 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agent-to-Human Communication / Agent 主动找人沟通",
+      "desc": "当 agent 不只是等你提问，而是主动开口提醒你——协作模式变了。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2061574752574283858",
+          "en": {
+            "rewrite": [
+              "Steipete tells Codex to use voice whenever he's distracted and it needs his help to be unblocked. Every once in a while he hears it talking to him, and says it's the coolest thing ever—for example, for releases that need npm and are 1Password-gated.",
+              "This is a new pattern in agent-human interaction: the agent initiates communication when blocked, rather than waiting for the human to check in. 683 likes."
+            ],
+            "original": [
+              "I told codex to use voice whenever I'm distracted and it needs my help to be unblocked, and every once in a while I hear it talking to me, and it's the coolest thing ever. (e.g. for releases, that needs npm and is 1Password-gated)"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 让 Codex 在他分心时主动用语音提醒他来解锁阻塞项。偶尔他会听到 Codex 在跟他说话，说这是「最酷的事情」——比如发布新版本时需要 npm 和 1Password。",
+              "这是一个新的 agent-human 交互模式：agent 被阻塞时主动发起沟通，而不是等人来检查。683 赞。"
+            ],
+            "original": [
+              "Steipete 让 Codex 在他分心时用语音提醒。偶尔听到 Codex 跟他说话，说最酷了。比如发布版本时需要 npm 和 1Password。683 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:trq212",
+          "sourceUrl": "https://x.com/trq212/status/2061545633560010826",
+          "en": {
+            "rewrite": [
+              "TRQ shares how Anthropic employees stay in the loop with Claude: he's been asking others at Anthropic how they fully understand the work being done. This is one of his favorites from Suzanne, who uses voice mode to make it easier and more natural to respond.",
+              "6183 likes makes this the highest-engagement tweet of the day. The signal: even AI company employees are figuring out how to work with their own products in daily practice."
+            ],
+            "original": [
+              "Been asking others at Anthropic how they stay in the loop with Claude and fully understand the work being done. This is one of my favorites from Suzanne."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "TRQ 分享了 Anthropic 内部员工怎么跟 Claude 保持同步：他一直在问 Anthropic 的同事怎么真正理解正在做的工作。这是他最喜欢的 Suzanne 的方法——她用语音模式来让交互更自然。",
+              "6183 赞，这是今天互动量最高的推文。信号是：连 AI 公司的员工都在摸索怎么在日常工作中用好自家的产品。"
+            ],
+            "original": [
+              "TRQ 问 Anthropic 员工怎么跟 Claude 保持同步。Suzanne 用语音模式让交互更自然。6183 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Competitive Advantage in the AI Era / AI 时代的竞争优势",
+      "desc": "当所有人都能用同样的模型时，什么才是护城河？Levie 和 Matt Turck 从不同角度回答。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2061662386680127688",
+          "en": {
+            "rewrite": [
+              "Levie addresses the defining question of the AI era: how do you develop competitive advantage when your competitor has access to the same AI models? His answer: the companies that best harness their internal institutional knowledge, existing data assets, and domain-specific workflows—connected with AI—will stay ahead.",
+              "The key is to capture and protect the value created by unique data, processes, and expertise. Each industry will have its own version of this. At Box, customers want to take advantage of their institutional knowledge and have the flexibility to bring any AI model to their data at any time."
+            ],
+            "original": [
+              "As we enter the era of AI agents, one of the defining questions is how you develop competitive advantage when your competitor has access to the same AI models and intelligence as you.",
+              "The companies that are able to best harness their internal institutional knowledge, existing data assets, and domain-specific workflows—connected with AI—will be those that are able to stay ahead in the future."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 回答了 AI 时代的核心问题：当你的竞争对手能用到同样的 AI 模型时，你怎么建立竞争优势？他的回答是：能最好地利用内部机构知识、现有数据资产和领域专用工作流——与 AI 连接——的公司会保持领先。",
+              "关键在于捕获和保护由独特数据、流程和专业知识创造的价值。每个行业都有自己的版本。在 Box，客户想利用自己的机构知识，并随时能把任何 AI 模型带到自己的数据上。"
+            ],
+            "original": [
+              "Levie：当对手有同样模型时，竞争优势来自机构知识、数据资产和领域工作流。关键是捕获独特数据、流程和知识的价值。154 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:mattturck",
+          "sourceUrl": "https://x.com/mattturck/status/2061533386296963464",
+          "en": {
+            "rewrite": [
+              "Matt Turck's CEO vs CTO meme: CEO says 'we have tens of thousands of AI agents running in production at massive scale right now.' CTO's reaction is silent panic. 289 likes.",
+              "This captures the gap between narrative and reality in enterprise AI deployment that Levie has been discussing all week."
+            ],
+            "original": [
+              "CEO: 'we have tens of thousands of AI agents running in production at massive scale right now'. CTO: [silence]"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck 的 CEO vs CTO 梗图：CEO 说「我们现在有成千上万个 AI agent 在大规模生产环境中运行」。CTO 的反应是沉默的恐慌。289 赞。",
+              "这抓住了 Levie 这周一直在讨论的企业 AI 部署中叙事和现实之间的差距。"
+            ],
+            "original": [
+              "Matt Turck 梗图：CEO 说有上万 agent 在跑，CTO 无语。289 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
