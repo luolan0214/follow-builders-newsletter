@@ -1,0 +1,227 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-03",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批内容有几条特别值得一起看。TRQ 说 Workflows 是 Claude Code 自从 skills 和 subagents 以来最大的能力升级，3339 赞。Rauchg 提出了「YES-CODE」的概念——整个 no-code 品类都是建立在代码又贵又难又稀缺的假设上的，coding agents 已经永远改变了这个等式。Peter Yang 指出窄场景 SaaS 正在被 AI skills 替代，因为 agent 有个人上下文和记忆。Levie 说 token 预算将越来越占运营支出的大头，model routing 是必然结论。Zara Zhang 引用 OpenAI 最新报告说知识工作者已占 Codex 用户的 20%，增速是开发者的 3 倍以上。"
+  },
+  "archive": {
+    "title": "Yes-Code 日报",
+    "desc": "Claude Code Workflows 发布、no-code 被宣告终结、窄场景 SaaS 被 AI skills 替代、知识工作者成为 Codex 增长最快的用户群。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-03 source feeds.",
+  "sections": [
+    {
+      "title": "Yes-Code: The End of No-Code's Premise / Yes-Code：No-Code 假设的终结",
+      "desc": "当代码变得便宜、容易、充足时，no-code 存在的前提就消失了。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2061934154732974376",
+          "en": {
+            "rewrite": [
+              "Rauchg declares YES-CODE: an entire category of software, 'no-code', was built under the presumption that code is expensive, difficult, and scarce. Coding agents have forever changed the equation. Code is now cheap, easy, and abundant.",
+              "He recalls @cramforce being asked by an analyst if Vercel is a no-code platform. Without hesitation: 'No, it's the absolute opposite. It's a yes-code platform.' No-code took shortcuts and set hard ceilings on performance and sophistication.",
+              "Vercel's mission: create the easiest cloud for agents that you never graduate from. 462 likes."
+            ],
+            "original": [
+              "An entire category of software, 'no-code', was built under the presumption that code is expensive, difficult, and scarce. Coding agents have forever changed the equation. Code is now cheap, easy, and abundant.",
+              "Our mission is to create the easiest cloud for agents that you never graduate from."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 宣告 YES-CODE 的到来：整个 no-code 品类都是建立在代码又贵又难又稀缺的假设上的。Coding agents 已经永远改变了这个等式。代码现在便宜、容易、充足。",
+              "他回忆 @cramforce 被分析师问 Vercel 是不是 no-code 平台，毫不犹豫地回答：「不，完全相反。它是一个 yes-code 平台。」No-code 走了捷径，在性能和复杂度上设了天花板。",
+              "Vercel 的使命是：为 agent 创造最简单的云，而且你永远不需要毕业。462 赞。"
+            ],
+            "original": [
+              "Rauchg 宣告 YES-CODE：no-code 建立在代码贵难稀缺的假设上，coding agents 改变了等式。Vercel 使命是为 agent 建永不毕业的云。462 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2061846283263103274",
+          "en": {
+            "rewrite": [
+              "Peter Yang argues that narrow-use-case SaaS is getting harder to monetize because: 1) AI skills can solve the same problem more flexibly and personally, 2) AI-native agents like Codex/Claude Code have personal context and memory that a standalone SaaS or chatbot doesn't, 3) People will pay hundreds or thousands for services (human touch is rare) but compare a $20/month SaaS to their Claude/ChatGPT subscription.",
+              "His honest caveat: 'I guess I'm in a bubble and most people have not set up their own AI skills yet.'"
+            ],
+            "original": [
+              "If you're building a simple SaaS for a narrow use case, I think it's harder to monetize now because: 1. AI skills can solve the same problem in a much more flexible, personalized way. 2. AI-native agents have personal context and memory vs. a standalone SaaS. 3. People compare $20/month SaaS to their Claude/ChatGPT subscription."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 论证窄场景 SaaS 越来越难赚钱：1) AI skills 能以更灵活、更个性化的方式解决同样的问题，2) Codex/Claude Code 这类 AI-native agent 有个人上下文和记忆，独立 SaaS 或 chatbot 没有，3) 人们愿意为服务付几百几千（人情味稀缺），但对 $20/月的 SaaS 会拿去跟 Claude/ChatGPT 订阅比。",
+              "他诚实地补充：「我可能在一个信息茧房里，大多数人还没建好自己的 AI skills。」"
+            ],
+            "original": [
+              "Peter Yang 说窄场景 SaaS 难赚钱：AI skills 更灵活，agent 有个人上下文，用户拿 SaaS 跟 AI 订阅比价。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Code Workflows & the Agent Stack / Claude Code Workflows 与 Agent 技术栈",
+      "desc": "TRQ 说这是 skills 和 subagents 以来最大的升级，Steipete 和微软合作把 agent 带进企业。",
+      "cards": [
+        {
+          "authorKey": "x:trq212",
+          "sourceUrl": "https://x.com/trq212/status/2061907538741006796",
+          "en": {
+            "rewrite": [
+              "TRQ declares Workflows the biggest upgrade to Claude Code's capabilities since skills and subagents. He dove deep with Sid Bhide to figure out best practices and examples—particularly excited about the non-technical tasks it enables for Claude Code. 3339 likes.",
+              "This is a major signal: Claude Code is expanding beyond coding into general-purpose automation with structured workflow support."
+            ],
+            "original": [
+              "Workflows are the biggest upgrade to Claude Code's capabilities since skills and subagents. I dove deep into it with @sidbid to figure out best practices, examples and more. I'm particularly excited about the non-technical tasks it enables for Claude Code."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "TRQ 宣告 Workflows 是 Claude Code 自从 skills 和 subagents 以来最大的能力升级。他和 Sid Bhide 深入研究了最佳实践和示例——特别兴奋的是它为 Claude Code 开启了非技术任务。3339 赞。",
+              "这是一个重要信号：Claude Code 正在从编码扩展到通用自动化，有了结构化的 workflow 支持。"
+            ],
+            "original": [
+              "TRQ 说 Workflows 是 skills/subagents 以来最大升级。和 Sid Bhide 研究最佳实践，特别兴奋非技术任务。3339 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2061874084649025728",
+          "en": {
+            "rewrite": [
+              "Steipete announces the privilege of working with Microsoft to bring OpenClaw to enterprises. 3413 likes—the second-highest engagement of the day.",
+              "This signals that agent platforms are now ready for enterprise distribution through major cloud partnerships."
+            ],
+            "original": [
+              "Such a privilege to work with Microsoft to bring claws to enterprises!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 宣布和微软合作把 OpenClaw 带进企业的荣幸。3413 赞——今天第二高的互动量。",
+              "这标志着 agent 平台现在已准备好通过主要云合作伙伴进入企业分发。"
+            ],
+            "original": [
+              "Steipete 说和微软合作把 OpenClaw 带进企业。3413 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2061876999564791952",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) announces Codex updates: business plan users can now host and share websites, vastly improved plugins and skills for broad roles, and visual annotations to give feedback to your agent in docs, slides, sheets and more. 1416 likes.",
+              "The annotation feature is notable: it's a new interaction modality for agent feedback beyond text."
+            ],
+            "original": [
+              "Tons of goodies for use of codex for day to day work. If you are on a business plan you can now host and share websites, we launched vastly improved plugins and skills for broad roles and you can give feedback to your agent through visual annotations in docs, slides, sheets and more."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 宣布 Codex 更新：商业版用户可以托管和分享网站，大幅改进了面向各岗位的 plugins 和 skills，还能通过文档、幻灯片、表格中的视觉标注给 agent 反馈。1416 赞。",
+              "标注功能值得注意：这是文本之外的 agent 反馈新交互方式。"
+            ],
+            "original": [
+              "OpenAI 更新 Codex：商业版可托管网站、改进 plugins/skills、视觉标注给 agent 反馈。1416 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Knowledge Workers, Tokens & Model Routing / 知识工作者、Token 与模型路由",
+      "desc": "知识工作者成为 Codex 增长最快的用户群，token 预算成为运营支出的新大头。",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2061924300698091760",
+          "en": {
+            "rewrite": [
+              "Zara Zhang cites OpenAI's latest Codex report: knowledge workers now represent about 20% of Codex users and are adopting it more than 3x as fast as developers. Fastest growing task types for knowledge workers: Data Analysis (110% growth week over week), Research (+37%), and Knowledge Artifacts (+36%).",
+              "This is the signal that AI tools are breaking out of the developer niche into the broader knowledge worker economy."
+            ],
+            "original": [
+              "From OpenAI's latest Codex report: Knowledge workers now represent about 20% of Codex users and are adopting it more than 3 times as fast as developers. The fastest growing task types: Data Analysis (110% growth week over week); Research (+37%), and Knowledge Artifacts (+36%)."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara Zhang 引用 OpenAI 最新 Codex 报告：知识工作者已占 Codex 用户的约 20%，增速是开发者的 3 倍以上。增长最快的任务类型：数据分析（周环比增长 110%）、研究（+37%）、知识制品（+36%）。",
+              "这是 AI 工具从开发者圈子突破到更广泛的知识工作者经济的信号。"
+            ],
+            "original": [
+              "Zara 引用 OpenAI 报告：知识工作者占 Codex 用户 20%，增速 3x 开发者。数据分析增长 110%，研究 +37%。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2061974298760495132",
+          "en": {
+            "rewrite": [
+              "Levie predicts that as token budgets take on a larger part of operating expenses, model routing is the inevitable conclusion. By understanding different work patterns in your domain and having strong evals, you'll be able to cost/performance optimize effectively.",
+              "We're still at the point where most use-cases need frontier performance, but soon you'll peel off individual use-cases to lower-cost models. Products that can intelligently route workflows to the right tier of model will aggregate more demand. 299 likes."
+            ],
+            "original": [
+              "As token budgets take on a larger part of operating expenses over time, model routing is the inevitable conclusion.",
+              "By understanding the different work patterns in your domain, and having strong evals, you'll be able to cost/performance optimize effectively.",
+              "Products that can intelligently route these workflows to the right tier of model will be in a strong position to aggregate more demand."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 预测，随着 token 预算在运营支出中占比越来越大，model routing 是必然结论。通过理解你领域里不同的工作模式和强大的 evals，你就能有效地做成本/性能优化。",
+              "我们还在大多数场景需要前沿模型性能的阶段，但很快你就能把个别场景切到更便宜的模型上。能智能地把工作流路由到合适模型层级的产品会聚合更多需求。299 赞。"
+            ],
+            "original": [
+              "Levie 说 token 预算占运营支出越来越大，model routing 是必然。理解领域工作模式和 evals 做成本优化。能智能路由的产品会赢。299 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Language as the New API / 语言作为新的 API",
+      "desc": "Rauchg 提出了一个很优雅的类比：语言一直是通往世界的 API，只不过以前英语不能直接产出东西。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2061862134469062850",
+          "en": {
+            "rewrite": [
+              "Rauchg frames education in the age of AI: start with the language—the linguistic surface is your roadmap. Much like an SDK has function definitions, human language is the new API to the world.",
+              "His deeper point: there's never been an expert in any field without mastery over its language. The distinction is that English alone could not produce tangible things before. You had to translate it into machine instruction through learning or delegation. You can now go direct. 765 likes."
+            ],
+            "original": [
+              "This is what education in the age of AI looks like. Start with the language: the linguistic surface is your roadmap. Much like an SDK has a set of function definitions, human language is the new API to the world.",
+              "There's never been an expert in any field without mastery over its language. The distinction is that English alone could not produce tangible things. You can now go direct."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 把 AI 时代的教育框定为：从语言开始——语言表面就是你的路线图。就像 SDK 有一组函数定义一样，人类语言是通往世界的新 API。",
+              "他更深层的观点是：任何领域的专家都必然精通该领域的语言。区别在于，以前英语不能直接产出实物。你必须通过学习或委托把语言翻译成机器指令。现在你可以直达。765 赞。"
+            ],
+            "original": [
+              "Rauchg 说语言是通往世界的新 API。以前英语不能直接产出实物，需要翻译成机器指令。现在可以直达。765 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
