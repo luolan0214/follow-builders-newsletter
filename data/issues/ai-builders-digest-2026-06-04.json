@@ -1,0 +1,229 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-04",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天内容很重。No Priors 放出了 Satya Nadella 的专访，标题就是「全栈 Builder 和超杠杆通才的崛起」。OpenAI 的 Thibault Sottiaux 因为 24 小时内三次小事故而重置了所有付费计划的 Codex 使用限额，8735 赞——对用户好的姿态，但也说明 agent 规模化运维的难度。Anthropic 的 Cat Wu 透露他们用 Claude 自动化了 95% 的业务分析查询。Google Labs 推出 Dreambeans——一个反 doom-scroll 的个性化信息流 app。Rauchg 说在业务数据上生成前端是 coding AI 的杀手级应用。Levie 继续用数据说话：token 支出已经远超传统软件许可费，AI 对岗位的影响正在被证明和悲观预期完全相反。"
+  },
+  "archive": {
+    "title": "超杠杆通才日报",
+    "desc": "Nadella 谈全栈 Builder 崛起、Codex 因可靠性问题重置限额、Anthropic 自动化 95% 内部分析、Google 推出 Dreambeans 反 doom-scroll。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-04 source feeds.",
+  "sections": [
+    {
+      "title": "The Rise of the Full-Stack Builder / 全栈 Builder 的崛起",
+      "desc": "Satya Nadella 在 No Priors 上给出了他对 AI 如何重塑组织和个人的最新判断。",
+      "cards": [
+        {
+          "authorKey": "podcast:no-priors",
+          "authorName": "No Priors",
+          "authorTag": "AI 商业与投资访谈播客",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "Satya Nadella on No Priors: the rise of the full-stack builder and hyper-leveraged generalist. His core thesis: start with a clean model lineage, then let companies create their own specialists by building a hill-climbing scaffold around it. Each company needs private evals because public ones are all maxed.",
+              "On Microsoft's approach: every product—GitHub Copilot, Security Copilot, Emdash, discovery for science—is a multimodal harness with tools access, using progressive disclosure for token efficiency. The hard lesson from the last two years: the amount of work to prep context is enormous.",
+              "On infrastructure: they built more Azure capacity in the last 15 months than the first 15 years. And his philosophy on work itself: 'Our job is not to do Azure networking. Our job is to build the agentic system that does Azure networking.'"
+            ],
+            "original": [
+              "Starting with a clean lineage, then creating the ability for companies to be able to use this, not just as a generalist, but to create their own specialist by building this hill climbing scaffold around it.",
+              "Each of our products—GitHub Copilot, the security copilot, the stuff we showed with Emdash—are multimodal harnesses with tools access so that you can do this progressive disclosure of tools, token efficient.",
+              "We built more Azure capacity in the last fifteen months than we built in the first fifteen years. Our job is not to do Azure networking. Our job is to build the agentic system that does Azure networking."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Satya Nadella 在 No Priors 上谈全栈 Builder 和超杠杆通才的崛起。核心论点是：从一个干净的模型基线开始，然后让公司通过搭建爬山脚手架来创建自己的专家模型。每个公司都需要私有 evals，因为公开 benchmark 已经全部刷满了。",
+              "关于微软的做法：每个产品——GitHub Copilot、Security Copilot、Emdash、科学发现——都是带工具访问的多模态 harness，用渐进式工具暴露来实现 token 效率。过去两年最大的教训：准备 context 的工作量大得惊人。",
+              "基础设施方面：过去 15 个月建的 Azure 算力比前 15 年的总和还多。他对工作的哲学是：「我们的工作不是去做 Azure 网络运维。我们的工作是构建做 Azure 网络运维的 agentic 系统。」"
+            ],
+            "original": [
+              "Nadella 谈全栈 Builder：从干净模型基线开始，让公司建自己的专家。每个产品都是多模态 harness + 工具访问 + token 效率。",
+              "15 个月建了比前 15 年还多的 Azure 算力。工作不是做运维，是建做运维的 agentic 系统。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Codex Reliability & Token Abundance / Codex 可靠性与 Token 丰裕",
+      "desc": "OpenAI 重置限额、Anthropic 自动化 95% 内部分析——agent 的规模化和可靠性正在成为真正的挑战。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2062329981548802523",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) apologizes: over the last 24 hours there were three separate small incidents affecting Codex reliability. 'Those are three too many.' He reset usage limits for Codex across all paid plans. 'May the tokens flow again.' 8735 likes.",
+              "This is notable both for the customer-friendly response and as a signal that agent infrastructure at scale is genuinely hard engineering."
+            ],
+            "original": [
+              "Hi. Over the last 24 hours we had three separate small incidents that affected Codex reliability. Those are three too many and we are taking active steps for them to not reproduce. I have reset usage limits for Codex across all paid plans. May the tokens flow again."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 道歉说，过去 24 小时内发生了三起影响 Codex 可靠性的小事故。「三次太多了。」他重置了所有付费计划的 Codex 使用限额。「让 token 再次流动起来。」8735 赞。",
+              "这既展示了以用户为先的态度，也说明 agent 基础设施的大规模运维是真正的工程难题。"
+            ],
+            "original": [
+              "OpenAI 因 24 小时内三次事故重置所有付费计划 Codex 限额。8735 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:_catwu",
+          "sourceUrl": "https://x.com/_catwu/status/2062408623565984209",
+          "en": {
+            "rewrite": [
+              "Cat Wu from Anthropic shares how their data team has automated 95% of business analytics queries with Claude. The blog post covers their approach to evals, ablations, and online validation. 280 likes.",
+              "This is a concrete data point for the 'AI eating internal operations' narrative—one of the most AI-forward companies using their own model to automate their own analytics."
+            ],
+            "original": [
+              "Excited to share how Anthropic's data team has automated 95% of business analytics queries with Claude. Blog post covers how we approach evals, ablations, and online validation!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 的 Cat Wu 分享了他们的数据团队如何用 Claude 自动化了 95% 的业务分析查询。博客涵盖了他们在 evals、ablations 和线上验证方面的方法。280 赞。",
+              "这是「AI 吃掉内部运营」叙事的一个具体数据点——最前沿的 AI 公司之一用自家模型自动化自己的分析工作。"
+            ],
+            "original": [
+              "Anthropic 数据团队用 Claude 自动化 95% 业务分析。280 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "New Products & Experiments / 新产品与实验",
+      "desc": "Google Labs 的 Dreambeans、Rauchg 在业务数据上生成前端、Cursor 招设计工程师。",
+      "cards": [
+        {
+          "authorKey": "x:GoogleLabs",
+          "sourceUrl": "https://x.com/GoogleLabs/status/2062206479026069544",
+          "en": {
+            "rewrite": [
+              "Google Labs launches Dreambeans: an experimental mobile app that uses Personal Intelligence to connect to your Google apps. Every day it delivers collections of personalized stories—surfacing things you might otherwise miss alongside topics relevant to you. The pitch: 'Hope scrolling, not doom scrolling.'",
+              "Available for eligible US-based Google AI Ultra users (18+). Josh Woodward notes it came from a small Google Labs team's idea to make an app that connects you with what matters without the endless scroll. 1057 likes."
+            ],
+            "original": [
+              "Dreambeans is a new, experimental mobile app that uses Personal Intelligence to connect to your Google apps. Every day, it delivers collections of personalized stories, surfacing things you might otherwise miss.",
+              "Hope scrolling, not doom scrolling."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Google Labs 推出 Dreambeans：一个实验性移动 app，用 Personal Intelligence 连接你的 Google 应用。每天推送个性化故事合集——浮现你可能错过的事物和相关话题。宣传语：「Hope scrolling, not doom scrolling。」",
+              "面向合格的美国 Google AI Ultra 用户（18+）。Josh Woodward 说这是 Google Labs 一个小团队的想法——做一个让你和重要事物连接但没有无尽滚动的 app。1057 赞。"
+            ],
+            "original": [
+              "Google Labs 推出 Dreambeans：个性化故事推送，「希望浏览不是末日浏览」。1057 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2062199585322529108",
+          "en": {
+            "rewrite": [
+              "Rauchg says generating frontends on top of business data is one of the killer apps of coding AI. Vercel already ran on Snowflake, but with v0 and Next.js, they're now getting 1000x the value. The genie is out of the bottle—never going back to clunky and rigid dashboards. 268 likes."
+            ],
+            "original": [
+              "Generating frontends on top of your business data is one of the killer apps of coding AI. The genie is out of the bottle. Never going back to clunky and rigid dashboards. Vercel already ran on Snowflake. But with v0 and Next.js, we're now getting 1000x the value."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 说在业务数据上生成前端是 coding AI 的杀手级应用之一。Vercel 本来就跑在 Snowflake 上，但加上 v0 和 Next.js，价值翻了 1000 倍。精灵出瓶了——再也不会回到笨重死板的 dashboard。268 赞。"
+            ],
+            "original": [
+              "Rauchg：在业务数据上生成前端是 coding AI 杀手级应用。Vercel + Snowflake + v0 + Next.js = 1000x 价值。268 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:ryolu_",
+          "sourceUrl": "https://x.com/ryolu_/status/2062352329903665471",
+          "en": {
+            "rewrite": [
+              "Cursor is hiring design engineers: looking for people with taste, systems thinking, and deep care for fast, polished experiences—especially folks excited to build tools that help designers, engineers, and agents ship quality code. 1012 likes.",
+              "This job description itself is a signal: the role of design engineer is becoming one of the most sought-after hybrid roles in the AI era."
+            ],
+            "original": [
+              "Cursor is hiring design engineers. Looking for people with taste, systems thinking, and deep care for fast, polished experiences – especially folks excited to build the tools that help designers, engineers, and agents ship quality code."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cursor 招设计工程师：寻找有品味、系统思维、深度关心快速精致体验的人——特别是那些兴奋于构建帮助设计师、工程师和 agent 交付高质量代码的工具的人。1012 赞。",
+              "这个 JD 本身就是一个信号：设计工程师正在成为 AI 时代最抢手的混合角色之一。"
+            ],
+            "original": [
+              "Cursor 招设计工程师：要有品味、系统思维、关心精致体验。帮设计师、工程师和 agent ship 代码。1012 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Jobs, Token Economics & the Data / 岗位、Token 经济与数据",
+      "desc": "Levie 用实际数据继续反驳 AI 消灭岗位的悲观预测。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2062335852379066698",
+          "en": {
+            "rewrite": [
+              "Levie continues his jobs crusade with fresh data. Take engineering as the prime example: most companies now have far more software projects than ever before because of AI, and only engineers can understand what got built, maintain it, fix security issues, upgrade systems.",
+              "Apply that to other functions: AI causes companies to hire more in sales because agents let them process more leads. AI causes an explosion of marketing roles because of how much more efficient it is to launch campaigns. AI will have the opposite effect on jobs that lots of people thought. 358 likes."
+            ],
+            "original": [
+              "Most companies now have far more software projects than ever before because of AI, and effectively only engineers are going to be the ones doing that work.",
+              "AI is going to cause companies to hire more in sales because agents can let them process more leads and do more customer research. AI will cause an explosion of new marketing roles. AI is going to have the opposite effect that lots of people thought on jobs."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 用最新数据继续推进岗位讨论。以工程为例：大多数公司现在因为 AI 有了比以往更多的软件项目，而只有工程师能理解构建出来的东西、维护它、修复安全问题、升级系统。",
+              "推广到其他职能：AI 会让公司招更多销售，因为 agent 能处理更多线索。AI 会引爆营销岗位，因为发起 campaign 的效率大幅提升。AI 对岗位的影响会和很多人想的完全相反。358 赞。"
+            ],
+            "original": [
+              "Levie：公司因 AI 有更多软件项目，只有工程师能做。AI 让销售和营销岗位增长。对岗位影响和悲观预测相反。358 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2062280745889222937",
+          "en": {
+            "rewrite": [
+              "Levie on token economics: even with employer caps, spend on AI tokens dramatically exceeds any other historical spend on software. Companies would typically spend $10-50 for a software license per month per employee, but now pay hundreds or thousands on tokens.",
+              "This shows how big the TAM for intelligence is in the enterprise. AI markets will dramatically expand the size of traditional software markets over time. 219 likes."
+            ],
+            "original": [
+              "Even with employer caps, the spend on AI tokens dramatically exceeds any other historical spend on software. Companies maybe would spend on the order of $10-50 for a software license per month per employee, but now will pay hundreds or thousands on tokens.",
+              "This shows you how big the TAM for intelligence is in the enterprise."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 谈 token 经济：即使有雇主限额，AI token 支出也大幅超过历史上任何软件支出。公司以前可能每个员工每月花 $10-50 的软件许可费，现在花几百上千的 token 费。",
+              "这说明企业智能市场的 TAM 有多大。AI 市场将随时间大幅扩大传统软件市场的规模。219 赞。"
+            ],
+            "original": [
+              "Levie：token 支出远超传统软件许可费。以前 $10-50/月/人，现在几百上千。AI 市场 TAM 巨大。219 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
