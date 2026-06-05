@@ -1,0 +1,252 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-05",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批数据密度极高。Anthropic 的 Alex Albert 发布了内部数据：超过 80% 合入 Anthropic 代码库的代码是 Claude 写的，典型工程师 ship 代码量是 2024 年的 8 倍，2294 赞。Sam Altman 宣布 ChatGPT 现在可以直接构建和发布 web app，同时推出大幅升级的记忆功能。OpenAI 还发布了 Codex Python SDK——你可以用 pip install openai-codex 把 agent 嵌入自己的程序。Nikunj 做了一个「Nock」skill：用 200+ 真实 pitch 会议记录训练的 AI 版自己。Peter Yang 给了一个非常实用的 3 步法来把任何知识工作流程自动化。"
+  },
+  "archive": {
+    "title": "代码自主化日报",
+    "desc": "Anthropic 80% 代码由 Claude 写、ChatGPT 可直接发布 web app、Codex Python SDK 发布、Nikunj 的 AI 版 VC 上线。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-05 source feeds.",
+  "sections": [
+    {
+      "title": "Claude Writes 80% of Anthropic's Code / Claude 写了 Anthropic 80% 的代码",
+      "desc": "Anthropic 发布内部数据，展示 AI 在自家开发中的深度参与——这不再是对未来的预测，而是已经发生的事实。",
+      "cards": [
+        {
+          "authorKey": "x:alexalbert__",
+          "sourceUrl": "https://x.com/alexalbert__/status/2062580571214389510",
+          "en": {
+            "rewrite": [
+              "Alex Albert (Anthropic) publishes internal data on how much of Claude's development is already done by Claude: over 80% of all code merged is written by Claude. It's been months since many researchers hand-wrote code. The typical engineer ships 8x as much code as in 2024.",
+              "On the most open-ended engineering tasks, Claude's success rate jumped from ~26% to 76% in 6 months. When research sessions went off-track, Claude proposed a better next step than the human 64% of the time. 'We're not at recursive self-improvement yet, but it could come sooner than most expect.' 2294 likes."
+            ],
+            "original": [
+              "Over 80% of all code merged into our codebase is now written by Claude. It's been months since many researchers at Anthropic hand-wrote code. The typical Anthropic engineer ships 8x as much code as they did in 2024.",
+              "On the most open-ended engineering tasks, Claude's success rate jumped from ~26% to 76% in 6 months. When research sessions went off-track, Claude proposed a better next step than the human took 64% of the time.",
+              "We're not at recursive self-improvement yet, but it could come sooner than most expect."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 的 Alex Albert 发布了内部数据：超过 80% 合入代码库的代码是 Claude 写的。很多研究员已经好几个月没手写过代码了。典型工程师的代码产出量是 2024 年的 8 倍。",
+              "在最开放式的工程任务上，Claude 的成功率在 6 个月内从约 26% 跳到 76%。当研究会话偏离方向时，Claude 提出的下一步建议有 64% 的时间比人更好。「我们还没到递归自我改进，但可能比大多数人预期的来得更早。」2294 赞。"
+            ],
+            "original": [
+              "Anthropic 80% 代码由 Claude 写。研究员数月未手写代码。工程师产出 8 倍于 2024。",
+              "开放式任务成功率 6 个月从 26% 到 76%。偏轨时 64% 提出比人更好的下一步。2294 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2062728257359790292",
+          "en": {
+            "rewrite": [
+              "Levie highlights a key paragraph from Anthropic's post: 'There has been an explosion of new ideas, initiatives, tools, and simulations as a result of employees working with highly capable models—far more than we have the capacity to pursue.'",
+              "His interpretation: AI dramatically lowers the barrier to doing more. We have far more ideas than we can pursue, and for the ones we want to pursue, we're ultimately limited by the surrounding work to execute. There's almost no amount of AI progress where that goes away. AI lets us build more software, launch more campaigns, research more drugs—all still requiring people to manage. 195 likes."
+            ],
+            "original": [
+              "There has been an explosion of new ideas, initiatives, tools, and simulations, as a result of Anthropic employees working with highly capable models—far more than we have the capacity to pursue.",
+              "AI lowers the barrier dramatically to allowing us to do more. There's almost no amount of AI progress that can happen where that goes away."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 引用 Anthropic 文章的核心段落：「因为员工和强大模型的协作，新想法、新项目、新工具和新模拟大量爆发——远远超过我们能着手做的数量。」",
+              "他的解读是：AI 大幅降低了做更多事的门槛。我们有太多的想法，真正受限的是执行这些想法的周边工作。几乎没有任何程度的 AI 进步能让这个问题消失。AI 让我们建更多软件、发更多 campaign、研究更多药——但所有这些仍然需要人来管理。195 赞。"
+            ],
+            "original": [
+              "Levie 引用：AI 让想法爆发但超出执行力。AI 降低门槛但执行仍需人。195 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "ChatGPT Builds Apps & Codex Gets a SDK / ChatGPT 建 App 和 Codex 出 SDK",
+      "desc": "Sam Altman 宣布 ChatGPT 可以直接构建发布 web app，OpenAI 同时发布了 Codex Python SDK。",
+      "cards": [
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2062661071761211561",
+          "en": {
+            "rewrite": [
+              "Sam Altman announces: build and publish web apps with ChatGPT. His personal note: 'I really wish I had this when I was a kid, but I do miss HyperCard.' 1997 likes.",
+              "This is a significant productization milestone—ChatGPT is now a full app building and publishing platform, not just a chat interface."
+            ],
+            "original": [
+              "Build and publish web apps with ChatGPT! I really wish I had this when I was a kid, but I do miss HyperCard."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 宣布：用 ChatGPT 构建和发布 web app。他个人说：「我真希望小时候有这个，不过我确实想念 HyperCard。」1997 赞。",
+              "这是一个重要的产品化里程碑——ChatGPT 现在是一个完整的 app 构建和发布平台，不只是聊天界面。"
+            ],
+            "original": [
+              "Altman 宣布 ChatGPT 可建和发 web app。想念 HyperCard。1997 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2062660086787613116",
+          "en": {
+            "rewrite": [
+              "Sam Altman also announces a big upgrade to ChatGPT memory rolling out today. 3765 likes—the second highest engagement of the day."
+            ],
+            "original": [
+              "Big upgrade to chatgpt memory rolling out today!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 同时宣布 ChatGPT 记忆功能大幅升级，今天开始推出。3765 赞——今天第二高互动。"
+            ],
+            "original": [
+              "ChatGPT 记忆大幅升级。3765 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2062734215494664697",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux announces the Codex Python SDK: you can now use Codex within your own programs. pip install openai-codex. Built by Ah20im and friends. 1164 likes.",
+              "This means Codex is now embeddable as a library—not just a standalone tool, but a programmatic agent inside any Python application."
+            ],
+            "original": [
+              "You can use codex within your own programs using the Python SDK. It's awesome. Built by @ah20im and friends. pip install openai-codex."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thibault Sottiaux 宣布 Codex Python SDK：你现在可以在自己的程序里用 Codex 了。pip install openai-codex。1164 赞。",
+              "这意味着 Codex 现在可以作为库嵌入——不只是独立工具，而是任何 Python 应用里的可编程 agent。"
+            ],
+            "original": [
+              "Codex Python SDK 发布。pip install openai-codex。1164 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Knowledge Work Automation & the AI Nock / 知识工作自动化与 AI Nock",
+      "desc": "Peter Yang 的 3 步自动化法、Nikunj 的 AI 版 VC、Dan Shipper 的 Spiral 4.0。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2062740262338929110",
+          "en": {
+            "rewrite": [
+              "Peter Yang spent a whole day setting up integrations and skills in Codex for his top creator workflows. His conclusion: you can save at least 50% of your time on any type of knowledge work if you set up the system upfront.",
+              "His 3-step method: 1) Reflect on your past week—what took the most time, what was most repetitive. 2) List every single step of that workflow in detail. 3) Paste it into Codex/Claude Code and ask 'What integrations and skills can I build to streamline this?'",
+              "He notes all his workflows have human checkpoints along the way so he can apply his 'taste.' 98 likes."
+            ],
+            "original": [
+              "I spent the whole day today setting up integrations and skills in Codex. Now I'm convinced that you can save at least 50% of your time on any type of knowledge work if you just set up the system upfront.",
+              "1. Reflect on your past week: what work did you spend the most time on? What was most repetitive? 2. List out every single step. 3. Open Codex and ask 'What integrations and skills can I build to streamline this?'"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 花了一整天在 Codex 里给自己的核心创作者工作流搭 integrations 和 skills。结论：只要提前搭好系统，任何类型的知识工作都能省至少 50% 的时间。",
+              "他的 3 步法：1) 回顾过去一周——什么花了最多时间，什么最重复。2) 逐步列出那个工作流的每一步，越详细越好。3) 把列表贴到 Codex/Claude Code 里，问「我能搭什么 integrations 和 skills 来简化这个？」",
+              "他强调所有工作流都设了人工检查点，这样他可以施加自己的「品味」。98 赞。"
+            ],
+            "original": [
+              "Peter Yang 3 步法：回顾一周、列每一步、问 Codex 能搭什么。可省 50% 时间。98 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2062659649732825549",
+          "en": {
+            "rewrite": [
+              "Nikunj Kothari built 'Nock'—an AI skill that replicates his VC evaluation style. He pulled 200+ 1:1 founder pitch meeting notes captured by Granola, distilled down to ~53 high-debate meetings, added his essays about founders he loves, and used Claude Code to build a skill with principles and a question bank grounded in real conversations.",
+              "He refined it over 5-10 actual decks, comparing the skill's output against real conversations. Now founders can try it at nikunjk.com/nock, and VCs can build their own at nikunjk.com/buildnock. 60 likes."
+            ],
+            "original": [
+              "I used Claude Code to pull >200 1:1 founder pitch meeting notes captured by Granola. Distilled to ~53 meetings with good debate. Added my essays about founders I love. Built a skill called 'Nock' with principles and a question bank grounded in real conversations.",
+              "If you are a founder raising and want to see what I would think about your deck, try this: nikunjk.com/nock. If you are a VC who wants to build your own Nock: nikunjk.com/buildnock."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj Kothari 做了一个「Nock」skill——用 AI 复刻他作为 VC 的评估风格。他用 Granola 捕获的 200 多场 1:1 pitch 会议记录，精炼到约 53 场高质量辩论会议，加上他写的关于喜欢的创始人的文章，用 Claude Code 构建了一个基于真实对话的原则和问题库。",
+              "他在 5-10 个真实 deck 上迭代验证，把 skill 输出和真实对话对比。现在创始人可以在 nikunjk.com/nock 试用，VC 可以在 nikunjk.com/buildnock 构建自己的版本。60 赞。"
+            ],
+            "original": [
+              "Nikunj 用 200+ pitch 会议记录 + 文章 + Claude Code 建了「Nock」skill 复刻 VC 风格。创始人可试用，VC 可建自己的。60 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:danshipper",
+          "sourceUrl": "https://x.com/danshipper/status/2062628079869005876",
+          "en": {
+            "rewrite": [
+              "Dan Shipper launches Spiral 4.0—a writing partner for you and your agent. Key features: a new Style Engine based on stylometry to extract your brand's voice from past work, and MCP/CLI support so agents like Codex, Claude Code, and OpenClaw can use it automatically.",
+              "Used internally at Every (30-person team) to write landing pages, tweets, podcasts, marketing emails—all on-brand. 222 likes."
+            ],
+            "original": [
+              "Spiral 4.0—a writing partner for you and your agent. Stylometry: new Style Engine to extract you and your brand's voice. MCP and CLI: built to be used by your agent like Codex, Claude Code, OpenClaw."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 发布 Spiral 4.0——为你和你的 agent 设计的写作伙伴。核心功能：基于计量文体学的新 Style Engine，从你过去的作品中提取你和品牌的声音；MCP/CLI 支持，让 Codex、Claude Code、OpenClaw 等 agent 自动调用。",
+              "Every（30 人团队）内部每天用它写 landing page、推文、播客、营销邮件——全部保持品牌一致。222 赞。"
+            ],
+            "original": [
+              "Dan Shipper 发布 Spiral 4.0：Style Engine 提取品牌声音 + MCP/CLI 让 agent 自动调用。Every 内部每天用。222 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "RL, Discoveries & the Frontier / 强化学习、科学发现与前沿",
+      "desc": "Matt Turck 专访 OpenAI 的 Dan Roberts，谈为什么 AI 现在能做出科学发现了。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad",
+          "authorName": "The MAD Podcast",
+          "authorTag": "Matt Turck 主导的 AI/数据行业播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=oWOz2htozfI",
+          "en": {
+            "rewrite": [
+              "Matt Turck interviews Dan Roberts, Lead of the Foundations of Reinforcement Learning team at OpenAI: Why AI Can Now Make Discoveries. Topics include the AI math moment (Erdős, OpenAI, DeepMind, Anthropic all hitting milestones), why the OpenAI result was an act of exploration, informal reasoning vs formal proof approaches, and why RL may now be 'the cake, not the cherry on top.'",
+              "Other highlights: why RL started working with large language models, test-time compute explained, verifiable rewards in math and coding vs the messy real world, and whether AI is already doing original science."
+            ],
+            "original": [
+              "Why AI Can Now Make Discoveries - my conversation with Dan Roberts, Lead of the Foundations of Reinforcement Learning team at OpenAI.",
+              "Topics: What OpenAI's Foundations of RL team does, the AI math moment, OpenAI vs DeepMind informal reasoning vs formal proof, RL 101, why RL may now be 'the cake, not the cherry on top', test-time compute, verifiable rewards, and whether AI is already doing original science."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck 专访 OpenAI 强化学习基础团队负责人 Dan Roberts：为什么 AI 现在能做出科学发现了。话题涵盖 AI 数学期（Erdős、OpenAI、DeepMind、Anthropic 全部命中里程碑）、为什么 OpenAI 的结果是探索行为、非形式推理 vs 形式证明、以及为什么 RL 现在可能是「蛋糕本身，而不是蛋糕上的樱桃」。",
+              "其他亮点：RL 为什么在大语言模型上开始 work、test-time compute 详解、数学和编程中的可验证奖励 vs 真实世界的混乱、以及 AI 是否已经在做原创科学。"
+            ],
+            "original": [
+              "MAD Podcast 专访 OpenAI Dan Roberts 谈 AI 科学发现。RL 是蛋糕不是樱桃。test-time compute。可验证奖励。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
