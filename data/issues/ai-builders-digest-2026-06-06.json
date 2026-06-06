@@ -1,0 +1,266 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-06",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天最大的新闻来自 Anthropic：Claude Cowork 使用限额直接翻倍，8810 赞。Ben Cherny 说 Cowork 最好用的场景是那些对聊天来说太大的工作——跨几十个账户的研究、定期报告、收件箱分类和回复起草。同时 Thibault Sottiaux 观察到一个有趣的现象：「Codex 小问题在减少，使用量在上升」——产品成熟的一个信号。Levie 从另一个角度说：编程已经是 AI 最容易自动化的领域了，但工程师需求仍然很高——这对其他知识工作是好消息。Rauchg 发布了 Skills API——「把它想象成 agent 能力的 npm registry」。Peter Yang 给了一个 5 步法来构建能自我检查和持续改进的 AI skills。"
+  },
+  "archive": {
+    "title": "Cowork 翻倍日报",
+    "desc": "Anthropic 翻倍 Cowork 限额、Vercel 发布 Skills API、Peter Yang 的 AI skill 5 步构建法、Levie 论证即使编程领域工程师仍然紧缺。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-06 source feeds.",
+  "sections": [
+    {
+      "title": "Claude Cowork Doubles Limits / Claude Cowork 限额翻倍",
+      "desc": "Anthropic 做了一个简单但影响深远的决定：直接翻倍 Cowork 的使用限额。",
+      "cards": [
+        {
+          "authorKey": "x:claudeai",
+          "sourceUrl": "https://x.com/claudeai/status/2063018337567670285",
+          "en": {
+            "rewrite": [
+              "Anthropic doubles Claude Cowork usage limits for the next month. Delegate bigger, more complex tasks to Claude. 8810 likes—the highest engagement tweet of the day by far.",
+              "This is a competitive move against OpenAI's Codex, coming right after OpenAI's own reliability issues and limit resets earlier in the week."
+            ],
+            "original": [
+              "We've doubled usage limits in Claude Cowork for the next month. Delegate bigger, more complex tasks to Claude."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 将 Claude Cowork 的使用限额直接翻倍，持续一个月。把更大更复杂的任务交给 Claude。8810 赞——今天遥遥领先的最高互动推文。",
+              "这是对 OpenAI Codex 的竞争性举措，紧随本周早些时候 OpenAI 的可靠性问题和限额重置之后。"
+            ],
+            "original": [
+              "Anthropic 翻倍 Cowork 限额一个月。8810 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:bcherny",
+          "sourceUrl": "https://x.com/bcherny/status/2063028956211867837",
+          "en": {
+            "rewrite": [
+              "Ben Cherny (Anthropic) describes where Cowork shines: work that's too big for a chat—research across dozens of accounts, recurring reports, triaging inbox and drafting replies. 'If you've been curious, this is a good month to find out what it can take off your plate.' 127 likes."
+            ],
+            "original": [
+              "Cowork is at its best on work that's too big for a chat: research across dozens of accounts, recurring reports, triaging my inbox and drafting replies. If you've been curious, this is a good month to find out what it can take off your plate."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 的 Ben Cherny 描述了 Cowork 最好用的场景：那些对聊天来说太大的工作——跨几十个账户的研究、定期报告、收件箱分类和回复起草。「如果你一直好奇，这个月是发现它能帮你卸下多少工作的好时机。」127 赞。"
+            ],
+            "original": [
+              "Cherny 说 Cowork 最适合大于聊天的任务：跨账户研究、定期报告、收件箱分类。127 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2062888227046150253",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) observes a product maturity signal: Codex papercuts going down while adoption goes up. 976 likes.",
+              "He also notes that better memory = shorter prompts = more utility per token. 1675 likes—a concise articulation of why memory improvements compound."
+            ],
+            "original": [
+              "Codex papercuts 📉 Codex adoption 📈",
+              "Better memory = Shorter prompts = More utility per token"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 观察到一个产品成熟的信号：Codex 小问题在减少，使用量在上升。976 赞。",
+              "他还指出：更好的记忆 = 更短的 prompt = 每个 token 更多效用。1675 赞——对记忆改进为何产生复利效应的精炼表述。"
+            ],
+            "original": [
+              "Sottiaux：Codex 小问题减少使用量上升。更好记忆=更短 prompt=更多 token 效用。1675 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Skills API & Agent Infrastructure / Skills API 与 Agent 基础设施",
+      "desc": "Vercel 推出 Skills API、agent 文件系统解耦、Cursor 的 Composer 2.5 让代码内设计更简单。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2062951924677128455",
+          "en": {
+            "rewrite": [
+              "Rauchg launches the Skills API: use it to make all your agents and platforms smarter. Think of it as the npm registry for agent capabilities and extensibility. Free and open. 322 likes.",
+              "This is a significant infrastructure play—if skills become the modularity unit for agents, the registry that hosts them becomes a strategic platform layer."
+            ],
+            "original": [
+              "Use the Skills API to make all your agents and platforms smarter. Think of it as the npm registry for agent capabilities and extensibility. Free and open."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 发布 Skills API：用它让你所有的 agent 和平台更智能。「把它想象成 agent 能力和可扩展性的 npm registry。免费且开放。」322 赞。",
+              "这是一个重要的基础设施动作——如果 skills 成为 agent 的模块化单元，托管它们的 registry 就变成了一个战略性平台层。"
+            ],
+            "original": [
+              "Rauchg 发布 Skills API——agent 能力的 npm registry。免费开放。322 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2063009510503932181",
+          "en": {
+            "rewrite": [
+              "Rauchg announces agent filesystem state can now be read, written and mounted independently of Sandbox lifecycle. A novel virtual storage infrastructure for all compute products—storage that's decoupled but attachable to Builds, Functions, Sandboxes and more. 172 likes."
+            ],
+            "original": [
+              "Agent filesystem state can now be read, written and mounted independently of Sandbox lifecycle. We've been developing a novel virtual storage infrastructure solution for all our compute products. Storage that's decoupled, but attachable to Builds, Functions, Sandboxes & more."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 宣布 agent 文件系统状态现在可以独立于 Sandbox 生命周期进行读写和挂载。一个新的虚拟存储基础设施，适用于所有计算产品——存储是解耦的，但可以挂载到 Builds、Functions、Sandboxes 等。172 赞。"
+            ],
+            "original": [
+              "Rauchg：agent 文件系统可独立于 Sandbox 读写挂载。虚拟存储解耦但可附加。172 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:ryolu_",
+          "sourceUrl": "https://x.com/ryolu_/status/2063038983408615435",
+          "en": {
+            "rewrite": [
+              "Cursor's Ryan Lu shows designing in code is now as easy as click, chat, hold shift to multi-select. Works best with Composer 2.5. 288 likes.",
+              "This is the 'yes-code' vision in practice: code isn't just for engineers anymore, it's becoming the medium for design itself."
+            ],
+            "original": [
+              "Designing in code is now as easy as: click, chat, hold shift to multi-select. Works best with Composer 2.5."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cursor 的 Ryan Lu 展示了代码内设计现在有多简单：点击、聊天、按住 shift 多选。最好配合 Composer 2.5 使用。288 赞。",
+              "这就是「yes-code」愿景的实践：代码不再只是给工程师的，它正在变成设计本身的媒介。"
+            ],
+            "original": [
+              "Cursor：代码内设计只需点击聊天多选。配合 Composer 2.5。288 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Building Self-Improving AI Skills / 构建自我改进的 AI Skills",
+      "desc": "Peter Yang 给了一个非常实用的 5 步法来构建能自我检查和持续改进的 AI skills。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2062899832965255443",
+          "en": {
+            "rewrite": [
+              "Peter Yang's 5-step guide to building AI skills that check their own work and improve over time: 1) Give it context—provide examples of good output. 2) Make it easy to trigger—write a clear skill description. 3) Add evals—create an evals md with 10 pass/fail checks. 4) Add memory—create a memory md to capture learnings from past chats. 5) Build a skill to edit skills—create a meta-skill that cleans up other skills by removing duplicates, stale instructions, and AI slop.",
+              "This is one of the most practical and actionable guides for the skill-building era. 154 likes."
+            ],
+            "original": [
+              "How to build AI skills that check their own work and improve over time:",
+              "1. Give it context. Ask AI: 'Create a skill for this [repeated task]. Here are examples of good output.'",
+              "2. Make it easy to trigger. 'Write a clear skill description using this pattern: Use when the user wants to [do this].'",
+              "3. Add evals. 'Create an evals md with 10 pass/fail checks for common errors.'",
+              "4. Add memory. 'Create a memory md to capture one-sentence learnings from past chats using this skill.'",
+              "5. Build a skill to edit skills. 'Create a skill that cleans up other skills by removing duplicate or stale instructions, vague rules, and AI slop.'"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 的构建自我改进 AI skills 的 5 步指南：1) 给它上下文——提供好输出的例子。2) 让它容易触发——写一个清晰的 skill 描述。3) 加 evals——创建一个 10 条 pass/fail 检查的 evals md。4) 加记忆——创建一个 memory md 捕获过去聊天中的经验。5) 建一个编辑 skill 的 skill——创建一个 meta-skill 清理其他 skill 的重复、过时指令和 AI slop。",
+              "这是 skill 构建时代最实用、最可操作的指南之一。154 赞。"
+            ],
+            "original": [
+              "Peter Yang 5 步法：给上下文、容易触发、加 evals、加记忆、建编辑 skill 的 skill。154 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2063082950317486133",
+          "en": {
+            "rewrite": [
+              "Swyx offers a smarter alternative to 'always use plan mode': always frame your task as a question, so the model is invited to push back and rate the quality of the idea, suggest alternatives, rather than blindly execute what you said to do (which is often not precisely what you meant). Literally just appending '?' to the end of your prompt often does it. 119 likes.",
+              "This is a simple but powerful prompt engineering insight: the difference between a command and a question is the difference between execution and deliberation."
+            ],
+            "original": [
+              "A smarter alternative to 'always use plan mode': always frame your task as a question, so that the model is invited to push back and rate the quality of the idea/suggest alternatives, rather than blindly execute what you SAID to do (which is often not precisely what you MEANT). Literally just appending '?' to the end of your prompt often does it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 给出了一个比「总是用 plan mode」更聪明的替代方案：总是把你的任务表述成一个问题，这样模型就会被引导去推回、评估想法的质量、建议替代方案，而不是盲目执行你说的（通常和你真正想的不完全一样）。字面上只需要在 prompt 末尾加一个「?」就行。119 赞。",
+              "这是一个简单但强大的 prompt engineering 洞察：命令和问题之间的区别就是执行和审议之间的区别。"
+            ],
+            "original": [
+              "Swyx：把任务表述成问题让模型推回。prompt 末尾加「?」就行。119 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Why Engineers Aren't Going Away / 为什么工程师不会消失",
+      "desc": "Levie 用一个非常清晰的逻辑链论证：如果编程都还需要大量工程师，其他知识工作更不用慌。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2063055332545540096",
+          "en": {
+            "rewrite": [
+              "Levie makes a crystal-clear argument: coding is basically the pinnacle of what you could reasonably automate with AI—the models are trained on massive code, users are highly technical, the work is verifiable (you can test an app), context is already digitized in the codebase. And yet, we still need human engineers to oversee agents.",
+              "His conclusion: if with all those advantages, engineers remain in very high demand, the risks are going to be less than perceived for other areas of knowledge work where data isn't as digitized and work isn't as easily verifiable. Agents let people do far more than before, but the people don't go away. 283 likes."
+            ],
+            "original": [
+              "Coding is basically the pinnacle of what you could reasonably automate with AI, and yet we still need human engineers to oversee agents for them to be effective.",
+              "So if with all of that, engineers still remain in very high demand, the risks are going to be less than what's perceived for other areas of knowledge work. Agents will let people do far more than they did before, but the people don't go away."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 给出了一个极其清晰的论证：编程基本上是 AI 能合理自动化的巅峰——模型用海量代码训练，用户技术能力强，工作是可验证的（你可以测试 app），上下文已经数字化在代码库里。然而，我们仍然需要人类工程师来监督 agent。",
+              "他的结论：如果在拥有所有这些优势的情况下，工程师仍然供不应求，那么其他数据没那么数字化、工作没那么容易验证的知识工作领域，风险比人们感知的要小。Agent 让人做到远超从前的事，但人不会消失。283 赞。"
+            ],
+            "original": [
+              "Levie：编程是 AI 自动化的巅峰但工程师仍紧缺。其他知识工作风险更小。Agent 让人做得更多但人不消失。283 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:mattturck",
+          "sourceUrl": "https://x.com/mattturck/status/2063035894790345200",
+          "en": {
+            "rewrite": [
+              "Matt Turck's satirical follow-up to the VC meme cycle: 'Bad stories about VCs are spreading on X right now, but VCs have horror stories about founders too. Like that one time a founder took another term sheet with a higher valuation despite our obvious ability to add value, thought leadership and vendor discounts.' 907 likes."
+            ],
+            "original": [
+              "Ok bad stories about VCs are spreading on X right now, but VCs have horror stories about founders too. Like, that one time when a founder decided to take another term sheet with a higher valuation despite our obvious ability to add value, thought leadership and vendor discounts."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck 的讽刺续集呼应 VC 梗图周期：「X 上正在传 VC 的坏故事，但 VC 也有创始人的恐怖故事。比如有一次，一个创始人明明知道我们能带来价值、思想领导力和供应商折扣，还是拿了另一家更高估值的 term sheet。」907 赞。"
+            ],
+            "original": [
+              "Turck 讽刺：VC 也有创始人恐怖故事。拿了更高估值 term sheet。907 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
