@@ -66,9 +66,9 @@ git_authenticated_pull_rebase_main() {
     -c credential.helper= \
     -c core.askPass= \
     -c credential.interactive=never \
-    fetch "${auth_remote}" main
+    fetch "${auth_remote}" main:refs/remotes/origin/main
 
-  git -C "${REPO_ROOT}" rebase FETCH_HEAD
+  git -C "${REPO_ROOT}" rebase origin/main
 }
 
 git_authenticated_push_main() {
