@@ -6,6 +6,7 @@ export TZ="${TZ:-Asia/Shanghai}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+. "${SCRIPT_DIR}/github-auth-helper.sh"
 DATE="${NEWSLETTER_DATE:-$(date +%Y-%m-%d)}"
 DATA_ISSUES_DIR="${REPO_ROOT}/data/issues"
 JSON_PATH="${DATA_ISSUES_DIR}/ai-builders-digest-${DATE}.json"
@@ -38,7 +39,7 @@ if [[ -n "$(git -C "${REPO_ROOT}" status --porcelain)" ]]; then
 fi
 
 if [[ "${SKIP_GIT_PULL:-0}" != "1" ]]; then
-  if ! git -C "${REPO_ROOT}" pull --rebase origin main; then
+  if ! git_authenticated_pull_rebase_main; then
     if [[ "${ALLOW_GIT_PULL_FAILURE}" == "1" ]]; then
       echo "git pull failed; continuing with the current local main checkout." >&2
     else
@@ -86,7 +87,7 @@ EOF
 )"
 
 if [[ "${SKIP_PUSH:-0}" != "1" ]]; then
-  git -C "${REPO_ROOT}" push origin main
+  git_authenticated_push_main
 fi
 
 echo "Published daily newsletter for ${DATE}"

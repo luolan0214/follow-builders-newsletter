@@ -6,6 +6,7 @@ export TZ="${TZ:-Asia/Shanghai}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+. "${SCRIPT_DIR}/github-auth-helper.sh"
 PUBLISH_SCRIPT="${REPO_ROOT}/scripts/publish-daily-newsletter.sh"
 LOCK_DIR="${TMPDIR:-/tmp}/follow-builders-newsletter.lock"
 LOOKBACK_DAYS="${PUBLISH_LOOKBACK_DAYS:-2}"
@@ -99,7 +100,7 @@ sync_pending_push() {
   ensure_clean_worktree "syncing pending commits"
 
   if [[ "${SKIP_GIT_PULL:-0}" != "1" ]]; then
-    if ! git -C "${REPO_ROOT}" pull --rebase origin main; then
+    if ! git_authenticated_pull_rebase_main; then
       if [[ "${ALLOW_GIT_PULL_FAILURE}" == "1" ]]; then
         log "git pull failed while syncing pending commits; will still try to push current local main."
       else
@@ -108,7 +109,7 @@ sync_pending_push() {
     fi
   fi
 
-  git -C "${REPO_ROOT}" push origin main
+  git_authenticated_push_main
 }
 
 emit_candidate_dates() {
