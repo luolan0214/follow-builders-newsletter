@@ -1,0 +1,202 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-07",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天是周六，内容偏轻量但有几条很值得看。Levie 写了一篇关于 token 成本和 model routing 的长文，404 赞——他说 token 成本成为企业最热话题之一，意味着 AI 正在以前所未有的规模被使用。RealMadhuGuru 补充了企业 model routing 的三阶段演进。Swyx 提了一个很有意思的理论：研究论文的 alpha 之所以在消亡，是因为研究者发现与其跟市场部争，不如直接出门拿 1 亿美元做创业。Nikunj 发了一个和 Reactor 创始人的 walk-in-the-park 访谈，聊 world models 的现在和未来。Dan Shipper 说了一句很妙的话：「LLM 有意识，LLM 也没有意识。两句都对。」"
+  },
+  "archive": {
+    "title": "Model Routing 周末版",
+    "desc": "Levie 长文论 token 经济与 model routing、企业三阶段路由演进、研究 alpha 消亡的加州非竞业解释、world models 深访。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-07 source feeds.",
+  "sections": [
+    {
+      "title": "Token Economics & Model Routing / Token 经济与模型路由",
+      "desc": "Levie 的长文和 RealMadhuGuru 的三阶段框架放在一起，把企业 token 策略讲得很清楚。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2063320673217609936",
+          "en": {
+            "rewrite": [
+              "Levie writes that token costs are becoming one of the hottest topics for any enterprise. This is very bullish for AI in general because it means systems are being used at a scale that wasn't contemplated before.",
+              "This gives way to another form of differentiation for the applied AI layer: model routing. As tokens take on a significant amount of cost, companies will want to ensure dollars go to the most efficient use of tokens. Frontier intelligence will always be relevant for high-end tasks like coding, legal, financial analysis, healthcare. But you can peel off individual tasks to lower-cost models.",
+              "The companies with the best evals, the best ability to route workloads, and business models aligned to customers' financial goals will be in a great position. 404 likes."
+            ],
+            "original": [
+              "Token costs are becoming one of the hottest topics for any enterprise I talk with right now. It's very bullish for AI in general because it means these systems are being used at a scale that wasn't contemplated before.",
+              "As tokens take on a significant amount of the cost of any given workflow, then companies will inevitably want to ensure that their dollars go into the most efficient use of tokens for the particular job at hand.",
+              "The companies with the best evals, the best ability to route the workloads, and those that have business models directly aligned to customers financial goals, will be in a great position."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 写了一篇长文说 token 成本正在成为他接触的任何企业最热的话题之一。这对 AI 整体来说非常利好，因为意味着这些系统正以前所未有的规模被使用。",
+              "这催生了应用 AI 层的另一种差异化：model routing。当 token 占了任何一个工作流成本的很大一部分时，公司就会想确保钱花在最有效的 token 使用上。前沿智能在高端任务上（编码、法律、金融分析、医疗）始终重要，但你可以把个别任务剥离给更便宜的模型。",
+              "拥有最好的 evals、最强的路由能力、以及商业模式与客户财务目标一致的公司，会处于很好的位置。404 赞。"
+            ],
+            "original": [
+              "Levie：token 成本是企业最热话题。AI 被以前未想到的规模使用。Model routing 成为差异化。最好的 evals 和路由能力的公司赢。404 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:realmadhuguru",
+          "sourceUrl": "https://x.com/realmadhuguru/status/2063342268472574268",
+          "en": {
+            "rewrite": [
+              "RealMadhuGuru adds the three-phase enterprise progression for model routing. Phase 1 (2024): default to the 'it' model, everyone used GPT regardless of task. Phase 2 (early 2025): over-optimize, teams looked for cheapest models but without sophisticated evals, ended up burning cycles and shipping slower. Phase 3: nuanced routing—AI-native startups break products into sub-agents and route each task to the right model (hardest reasoning to Claude, simplest to Gemini Flash-Lite or open-weight).",
+              "Enterprises followed the AI-native builders 6-9 months later."
+            ],
+            "original": [
+              "Phase 1 (2024): Default to the 'it' model. Everybody used GPT regardless of task. Phase 2 (early 2025): Over-optimize. Teams over-corrected, looking for the smallest/cheapest model, but did not have evals sophisticated enough. Phase 3: Nuanced routing. AI-native startups break their product into sub-agents and route each task to the right model—hardest reasoning to Claude, simplest to Gemini Flash-Lite or open-weight models. Enterprises followed 6-9 months later."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "RealMadhuGuru 补充了企业 model routing 的三阶段演进。Phase 1（2024）：默认用「最火的」模型，不管什么任务都用 GPT。Phase 2（2025 年初）：过度优化，团队找最便宜最小的模型，但 evals 不够成熟，结果浪费了周期还 ship 得更慢。Phase 3：精细化路由——AI-native 创业公司把产品拆成 sub-agent，把每个任务路由到合适的模型（最难的推理给 Claude，最简单的给 Gemini Flash-Lite 或开源模型）。",
+              "企业在 AI-native builder 之后 6-9 个月跟进。"
+            ],
+            "original": [
+              "企业 model routing 三阶段：默认用最火模型→过度优化找最便宜的→精细化路由拆 sub-agent。企业滞后 6-9 月。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Research Alpha & the California Effect / 研究 Alpha 与加州效应",
+      "desc": "Swyx 提出了一个关于为什么研究论文影响力在消亡的理论。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2063432747432268259",
+          "en": {
+            "rewrite": [
+              "Swyx proposes a theory: research paper alpha died when researchers realized that instead of fighting with marketing departments, they could simply walk out the door and get >$100M for their legally protected tacit knowledge.",
+              "His claim: California non-noncompetes have a bigger impact on knowledge spreading than GitHub, arXiv, and HuggingFace combined. This motivates him to set up AI Engineer as a product-centric industry conference to complement paper-centric research conferences. 134 likes."
+            ],
+            "original": [
+              "One popular theory is that research paper alpha and lab publishing died when researchers realized that instead of fighting with marketing depts they could simply walk out the door and get >$100m for their legally protected tacit knowledge gained.",
+              "California non-noncompetes have a bigger impact on knowledge spreading than github, arxiv, and huggingface combined."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 提出了一个理论：研究论文的 alpha 之所以在消亡，是因为研究者发现与其跟市场部争，不如直接出门拿超过 1 亿美元做创业——用他们合法保护的隐性知识。",
+              "他声称：加州禁止非竞业协议对知识传播的影响，比 GitHub、arXiv 和 HuggingFace 加在一起还大。这激励他把 AI Engineer 做成一个以产品为中心的行业会议，来补充以论文为中心的研究会议。134 赞。"
+            ],
+            "original": [
+              "Swyx：研究 alpha 死了因为研究者直接出门创业拿 $100M+。加州非竞业禁令比 GitHub+arXiv+HuggingFace 对知识传播影响更大。134 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "World Models & Live Interaction / 世界模型与现场互动",
+      "desc": "Nikunj 的 walk-in-the-park 访谈聊 world models，Zara Zhang 发现静态内容价值在下降、现场互动价值在上升。",
+      "cards": [
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2063263389238087745",
+          "en": {
+            "rewrite": [
+              "Nikunj releases A Walk In The Park (part II) with Taiuti from Reactor. Topics: what world models are, the origin story from text-to-3D to Reactor, deciding to start the company, GTA/games and the path into programming, building in stealth, picking investors with independent conviction, where world models will grow first, why low latency matters, and becoming CEO and scaling the team.",
+              "70 likes for a dense 32-minute walk-and-talk format interview."
+            ],
+            "original": [
+              "A Walk In The Park (part II) feat @taiuti. What world models are, origin story from text-to-3D to @reactorworld, deciding to start the company, GTA and games and the path into programming, building in stealth and keeping secrets, picking investors with independent conviction, where world models will grow first, why low latency matters, becoming CEO and scaling the team."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 发布了 Walk In The Park 第二期，嘉宾是 Reactor 的 Taiuti。话题：什么是 world models、从 text-to-3D 到 Reactor 的起源故事、决定创业、GTA 和游戏如何引向编程、stealth mode 创业、挑选有独立判断的投资人、world models 先在哪里增长、为什么低延迟重要、成为 CEO 和扩张团队。",
+              "32 分钟的 walk-and-talk 格式访谈，70 赞。"
+            ],
+            "original": [
+              "Nikunj walk-in-the-park 访谈 Reactor 创始人。聊 world models、起源、创业决定、stealth mode、投资人选择、低延迟。70 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2063391758189572266",
+          "en": {
+            "rewrite": [
+              "Zara Zhang's observation from a talk she enjoyed: the value of static content is going down, the value of live interaction is going up. People want to connect with the human being behind a piece of work, whether it's content or software. Raw & opinionated > polished & generic. 31 likes."
+            ],
+            "original": [
+              "The value of static content is going down, the value of live interaction is going up. People want to connect with the human being behind a piece of work, whether it's content or software. Raw & opinionated > polished & generic."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara Zhang 从一场她很喜欢的演讲中得到的观察：静态内容的价值在下降，现场互动的价值在上升。人们想和作品——不管是内容还是软件——背后的人建立连接。原始且有主见 > 精致但平庸。31 赞。"
+            ],
+            "original": [
+              "Zara：静态内容价值下降，现场互动价值上升。原始有主见 > 精致平庸。31 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Weekend Philosophical Corner / 周末哲思角",
+      "desc": "Dan Shipper 的 LLM 意识论和 Peter Yang 的 agentic coding 上瘾。",
+      "cards": [
+        {
+          "authorKey": "x:danshipper",
+          "sourceUrl": "https://x.com/danshipper/status/2063426632824562167",
+          "en": {
+            "rewrite": [
+              "Dan Shipper's weekend koan: 'LLMs are not conscious. LLMs are not not conscious. Both true.' 41 likes.",
+              "He follows up with two Greek virtues that increase in value in the AI era: Aidōs—reverence and responsiveness to others; Dikē—the capacity to perceive what is right."
+            ],
+            "original": [
+              "LLMs are not conscious. LLMs are not not conscious. Both true."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 的周末公案：「LLM 有意识。LLM 也没有意识。两句都对。」41 赞。",
+              "他补充了两个在 AI 时代价值上升的希腊美德：Aidōs——对他人的敬畏和回应；Dikē——感知什么是对的能力。"
+            ],
+            "original": [
+              "Dan Shipper：LLM 有意识也没意识。两个希腊美德在 AI 时代价值上升。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2063486871037153558",
+          "en": {
+            "rewrite": [
+              "Peter Yang's weekend confession: 'This agentic coding crack is more addictive than video games smh.' 104 likes.",
+              "He also flags a real UX problem: with 10+ Codex threads, there's no way to filter by status (waiting for approval, currently working). Simple but needed."
+            ],
+            "original": [
+              "This agentic coding crack is more addictive than video games smh."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 的周末坦白：「这种 agentic coding 比电子游戏还让人上瘾。」104 赞。",
+              "他还提出了一个真实的 UX 问题：同时跑 10 个以上 Codex 线程后，没办法按状态筛选（等待批准、正在工作）。简单但需要的功能。"
+            ],
+            "original": [
+              "Peter Yang：agentic coding 比游戏还上瘾。104 赞。同时需要线程状态筛选功能。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
