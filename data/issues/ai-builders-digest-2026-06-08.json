@@ -1,0 +1,262 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-08",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天内容很密集。Steipete 的「别再 prompt agent 了，去设计 loop 来 prompt agent」拿到 13734 赞，是整周最高。OpenAI 的 Thibault Sottiaux 推出一个很聪明的激励：接下来 100 天每天选一个用 Codex 做出出色工作的人，给 10 倍限额一个月——6454 赞。Ben Cherny 给了跑 Opus 长时间自主任务的 5 条实战建议，1865 赞。Levie 继续他的两个系列：model routing 和企业软件 GTM 成本。Nikunj 观察到氛围从 tokenmaxxing 焦虑转到了 token optimizing——才几周。Zara Yang 说她的 Frontend Slides skill 有机增长的原因是 slides 天生就是社交的。"
+  },
+  "archive": {
+    "title": "设计 Loop 日报",
+    "desc": "Steipete 13734 赞宣言「去设计 loop 来 prompt agent」、OpenAI 推 100 天 10 倍限额激励、Levie 论企业 GTM 成本为何没被 AI 降低、Nikunj 观察到 token 焦虑转为 token 优化。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-08 source feeds.",
+  "sections": [
+    {
+      "title": "Design Loops, Not Prompts / 设计 Loop，不是设计 Prompt",
+      "desc": "Steipete 的 13734 赞宣言和 Ben Cherny 的 Opus 长时运行 5 条建议——同一个主题的两个角度。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2063697162748260627",
+          "en": {
+            "rewrite": [
+              "Steipete's monthly reminder that went mega-viral: 'You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents.' 13734 likes—the highest-engagement tweet of the entire week.",
+              "This is the evolution from prompt engineering to loop engineering. The human's job shifts from writing individual prompts to designing the automated workflows, checks, and feedback loops that keep agents productive over hours and days."
+            ],
+            "original": [
+              "Here's your monthly reminder that you shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的月度提醒火了：「你不再应该 prompt coding agents 了。你应该去设计 loop 来 prompt 你的 agents。」13734 赞——整周最高互动。",
+              "这是从 prompt engineering 到 loop engineering 的进化。人的工作从写单个 prompt 转向设计自动化工作流、检查机制和反馈循环，让 agent 在几小时甚至几天里持续高效。"
+            ],
+            "original": [
+              "Steipete：别再 prompt agent 了，去设计 loop。13734 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:bcherny",
+          "sourceUrl": "https://x.com/bcherny/status/2063792263067754658",
+          "en": {
+            "rewrite": [
+              "Ben Cherny (Anthropic) shares five tips for running Opus autonomously for hours/days: 1) Use auto mode for permissions so Claude doesn't ask for approval. 2) Use dynamic workflows to orchestrate hundreds/thousands of agents. 3) Use /goal or /loop to nudge Claude to keep going. 4) Use Claude Code in the cloud so you can close your laptop (easiest via desktop or mobile app). 5) Make sure Claude has a way to self-verify end-to-end: Chrome extension for web, iOS/Android sim MCP for mobile, start the full server for backend.",
+              "1865 likes—this is the practical companion to Steipete's philosophy."
+            ],
+            "original": [
+              "Five tips for running Opus autonomously for hours/days:",
+              "1. Use auto mode for permissions, so Claude doesn't ask for approval. 2. Use dynamic workflows, to have Claude orchestrate hundreds/thousands of agents. 3. Use /goal or /loop, to nudge Claude to keep going until it's done. 4. Use Claude Code in the cloud, so you can close your laptop. 5. Make sure Claude has a way to self-verify its work end to end."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 的 Ben Cherny 给了跑 Opus 长时间自主任务的 5 条建议：1) 用 auto mode 不需要审批。2) 用 dynamic workflow 编排成百上千个 agent。3) 用 /goal 或 /loop 让 Claude 持续工作直到完成。4) 用云端 Claude Code，这样能关上笔记本电脑（桌面或移动 app 最简单）。5) 确保 Claude 有端到端自验证的方式：Chrome 扩展做 web、iOS/Android 模拟器 MCP 做移动端、启动完整服务器做后端。",
+              "1865 赞——这是 Steipete 哲学的实操配套。"
+            ],
+            "original": [
+              "Cherny 5 条建议：auto mode、dynamic workflow、/goal /loop、云端 Claude Code、端到端自验证。1865 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Codex 100-Day Challenge & Token Optimization / Codex 百日挑战与 Token 优化",
+      "desc": "OpenAI 用激励机制推动深度使用，同时 token 讨论从焦虑转向优化。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2063748242681307611",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) announces a 100-day challenge: every day they'll select one person who does impressive or incredibly useful work with Codex and give them 10X usage limits for a month. First one tomorrow. 6454 likes.",
+              "This is a clever go-to-market strategy disguised as a giveaway—it incentivizes users to push Codex to its limits and creates a stream of showcase stories."
+            ],
+            "original": [
+              "Over the next 100 days, we will select one person per day who does impressive or incredibly useful work with Codex and give them 10X usage limits for a month to see what they can do with it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 宣布一个 100 天挑战：每天选一个用 Codex 做出出色或极有用工作的人，给 10 倍使用限额一个月。第一个明天开始。6454 赞。",
+              "这是一个聪明的 GTM 策略伪装成福利——激励用户把 Codex 推到极限，同时产出展示故事流。"
+            ],
+            "original": [
+              "OpenAI：100 天每天选一人给 10 倍 Codex 限额。6454 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2063630238123483195",
+          "en": {
+            "rewrite": [
+              "Nikunj observes the vibe shift: from tokenmaxxing and token anxiety to token optimizing in just a few weeks. His hot take: companies should give copious amounts of token budget to employees to stay at the frontier and explore all the edges. Otherwise, it's way too easy to fall back to 'doing things how they have always been done.' 89 likes."
+            ],
+            "original": [
+              "The vibe shift from tokenmaxxing and token anxiety to tokenoptimizing in just a few weeks is wild. I still believe companies should give copious amounts of token budget to employees to stay at the frontier. Otherwise it's way too easy to fall back to 'doing the things how they have always been done'."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 观察到氛围转变：从 tokenmaxxing 和 token 焦虑到 token 优化，才几周。他的 hot take：公司应该给员工充足的 token 预算让他们留在前沿、探索边界。否则太容易退回到「按老办法做事」。89 赞。"
+            ],
+            "original": [
+              "Nikunj：氛围从 token 焦虑转到 token 优化。公司应给员工充足 token 预算探索前沿。89 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2063714700618334260",
+          "en": {
+            "rewrite": [
+              "Rauchg reports Vercel AI Gateway recovers on average over 1T tokens a month—much like Stripe recovers revenue with smart retries on failed payments. Zero markup over the labs, adding redundancy, zero-data retention enforcement, observability, usage APIs, caps. 266 likes.",
+              "1 trillion tokens recovered per month means the reliability layer is already handling a massive volume of failed requests and making them succeed."
+            ],
+            "original": [
+              "Vercel AI Gateway recovers on average over 1T tokens a month. Much like Stripe recovers revenue with smart retries on failed payments or credit card updates. Zero markup over the labs; adding redundancy, zero-data retention enforcement, observability, usage APIs, caps."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 报告 Vercel AI Gateway 平均每月恢复超过 1 万亿 token——就像 Stripe 用智能重试恢复失败的支付一样。零加价，加上冗余、零数据保留、可观测性、usage API、限额等。266 赞。",
+              "每月恢复 1 万亿 token 意味着可靠性层已经在处理海量的失败请求并让它们成功。"
+            ],
+            "original": [
+              "Rauchg：Vercel AI Gateway 月恢复 1T+ tokens。零加价加冗余和可观测性。266 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Enterprise Software GTM & Model Stratification / 企业软件 GTM 与模型分层",
+      "desc": "Levie 继续从两个角度论证：企业软件的真正成本不在开发，而 GTM 没有被 AI 降低；模型会分层。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2063756386572681606",
+          "en": {
+            "rewrite": [
+              "Levie addresses what the market got wrong about AI eating enterprise software. Building good software was very hard—AI has made it a bit easier, but it's still hard to build something with good taste, differentiated, high quality, secure. And that's only one component.",
+              "The plurality of costs in most enterprise software companies is actually on GTM, because at scale most categories are tough to break into and need heavy consultative selling and support. AI hasn't reduced that need—in many cases it requires it even more as landscapes get more complicated for buyers. If you make development cheaper and more abundant, the new problem of discoverability and market differentiation becomes the hardest part. 378 likes."
+            ],
+            "original": [
+              "This is what the market got wrong about AI eating enterprise software. The plurality of costs in most enterprise software companies is actually on GTM. AI hasn't reduced the need for that, and in many cases requires it even more now. If you make one thing cheaper and more abundant (development of software) then the new problem of discoverability and market differentiation (GTM) becomes the hardest part."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 说市场搞错了一件事：AI 吃掉企业软件的方式和大家想的不一样。开发好软件一直很难——AI 让它稍微容易了一点，但做出有品味、有差异化、高质量、安全的产品还是很难。而这只是其中一个组成部分。",
+              "大多数企业软件公司最大的成本其实在 GTM 上，因为大多数品类很难进入，需要大量的咨询式销售和实施支持。AI 没有降低这个需求——在很多情况下反而需要更多，因为买家面对的版图更复杂了。如果你让一件事（软件开发）更便宜更充足，新的问题（可发现性和市场差异化）就成了最难的部分。378 赞。"
+            ],
+            "original": [
+              "Levie：企业软件最大成本是 GTM 不是开发。AI 没降低 GTM 需求。开发变便宜后差异化成最难题。378 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2063835799096090749",
+          "en": {
+            "rewrite": [
+              "Levie on model stratification: use-cases have to stratify between model families in the next year or two. A split between frontier intelligence for high-end tasks and much cheaper models for high-volume workloads. Frontier will still be far bigger than today, but the low-end will get larger too.",
+              "The new hard problem: the layer that can efficiently route workloads to the right model becomes increasingly valuable. Agent orchestration that can cost-optimize while still performing the task successfully will be in a strong position. 141 likes."
+            ],
+            "original": [
+              "We'll see a split between frontier intelligence for high end tasks and work, and much cheaper models for high volume workloads. The layer that can efficiently route the workload to the right model will then become increasingly valuable since that becomes one of the new hard problems in AI agents."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 谈模型分层：未来一到两年内，使用场景必须在模型家族之间分层。高端任务用前沿智能，高量工作流用更便宜的模型。前沿市场仍然会比今天大得多，但低端也会变大。",
+              "新的难题：能高效地把工作流路由到正确模型的层会越来越有价值。能在成本优化的同时成功完成任务的 agent 编排层会处于有利位置。141 赞。"
+            ],
+            "original": [
+              "Levie：模型分层成高端和低成本。路由层成为新难题。agent 编排加成本优化赢。141 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Data, Education & Social AI Skills / 数据、教育与社交 AI Skills",
+      "desc": "RealMadhuGuru 谈高质量训练数据的真正难度、Garry Tan 说教育成为瓶颈、Zara Yang 发现 slides 天生是社交的。",
+      "cards": [
+        {
+          "authorKey": "x:realmadhuguru",
+          "sourceUrl": "https://x.com/realmadhuguru/status/2063704354910347520",
+          "en": {
+            "rewrite": [
+              "RealMadhuGuru corrects a common misconception: training data is not low-skill grunt work. Labs need training data for high-economic-value tasks—complex, domain-specific knowledge built over years, spanning legacy tools that don't talk to each other.",
+              "That's why we have SWE agents and not knowledge work agents yet. Companies creating this training data (like Mercor) are doing extremely high-leverage, high-skill work. Critical to moving AI forward, and deeply underappreciated. 60 likes."
+            ],
+            "original": [
+              "A common misconception is that training data is low skill, grunt work. The data required to advance the model frontier is the opposite. Labs need training data for high-economic-value tasks. And most of these tasks outside of SWE have little documentation—it is complex, domain-specific knowledge built over the years. That's why we have SWE agents and not knowledge work agents yet."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "RealMadhuGuru 纠正了一个常见误解：训练数据不是低技能的苦力活。实验室需要的是高经济价值任务的训练数据——多年积累的复杂领域知识，横跨互不通信的遗留工具。",
+              "这就是为什么我们有 SWE agent 但没有知识工作 agent。创建这种训练数据的公司（如 Mercor）在做极高杠杆、高技能的工作。对推动 AI 前进至关重要，但严重被低估。60 赞。"
+            ],
+            "original": [
+              "RealMadhuGuru：训练数据不是苦力活，是高经济价值的领域知识。这就是为什么有 SWE agent 没有知识工作 agent。60 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2063786111588323780",
+          "en": {
+            "rewrite": [
+              "Garry Tan flags a growing bottleneck: educating people on how to use the AI tools has become a serious bottleneck. 543 likes."
+            ],
+            "original": [
+              "Educating people on how to use the AI tools has become a serious bottleneck."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 指出一个越来越明显的瓶颈：教人们如何使用 AI 工具本身已经成了一个严重的瓶颈。543 赞。"
+            ],
+            "original": [
+              "Garry Tan：AI 工具教育已成严重瓶颈。543 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2063638307586662539",
+          "en": {
+            "rewrite": [
+              "Zara Yang explains why her Frontend Slides skill has grown organically: slides are inherently social. People see cool slides and always ask 'how did you make it'. People perceive those using HTML decks as more AI-native and AI-savvy. 88 likes.",
+              "This is an insight about AI product design: the most viral AI tools are those whose output is naturally visible and shareable."
+            ],
+            "original": [
+              "One reason my Frontend Slides skill has grown so much organically is because slides are inherently social. People see these cool slides and always ask 'how did you make it'. People perceive those using HTML decks as more AI-native and AI-savvy."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara Yang 解释了她的 Frontend Slides skill 为何有机增长：slides 天生是社交的。人们看到酷的 slides 总会问「你怎么做的」。人们会认为用 HTML 做演示的人更 AI-native、更 AI-savvy。88 赞。",
+              "这是一个关于 AI 产品设计的洞察：最 viral 的 AI 工具，是那些产出天然可见且可分享的。"
+            ],
+            "original": [
+              "Zara：slides 天生社交，别人看了会问怎么做。HTML slides 被认为更 AI-native。88 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
