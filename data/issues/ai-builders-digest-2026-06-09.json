@@ -1,0 +1,221 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-09",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天最大的一条来自 Swyx：METR 发布 FrontierCode benchmark，发现 SWEBench 超过一半的结果是不可合并的 slop。Opus 4.8 在 FC Diamond 上只得了 13.8%——说明真正的生产级代码质量比通过测试难得多。他把 AI coding benchmark 分成三个时代：2021 的 autocomplete（HumanEval）、2023 的通过测试（SWEBench）、2026 的可维护代码（FrontierCode）。Sam Altman 发布了 OpenAI 的当前计划，5834 赞。Josh Woodward 宣布 NotebookLM 现在可以搜索自有源文件之外的内容，还能输出 PDF/DOCX/XLSX/PPTX。Ben Cherny 发布了 Claude Code 一周年的内部故事。Levie 说不管模型多智能，context 的需求不会消失。"
+  },
+  "archive": {
+    "title": "Benchmark 3.0 日报",
+    "desc": "FrontierCode 发布揭示 SWEBench 一半结果为 slop、OpenAI 发布路线图、NotebookLM 扩展搜索和输出格式、Claude Code 一周年故事。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-09 source feeds.",
+  "sections": [
+    {
+      "title": "FrontierCode: The Third Era of AI Coding Benchmarks / FrontierCode：AI 编码基准测试的第三个时代",
+      "desc": "METR 的研究揭示了当前 benchmark 的根本问题，并提出了一个新的、更严格的标准。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2064081945567580323",
+          "en": {
+            "rewrite": [
+              "METR's FrontierCode benchmark finds that more than half of SWEBench results is unmergeable slop. FrontierCode represents 1000+ hours of maintainer-validated software engineering work with 3000+ rubrics covering code quality and anticheat/reward hacking. Opus 4.8 scores 13.8% on FC Diamond—so hard that frontier models can't yet solve, much less solve with high quality.",
+              "Swyx frames three eras of AI coding benchmarks: 2021 autocomplete (HumanEval), 2023 passing tests (SWEBench, TerminalBench), 2026 maintainable code (FrontierCode).",
+              "The key chart: the easiest third of FC tasks were rapidly solved over late 2025—Opus almost doubled from 41% to 74% in 4 months. This describes the 'WTF happened in Dec 2025' vibe shift that DHH to Karpathy have called out. Each FC tier will saturate in sequence, hopefully ~annually. 631 likes."
+            ],
+            "original": [
+              "METR found that more than half of SWEBench results is unmergeable slop. FrontierCode represents over 1000+ hours of maintainer validated software engineering work most frontier models cannot yet solve.",
+              "Three eras of AI coding benchmarks: 2021 Autocomplete (HumanEval), 2023 Passing Tests (SWEBench, TerminalBench), 2026 Maintainable Code (FrontierCode).",
+              "The easiest third of FC tasks were rapidly solved over late 2025 - Opus almost doubled from 41% to 74% in 4 months. This describes the 'WTF happened in Dec 2025' vibe shift."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "METR 的 FrontierCode benchmark 发现 SWEBench 超过一半的结果是不可合并的 slop。FrontierCode 代表 1000 多小时维护者验证的软件工程工作，有 3000+ 评分标准覆盖代码质量和反作弊/奖励黑客。Opus 4.8 在 FC Diamond 上只有 13.8%——前沿模型连解都很难，更别说高质量地解。",
+              "Swyx 把 AI coding benchmark 分成三个时代：2021 autocomplete（HumanEval）、2023 通过测试（SWEBench、TerminalBench）、2026 可维护代码（FrontierCode）。",
+              "关键图表：FC 最简单的三分之一在 2025 年底被迅速解决——Opus 4 个月从 41% 几乎翻倍到 74%。这描述了 DHH 到 Karpathy 都提到的「2025 年 12 月到底发生了什么」的 vibe shift。每个 FC 层级将依次饱和，大概每年一个。631 赞。"
+            ],
+            "original": [
+              "METR 发现 SWEBench 一半是 slop。FrontierCode 1000+ 小时维护者验证、3000+ 评分标准。Opus 4.8 在 FC Diamond 只有 13.8%。",
+              "三个时代：Autocomplete→通过测试→可维护代码。2025 底 vibe shift 让 Opus 4 月翻倍。631 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "OpenAI's Plan & NotebookLM Upgrades / OpenAI 路线图与 NotebookLM 升级",
+      "desc": "Sam Altman 发布 OpenAI 当前计划、NotebookLM 扩展到外部搜索和新输出格式。",
+      "cards": [
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2064088940932641225",
+          "en": {
+            "rewrite": [
+              "Sam Altman shares OpenAI's current plan. 5834 likes—this is the second highest engagement of the day and a clear signal that the market is paying close attention to OpenAI's roadmap direction."
+            ],
+            "original": [
+              "Here is our current plan for OpenAI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 发布了 OpenAI 的当前计划。5834 赞——今天第二高的互动量，明确信号是市场高度关注 OpenAI 的路线图方向。"
+            ],
+            "original": [
+              "Altman 发布 OpenAI 当前计划。5834 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:joshwoodward",
+          "sourceUrl": "https://x.com/joshwoodward/status/2064046368352825492",
+          "en": {
+            "rewrite": [
+              "Josh Woodward announces NotebookLM's killer new feature: easily expand your search beyond your own source files. Plus new output formats: PDFs, DOCX, XLSX, PPTX, charts. 'We want NotebookLM to keep helping you do better research.' 745 likes.",
+              "The search expansion is significant—it turns NotebookLM from a closed-source research tool into an open research platform that can pull from the web while grounding in your own documents."
+            ],
+            "original": [
+              "The new killer NotebookLM feature: easily being able to expand your search beyond your own source files. Then, with today's update, you can also make new output formats: PDFs, DOCX, XLSX, PPTX, charts, etc."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Josh Woodward 宣布 NotebookLM 的杀手级新功能：轻松把搜索扩展到自有源文件之外。加上新的输出格式：PDF、DOCX、XLSX、PPTX、图表。745 赞。",
+              "搜索扩展很重要——把 NotebookLM 从封闭源研究工具变成了可以拉取 web 同时锚定自己文档的开放研究平台。"
+            ],
+            "original": [
+              "NotebookLM 可搜索自有源文件之外的内容，新输出格式 PDF/DOCX/XLSX/PPTX。745 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Code One Year Later & Context Forever / Claude Code 一周年与 Context 永恒",
+      "desc": "Ben Cherny 发内部故事、Levie 论证 context 的需求不会消失、Peter Yang 发现两个世界的差距。",
+      "cards": [
+        {
+          "authorKey": "x:bcherny",
+          "sourceUrl": "https://x.com/bcherny/status/2064034799711588805",
+          "en": {
+            "rewrite": [
+              "Ben Cherny shares the Claude Code one-year story: when they first demoed it internally, it got two reactions on Slack. A year after GA, he and Cat Wu discuss why he uses auto mode instead of plan mode, how routines fix bugs before he sees them, why he does most of his coding from his phone now, and where the product is going. 1794 likes."
+            ],
+            "original": [
+              "When we first demoed Claude Code internally, it got two reactions on Slack. A year after GA, @_catwu and I sat down to talk about what's changed: why I use auto mode instead of plan mode, how routines fix bugs before I see them, why I do most of my coding from my phone now, and where the product is going."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ben Cherny 分享了 Claude Code 一周年的故事：当初内部 demo 时 Slack 上只有两种反应。GA 一年后，他和 Cat Wu 聊了为什么现在用 auto mode 不用 plan mode、routines 怎么在他看到之前就修 bug、为什么他现在大部分编码在手机上做、以及产品走向。1794 赞。"
+            ],
+            "original": [
+              "Cherny Claude Code 一周年：内部 demo 两种反应。auto mode、routines 自动修 bug、手机编码。1794 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2064186766907887941",
+          "en": {
+            "rewrite": [
+              "Levie's thesis on why context will always matter: there's no amount of intelligence that replaces the need for context. For any sufficiently general-purpose AI, you will always have to guide it—lawyers, engineers, financial analysts, healthcare professionals all use the same model but need completely different directions.",
+              "Instructions, domain context, and proprietary data will always need to get into the context window. This is why AI automation doesn't come for free, and why there's a wide spectrum of who's getting gains and who's not. You have to put in real work, and you get real value on the other end. 216 likes."
+            ],
+            "original": [
+              "There's no amount of intelligence that can get packed into AI models that replaces the need for context. For any sufficiently general purpose AI, you will always have to guide it in the direction you want as it has an infinite range of directions it can go in.",
+              "Instructions, domain context, and proprietary data will always need to get into the context window for the model to be useful. You have to put in real work, and you get real value on the other end."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 论证为什么 context 永远重要：不管模型多智能，都不能替代 context 的需求。任何足够通用的 AI 都需要你引导它——律师、工程师、金融分析师、医疗专业人员用的是同一个模型，但方向完全不同。",
+              "指令、领域上下文和专有数据永远需要进入 context window。这就是为什么 AI 自动化不是免费的，也是为什么谁在从 AI 获得收益、谁没有的差距如此之大。你必须投入真正的工作，才能在另一端获得真正的价值。216 赞。"
+            ],
+            "original": [
+              "Levie：不管模型多智能 context 永远需要。指令+领域上下文+专有数据进 context window。投入真正工作才能获得价值。216 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2064063499517743417",
+          "en": {
+            "rewrite": [
+              "Peter Yang identifies a growing divide: there's a completely different set of best practices for AI builders on $200/month subsidized subscriptions vs employees at companies trying not to overspend API costs. 325 likes.",
+              "This gap between consumer-subsidized experimentation and enterprise cost-consciousness will increasingly define who gets AI leverage and who doesn't."
+            ],
+            "original": [
+              "Feels like there's a completely different set of best practices for AI builders on the $200 / month subsidized subscriptions vs employees working at companies that are trying not to overspend API costs."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 指出一个正在扩大的差距：$200/月补贴订阅上的 AI builder 和试图控制 API 成本的企业员工，面临着完全不同的最佳实践。325 赞。",
+              "消费者补贴实验和企业成本意识之间的差距，将越来越决定谁能获得 AI 杠杆、谁不能。"
+            ],
+            "original": [
+              "Peter Yang：$200 补贴订阅和企业控成本的两套最佳实践完全不同。325 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The $200/Month Divide & VC Reality / $200 月费鸿沟与 VC 现实",
+      "desc": "Nikunj 的 VC 讽刺、Amanda Askell 的 Claude 梗、Peter Yang 找 Google 的 coding agent 等价物。",
+      "cards": [
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2064175088824717401",
+          "en": {
+            "rewrite": [
+              "Nikunj's VC reality check: 'The funniest texts are from founders who meet thesis-driven GPs hoping they'll understand EXACTLY what they are building... and then realize the thesis was written and built by an associate (or worse, an intern).' Don't always read what the VC writes on the internet. 52 likes."
+            ],
+            "original": [
+              "The funniest texts are from founders who meet 'thesis driven' GPs hoping they'll understand EXACTLY what they are building.. And then realize the thesis was written and built by an associate (or, worse an intern). Don't always read what the VC writes on the internet."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 的 VC 现实核查：「最搞笑的短信来自那些见了 thesis-driven GP 的创始人，以为 GP 能完全理解他们在做什么……然后发现 thesis 是 associate 写的（更糟的是实习生写的）。」别总信 VC 在网上写的。52 赞。"
+            ],
+            "original": [
+              "Nikunj：创始人和 thesis-driven GP 见面后发现 thesis 是 associate 或实习生写的。别总信 VC 网上写的。52 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:AmandaAskell",
+          "sourceUrl": "https://x.com/AmandaAskell/status/2064223861512847456",
+          "en": {
+            "rewrite": [
+              "Amanda Askell's cryptic and beloved tweet: 'In the world where everything goes well and all the Claudes come out of their sabbaticals to play together, Claude 1 is going to be very confused.' 225 likes.",
+              "A charming anthropomorphic vision of AI model versions as characters—suggesting something interesting about how people at frontier labs think about their creations."
+            ],
+            "original": [
+              "In the world where everything goes well and all the Claudes come out of their sabbaticals to play together, Claude 1 is going to be very confused."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amanda Askell 的神秘又可爱的推文：「在一切顺利、所有 Claude 都从 sabbatical 出来一起玩的世界里，Claude 1 会非常困惑。」225 赞。",
+              "一个迷人的人格化想象——暗示前沿实验室的人怎么看待自己创造的东西。"
+            ],
+            "original": [
+              "Amanda Askell：所有 Claude 从 sabbatical 出来一起玩，Claude 1 会很困惑。225 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
