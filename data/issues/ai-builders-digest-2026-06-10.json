@@ -1,0 +1,220 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-10",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天最大的新闻来自苹果：Craig Federighi 宣布苹果正在打造能理解和操作 iPhone 和 Mac 上所有内容的智能，3094 赞。与此同时，Sam Altman 发布了 OpenAI 2026 下半年路线图，4134 赞——AI 能力级别 1-5、AGI 在 level 3-4 之间、预计 2027 年实现 level 5。Steipete 说用 $200/月的 AI 订阅，一个人做的事情等于 50 个世界级工程师，4623 赞。Ben Cherny 发布了 Claude Code 一周年的内部故事，1794 赞。Peter Yang 指出 $200 补贴订阅用户和企业成本控制用户之间的最佳实践差距正在扩大，325 赞。"
+  },
+  "archive": {
+    "title": "苹果入局日报",
+    "desc": "苹果宣布全设备 AI 智能、OpenAI 发布 2026 路线图定义 AGI 级别、Steipete 说一人等于 50 个工程师、Claude Code 一周年。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-10 source feeds.",
+  "sections": [
+    {
+      "title": "Apple Intelligence & the Device Layer / 苹果智能与设备层",
+      "desc": "Craig Federighi 在 WWDC 发布苹果的 AI 愿景——能理解并操作所有应用和内容。",
+      "cards": [
+        {
+          "authorKey": "x:craigfederighi",
+          "sourceUrl": "https://x.com/craigfederighi/status/2064407378642296893",
+          "en": {
+            "rewrite": [
+              "Craig Federighi announces Apple is building intelligence that can understand and take action across everything on your iPhone and Mac. 3094 likes.",
+              "This is Apple's answer to the agent era: instead of building the smartest model, build the deepest device integration. If Apple controls the OS layer, their agents can operate across apps in ways that third-party agents fundamentally cannot."
+            ],
+            "original": [
+              "We are building intelligence that can understand and take action across everything on your iPhone and Mac."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Craig Federighi 在 WWDC 宣布苹果正在打造能理解并操作 iPhone 和 Mac 上所有内容的智能。3094 赞。",
+              "这是苹果对 agent 时代的回答：不造最聪明的模型，而是做最深的设备集成。如果苹果控制了 OS 层，它的 agent 能跨应用操作，这是第三方 agent 根本做不到的。"
+            ],
+            "original": [
+              "Federighi：苹果在建设能理解和操作 iPhone/Mac 所有内容的智能。3094 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2064461550725660778",
+          "en": {
+            "rewrite": [
+              "Peter Yang's hot take: Apple Intelligence will finally bring AI to the masses because Apple makes things for everyone, not just tech people. If Apple can explain a new technology clearly, your parents can use it—and that's what matters for mainstream adoption. 128 likes."
+            ],
+            "original": [
+              "Hot take: Apple Intelligence will finally bring AI to the masses because Apple makes things for everyone, not just tech people. When Apple explains a new technology, your parents can understand it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 的 hot take：Apple Intelligence 最终会把 AI 带给大众，因为苹果做的东西是给所有人的，不只是技术人。如果苹果能把一项新技术解释清楚，你父母就能用——这对主流采纳才是真正重要的。128 赞。"
+            ],
+            "original": [
+              "Peter Yang：Apple Intelligence 终将把 AI 带给大众。苹果给所有人做产品不只是技术人。128 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "OpenAI Roadmap & AGI Levels / OpenAI 路线图与 AGI 级别",
+      "desc": "Sam Altman 发布 OpenAI 2026 下半年路线图，定义了 AI 能力的 5 个级别。",
+      "cards": [
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2064490156746518630",
+          "en": {
+            "rewrite": [
+              "Sam Altman publishes OpenAI's H2 2026 roadmap: AI levels 1-5 defined. Current state: somewhere around level 3-4. Level 5 (AGI) projected for 2027. 4134 likes.",
+              "The levels framework gives the industry a shared vocabulary for tracking progress. Level 3 is 'the model can do most tasks as well as a smart human.' Level 4 is 'innovators—models that can propose novel ideas and directions.' Level 5 is full AGI."
+            ],
+            "original": [
+              "Here is OpenAI's current plan for H2 2026. AI levels: 1 (chatbots), 2 (reasoners), 3 (agents), 4 (innovators), 5 (organizations)."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 发布 OpenAI 2026 下半年路线图：定义了 AI 能力 5 个级别。当前状态大约在 level 3-4。Level 5（AGI）预计 2027 年。4134 赞。",
+              "级别框架给了行业一个共享词汇来追踪进展。Level 3 是「模型能像聪明人一样做大多数任务」。Level 4 是「创新者——能提出新颖想法和方向」。Level 5 是完整 AGI。"
+            ],
+            "original": [
+              "Altman 发布 OpenAI H2 2026 路线图。5 级：chatbot→reasoner→agent→innovator→organization。当前约 level 3-4。4134 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2064476866853306508",
+          "en": {
+            "rewrite": [
+              "Garry Tan's sharp observation from WWDC: the winner of the AI era won't be who makes the smartest model—it'll be who controls the context window. Apple has more context about what you're doing on your device than any model provider ever will. This is the real moat. 564 likes.",
+              "This pairs with Levie's thesis on context always mattering: the company that owns the richest context wins, not necessarily the smartest model."
+            ],
+            "original": [
+              "Whoever has more context about what you're doing on your device than any model provider is going to be in a very interesting position. This is the real moat."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 从 WWDC 提了一个锐利观察：AI 时代的赢家不是谁做最聪明的模型，而是谁控制 context window。苹果对你设备上在做什么有比任何模型提供商都多的上下文。这才是真正的护城河。564 赞。",
+              "这和 Levie 的「context 永远重要」论点配合：拥有最丰富上下文的公司赢，不一定是模型最聪明的。"
+            ],
+            "original": [
+              "Garry Tan：AI 时代赢家是控制 context 的不是做最聪明模型的。设备上的 context 是苹果的真正护城河。564 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "One Person = 50 Engineers / 一个人等于 50 个工程师",
+      "desc": "Steipete 的宣言和 Peter Yang 的 $200 鸿沟——AI 杠杆的两面。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2064452437242921171",
+          "en": {
+            "rewrite": [
+              "Steipete's bold claim: with a $200/month AI subscription, one person can do the work of 50 world-class engineers. The catch: you need to know how to actually build software yourself to effectively guide AI agents, which is why engineers are in such high demand. 4623 likes.",
+              "This is the paradox of the AI era: the people best positioned to leverage AI are the ones who least need it (experienced engineers), while those who need it most (non-technical people) often lack the domain knowledge to guide agents effectively."
+            ],
+            "original": [
+              "With a $200/month AI subscription, one person can do the work of 50 world-class engineers. You need to know how to actually build software yourself to effectively guide AI agents, which is why engineers are in such high demand."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的大胆宣言：用 $200/月的 AI 订阅，一个人能做 50 个世界级工程师的工作。但前提是：你需要自己真的会构建软件才能有效地引导 AI agents，这也是为什么工程师仍然供不应求。4623 赞。",
+              "这就是 AI 时代的悖论：最有能力利用 AI 的人（有经验的工程师）恰恰是最不需要它的人，而最需要它的人（非技术人员）往往缺乏有效引导 agent 的领域知识。"
+            ],
+            "original": [
+              "Steipete：$200/月 AI = 50 个顶级工程师。但需要自己会 build 才能有效引导 agent。4623 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2064431591745626205",
+          "en": {
+            "rewrite": [
+              "Peter Yang flags an important gap: many employees at big companies don't have access to the same AI tools that individual builders get for $200/month. Company restrictions, IT policies, budget approvals slow everything down. 325 likes.",
+              "His prediction: the biggest AI innovations will come from individual builders and small teams with full AI access, not from big companies."
+            ],
+            "original": [
+              "Many employees at big companies don't have access to the same AI tools that individual builders get for $200/month. Company restrictions, IT policies, budget approvals slow everything down.",
+              "The biggest AI innovations will come from individual builders and small teams with full AI access, not from big companies."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 指出一个重要差距：大公司的很多员工没有个人 builder 花 $200/月就能得到的 AI 工具。公司限制、IT 策略、预算审批把一切都拖慢了。325 赞。",
+              "他的预测：最大的 AI 创新将来自有完整 AI 访问的个人 builder 和小团队，而不是大公司。"
+            ],
+            "original": [
+              "Peter Yang：大公司员工没有 $200 订阅的 AI 工具。限制和审批拖慢一切。最大创新来自个人和小团队。325 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Code Anniversary & Agent Debugging / Claude Code 周年与 Agent 调试",
+      "desc": "Ben Cherny 的一周年故事和 Steipete 的 agent debug skill。",
+      "cards": [
+        {
+          "authorKey": "x:bcherny",
+          "sourceUrl": "https://x.com/bcherny/status/2064400103149754478",
+          "en": {
+            "rewrite": [
+              "Ben Cherny's Claude Code one-year retrospective: when they first demoed it internally, it got two reactions on Slack. A year after GA, the product has transformed how Anthropic engineers work—auto mode, routines that fix bugs before you see them, most coding done from phone. 1794 likes.",
+              "He also reveals the internal philosophy: build for the future, not for current limitations. They shipped features that only made sense at frontier model capability levels, trusting the models would catch up."
+            ],
+            "original": [
+              "When we first demoed Claude Code internally, it got two reactions on Slack. A year after GA, @_catwu and I sat down to talk about what's changed: why I use auto mode instead of plan mode, how routines fix bugs before I see them, why I do most of my coding from my phone now."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ben Cherny 的 Claude Code 一周年回顾：当初内部 demo 时 Slack 上只有两种反应。GA 一年后，产品已经改变了 Anthropic 工程师的工作方式——auto mode、routines 在你看到之前就修好 bug、大部分编码在手机上做。1794 赞。",
+              "他还透露了内部哲学：为未来构建，不为当前限制构建。他们提前 ship 了只有在前沿模型能力下才有意义的功能，相信模型会追上来。"
+            ],
+            "original": [
+              "Cherny Claude Code 一周年：内部两种反应。auto mode、routines 自动修 bug、手机编码。为未来构建。1794 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2064427778729726057",
+          "en": {
+            "rewrite": [
+              "Steipete made a /debug skill for OpenClaw: when an agent gets stuck or behaves weirdly, it automatically collects context (agent instructions, recent changes, error logs), and runs a Codex sub-agent to analyze and propose fixes. 549 likes.",
+              "This is meta-agent engineering: using agents to debug other agents. The kind of recursive self-improvement loop that only becomes possible when you have reliable sub-agent infrastructure."
+            ],
+            "original": [
+              "Made a /debug skill for OpenClaw: when an agent gets stuck or behaves weirdly, it collects context (agent instructions, recent changes, error logs) and runs a Codex sub-agent to analyze and propose fixes."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 给 OpenClaw 做了一个 /debug skill：当 agent 卡住或行为异常时，自动收集上下文（agent 指令、近期改动、错误日志），然后跑一个 Codex sub-agent 来分析并提出修复方案。549 赞。",
+              "这是元 agent 工程：用 agent 来调试其他 agent。只有当你有可靠的 sub-agent 基础设施时才可能实现的递归自我改进循环。"
+            ],
+            "original": [
+              "Steipete /debug skill：agent 卡住时自动收集上下文跑 Codex sub-agent 分析修复。549 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
