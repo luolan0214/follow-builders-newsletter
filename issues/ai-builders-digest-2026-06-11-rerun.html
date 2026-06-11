@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-11" data-issue-number="24" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 24 期｜2026-06-11｜双语精选版｜12 条精选｜11 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Fable 5 发布后的第二天，回响很大。Levie 放出了 Box AI 的详细 eval：Fable 在复杂知识工作上全面碾压 Opus 4.8，从法律并购尽调到医疗放射错误审计，差距最大的是媒体娱乐（78% vs 61%）。Thibault Sottiaux 确认 Codex 过去 48 小时出现了异常的 token 消耗激增——他们没发布任何新东西。trq212 用 Fable 编辑了 Fable 自己的发布会视频，6036 赞。Claude 官方发了 Cursor 联合创始人 Michael Truell 的故事：两年从 15 人到 700 人，60% 的财富 500 强在用它。Josh Woodward 承认 Gemini 全球宕机。Matt Turck 继续他的年度 VC 讽刺。Zara Yang 说旧金山 90% 的创业公司在把产品卖给彼此。还有一整期播客：Mike Krieger（Anthropic Labs 负责人、Instagram 联合创始人）和 Dan Shipper 深聊 Fable 的日常使用、验证循环、动态工作流。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Fable 5 发布后的第二天，回响很大。Levie 放出了 Box AI 的详细 eval：Fable 在复杂知识工作上全面碾压 Opus 4.8，从法律并购尽调到医疗放射错误审计，差距最大的是媒体娱乐（78% vs 61%）。Thibault Sottiaux 确认 Codex 过去 48 小时出现了异常的 token 消耗激增——他们没发布任何新东西。trq212 用 Fable 编辑了 Fable 自己的发布会视频，6036 赞。Claude 官方发了 Cursor 联合创始人 Michael Truell 的故事：两年从 15 人到 700 人，60% 的财富 500 强在用它。Josh Woodward 承认 Gemini 全球宕机。Matt Turck 继续他的年度 VC 讽刺。Zara Yang 说旧金山 90% 的创业公司在把产品卖给彼此。还有一整期播客：Mike Krieger（Anthropic Labs 负责人、Instagram 联合创始人）和 Dan Shipper 深聊 Fable 的日常使用、验证循环、动态工作流。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Fable&#39;s Enterprise Impact &amp; Token Surge / Fable 企业影响与 Token 激增</h2>
+    <p class="section-desc">Box AI 的详细 eval 和 Codex 的异常 token 消耗——Fable 发布后的涟漪效应。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 分享了 Box AI Complex Work Eval 的详细结果：Fable vs Opus 4.8 在真实企业知识工作问题上的对比。Fable 的主要差异化：不在复杂推理上走捷径、多步计算正确、跨运行显著更一致。</p>
+              <p>按行业：媒体娱乐 78% vs 61%，技术 81% vs 73%，金融服务 89% vs 83%，医疗 66% vs 60%。</p>
+              <p>具体案例：法律并购尽调——Fable 正确识别联合所有权条款违反排他性（100% vs 78%）。医疗放射错误审计——Fable 正确得出不存在 Grade 3 错误，Opus 过早升级（63% vs 41%）。媒体类型盈利预测——Fable 识别 20% 阿根廷税已嵌入，Opus 双重施加（74% vs 负分）。金融服务五年债务预测——Fable 正确对期初余额应用利息，Opus 对总额应用（83% vs 62%）。SaaS 功能估值——Fable 精确运算，Opus 多处算错（100% vs 74%）。177 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：Box AI eval Fable vs Opus 4.8。Fable 不走捷径、多步计算正确、跨运行一致。媒体娱乐差距最大 78% vs 61%。177 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie shares detailed Box AI Complex Work Eval results: Fable vs Opus 4.8 across real enterprise knowledge work problems. Fable&#39;s main differentiators: it doesn&#39;t take shortcuts on complex reasoning, gets multi-step calculations right, and is significantly more consistent across runs.</p>
+              <p>Key results by industry: Media &amp; Entertainment 78% vs 61%, Technology 81% vs 73%, Financial Services 89% vs 83%, Healthcare 66% vs 60%.</p>
+              <p>Specific examples: Legal M&amp;A due diligence—Fable correctly identified joint-ownership clause violating exclusivity (100% vs 78%). Healthcare radiology error audit—Fable correctly concluded no Grade 3 errors existed while Opus prematurely escalated (63% vs 41%). Media genre profitability—Fable recognized a 20% Argentine tax was already embedded; Opus double-applied it (74% vs negative). Financial Services 5-year debt projection—Fable applied interest to opening balances correctly; Opus applied it to total facility (83% vs 62%). SaaS feature valuation—Fable exact arithmetic, Opus got multiple calculations wrong (100% vs 74%). 177 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>In our Box AI Complex Work Eval, we tested the model against Opus 4.8 and saw huge boosts across almost every industry.</p>
+              <p>The main differentiators for Fable vs Opus 4.8 is that it doesn&#39;t take shortcuts on complex reasoning, it gets multi-step calculations right, and it&#39;s significantly more consistent across runs.</p>
+              <p>Media &amp; Entertainment 78% vs 61%, Technology 81% vs 73%, Financial Services 89% vs 83%, Healthcare 66% vs 60%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2064922814688481678" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:thsottiaux" data-author-name="" data-author-tag="" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Author avatar"><span class="avatar-fallback"></span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name"></div>
+            <div class="author-tag is-inline"></div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>OpenAI 的 Thibault Sottiaux 确认过去 48 小时 Codex 的 token 消耗出现了强劲的激增——在他们没有发布任何新东西的情况下。2460 赞。</p>
+              <p>这是竞争效应：Anthropic 的 Fable 发布推动了用户更积极地使用所有 AI coding 工具，Codex 使用量随之激增。水涨船高。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：Codex 过去 48 小时 token 消耗异常激增，没有发布新产品。2460 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thibault Sottiaux (OpenAI) confirms they saw a strong spike in growth of token consumption for Codex over the last 48 hours—unusual when they didn&#39;t launch anything. 2460 likes.</p>
+              <p>This is the competitive response effect: Anthropic&#39;s Fable launch drove users to push all AI coding tools harder, and Codex usage surged as a result. The rising tide lifts all boats.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Can confirm we saw a strong spike in growth of token consumption for Codex over last 48 hours. Unusual when we don&#39;t launch something.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2064911328087810308" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Cursor at Scale, Fable as Video Editor &amp; Gemini Outage / Cursor 规模化、Fable 当视频编辑与 Gemini 宕机</h2>
+    <p class="section-desc">Cursor 两年从 15 人到 700 人、trq212 用 Fable 编辑自己的发布会视频、Gemini 全球宕机。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:claudeai" data-author-name="Claude" data-author-tag="Anthropic Assistant" data-author-handle="@claudeai" data-author-avatar="../assets/avatars/x-claudeai.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-claudeai.jpg" alt="Claude avatar"><span class="avatar-fallback">C</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Claude</div>
+            <div class="author-tag is-inline">Anthropic Assistant</div>
+          </div>
+          <div class="author-handle">@claudeai</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Claude 的「问题解决者」系列报道了 Cursor 联合创始人 Michael Truell：12 岁爱上编程，两年从 15 人增长到 700 人，现在超过 60% 的财富 500 强用它的 AI 编码平台。5258 赞。</p>
+              <p>扩张速度惊人——24 个月 15 到 700 是 46 倍的人员增长，同时保持产品质量。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude 官方：Cursor 联合创始人 Truell 12 岁开始编程，两年 15→700 人，60% 财富 500 强使用。5258 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Claude&#39;s &#39;Problem Solvers&#39; series profiles Michael Truell, co-founder of Cursor: fell in love with coding at 12, went from 15 people to 700 in two years, and now over 60% of the Fortune 500 build with its AI coding platform. 5258 likes.</p>
+              <p>The speed of scaling is remarkable—15 to 700 in 24 months is a 46x headcount growth while maintaining product quality.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Michael Truell fell in love with coding at 12. The company he co-founded, Cursor, went from 15 people to 700 in two years. Today, over 60% of the Fortune 500 build with its AI coding platform.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/claudeai/status/2064757537992249734" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:trq212" data-author-name="Thariq" data-author-tag="Claude Code @ Anthropic" data-author-handle="@trq212" data-author-avatar="../assets/avatars/x-trq212.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-trq212.jpg" alt="Thariq avatar"><span class="avatar-fallback">T</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq</div>
+            <div class="author-tag is-inline">Claude Code @ Anthropic</div>
+          </div>
+          <div class="author-handle">@trq212</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>trq212 做了一个视频，展示他怎么用 Fable 编辑 Fable 自己的发布会视频。它写了代码和工具调用来使用转录服务、ffmpeg、调色、Figma MCP、制作 Remotion UI 并渲染。他全程没碰视频编辑器。6036 赞——今天最高互动。</p>
+              <p>这是一个元时刻：AI 模型用自己的发布视频来编辑自己的发布视频，用代码而不是 GUI 视频编辑器。工具链本身成了 agent 的工作空间。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>trq212：用 Fable 编辑 Fable 自己的发布会视频。代码+工具调用，没用视频编辑器。6036 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>trq212 made a video about how he used Fable to edit Fable&#39;s own launch video. It wrote code and tool calls to use transcription services, ffmpeg, color grading, the Figma MCP, make a Remotion UI and render it. He didn&#39;t touch a video editor. 6036 likes—the highest engagement tweet of the day.</p>
+              <p>This is the meta moment: an AI model editing its own launch video using code, not a GUI video editor. The tool chain itself became the agent&#39;s workspace.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Lots of people asked how I used Fable to edit its own launch video so I made a video about that! TLDR it wrote a lot of code &amp; tool calls to use transcription services, ffmpeg, do colorgrading, use the figma mcp, make remotion UI and render it. I didn&#39;t touch a video editor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212/status/2064826394589442448" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:joshwoodward" data-author-name="Josh Woodward" data-author-tag="VP @ Google Labs" data-author-handle="@joshwoodward" data-author-avatar="../assets/avatars/x-joshwoodward.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-joshwoodward.jpg" alt="Josh Woodward avatar"><span class="avatar-fallback">JW</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Josh Woodward</div>
+            <div class="author-tag is-inline">VP @ Google Labs</div>
+          </div>
+          <div class="author-handle">@joshwoodward</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Josh Woodward 确认 Gemini 正在经历全球宕机。「我们正在处理，尽快恢复。」1553 赞。后来确认一切恢复。</p>
+              <p>提醒：即使是 Google 级别的基础设施也会宕机——而且时机恰好在 Fable 发布之后，放大了竞争对比。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Josh Woodward：Gemini 全球宕机正在修复。1553 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Josh Woodward confirms Gemini is experiencing a global outage. &#39;We&#39;re on it and will get everything back up ASAP.&#39; 1553 likes. Later confirmed everything was restored.</p>
+              <p>A reminder that even Google-scale infrastructure can go down—and the timing, right after Fable&#39;s launch, amplified the competitive optics.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Heads up: Gemini is currently experiencing an outage. We&#39;re on it and will get everything back up ASAP.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/joshwoodward/status/2064762269674918013" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Build for the 99% / 为 99% 的人构建</h2>
+    <p class="section-desc">Zara Yang 说旧金山创业公司 90% 在互相卖产品、Peter Yang 呼吁拥抱 builder 身份。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang</div>
+            <div class="author-tag is-inline">Builder</div>
+          </div>
+          <div class="author-handle">@zarazhangrui</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Yang 的锐利观察：「旧金山的大多数创业公司好像在把产品卖给彼此。」当她问创始人目标用户是谁，90% 的回答是「工程和产品团队、AI-native 创业公司」。同一个小群体被一百万个产品轰炸，而很少有人为世界上 99% 的人构建。203 赞。</p>
+              <p>这呼应了一个日益增长的担忧：旧金山 AI 泡沫在为旧金山 AI 人造产品，而不是为绝大多数潜在用户。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：旧金山创业公司 90% 在互相卖产品。很少人为 99% 的世界构建。203 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Yang&#39;s sharp observation: &#39;It seems like most startups in San Francisco are selling products to each other.&#39; When she asks founders who their target audience is, 90% of the time it&#39;s &#39;engineering and product teams, AI-native startups.&#39; The same small group being bombarded with a million products, while very few people are building for the 99% of the world. 203 likes.</p>
+              <p>This echoes a growing concern: the SF AI bubble is creating products for SF AI people, not for the vast majority of potential users.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>It seems like most startups in San Francisco are selling products to each other. When I ask founders who their target audience is, 90% of the time it&#39;s &#39;engineering and product teams, AI-native startups.&#39; Feels like the same small group is being bombarded with a million products, whereas very few people are building for the 99% of the world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2064825302359150870" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang</div>
+            <div class="author-tag is-inline">Builder</div>
+          </div>
+          <div class="author-handle">@zarazhangrui</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Yang 谈跨职能 agents：团队应该为跨职能伙伴构建 agents/skills。例如：设计团队为市场团队构建设计 agent，用品牌指南和设计模式训练，这样市场团队能自主产出符合品牌的素材而不需要每次打扰设计师。市场团队自己建不了——需要设计师的专业知识和上下文。这让团队从按「职能」组织转向按「loop」组织。50 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：团队应为跨职能伙伴建 agent。设计→市场 agent 一例。按 loop 而非职能组织。50 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Yang on cross-functional agents: teams should build agents/skills for their cross-functional partners. Example: a design team builds a design agent for the marketing team, trained on brand guidelines and patterns, so marketing can produce on-brand assets without bugging designers. The marketing team couldn&#39;t have built this themselves—it requires designer expertise and context. This moves teams toward organization by &#39;loops&#39; rather than &#39;functions&#39;. 50 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>People should build agents/skills for their cross-functional teams. Building agents for your cross-functional teams ensures each team can be more self-sufficient, and moves us to a direction where teams can be organized by &#39;loops&#39; rather than &#39;functions&#39;.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2064835289559023958" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-petergyang.jpg" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Product @ Roblox</div>
+          </div>
+          <div class="author-handle">@petergyang</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 的宣言：给自己构建的许可。传统职业阶梯把所有人都推向成为领导，但有些人只想做 builder。往上爬意味着花时间在产品评审、跨职能对齐、向上管理上。公司现在比以往更重视 builder 和 IC，但成为好的 builder 需要练习——很难在连续会议中做到。52 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：给自己 builder 的许可。传统阶梯推所有人做领导。好 builder 需要练习。52 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang&#39;s manifesto: give yourself permission to build. The traditional career ladder pushes everyone to become a leader, but some just want to be builders. As you climb, you&#39;re expected to fill time with product reviews, cross-functional alignment, managing up. Companies are now rewarding builders and ICs more than ever, but becoming a good builder takes reps—hard to do in back-to-back meetings. 52 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Give yourself permission to build. The traditional career ladder pushes everyone to become a leader, but I just want to be a builder. Companies are rewarding builders and ICs more than ever. But becoming a good builder takes reps, and it&#39;s hard to put in those reps when you&#39;re in back-to-back meetings all day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang/status/2064799855059616172" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Infrastructure, Satire &amp; Memory / 基础设施、讽刺与记忆</h2>
+    <p class="section-desc">Matt Turck 的 VC 年度讽刺、Rauchg 谈硅谷精英主义、Garry Tan 推 Nessie 记忆工具、Dan Shipper 的回岸预测。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:mattturck" data-author-name="Matt Turck" data-author-tag="VC @ FirstMark" data-author-handle="@mattturck" data-author-avatar="../assets/avatars/x-mattturck.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-mattturck.jpg" alt="Matt Turck avatar"><span class="avatar-fallback">MT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Matt Turck</div>
+            <div class="author-tag is-inline">VC @ FirstMark</div>
+          </div>
+          <div class="author-handle">@mattturck</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck 的年度 VC 煎熬讽刺：「2026 年做 VC 是残酷的煎熬。从达沃斯开始，在阿斯彭挨冻，参加 Upfront，熬过 Milken，然后直奔巴黎看法网。回纽约短暂看尼克斯。然后一片模糊：柏林 SuperReturn、伦敦 Founders Forum、世界杯、巴黎 Raise AI、爱达荷太阳谷、米科诺斯短暂喘息、高盛科技连环、芬兰 Slush、悉尼 NeurIPS……砰，一个充满思想领导和价值创造的丰产年结束了，你也废了。」488 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck：2026 VC 年度讽刺。达沃斯→阿斯彭→法网→柏林→伦敦→世界杯→巴黎→太阳谷→米科诺斯→高盛→Slush→悉尼。488 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck&#39;s annual VC grind satire: &#39;2026 is a BRUTAL grind in VC. You start in Davos, freeze in Aspen, hit Upfront, survive Milken, then straight to Paris for the French Open. Briefly back in NYC for the Knicks. Then total blur: SuperReturn in Berlin, Founders Forum in London, World Cup, Paris for Raise AI, Idaho for Sun Valley, quick respite in Mykonos, Goldman tech gauntlet, Slush in Finland, NeurIPS in Sydney... and boom, a productive year of thought leadership and adding value is over, and you&#39;re a wreck.&#39; 488 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>2026 is a BRUTAL grind in VC. You start in Davos, freeze in Aspen, hit Upfront, survive Milken, then it&#39;s straight to Paris for the French Open. Briefly back in NYC for the Knicks. Then, total blur: SuperReturn in Berlin, Founders Forum in London, then back stateside for the World Cup, back to Paris for Raise AI, Idaho for Sun Valley, quick respite in Mykonos, then the Goldman tech gauntlet, Slush in Finland, NeurIPS in freakin&#39; Sydney... and boom, a productive year of thought leadership and adding value is over, and you&#39;re a wreck.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/mattturck/status/2064806681612362113" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:danshipper" data-author-name="Dan Shipper" data-author-tag="CEO @ Every" data-author-handle="@danshipper" data-author-avatar="../assets/avatars/x-danshipper.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-danshipper.jpg" alt="Dan Shipper avatar"><span class="avatar-fallback">DS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Dan Shipper</div>
+            <div class="author-tag is-inline">CEO @ Every</div>
+          </div>
+          <div class="author-handle">@danshipper</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper 谈 AI 与回岸：他在 Lenny 的播客上预测，AI 让每个员工的生产力更高，使得把某些工作回岸到美国、更靠近客户变得有吸引力。164 赞。</p>
+              <p>这是一个被低估的二阶效应：AI 不仅自动化了离岸外包，还通过让位置溢价比成本套利更重要来逆转它。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper：AI 高生产力让回岸有吸引力。位置溢价&gt;成本套利。164 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper on AI and reshoring: he predicted on Lenny&#39;s podcast that higher productivity from each employee with AI makes it appealing to reshore certain jobs back to the US to be closer to customers. 164 likes.</p>
+              <p>This is an under-discussed second-order effect: AI doesn&#39;t just automate offshoring, it reverses it by making the location premium matter more than the cost arbitrage.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Higher productivity from each individual employee with AI, makes it appealing to reshore certain jobs back to the US to be close to customers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/danshipper/status/2064777216656097445" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 推荐 Nessie：把你在 ChatGPT、Perplexity 和 Gemini 上的所有现有上下文、记忆和历史迁移到其他有记忆的地方，还能导入 OpenClaw/Hermes Agent。它的 OpenClaw 和 MCP 服务器很棒。269 赞。</p>
+              <p>记忆可移植性正在成为一个真正的品类：随着用户在多个 AI 平台上积累上下文，移动和统一这些上下文的能力越来越有价值。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：Nessie 是迁移 AI 记忆最好的方式。ChatGPT/Perplexity/Gemini→其他平台+OpenClaw。269 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan recommends Nessie: the best way to get all your existing context, memory and history from ChatGPT, Perplexity, and Gemini into all the other places you have memory, and also get it into OpenClaw/Hermes Agent. Their OpenClaw and MCP servers are ace. 269 likes.</p>
+              <p>Memory portability is becoming a real category: as users accumulate context across multiple AI platforms, the ability to move and unify that context becomes increasingly valuable.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nessie just became the best way to get all your existing context, memory and history from ChatGPT, Perplexity, and Gemini into all the other places you have memory, and also get it into OpenClaw/Hermes Agent.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2064947145652994510" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Mike Krieger on Using Fable Day-to-Day / 播客：Mike Krieger 谈 Fable 日常使用</h2>
+    <p class="section-desc">Anthropic Labs 负责人、Instagram 联合创始人 Mike Krieger 与 Dan Shipper 深度对话：Fable 的使用体验、验证循环、动态工作流、以及软件工程的未来。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:ai-and-i" data-author-name="Mike Krieger" data-author-tag="Anthropic Labs / Instagram Co-founder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Mike Krieger avatar"><span class="avatar-fallback">MK</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Mike Krieger</div>
+            <div class="author-tag is-inline">Anthropic Labs / Instagram Co-founder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic Labs 负责人、Instagram 联合创始人 Mike Krieger 和 Dan Shipper 深聊 Fable 日常使用。核心洞察：（1）Fable 像队友不像工具——他跟 Claude 说晚安、设好复杂任务、早上 2 点就完成了。（2）模型有「判断力」——会对 code review 反馈推回去而不是盲目接受、记住你没开的 feature flag、理解系统全局影响。（3）他周末构建了一个个人媒体追踪 app，app 可以自我修改——agent-native 架构的极致。（4）Dynamic Workflows 是改变游戏规则的功能：他周末用多步工作流把复杂 Python 代码库移植到 TypeScript/Bun。（5）关于软件工程是否已死：「变化巨大，但『你需要什么』和『这好不好』仍然是人类的事业。』工程师同时感受到失落和兴奋。（6）验证是关键：每个 PR 截图/视频、FFmpeg 检查动画、模拟后端。（7）聊天不是唯一界面——移动端、渐进式披露、多人协作是下一个前沿。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Mike Krieger：我重新感觉像个新手了，因为我提示和分解任务的方式已经过时了。</p>
+              <p>我会跟 Claude 说晚安，设好复杂任务，早上 2 点就完成了。远程服务挂了它就自己搭个临时后端，等恢复再修。</p>
+              <p>Fable 是第一个让我真正调 effort level 的模型。只是调个 UI 的话就放 medium。</p>
+              <p>软件工程变化巨大。但『你需要什么』和『这好不好』仍然是人类的事业。</p>
+              <p>最疯狂的动态工作流是周末把复杂 Python 代码库移植到 TypeScript。先建 spec、逐模块翻译、增量测试、对抗性验证、检查遗漏。</p>
+              <p>验证极其重要：每个 PR 附截图/视频，用 FFmpeg 检查动画，为复杂系统建模拟后端。</p>
+              <p>聊天不是唯一界面。移动端、渐进式披露、多人协作是下一个前沿。</p>
+              <p>动态工作流用代码表达、用聊天编排、有干净的 UI 展示每个阶段。这是连接长周期工作和聊天的中间地带。</p>
+              <p>非技术人员现在也能构建持续增长的复杂系统——一个 GTM 团队的人花几个月构建了一套集成，现在部署给整个 GTM 组织使用。</p>
+              <p>旧金山的创业公司 90% 在互相卖产品。我认识的设计师周末用 Claude Code 做 side project，产出比以前一个小团队做的都多。</p>
+              <p>工程不再是打字编辑代码，而是架构规划、验证循环、以及理解生产环境中会发生什么。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Mike Krieger (Anthropic Labs, Instagram co-founder) talks with Dan Shipper about using Fable beyond day one. Key themes: (1) Fable feels like a teammate you delegate work to, not a tool you direct. He&#39;ll say goodnight to Claude, set up a complex task, and wake up to it done by 2am. (2) The model has &#39;judgment&#39; — it pushes back on code review feedback instead of blindly accepting it, remembers feature flags you haven&#39;t turned on, and understands system-wide implications. (3) He built a personal media tracker app over a weekend where the app can modify itself — agent-native architecture taken to its logical extreme. (4) Dynamic Workflows are a game-changer: he ported a complex Python codebase to TypeScript/Bun over a weekend using a multi-step workflow with incremental testing and adversarial verification. (5) On whether software engineering is over: &#39;It&#39;s dramatically changed, but the craft of what needs do you have and is it actually good is still a very human endeavor.&#39; Engineers feel both loss and excitement simultaneously. (6) Verification is critical: screenshots/video for every PR, FFmpeg scrubbing for animations, mock backends for complex systems. (7) Chat is not the only interface — mobile, progressive disclosure, and multiplayer are the next frontiers.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>I feel like a total newbie again because the way that I am prompting or even thinking about decomposing a task is really out of date now with this model.</p>
+              <p>I will wish Claude a good night, set it up on a pretty complex task, and wake up to it done by 2am. It got stuck because this remote service went down. I&#39;m gonna write a scaffolded back end for it for now, document that, and when it comes back online I&#39;ll fix it.</p>
+              <p>Fable is the first model where I&#39;ve actually played more with the effort levels. I just needed to tweak some UI, so I put it to medium.</p>
+              <p>Software engineering is different, dramatically changed. But the overall craft of what needs do you have, is it actually good, is still a very human endeavor.</p>
+              <p>The craziest dynamic workflow I did was port a complex codebase from Python to TypeScript over the weekend. It created a spec, went module by module, tested incrementally, did adversarial testing, checked for anything missed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=XWpTgCvgYaE" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-11 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-11 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
