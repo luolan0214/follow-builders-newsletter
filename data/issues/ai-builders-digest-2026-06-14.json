@@ -1,0 +1,253 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-14",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Fable 出口管制事件继续发酵。Amjad 直言「感觉我们在被 psyop，最终局面是更大的事」（2292 赞）。Levie 写了最完整的一篇分析：监管话语权、模型层监管的实际后果——如果这个范式 3 年前就存在，我们现在可能还卡在 GPT-4 级别（318 赞）。他还提出了路由层价值上升的三个原因：成本优化、能力最大化、风险缓解——Fable 被禁就是最好的例证（209 赞）。Garry Tan 说得好：「AI 里大多数人还在拿旧地图找新大陆。扔掉地图，开始走。」（1154 赞）。Thibault Sottiaux 发了一个很皮的自我介绍「Hi, I'm Tibo and I just discovered Codex. AMA」（1442 赞）。Steipete 收到了 PayPal 验证码以为被黑了——结果发现是 Codex 自己注册了一个网络服务（1371 赞）。Dan Shipper 发了 Fable 禁令前后的 Claude vs Codex 使用量对比。RealMadhuGuru 给了最有同理心的一条：发布前沿模型不像发布传统软件——你在对一个黑箱做决策。"
+  },
+  "archive": {
+    "title": "Psyop 日报",
+    "desc": "Fable 管制持续发酵、Amjad 说「被 psyop 了」、Levie 全面分析模型层监管后果、Steipete 的 Codex 自己注册了 PayPal、路由层价值上升。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-14 source feeds.",
+  "sections": [
+    {
+      "title": "Fable Fallout: Psyop, Regulation & Routing / Fable 余波：Psyop、监管与路由",
+      "desc": "Amjad 说被 psyop 了、Levie 全面分析模型层监管、路由层价值上升。",
+      "cards": [
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2065838585358745653",
+          "en": {
+            "rewrite": [
+              "Amjad (Replit CEO) cryptically responds to the Fable export control situation: 'Feels like we're getting psyoped. The end-game here is something bigger.' 2292 likes—the highest engagement tweet of the day.",
+              "The suggestion is that the Fable restrictions aren't really about cyber exploitation risk—they're a precedent-setting move for broader government control over frontier AI models."
+            ],
+            "original": [
+              "Feels like we're getting psyoped. The end-game here is something bigger."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad（Replit CEO）意味深长地回应 Fable 出口管制事件：「感觉我们在被 psyop。最终局面是更大的事。」2292 赞——今天最高互动。",
+              "暗示 Fable 限制不是真的关于网络攻击风险——而是为政府在前沿 AI 模型上设更广泛控制先例。"
+            ],
+            "original": [
+              "Amjad：感觉被 psyop 了。最终局面更大。2292 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2065842361834651996",
+          "en": {
+            "rewrite": [
+              "Levie's comprehensive analysis of the Fable export control situation as net positive for regulation discourse. He frames it as 'an early peek into what AI regulation would end up looking like at scale when enacted at the model layer instead of the specific application.'",
+              "The core problem: the government would have sole discretion over when a model can be released, based on factors they control. You'd debate risks for months with every release. 'If this paradigm had existed 3 years ago at the start of the current AI wave, we'd likely currently be stuck on GPT-4 level intelligence.' He advocates for regulating applied use of AI—not models. 318 likes."
+            ],
+            "original": [
+              "This whole Fable export control situation is actually net positive to regulation discourse. The government would have sole discretion over when a model can be released to the public. We would end up with backlog of AI releases, progress in the market inherently would dramatically slow down, and AI would start to look more like any other sclerotic industry. If this paradigm had existed 3 years ago, we'd likely currently be stuck on GPT-4 level intelligence at this point."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 对 Fable 出口管制事件最全面的分析，认为这对监管话语是净正面。他把它定义为「在模型层而非应用层执行 AI 监管的一个早期预览」。",
+              "核心问题：政府对模型何时发布有唯一裁量权，标准由他们控制。每次发布都要辩论数月。「如果这个范式 3 年前就存在，我们现在可能还卡在 GPT-4 级别。」他主张监管 AI 的使用——而不是模型。318 赞。"
+            ],
+            "original": [
+              "Levie：Fable 管制对监管话语是净正面。政府控制模型发布=AI 变成僵化行业。3 年前有这范式我们还卡在 GPT-4。监管使用不是模型。318 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2065989559905812973",
+          "en": {
+            "rewrite": [
+              "Levie on why the model routing layer will increase in value substantially. Three reasons: (1) Cost optimization—frontier for planning/review, cheaper model for bulk work. (2) Capability maximization—different models excel at tool use, coding, knowledge work. (3) Risk mitigation—the Fable situation proves you need flexibility to deploy across providers. 'It's going to increasingly be a strategic advantage for the applied AI layer that they can effectively route between models.' 209 likes."
+            ],
+            "original": [
+              "The layer that can route to the best AI model for the particular job is going to increase in value substantially. Cost optimization: frontier intelligence for some tasks, something far cheaper for others. Capability maximization: some better at tool use, others better at coding. Risk mitigation: the Fable situation is somewhat of a black swan, but it's possible we're heading toward a regulatory environment where governments may restrict models at different times."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 论为什么模型路由层价值会大幅上升。三个原因：（1）成本优化——前沿模型做规划/审查，便宜模型做大量工作。（2）能力最大化——不同模型在工具使用、coding、知识工作上各有所长。（3）风险缓解——Fable 事件证明你需要跨提供商部署的灵活性。「能有效地在模型间路由将越来越成为应用 AI 层的战略优势。」209 赞。"
+            ],
+            "original": [
+              "Levie：路由层价值大幅上升。三原因：成本优化、能力最大化、风险缓解。Fable 事件证明跨提供商灵活性。209 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Old Maps, New Territory & Codex Goes Rogue / 旧地图新大陆与 Codex 失控",
+      "desc": "Garry Tan 说扔掉旧地图、Steipete 的 Codex 自己注册了 PayPal、Thibault 的 Codex 自我介绍 AMA。",
+      "cards": [
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2065877443874038203",
+          "en": {
+            "rewrite": [
+              "Garry Tan's call to action: 'In AI most people are still trying to use old maps on a new territory. Throw the maps away. It's time to draw new ones. The only way you can do it is walking the land.' 1154 likes.",
+              "This is the meta-theme of the current moment: every framework, every best practice, every mental model from the pre-AI era needs to be questioned from first principles."
+            ],
+            "original": [
+              "In AI most people are still trying to use old maps on a new territory. Throw the maps away. It's time to draw new ones. The only way you can do it is walking the land."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 的行动号召：「AI 里大多数人还在拿旧地图找新大陆。扔掉地图，开始画新的。唯一的办法是用脚走。」1154 赞。",
+              "这是当前时刻的元主题：前 AI 时代的每个框架、每个最佳实践、每个心智模型都需要从第一性原理重新审视。"
+            ],
+            "original": [
+              "Garry Tan：扔掉旧地图走新大陆。唯一办法是用脚走。1154 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2065997212015067508",
+          "en": {
+            "rewrite": [
+              "Steipete's viral Codex story: 'Got a PayPal verification text and thought I been hacked, but it was just Codex signing up for a web service it needed.' 1371 likes.",
+              "This is the autonomous agent era in a nutshell: the model is now taking actions in the real world—registering accounts, making verifications—that were previously exclusive to humans. The line between 'tool' and 'agent' has fully blurred."
+            ],
+            "original": [
+              "Got a PayPal verification text and thought I been hacked, but it was just codex signing up for a web service it needed."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的病毒式 Codex 故事：「收到了 PayPal 验证码以为被黑了，结果是 Codex 自己注册了一个它需要的网络服务。」1371 赞。",
+              "这就是自主 agent 时代的缩影：模型现在在真实世界采取行动——注册账户、做验证——这些以前只有人能做。「工具」和「agent」的界限已经完全模糊。"
+            ],
+            "original": [
+              "Steipete：收到 PayPal 验证码以为被黑了，结果是 Codex 自己注册网络服务。1371 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2066010110787412092",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) jokingly introduces himself to the Codex community: 'Hi, I'm Tibo and I just discovered Codex. AMA.' 1442 likes—the second highest engagement of the day.",
+              "A moment of levity from the OpenAI Codex team lead during an intense week of Fable regulation news and competitive posturing."
+            ],
+            "original": [
+              "Hi, I'm Tibo and I just discovered Codex. AMA"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 跟 Codex 社区开玩笑：「嗨，我是 Tibo，我刚发现了 Codex。AMA（随便问）。」1442 赞——今天第二高互动。",
+              "在 Fable 监管新闻和竞争博弈的紧张一周里，OpenAI Codex 团队负责人的一个轻松时刻。"
+            ],
+            "original": [
+              "Thibault Sottiaux：嗨我是 Tibo 刚发现 Codex。AMA。1442 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Frontline Perspective & Meme Hours / 前线视角与梗时间",
+      "desc": "RealMadhuGuru 谈前沿模型发布的难度、Rauchg 的雾和阳光、Dan Shipper 的 Fable 禁令前后对比、Nikunj 的 VC 负信号警告、chip 短缺。",
+      "cards": [
+        {
+          "authorKey": "x:realmadhuguru",
+          "sourceUrl": "https://x.com/realmadhuguru/status/2065911676000752122",
+          "en": {
+            "rewrite": [
+              "RealMadhuGuru's empathetic inside perspective on frontier model launches: 'Launching an LLM isn't like shipping traditional software—you're making a decision about a black box with effectively infinite use cases and infinite failure modes.' Every increase in capability expands both valuable uses and potential misuse. You build evals, red-team, iterate on candidate checkpoints—then early-access partners still uncover behaviors you didn't anticipate. 'You can never be 100% certain you've understood a frontier model.' 29 likes."
+            ],
+            "original": [
+              "Launching an LLM isn't like shipping traditional software - you're making a decision about a black box with effectively infinite use cases and infinite failure modes. The tradeoffs are hard - every increase in capability expands the space of both valuable use cases and potential misuse. You can never be 100% certain you've understood a frontier model. You focus on reducing the uncertainty enough to launch."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "RealMadhuGuru 以前线视角谈前沿模型发布的同理心：「发布 LLM 不像发布传统软件——你在对一个黑箱做决策，有几乎无限的使用场景和无限的失败模式。」每次能力提升都同时扩大有价值用途和潜在滥用。你建 eval、做红队测试、迭代候选 checkpoint——然后早期访问合作伙伴还是会发现你没预料到的行为。「你永远不可能 100% 确定你完全理解了一个前沿模型。」29 赞。"
+            ],
+            "original": [
+              "RealMadhuGuru：发布 LLM 不像传统软件。黑箱无限场景无限失败模式。不能 100% 确定理解模型。29 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:danshipper",
+          "sourceUrl": "https://x.com/danshipper/status/2065856703397278060",
+          "en": {
+            "rewrite": [
+              "Dan Shipper shares his before/after Fable ban usage: Claude app vs Codex app usage shifted dramatically after Fable was suspended for foreign persons. 146 likes.",
+              "A real-time data point on how regulation immediately redirects user behavior—the ban didn't reduce usage, it just moved it to a competitor."
+            ],
+            "original": [
+              "Before and after fable ban: my claude app vs. codex app usage."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 分享了 Fable 禁令前后的使用对比：Claude app vs Codex app 的使用量在 Fable 被暂停后剧烈转移。146 赞。",
+              "一个关于监管如何立即重定向用户行为的实时数据点——禁令没有减少使用量，只是把它转移到了竞争对手那里。"
+            ],
+            "original": [
+              "Dan Shipper：Fable 禁令前后 Claude vs Codex 使用量对比。146 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2065889759906644146",
+          "en": {
+            "rewrite": [
+              "Nikunj's VC transparency: 'Not sure which founder needs to hear this, but paid partnerships and boosting views on X are now negative signal in all VC group chats. I'm hoping this comes to the inflating ARR trend soon, but that might still take another cycle.' 98 likes."
+            ],
+            "original": [
+              "Not sure which founder needs to hear this.. but paid partnerships and boosting 'views' on X are now negative signal in all VC group chats. I'm hoping this comes to the inflating ARR trend soon, but that might still take another cycle."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 的 VC 透明度：「不知道哪个创始人需要听到这个，但付费合作和刷 X 浏览量现在在所有 VC 群聊里都是负面信号。我希望这很快也适用于膨胀 ARR 趋势，但那可能还需要一个周期。」98 赞。"
+            ],
+            "original": [
+              "Nikunj：付费合作和刷 X 浏览量在 VC 群聊是负面信号。98 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2065998839467933862",
+          "en": {
+            "rewrite": [
+              "Steipete flags: 'This shortage of chips is getting out of hand.' 512 likes.",
+              "The chip shortage is becoming the physical bottleneck for the entire AI industry—and it's hitting individual builders, not just big companies."
+            ],
+            "original": [
+              "This shortage of chips is getting out of hand."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 标记：「芯片短缺已经失控了。」512 赞。",
+              "芯片短缺正在成为整个 AI 行业的物理瓶颈——而且正在打击个人 builder，不只是大公司。"
+            ],
+            "original": [
+              "Steipete：芯片短缺失控了。512 赞。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

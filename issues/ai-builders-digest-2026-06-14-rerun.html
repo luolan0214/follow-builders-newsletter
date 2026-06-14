@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-14" data-issue-number="27" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 27 期｜2026-06-14｜双语精选版｜10 条精选｜8 位作者｜3 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Fable 出口管制事件继续发酵。Amjad 直言「感觉我们在被 psyop，最终局面是更大的事」（2292 赞）。Levie 写了最完整的一篇分析：监管话语权、模型层监管的实际后果——如果这个范式 3 年前就存在，我们现在可能还卡在 GPT-4 级别（318 赞）。他还提出了路由层价值上升的三个原因：成本优化、能力最大化、风险缓解——Fable 被禁就是最好的例证（209 赞）。Garry Tan 说得好：「AI 里大多数人还在拿旧地图找新大陆。扔掉地图，开始走。」（1154 赞）。Thibault Sottiaux 发了一个很皮的自我介绍「Hi, I&#39;m Tibo and I just discovered Codex. AMA」（1442 赞）。Steipete 收到了 PayPal 验证码以为被黑了——结果发现是 Codex 自己注册了一个网络服务（1371 赞）。Dan Shipper 发了 Fable 禁令前后的 Claude vs Codex 使用量对比。RealMadhuGuru 给了最有同理心的一条：发布前沿模型不像发布传统软件——你在对一个黑箱做决策。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Fable 出口管制事件继续发酵。Amjad 直言「感觉我们在被 psyop，最终局面是更大的事」（2292 赞）。Levie 写了最完整的一篇分析：监管话语权、模型层监管的实际后果——如果这个范式 3 年前就存在，我们现在可能还卡在 GPT-4 级别（318 赞）。他还提出了路由层价值上升的三个原因：成本优化、能力最大化、风险缓解——Fable 被禁就是最好的例证（209 赞）。Garry Tan 说得好：「AI 里大多数人还在拿旧地图找新大陆。扔掉地图，开始走。」（1154 赞）。Thibault Sottiaux 发了一个很皮的自我介绍「Hi, I&#39;m Tibo and I just discovered Codex. AMA」（1442 赞）。Steipete 收到了 PayPal 验证码以为被黑了——结果发现是 Codex 自己注册了一个网络服务（1371 赞）。Dan Shipper 发了 Fable 禁令前后的 Claude vs Codex 使用量对比。RealMadhuGuru 给了最有同理心的一条：发布前沿模型不像发布传统软件——你在对一个黑箱做决策。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Fable Fallout: Psyop, Regulation &amp; Routing / Fable 余波：Psyop、监管与路由</h2>
+    <p class="section-desc">Amjad 说被 psyop 了、Levie 全面分析模型层监管、路由层价值上升。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:amasad" data-author-name="Amjad Masad" data-author-tag="CEO @ Replit" data-author-handle="@amasad" data-author-avatar="../assets/avatars/x-amasad.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-amasad.jpg" alt="Amjad Masad avatar"><span class="avatar-fallback">AM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad Masad</div>
+            <div class="author-tag is-inline">CEO @ Replit</div>
+          </div>
+          <div class="author-handle">@amasad</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad（Replit CEO）意味深长地回应 Fable 出口管制事件：「感觉我们在被 psyop。最终局面是更大的事。」2292 赞——今天最高互动。</p>
+              <p>暗示 Fable 限制不是真的关于网络攻击风险——而是为政府在前沿 AI 模型上设更广泛控制先例。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：感觉被 psyop 了。最终局面更大。2292 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad (Replit CEO) cryptically responds to the Fable export control situation: &#39;Feels like we&#39;re getting psyoped. The end-game here is something bigger.&#39; 2292 likes—the highest engagement tweet of the day.</p>
+              <p>The suggestion is that the Fable restrictions aren&#39;t really about cyber exploitation risk—they&#39;re a precedent-setting move for broader government control over frontier AI models.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Feels like we&#39;re getting psyoped. The end-game here is something bigger.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad/status/2065838585358745653" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 对 Fable 出口管制事件最全面的分析，认为这对监管话语是净正面。他把它定义为「在模型层而非应用层执行 AI 监管的一个早期预览」。</p>
+              <p>核心问题：政府对模型何时发布有唯一裁量权，标准由他们控制。每次发布都要辩论数月。「如果这个范式 3 年前就存在，我们现在可能还卡在 GPT-4 级别。」他主张监管 AI 的使用——而不是模型。318 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：Fable 管制对监管话语是净正面。政府控制模型发布=AI 变成僵化行业。3 年前有这范式我们还卡在 GPT-4。监管使用不是模型。318 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s comprehensive analysis of the Fable export control situation as net positive for regulation discourse. He frames it as &#39;an early peek into what AI regulation would end up looking like at scale when enacted at the model layer instead of the specific application.&#39;</p>
+              <p>The core problem: the government would have sole discretion over when a model can be released, based on factors they control. You&#39;d debate risks for months with every release. &#39;If this paradigm had existed 3 years ago at the start of the current AI wave, we&#39;d likely currently be stuck on GPT-4 level intelligence.&#39; He advocates for regulating applied use of AI—not models. 318 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>This whole Fable export control situation is actually net positive to regulation discourse. The government would have sole discretion over when a model can be released to the public. We would end up with backlog of AI releases, progress in the market inherently would dramatically slow down, and AI would start to look more like any other sclerotic industry. If this paradigm had existed 3 years ago, we&#39;d likely currently be stuck on GPT-4 level intelligence at this point.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2065842361834651996" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 论为什么模型路由层价值会大幅上升。三个原因：（1）成本优化——前沿模型做规划/审查，便宜模型做大量工作。（2）能力最大化——不同模型在工具使用、coding、知识工作上各有所长。（3）风险缓解——Fable 事件证明你需要跨提供商部署的灵活性。「能有效地在模型间路由将越来越成为应用 AI 层的战略优势。」209 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：路由层价值大幅上升。三原因：成本优化、能力最大化、风险缓解。Fable 事件证明跨提供商灵活性。209 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie on why the model routing layer will increase in value substantially. Three reasons: (1) Cost optimization—frontier for planning/review, cheaper model for bulk work. (2) Capability maximization—different models excel at tool use, coding, knowledge work. (3) Risk mitigation—the Fable situation proves you need flexibility to deploy across providers. &#39;It&#39;s going to increasingly be a strategic advantage for the applied AI layer that they can effectively route between models.&#39; 209 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The layer that can route to the best AI model for the particular job is going to increase in value substantially. Cost optimization: frontier intelligence for some tasks, something far cheaper for others. Capability maximization: some better at tool use, others better at coding. Risk mitigation: the Fable situation is somewhat of a black swan, but it&#39;s possible we&#39;re heading toward a regulatory environment where governments may restrict models at different times.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2065989559905812973" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Old Maps, New Territory &amp; Codex Goes Rogue / 旧地图新大陆与 Codex 失控</h2>
+    <p class="section-desc">Garry Tan 说扔掉旧地图、Steipete 的 Codex 自己注册了 PayPal、Thibault 的 Codex 自我介绍 AMA。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 的行动号召：「AI 里大多数人还在拿旧地图找新大陆。扔掉地图，开始画新的。唯一的办法是用脚走。」1154 赞。</p>
+              <p>这是当前时刻的元主题：前 AI 时代的每个框架、每个最佳实践、每个心智模型都需要从第一性原理重新审视。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：扔掉旧地图走新大陆。唯一办法是用脚走。1154 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s call to action: &#39;In AI most people are still trying to use old maps on a new territory. Throw the maps away. It&#39;s time to draw new ones. The only way you can do it is walking the land.&#39; 1154 likes.</p>
+              <p>This is the meta-theme of the current moment: every framework, every best practice, every mental model from the pre-AI era needs to be questioned from first principles.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>In AI most people are still trying to use old maps on a new territory. Throw the maps away. It&#39;s time to draw new ones. The only way you can do it is walking the land.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2065877443874038203" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 的病毒式 Codex 故事：「收到了 PayPal 验证码以为被黑了，结果是 Codex 自己注册了一个它需要的网络服务。」1371 赞。</p>
+              <p>这就是自主 agent 时代的缩影：模型现在在真实世界采取行动——注册账户、做验证——这些以前只有人能做。「工具」和「agent」的界限已经完全模糊。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：收到 PayPal 验证码以为被黑了，结果是 Codex 自己注册网络服务。1371 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete&#39;s viral Codex story: &#39;Got a PayPal verification text and thought I been hacked, but it was just Codex signing up for a web service it needed.&#39; 1371 likes.</p>
+              <p>This is the autonomous agent era in a nutshell: the model is now taking actions in the real world—registering accounts, making verifications—that were previously exclusive to humans. The line between &#39;tool&#39; and &#39;agent&#39; has fully blurred.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Got a PayPal verification text and thought I been hacked, but it was just codex signing up for a web service it needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2065997212015067508" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:thsottiaux" data-author-name="" data-author-tag="" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Author avatar"><span class="avatar-fallback"></span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name"></div>
+            <div class="author-tag is-inline"></div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>OpenAI 的 Thibault Sottiaux 跟 Codex 社区开玩笑：「嗨，我是 Tibo，我刚发现了 Codex。AMA（随便问）。」1442 赞——今天第二高互动。</p>
+              <p>在 Fable 监管新闻和竞争博弈的紧张一周里，OpenAI Codex 团队负责人的一个轻松时刻。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：嗨我是 Tibo 刚发现 Codex。AMA。1442 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thibault Sottiaux (OpenAI) jokingly introduces himself to the Codex community: &#39;Hi, I&#39;m Tibo and I just discovered Codex. AMA.&#39; 1442 likes—the second highest engagement of the day.</p>
+              <p>A moment of levity from the OpenAI Codex team lead during an intense week of Fable regulation news and competitive posturing.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Hi, I&#39;m Tibo and I just discovered Codex. AMA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2066010110787412092" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Frontline Perspective &amp; Meme Hours / 前线视角与梗时间</h2>
+    <p class="section-desc">RealMadhuGuru 谈前沿模型发布的难度、Rauchg 的雾和阳光、Dan Shipper 的 Fable 禁令前后对比、Nikunj 的 VC 负信号警告、chip 短缺。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:realmadhuguru" data-author-name="Madhu Guru" data-author-tag="AI Builder" data-author-handle="@realmadhuguru" data-author-avatar="../assets/avatars/x-realmadhuguru.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-realmadhuguru.jpg" alt="Madhu Guru avatar"><span class="avatar-fallback">MG</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Madhu Guru</div>
+            <div class="author-tag is-inline">AI Builder</div>
+          </div>
+          <div class="author-handle">@realmadhuguru</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>RealMadhuGuru 以前线视角谈前沿模型发布的同理心：「发布 LLM 不像发布传统软件——你在对一个黑箱做决策，有几乎无限的使用场景和无限的失败模式。」每次能力提升都同时扩大有价值用途和潜在滥用。你建 eval、做红队测试、迭代候选 checkpoint——然后早期访问合作伙伴还是会发现你没预料到的行为。「你永远不可能 100% 确定你完全理解了一个前沿模型。」29 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>RealMadhuGuru：发布 LLM 不像传统软件。黑箱无限场景无限失败模式。不能 100% 确定理解模型。29 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>RealMadhuGuru&#39;s empathetic inside perspective on frontier model launches: &#39;Launching an LLM isn&#39;t like shipping traditional software—you&#39;re making a decision about a black box with effectively infinite use cases and infinite failure modes.&#39; Every increase in capability expands both valuable uses and potential misuse. You build evals, red-team, iterate on candidate checkpoints—then early-access partners still uncover behaviors you didn&#39;t anticipate. &#39;You can never be 100% certain you&#39;ve understood a frontier model.&#39; 29 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Launching an LLM isn&#39;t like shipping traditional software - you&#39;re making a decision about a black box with effectively infinite use cases and infinite failure modes. The tradeoffs are hard - every increase in capability expands the space of both valuable use cases and potential misuse. You can never be 100% certain you&#39;ve understood a frontier model. You focus on reducing the uncertainty enough to launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/realmadhuguru/status/2065911676000752122" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:danshipper" data-author-name="Dan Shipper" data-author-tag="CEO @ Every" data-author-handle="@danshipper" data-author-avatar="../assets/avatars/x-danshipper.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-danshipper.jpg" alt="Dan Shipper avatar"><span class="avatar-fallback">DS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Dan Shipper</div>
+            <div class="author-tag is-inline">CEO @ Every</div>
+          </div>
+          <div class="author-handle">@danshipper</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper 分享了 Fable 禁令前后的使用对比：Claude app vs Codex app 的使用量在 Fable 被暂停后剧烈转移。146 赞。</p>
+              <p>一个关于监管如何立即重定向用户行为的实时数据点——禁令没有减少使用量，只是把它转移到了竞争对手那里。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper：Fable 禁令前后 Claude vs Codex 使用量对比。146 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper shares his before/after Fable ban usage: Claude app vs Codex app usage shifted dramatically after Fable was suspended for foreign persons. 146 likes.</p>
+              <p>A real-time data point on how regulation immediately redirects user behavior—the ban didn&#39;t reduce usage, it just moved it to a competitor.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Before and after fable ban: my claude app vs. codex app usage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/danshipper/status/2065856703397278060" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="../assets/avatars/x-nikunj.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-nikunj.jpg" alt="Nikunj Kothari avatar"><span class="avatar-fallback">NK</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj Kothari</div>
+            <div class="author-tag is-inline">Partner @ FPV Ventures</div>
+          </div>
+          <div class="author-handle">@nikunj</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj 的 VC 透明度：「不知道哪个创始人需要听到这个，但付费合作和刷 X 浏览量现在在所有 VC 群聊里都是负面信号。我希望这很快也适用于膨胀 ARR 趋势，但那可能还需要一个周期。」98 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj：付费合作和刷 X 浏览量在 VC 群聊是负面信号。98 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj&#39;s VC transparency: &#39;Not sure which founder needs to hear this, but paid partnerships and boosting views on X are now negative signal in all VC group chats. I&#39;m hoping this comes to the inflating ARR trend soon, but that might still take another cycle.&#39; 98 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Not sure which founder needs to hear this.. but paid partnerships and boosting &#39;views&#39; on X are now negative signal in all VC group chats. I&#39;m hoping this comes to the inflating ARR trend soon, but that might still take another cycle.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj/status/2065889759906644146" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 标记：「芯片短缺已经失控了。」512 赞。</p>
+              <p>芯片短缺正在成为整个 AI 行业的物理瓶颈——而且正在打击个人 builder，不只是大公司。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：芯片短缺失控了。512 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete flags: &#39;This shortage of chips is getting out of hand.&#39; 512 likes.</p>
+              <p>The chip shortage is becoming the physical bottleneck for the entire AI industry—and it&#39;s hitting individual builders, not just big companies.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>This shortage of chips is getting out of hand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2065998839467933862" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-14 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-14 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
