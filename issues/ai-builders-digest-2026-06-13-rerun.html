@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-13" data-issue-number="26" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 26 期｜2026-06-13｜双语精选版｜13 条精选｜10 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天的主题很集中：监管来了。Anthropic 宣布暂停「在美国的外国人」使用 Fable，Peter Yang 说这太离谱了（2015 赞），Levie 说这是 AI 监管的转折点——政府开始认为某些模型太强大了（451 赞）。Amjad 说 Replit 可能不得不关掉 Fable 访问（450 赞），同时透了一个好的商业判断：当初企业客户要 token 排行榜他们拒绝了，因为卖的是结果不是 token。Thibault Sottiaux 改进了 Codex 的限额重置：下次用户可以选择什么时候生效（5271 赞）。swyx 提了一个大胆的问题：PR 死了、Code Review 死了，Git 是不是也该死了？Rauchg 发布了 DarknessAgent——Vercel AI SDK 的统一 agent 编排抽象（828 赞）。Alex Albert 分享了让 Fable 在长对话中写得更清晰的 prompt 技巧（880 赞）。Steipete 的 Codex 已经在 crabbox 里连续跑了 4 天，他说「我的主要工作变成了加信用卡和关掉不合适的东西」。Garry Tan 的观察最锐利：AI coding 工具看似解放了创始人，但人们用它建的还是规则、审批、流程——「构建速度也是固化速度」。Karpathy 发了条 SpaceX 的感叹，17009 赞。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天的主题很集中：监管来了。Anthropic 宣布暂停「在美国的外国人」使用 Fable，Peter Yang 说这太离谱了（2015 赞），Levie 说这是 AI 监管的转折点——政府开始认为某些模型太强大了（451 赞）。Amjad 说 Replit 可能不得不关掉 Fable 访问（450 赞），同时透了一个好的商业判断：当初企业客户要 token 排行榜他们拒绝了，因为卖的是结果不是 token。Thibault Sottiaux 改进了 Codex 的限额重置：下次用户可以选择什么时候生效（5271 赞）。swyx 提了一个大胆的问题：PR 死了、Code Review 死了，Git 是不是也该死了？Rauchg 发布了 DarknessAgent——Vercel AI SDK 的统一 agent 编排抽象（828 赞）。Alex Albert 分享了让 Fable 在长对话中写得更清晰的 prompt 技巧（880 赞）。Steipete 的 Codex 已经在 crabbox 里连续跑了 4 天，他说「我的主要工作变成了加信用卡和关掉不合适的东西」。Garry Tan 的观察最锐利：AI coding 工具看似解放了创始人，但人们用它建的还是规则、审批、流程——「构建速度也是固化速度」。Karpathy 发了条 SpaceX 的感叹，17009 赞。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Fable Access Restricted &amp; Regulation Turning Point / Fable 限制访问与监管转折</h2>
+    <p class="section-desc">Anthropic 暂停外国人在美使用 Fable、Levie 说这是 AI 监管转折点、Peter Yang 预测 ID 验证即将到来。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-petergyang.jpg" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Product @ Roblox</div>
+          </div>
+          <div class="author-handle">@petergyang</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 标记了一个令人震惊的政策：「暂停所有『在美国的外国人』使用 Fable，这也太离谱了。你甚至怎么正确执行这个？」2015 赞。</p>
+              <p>这指的是 Anthropic 因 Mythos 级别模型能力的出口管制顾虑，限制在美国的非美国公民使用 Fable。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：暂停在美外国人使用 Fable 太离谱。怎么执行？2015 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang flags a shocking policy: &#39;Suspending Fable for all foreign person inside the US is wild. How can you even enforce this properly?&#39; 2015 likes.</p>
+              <p>This refers to Anthropic restricting access to Fable for non-US-persons within the United States, likely due to export control concerns around the Mythos-class model&#39;s capabilities.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Suspending Fable for all &#39;foreign person inside the US&#39; is wild. How can you even enforce this properly?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang/status/2065602691850764667" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 说这是 AI 监管的重大转折点：「政府开始认为某些模型太强大了不适合某些用途，这为未来一系列管控创造了先例。」他认为这没必要，应该监管 AI 的使用而非底层模型。「不管怎样，我们不太可能回到政府对 AI 进展速度没有实质参与的世界了。」451 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：AI 监管转折点。政府开始认为某些模型太强大。应监管使用而非模型。451 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie calls this a big turning point for AI regulation: &#39;The government is starting to deem some models too powerful for certain uses, which creates a precedent for a range of possible controls in the future.&#39; He&#39;s in the camp that this is unnecessary and we should regulate use of AI, not underlying models. &#39;Either way, it&#39;s unlikely that we&#39;re going back to a world where the government doesn&#39;t have far more meaningful involvement in the rate of AI progress.&#39; 451 likes.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>This is a big turning point for AI regulation. The government is starting to deem some models too powerful for certain uses, which creates a precedent for a range of possible controls in the future. I&#39;m in the camp that this is unnecessary and we should be primarily regulating the use of AI, as opposed to the underlying models.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2065616509666472329" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-petergyang.jpg" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Product @ Roblox</div>
+          </div>
+          <div class="author-handle">@petergyang</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 基于限制政策的预测：「我认为 ID 验证很快就将成为访问最好模型的前提。」674 赞。</p>
+              <p>这是逻辑推论：如果模型受出口管制，身份验证就成了访问的门控机制。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：ID 验证很快将成为访问最好模型的前提。674 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang&#39;s prediction in response to the Fable access restrictions: &#39;I think ID verification will soon be required to access the best models.&#39; 674 likes.</p>
+              <p>This is a logical consequence: if models are subject to export controls, identity verification becomes the gating mechanism for access.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Yeah I think ID verification will soon be required to access the best models.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang/status/2065622592309039449" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Codex Reset, Token Economics &amp; Self-Building Software / Codex 重置、Token 经济与自我构建的软件</h2>
+    <p class="section-desc">Codex 限额重置改为用户可选、Replit 拒绝做 token 排行榜、Steipete 的 Codex 连续 4 天自构建。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:thsottiaux" data-author-name="" data-author-tag="" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Author avatar"><span class="avatar-fallback"></span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name"></div>
+            <div class="author-tag is-inline"></div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>OpenAI 的 Thibault Sottiaux 回应用户对 Codex 限额无预警重置的不满：「下次我们按按钮的时候，你可以选择什么时候生效。祝 codex 愉快。」5271 赞。</p>
+              <p>一个小但有意义的改进——把意外重置变成可选体验，说明 OpenAI 在认真听重度用户的反馈。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：下次 Codex 重置用户可选时间。5271 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thibault Sottiaux (OpenAI) responds to user feedback about Codex usage resets being annoying without warning: &#39;Next time we press the button you will get to choose when it actually applies. Happy codexing.&#39; 5271 likes.</p>
+              <p>A small but meaningful product improvement—turning a surprise reset into an opt-in experience shows OpenAI is listening to the power-user community.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Heard your (amusing) feedback that it was at times annoying to receive a reset of your Codex usage without warning. Next time we press the button you will get to choose when it actually applies. Happy codexing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2065468501750649006" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:amasad" data-author-name="Amjad Masad" data-author-tag="CEO @ Replit" data-author-handle="@amasad" data-author-avatar="../assets/avatars/x-amasad.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-amasad.jpg" alt="Amjad Masad avatar"><span class="avatar-fallback">AM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad Masad</div>
+            <div class="author-tag is-inline">CEO @ Replit</div>
+          </div>
+          <div class="author-handle">@amasad</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad（Replit）透露了一个有原则的商业决策：tokenmaxxing 热潮中企业客户要求做 token 消耗排行榜，Replit 拒绝了。「对业务来说是好事，但我们不是卖 token 的。我们卖的是结果。而且我们知道这不会持久。」228 赞。</p>
+              <p>这是对 tokenmaxxing 趋势的反向押注——赌结果质量而非 token 数量才能赢到最后。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：企业客户要 token 排行榜被拒。卖结果不是卖 token。228 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad (Replit) reveals a principled business decision: when enterprise customers asked for a token consumption leaderboard during the tokenmaxxing craze, Replit said no. &#39;Would&#39;ve been great for business but we&#39;re not in the business of selling tokens for the sake of tokens. We sell outcomes. And we knew it wouldn&#39;t last.&#39; 228 likes.</p>
+              <p>This is a counter-position to the tokenmaxxing trend—betting that quality of outcomes, not volume of tokens, wins in the long run.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>When the whole Tokenmaxxing craze started some our enterprise customers asked us for a leaderboard. We said no. Would&#39;ve been &#39;great&#39; for business but we&#39;re not in the business of selling tokens for the sake of tokens. We sell outcomes. And we knew it wouldn&#39;t last.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad/status/2065597793998422308" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 报告：「我跟不上实施/测试/合入大家提交的 Issues/PR 了。Codex 在 crabbox 里面跑同时又在构建 crabbox。Codex 过去 4 天在多个 tree 里不停地循环。因为所有东西都端到端可验证，它基本上在自我构建。Codex 甚至通过浏览器/电脑使用自动注册服务。我的主要工作变成了加信用卡信息和关掉不合适的东西。」234 赞。</p>
+              <p>元时刻：Codex 在构建 Codex 运行的工具。人的工作已经缩减到加信用卡和做产品判断。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：Codex 在 crabbox 里构建 crabbox，连续 4 天不停。人的主要工作=加信用卡+关东西。234 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete reports: &#39;I can barely keep up with implementing/testing/landing all the Issues/PRs folks submit. Codex runs INSIDE crabbox while it is building crabbox. Codex been looping nonstop for the last 4 days in multiple trees. Since all of it is e2e verifiable it basically builds itself. Codex even signs up for the services automatically via browser/computer use. My main job is adding credit card details and closing things that I don&#39;t see as a fit.&#39; 234 likes.</p>
+              <p>The meta moment: Codex building the tool that Codex runs inside. The human&#39;s job has been reduced to credit card details and product judgment.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Codex runs INSIDE crabbox while it is building crabbox. Codex been looping nonstop for the last 4 days in multiple trees. Since all of it is e2e verifiable it basically builds itself. My main job is adding credit card details and closing things that I don&#39;t see as a fit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2065650561484267540" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Does Git Need to Die? &amp; Agent Orchestration / Git 该死了吗？与 Agent 编排</h2>
+    <p class="section-desc">swyx 问 Git 是否是下一个该死的东西、Vercel 发布 DarknessAgent、Alex Albert 分享 Fable prompt 技巧。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="../assets/avatars/x-swyx.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx</div>
+            <div class="author-tag is-inline">Writer / Builder</div>
+          </div>
+          <div class="author-handle">@swyx</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>swyx 的挑衅性论点：PR 死了、Code Review 死了，Git 是不是也该死了？大约 20-40% 的代码花费在管理和解决 merge conflicts 上。「我们和人类同事合作时不做逐行 merge conflict——而是聊天、建议修改、旁边评论，然后负责人 ship。」也许未来的代码库更像 Notion 或 Linear 数据库而非 .git 对象。「效率更低，但扩展性更好。正是 Salty Lesson。」90 赞。</p>
+              <p>这是对版本控制基本单元的直接挑战。如果 agent 自主产出和审查代码，merge-conflict 抽象可能已经过时了。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>swyx：PR 死了 Code Review 死了 Git 也该死？20-40%代码花在 merge conflicts。未来代码库更像 Notion/Linear。90 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>swyx&#39;s provocative thesis: after PRs die and Code Review dies, does Git need to die next? Roughly 20-40% of code spend is just managing merge conflicts. &#39;We don&#39;t do line by line merge conflicts when we collaborate with human colleagues—instead we chat, suggest edits, do side comments, and an owner ships it.&#39; Maybe the future codebase looks more like a Notion or Linear database than .git objects. &#39;It will be less efficient, but more scalable. Exactly the Salty Lesson.&#39; 90 likes.</p>
+              <p>This is a direct challenge to the fundamental unit of version control. If agents produce and review code autonomously, the merge-conflict abstraction may be obsolete.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>After the PR dies, after the Code Review dies, I am seriously wondering if Git needs to die next. Roughly 20-40% of code spend is just managing and updating merge conflicts. We don&#39;t do line by line merge conflicts when we collaborate with human colleagues—instead we chat, suggest edits, and an owner ships it. Maybe the future codebase looks more like a Notion or Linear database than .git objects.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx/status/2065559864559145420" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 发布 DarknessAgent：一个统一抽象，用于编排和集成任何 agent 的「大脑」到你的应用中。Vercel AI SDK 现在让你既不受模型锁定也不受 agent 锁定。828 赞。</p>
+              <p>这是 Vercel 把 AI SDK 定位为应用开发者和不断涌现的 agent 框架之间的中间件层——拥有编排层而不是 agent 本身。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：DarknessAgent 统一 agent 编排抽象。AI SDK 不再模型锁定也不 agent 锁定。828 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg announces DarknessAgent: a unified abstraction to orchestrate and integrate any agent&#39;s brain into your app. The Vercel AI SDK now frees you from both model lock-in and agent lock-in. 828 likes.</p>
+              <p>This is Vercel positioning the AI SDK as the middleware layer between application developers and the proliferating agent frameworks—owning the orchestration layer rather than the agent itself.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>We just shipped DarknessAgent, a unified abstraction to orchestrate and integrate any agent&#39;s brain into your app. @aisdk now frees you from both model and agent lock-in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2065520041894756480" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:alexalbert__" data-author-name="Alex Albert" data-author-tag="Anthropic" data-author-handle="@alexalbert__" data-author-avatar="../assets/avatars/x-alexalbert__.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-alexalbert__.jpg" alt="Alex Albert avatar"><span class="avatar-fallback">AA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Alex Albert</div>
+            <div class="author-tag is-inline">Anthropic</div>
+          </div>
+          <div class="author-handle">@alexalbert__</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic 的 Alex Albert 分享实用的 Fable prompt 技巧：「Fable 在长 agentic 对话中的表现感觉超人类，有时候我跟不上它在说什么。这个 prompt 片段是我找到的让它写得更清晰、去掉术语的最好办法。」880 赞。</p>
+              <p>Prompt 片段指示 Fable 用平实语言沟通不加技术术语——适用于任何觉得模型输出比代码本身还难懂的人。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Alex Albert：Fable 长对话超人类但跟不上。Prompt 技巧让它写清晰去术语。880 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Alex Albert (Anthropic) shares a practical Fable prompting tip: &#39;Fable feels superhuman at working over long agentic conversations, sometimes to the point where I can&#39;t keep up with what it&#39;s telling me. This prompt snippet has been the best fix I&#39;ve found for getting it to write clearly and drop any jargon.&#39; 880 likes.</p>
+              <p>The prompt snippet instructs Fable to communicate in plain language without technical jargon—a useful pattern for anyone whose model output has become harder to follow than the code itself.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Fable feels superhuman at working over long agentic conversations, sometimes to the point where I can&#39;t keep up with what it&#39;s telling me. This prompt snippet has been the best fix I&#39;ve found for getting it to write clearly and drop any jargon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/alexalbert__/status/2065493229760565758" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Speed of Construction = Speed of Calcification / 构建速度=固化速度</h2>
+    <p class="section-desc">Garry Tan 的锐利观察、Rauchg 说 HTML 回归、Amjad 的免费信用政策。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 今天传播最广的思考：「所有人都觉得 AI coding 工具解放了创始人。看看人们实际用它建了什么：规则、审批、流程、层级。同一个笼子，只是组装得更快了。能在一个下午 scaffold 任何东西的工具，也能在一个下午 scaffold 你的官僚体系。构建速度就是固化速度。去构建能让你创造新东西的东西：以前不存在的体验。」746 赞。</p>
+              <p>这是关于「构建得更快」和「构建得不同」之间区别的深刻洞察。AI 工具不仅加速现有工作流——如果你不有意识地构建，它也加速过程债务的创建。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：AI 工具不是解放是更快地组装笼子。构建速度=固化速度。构建能创造新体验的东西。746 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s most-shared thought of the day: &#39;Everyone thinks AI coding tools set founders free. Watch what people actually build with them: rules, approvals, process, layers. The same cage, assembled faster. The tool that can scaffold anything in an afternoon will scaffold your bureaucracy in an afternoon too. Speed of construction is speed of calcification. Build the thing that lets you create new things: experiences that didn&#39;t happen before.&#39; 746 likes.</p>
+              <p>This is a profound insight about the difference between building faster and building differently. AI tools don&#39;t just accelerate existing workflows—they also accelerate the creation of process debt if you&#39;re not intentional about what you&#39;re building.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Everyone thinks AI coding tools set founders free. Watch what people actually build with them: rules, approvals, process, layers. The same cage, assembled faster. The tool that can scaffold anything in an afternoon will scaffold your bureaucracy in an afternoon too. Speed of construction is speed of calcification. Build the thing that lets you create new things: experiences that didn&#39;t happen before.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2065416181943865611" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 宣布「HTML 强势回归」，配了一个拖拽式网页创建 demo。1065 赞。</p>
+              <p>HTML 作为 AI 生成界面的通用语言的持续复兴——每个模型都能产出它，每个设备都能渲染它。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：HTML 强势回归。拖拽。1065 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg declares &#39;HTML is so back&#39; with a drag-and-drop web creation demo. 1065 likes.</p>
+              <p>The continued resurgence of HTML as the lingua franca of AI-generated interfaces—every model can produce it, every device can render it.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>HTML is so back. Drag and drop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2065494112669966660" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:amasad" data-author-name="Amjad Masad" data-author-tag="CEO @ Replit" data-author-handle="@amasad" data-author-avatar="../assets/avatars/x-amasad.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-amasad.jpg" alt="Amjad Masad avatar"><span class="avatar-fallback">AM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad Masad</div>
+            <div class="author-tag is-inline">CEO @ Replit</div>
+          </div>
+          <div class="author-handle">@amasad</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad 宣布 Replit 激励计划：如果你在 Replit 上赚了钱，就获得免费 credit。100 赞。</p>
+              <p>巧妙的激励对齐：平台在创作者变现时赢，所以对已经产生收入的人移除计算成本门槛。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：在 Replit 赚钱就得免费 credit。100 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad announces a Replit incentive program: if you make money on Replit, you get free credits. 100 likes.</p>
+              <p>A clever alignment of incentives: the platform wins when creators monetize, so remove the compute cost barrier for those who are already generating revenue.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>If you make money on Replit, you get free credits!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad/status/2065503810592833560" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: AI Vibe Check — Lab Wars, Why APIs Might Vanish / 播客：AI Vibe Check — 实验室大战，API 为何可能消失</h2>
+    <p class="section-desc">Unsupervised Learning 的 Jacob Efron 与 Ari (Datalogy, 前 DeepMind/Meta 研究员) 和 Rob (Radical Ventures) 讨论：Fable 发布反响、开放模型末日预测、计算力紧缺下 API 业务可能消失、RSI 距离。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:unsupervised-learning" data-author-name="Unsupervised Learning" data-author-tag="Redpoint AI Podcast" data-author-handle="" data-author-avatar="../assets/avatars/podcast-unsupervised-learning.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/podcast-unsupervised-learning.jpg" alt="Unsupervised Learning avatar"><span class="avatar-fallback">UL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Unsupervised Learning</div>
+            <div class="author-tag is-inline">Redpoint AI Podcast</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Unsupervised Learning 的 AI Vibe Check，嘉宾是 Ari（Datalogy，前 DeepMind/Meta 研究员）和 Rob（Radical Ventures）。核心洞察：（1）开放权重模型正在消亡——Meta 从开源撤退，中国实验室把最好的模型留在 API 后面。「开源 AI 没有商业模式，」Rob 说。Ari 同意：「我们可能已经到了开放模型数量的顶峰，接下来会越来越少。」（2）辛辣预测：计算力紧缺加剧时，实验室可能关掉 API 业务，优先做第一方产品。（3）Token 成本成为真问题：Ari 报告企业升级模型后账单一夜翻倍，强烈寻求更便宜的替代方案。（4）Coding agent 跨过门槛：工程师从 IC 变成 agent 管理者。瓶颈转移到了 code review 和理解，不是产出。（5）SaaSpocalypse 叙事：Rob 认为对很多公司是理性的，但一刀切过度了。「一两家公司不可能赢下每一个重要市场。」（6）计算力紧缺含义：驱动效率创新、利好非 NVIDIA 芯片厂商、推动更小模型和蒸馏。（7）关于 RSI：Ari 相信递归自我改进但不买指数起飞叙事——算力是根本限制因素。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>过去半年最明显的变化是 coding agent 开始在更长时间跨度上真正可用。</p>
+              <p>有强烈迹象表明近前沿开放权重 AI 可能完全掉队。Meta 在撤退，中国实验室把最好模型留在 API 后。</p>
+              <p>开源 AI 没有商业模式，因为前期投入太巨大。</p>
+              <p>计算力紧缺加剧时实验室可能关掉 API 业务。</p>
+              <p>工程师从 IC 变成 agent 管理者。瓶颈转移到了 code review 和理解。</p>
+              <p>Cursor 等应用公司面临选择：和前沿模型提供商合作交出数据优势，或在自己的细分领域竞争。</p>
+              <p>Token 成本成真问题：模型升级后账单一夜翻倍。</p>
+              <p>SaaSpocalypse 对很多公司是理性的但一刀切过度了。一两家公司不可能赢每个市场。</p>
+              <p>计算力紧缺驱动效率创新，利好非 NVIDIA 芯片，推动更小模型和蒸馏。</p>
+              <p>RSI：相信递归自我改进但不买指数起飞。算力是根本限制。</p>
+              <p>开放模型的商业模式：开放模型但不开放 scaffolding 和 harness，API 访问完整系统。Kimi/Moonshot 做的就是这个。</p>
+              <p>NVIDIA 在推动 Reflection 等西方开放模型提供商，因为模型提供商越多对它们越好。</p>
+              <p>应用公司两条路：和前沿实验室合作分享数据和专业知识（最终被外包），或在自己的细分领域深度竞争。</p>
+              <p>margin 角度：和你竞争的人如果 margin 更好你很难赢。前沿实验室给自己永远比给应用公司更好的条件。</p>
+              <p>Atom lithography 和 X-ray lithography 可能颠覆芯片制造，但至少还有 5 年。</p>
+              <p>计算力紧缺推动模型效率：更小模型、蒸馏、token 效率优化。</p>
+              <p>每个芯片厂商都会受益：AMD、Amazon Trainium、Cerebras，因为 NVIDIA 不够分。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Unsupervised Learning&#39;s AI Vibe Check with Ari (Datalogy, ex-DeepMind/Meta) and Rob (Radical Ventures). Key themes: (1) Open weight models are dying—Meta pulling back from open source, Chinese labs keeping best models proprietary behind APIs. &#39;There&#39;s no business model for open source AI,&#39; says Rob. Ari agrees: &#39;We probably hit the peak number of open models and it&#39;s now going to get less and less.&#39; (2) The spicy prediction: labs may shut down their API business as compute crunch intensifies, prioritizing first-party products. (3) Token costs are becoming a real problem: Ari reports enterprises seeing bills double overnight from model upgrades, driving strong demand for cheaper alternatives. (4) Coding agents crossing thresholds: engineers shifting from ICs to managers of agents. The bottleneck has moved to code review and understanding, not production. (5) SaaSpocalypse narrative: Rob thinks it was rational for many companies but overdone as a blanket statement. &#39;There&#39;s no way one or two or three companies will win every single important market.&#39; (6) Compute crunch implications: drives efficiency innovation, benefits non-NVIDIA chip makers, pushes toward smaller models and distillation. (7) On RSI: Ari is a believer in recursive self-improvement but doesn&#39;t buy the exponential takeoff narrative—compute is the fundamental limiter.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The most obvious thing that has changed over the last six months is starting to see the coding agents really start to work at longer time horizons.</p>
+              <p>There are signs now that there seems like there&#39;s a real risk of near frontier open weight AI falling off altogether. Meta is pulling back, and Chinese labs are keeping best models proprietary.</p>
+              <p>There&#39;s no business model for open source AI given the massive upfront investment required.</p>
+              <p>The labs may actually get rid of their API business as the compute crunch continues.</p>
+              <p>Engineers are shifting from ICs to managers of agents. The bottleneck has moved to code review and understanding.</p>
+              <p>Compute is a fundamental limiting factor with respect to RSI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=W_iO8XxgD_I" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-13 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-13 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

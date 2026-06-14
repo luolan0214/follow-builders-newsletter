@@ -1,0 +1,356 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-13",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的主题很集中：监管来了。Anthropic 宣布暂停「在美国的外国人」使用 Fable，Peter Yang 说这太离谱了（2015 赞），Levie 说这是 AI 监管的转折点——政府开始认为某些模型太强大了（451 赞）。Amjad 说 Replit 可能不得不关掉 Fable 访问（450 赞），同时透了一个好的商业判断：当初企业客户要 token 排行榜他们拒绝了，因为卖的是结果不是 token。Thibault Sottiaux 改进了 Codex 的限额重置：下次用户可以选择什么时候生效（5271 赞）。swyx 提了一个大胆的问题：PR 死了、Code Review 死了，Git 是不是也该死了？Rauchg 发布了 DarknessAgent——Vercel AI SDK 的统一 agent 编排抽象（828 赞）。Alex Albert 分享了让 Fable 在长对话中写得更清晰的 prompt 技巧（880 赞）。Steipete 的 Codex 已经在 crabbox 里连续跑了 4 天，他说「我的主要工作变成了加信用卡和关掉不合适的东西」。Garry Tan 的观察最锐利：AI coding 工具看似解放了创始人，但人们用它建的还是规则、审批、流程——「构建速度也是固化速度」。Karpathy 发了条 SpaceX 的感叹，17009 赞。"
+  },
+  "archive": {
+    "title": "监管转折日报",
+    "desc": "Fable 对外国人暂停服务引发监管讨论、Codex 限额重置改为用户可选、swyx 问 Git 是否该死、DarknessAgent 发布统一 agent 编排。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-13 source feeds.",
+  "sections": [
+    {
+      "title": "Fable Access Restricted & Regulation Turning Point / Fable 限制访问与监管转折",
+      "desc": "Anthropic 暂停外国人在美使用 Fable、Levie 说这是 AI 监管转折点、Peter Yang 预测 ID 验证即将到来。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2065602691850764667",
+          "en": {
+            "rewrite": [
+              "Peter Yang flags a shocking policy: 'Suspending Fable for all foreign person inside the US is wild. How can you even enforce this properly?' 2015 likes.",
+              "This refers to Anthropic restricting access to Fable for non-US-persons within the United States, likely due to export control concerns around the Mythos-class model's capabilities."
+            ],
+            "original": [
+              "Suspending Fable for all 'foreign person inside the US' is wild. How can you even enforce this properly?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 标记了一个令人震惊的政策：「暂停所有『在美国的外国人』使用 Fable，这也太离谱了。你甚至怎么正确执行这个？」2015 赞。",
+              "这指的是 Anthropic 因 Mythos 级别模型能力的出口管制顾虑，限制在美国的非美国公民使用 Fable。"
+            ],
+            "original": [
+              "Peter Yang：暂停在美外国人使用 Fable 太离谱。怎么执行？2015 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2065616509666472329",
+          "en": {
+            "rewrite": [
+              "Levie calls this a big turning point for AI regulation: 'The government is starting to deem some models too powerful for certain uses, which creates a precedent for a range of possible controls in the future.' He's in the camp that this is unnecessary and we should regulate use of AI, not underlying models. 'Either way, it's unlikely that we're going back to a world where the government doesn't have far more meaningful involvement in the rate of AI progress.' 451 likes."
+            ],
+            "original": [
+              "This is a big turning point for AI regulation. The government is starting to deem some models too powerful for certain uses, which creates a precedent for a range of possible controls in the future. I'm in the camp that this is unnecessary and we should be primarily regulating the use of AI, as opposed to the underlying models."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 说这是 AI 监管的重大转折点：「政府开始认为某些模型太强大了不适合某些用途，这为未来一系列管控创造了先例。」他认为这没必要，应该监管 AI 的使用而非底层模型。「不管怎样，我们不太可能回到政府对 AI 进展速度没有实质参与的世界了。」451 赞。"
+            ],
+            "original": [
+              "Levie：AI 监管转折点。政府开始认为某些模型太强大。应监管使用而非模型。451 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2065622592309039449",
+          "en": {
+            "rewrite": [
+              "Peter Yang's prediction in response to the Fable access restrictions: 'I think ID verification will soon be required to access the best models.' 674 likes.",
+              "This is a logical consequence: if models are subject to export controls, identity verification becomes the gating mechanism for access."
+            ],
+            "original": [
+              "Yeah I think ID verification will soon be required to access the best models."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 基于限制政策的预测：「我认为 ID 验证很快就将成为访问最好模型的前提。」674 赞。",
+              "这是逻辑推论：如果模型受出口管制，身份验证就成了访问的门控机制。"
+            ],
+            "original": [
+              "Peter Yang：ID 验证很快将成为访问最好模型的前提。674 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Codex Reset, Token Economics & Self-Building Software / Codex 重置、Token 经济与自我构建的软件",
+      "desc": "Codex 限额重置改为用户可选、Replit 拒绝做 token 排行榜、Steipete 的 Codex 连续 4 天自构建。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2065468501750649006",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux (OpenAI) responds to user feedback about Codex usage resets being annoying without warning: 'Next time we press the button you will get to choose when it actually applies. Happy codexing.' 5271 likes.",
+              "A small but meaningful product improvement—turning a surprise reset into an opt-in experience shows OpenAI is listening to the power-user community."
+            ],
+            "original": [
+              "Heard your (amusing) feedback that it was at times annoying to receive a reset of your Codex usage without warning. Next time we press the button you will get to choose when it actually applies. Happy codexing."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 的 Thibault Sottiaux 回应用户对 Codex 限额无预警重置的不满：「下次我们按按钮的时候，你可以选择什么时候生效。祝 codex 愉快。」5271 赞。",
+              "一个小但有意义的改进——把意外重置变成可选体验，说明 OpenAI 在认真听重度用户的反馈。"
+            ],
+            "original": [
+              "Thibault Sottiaux：下次 Codex 重置用户可选时间。5271 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2065597793998422308",
+          "en": {
+            "rewrite": [
+              "Amjad (Replit) reveals a principled business decision: when enterprise customers asked for a token consumption leaderboard during the tokenmaxxing craze, Replit said no. 'Would've been great for business but we're not in the business of selling tokens for the sake of tokens. We sell outcomes. And we knew it wouldn't last.' 228 likes.",
+              "This is a counter-position to the tokenmaxxing trend—betting that quality of outcomes, not volume of tokens, wins in the long run."
+            ],
+            "original": [
+              "When the whole Tokenmaxxing craze started some our enterprise customers asked us for a leaderboard. We said no. Would've been 'great' for business but we're not in the business of selling tokens for the sake of tokens. We sell outcomes. And we knew it wouldn't last."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad（Replit）透露了一个有原则的商业决策：tokenmaxxing 热潮中企业客户要求做 token 消耗排行榜，Replit 拒绝了。「对业务来说是好事，但我们不是卖 token 的。我们卖的是结果。而且我们知道这不会持久。」228 赞。",
+              "这是对 tokenmaxxing 趋势的反向押注——赌结果质量而非 token 数量才能赢到最后。"
+            ],
+            "original": [
+              "Amjad：企业客户要 token 排行榜被拒。卖结果不是卖 token。228 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2065650561484267540",
+          "en": {
+            "rewrite": [
+              "Steipete reports: 'I can barely keep up with implementing/testing/landing all the Issues/PRs folks submit. Codex runs INSIDE crabbox while it is building crabbox. Codex been looping nonstop for the last 4 days in multiple trees. Since all of it is e2e verifiable it basically builds itself. Codex even signs up for the services automatically via browser/computer use. My main job is adding credit card details and closing things that I don't see as a fit.' 234 likes.",
+              "The meta moment: Codex building the tool that Codex runs inside. The human's job has been reduced to credit card details and product judgment."
+            ],
+            "original": [
+              "Codex runs INSIDE crabbox while it is building crabbox. Codex been looping nonstop for the last 4 days in multiple trees. Since all of it is e2e verifiable it basically builds itself. My main job is adding credit card details and closing things that I don't see as a fit."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 报告：「我跟不上实施/测试/合入大家提交的 Issues/PR 了。Codex 在 crabbox 里面跑同时又在构建 crabbox。Codex 过去 4 天在多个 tree 里不停地循环。因为所有东西都端到端可验证，它基本上在自我构建。Codex 甚至通过浏览器/电脑使用自动注册服务。我的主要工作变成了加信用卡信息和关掉不合适的东西。」234 赞。",
+              "元时刻：Codex 在构建 Codex 运行的工具。人的工作已经缩减到加信用卡和做产品判断。"
+            ],
+            "original": [
+              "Steipete：Codex 在 crabbox 里构建 crabbox，连续 4 天不停。人的主要工作=加信用卡+关东西。234 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Does Git Need to Die? & Agent Orchestration / Git 该死了吗？与 Agent 编排",
+      "desc": "swyx 问 Git 是否是下一个该死的东西、Vercel 发布 DarknessAgent、Alex Albert 分享 Fable prompt 技巧。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2065559864559145420",
+          "en": {
+            "rewrite": [
+              "swyx's provocative thesis: after PRs die and Code Review dies, does Git need to die next? Roughly 20-40% of code spend is just managing merge conflicts. 'We don't do line by line merge conflicts when we collaborate with human colleagues—instead we chat, suggest edits, do side comments, and an owner ships it.' Maybe the future codebase looks more like a Notion or Linear database than .git objects. 'It will be less efficient, but more scalable. Exactly the Salty Lesson.' 90 likes.",
+              "This is a direct challenge to the fundamental unit of version control. If agents produce and review code autonomously, the merge-conflict abstraction may be obsolete."
+            ],
+            "original": [
+              "After the PR dies, after the Code Review dies, I am seriously wondering if Git needs to die next. Roughly 20-40% of code spend is just managing and updating merge conflicts. We don't do line by line merge conflicts when we collaborate with human colleagues—instead we chat, suggest edits, and an owner ships it. Maybe the future codebase looks more like a Notion or Linear database than .git objects."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "swyx 的挑衅性论点：PR 死了、Code Review 死了，Git 是不是也该死了？大约 20-40% 的代码花费在管理和解决 merge conflicts 上。「我们和人类同事合作时不做逐行 merge conflict——而是聊天、建议修改、旁边评论，然后负责人 ship。」也许未来的代码库更像 Notion 或 Linear 数据库而非 .git 对象。「效率更低，但扩展性更好。正是 Salty Lesson。」90 赞。",
+              "这是对版本控制基本单元的直接挑战。如果 agent 自主产出和审查代码，merge-conflict 抽象可能已经过时了。"
+            ],
+            "original": [
+              "swyx：PR 死了 Code Review 死了 Git 也该死？20-40%代码花在 merge conflicts。未来代码库更像 Notion/Linear。90 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2065520041894756480",
+          "en": {
+            "rewrite": [
+              "Rauchg announces DarknessAgent: a unified abstraction to orchestrate and integrate any agent's brain into your app. The Vercel AI SDK now frees you from both model lock-in and agent lock-in. 828 likes.",
+              "This is Vercel positioning the AI SDK as the middleware layer between application developers and the proliferating agent frameworks—owning the orchestration layer rather than the agent itself."
+            ],
+            "original": [
+              "We just shipped DarknessAgent, a unified abstraction to orchestrate and integrate any agent's brain into your app. @aisdk now frees you from both model and agent lock-in."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 发布 DarknessAgent：一个统一抽象，用于编排和集成任何 agent 的「大脑」到你的应用中。Vercel AI SDK 现在让你既不受模型锁定也不受 agent 锁定。828 赞。",
+              "这是 Vercel 把 AI SDK 定位为应用开发者和不断涌现的 agent 框架之间的中间件层——拥有编排层而不是 agent 本身。"
+            ],
+            "original": [
+              "Rauchg：DarknessAgent 统一 agent 编排抽象。AI SDK 不再模型锁定也不 agent 锁定。828 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:alexalbert__",
+          "sourceUrl": "https://x.com/alexalbert__/status/2065493229760565758",
+          "en": {
+            "rewrite": [
+              "Alex Albert (Anthropic) shares a practical Fable prompting tip: 'Fable feels superhuman at working over long agentic conversations, sometimes to the point where I can't keep up with what it's telling me. This prompt snippet has been the best fix I've found for getting it to write clearly and drop any jargon.' 880 likes.",
+              "The prompt snippet instructs Fable to communicate in plain language without technical jargon—a useful pattern for anyone whose model output has become harder to follow than the code itself."
+            ],
+            "original": [
+              "Fable feels superhuman at working over long agentic conversations, sometimes to the point where I can't keep up with what it's telling me. This prompt snippet has been the best fix I've found for getting it to write clearly and drop any jargon."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 的 Alex Albert 分享实用的 Fable prompt 技巧：「Fable 在长 agentic 对话中的表现感觉超人类，有时候我跟不上它在说什么。这个 prompt 片段是我找到的让它写得更清晰、去掉术语的最好办法。」880 赞。",
+              "Prompt 片段指示 Fable 用平实语言沟通不加技术术语——适用于任何觉得模型输出比代码本身还难懂的人。"
+            ],
+            "original": [
+              "Alex Albert：Fable 长对话超人类但跟不上。Prompt 技巧让它写清晰去术语。880 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Speed of Construction = Speed of Calcification / 构建速度=固化速度",
+      "desc": "Garry Tan 的锐利观察、Rauchg 说 HTML 回归、Amjad 的免费信用政策。",
+      "cards": [
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2065416181943865611",
+          "en": {
+            "rewrite": [
+              "Garry Tan's most-shared thought of the day: 'Everyone thinks AI coding tools set founders free. Watch what people actually build with them: rules, approvals, process, layers. The same cage, assembled faster. The tool that can scaffold anything in an afternoon will scaffold your bureaucracy in an afternoon too. Speed of construction is speed of calcification. Build the thing that lets you create new things: experiences that didn't happen before.' 746 likes.",
+              "This is a profound insight about the difference between building faster and building differently. AI tools don't just accelerate existing workflows—they also accelerate the creation of process debt if you're not intentional about what you're building."
+            ],
+            "original": [
+              "Everyone thinks AI coding tools set founders free. Watch what people actually build with them: rules, approvals, process, layers. The same cage, assembled faster. The tool that can scaffold anything in an afternoon will scaffold your bureaucracy in an afternoon too. Speed of construction is speed of calcification. Build the thing that lets you create new things: experiences that didn't happen before."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 今天传播最广的思考：「所有人都觉得 AI coding 工具解放了创始人。看看人们实际用它建了什么：规则、审批、流程、层级。同一个笼子，只是组装得更快了。能在一个下午 scaffold 任何东西的工具，也能在一个下午 scaffold 你的官僚体系。构建速度就是固化速度。去构建能让你创造新东西的东西：以前不存在的体验。」746 赞。",
+              "这是关于「构建得更快」和「构建得不同」之间区别的深刻洞察。AI 工具不仅加速现有工作流——如果你不有意识地构建，它也加速过程债务的创建。"
+            ],
+            "original": [
+              "Garry Tan：AI 工具不是解放是更快地组装笼子。构建速度=固化速度。构建能创造新体验的东西。746 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2065494112669966660",
+          "en": {
+            "rewrite": [
+              "Rauchg declares 'HTML is so back' with a drag-and-drop web creation demo. 1065 likes.",
+              "The continued resurgence of HTML as the lingua franca of AI-generated interfaces—every model can produce it, every device can render it."
+            ],
+            "original": [
+              "HTML is so back. Drag and drop."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 宣布「HTML 强势回归」，配了一个拖拽式网页创建 demo。1065 赞。",
+              "HTML 作为 AI 生成界面的通用语言的持续复兴——每个模型都能产出它，每个设备都能渲染它。"
+            ],
+            "original": [
+              "Rauchg：HTML 强势回归。拖拽。1065 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2065503810592833560",
+          "en": {
+            "rewrite": [
+              "Amjad announces a Replit incentive program: if you make money on Replit, you get free credits. 100 likes.",
+              "A clever alignment of incentives: the platform wins when creators monetize, so remove the compute cost barrier for those who are already generating revenue."
+            ],
+            "original": [
+              "If you make money on Replit, you get free credits!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 宣布 Replit 激励计划：如果你在 Replit 上赚了钱，就获得免费 credit。100 赞。",
+              "巧妙的激励对齐：平台在创作者变现时赢，所以对已经产生收入的人移除计算成本门槛。"
+            ],
+            "original": [
+              "Amjad：在 Replit 赚钱就得免费 credit。100 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: AI Vibe Check — Lab Wars, Why APIs Might Vanish / 播客：AI Vibe Check — 实验室大战，API 为何可能消失",
+      "desc": "Unsupervised Learning 的 Jacob Efron 与 Ari (Datalogy, 前 DeepMind/Meta 研究员) 和 Rob (Radical Ventures) 讨论：Fable 发布反响、开放模型末日预测、计算力紧缺下 API 业务可能消失、RSI 距离。",
+      "cards": [
+        {
+          "authorKey": "podcast:unsupervised-learning",
+          "sourceUrl": "https://www.youtube.com/watch?v=W_iO8XxgD_I",
+          "authorName": "Ari & Rob",
+          "authorTag": "Datalogy / Radical Ventures",
+          "en": {
+            "rewrite": [
+              "Unsupervised Learning's AI Vibe Check with Ari (Datalogy, ex-DeepMind/Meta) and Rob (Radical Ventures). Key themes: (1) Open weight models are dying—Meta pulling back from open source, Chinese labs keeping best models proprietary behind APIs. 'There's no business model for open source AI,' says Rob. Ari agrees: 'We probably hit the peak number of open models and it's now going to get less and less.' (2) The spicy prediction: labs may shut down their API business as compute crunch intensifies, prioritizing first-party products. (3) Token costs are becoming a real problem: Ari reports enterprises seeing bills double overnight from model upgrades, driving strong demand for cheaper alternatives. (4) Coding agents crossing thresholds: engineers shifting from ICs to managers of agents. The bottleneck has moved to code review and understanding, not production. (5) SaaSpocalypse narrative: Rob thinks it was rational for many companies but overdone as a blanket statement. 'There's no way one or two or three companies will win every single important market.' (6) Compute crunch implications: drives efficiency innovation, benefits non-NVIDIA chip makers, pushes toward smaller models and distillation. (7) On RSI: Ari is a believer in recursive self-improvement but doesn't buy the exponential takeoff narrative—compute is the fundamental limiter."
+            ],
+            "original": [
+              "The most obvious thing that has changed over the last six months is starting to see the coding agents really start to work at longer time horizons.",
+              "There are signs now that there seems like there's a real risk of near frontier open weight AI falling off altogether. Meta is pulling back, and Chinese labs are keeping best models proprietary.",
+              "There's no business model for open source AI given the massive upfront investment required.",
+              "The labs may actually get rid of their API business as the compute crunch continues.",
+              "Engineers are shifting from ICs to managers of agents. The bottleneck has moved to code review and understanding.",
+              "Compute is a fundamental limiting factor with respect to RSI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Unsupervised Learning 的 AI Vibe Check，嘉宾是 Ari（Datalogy，前 DeepMind/Meta 研究员）和 Rob（Radical Ventures）。核心洞察：（1）开放权重模型正在消亡——Meta 从开源撤退，中国实验室把最好的模型留在 API 后面。「开源 AI 没有商业模式，」Rob 说。Ari 同意：「我们可能已经到了开放模型数量的顶峰，接下来会越来越少。」（2）辛辣预测：计算力紧缺加剧时，实验室可能关掉 API 业务，优先做第一方产品。（3）Token 成本成为真问题：Ari 报告企业升级模型后账单一夜翻倍，强烈寻求更便宜的替代方案。（4）Coding agent 跨过门槛：工程师从 IC 变成 agent 管理者。瓶颈转移到了 code review 和理解，不是产出。（5）SaaSpocalypse 叙事：Rob 认为对很多公司是理性的，但一刀切过度了。「一两家公司不可能赢下每一个重要市场。」（6）计算力紧缺含义：驱动效率创新、利好非 NVIDIA 芯片厂商、推动更小模型和蒸馏。（7）关于 RSI：Ari 相信递归自我改进但不买指数起飞叙事——算力是根本限制因素。"
+            ],
+            "original": [
+              "过去半年最明显的变化是 coding agent 开始在更长时间跨度上真正可用。",
+              "有强烈迹象表明近前沿开放权重 AI 可能完全掉队。Meta 在撤退，中国实验室把最好模型留在 API 后。",
+              "开源 AI 没有商业模式，因为前期投入太巨大。",
+              "计算力紧缺加剧时实验室可能关掉 API 业务。",
+              "工程师从 IC 变成 agent 管理者。瓶颈转移到了 code review 和理解。",
+              "Cursor 等应用公司面临选择：和前沿模型提供商合作交出数据优势，或在自己的细分领域竞争。",
+              "Token 成本成真问题：模型升级后账单一夜翻倍。",
+              "SaaSpocalypse 对很多公司是理性的但一刀切过度了。一两家公司不可能赢每个市场。",
+              "计算力紧缺驱动效率创新，利好非 NVIDIA 芯片，推动更小模型和蒸馏。",
+              "RSI：相信递归自我改进但不买指数起飞。算力是根本限制。",
+              "开放模型的商业模式：开放模型但不开放 scaffolding 和 harness，API 访问完整系统。Kimi/Moonshot 做的就是这个。",
+              "NVIDIA 在推动 Reflection 等西方开放模型提供商，因为模型提供商越多对它们越好。",
+              "应用公司两条路：和前沿实验室合作分享数据和专业知识（最终被外包），或在自己的细分领域深度竞争。",
+              "margin 角度：和你竞争的人如果 margin 更好你很难赢。前沿实验室给自己永远比给应用公司更好的条件。",
+              "Atom lithography 和 X-ray lithography 可能颠覆芯片制造，但至少还有 5 年。",
+              "计算力紧缺推动模型效率：更小模型、蒸馏、token 效率优化。",
+              "每个芯片厂商都会受益：AMD、Amazon Trainium、Cerebras，因为 NVIDIA 不够分。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
