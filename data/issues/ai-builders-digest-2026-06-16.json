@@ -1,0 +1,478 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-16",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批内容的主线很清晰：大家不再争论 AI 能不能做事了，而是在认真讨论「做事的方式正在怎么变」。Rauchg 把 Vercel 的沙盒、函数、服务器、构建统一成同一套底层计算，说 2026 是 serverless 和 servers 终于 converging 的一年。Amjad 展示了 Replit 的领域 agent——增长 agent 找 SEO 问题、安全 agent 找漏洞，选中所有直接修。Levie 继续深挖 Fable 之后的地缘政治：开源会赢很大，因为每个国家都需要一个不被随时拉回的 Plan B。Garry Tan 提醒大家 Attention is all you need——别忘了基础。Peter Yang 说 Codex browser use 好到让他快忘了 API 的存在。播客方面，OpenAI 的 Dan Roberts 详细解释了强化学习（RL）为什么终于开始工作了，以及 AI 怎么在数学领域做出真正原创的发现。"
+  },
+  "archive": {
+    "title": "Compute Convergence 日报",
+    "desc": "Rauchg 统一计算底座、Amjad 的领域 agent、Levie 论开源与监管、Dan Roberts 谈 RL 与 AI 科学发现。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-16 source feeds.",
+  "sections": [
+    {
+      "title": "Compute Convergence & Skills / 计算底座统一与 Skills",
+      "desc": "Rauchg 把 Vercel 的沙盒、函数、服务器、构建统一成同一套底层计算，v0 承诺默认交付最佳 skills。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2066556235961237826",
+          "en": {
+            "rewrite": [
+              "Rauchg says it bluntly: a sandbox, a function, a server, a build—these are all the same underlying compute infrastructure wearing different hats.",
+              "The practical implication: 2026 is the year serverless and servers finally converge, with no gotchas. The differences come down to tweaks in load balancing, concurrency, persistence, and overcommit.",
+              "This matters for AI builders because agent workloads don't fit neatly into any one of those boxes—they need all of them, sometimes simultaneously."
+            ],
+            "original": [
+              "A sandbox",
+              "A function",
+              "A server",
+              "A build",
+              "Are you getting it!? These are all expressions of the same underlying compute infrastructure.",
+              "With tweaks to load balancing, concurrency, persistence, overcommit…",
+              "2026 is the year serverless and servers finally converge. With no gotchas"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 说得很直白：沙盒、函数、服务器、构建——这些东西表面上是不同产品，实际上跑在同一套计算底座上。",
+              "他的判断是，2026 年 serverless 和 servers 终于合流了，而且没有坑。区别只在于负载均衡、并发、持久化、超配这些参数的微调。",
+              "对 AI builder 来说这很重要，因为 agent 的任务不是跑在某一种形态里的——它需要同时用沙盒、函数和长驻进程。"
+            ],
+            "original": [
+              "Rauchg：沙盒、函数、服务器、构建，都是同一底层计算基础设施的不同表达。",
+              "通过调整负载均衡、并发、持久化、超配……",
+              "2026 是 serverless 和 servers 终于 converging 的一年，没有坑。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2066553521978097921",
+          "en": {
+            "rewrite": [
+              "Longer Vercel function runtime is here—looks like a simple constant change, but it's actually the payoff of a multi-year compute platform investment.",
+              "Builds, Sandbox, and Functions all run on Vercel's homegrown microVM-based Fluid compute infrastructure. This same foundation enabled function multi-concurrency, Active CPU pricing, and Secure Compute.",
+              "The pattern: invest in the boring platform layer first, then unlock a cascade of product features that look like magic from the outside."
+            ],
+            "original": [
+              "One of our most requested features, longer Vercel function runtime, is here.",
+              "What looks like an innocent tweak of a constant… is actually the conclusion a multi-year compute platform investment.",
+              "Builds, Sandbox, and now Functions run on our homegrown microVM-based Fluid compute infrastructure.",
+              "This investment has enabled innovations like function multi-concurrency, Active CPU pricing, and Secure Compute for private connectivity to existing cloud workloads… with lots more to come, in fact, in the coming days and weeks 😎"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Vercel function runtime 延长了。看起来像是改了个常量，实际上是多年计算平台投资的回报。",
+              "Builds、Sandbox 和 Functions 全部跑在 Vercel 自研的 microVM-based Fluid 计算基础设施上。同一套底座支撑了函数多并发、Active CPU 定价和 Secure Compute。",
+              "规律是：先在无聊的平台层投资，然后连续解锁一堆从外面看像魔法的产品功能。"
+            ],
+            "original": [
+              "Rauchg：最受期待的功能——更长 Vercel function runtime——来了。",
+              "看起来像改了个常量，实则是多年计算平台投资的结论。",
+              "Builds、Sandbox 和 Functions 都跑在自研 microVM-based Fluid 计算基础设施上。",
+              "这项投资已经解锁了函数多并发、Active CPU 定价和 Secure Compute，接下来还有更多。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2066567117562868009",
+          "en": {
+            "rewrite": [
+              "v0 commits to shipping the best skills by default. The goal: every prompt gets you the equivalent of a senior Vercel product engineer.",
+              "Skills are now fully interoperable—you can grab any skill from the community or add your team's private set.",
+              "This is Vercel betting that the unit of AI-native development isn't code snippets—it's workflow templates that encode engineering taste."
+            ],
+            "original": [
+              "v0 commits to shipping the best skills by default.",
+              "Our goal is to give you the equivalent of a @vercel product engineer like @shuding and @shadcn on each prompt.",
+              "But you can also now grab any skill from [community] or add your team's private set."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "v0 承诺默认交付最佳 skills。目标是每次 prompt 都相当于一个 Vercel 资深产品工程师在帮你干活。",
+              "Skills 现在完全互通——你可以从社区抓任何 skill，也可以加自己团队的私有 skill 集。",
+              "Vercel 押注的是：AI 原生开发的单位不是代码片段，而是编码了工程品味的工作流模板。"
+            ],
+            "original": [
+              "Rauchg：v0 默认交付最佳 skills。",
+              "目标是每个 prompt 给你相当于 @shuding 和 @shadcn 级别的 Vercel 产品工程师。",
+              "你也可以从社区或团队私有集获取任何 skill。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Domain Agents & The Fable Aftermath / 领域 Agent 与 Fable 余波",
+      "desc": "Amjad 展示 Replit 的领域 agent、Le Chaton Fat 笑话引爆话题，Levie 继续深挖监管与开源的地缘政治。",
+      "cards": [
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2066683949129330817",
+          "en": {
+            "rewrite": [
+              "Amjad shares what Replit's domain-specific agents actually do: a growth agent that surfaces SEO issues, a security agent that surfaces vulnerabilities.",
+              "The workflow that excites him most is dead simple: select all, fix with Agent. The agent handles the implementation details.",
+              "This is the shift from 'AI as a chatbot' to 'AI as a domain specialist that knows what to look for and how to fix it.'"
+            ],
+            "original": [
+              "I absolutely love Replit's domain-specific agents:",
+              "- growth agent surfacing SEO issues",
+              "- security agent surfacing potential vulnerabilities",
+              "My favorite thing is: select all, fix with Agent."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 展示了 Replit 领域 agent 的实际能力：增长 agent 主动找 SEO 问题，安全 agent 主动找潜在漏洞。",
+              "最让他兴奋的工作流非常简单：选中所有，用 Agent 修。具体实现交给 agent。",
+              "这是从「AI 当聊天机器人」到「AI 当知道该找什么、怎么修的领域专家」的转变。"
+            ],
+            "original": [
+              "Amjad：我喜欢 Replit 的领域特定 agent：",
+              "- 增长 agent 暴露 SEO 问题",
+              "- 安全 agent 暴露潜在漏洞",
+              "我最喜欢的是：选中所有，用 Agent 修。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2066700847187140655",
+          "en": {
+            "rewrite": [
+              "Amjad's one-liner: 'Who needs Fable when you can have Mistral's Le Chaton Fat?' 1044 likes—the most engaged tweet of the day.",
+              "The joke lands because it's half serious: Mistral and other open-weights providers are now good enough that being cut off from a US proprietary model doesn't mean you're stuck."
+            ],
+            "original": [
+              "Who needs Fable when you can have Mistral's Le Chaton Fat"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 一句话引爆话题：「谁还需要 Fable，你可以用 Mistral 的 Le Chaton Fat 啊。」1044 赞，今天互动最高。",
+              "这个笑话之所以好笑，是因为它有一半是认真的：Mistral 和其他开放权重模型已经好到一定程度了——被美国专有模型断供，不等于你就没辙了。"
+            ],
+            "original": [
+              "Amjad：谁需要 Fable？你可以用 Mistral 的 Le Chaton Fat。1044 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2066526720480690221",
+          "en": {
+            "rewrite": [
+              "Levie's short take on the Fable aftermath: 'Open source going to win big.' 413 likes.",
+              "The logic is straightforward—the moment a model can be pulled back at any time, every country and company has an incentive to hedge with open-weights alternatives."
+            ],
+            "original": [
+              "Open source going to win big"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 对 Fable 余波的简短判断：「开源会赢很大。」413 赞。",
+              "逻辑很直接：模型随时可能被拉回的那一刻起，每个国家和公司都有动机用开放权重来做 Plan B。"
+            ],
+            "original": [
+              "Levie：开源会赢很大。413 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2066554018953146689",
+          "en": {
+            "rewrite": [
+              "Levie takes on the 'we need an FDA for AI' argument: it sounds reasonable until you think through what it actually means.",
+              "AI models have near-infinite permutations. There's no objective metric set you can universally apply before every release. Every country you do business with would have its own review process. The backlog would dramatically slow down all AI progress.",
+              "His position: regulate the applied uses of AI—where risk actually shows up—not the models themselves."
+            ],
+            "original": [
+              "It's very easy to say \"we need an FDA for AI\" or some equivalent government agency. Well this is what that would look like.",
+              "The capabilities of AI models have near infinite permutations. It's going to be very hard have a purely objective set of metrics that can be universally applied before every model release, without extended back and forth, research, and debate between model labs, academics, and the government.",
+              "Now, imagine this same process with every country that you're doing business with, globally, for every single model release. Add in a backlog of dozens of AI model releases, and you can quickly see how in the limit this will dramatically slow down all AI progress.",
+              "This is why we need to primarily focus on regulating the applied uses of AI, where the risk actually shows up."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 直接回应了「我们需要一个 AI 的 FDA」这个说法：听起来合理，但你想清楚它实际意味着什么就不好笑了。",
+              "AI 模型的能力排列组合几乎无限。你很难有一套客观指标能在每次发布前通用检查。而且每个和你做生意国家都会来一轮审查。积压下来会严重拖慢所有 AI 进展。",
+              "他的立场：应该监管 AI 的应用场景——风险在那里出现——而不是模型本身。"
+            ],
+            "original": [
+              "Levie：说「需要 AI 的 FDA」很容易。但看看它实际长什么样。",
+              "模型能力排列组合几乎无限，很难有通用客观指标。",
+              "每个国家都来一轮审查，积压会严重拖慢 AI 进展。",
+              "所以应该监管 AI 的应用场景，因为风险在那里出现，而不是模型本身。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2066735879213994434",
+          "en": {
+            "rewrite": [
+              "Levie highlights a key shift: the most interesting thing in AI isn't that one model is getting smarter—it's that intelligence is becoming customizable.",
+              "The companies that win won't necessarily have the biggest models. They'll turn intelligence into something uniquely their own, by combining unique data, workflows, and a routing layer that directs each task to the best-performing model.",
+              "This is the applied AI layer thesis: competitive advantage moves from the model to the system around it."
+            ],
+            "original": [
+              "Key post that gives a bit of insight into what the future of AI could look like.",
+              "\"The most interesting thing happening in AI isn't that one model is getting smarter. It's that intelligence is becoming increasingly customizable. The companies that win won't necessarily be the ones with the biggest models. They'll be the ones that turn intelligence into something uniquely their own.\"",
+              "The ability to combine your unique data, workflows, and a layer that can route intelligence to whatever model best performs the task is clearly the future."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 指出一个关键转变：AI 领域最有趣的事不是某个模型在变聪明，而是智能变得越来越可定制。",
+              "赢的公司不一定有最大的模型。他们会把智能变成自己独有的东西——通过组合独特的数据、工作流，以及一个能把每个任务路由到最佳模型的路由层。",
+              "这是应用 AI 层的论点：竞争优势从模型本身转移到围绕模型构建的系统。"
+            ],
+            "original": [
+              "Levie：AI 最有趣的事不是模型变聪明，而是智能变得可定制。",
+              "赢的公司不一定模型最大，而是能把智能变成独有的。",
+              "组合独特数据、工作流和路由层，把任务导向最佳模型，这就是未来。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agent-Native Tools & Builder Signals / Agent 原生工具与 Builder 信号",
+      "desc": "Steipete 的 clawsweeper 自动审 PR、Peter Yang 说 Codex browser use 太好了、Garry Tan 提醒 Attention is all you need。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2066457262571360396",
+          "en": {
+            "rewrite": [
+              "Steipete shows off clawsweeper: when you create an issue on one of his open source projects, it reviews the issue, checks it against VISION.md, and if it fits—picks it up and creates + auto-reviews a PR.",
+              "This is a working example of autonomous agent workflow: issue intake, triage against project vision, implementation, and code review—all without human intervention."
+            ],
+            "original": [
+              "Whenever you create an issue on one of our open source projects, @clawsweeper will review it, and *if* it fits the VISION.md file, will pick it up and create+autoreview a PR."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 展示了 clawsweeper 的工作方式：在他的开源项目里创建 issue 后，clawsweeper 会审查它，如果符合 VISION.md 的方向，就自己接手、创建 PR 并自动 review。",
+              "这是一个真正在跑的自主 agent 工作流：issue 接入、按项目愿景做分诊、实现代码、自动 review——全程不需要人介入。"
+            ],
+            "original": [
+              "Steipete：在我们的开源项目创建 issue 后，@clawsweeper 会审查它，如果符合 VISION.md，就接手并创建+自动 review PR。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2066753125197967653",
+          "en": {
+            "rewrite": [
+              "Peter Yang: 'Codex browser use is so good that it almost makes me forget APIs are even needed.' 72 likes.",
+              "The meta observation: browser-as-interface is becoming a viable replacement for API integrations for many tasks. If an agent can navigate the web like a human, the API layer becomes optional."
+            ],
+            "original": [
+              "Codex browser use is so good that it almost makes me forget APIs are even needed"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang：「Codex browser use 好到让我快忘了还需要 API。」72 赞。",
+              "元观察：浏览器作为接口正在成为 API 集成的可行替代。如果 agent 能像人一样浏览网页，API 层就变成了可选项。"
+            ],
+            "original": [
+              "Peter Yang：Codex browser use 太好了，几乎让我忘了还需要 API。72 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2066728979978244355",
+          "en": {
+            "rewrite": [
+              "Garry Tan reposts the Attention Is All You Need moment: sometimes the most important breakthrough is about understanding the fundamentals.",
+              "The deeper point: the AI community chases novelty, but the papers and ideas that actually changed everything were often simple attention mechanisms explained clearly."
+            ],
+            "original": [
+              "Attention is all you need"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 转发了 Attention Is All You Need 的时刻：有时最重要的突破恰恰在于理解基础。",
+              "更深一层：AI 社区追逐新东西，但真正改变一切的论文和想法，往往是把简单的 attention 机制讲清楚。"
+            ],
+            "original": [
+              "Garry Tan：Attention is all you need。456 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2066701833964531736",
+          "en": {
+            "rewrite": [
+              "Nikunj observes a trend: 32 VCs he knows have moved back to operating roles in the last 12 months, from associates to GPs. The pace is accelerating, and they seem happier.",
+              "His analysis: operating gives you direct customer contact, team collaboration, and autonomy—versus pandering to GPs. And financially, why wait 13 years for carry when you can get liquidity sooner?",
+              "The signal: the most talented people in venture are voting with their feet. Building is back in fashion."
+            ],
+            "original": [
+              "I now know 32 VCs who have moved back to operating in the last 12 months.. everyone from associates to GPs.",
+              "Maybe it's this way all the time and I'm just noticing it, but the pace seems to be accelerating. And they seem much much happier?",
+              "From a professional perspective, it makes sense especially if you are junior. You get to work directly with customers and work as a team. A lot more autonomy than having to pander to GPs.",
+              "From a compensation perspective too, why wait for carry for 13 years when you can have a chance of liquidity a lot sooner.",
+              "As someone who had been operating for a while but loving venture rn, I completely get the trade. To the remaining players, see you on the field 🫡"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 观察到一个趋势：过去 12 个月他认识的 32 个 VC 回到了 operating 岗位，从 associate 到 GP 都有。速度在加快，而且他们看起来更快乐。",
+              "他的分析：operating 让你直接接触客户、团队协作、有更多自主权——而不是讨好 GP。财务上，等 13 年 carry 不如早点拿流动性。",
+              "信号：venture 里最有才华的人在用脚投票。做产品重新流行起来了。"
+            ],
+            "original": [
+              "Nikunj：12 个月内 32 个 VC 回到 operating。",
+              "速度在加快，他们看起来更快乐。",
+              "专业角度：直接接触客户、团队合作、更多自主权。",
+              "财务角度：为什么等 13 年 carry 不如早点流动性。",
+              "对还在场的人说：球场上见。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gemini Trusted Tester & 70+ Languages / Gemini Trusted Tester 与 70+ 语言",
+      "desc": "Josh Woodward 开放 Gemini Trusted Tester 名额，mic icon 支持 70+ 语言自由混用。",
+      "cards": [
+        {
+          "authorKey": "x:joshwoodward",
+          "sourceUrl": "https://x.com/joshwoodward/status/2066664862671921259",
+          "en": {
+            "rewrite": [
+              "Google opens limited slots for the Gemini Trusted Tester program—power users get unreleased features in exchange for breaking, testing, and shaping them.",
+              "This is Google's version of the open beta playbook: identify your most engaged users early, give them insider access, and let them stress-test features before general release."
+            ],
+            "original": [
+              "Want unreleased @GeminiApp features before anyone else? Love breaking, testing, and shaping new tech?",
+              "We're opening a limited number of slots for power users to join the Gemini Trusted Tester program."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Google 开放 Gemini Trusted Tester 有限名额——重度用户可以提前拿到未发布功能，代价是帮忙压力测试。",
+              "这是 Google 版的开放 beta 策略：尽早找到最活跃的用户，给他们内部访问权，让他们在正式发布前帮着压测。"
+            ],
+            "original": [
+              "Josh Woodward：想比别人先用 @GeminiApp 新功能？喜欢破解、测试和塑造新技术？",
+              "我们开放有限名额让重度用户加入 Gemini Trusted Tester program。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:joshwoodward",
+          "sourceUrl": "https://x.com/joshwoodward/status/2066673011554435450",
+          "en": {
+            "rewrite": [
+              "Gemini's mic icon upgrade: now 70+ languages, mix languages freely without changing settings, and it still doesn't interrupt you.",
+              "The design insight that matters: good input UX should adapt to how you speak, not force you to adapt to the tool. For non-English speakers, this is a huge accessibility win."
+            ],
+            "original": [
+              "Our mic icon just got way better on Android and iOS! This is HUGE for non-English speakers.",
+              "+ now 70+ languages",
+              "+ mix languages freely",
+              "+ don't have to change language settings",
+              "+ still doesn't interrupt you :)"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Gemini 的 mic icon 升级了：现在支持 70+ 语言，可以自由混用语言，不用改设置，而且不会打断你。",
+              "重要的设计洞察：好的输入 UX 应该适应你说话的方式，而不是让你去适应工具。对非英语使用者来说，这是巨大的无障碍提升。"
+            ],
+            "original": [
+              "Josh Woodward：mic icon 在 Android 和 iOS 上变好太多了！对非英语使用者意义重大。",
+              "+ 现在 70+ 语言",
+              "+ 自由混用语言",
+              "+ 不用改语言设置",
+              "+ 仍然不打断你"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Dan Roberts — Why AI Can Now Make Discoveries / 播客：Dan Roberts — AI 为什么现在能做发现了",
+      "desc": "OpenAI 强化学习团队负责人 Dan Roberts 谈 RL 为什么终于开始工作、AI 怎么在数学领域做出真正原创发现、以及物理学思维如何帮助理解深度学习。",
+      "cards": [
+        {
+          "authorKey": "podcast:openai-dan-roberts",
+          "sourceUrl": "https://www.youtube.com/watch?v=oWOz2htozfI",
+          "authorName": "Dan Roberts",
+          "authorTag": "OpenAI, Lead of Foundations of RL",
+          "en": {
+            "rewrite": [
+              "OpenAI's Dan Roberts (foundations of RL team) explains why reinforcement learning finally works at scale—and why AI can now make genuine scientific discoveries.",
+              "The Erdős problem breakthrough: ChatGPT assumed a widely-believed conjecture was false, went down an extremely long calculation path with contrarian conviction, and refuted it by connecting to a completely different field of math. This is not pattern matching—it's original scientific reasoning.",
+              "On RL vs pretraining: RL used to be 'the cherry on the cake.' Now it's the cake itself. Pretraining gives you a prior of language and human knowledge; RL turns that prior into reasoning ability through environment feedback and reward.",
+              "On the explore/exploit dynamic in science: the Erdős proof was exploration (contrarian, long search). The follow-up paper by humans was exploitation (applying the insight to another problem). Real scientific discovery needs both.",
+              "On physics and AI: the right way to think about scaling is big-to-small, not small-to-big. When something 'emerges' at scale, it means you didn't understand what you were scaling. Your job is to restore smoothness by figuring out what to put into smaller models to reproduce the phenomenon.",
+              "On Move 37 and Noam Brown: tells a poker bot story where equilibrium strategy beat exploitation strategy in a tournament—relevant to how we think about AI exploration vs exploitation.",
+              "9-year prediction to Einstein-level AI: based on doubling time of autonomous work capacity. But probably something will break before then, because systems 9 years later will be so much more powerful that letting one think for years won't make sense."
+            ],
+            "original": [
+              "One of the things that ChatGPT was able to do was assume it was false. When you go against the grain and do something contrarian like that, you really have to have strong conviction in what you're doing in order to persevere down a really long calculation path.",
+              "RL is really exciting. When you have a lot of compute, you want to turn that compute into intelligence. And RL is one way of doing it.",
+              "Everything goes through language. All the Internet incorporates the grounding of the real world, all of our scientific knowledge, the sum total of human work is represented on the Internet in language.",
+              "The right way to think about scaling is not small to big, but big to small. When something emerged at scale, it means you didn't understand something about what you were scaling up.",
+              "I feel really excited that we will get to really answer a lot of fundamental questions in the field of science with the aid or the models being the driving force."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 强化学习基础团队负责人 Dan Roberts 详细解释了为什么 RL 终于开始工作、以及 AI 怎么在数学领域做出真正的原创发现。",
+              "核心看点：（1）Erdős 问题的突破——ChatGPT 假设一个普遍认为正确的猜想是错的，凭逆向信念走了一条极长的计算路径，最终通过联系到一个完全不同的数学领域推翻了它。这不是模式匹配，是原创科学推理。（2）RL 从蛋糕上的樱桃变成了蛋糕本身——pretraining 给你语言和人类知识的先验，RL 通过环境反馈和奖励把先验变成推理能力。（3）科学中的探索/利用动态——Erdős 证明是探索，人类的跟进论文是利用，真正的科学发现两者都需要。（4）物理学的 big-to-small 思维——当某个能力在规模上「涌现」时，说明你没理解你在 scale 什么，你的任务是恢复连续性。（5）对 Einstein 级 AI 的 9 年预测——但中间很可能有什么会断掉。"
+            ],
+            "original": [
+              "Dan Roberts：ChatGPT 做到的事情之一，是假设这个猜想是错的。你要逆主流而行，就需要对自己的判断有极强的信念，才能坚持走完一条非常长的计算路径。",
+              "在这条路 上你有很多选择，任何一个选错了，你的想法行不通，就会发现没有进展。",
+              "你需要极强的持久力，还需要另一个领域的专业知识——代数数论。",
+              "最终你推翻了这个猜想。不只是推翻了，还是通过一个跟另一个数学领域的有趣联系推翻的。",
+              "RL 很让人兴奋。当你有大量算力时，你想把算力变成智能。RL 就是其中一种方式。",
+              "我大概一年半前说过，RL 以前是蛋糕上的樱桃，现在 RL 就是蛋糕本身。",
+              "一切都要经过语言。整个互联网包含了真实世界的 grounding，我们所有的科学知识、数学知识、人类文明的成果总和，都以语言形式存在于互联网上。",
+              "拥有一个语言的先验，能用语言思考，然后在这之上训练——这显然是对的方向。",
+              "我不同意 Rich Sutton 那种「纯 RL 才行、LLM 不够智能」的看法。语言提供了必要的 grounding。",
+              "我也不同意「scale is all you need」。你还需要好的想法来引导 scale。",
+              "scale 和好想法之间有互动：在规模上发现新现象，理解它，然后指出新方向，再在新方向上投入 scale。",
+              "关于 test time compute：模型做的就是你在链式思考里看到的。它不断生成 token，这些 token 就像草稿纸上的笔记。",
+              "RL 训练的结果是让模型学会了思考——你创造了 一个会在回答前先想一想的模型。",
+              "关于 explore vs exploit：Erdős 的证明是探索——逆向、长程搜索。人类的跟进论文是利用——把洞见应用 到另一个问题。真正的科学发现需要两者交替。",
+              "关于物理学思维和 AI：思考 scaling 的正确方式不是从小到大，而是从大到小。",
+              "当某个能力在规模上「涌现」时，说明你没有理解你在 scale 什么。",
+              "你的任务是回到更小更简单的模型，找到怎么重现这个现象，让整个 scaling 序列恢复连续性。做到了就说明你理解了。",
+              "这正是物理学的方法：你把复杂系统简化到保留关键特征的最小程度，然后在上面做计算。",
+              "关于 Move 37 和 Noam Brown 的扑克故事：我们在锦标赛里打的是均衡策略——不能输。另一个人打的是利用策略——碾压所有弱者。最后我们赢了，因为他无法利用均衡策略。",
+              "9 年到 Einstein 级 AI 的预测：基于自主工作能力的倍增时间推算。但中间很可能有东西会断掉——因为 9 年后的系统会强大得多，让一个系统想 9 年可能没意义。",
+              "最后：我觉得非常兴奋。我们真的能回答很多我们关心的基础科学问题了——借助 AI，甚至以 AI 为驱动力。这太让人激动了。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
