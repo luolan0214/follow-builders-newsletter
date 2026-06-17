@@ -1,0 +1,354 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-17",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "昨天的 Cursor 收购和 Codex 容量危机余温还在，今天的话题已经开始往更深的方向走。Rauchg 说得很干脆——「It's time to ship」，紧接着交付了 30 分钟函数调用和 24 小时沙盒。Levie 提出了也许是目前 AI 领域最重要的一个问题：开放权重模型到底落后闭源多少？3 个月和几年是完全不同的市场结构，这个答案决定了芯片怎么走、推理在哪跑、主权 AI 长什么样。Peter Yang 对某个产品发布表达了诚实的怀疑——「也许没人想跟 CEO 说不行」。Garry Tan 凌晨四点在讨论 Bowen 的自我分化理论，把 chameleon 和 asshole 描述为同一种「病」的两个面。Slack 终于能渲染 HTML 附件了（2513 赞），社区一片欢呼。播客方面，Simile 创始人 Joon Sung Park 深度讲述怎么用 AI 模拟整个人群——从 Stanford Smallville 的 25 个 agent，到今天 CVS 的 9000 万客户仿真。"
+  },
+  "archive": {
+    "title": "Shipping Season 日报",
+    "desc": "Rauchg 交付更多计算能力、Levie 拷问开放权重落后距离、Garry Tan 论情感分化、Slack 终于渲染 HTML、Simile 模拟人类社会。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-17 source feeds.",
+  "sections": [
+    {
+      "title": "Shipping Season / 交付季",
+      "desc": "Rauchg 宣布进入 ship 模式，同步交付更长的函数调用和沙盒生命周期。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2067106499449565265",
+          "en": {
+            "rewrite": [
+              "Rauchg: 'It's time to ship.' 295 likes.",
+              "Three words. No elaboration needed. When the Vercel CEO says it's time to ship, the next 48 hours usually bring product drops."
+            ],
+            "original": [
+              "It's time to ship"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg：「该交付了。」295 赞。",
+              "三个字。不用多说。当 Vercel CEO 说该 ship 了，接下来 48 小时通常会有产品落地。"
+            ],
+            "original": [
+              "Rauchg：该交付了。295 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2067137678772937000",
+          "en": {
+            "rewrite": [
+              "Rauchg ships: 30 minute function invocations and new 24 hour sandbox lifetimes. 81 likes.",
+              "The significance: agent workloads need long-running processes. 30 minutes for functions and 24 hours for sandboxes means Vercel is systematically removing every infrastructure ceiling that blocks persistent agent workflows."
+            ],
+            "original": [
+              "Quick one to set the stage:",
+              "☑️ 30 minute function invocations",
+              "🆕 24 hour sandbox lifetimes"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 交付：30 分钟函数调用和新的 24 小时沙盒生命周期。81 赞。",
+              "意义：agent 工作流需要长时间运行的进程。函数 30 分钟、沙盒 24 小时意味着 Vercel 正在系统性地移除阻碍常驻 agent 工作流的每个基础设施天花板。"
+            ],
+            "original": [
+              "Rauchg：铺垫一下：",
+              "☑️ 30 分钟函数调用",
+              "🆕 24 小时沙盒生命周期"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2067098826830164310",
+          "en": {
+            "rewrite": [
+              "Rauchg: 'This aged well 😂 iykyk.' 190 likes.",
+              "The subtext: something Vercel said or built previously is being validated by current events. The Cursor acquisition and compute demands prove the thesis that compute infrastructure convergence was the right bet."
+            ],
+            "original": [
+              "This aged well 😂 iykyk"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg：「这个 aging 得不错 😂懂的都懂。」190 赞。",
+              "潜台词：Vercel 之前说的或做的东西正在被当前事件验证。Cursor 收购和计算需求证明计算底座 converging 是对的方向。"
+            ],
+            "original": [
+              "Rauchg：这个 aging 得不错。190 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Open Weights Question / 开放权重之问",
+      "desc": "Levie 提出决定 AI 市场结构的核心问题：开放权重到底落后闭源多少？",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2067070918300664161",
+          "en": {
+            "rewrite": [
+              "Levie frames what might be the single most important question for AI market structure: how far behind are open weights models from closed models?",
+              "If 3-6 months behind: the market looks one way—open weights are viable alternatives, margins compress, sovereign AI is practical.",
+              "If years behind: the market looks completely different—closed model providers have durable moats, inference concentrates in hyperscaler clouds, sovereign AI struggles.",
+              "This single variable determines: chip stack evolution, where inference runs, what sovereign AI looks like, applied AI layer dynamics, margin structures, and how much companies can afford to spend on AI.",
+              "Current read: open weights players are holding up at keeping close to frontier capability."
+            ],
+            "original": [
+              "One of the biggest questions in AI is how far behind open weights models remain from closed models at any given time. There are huge differences in market structures depending on whether open weights models remain 3 or 6 months behind, or if they fall behind by years.",
+              "The answer to this will determine how the chip stack plays out, where inference can be run, what sovereign AI looks like, what happens at the applied AI layer, what the margin structure looks like in AI, how much companies can afford to spend on AI, and more.",
+              "At the moment the open weights players appear to be holding up at keeping close to frontier levels of capability. Will be fun to see how this plays out."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 提出了也许是 AI 市场结构唯一最重要的问题：开放权重模型到底落后闭源多少？",
+              "如果落后 3-6 个月：开放权重是可行替代品，利润率压缩，主权 AI 可行。",
+              "如果落后几年：闭源厂商有持久护城河，推理集中在超大规模云，主权 AI 步履维艰。",
+              "这单一变量决定了：芯片层怎么演进、推理在哪里跑、主权 AI 长什么样、应用 AI 层动态、利润率结构、以及公司能负担多少 AI 支出。",
+              "目前判断：开放权重玩家还能跟住前沿能力。"
+            ],
+            "original": [
+              "Levie：AI 最大问题之一是开放权重落后闭源多少。3-6 个月还是几年？",
+              "这决定了芯片层、推理位置、主权 AI、应用层、利润率、公司 AI 预算。",
+              "目前开放权重看起来还能跟住前沿。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Product Honesty & Emotional Theory / 产品诚实与情感理论",
+      "desc": "Peter Yang 对 CEO 无人说不的诚实怀疑、Garry Tan 凌晨四点的 Bowen 理论、Peter Yang 的 Codex 教程。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2067047343971848201",
+          "en": {
+            "rewrite": [
+              "Peter Yang with honest skepticism: 'I don't want to be a hater but I feel like this is what happens when nobody internally wants to tell the CEO no. Maybe this thing will blow our socks off?' 280 likes.",
+              "The subtext: large companies keep making AI product decisions that look disconnected from what users actually want. The pattern is recognizable—when internal dissent gets suppressed, products ship that make sense on org charts but not to users."
+            ],
+            "original": [
+              "Honestly I don't want to be a hater but I feel like this is what happens when nobody internally wants to tell the CEO no.",
+              "Maybe this thing will blow our socks off?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 诚实怀疑：「我不想当 hater，但我觉得这就是内部没人想跟 CEO 说不的结果。也许这个东西会让我们大吃一惊？」280 赞。",
+              "潜台词：大公司一直在做看起来跟用户真正想要的脱节的 AI 产品决策。这个模式很眼熟——当内部异议被压制时，产品在组织架构图上合理，但对用户不合理。"
+            ],
+            "original": [
+              "Peter Yang：不想当 hater，但这就是内部没人跟 CEO 说不的结果。也许会让我们吃惊？280 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2067056979974160749",
+          "en": {
+            "rewrite": [
+              "Peter Yang publishes a tutorial: make Codex or Claude Code your personal advisor using a skill with 4 files. Bonus: he managed to save Fable's advice before it got restricted.",
+              "Practical takeaway: the skill system is simple enough that 4 files can turn an AI coding agent into a personal advisor. The Fable save is a nice touch—preserving access to capabilities before they disappear."
+            ],
+            "original": [
+              "Publishing a new tutorial to make Codex or Claude Code your personal advisor using a skill with 4 files. Plus, I managed to save Fable's advice too before it got restricted 🥲"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 发布新教程：用 4 个文件的 skill 把 Codex 或 Claude Code 变成你的个人顾问。额外：他在 Fable 被限制之前成功保存了它的建议。",
+              "实用信息：skill 系统简单到 4 个文件就能把 AI 编码 agent 变成个人顾问。保存 Fable 是个好提醒——在能力消失之前保存访问权。"
+            ],
+            "original": [
+              "Peter Yang：发布新教程，用 4 个文件把 Codex/Claude Code 变个人顾问。还保存了 Fable 的建议。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2067100549775032702",
+          "en": {
+            "rewrite": [
+              "Garry Tan at 4am diving into Bowen's differentiation of self theory. The core idea: low differentiation means you're highly reactive to others' emotional cues, lose yourself in relationships, can't hold boundaries under pressure.",
+              "Two flavors of the same disease: chameleons (adjust themselves to please, fusion mode) and bullies (force others to conform). Both are undifferentiated—the self-abandoner and the asshole are the same person.",
+              "The fix: lower chronic anxiety, raise the capacity to stay a separate self in contact with others.",
+              "Why this matters for AI builders: building products that matter requires exactly this kind of differentiation—holding your vision when everyone around you has opinions."
+            ],
+            "original": [
+              "Which leads to… Bowen's differentiation of self",
+              "Low differentiation = highly reactive to others' emotional cues, loses self in relationships, can't hold boundaries under pressure — collapses into \"we-ness\" (everyone must feel the same or the bond feels threatened).",
+              "Two flavors of the same disease: chameleons (adjust themselves to please, fusion mode) and bullies (force others to conform, the asshole mode). Both are undifferentiated. The self-abandoner and the asshole are the same person.",
+              "The fix is the same: lower the chronic anxiety, raise the capacity to stay a separate self in contact."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 凌晨四点深入研究 Bowen 的自我分化理论。核心观点：低分化意味着你对别人的情绪信号高度反应，在关系中丢失自我，压力下无法守住边界。",
+              "同一种「病」的两种表现形式：变色龙（调整自己去讨好别人，融合模式）和恶霸（强迫别人顺从）。两者都是低分化的——放弃自我者和恶霸其实是同一个人。",
+              "解决方案相同：降低慢性焦虑，提高在与人接触时保持独立自我的能力。",
+              "为什么这对 AI builder 重要：做出有影响力的产品恰恰需要这种分化——在周围人都有意见时坚守你的判断。"
+            ],
+            "original": [
+              "Garry Tan：Bowen 的自我分化理论。",
+              "低分化=对他人情绪高度反应，失去自我，压力下崩溃为「我们感」。",
+              "两种表现：变色龙（融合模式）和恶霸（强迫别人顺从）。放弃自我者和恶霸是同一人。",
+              "解决方案：降低慢性焦虑，提高在接触中保持独立自我的能力。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Slack Renders HTML & Cursor Aftermath / Slack 渲染 HTML 与 Cursor 余波",
+      "desc": "Slack 终于能渲染 HTML 附件了（2513 赞），Dan Shipper 切换产品，Cursor Compile 的余温。",
+      "cards": [
+        {
+          "authorKey": "x:trq212",
+          "sourceUrl": "https://x.com/trq212/status/2067021344341098670",
+          "en": {
+            "rewrite": [
+              "Slack now renders HTML attachments instead of just showing them as raw text. 2513 likes.",
+              "The community's reaction (😭🙏) tells you everything: this was a long-requested feature that seemed like it would never come. Sometimes the most impactful updates are the ones that fix basic friction points."
+            ],
+            "original": [
+              "Slack now renders HTML attachments instead of just showing it as text 😭🙏"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Slack 现在能渲染 HTML 附件了，不再只显示纯文本。2513 赞。",
+              "社区的反应（😭🙏）说明了一切：这是一个被长期要求、看起来永远不会来的功能。有时最有影响力的更新就是修复基本摩擦点的那些。"
+            ],
+            "original": [
+              "trq212：Slack 现在渲染 HTML 附件而不是只显示文本。2513 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:danshipper",
+          "sourceUrl": "https://x.com/danshipper/status/2066914130863473048",
+          "en": {
+            "rewrite": [
+              "Dan Shipper switches off Atlas Browser and back to Dia: 'I've been having so many weird bugs with Atlas, and doesn't feel like it's improving.' 72 likes.",
+              "The founder of Every returning to Dia from Atlas is a small but real signal. AI-native browsers are still in the 'does it actually work reliably?' phase, and the tolerance for bugs is lower when the core job is writing and thinking."
+            ],
+            "original": [
+              "just switched off of Atlas Browser and back onto Dia",
+              "i've been having so many weird bugs with atlas, and doesn't feel like it's improving"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 从 Atlas Browser 切回 Dia：「Atlas 一直有奇怪 bug，而且感觉没在改善。」72 赞。",
+              "Every 的创始人从 Atlas 切回 Dia 是一个小但真实的信号。AI 原生浏览器还处于「它真的能可靠工作吗」的阶段，当核心任务是写作和思考时，对 bug 的容忍度更低。"
+            ],
+            "original": [
+              "Dan Shipper：从 Atlas Browser 切回 Dia。太多 bug，感觉没在改善。72 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2066966270197805331",
+          "en": {
+            "rewrite": [
+              "Nikunj reports from Cursor Compile: 'Vibes were immaculate. Getting a custom mechanical keyboard is a new kind of swag ceiling for conferences.' 139 likes.",
+              "The subtext: Cursor isn't just a product anymore—it's becoming a cultural brand. Custom mechanical keyboards as conference swag signals that developer tooling companies are becoming lifestyle brands."
+            ],
+            "original": [
+              "Vibes at Cursor Compile were immaculate. Also getting a custom mechanical keyboard is a new kind of swag ceiling for conferences ⌨️"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 从 Cursor Compile 现场：「氛围完美。拿到定制机械键盘是新的会议周边天花板。」139 赞。",
+              "潜台词：Cursor 不再只是产品了——它正在变成一个文化品牌。定制机械键盘作为会议周边，说明开发者工具公司正在变成生活方式品牌。"
+            ],
+            "original": [
+              "Nikunj：Cursor Compile 氛围完美。定制机械键盘是会议周边天花板。139 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Simulating Humans at Scale — Simile's Joon Sung Park / 播客：大规模模拟人类 — Simile 创始人 Joon Sung Park",
+      "desc": "Stanford Generative Agents 论文作者、Simile 创始人 Joon Sung Park 详细讲述从小镇仿真到企业级人类行为模拟的完整路径。",
+      "cards": [
+        {
+          "authorKey": "podcast:simile-joon",
+          "sourceUrl": "https://www.youtube.com/watch?v=lfhFmwcESRw",
+          "authorName": "Joon Sung Park",
+          "authorTag": "Founder & CEO, Simile (ex-Stanford)",
+          "en": {
+            "rewrite": [
+              "Joon Sung Park, creator of the legendary Stanford Generative Agents paper (the Smallville experiment) and founder of Simile, explains how AI can now simulate human behavior at 85% accuracy—as in, the simulation predicts what someone would do almost as well as they could predict their own behavior.",
+              "Smallville origin story: 25 agents in a tiny town, each with a persona, daily routine, and relationships. No scripting. One agent (Isabella, the cafe owner) spontaneously decided to throw a Valentine's Day party, went around inviting people, gathered materials, and on the day of—people actually showed up. Klaus, who got invited, decided to ask his crush. This was emergent behavior from the agent architecture: memory + planning + reflection.",
+              "Before Smallville, there was Social Simulacra (2022): simulating an entire subreddit with thousands of personas to see what behaviors emerge. Built on GPT-3, which was janky and pre-instruction-tuning, but the promise was visible.",
+              "The product today: Simile partners with Fortune 500 companies like CVS. You define the population, Simile collects real data through RL-trained interviews ('Tell me the story of your life' in 15 minutes) and Gallup partnership surveys, then creates agent simulations that answer any question about that population.",
+              "The say-do gap: LLMs are trained on what people say online (attitudinal data), but there's a real gap between what people say and what they do. Simile's behavioral models—trained on repositories of RCTs (randomized controlled trials)—close this gap.",
+              "CPU vs GPU of intelligence: today's frontier models (GPT, Claude) are like the CPU—rational, objective, superhuman at math. Simile is building the GPU—models that represent the diversity of human values, preferences, tastes, and irrationality. You need both.",
+              "Convergence vs divergence: some simulations converge (network structure always forms hubs regardless of small errors, like PageRank). Others diverge (elections, wars). For convergent questions, compounding errors still converge. For divergent questions, run 100 times and show the distribution of possible outcomes.",
+              "The grand vision: simulation is the Hubble telescope for social science. Thomas Schelling won a Nobel Prize with rudimentary red-dot-blue-dot agent models showing how segregation emerges. Now we can simulate with agents that have the full richness of real humans.",
+              "The ultimate future: simulations that cost $100M to run once and take months—but solve fundamental questions of society. When does bank fraud happen? Can nations cooperate on climate? What are the signals of democratic collapse?"
+            ],
+            "original": [
+              "I am somebody who is quite inspired by science fiction. And when you read science fiction that covers societies that have progressed far enough in its technological maturity, you always see two pillars. You have some version of AGI, and you have some version of simulations that really help guide the society.",
+              "Smallville was basically a game town of 25 agents living in it. They would wake up the morning, do their routines, go to work, have relationships, and have emergent phenomena like having parties.",
+              "We demonstrated that using our architecture and the models, we can actually predict people's behaviors 85% as accurately as people replicate their own.",
+              "Turns out, people are irrational. We have subjective values, preferences and tastes. So you actually start to see divergence in model size going up and the performance in its ability to predict and simulate human behavior.",
+              "Today's models are akin to the CPU of intelligence. Simile's model is much more akin to developing something closer to the GPU of the intelligence unit.",
+              "The say-do gap: there are things that people say, and then there are things that people actually do. And the gap is real.",
+              "Simulation can be the Hubble telescope for human society. How can simulation really unlock our understanding of humanity and social sciences?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Stanford Generative Agents 论文作者、Simile 创始人 Joon Sung Park 详细讲述了一条完整的技术路径：从 25 个 agent 的小镇实验到今天为企业模拟 1000 人的行为，准确率 85%。",
+              "核心看点：（1）Smallville 源起——agent 架构（memory + planning + reflection）自发产生了情人节派对这样的涌现行为。（2）产品形态——和 CVS 合作，用 RL 训练的采访机器人问「讲讲你的人生故事」，配合 Gallup 调查，创建可回答任何问题的群体仿真。（3）Say-do gap——LLM 训练的是人们「说」什么，但说的和做的有真实差距，Simile 用 RCT 行为数据弥合。（4）CPU vs GPU——前沿模型像 CPU（理性），Simile 在造 GPU（代表人类多样性和非理性），需要两者结合。（5）收敛 vs 发散——有些仿真不管小误差都会收敛（如网络 hub），有些会发散（如选举），发散的要跑多次看分布。（6）终极愿景——仿真是社会科学的 Hubble 望远镜，未来可能有花一亿美元跑一次的仿真，解决社会最基础的问题。"
+            ],
+            "original": [
+              "Joon Sung Park：我受科幻启发。技术成熟的文明有两个支柱：AGI 和帮助引导社会的仿真系统。",
+              "Smallville 是一个 25 个 agent 的小镇。他们会起床、做日常、去上班、有社交关系。最惊人的是涌现现象——自发办情人节派对。",
+              "Isabella 是咖啡馆老板。情人节前一天她想到办派对，去收集材料、邀请客人。Klaus 收到邀请后决定约暗恋对象。这些都是自发产生的。",
+              "在 Smallville 之前有 Social Simulacra（2022）——用 GPT-3 模拟整个 subreddit，几千个 persona。那时候 GPT-3 还很粗糙，但潜力已经可见。",
+              "我们的仿真可以 85% 准确地预测人们的行为——几乎和人预测自己的行为一样准。",
+              "但人是非理性的。我们有主观的价值观、偏好和品味。随着模型规模增大，它在模拟人类行为多样性方面反而遇到瓶颈。",
+              "今天的前沿模型像智能的 CPU——理性、擅长有客观答案的技术问题。",
+              "Simile 在造的更像智能的 GPU——我们不需要超人的模型，需要尽可能像人的模型，能代表不同子群体的真实观点。",
+              "Say-do gap：人们说的和做的之间有真实差距。大量训练数据是态度数据（人们在线上说什么），但行为数据是另一回事。",
+              "我们用 RCT（随机对照试验）仓库来训练行为基础模型——这是人类行为的基础模型。",
+              "产品形态：和 CVS 合作。CVS 的 SVP 读了我的论文后找到我们。他们想做的不是测试 10 个概念，而是同时测试 1000 个概念，覆盖 1000 个子群体。",
+              "我们的采访机器人用 RL 训练——目标是花最少时间获取最多关于这个人的可见度。想象一个问题：「讲讲你的人生故事」。",
+              "CVS 有 9000 万客户。他们在问：能不能用这些数据创建更好的仿真？",
+              "仿真的威力在于二阶影响：不只是产品好不好卖，而是如果一家车企推出一款电动车，它对非电动车产品线的认知有什么影响？今天没法测这种连锁反应。",
+              "收敛型仿真：比如网络结构总是形成 hub——像 PageRank。不管小误差怎么累积，收敛力够强。",
+              "发散型仿真：比如选举、战争是否必然。要跑 100 次看分布，展示可能结果的多样性。",
+              "经典经济学里的 agent-based model——Thomas Schelling 用红蓝点的隔离模型拿了诺贝尔奖。",
+              "现在我们可以用真正模拟完整人性的 agent 做同样的事。",
+              "有人问：银行挤兑什么时候发生？气候变化的国家集体行动？民主崩溃的信号？货币体系的起源？",
+              "我看到一个未来：有一天一个仿真要花一亿美元跑一次，要好几个月，但跑完之后它解决了一个我们社会最基础的问题。",
+              "仿真是社会科学的 Hubble 望远镜。Hubble 改变了我们对宇宙的理解，仿真可以改变我们对人性和社会的理解。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

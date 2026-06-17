@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-17" data-issue-number="30" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 30 期｜2026-06-17｜双语精选版｜11 条精选｜8 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="昨天的 Cursor 收购和 Codex 容量危机余温还在，今天的话题已经开始往更深的方向走。Rauchg 说得很干脆——「It&#39;s time to ship」，紧接着交付了 30 分钟函数调用和 24 小时沙盒。Levie 提出了也许是目前 AI 领域最重要的一个问题：开放权重模型到底落后闭源多少？3 个月和几年是完全不同的市场结构，这个答案决定了芯片怎么走、推理在哪跑、主权 AI 长什么样。Peter Yang 对某个产品发布表达了诚实的怀疑——「也许没人想跟 CEO 说不行」。Garry Tan 凌晨四点在讨论 Bowen 的自我分化理论，把 chameleon 和 asshole 描述为同一种「病」的两个面。Slack 终于能渲染 HTML 附件了（2513 赞），社区一片欢呼。播客方面，Simile 创始人 Joon Sung Park 深度讲述怎么用 AI 模拟整个人群——从 Stanford Smallville 的 25 个 agent，到今天 CVS 的 9000 万客户仿真。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">昨天的 Cursor 收购和 Codex 容量危机余温还在，今天的话题已经开始往更深的方向走。Rauchg 说得很干脆——「It&#39;s time to ship」，紧接着交付了 30 分钟函数调用和 24 小时沙盒。Levie 提出了也许是目前 AI 领域最重要的一个问题：开放权重模型到底落后闭源多少？3 个月和几年是完全不同的市场结构，这个答案决定了芯片怎么走、推理在哪跑、主权 AI 长什么样。Peter Yang 对某个产品发布表达了诚实的怀疑——「也许没人想跟 CEO 说不行」。Garry Tan 凌晨四点在讨论 Bowen 的自我分化理论，把 chameleon 和 asshole 描述为同一种「病」的两个面。Slack 终于能渲染 HTML 附件了（2513 赞），社区一片欢呼。播客方面，Simile 创始人 Joon Sung Park 深度讲述怎么用 AI 模拟整个人群——从 Stanford Smallville 的 25 个 agent，到今天 CVS 的 9000 万客户仿真。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Shipping Season / 交付季</h2>
+    <p class="section-desc">Rauchg 宣布进入 ship 模式，同步交付更长的函数调用和沙盒生命周期。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg：「该交付了。」295 赞。</p>
+              <p>三个字。不用多说。当 Vercel CEO 说该 ship 了，接下来 48 小时通常会有产品落地。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：该交付了。295 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg: &#39;It&#39;s time to ship.&#39; 295 likes.</p>
+              <p>Three words. No elaboration needed. When the Vercel CEO says it&#39;s time to ship, the next 48 hours usually bring product drops.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>It&#39;s time to ship</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2067106499449565265" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 交付：30 分钟函数调用和新的 24 小时沙盒生命周期。81 赞。</p>
+              <p>意义：agent 工作流需要长时间运行的进程。函数 30 分钟、沙盒 24 小时意味着 Vercel 正在系统性地移除阻碍常驻 agent 工作流的每个基础设施天花板。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：铺垫一下：</p>
+              <p>☑️ 30 分钟函数调用</p>
+              <p>🆕 24 小时沙盒生命周期</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg ships: 30 minute function invocations and new 24 hour sandbox lifetimes. 81 likes.</p>
+              <p>The significance: agent workloads need long-running processes. 30 minutes for functions and 24 hours for sandboxes means Vercel is systematically removing every infrastructure ceiling that blocks persistent agent workflows.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Quick one to set the stage:</p>
+              <p>☑️ 30 minute function invocations</p>
+              <p>🆕 24 hour sandbox lifetimes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2067137678772937000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg：「这个 aging 得不错 😂懂的都懂。」190 赞。</p>
+              <p>潜台词：Vercel 之前说的或做的东西正在被当前事件验证。Cursor 收购和计算需求证明计算底座 converging 是对的方向。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：这个 aging 得不错。190 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg: &#39;This aged well 😂 iykyk.&#39; 190 likes.</p>
+              <p>The subtext: something Vercel said or built previously is being validated by current events. The Cursor acquisition and compute demands prove the thesis that compute infrastructure convergence was the right bet.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>This aged well 😂 iykyk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2067098826830164310" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">The Open Weights Question / 开放权重之问</h2>
+    <p class="section-desc">Levie 提出决定 AI 市场结构的核心问题：开放权重到底落后闭源多少？</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 提出了也许是 AI 市场结构唯一最重要的问题：开放权重模型到底落后闭源多少？</p>
+              <p>如果落后 3-6 个月：开放权重是可行替代品，利润率压缩，主权 AI 可行。</p>
+              <p>如果落后几年：闭源厂商有持久护城河，推理集中在超大规模云，主权 AI 步履维艰。</p>
+              <p>这单一变量决定了：芯片层怎么演进、推理在哪里跑、主权 AI 长什么样、应用 AI 层动态、利润率结构、以及公司能负担多少 AI 支出。</p>
+              <p>目前判断：开放权重玩家还能跟住前沿能力。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：AI 最大问题之一是开放权重落后闭源多少。3-6 个月还是几年？</p>
+              <p>这决定了芯片层、推理位置、主权 AI、应用层、利润率、公司 AI 预算。</p>
+              <p>目前开放权重看起来还能跟住前沿。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie frames what might be the single most important question for AI market structure: how far behind are open weights models from closed models?</p>
+              <p>If 3-6 months behind: the market looks one way—open weights are viable alternatives, margins compress, sovereign AI is practical.</p>
+              <p>If years behind: the market looks completely different—closed model providers have durable moats, inference concentrates in hyperscaler clouds, sovereign AI struggles.</p>
+              <p>This single variable determines: chip stack evolution, where inference runs, what sovereign AI looks like, applied AI layer dynamics, margin structures, and how much companies can afford to spend on AI.</p>
+              <p>Current read: open weights players are holding up at keeping close to frontier capability.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>One of the biggest questions in AI is how far behind open weights models remain from closed models at any given time. There are huge differences in market structures depending on whether open weights models remain 3 or 6 months behind, or if they fall behind by years.</p>
+              <p>The answer to this will determine how the chip stack plays out, where inference can be run, what sovereign AI looks like, what happens at the applied AI layer, what the margin structure looks like in AI, how much companies can afford to spend on AI, and more.</p>
+              <p>At the moment the open weights players appear to be holding up at keeping close to frontier levels of capability. Will be fun to see how this plays out.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2067070918300664161" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Product Honesty &amp; Emotional Theory / 产品诚实与情感理论</h2>
+    <p class="section-desc">Peter Yang 对 CEO 无人说不的诚实怀疑、Garry Tan 凌晨四点的 Bowen 理论、Peter Yang 的 Codex 教程。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-petergyang.jpg" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Product @ Roblox</div>
+          </div>
+          <div class="author-handle">@petergyang</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 诚实怀疑：「我不想当 hater，但我觉得这就是内部没人想跟 CEO 说不的结果。也许这个东西会让我们大吃一惊？」280 赞。</p>
+              <p>潜台词：大公司一直在做看起来跟用户真正想要的脱节的 AI 产品决策。这个模式很眼熟——当内部异议被压制时，产品在组织架构图上合理，但对用户不合理。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：不想当 hater，但这就是内部没人跟 CEO 说不的结果。也许会让我们吃惊？280 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang with honest skepticism: &#39;I don&#39;t want to be a hater but I feel like this is what happens when nobody internally wants to tell the CEO no. Maybe this thing will blow our socks off?&#39; 280 likes.</p>
+              <p>The subtext: large companies keep making AI product decisions that look disconnected from what users actually want. The pattern is recognizable—when internal dissent gets suppressed, products ship that make sense on org charts but not to users.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Honestly I don&#39;t want to be a hater but I feel like this is what happens when nobody internally wants to tell the CEO no.</p>
+              <p>Maybe this thing will blow our socks off?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang/status/2067047343971848201" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:petergyang" data-author-name="Peter Yang" data-author-tag="Product @ Roblox" data-author-handle="@petergyang" data-author-avatar="../assets/avatars/x-petergyang.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-petergyang.jpg" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Product @ Roblox</div>
+          </div>
+          <div class="author-handle">@petergyang</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 发布新教程：用 4 个文件的 skill 把 Codex 或 Claude Code 变成你的个人顾问。额外：他在 Fable 被限制之前成功保存了它的建议。</p>
+              <p>实用信息：skill 系统简单到 4 个文件就能把 AI 编码 agent 变成个人顾问。保存 Fable 是个好提醒——在能力消失之前保存访问权。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：发布新教程，用 4 个文件把 Codex/Claude Code 变个人顾问。还保存了 Fable 的建议。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang publishes a tutorial: make Codex or Claude Code your personal advisor using a skill with 4 files. Bonus: he managed to save Fable&#39;s advice before it got restricted.</p>
+              <p>Practical takeaway: the skill system is simple enough that 4 files can turn an AI coding agent into a personal advisor. The Fable save is a nice touch—preserving access to capabilities before they disappear.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Publishing a new tutorial to make Codex or Claude Code your personal advisor using a skill with 4 files. Plus, I managed to save Fable&#39;s advice too before it got restricted 🥲</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang/status/2067056979974160749" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 凌晨四点深入研究 Bowen 的自我分化理论。核心观点：低分化意味着你对别人的情绪信号高度反应，在关系中丢失自我，压力下无法守住边界。</p>
+              <p>同一种「病」的两种表现形式：变色龙（调整自己去讨好别人，融合模式）和恶霸（强迫别人顺从）。两者都是低分化的——放弃自我者和恶霸其实是同一个人。</p>
+              <p>解决方案相同：降低慢性焦虑，提高在与人接触时保持独立自我的能力。</p>
+              <p>为什么这对 AI builder 重要：做出有影响力的产品恰恰需要这种分化——在周围人都有意见时坚守你的判断。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：Bowen 的自我分化理论。</p>
+              <p>低分化=对他人情绪高度反应，失去自我，压力下崩溃为「我们感」。</p>
+              <p>两种表现：变色龙（融合模式）和恶霸（强迫别人顺从）。放弃自我者和恶霸是同一人。</p>
+              <p>解决方案：降低慢性焦虑，提高在接触中保持独立自我的能力。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan at 4am diving into Bowen&#39;s differentiation of self theory. The core idea: low differentiation means you&#39;re highly reactive to others&#39; emotional cues, lose yourself in relationships, can&#39;t hold boundaries under pressure.</p>
+              <p>Two flavors of the same disease: chameleons (adjust themselves to please, fusion mode) and bullies (force others to conform). Both are undifferentiated—the self-abandoner and the asshole are the same person.</p>
+              <p>The fix: lower chronic anxiety, raise the capacity to stay a separate self in contact with others.</p>
+              <p>Why this matters for AI builders: building products that matter requires exactly this kind of differentiation—holding your vision when everyone around you has opinions.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Which leads to… Bowen&#39;s differentiation of self</p>
+              <p>Low differentiation = highly reactive to others&#39; emotional cues, loses self in relationships, can&#39;t hold boundaries under pressure — collapses into &quot;we-ness&quot; (everyone must feel the same or the bond feels threatened).</p>
+              <p>Two flavors of the same disease: chameleons (adjust themselves to please, fusion mode) and bullies (force others to conform, the asshole mode). Both are undifferentiated. The self-abandoner and the asshole are the same person.</p>
+              <p>The fix is the same: lower the chronic anxiety, raise the capacity to stay a separate self in contact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2067100549775032702" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Slack Renders HTML &amp; Cursor Aftermath / Slack 渲染 HTML 与 Cursor 余波</h2>
+    <p class="section-desc">Slack 终于能渲染 HTML 附件了（2513 赞），Dan Shipper 切换产品，Cursor Compile 的余温。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:trq212" data-author-name="Thariq" data-author-tag="Claude Code @ Anthropic" data-author-handle="@trq212" data-author-avatar="../assets/avatars/x-trq212.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-trq212.jpg" alt="Thariq avatar"><span class="avatar-fallback">T</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq</div>
+            <div class="author-tag is-inline">Claude Code @ Anthropic</div>
+          </div>
+          <div class="author-handle">@trq212</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Slack 现在能渲染 HTML 附件了，不再只显示纯文本。2513 赞。</p>
+              <p>社区的反应（😭🙏）说明了一切：这是一个被长期要求、看起来永远不会来的功能。有时最有影响力的更新就是修复基本摩擦点的那些。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>trq212：Slack 现在渲染 HTML 附件而不是只显示文本。2513 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Slack now renders HTML attachments instead of just showing them as raw text. 2513 likes.</p>
+              <p>The community&#39;s reaction (😭🙏) tells you everything: this was a long-requested feature that seemed like it would never come. Sometimes the most impactful updates are the ones that fix basic friction points.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Slack now renders HTML attachments instead of just showing it as text 😭🙏</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212/status/2067021344341098670" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:danshipper" data-author-name="Dan Shipper" data-author-tag="CEO @ Every" data-author-handle="@danshipper" data-author-avatar="../assets/avatars/x-danshipper.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-danshipper.jpg" alt="Dan Shipper avatar"><span class="avatar-fallback">DS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Dan Shipper</div>
+            <div class="author-tag is-inline">CEO @ Every</div>
+          </div>
+          <div class="author-handle">@danshipper</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper 从 Atlas Browser 切回 Dia：「Atlas 一直有奇怪 bug，而且感觉没在改善。」72 赞。</p>
+              <p>Every 的创始人从 Atlas 切回 Dia 是一个小但真实的信号。AI 原生浏览器还处于「它真的能可靠工作吗」的阶段，当核心任务是写作和思考时，对 bug 的容忍度更低。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper：从 Atlas Browser 切回 Dia。太多 bug，感觉没在改善。72 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper switches off Atlas Browser and back to Dia: &#39;I&#39;ve been having so many weird bugs with Atlas, and doesn&#39;t feel like it&#39;s improving.&#39; 72 likes.</p>
+              <p>The founder of Every returning to Dia from Atlas is a small but real signal. AI-native browsers are still in the &#39;does it actually work reliably?&#39; phase, and the tolerance for bugs is lower when the core job is writing and thinking.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>just switched off of Atlas Browser and back onto Dia</p>
+              <p>i&#39;ve been having so many weird bugs with atlas, and doesn&#39;t feel like it&#39;s improving</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/danshipper/status/2066914130863473048" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:nikunj" data-author-name="Nikunj Kothari" data-author-tag="Partner @ FPV Ventures" data-author-handle="@nikunj" data-author-avatar="../assets/avatars/x-nikunj.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-nikunj.jpg" alt="Nikunj Kothari avatar"><span class="avatar-fallback">NK</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj Kothari</div>
+            <div class="author-tag is-inline">Partner @ FPV Ventures</div>
+          </div>
+          <div class="author-handle">@nikunj</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj 从 Cursor Compile 现场：「氛围完美。拿到定制机械键盘是新的会议周边天花板。」139 赞。</p>
+              <p>潜台词：Cursor 不再只是产品了——它正在变成一个文化品牌。定制机械键盘作为会议周边，说明开发者工具公司正在变成生活方式品牌。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj：Cursor Compile 氛围完美。定制机械键盘是会议周边天花板。139 赞。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj reports from Cursor Compile: &#39;Vibes were immaculate. Getting a custom mechanical keyboard is a new kind of swag ceiling for conferences.&#39; 139 likes.</p>
+              <p>The subtext: Cursor isn&#39;t just a product anymore—it&#39;s becoming a cultural brand. Custom mechanical keyboards as conference swag signals that developer tooling companies are becoming lifestyle brands.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Vibes at Cursor Compile were immaculate. Also getting a custom mechanical keyboard is a new kind of swag ceiling for conferences ⌨️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj/status/2066966270197805331" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Simulating Humans at Scale — Simile&#39;s Joon Sung Park / 播客：大规模模拟人类 — Simile 创始人 Joon Sung Park</h2>
+    <p class="section-desc">Stanford Generative Agents 论文作者、Simile 创始人 Joon Sung Park 详细讲述从小镇仿真到企业级人类行为模拟的完整路径。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:simile-joon" data-author-name="Joon Sung Park" data-author-tag="Founder &amp; CEO, Simile (ex-Stanford)" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Joon Sung Park avatar"><span class="avatar-fallback">JS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Joon Sung Park</div>
+            <div class="author-tag is-inline">Founder &amp; CEO, Simile (ex-Stanford)</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Stanford Generative Agents 论文作者、Simile 创始人 Joon Sung Park 详细讲述了一条完整的技术路径：从 25 个 agent 的小镇实验到今天为企业模拟 1000 人的行为，准确率 85%。</p>
+              <p>核心看点：（1）Smallville 源起——agent 架构（memory + planning + reflection）自发产生了情人节派对这样的涌现行为。（2）产品形态——和 CVS 合作，用 RL 训练的采访机器人问「讲讲你的人生故事」，配合 Gallup 调查，创建可回答任何问题的群体仿真。（3）Say-do gap——LLM 训练的是人们「说」什么，但说的和做的有真实差距，Simile 用 RCT 行为数据弥合。（4）CPU vs GPU——前沿模型像 CPU（理性），Simile 在造 GPU（代表人类多样性和非理性），需要两者结合。（5）收敛 vs 发散——有些仿真不管小误差都会收敛（如网络 hub），有些会发散（如选举），发散的要跑多次看分布。（6）终极愿景——仿真是社会科学的 Hubble 望远镜，未来可能有花一亿美元跑一次的仿真，解决社会最基础的问题。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Joon Sung Park：我受科幻启发。技术成熟的文明有两个支柱：AGI 和帮助引导社会的仿真系统。</p>
+              <p>Smallville 是一个 25 个 agent 的小镇。他们会起床、做日常、去上班、有社交关系。最惊人的是涌现现象——自发办情人节派对。</p>
+              <p>Isabella 是咖啡馆老板。情人节前一天她想到办派对，去收集材料、邀请客人。Klaus 收到邀请后决定约暗恋对象。这些都是自发产生的。</p>
+              <p>在 Smallville 之前有 Social Simulacra（2022）——用 GPT-3 模拟整个 subreddit，几千个 persona。那时候 GPT-3 还很粗糙，但潜力已经可见。</p>
+              <p>我们的仿真可以 85% 准确地预测人们的行为——几乎和人预测自己的行为一样准。</p>
+              <p>但人是非理性的。我们有主观的价值观、偏好和品味。随着模型规模增大，它在模拟人类行为多样性方面反而遇到瓶颈。</p>
+              <p>今天的前沿模型像智能的 CPU——理性、擅长有客观答案的技术问题。</p>
+              <p>Simile 在造的更像智能的 GPU——我们不需要超人的模型，需要尽可能像人的模型，能代表不同子群体的真实观点。</p>
+              <p>Say-do gap：人们说的和做的之间有真实差距。大量训练数据是态度数据（人们在线上说什么），但行为数据是另一回事。</p>
+              <p>我们用 RCT（随机对照试验）仓库来训练行为基础模型——这是人类行为的基础模型。</p>
+              <p>产品形态：和 CVS 合作。CVS 的 SVP 读了我的论文后找到我们。他们想做的不是测试 10 个概念，而是同时测试 1000 个概念，覆盖 1000 个子群体。</p>
+              <p>我们的采访机器人用 RL 训练——目标是花最少时间获取最多关于这个人的可见度。想象一个问题：「讲讲你的人生故事」。</p>
+              <p>CVS 有 9000 万客户。他们在问：能不能用这些数据创建更好的仿真？</p>
+              <p>仿真的威力在于二阶影响：不只是产品好不好卖，而是如果一家车企推出一款电动车，它对非电动车产品线的认知有什么影响？今天没法测这种连锁反应。</p>
+              <p>收敛型仿真：比如网络结构总是形成 hub——像 PageRank。不管小误差怎么累积，收敛力够强。</p>
+              <p>发散型仿真：比如选举、战争是否必然。要跑 100 次看分布，展示可能结果的多样性。</p>
+              <p>经典经济学里的 agent-based model——Thomas Schelling 用红蓝点的隔离模型拿了诺贝尔奖。</p>
+              <p>现在我们可以用真正模拟完整人性的 agent 做同样的事。</p>
+              <p>有人问：银行挤兑什么时候发生？气候变化的国家集体行动？民主崩溃的信号？货币体系的起源？</p>
+              <p>我看到一个未来：有一天一个仿真要花一亿美元跑一次，要好几个月，但跑完之后它解决了一个我们社会最基础的问题。</p>
+              <p>仿真是社会科学的 Hubble 望远镜。Hubble 改变了我们对宇宙的理解，仿真可以改变我们对人性和社会的理解。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Joon Sung Park, creator of the legendary Stanford Generative Agents paper (the Smallville experiment) and founder of Simile, explains how AI can now simulate human behavior at 85% accuracy—as in, the simulation predicts what someone would do almost as well as they could predict their own behavior.</p>
+              <p>Smallville origin story: 25 agents in a tiny town, each with a persona, daily routine, and relationships. No scripting. One agent (Isabella, the cafe owner) spontaneously decided to throw a Valentine&#39;s Day party, went around inviting people, gathered materials, and on the day of—people actually showed up. Klaus, who got invited, decided to ask his crush. This was emergent behavior from the agent architecture: memory + planning + reflection.</p>
+              <p>Before Smallville, there was Social Simulacra (2022): simulating an entire subreddit with thousands of personas to see what behaviors emerge. Built on GPT-3, which was janky and pre-instruction-tuning, but the promise was visible.</p>
+              <p>The product today: Simile partners with Fortune 500 companies like CVS. You define the population, Simile collects real data through RL-trained interviews (&#39;Tell me the story of your life&#39; in 15 minutes) and Gallup partnership surveys, then creates agent simulations that answer any question about that population.</p>
+              <p>The say-do gap: LLMs are trained on what people say online (attitudinal data), but there&#39;s a real gap between what people say and what they do. Simile&#39;s behavioral models—trained on repositories of RCTs (randomized controlled trials)—close this gap.</p>
+              <p>CPU vs GPU of intelligence: today&#39;s frontier models (GPT, Claude) are like the CPU—rational, objective, superhuman at math. Simile is building the GPU—models that represent the diversity of human values, preferences, tastes, and irrationality. You need both.</p>
+              <p>Convergence vs divergence: some simulations converge (network structure always forms hubs regardless of small errors, like PageRank). Others diverge (elections, wars). For convergent questions, compounding errors still converge. For divergent questions, run 100 times and show the distribution of possible outcomes.</p>
+              <p>The grand vision: simulation is the Hubble telescope for social science. Thomas Schelling won a Nobel Prize with rudimentary red-dot-blue-dot agent models showing how segregation emerges. Now we can simulate with agents that have the full richness of real humans.</p>
+              <p>The ultimate future: simulations that cost $100M to run once and take months—but solve fundamental questions of society. When does bank fraud happen? Can nations cooperate on climate? What are the signals of democratic collapse?</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>I am somebody who is quite inspired by science fiction. And when you read science fiction that covers societies that have progressed far enough in its technological maturity, you always see two pillars. You have some version of AGI, and you have some version of simulations that really help guide the society.</p>
+              <p>Smallville was basically a game town of 25 agents living in it. They would wake up the morning, do their routines, go to work, have relationships, and have emergent phenomena like having parties.</p>
+              <p>We demonstrated that using our architecture and the models, we can actually predict people&#39;s behaviors 85% as accurately as people replicate their own.</p>
+              <p>Turns out, people are irrational. We have subjective values, preferences and tastes. So you actually start to see divergence in model size going up and the performance in its ability to predict and simulate human behavior.</p>
+              <p>Today&#39;s models are akin to the CPU of intelligence. Simile&#39;s model is much more akin to developing something closer to the GPU of the intelligence unit.</p>
+              <p>The say-do gap: there are things that people say, and then there are things that people actually do. And the gap is real.</p>
+              <p>Simulation can be the Hubble telescope for human society. How can simulation really unlock our understanding of humanity and social sciences?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=lfhFmwcESRw" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-17 source feeds.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-17 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
