@@ -1,0 +1,421 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-18",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天有三件大事。第一件：Sam Altman 宣布请到了「从 OpenAI 成立之初最想合作的人」——Noam，花了 10 年（5101 赞）。Sam 还补了一刀：「我们对为什么叫 Noam 的人在 AI 方面这么厉害不做任何解释，我们将他们的成功归于神的恩赐。」（4618 赞）。第二件：Claude Design 正式进入 beta——可以在 Claude 里做设计、拖拽布局、导出 PDF 和 PPT，还能跟 Claude Code 双向同步。Amjad 一句话总结：「Design with Claude, Ship with Replit」（300 赞）。第三件：Thibault 提醒所有人——Codex 的 App、CLI 和 SDK 可以配任何开源模型，不只是 OpenAI 的（6133 赞）。然后给所有用户做了个 double rate limit reset（5551 赞）。Garry Tan 算了一笔账：Fable 5 禁令造成的生产力损失大约每小时 1200 万美元。Levie 写了可能是迄今最好的应用 AI 层分析：不是薄薄一层套壳，而是一整套模型路由 + 工作流改造 + 变更管理 + 领域 GTM。Rauchg 把 React→Next.js 类比到 AI SDK→Vercel，说 GLM 5.2 在 Next.js Evals 里已经超过 Opus 4.8。播客方面，GitHub COO Kyle Daigle 谈 1700 万月 PR、开源维护者的生存状况、以及怎么阻止 $200/月订阅变成 $2000/月。"
+  },
+  "archive": {
+    "title": "Noam 与 Claude Design 日报",
+    "desc": "OpenAI 请到 Noam、Claude Design 进入 beta、Codex 支持任意开源模型、Levie 写出迄今最好的应用 AI 层拆解、GitHub COO 谈 agent 时代的代码洪流。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-18 source feeds.",
+  "sections": [
+    {
+      "title": "OpenAI Gets Noam & Codex Goes Open / OpenAI 请到 Noam、Codex 支持开源",
+      "desc": "Sam 宣布 Noam 加入、Thibault 提醒 Codex 支持任意开源模型、double rate limit reset。",
+      "cards": [
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2067427421083652131",
+          "en": {
+            "rewrite": [
+              "Sam Altman: 'Noam is one of the people I have most wanted to work with since the very beginning of OpenAI. Only took 10 years. I think it will be worth the wait!' 5101 likes.",
+              "10 years of persistence to land a single hire. This signals both the caliber of the person and OpenAI's conviction that key talent is worth waiting for."
+            ],
+            "original": [
+              "noam is one of the people I have most wanted to work with since the very beginning of openai.",
+              "only took 10 years.",
+              "i think it will be worth the wait!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman：「Noam 是我从 OpenAI 成立之初最想合作的人之一。只花了 10 年。我觉得值得等！」5101 赞。",
+              "10 年坚持只为请一个人。这既说明了这个人的级别，也说明 OpenAI 对关键人才的信念。"
+            ],
+            "original": [
+              "Sam：Noam 是我从 OpenAI 成立之初最想合作的人。花了 10 年。值得等。5101 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2067427678529974740",
+          "en": {
+            "rewrite": [
+              "Sam's follow-up joke: 'We offer no explanation as to why Noams are so good at AI; we attribute their success, as all else, to divine benevolence.' 4618 likes.",
+              "A nod to Noam Brown (poker AI, o1 reasoning) and Noam Shazeer (transformer co-author, Character.AI). The pattern of brilliant AI researchers named Noam is a running joke in the community."
+            ],
+            "original": [
+              "We offer no explanation as to why Noams are so good at AI; we attribute their success, as all else, to divine benevolence."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam 的后续玩笑：「我们对为什么叫 Noam 的人在 AI 方面这么厉害不做任何解释；我们将他们的成功，如同其他一切，归于神的恩赐。」4618 赞。",
+              "这个梗指的是 Noam Brown（扑克 AI、o1 推理）和 Noam Shazeer（Transformer 共同作者、Character.AI）。AI 圈叫 Noam 的天才研究员太多，已经成了社区常驻笑话。"
+            ],
+            "original": [
+              "Sam：不解释为什么 Noam 们在 AI 这么厉害。归于神的恩赐。4618 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2067181377028538431",
+          "en": {
+            "rewrite": [
+              "Thibault's reminder heard round the world: 'You can use the Codex App, CLI and SDK with any open source model, not just with OpenAI models.' 6133 likes—the most engaged tweet of the day.",
+              "The strategic implication: Codex is positioning itself as model-agnostic infrastructure. In a world where GLM 5.2 can beat Opus 4.8 on certain evals, the ability to swap models freely is a moat—not the models themselves."
+            ],
+            "original": [
+              "Reminder that you can use the Codex App, CLI and SDK with any open source model, not just with OpenAI models."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thibault 的一条提醒引爆全网：「Codex 的 App、CLI 和 SDK 可以配任何开源模型，不只是 OpenAI 的模型。」6133 赞——今天互动最高的推文。",
+              "战略含义：Codex 正在把自己定位为模型无关的基础设施。在 GLM 5.2 能在某些评测里打败 Opus 4.8 的世界里，自由切换模型的能力本身就是护城河——而不是模型本身。"
+            ],
+            "original": [
+              "Thibault：提醒一下，Codex App/CLI/SDK 可以用任何开源模型，不只是 OpenAI 的。6133 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2067399435009622521",
+          "en": {
+            "rewrite": [
+              "Thibault's 'Dearest gentle codexer' letter: a sneaky double reset. You get a full reset now AND one banked for later. 5551 likes.",
+              "After the capacity crisis, OpenAI is overcompensating with generosity. The double reset strategy acknowledges that users need both immediate relief and future flexibility."
+            ],
+            "original": [
+              "Dearest gentle codexer.",
+              "We did a sneaky double reset. Not only do you get a full reset on us. But you are also getting one into the reset bank to use at your own leisure.",
+              "Enjoy"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thibault 的「亲爱的 codexer」信：一个偷偷的 double reset。你现在获得一次完整重置，外加一个存入银行供以后使用的重置。5551 赞。",
+              "容量危机之后，OpenAI 在用慷慨过度补偿。double reset 策略承认用户既需要即时缓解，也需要未来灵活性。"
+            ],
+            "original": [
+              "Thibault：亲爱的 codexer。我们做了个偷偷的 double reset。一次完整重置 + 一次存入银行。5551 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Design & The AI SDK Thesis / Claude Design 与 AI SDK 论点",
+      "desc": "Claude Design 进入 beta、Amjad 的联动、Rauchg 的 React→Next.js 类比。",
+      "cards": [
+        {
+          "authorKey": "x:claudeai",
+          "sourceUrl": "https://x.com/claudeai/status/2067325894268428560",
+          "en": {
+            "rewrite": [
+              "Claude Design enters beta on all paid plans, web and desktop. 351 likes.",
+              "The redesign: steadier editor for daily work, drag/resize/align directly on canvas, Claude Design ↔ Claude Code bidirectional sync, export to PDF and PowerPoint.",
+              "The strategic play: Claude isn't just a chat interface anymore. It's becoming a full creative-to-code pipeline—design in Claude Design, hand off to Claude Code, ship from terminal."
+            ],
+            "original": [
+              "Claude Design is in beta on all paid plans, on web and desktop.",
+              "The redesigned editor is steadier for daily work. New layout controls let you drag, resize, and align elements directly on the canvas.",
+              "Claude Design and Claude Code work together in both directions. Hand a design off to build, or start in Claude Code and sync design projects from your terminal.",
+              "Export to PDF and PowerPoint, or send your work to more of the tools you already use."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude Design 在所有付费计划上进入 beta，网页和桌面版。351 赞。",
+              "重新设计的内容：更稳定的日常编辑器、直接在画布上拖拽/调整大小/对齐、Claude Design ↔ Claude Code 双向同步、导出 PDF 和 PowerPoint。",
+              "战略意图：Claude 不再只是聊天界面了。它正在变成一个从创意到代码的完整流水线——在 Claude Design 里设计、交给 Claude Code、从终端 ship。"
+            ],
+            "original": [
+              "Claude：Claude Design 进入 beta。重新设计的编辑器。Claude Design 和 Claude Code 双向同步。导出 PDF/PPT。351 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2067363904183783833",
+          "en": {
+            "rewrite": [
+              "Amjad's one-liner: 'Design with Claude, Ship with Replit.' 300 likes.",
+              "This is the AI-native development pipeline crystallized: use the best AI for each stage of the workflow. Claude for design, Replit for shipping. The interoperability is the product."
+            ],
+            "original": [
+              "Design with Claude, Ship with Replit"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 一句话概括：「Design with Claude, Ship with Replit。」300 赞。",
+              "这就是 AI 原生开发流水线的结晶：在工作流的每个阶段用最好的 AI。Claude 做设计，Replit 做 ship。互操作性本身就是产品。"
+            ],
+            "original": [
+              "Amjad：Design with Claude, Ship with Replit。300 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2067242482190979186",
+          "en": {
+            "rewrite": [
+              "Rauchg makes the analogy explicit: React → Next.js, AI SDK → Vercel.",
+              "'@aisdk is more relevant than ever, given the intense model competition landscape. Just today, GLM 5.2, an open model, surpassed Opus 4.8 in our Next.js Evals 🤯'",
+              "The thesis: the world needs a practical solution for building and deploying agents, just like React needed Next.js to solve building actual web applications. Model competition is intensifying, and the SDK that abstracts across all of them is the winning layer."
+            ],
+            "original": [
+              "React    →  [Next.js]",
+              "Next.js  →  [Vercel]",
+              "@aisdk is more relevant than ever, given the intense model competition landscape. Just today, GLM 5.2, an open model, surpassed Opus 4.8 in our Next.js Evals 🤯",
+              "But the world needs a practical solution for how to build and deploy agents. Just like React needed Next.js to solve the task of building an actual web application. And that's [Vercel]."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 把类比说得很明确：React → Next.js，AI SDK → Vercel。",
+              "「@aisdk 比以往任何时候都重要，因为模型竞争格局太激烈了。就在今天，GLM 5.2 这个开源模型在我们的 Next.js Evals 里超过了 Opus 4.8 🤯」",
+              "论点：世界需要一个构建和部署 agent 的实用方案，就像 React 需要 Next.js 来解决构建实际网页应用的问题。模型竞争在加剧，而能把所有模型抽象掉的 SDK 是赢家层。"
+            ],
+            "original": [
+              "Rauchg：React→Next.js, AI SDK→Vercel。",
+              "GLM 5.2 在 Next.js Evals 里超过 Opus 4.8。",
+              "世界需要构建部署 agent 的实用方案。1050 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Levie's Applied AI Playbook / Levie 的应用 AI 层拆解",
+      "desc": "Levie 写了迄今最系统的应用 AI 层分析，Garry Tan 算了 Fable 禁令的经济损失。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2067455756795039957",
+          "en": {
+            "rewrite": [
+              "Levie's definitive breakdown: the Applied AI layer is not a thin wrapper. It's turning out that driving agentic workflows in enterprise is far more complex than expected—and where there's complexity, there's moat.",
+              "Four pillars of the applied AI playbook: (1) Build features that bridge intelligence and workflow—tuned interfaces, context capture, agent-specific tools, human-in-the-loop UX. Going deeper than just output tokens is critical.",
+              "(2) Act as model router—balancing frontier intelligence with cheaper models. Only companies with deep evals across all models and the business model to leverage them are positioned to win.",
+              "(3) Drive implementation and change management via FDEs—cleaning data, re-engineering processes, achieving SLAs. This is unique per domain.",
+              "(4) Domain-specific GTM—speaking the customer's language, navigating their security/compliance/regulatory needs.",
+              "Final note: even if the 'bitter lesson' solves everything eventually, enterprises need help changing today. And many aspects of bringing intelligence to real-world work don't depend solely on model capability."
+            ],
+            "original": [
+              "The past couple months we may be witnessing what the Applied AI layer will look like at scale. Despite some of the initial critique that this would just be a thin layer on the LLM, it's turning out that actually driving agentic workflows in an enterprise is far more complex.",
+              "Build the features that bridge the gap between the intelligence and the workflow. Some workflows can be automated by simply going to a general purpose interface, but others need tuned interfaces and features tied to the work they're augmenting or automating.",
+              "Act as the model router balancing frontier intelligence with cheaper models. Only the companies that have deep evals on specific tasks across all models, and the ability business model wise to leverage them, are in a great position.",
+              "Drive the actual implementation and change management via FDE or equivalent. Data has to be cleaned up, processes re-engineered, workflows evaled, SLAs achieved.",
+              "Implement domain specific GTM that creates expertise in that field. The more generalized this gets the less you can speak the customers language.",
+              "There remains a view that a lot of this is all mitigated by model intelligence alone. That's possibly true, but enterprises need help changing today."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 的定义性拆解：应用 AI 层不是薄薄一层壳。事实证明在企业里驱动 agentic 工作流远比预期复杂——哪里有复杂度，哪里就有护城河。",
+              "四个支柱：（1）构建连接智能和工作流的功能——调优的界面、上下文捕获、agent 专用工具、human-in-the-loop UX。比只呈现输出 token 更深入。（2）充当模型路由器——平衡前沿智能和更便宜的模型。只有对所有模型有深度 eval、且商业模式能利用它们的玩家才能赢。（3）通过 FDE 驱动实施和变更管理——清理数据、重新设计流程、达到 SLA。每个领域都不一样。（4）领域特定 GTM——说客户的语言、处理安全和合规需求。",
+              "最后一点：即使「bitter lesson」最终解决一切，企业今天就需要帮助变革。而且很多把智能带入真实工作的方面不只取决于模型能力。"
+            ],
+            "original": [
+              "Levie：应用 AI 层不是薄壳。企业 agentic 工作流远比预期复杂。",
+              "四支柱：连接智能和工作流的功能、模型路由、FDE 变更管理、领域 GTM。",
+              "即使 bitter lesson 最终解决一切，企业今天就需要帮助。",
+              "哪里有复杂度，哪里就有护城河。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2067366749411176831",
+          "en": {
+            "rewrite": [
+              "Garry Tan's back-of-napkin math: the Fable 5 ban costs approximately $12M per hour in lost productivity.",
+              "Calculation: 5M frontier AI-coding daily actives at $90/hr fully-loaded. 17.8% of work was routed to Fable in 48 hours. Fable was ~15% more productive. Effective throughput loss ≈ 2.7% per dev. 2.7% × $90 × 5M = $12M/hour.",
+              "The point: when a tool becomes infrastructure, removing it has macroeconomic consequences."
+            ],
+            "original": [
+              "Rough estimate on $ productivity lost by Fable 5 ban: $12M per hour",
+              "Frontier AI-coding daily actives, mid-2026: 5M devs",
+              "Fully-loaded cost: $90/hr",
+              "Work routed to Fable in 48 hours: 17.8%",
+              "Fable is on average ~15% more productive",
+              "Effective throughput loss per dev = 17.8% × 15% ≈ 2.7% of output",
+              "2.7% × $90/hr = ~$2.40/dev/hr × 5M devs = $12M per working hour"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 的餐巾纸计算：Fable 5 禁令造成的生产力损失大约每小时 1200 万美元。",
+              "计算：500 万前沿 AI 编码日活用户，$90/小时全成本。48 小时内 17.8% 的工作路由到 Fable。Fable 平均效率高 ~15%。每个开发者的有效产出损失 ≈ 2.7%。2.7% × $90 × 500 万 = 每小时 $1200 万。",
+              "观点：当一个工具变成基础设施时，移除它会产生宏观经济后果。"
+            ],
+            "original": [
+              "Garry Tan：Fable 5 禁令生产力损失约每小时 $1200 万。",
+              "500 万日活 × $90/小时 × 17.8% × 15% ≈ $12M/工作小时。594 赞。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Product Wisdom & Founder Energy / 产品智慧与创业者能量",
+      "desc": "Zara Yang 论 vibe-coded apps 和 AI 写作、Garry Tan 论年龄和创业、thenanyu 论 taste。",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2067313780724551853",
+          "en": {
+            "rewrite": [
+              "Zara Yang on vibe-coded personal apps: 'Building the thing takes a day. Finding out if you'll actually use it takes a week. Most of my dead projects worked fine. I just never opened them.'",
+              "'Most products are built for a person who doesn't exist—someone who remembers to open the app, clicks the right button, does step 1-2-3 every day. Real humans are lazy & forgetful. Build for that person instead.' 134 likes."
+            ],
+            "original": [
+              "The thing about vibe coded personal apps:",
+              "Building the thing takes a day. Finding out if you'll actually use it takes a week. Most of my dead projects worked fine. I just never opened them.",
+              "Most products are built for a person who doesn't exist. Someone who remembers to open the app, clicks the right button, does step 1, 2, 3 every day. Real humans are lazy & forgetful. Build for that person instead."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara Yang 谈 vibe-coded 个人 app：「做出来一天就够了。发现你到底会不会用需要一周。我大部分死了的项目都能正常工作。我只是再也没打开过。」",
+              "「大部分产品是为一个不存在的人做的——一个每天记得打开 app、点对按钮、按 1-2-3 步骤走的人。真实的人是懒惰和健忘的。为那个人做产品。」134 赞。"
+            ],
+            "original": [
+              "Zara：vibe-coded app 做出来一天，发现会不会用要一周。大部分死了的项目都能用，只是再没打开。134 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2067423674689638652",
+          "en": {
+            "rewrite": [
+              "Zara Yang on AI and writing: 'Don't use AI for writing until you develop your own taste and voice.'",
+              "The danger isn't that AI writes badly—it's that if you haven't developed taste, you won't recognize AI slop as slop. Read a lot to know what good looks like. Write a lot to know your own voice. Then use AI, but make sure it sounds like you. 158 likes."
+            ],
+            "original": [
+              "Don't use AI for writing until you develop your own taste and voice",
+              "Using AI to write isn't inherently bad. The danger is using AI to write before you've developed your taste for what is good content. If the AI produces slop, you won't even recognize it as slop",
+              "Read a lot to figure out what good looks like. Write a lot to know what your voice sounds like. Only then, use AI to help you write, but make sure it actually sounds like you."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara Yang 谈 AI 和写作：「在你形成自己的品味和声音之前，不要用 AI 写作。」",
+              "危险不在于 AI 写得差——而在于如果你没有建立品味，你甚至不会认识到 AI 写的东西是 slop。大量阅读来知道什么是好的。大量写作来知道自己的声音。然后用 AI，但确保听起来像你。158 赞。"
+            ],
+            "original": [
+              "Zara：在形成品味和声音之前不要用 AI 写作。先读够、写够，再用 AI。158 赞。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2067260431597723825",
+          "en": {
+            "rewrite": [
+              "Garry Tan: 'We don't care what your age is. We care if you can build with craft and care. And if you can make something people want.' 680 likes.",
+              "And the follow-up: 'Technical founders now have access to business thinking. Business founders now have access to technical thinking. Net net: more startups that actually work.' 293 likes.",
+              "The AI age dissolves the technical/non-technical founder divide. The tools are good enough that what matters is taste, conviction, and craft."
+            ],
+            "original": [
+              "We don't care what your age is",
+              "We care if you can build with craft and care",
+              "And if you can make something people want"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan：「我们不在乎你多大。我们在乎你能不能有匠心地 build。以及你能不能做出人们想要的东西。」680 赞。",
+              "后续：「技术创始人现在能获得商业思维。商业创始人现在能获得技术思维。净结果：更多真正能跑通的创业公司。」293 赞。",
+              "AI 时代消融了技术/非技术创始人的分界。工具已经好到重要的是品味、信念和匠人精神。"
+            ],
+            "original": [
+              "Garry Tan：不在乎年龄。在乎能不能有匠心地 build。做出人们想要的。680 赞。",
+              "技术创始人有商业思维，商业创始人有技术思维。更多能跑通的创业公司。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: GitHub COO on the Agent Code Flood / 播客：GitHub COO 谈 Agent 代码洪流",
+      "desc": "GitHub COO Kyle Daigle 谈月 1700 万 agent PR、开源维护者生存、model router 解决 token 经济学、以及他自己的 AI 自我改进 loop。",
+      "cards": [
+        {
+          "authorKey": "podcast:github-coo",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "authorName": "Kyle Daigle",
+          "authorTag": "COO of GitHub",
+          "en": {
+            "rewrite": [
+              "GitHub COO Kyle Daigle (interviewed by Every's Mike Taylor) on what happens when agents start generating the majority of code on the world's largest code platform.",
+              "The numbers: 1 billion commits last year → 14 billion projected this year. 17 million agent-created pull requests in March alone. And this is just the beginning.",
+              "On open source maintainers drowning in AI PRs: GitHub is giving maintainers more tools to decide who can contribute and how much proof is needed, but leaving control in the community. Different projects choose different approaches—Linus Torvalds' vouch system isn't universal.",
+              "On the $200→$2000 problem: the solution is automatic model routing. When you're doing a find-and-replace, you don't need GPT-5.5—the system should automatically downshift to Haiku. The hard part is knowing when to downshift, which requires understanding task intent.",
+              "On hill climbing: GitHub is using real usage data (thumbs up/down, acceptance rates) to continuously improve models. Sometimes hard evals improve but user sentiment crashes—they call this overfitting on metrics.",
+              "On his personal AI loop: Kyle runs an OpenClaw agent named Baxter that reads all his emails, Slack messages, and statements, then gives him a daily 'comms report' on his communication patterns. 'Humans are more willing to take critical feedback from robots than other humans.'"
+            ],
+            "original": [
+              "Last year, in October at GitHub Universe, we shared there's a billion commits on GitHub for the full year. We're on track to be 14 billion.",
+              "In March, there were 17 million pull requests that were created by agents. That's just the agent pull requests.",
+              "For open source, we're focusing on giving maintainers more tools to decide: do you want to accept all of these PRs?",
+              "I think that the goal is that if you want to be able to do way more, if you want to be able to have 150 agents doing everything all at once, that's great. We want to be able to enable that.",
+              "On the $200→$2000 problem: it's really gonna be about how can we help you automatically choose the models.",
+              "My OpenClaw that I affectionately named Baxter tells me how terrible I did in something. Humans are way more willing to take critical feedback from robots than other humans."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "GitHub COO Kyle Daigle（由 Every 的 Mike Taylor 采访）谈当 agent 开始生成全球最大代码平台上大部分代码时会发生什么。",
+              "核心看点：（1）数据——去年 10 亿 commits，今年预计 140 亿。仅 3 月份就有 1700 万 agent 创建的 PR。（2）开源维护者——GitHub 给维护者更多工具来决定谁能贡献、需要多少证明，但把控制权留给社区。（3）$200→$2000 问题——解决方案是自动 model routing，做 find-and-replace 不需要 GPT-5.5，系统应该自动降级到 Haiku。（4）Hill climbing——用真实使用数据持续改进模型，但有时 hard eval 改善了用户情绪反而崩了，这叫 overfitting。（5）个人 AI loop——Kyle 的 OpenClaw agent 叫 Baxter，每天读他的邮件和 Slack 给他一份沟通报告。"
+            ],
+            "original": [
+              "Kyle Daigle：去年 10 月 GitHub Universe 我们公布全年 10 亿 commits。今年目标是 140 亿。",
+              "3 月份有 1700 万 agent 创建的 PR。这只是 agent PR。",
+              "我们正在从早期采用者阶段走出来。现在是 Kyle 加一两个 agent 用我的技能、我的资源、我的上下文。",
+              "关于开源维护者：给他们更多工具来决定接受谁的 PR。但不同社区选择不同方式。Linus Torvalds 的 vouch 系统并不通用。",
+              "我们不想做第一个创建标准的人。如果标准自然涌现，我们会锁定它。",
+              "关于商业模式：$200 订阅变成 $2000 的解决方案是自动 model routing。",
+              "当你做 find-and-replace 时，不需要 GPT-5.5。系统应该自动降级。",
+              "但困难的部分是知道什么时候该降级，这需要理解任务意图。",
+              "关于 hill climbing：我们每周看数据、看改进、看 hard measures 和 soft measures。",
+              "有时 hard eval 改善了但用户情绪崩了——这叫 overfitting。",
+              "我的个人 AI loop：我有个叫 Baxter 的 OpenClaw agent，读我的所有邮件和 Slack，每天给我一份沟通报告。",
+              "Kyle，你一直用这个比喻。这不是很清晰。",
+              "人类比从其他人那里更愿意接受来自机器的批评性反馈。没那么有威胁性。",
+              "当 Baxter 告诉我做得不好时，我觉得更舒服去问为什么。",
+              "然后确保我写邮件、写脚本、审查细节时 incorporate 那个反馈。",
+              "我的很多 agent loop 是关于我自己的改进，不只是软件层面。",
+              "关于 Windows：GitHub Copilot app 我只在 Windows 上用，因为我想确保 Windows 上的开发者也有好的体验。",
+              "每个周末我 swap between Mac、Windows PC 和 Linux box 来编码。",
+              "关于 Build 大会：我们故意邀请社区讲者。软件开发是团队运动。",
+              "不存在任何一家公司能回答所有问题。",
+              "我们邀请外面的人来讲他们的部分故事。",
+              "关于竞争：我们关心开发者选择。我们经历了从大量 API 的时代到某种无意中围墙花园的转变。",
+              "我们不想让开发者被困在另一个 mousetrap 里。",
+              "关于 token 经济学：token 经济学会成为选择什么模型的更大因素。",
+              "我们离在本地设备上跑一个不太小的语言模型来做部分工作已经不远了。",
+              "长期看，个性化、上下文、记忆这些从 ChatGPT 和 Copilot 出现以来一直是真理。",
+              "一个能帮你直觉到想法的 agent 会给你好体验，尤其是你不需要亲自把那个想法编码给 agent。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
