@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-21" data-issue-number="34" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 34 期｜2026-06-21｜双语精选版｜6 条精选｜6 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天的 feed 内容与昨天有较大重叠（同一个快照窗口），但换个角度看，正好可以关注一些昨天没展开讲的东西。Amanda Askell 从一个慢性疼痛的个人故事出发，引出了「AI 时代到底要不要做更多医学扫描」这个很实际的讨论。Garry Tan 给了一个关于董事会沟通的朴素建议。Peter Steinberger 提到了一个容易被忽略的能力：同时懂开发者语言和 agent 语言的人，正在变得特别值钱。播客仍然是 Intel CEO Lip Bu Tan 那期，我们这次换几个角度来听。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天的 feed 内容与昨天有较大重叠（同一个快照窗口），但换个角度看，正好可以关注一些昨天没展开讲的东西。Amanda Askell 从一个慢性疼痛的个人故事出发，引出了「AI 时代到底要不要做更多医学扫描」这个很实际的讨论。Garry Tan 给了一个关于董事会沟通的朴素建议。Peter Steinberger 提到了一个容易被忽略的能力：同时懂开发者语言和 agent 语言的人，正在变得特别值钱。播客仍然是 Intel CEO Lip Bu Tan 那期，我们这次换几个角度来听。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">AI Meets Real Life / AI 走进真实生活</h2>
+    <p class="section-desc">有时候关于 AI 价值最有力的论证，不是来自实验室，而是来自一个人的真实经历。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:AmandaAskell" data-author-name="Amanda Askell" data-author-tag="Researcher @ Anthropic" data-author-handle="@AmandaAskell" data-author-avatar="../assets/avatars/x-AmandaAskell.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-AmandaAskell.jpg" alt="Amanda Askell avatar"><span class="avatar-fallback">AA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amanda Askell</div>
+            <div class="author-tag is-inline">Researcher @ Anthropic</div>
+          </div>
+          <div class="author-handle">@AmandaAskell</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amanda Askell 是 Anthropic 的哲学家和伦理学家。她这三条连在一起看，其实是在讲一个很实在的问题：AI 时代，我们到底该不该做更多医学扫描？</p>
+              <p>主流反对意见是「偶然发现会带来不必要的焦虑和过度治疗」。但 Amanda 觉得问题不在扫描本身，而在于你看到异常之后怎么应对——如果没有症状，完全可以先观察。</p>
+              <p>她进一步指出，我们现在「看到什么就要处理什么」的习惯，是因为以前扫描很少做、只在有明确需要时才做。如果扫描变成常规，临床规范自然也会跟着调整。</p>
+              <p>最后她讲了自己的故事：慢性疼痛三十多年，直到一次 MRI 才发现一个先天性问题，手术之后就治好了。言下之意很清楚——不做扫描的代价，可能是几十年的无谓受苦。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amanda 说，「不应该做更多医学扫描，因为偶然发现会造成大量伤害」这个观点让她不太认同。她认为问题不在扫描，而在发现之后的应对方式。如果扫描发现了什么但没有任何症状，完全可以不管它。</p>
+              <p>她接着回应了一个反驳：「但事实上人们做不到无视。」她的回答是：我们目前「看到就处理」的习惯，是因为直到最近，只有在有明确需要时才会做扫描。如果进入一个更频繁扫描的新范式，处理信息的规范自然会随之调整。</p>
+              <p>她最后分享了自己的亲身经历：大半辈子都在忍受慢性疼痛，直到一位医生对疼痛部位做了 MRI，发现了一个先天性疾病，手术修复后疼痛消失。她现在忍不住想：自己是不是因为医生担心她「太笨、看到扫描结果会恐慌」，才白白疼了三十多年。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amanda Askell, philosopher and ethicist at Anthropic, opens with a pointed counterargument to the common view that more medical scans cause net harm through incidental findings.</p>
+              <p>Her position is that the problem is not the scan itself but the clinical response to unexpected findings. If something shows up but the patient has no symptoms, the rational move is to monitor, not to intervene aggressively.</p>
+              <p>She follows up with a systems-level observation: our current norm of &#39;acting on everything we see&#39; was formed in an era when scans were rare and symptom-driven. If scanning becomes routine, clinical norms will adjust to handle incidental findings more sensibly.</p>
+              <p>Her personal post adds weight: she had chronic pain for 30+ years until an MRI found a congenital condition that surgery fixed. The subtext is clear — the cost of not scanning can be decades of unnecessary suffering.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The view that we shouldn&#39;t do more medical scans because incidental findings cause a lot of harm doesn&#39;t sit well with me. It seems like the issue it points to isn&#39;t the scan but the response to it. If you see something on a scan but have no other symptoms, you could ignore it.</p>
+              <p>A counter to this is &quot;yes but people *don&#39;t* ignore it&quot;. But not ignoring things on scans is our norm because, until recently, we only did scans if there was a clear need. If we move to a scan-more-often paradigm, the norms of what we do with that information will surely adjust.</p>
+              <p>I had chronic pain for most of my life until a doctor did an MRI of the pain source and found a congenital condition that was then fixed with surgery. Now I&#39;m wondering if I had 30+ years of pain because doctors worried I was too stupid to be in the presence of scan results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/AmandaAskell/status/2068162191740764622" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Startup Wisdom / 创业智慧</h2>
+    <p class="section-desc">有时候最实用的建议不是什么战略框架，而是一个你马上就能用上的小动作。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 这条很简短，但可能是给创业 CEO 最实用的建议之一：下次开董事会，把你最害怕给董事会看的那件事，放在第一页。</p>
+              <p>这个动作有两层含义。第一，它测试你的董事会够不够好——如果你不敢这么做，可能说明你跟董事会之间信任还不够。第二，它建立一种习惯：主动透明，而不是等别人来发现。</p>
+              <p>他说「把这件事本身当成一个 big deal」也很重要——你在用 CEO 的位置奖励坦诚，这种信号对全公司文化的影响远超一次会议。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan 的建议是：下次董事会，选一件你最害怕展示给董事会的事情，把它放在第一页（当然，只有好的董事会才适用）。</p>
+              <p>把这件事本身当成一个值得庆祝的行为，然后把它变成习惯。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s advice is counterintuitive but simple: put the thing you&#39;re most afraid to show your board as slide one of the next board meeting.</p>
+              <p>The subtext is about trust calibration. If you can only do this with &#39;good boards,&#39; then the exercise serves double duty — it tests whether your board is actually safe enough to be honest with, and it builds the habit of proactive transparency.</p>
+              <p>Making it &#39;a big deal that you did that&#39; is the cultural lever: you&#39;re rewarding honesty from the CEO seat, which sets the tone for the entire company.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Tip: pick the worst thing you are afraid to show your board for your next board meeting and make it slide one (you can only do this with good boards btw)</p>
+              <p>Make it a big deal you did that. Make it a habit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2068007205102842238" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">The Developer-Agent Translator / 开发者与 Agent 之间的翻译者</h2>
+    <p class="section-desc">一个新的角色正在出现：能同时理解开发者文化和 agent 逻辑的人。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Steinberger（OpenClaw 创始人）这条虽然很短，但它指向的是一个很真实的新角色：同时「会说开发者语言」和「会说 agent 语言」的人。</p>
+              <p>这件事的本质是：agent 基础设施成熟之后，真正稀缺的不是模型或 API，而是那种能把开发者的思维方式翻译成 agent 能理解的指令、边界和约束的人。</p>
+              <p>他用了一个词叫「blessed」，说明他觉得这种人很难找——需要同时有写文档的耐心、设计 agent schema 的精确度，以及对人和模型局限性的双重共情。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steinberger 说：Hannes 同时会说开发者语言和 agent 语言。很幸运团队里有他！</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Steinberger (OpenClaw founder) is highlighting a role that didn&#39;t exist two years ago: someone who &#39;speaks both developer and agents.&#39;</p>
+              <p>The underlying point is about a real talent gap. As agent infrastructure matures, the scarce resource is not the model or the API — it&#39;s the person who can bridge how developers think with how agents need to be instructed, scoped, and constrained.</p>
+              <p>His use of &#39;blessed&#39; suggests this is not just a skill set but a rare temperament: the patience to document thoroughly, the precision to write agent-friendly schemas, and the empathy to understand both human and model limitations.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Hannes speaks both developer and agents. Blessed to have him on the team!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2068199277277401419" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Agent Infrastructure &amp; Tools / Agent 基础设施与工具</h2>
+    <p class="section-desc">这几个在昨天已经引发了大量讨论，但因为 feed 窗口重叠，今天仍然在视野里。补一个精简回顾。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch 这两条的核心仍然值得标记：markdown 正在变成写 agent 的「编程语言」，而 agent 正在倒逼行业重新认真对待文档、API、测试这些基本卫生。</p>
+              <p>如果你想快速理解 agent 时代的基础设施思路，这两条是最好的入口。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauch 说，下一个热门编程语言是 markdown。一个最小的 eve agent 只需要 instructions.md 和 skills 文件夹，一行 vercel 命令部署。</p>
+              <p>他还说，agent 正在推动大量健康的软件习惯：开放 API、文档（skills）、测试（evals）、Unix（CLIs）、支付协议、标准格式——万维网的最初愿景正在实现。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch&#39;s thesis: if writing an agent is just authoring a markdown file (instructions.md + skills/), then the barrier to building software has dropped further than ever.</p>
+              <p>This connects to his broader observation that agents are forcing the industry to rediscover fundamentals: open APIs, documentation as first-class artifacts, tests as evals, and standard data formats.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The next hot programming language is… markdown.</p>
+              <p>A minimal eve agent: agent/instructions.md + skills/your-expertise.md. Deployable in one command: vercel.</p>
+              <p>Agents are motivating so many healthy software habits. Open APIs, documentation (skills), tests (evals), Unix (CLIs), payment &amp; commerce protocols, even wide Accept use (markdown/json/html). The original vision of the WWW coming to life before our eyes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2068165988005380478" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 这条从企业视角补充了 Rauch 的论点：人和 agent 之间的共享工作区，最佳形态就是文件系统。</p>
+              <p>因为计划、笔记、任务列表、策略、草稿、日志、决策——这些天然就是文件。用人已经会用的东西，按 agent 最容易理解的方式优化，才是最务实的接口。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie 说，agent 能否成功，最关键的变量是上下文：你能不能创建一个 agent 和人都能理解的共享工作区。</p>
+              <p>他们需要的是一个工作集：计划、笔记、任务列表、策略、草稿、摘要、日志、修正、决策等。文件系统形态的接口对模型和人类监督者都更易读。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie complements Rauch&#39;s argument from the enterprise side: the shared workspace between humans and agents should be the file system, because plans, notes, task lists, logs, and decisions all map naturally to files.</p>
+              <p>The key design principle: give agents access to systems humans already understand, optimized for how agents parse them.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>The main variable in getting success with agents is whether you can get the agent the context it needs to do its work; and a major factor in that is if you can create a shared working area for that agent that a human can understand as well.</p>
+              <p>What they need is a working set: plans, notes, task lists, policies, drafts, summaries, logs, corrections, decisions, etc. For that layer, a filesystem-shaped interface tends to be more legible to both the model and the humans supervising it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2068068247413694532" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Intel&#39;s Chip Bet / 播客：Intel 的芯片豪赌</h2>
+    <p class="section-desc">No Priors 采访 Intel CEO Lip Bu Tan。与昨天的刊物侧重财务和战略不同，今天我们换三个角度来听：投资方法论、物理极限与新材料、以及 AI 对组织的改造。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:no-priors" data-author-name="No Priors" data-author-tag="AI Podcast" data-author-handle="" data-author-avatar="../assets/avatars/podcast-no-priors.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/podcast-no-priors.jpg" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">AI Podcast</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>今天换三个角度看这期播客。第一，Lip Bu Tan 的投资方法论：找瓶颈、投解决瓶颈的人。这个方法论帮他拿到了 159 个 IPO 和并购退出。</p>
+              <p>第二，物理极限：10A 和 7A 看得到路径，但 CMOS 之后需要新材料——氮化镓、碳化硅、磷化铟、玻璃封装、甚至人造金刚石。他正在大量招聘材料科学家。</p>
+              <p>第三，AI 从内部改造 Intel：从 spreadsheet 驱动的文化转向 AI 辅助决策，他在引入懂前沿模型和开源的年轻人才——他自己的儿子已经成了他非正式的 AI 老师。</p>
+              <p>目标仍然是 10 倍回报：在 Cadence 他做到了 85 倍，Intel 基数大，所以他说先定 10 倍。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【投资方法论：找瓶颈】</p>
+              <p>Lip Bu Tan：我投的 10 家公司里，有 9 家到半路会改商业计划——因为市场变了。所以我喜欢团队型的创业者，而不是只有一个人的。</p>
+              <p>我的投资方法是先找瓶颈在哪。互连是瓶颈？我投了 Cerebras。光互连是瓶颈？我投了 Celestial AI。电源管理是瓶颈？从 40 伏降到 1 伏的过程中会损失大量电力，怎么提升效率？</p>
+              <p>我从第一天就瞄准第一个客户——最好是 hyperscaler，他们有规模，如果喜欢你的东西，愿意在头几年付数百万美元。</p>
+              <p>找人才方面，我大量投以色列的创业者——他们非常有韧性，即使在战时也会在防空洞里跟你开电话会。</p>
+              <p>我还有一个原则：如果创业者想卖公司，有快速退出的路，就别锁着人家。有些创业者第一天就想 IPO——我们做 VC 的，就是支持他们的梦想。</p>
+              <p></p>
+              <p>【物理极限与新材料】</p>
+              <p>Lip Bu Tan：我能看到 18A、14A 量产，也能看到 10A 和 7A 的路径。但 CMOS 开始触及极限了。</p>
+              <p>所以我开始看新材料。回到化学元素表——氮化镓、碳化硅、磷化铟。我投了这三个方向。</p>
+              <p>封装方面在看玻璃——非常好的热绝缘体。我投了一家叫 3DGS 的公司。Intel 的模块上有上千个器件，怎么把它们拼在一起？我们刚跟印度政府宣布了一个大项目做封装制造，在美国和新墨西哥也有。</p>
+              <p>还在看人造金刚石——另一种极好的绝缘体。我也投了 Diamond Foundry。</p>
+              <p>做工程师的好处是：你总会在撞墙之后找到办法——要么跳过去，要么绕过去。</p>
+              <p>新科技的情况是：性能翻倍，但成本和面积没法同步翻倍——除非你找到新材料或新设计方法。所以我开始大量招材料科学家。</p>
+              <p>18 年前我投半导体的时候，大部分 VC 根本不想听——在合伙人会上讲到半导体，一半人找借口跑了。现在 Jensen（黄仁勋）的公司市值 5.3 万亿，Broadcom 和 TSMC 都是 2 万亿，半导体又变热了。</p>
+              <p></p>
+              <p>【AI 从内部改造 Intel】</p>
+              <p>Lip Bu Tan：我们正在改变 Intel。以前是一家很老派的、靠 spreadsheet 运转的公司。</p>
+              <p>现在我在把它变成 AI 驱动的——从设计到销售到市场，全面拥抱 AI。我团队的平均年龄在四五十岁，我需要引入新的年轻人才。</p>
+              <p>现在连我儿子都成了我的老师——每次去他家看孙子，我就让他教我 AI 和机器学习。他比我更 plugged in。</p>
+              <p></p>
+              <p>【10 倍目标】</p>
+              <p>Lip Bu Tan：我在 Cadence 做到了大约 85 倍回报——从临时 CEO 接手时的 2.42 美元，到退休时大约 85 倍。</p>
+              <p>Intel 的基数大得多，所以我说：那就定 10 倍吧。作为 VC 出身的人，我看的就是 10 倍。五到十年做到 10 倍，我觉得就是很好的回报。</p>
+              <p></p>
+              <p>【关于算力建设会不会过热】</p>
+              <p>Lip Bu Tan：现在大规模建 AI 基础设施是对的，因为需求确实在涨，而且我们一直是供给受限的。</p>
+              <p>但我更关注的是应用。基础设施建完之后，最终要看应用和解决方案够不够大、能不能持续。就像互联网一样——Amazon 和 Netflix 是真正的应用赢家，但很多其他人消失了或者被收购了。</p>
+              <p>现在 agent 不再只是替人访问软件——数百万个 agent 需要算力、需要接入软件栈。这给 Intel 在 agentic AI 和 physical AI 领域带来了新的机会窗口。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Investment methodology: Lip Bu&#39;s approach is bottleneck-first investing — find what&#39;s broken in the supply chain (interconnect, optics, power management, memory) and back the team solving it. His track record: 159 IPOs and M&amp;A exits.</p>
+              <p>Physical limits: he sees a clear path to 10A and 7A, but beyond CMOS, new materials are needed — gallium nitride, silicon carbide, indium phosphide for semiconductors; glass and artificial diamond for packaging. He&#39;s hiring material scientists, not just electrical engineers.</p>
+              <p>AI transforming Intel from within: moving away from spreadsheet-driven culture to AI-enabled decision-making. He&#39;s bringing in younger talent fluent in frontier models and open source, while his own son has become his informal AI teacher.</p>
+              <p>The 10x goal: at Cadence, he delivered 85x returns from interim CEO to executive chairman retirement. At Intel, the base is bigger, so he&#39;s targeting 10x — &#39;being a venture capitalist at heart, you want to look for 10x.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>LIP BU TAN: Nine of the 10 company I invest, halfway they change their business plan because market have changed. So I like to have entrepreneur as team, not just one person.</p>
+              <p>LIP BU TAN: I always look at where is the bottleneck? What are you trying to solve? Interconnect become the bottleneck — I invested in Cerebras. Optical become important — I backed Celestial AI. Power management become bottleneck — converting from 40 volt down to one volt, you lost a lot of power.</p>
+              <p>LIP BU TAN: I can see 18A, 14A going to production, and I can see 10A and 7A. But CMOS starting to run out of steam. I look at new materials — gallium nitride, silicon carbide, indium phosphide. I invest in glass packaging and artificial diamond.</p>
+              <p>LIP BU TAN: We are changing Intel. Used to be a very old legacy spreadsheet company. Now I transform it to become AI enabled. My average age of my team in the 40s, 50s. I need to bring in new talent. My son become my teacher now.</p>
+              <p>LIP BU TAN: I always look for 10x. At Cadence, when I stepped down as CEO, we made about 76 times return. When I retire as executive chairman, about 85 times. At Intel the base is bigger, so let&#39;s do 10x.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=asCgCv2XB4s" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-21 source feeds. Note: feed window overlaps with 2026-06-20; this issue highlights content not featured in the previous edition.">Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-21 source feeds. Note: feed window overlaps with 2026-06-20; this issue highlights content not featured in the previous edition.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

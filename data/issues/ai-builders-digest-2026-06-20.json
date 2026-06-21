@@ -1,0 +1,359 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-20",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批内容如果连起来看，主线其实很清晰：agent 不再只是一个聊天框，它正在变成一种新的软件运行方式。一边是 Vercel CEO 说 markdown 正在成为「下一个热门编程语言」，另一边是 Box CEO 在讲文件系统为什么是人和 agent 共享工作区的最佳接口。与此同时，编程工具的竞争更激烈了——Codex 和 Claude Code 各有所长，用户开始认真比较。而 Intel 新 CEO 在播客里讲的，则是另一层故事：芯片供应链能不能在美国重建，算力瓶颈到底什么时候才能松开。"
+  },
+  "archive": {
+    "title": "Agent 底座日报",
+    "desc": "Agent 基础设施正在成形：markdown 成为编程语言，文件系统成为共享工作区，编程工具竞争升温，Intel CEO 讲芯片供应链重建。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-20 source feeds.",
+  "sections": [
+    {
+      "title": "Agent Infrastructure Takes Shape / Agent 基础设施成形",
+      "desc": "当 agent 开始真正干活，它需要的不是更好的聊天界面，而是更好的底座——文件系统、文档、API、标准协议。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2068165988005380478",
+          "en": {
+            "rewrite": [
+              "Guillermo Rauch's argument is that markdown is becoming the de facto programming language for agents — instructions.md and skills/*.md are the new source code.",
+              "The accessibility point matters: if deploying an agent is just writing a markdown file and running one command, the barrier to entry has never been lower for software creation.",
+              "His reference to 'eve' (Vercel's agent framework, codenamed 'last' by Timolins) suggests Vercel is betting that the agent layer will be as enduring as Next.js."
+            ],
+            "original": [
+              "The next hot programming language is… markdown.",
+              "A minimal eve agent:",
+              "📂 agent/\n  📄 instructions.md\n  📂 skills/\n     📄 your-expertise.md",
+              "Deployable in one command: vercel.",
+              "It's the most accessible programming has ever been. And likely will ever be, at least for the generation of software fully defined and controlled by us humans.",
+              "(As a fun fact, one of the initial prototypes for eve was codenamed last by @timolins, both in homage to '@nextjs for agents' but also in recognition of how enduring eve's design feels to us.)"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 这条的核心判断很大胆：markdown 正在变成「下一个热门编程语言」。",
+              "他的意思是，写 agent 其实不需要复杂的代码——一个 instructions.md 加上 skills 文件夹里的几个 markdown 文件，就是完整的 agent 源码。一行命令部署上线。",
+              "如果这成立，那做软件的门槛就被压到了前所未有的低点。他提到 Vercel 内部代号叫 eve 的 agent 框架，暗示他们认为这个东西会像 Next.js 一样长久。"
+            ],
+            "original": [
+              "Rauch 说，下一个热门编程语言是……markdown。",
+              "一个最小的 eve agent 只需要：agent/ 文件夹里有 instructions.md 和 skills/ 子文件夹。",
+              "一行 vercel 命令就能部署。",
+              "这是编程有史以来门槛最低的时刻，而且很可能是人类完全掌控的软件时代里门槛最低的一刻。",
+              "他透露 eve 的早期原型代号叫 last，既致敬「agent 版 Next.js」，也表达了团队对这个设计持久性的信心。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2067936390285807940",
+          "en": {
+            "rewrite": [
+              "Rauch's broader point is that agents are accidentally forcing the software industry to rediscover good hygiene: open APIs, real documentation, tests as evals, Unix-style CLIs, standard data formats.",
+              "The closing line — 'the original vision of the WWW coming to life' — frames agents not as a break from the web, but as the fulfillment of what the web was always supposed to be."
+            ],
+            "original": [
+              "Agents are motivating so many healthy software habits. Open APIs, documentation (skills), tests (evals), Unix (CLIs), payment & commerce protocols, even wide Accept use (markdown/json/html).",
+              "The original vision of the WWW coming to life before our eyes."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这是 Rauch 同一天另一条很有意思的观察：agent 正在倒逼软件行业重新养成好习惯。",
+              "开放 API、认真的文档、把测试当 eval、Unix 风格的命令行、标准数据格式——这些东西一直都在，但因为 agent 需要它们才能真正干活，大家突然又开始认真对待了。",
+              "他最后那句「万维网的最初愿景正在眼前实现」，把 agent 定义为不是对 web 的颠覆，而是 web 本来就该变成的样子。"
+            ],
+            "original": [
+              "Rauch 说，agent 正在推动大量健康的软件习惯：开放 API、文档（skills）、测试（evals）、Unix（CLIs）、支付与商业协议，甚至 markdown/json/html 的广泛使用。",
+              "万维网的最初愿景正在我们眼前变成现实。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2068068247413694532",
+          "en": {
+            "rewrite": [
+              "Levie's core insight is that the biggest variable in agent success is context — specifically, whether the agent and the human can share a common working area they both understand.",
+              "His argument for file systems is pragmatic: plans, notes, task lists, policies, drafts, logs, and decisions all live naturally on a file system. It's a format both humans and models can read and write without translation.",
+              "This connects directly to Rauch's markdown thesis: the shared layer between humans and agents is not a new protocol, but the simplest, oldest interface we have — files and folders."
+            ],
+            "original": [
+              "The main variable in getting success with agents is whether you can get the agent the context it needs to do its work; and a major factor in that is if you can create a shared working area for that agent that a human can understand as well.",
+              "This is one of the reasons why agents using file systems is such a big deal. It creates a unified system that both the person and the agent can work within to pass around data.",
+              "\"What they need is a working set: plans, notes, task lists, policies, drafts, summaries, logs, corrections, decisions, etc. For that layer, a filesystem-shaped interface tends to be more legible to both the model and the humans supervising it.\"",
+              "It turns out giving agents access to the systems we already know how to use, but in a way that is best optimized for them, is the perfect primitive for agents to work."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条和 Rauch 的 markdown 那条其实是同一个故事的不同切面。",
+              "他说 agent 能不能真正干活，最大的变量是：它能不能拿到足够的上下文，而且这个上下文人和模型都能看懂。",
+              "他的结论很实在——文件系统就是最好的共享工作区。计划、笔记、任务列表、策略、草稿、日志、决策，这些东西天然就该放在文件里，人能读，agent 也能读，不需要中间翻译层。",
+              "说到底，让 agent 用上我们已经用了几十年的工具，但以 agent 最容易理解的方式优化，才是最务实的做法。"
+            ],
+            "original": [
+              "Levie 说，agent 能否成功，最关键的变量是：你能不能给 agent 它需要的上下文。一个重要前提是，你能为 agent 创建一个人类也能理解的共享工作区。",
+              "这就是为什么 agent 使用文件系统是一件大事——它创造了一个统一的系统，人和 agent 都能在里面传递数据。",
+              "「他们需要的是一个工作集：计划、笔记、任务列表、策略、草稿、摘要、日志、修正、决策等。对于这层，文件系统形态的接口对模型和监督它的人类都更易读。」",
+              "让 agent 接入我们已经会用的东西，但用最适合它们的方式优化——这恰好是 agent 真正能干活的基础。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Coding Tools Heat Up / 编程工具升温",
+      "desc": "Codex 和 Claude Code 的竞争已经不只是模型能力的比拼，而是产品体验、使用习惯和功能差异的综合较量。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2068175172960690266",
+          "en": {
+            "rewrite": [
+              "Peter Yang's detailed comparison is valuable because he's a power user who switched camps — from Claude Code to Codex — and gives specific reasons.",
+              "His case for Codex: GPT-5.5 is excellent, fast mode with generous limits means more iterations, and browser/computer use capabilities let him build workflows without hunting for APIs.",
+              "His case for still using Claude Code: better design and frontend capability in Opus, and Fable (when it returns) would be another reason to switch back.",
+              "His closing wish — 'I hope these two compete forever' — captures the builder's perspective: competition between labs directly benefits anyone making things."
+            ],
+            "original": [
+              "I used to be a die-hard Claude Code user.",
+              "Codex has won me over because:",
+              "→ GPT-5.5 is excellent\n→ Fast mode + generous limits = more reps\n→ Little touches like steering, auto remote control on phone, etc",
+              "But most of all Codex's browser and computer use capabilities are simply goated. I built so many workflows relying on those two things alone instead of hunting for APIs.",
+              "I still use Claude Code too. The app seems to be getting better and the design and frontend capability of Opus is still much better than GPT. Whenever Fable comes back that's another reason to go back.",
+              "Honestly, I hope these two compete forever and other players (Cursor/Grok, Gemini, etc) all stay competitive.",
+              "This way the builder keeps winning 🙂"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 这条值得认真看，因为他是一个从 Claude Code 阵营转向 Codex 的重度用户，给了非常具体的理由。",
+              "他选 Codex 的原因：GPT-5.5 很强、fast mode 额度大方可以更多迭代、browser 和 computer use 能力让他不用找 API 就能搭工作流。",
+              "但他仍然在用 Claude Code——Opus 在设计和前端能力上仍然更好，Fable 回归后也是一个回头理由。",
+              "他最后那句「希望这两家永远竞争下去」其实说出了所有 builder 的心声：实验室之间打得越凶，做东西的人越受益。"
+            ],
+            "original": [
+              "Peter Yang 说自己以前是 Claude Code 死忠用户，但 Codex 把他赢了过来。",
+              "原因包括：GPT-5.5 很强、fast mode 额度大方、steering 和手机端 auto remote control 等细节体验好。",
+              "最关键的是 Codex 的 browser 和 computer use 能力——他靠这两个东西搭了很多工作流，完全不用去找 API。",
+              "但他仍然在用 Claude Code，Opus 在设计和前端能力上更好，Fable 回来之后也是一个理由。",
+              "他希望两家永远竞争下去，其他玩家也保持竞争力——这样 builder 永远赢。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2068120572673077274",
+          "en": {
+            "rewrite": [
+              "Sottiaux builds Codex at OpenAI, so his framing of the remote/local handoff feature is a product philosophy statement, not just a release note.",
+              "His key claim — 'when you let the model be in the driver seat, you actually need less infrastructure' — is a design principle that runs against the grain of the current tooling-heavy agent stack.",
+              "His other post the same day, praising Dan Shipper's Codex tips and saying he spends more time in Codex than all other Mac apps combined, reinforces how seriously OpenAI is dogfooding the product."
+            ],
+            "original": [
+              "Remote / local handoff in Codex! Removing boundaries one at a time.",
+              "When you let the model be in the driver seat, you actually need less infrastructure.",
+              "Late to this one, but follow @danshipper for S-tier codex tips. These days I spend more time in the codex app than all other apps combined on my Mac."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 在 OpenAI 做 Codex，所以他说「remote/local handoff」上线，不只是一个功能发布，更像是在表达一个产品哲学。",
+              "他核心的那句「让模型坐在驾驶位上，你其实需要更少的基础设施」，跟现在流行的大堆工具拼出来的 agent 方案是完全不同的思路。",
+              "他同一天还说，自己现在在 Codex 上花的时间比 Mac 上所有其他 app 加起来都多——OpenAI 在认真用自己的产品。"
+            ],
+            "original": [
+              "Sottiaux 宣布 Codex 上线了 remote/local handoff：一次移除一个边界。",
+              "他说，当你让模型坐在驾驶位上时，你实际上需要的基础设施更少。",
+              "他还推荐了 Dan Shipper 的 Codex 使用技巧，并说自己现在在 Codex app 上花的时间超过了 Mac 上所有其他 app 的总和。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Expands Boundaries / AI 拓展边界",
+      "desc": "从破译三千五百年前的古文字，到 Anthropic 可能以两万亿美元 IPO——AI 的影响范围在继续扩大。",
+      "cards": [
+        {
+          "authorKey": "x:bcherny",
+          "sourceUrl": "https://x.com/bcherny/status/2068064304503660962",
+          "en": {
+            "rewrite": [
+              "Boris Cherny works on Claude Code at Anthropic, so his use case — deciphering Linear A, a 3500-year-old undeciphered script from Crete — is both a flex and a research signal.",
+              "The significance extends beyond archaeology: if LLMs can make headway on one of the hardest linguistic puzzles in history, it suggests pattern recognition capabilities that go well beyond code generation.",
+              "His caveat — 'hope this holds up in peer review' — is appropriately scientific for a claim this extraordinary."
+            ],
+            "original": [
+              "Cool way to use Claude Code: deciphering Linear A, a 3500 year old written language from Crete",
+              "Hope this holds up in peer review! 🤞"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Boris Cherny 在 Anthropic 做 Claude Code，他用 Claude Code 做的事情相当震撼——破译线性文字 A（Linear A），一种来自克里特岛、距今 3500 年至今未被破译的古文字。",
+              "如果这能经得起同行评审，那它的意义远超考古本身：说明 LLM 的模式识别能力已经能啃动人类历史上最难的语言学谜题之一。",
+              "他自己也很谨慎地加了一句「希望经得起同行评审」。"
+            ],
+            "original": [
+              "Cherny 分享了一种很酷的 Claude Code 用法：破译线性文字 A——一种来自克里特岛的 3500 年前的书面语言。",
+              "他表示希望这个结果能经得起同行评审。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2068084391260426345",
+          "en": {
+            "rewrite": [
+              "Swyx's one-liner — 'Anthropic is going to IPO at $2T' — is either a bold market call or a provocative thought experiment, but either way it crystallizes the current sentiment around Anthropic's trajectory.",
+              "The number itself is the message: at $2 trillion, Anthropic would be valued alongside companies like Google or Amazon, which puts the 'vibe shift toward Anthropic' narrative into hard financial terms."
+            ],
+            "original": [
+              "Anthropic is going to IPO at $2T"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 这句话只有六个词，但信息量很密集：Anthropic 会以两万亿美元的估值 IPO。",
+              "不管这是大胆的市场预测还是有意为之的思维实验，这个数字本身就说明了问题——两万亿意味着 Anthropic 会被放在 Google、Amazon 这个级别来估值。",
+              "这把今年所有人都在说的「vibe 向 Anthropic 倾斜」直接翻译成了一个硬数字。"
+            ],
+            "original": [
+              "Swyx 预测 Anthropic 会以 2 万亿美元估值 IPO。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "What Matters in the AI Age / AI 时代什么最重要",
+      "desc": "当工具越来越强，人本身什么能力最重要？",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2068094591220531583",
+          "en": {
+            "rewrite": [
+              "Zara's three-word framework — Agency, Taste, Distribution — is compact but surprisingly complete as a model for what differentiates people in an AI-saturated world.",
+              "Agency is the ability to decide what to do and actually do it, which matters more when execution cost drops to near zero.",
+              "Taste is the ability to tell good from great, which becomes the bottleneck when generation is free and abundant.",
+              "Distribution is the ability to reach people, which remains the moat that AI cannot compress."
+            ],
+            "original": [
+              "The 3 most important things that set someone apart in the AI age:",
+              "- Agency\n- Taste\n- Distribution"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 这条只有三个词，但作为「AI 时代人最重要的能力」框架，已经相当完整了。",
+              "Agency——自主决定做什么并真的去做。当执行成本越来越低，这种主动性反而越来越稀缺。",
+              "Taste——分辨好和更好的判断力。当生成几乎免费、好东西泛滥的时候，能不能挑出真正好的，就成了新的瓶颈。",
+              "Distribution——把东西送到人面前的能力。这可能是 AI 最难压缩的一条护城河。"
+            ],
+            "original": [
+              "Zara 说，AI 时代最重要的三件事是：Agency（主动性）、Taste（品味）、Distribution（分发）。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Intel's Transformation / 播客：Intel 的转型",
+      "desc": "No Priors 请来 Intel CEO Lip Bu Tan，讲了他如何接手这家芯片巨头、跟 Jensen Huang 和 Elon Musk 的合作、以及半导体供应链能不能在美国重建。",
+      "cards": [
+        {
+          "authorKey": "podcast:no-priors",
+          "authorName": "No Priors",
+          "authorTag": "AI 行业深度对谈播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=asCgCv2XB4s",
+          "en": {
+            "rewrite": [
+              "The single most important takeaway: Lip Bu Tan frames Intel's survival as a three-phase process — crawl (fix culture and balance sheet), walk (ship competitive products), run (lead in agentic AI and full-stack computing).",
+              "On the financial rescue: US government as major shareholder (he compares this to Taiwan government backing TSMC in its early days), NVIDIA's $5B investment now worth $25B, and SoftBank support.",
+              "On agentic AI creating CPU demand: the training ratio of CPU to GPU has shifted from 1:8 toward 1:4 or even 1:1, because reinforcement learning and agent orchestration are CPU-intensive. This is Intel's unexpected tailwind.",
+              "On TeraFab with Elon Musk: they collaborate weekly, Elon questions every step of the traditional fab process, and the partnership is about enabling him to move faster using Intel's process technology.",
+              "On physical limits: he sees a clear path to 10A and 7A nodes, but beyond that requires new materials — gallium nitride, silicon carbide, indium phosphide, glass packaging, even artificial diamond.",
+              "His investment track record: 159 IPOs and M&A exits, and his philosophy of finding bottlenecks (interconnect, optics, power management, memory) and backing companies that solve them.",
+              "His 10x goal for Intel: 'Being a venture capitalist at heart, you want to look for 10x.'"
+            ],
+            "original": [
+              "LIP BU TAN: I always believed in when I was at Cadence and also at Intel is first of all you crawl and be humble, listen to customer. And then first step for me is to strengthen my balance sheet, focus on the products, and I really simplify the product, listen to the customer, and then drive the next generation leadership products.",
+              "LIP BU TAN: Very happy that Jensen Huang, my all time friend, he also put $5,000,000,000 in investing and support me. This $5,000,000,000 become $25,000,000,000 now.",
+              "LIP BU TAN: Right now, the agentic AI and inference CPU become highly in demand. Versus one to eight in the training CPU to GPU, now I can see one to four, maybe one to one. In terms of reinforced learning, in terms of the speed of orchestrating all the agents, the CPU is actually better.",
+              "LIP BU TAN: Elon and I share the same view that semiconductor infrastructure is not catching up with AI growth. He basically questioned every step — why this traditional way of doing things. TeraFab, he decided he want to build his own fab. We are delighted to work with him and enable him to be faster using some of our technology and some of our process.",
+              "LIP BU TAN: I can see 18A, 14A, 10A and 7A. But CMOS starting to run out of steam. I look at new materials — gallium nitride, silicon carbide, indium phosphide. I also invest in glass packaging and artificial diamond.",
+              "LIP BU TAN: Nine of the 10 companies I invest, halfway they change their business plan because market have changed. I look at where is the bottleneck — interconnect, optical, power management, memory.",
+              "LIP BU TAN: Being a venture capitalist at heart, you want to look for 10x. At Cadence we made about close to 76 times return. At Intel the base is bigger, so let's do 10x."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客最值得听的一点：Lip Bu Tan 把 Intel 的求生之路总结为三步——爬（修好文化和资产负债表）、走（做出有竞争力的产品）、跑（在 agentic AI 和全栈计算上领先）。",
+              "关于财务救援：美国政府成为大股东（他类比台湾政府早期对 TSMC 的支持），Jensen Huang/NVIDIA 投了 50 亿美元现在涨到 250 亿，SoftBank 也伸了手。",
+              "关于 agentic AI 拉升 CPU 需求：训练时 CPU 和 GPU 的配比从 1:8 变成了 1:4 甚至接近 1:1，因为强化学习和 agent 编排非常吃 CPU。这是 Intel 没预料到的顺风。",
+              "关于和 Elon Musk 合建 TeraFab：两人每周开会，Elon 会质疑制造流程里的每一步，合作的核心是用 Intel 的工艺帮 Elon 更快量产。",
+              "关于物理极限：他看得到 10A 和 7A 的路径，但再往前就需要新材料——氮化镓、碳化硅、磷化铟、玻璃封装、甚至人造金刚石。",
+              "他的投资业绩：159 个 IPO 和并购退出；方法论是找瓶颈——互连、光模块、电源管理、内存——然后投解决瓶颈的公司。",
+              "他对 Intel 的目标：「作为 VC 出身的人，我看的是 10 倍回报。」"
+            ],
+            "original": [
+              "【关于为什么接下 Intel 这个硬活】",
+              "Lip Bu Tan：我今年 66 岁，别人觉得你应该退休而不是接下这个行业最难的活。但 Intel 是一家标志性的公司，对半导体生态和整个美国都太重要了。所以 Cadence 之后我决定再做一届。",
+              "",
+              "【关于最意外的事】",
+              "Lip Bu Tan：最让我意外的是，有一天清晨，Trump 总统让我辞职，说是利益冲突，没有例外。我必须先说服自己——我不需要这份工作，我做这件事纯粹是为了救 Intel。后来我有了跟总统解释的机会，我告诉他我出生在马来西亚、在新加坡长大、去 MIT 读书、一直住在美国。他听进去了，给了我这个机会。",
+              "",
+              "【爬、走、跑：Intel 的三步走战略】",
+              "Lip Bu Tan：我在 Cadence 一直相信的文化就是：先爬，保持谦卑，倾听客户。然后开始走。最后才开始跑和冲刺。",
+              "第一步是修好资产负债表——当时真的很糟糕。好消息是，美国政府成了大股东（我向 Trump 解释过，TSMC 起步时台湾政府也是股东，日本和新加坡也是类似模式）。其次是 Jensen Huang，我的老朋友，投了 50 亿美元支持我，这笔投资现在涨到了 250 亿甚至更多。SoftBank 的孙正义也帮了忙。",
+              "然后是简化产品线，倾听客户，推动下一代领先产品。幸运的是，agentic AI 和推理 CPU 的需求暴增。以前训练时 CPU 和 GPU 配比是 1:8，现在我看到 1:4 甚至接近 1:1——强化学习和 agent 编排非常吃 CPU。",
+              "",
+              "【关于代工业务（Foundry）】",
+              "Lip Bu Tan：这是一个资本密集型行业，非常不容易。你需要所有合适的 IP 来支撑客户——比如做移动相关的，就得有低功耗 IP。这是服务行业，也是信任行业。良率不好，客户就不敢给你订单。所以我非常关注良率、缺陷密度和周期时间。",
+              "最终目标是全栈：不只是芯片，还需要软件。有客户直接跟我说：「给我一整面机架。」所以你必须做系统。",
+              "",
+              "【关于和 Elon Musk 合建 TeraFab】",
+              "Lip Bu Tan：Elon 和我有一个共识——半导体基础设施已经跟不上 AI 的增长速度。你既需要产能，也需要效率。",
+              "和他工作非常有趣，他非常不走寻常路。他会质疑每一个步骤——为什么用传统方式做？我觉得很新鲜。我喜欢有不同意见的人，我们一起找最佳路线。",
+              "TeraFab 是他决定自己建的晶圆厂。我们乐意和他合作，用我们的技术和制程帮他更快投产。他的团队我每周都开会。",
+              "",
+              "【关于 AI 对全球供应链的影响】",
+              "Lip Bu Tan：AI 的影响比互联网更大、更深远。初期是帮人更高效地做事，接下来会有大量 agent 替你做 mundane 的工作。",
+              "几个瓶颈：第一是电力——有些国家根本没有足够的电力。第二是氦气——很多人没意识到它对半导体制造的影响。第三是内存——现在所有人都在抢内存，扩产要好几年。",
+              "",
+              "【关于物理极限和新材料】",
+              "Lip Bu Tan：我能看到 18A、14A 在量产，也能看到 10A 和 7A 的路径。但 CMOS 开始触及极限。",
+              "所以我在看新材料：氮化镓、碳化硅、磷化铟。我投了这三个方向。封装方面在看玻璃——非常好的热绝缘体。还在看人造金刚石——也是极好的绝缘体。",
+              "当工程师的好处是：你总会在撞墙之后找到办法——要么跳过去，要么绕过去。",
+              "",
+              "【关于半导体投资方法论】",
+              "Lip Bu Tan：我做了很多年投资，有 159 个 IPO 和并购退出。",
+              "我的方法：首先找瓶颈在哪。互连是瓶颈？我投了 Cerebras（做晶圆级芯片）。光互连是瓶颈？我投了 Celestial AI。电源管理是瓶颈？从 40 伏降到 1 伏的过程中损耗很大，怎么解决？",
+              "第二，从第一天就瞄准第一个客户——最好是 hyperscaler。他们有规模，如果喜欢你的东西，愿意在头几年付数百万美元。",
+              "第三，找人才。美国、硅谷、奥斯汀，以及以色列——以色列的创业者非常有韧性，即使在战时也会在防空洞里跟你开电话会。",
+              "",
+              "【关于 Intel 的未来和 10 倍目标】",
+              "Lip Bu Tan：过去 14 个月我们给股东带来了 6 倍回报，但这只是开始。",
+              "产品方面：PC 客户端是基本盘，向上走到边缘计算和 agentic AI、physical AI。",
+              "代工方面：我们跟 TSMC 还有很大差距，但到 2030-2032 年，我们会开始显现潜力。",
+              "作为 VC 出身的人，我看的是 10 倍回报。在 Cadence，从我接手到退休，回报大约 85 倍。Intel 基数大，所以我说先定 10 倍吧。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
