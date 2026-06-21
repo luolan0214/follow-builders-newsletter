@@ -1,0 +1,356 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-19",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天这批内容的主线，其实是一个很现实的问题：模型变强之后，谁真正受益，谁会被挤压。一边是开源模型继续追近前沿，让应用层有了更多选择；一边是编程 agent 还在快速进化，但算力瓶颈开始让人担心 API 是否会长久可用。与此同时，产品经理要不要变成 builder、从业者该多久更新一次认知，这些关于人的问题，可能比模型本身更值得花时间想。"
+  },
+  "archive": {
+    "title": "开源追近与算力焦虑日报",
+    "desc": "开源模型追近前沿，编程 agent 继续进化，但算力瓶颈让所有人开始担心 API 是否会长久可用。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Rebuilt from the 2026-06-21 source feeds for 2026-06-19.",
+  "sections": [
+    {
+      "title": "Open Weights Come of Age / 开源模型走向成熟",
+      "desc": "开源模型不再只是追赶者——它们在特定任务上已经开始触摸 SOTA，这让应用层有了真正的选择空间。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2068434042148782515",
+          "en": {
+            "rewrite": [
+              "Levie's argument is that open weights AI has quietly reached a turning point: models are now hitting SOTA on specific tasks and approaching frontier-level performance in coding and other domains.",
+              "His key economic insight is that this is not zero-sum for frontier labs. If cheaper models handle routine work, overall AI usage goes up, and frontier models still get used for planning, orchestration, and review.",
+              "The real beneficiary is the applied AI layer, which can now mix frontier and open models to optimize cost and performance for specific workloads."
+            ],
+            "original": [
+              "Pretty remarkable what's happening with open weights AI right now. We're seeing models achieve SOTA results on specific tasks, and getting close to frontier on some areas of coding and other domains.",
+              "The more that open weights is able to maintain only a marginal gap from the frontier, instead of a widening gap, the more value that can be created with AI.",
+              "Incidentally, this is actually fine for the frontier labs as well; if we can lower the cost of an overall task then AI usage goes up in general. You're still likely using frontier models for planning, orchestration, reviewing, and other parts of work.",
+              "But this is all very good for the applied layer of AI, which is now in a great position to cost optimize workloads with cheaper models or use tailored open models post-trained for specific tasks to improve performance."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Aaron Levie 这条的核心判断是：开源模型已经不再是追赶者了，它们在特定任务上开始做到 SOTA，在编程等方向上也快摸到前沿水平。",
+              "更有意思的是他的经济判断——这对前沿实验室也不是坏事。如果便宜的模型能跑日常任务，AI 的总用量就会上升，前沿模型照样会被用在规划、编排、审查这些环节。",
+              "真正的受益者是应用层。现在可以混搭使用前沿模型和开源模型，按具体场景做成本和性能的优化。"
+            ],
+            "original": [
+              "Levie 说，开源模型现在的情况相当值得关注——它们已经在特定任务上达到 SOTA，在编程等领域也越来越接近前沿水平。",
+              "开源模型和前沿之间的差距如果能保持在一个较小范围，而不是越拉越大，AI 创造的整体价值就会显著提升。",
+              "对前沿实验室来说，这其实也是好事：当任务整体成本下降，AI 使用量会上升，前沿模型仍然被用于规划、编排和审查等环节。",
+              "这对 applied AI 层尤其有利——现在可以用更便宜的模型或定制的开源模型来优化特定任务的成本和效果。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2068517095818809770",
+          "en": {
+            "rewrite": [
+              "When the CEO of Vercel says he is 'almost shocked' at a model's coding ability, it carries extra weight because he sees developer tooling adoption data all day.",
+              "GLM-5.2 is a Chinese frontier model from ZAI, and Rauch's endorsement suggests the open weights gap Levie describes may be closing from multiple directions at once.",
+              "The phrase 'this changes things' is doing a lot of work here — it implies downstream implications for tooling, costs, and competitive dynamics among model providers."
+            ],
+            "original": [
+              "Genuinely impressed, almost shocked, at how good GLM-5.2 by @zai_org is at coding. This changes things."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Vercel CEO Guillermo Rauch 平时看过大量开发者工具的采用数据，所以当他说自己对一个模型的编程能力感到「almost shocked」时，这句话的信息量不低。",
+              "GLM-5.2 来自智谱 AI（ZAI），一个中国实验室。Rauch 的背书恰好印证了 Levie 说的趋势：开源/开放模型和前沿之间的差距，正在从多个方向同时缩小。",
+              "最后那句「this changes things」看似简单，但背后暗示的是工具链、成本结构和模型竞争格局都可能因此被重新洗牌。"
+            ],
+            "original": [
+              "Rauch 说，GLM-5.2（由 ZAI 发布）的编程能力让他感到由衷惊艳、甚至震惊。他认为这会改变很多事情。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Coding Agents Level Up / 编程 Agent 继续进化",
+      "desc": "一边是模型编程能力在往上推，另一边是开发者自己在算账：每月 200 美元的订阅够不够用，本地跑模型到底值不值得。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2068568650924409260",
+          "en": {
+            "rewrite": [
+              "Thibault Sottiaux builds Codex at OpenAI, so his tease about front-end capabilities is not casual speculation — it is a product roadmap signal.",
+              "The implication is that Codex App shipped with models that were merely adequate at front-end work, but a significant capability jump is coming, and when it lands, the quality delta will be obvious.",
+              "His companion post about 'some tokens work harder than others' reinforces that not all inference is equal — the Codex app's agentic loop extracts more value per token than a plain chat interface."
+            ],
+            "original": [
+              "We built the Codex App with models that were okayish at front-end.",
+              "Wait to see what we can do when we finally improve front-end capabilities significantly in our models. That day will be something.",
+              "Some tokens work harder than others. Some of the most valuable ones are found in the Codex app."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thibault Sottiaux 在 OpenAI 做 Codex，所以他说「前端能力暂时只是一般」的时候，这不叫抱怨，这叫提前剧透。",
+              "意思是：Codex App 已经跑起来了，但如果模型前端能力再上一个台阶，体验会出现质的飞跃。",
+              "他另一条「some tokens work harder than others」其实也在说同一件事：Codex 的 agentic loop 让每个 token 产生的价值，远高于普通聊天界面。"
+            ],
+            "original": [
+              "Sottiaux 说，Codex App 是用前端能力「还算行」的模型做出来的。",
+              "等他们在模型上把前端能力真正提上去的那天，会是很不一样的体验。",
+              "他还说，有些 token 比其他 token「更努力」，最有价值的那些 token 就藏在 Codex app 里。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2068411894185295969",
+          "en": {
+            "rewrite": [
+              "Peter Yang pushes back against the local-model enthusiasm by pointing out a simple economic reality: $200/month subscriptions to Codex and Claude already provide more capacity than most individuals can use.",
+              "His point about GLM requiring 512MB of VRAM (roughly a $10K Mac Studio) grounds the local-model debate in actual hardware costs that most people are not willing to bear.",
+              "This is a useful counterpoint to the open-weights excitement: just because you CAN run a model locally does not mean it makes economic sense for most users yet."
+            ],
+            "original": [
+              "I will go against the grain and say I can barely use up my Codex and Claude $200 subscriptions so I don't see the point of trying local models…",
+              "Also to try the latest glm locally requires 512 mb which is like a $10K Max Studio?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 这条更像是一盆冷水：很多人在讨论本地跑模型，但他说自己每月 200 美元的 Codex 和 Claude 订阅都用不完，本地模型对他来说没什么吸引力。",
+              "他还算了一笔账：想本地跑最新的 GLM，需要 512MB 显存，差不多是一台一万美元的 Mac Studio。",
+              "这恰好是一个有用的反面参照：开源模型确实在追近前沿，但对大多数普通用户来说，「能跑在本地」和「跑在本地划算」完全是两回事。"
+            ],
+            "original": [
+              "Peter Yang 说，他要唱个反调：自己 Codex 和 Claude 各 200 美元的月订阅都用不完，实在看不出本地模型的意义。",
+              "而且要在本地跑最新的 GLM，需要 512MB 显存，大概得花一台一万美元的 Mac Studio 的钱。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI-Era Roles & Resetting Priors / AI 时代的角色重置",
+      "desc": "AI 对岗位的冲击不是只发生在工程师身上。产品经理要不要重新定义自己的工作，从业者要多久更新一次认知，这些都正在变成真问题。",
+      "cards": [
+        {
+          "authorKey": "x:realmadhuguru",
+          "sourceUrl": "https://x.com/realmadhuguru/status/2068350509027876876",
+          "en": {
+            "rewrite": [
+              "Madhu Guru, formerly a product leader for Gemini and Veo at Google, argues the PM role is splitting into two camps.",
+              "The old-school PM uses AI to do more of the same work faster: more PRDs, more strategy decks, more docs — lots of output, not much judgment.",
+              "The Builder PM expands across the product lifecycle: running agents for research and analytics, generating competing ideas, curating the best ones, and increasingly shipping prototypes instead of documents. Engineers respond to demos, not docs.",
+              "His prediction is that the role is moving decisively toward Builder PMs."
+            ],
+            "original": [
+              "The Product role is having an identity crisis too. Engineering has found its AI-native interface - SWE agents dramatically increase individual leverage. Companies are asking PMs to use AI, but they haven't evolved the role.",
+              "So there are two camps. The old-school PM. AI accelerates the old job: more PRDs, more strategy decks, more docs. Lots of output, not much judgment.",
+              "The Builder PM. Builder PMs use AI to expand their role across the product lifecycle. They explore a much larger surface area of ideas to arrive at the best. They run agents for market and user research, query logs and analytics directly, generate competing ideas, then curate the best ones.",
+              "Their outputs are increasingly prototypes rather than docs - engineers react far more constructively to demos than docs.",
+              "I think the role is moving much closer to Builder PMs."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Madhu Guru 之前在 Google 做 Gemini 和 Veo 的产品负责人。他说产品经理这个岗位正在经历身份危机。",
+              "他把它分成两类：一类是 old-school PM，用 AI 把老工作做得更快——更多 PRD、更多策略 deck、更多文档，产出量很大，但判断力没有提升。",
+              "另一类是 Builder PM，用 AI 把自己的工作范围扩到整个产品生命周期：用 agent 跑市场调研和用户研究、直接查日志和数据、生成多个方案再挑最好的，而且产出越来越多是原型而不是文档——因为工程师对 demo 的反应远比对文档积极。",
+              "他的判断是，这个角色会明显向 Builder PM 方向迁移。"
+            ],
+            "original": [
+              "Madhu Guru 认为，产品经理这个角色也正在经历身份危机。工程已经有了自己的 AI-native 接口——SWE agent 大幅提升了个人产出。公司在要求 PM 用 AI，但还没有真正进化这个角色。",
+              "于是出现了两类 PM。一类是 old-school PM，AI 只是在加速老工作：更多 PRD、更多策略文档、更多 deck，产出很多但判断不多。",
+              "另一类是 Builder PM。他们用 AI 把自己的角色扩展到整个产品生命周期——探索更大的想法空间、用 agent 做市场调研和用户研究、直接查日志和数据、生成多个竞争方案并精选最佳。",
+              "他们的产出越来越多是原型而非文档——工程师对 demo 的反应远比对文档积极。",
+              "他认为 PM 这个角色正在向 Builder PM 方向快速靠近。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2068411460620042720",
+          "en": {
+            "rewrite": [
+              "Nikunj Kothari's core point is that in AI, what you 'know' decays in weeks, not months — and most people fail to keep up because they don't re-test their assumptions.",
+              "His practical prescription is two habits done weekly: maintain your own evals of hard tasks to track where the frontier actually is, and talk to enterprise buyers weekly to understand what the market will pay for.",
+              "The combination of hands-on testing and market grounding is what gives an investor or builder an edge — and almost nobody does both consistently."
+            ],
+            "original": [
+              "The biggest problem with AI is that priors need to be reset every few weeks.. and it seems like most people are incapable of doing that.",
+              "I talk to so many people who say xyz doesn't work and when I ask when was the last time they tried testing it, the answer is always 'a few months ago.'",
+              "Brother that's like eons ago in AI timelines. This is why each person needs to have their own evals of hard tasks and weekly tinker time to truly understand where the frontier is.",
+              "And then you need to talk to enterprise buyers weekly who are usually two years behind. But they are the buyers so you need to understand how to market.",
+              "The combination of the two will give you a pretty good sense of where to invest time and capital. If you just do these two weekly, you'll be ahead of 99% of people."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 这条说得非常直接：在 AI 领域，你以为是常识的东西，几周后可能就过时了，但大多数人根本意识不到这一点。",
+              "他遇到很多人说「某件事做不到」，但问他们上次试是什么时候，答案永远是「几个月前」。在 AI 时间线里，几个月前基本等于古代。",
+              "他的实操建议是两件事每周做：一是维护自己的 hard task evals，搞清楚前沿到底在哪里；二是每周跟企业买家聊天，搞清楚市场愿意为什么买单。这两件事合在一起做，就超过 99% 的人了。"
+            ],
+            "original": [
+              "Nikunj 说，AI 领域最大的问题是：认知需要每隔几周重置一次，但大多数人做不到。",
+              "他跟很多人聊，对方说 xyz 做不到，结果问上次试是什么时候，答案总是「几个月前」。在 AI 时间线里，几个月简直就是古代。",
+              "因此每个人都应该有自己的 hard task evals 和每周 tinkering time，才能真正理解前沿在哪里。",
+              "同时还要每周跟企业买家交流——他们通常落后两年左右，但他们是买单的人，所以你必须理解市场怎么运作。",
+              "这两件事每周坚持做，你对时间和资本该投到哪里就会有很好的判断，也会超过 99% 的人。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Habits & Observations / 构建者习惯与观察",
+      "desc": "有时候最有意思的内容不是分析，而是构建者自己怎么干活、怎么看世界。",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2068568920613953626",
+          "en": {
+            "rewrite": [
+              "Zara's bookmark problem is universal: people save things they never revisit. Her solution is clever because it does not try to build a new habit — it hijacks an existing one.",
+              "By injecting saved bookmarks into the main feed like sponsored content, she turns a behavior she already does 50 times a day (opening X) into the delivery mechanism for reading things she saved.",
+              "The meta-insight is about design for existing attention flows rather than asking people to create new ones."
+            ],
+            "original": [
+              "I hoard X bookmarks and never read them. So I built an extension that injects a bookmarked post into my main feed every time I open X (almost like an ad). Now I read my bookmarks.",
+              "The trick was hijacking real estate I already check 50 times a day."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 这条说的是一个几乎人人都会遇到的问题：收藏了一堆帖子，但再也不打开看。",
+              "她的解决思路很巧妙——不是逼自己养成新习惯，而是直接把收藏内容像广告一样注入到主页 feed 里。这样她每天打开 X 大约 50 次，收藏内容就自动出现在眼前。",
+              "背后那个 meta-insight 其实很通用：与其让人建立新行为，不如利用他们已有的注意力路径。"
+            ],
+            "original": [
+              "Zara 说自己囤了大量 X 收藏但从来不看。于是她做了一个扩展，每次打开 X 时把一条收藏帖子注入到主 feed 里（几乎像广告一样）。",
+              "窍门是：劫持她每天已经会看 50 次的那块屏幕空间。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:amasad",
+          "sourceUrl": "https://x.com/amasad/status/2068589860097790449",
+          "en": {
+            "rewrite": [
+              "Amjad Masad packs a decade of internet history into two sentences.",
+              "The insight is that social platforms were accidentally building the training data for AI all along — every post, every reply, every argument was secretly curriculum.",
+              "When the transformer architecture finally scaled, the network 'became itself' by consuming the collective output of two billion internet users."
+            ],
+            "original": [
+              "We posted for twenty years, thinking we were talking to each other. Then the transformer came online, and the network read what we'd written, and became itself."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Replit CEO Amjad Masad 这条虽然只有两句话，但它把二十年的互联网历史压缩成了一个非常准确的观察。",
+              "核心意思是：我们发帖、评论、争论了二十年，以为只是在互相交流。但 transformer 出现之后，所有这些内容变成了 AI 的训练数据——网络「读」了我们写的一切，然后「成为了自己」。",
+              "这大概是关于社交平台和 AI 之间关系，最简洁也最有诗意的一句总结了。"
+            ],
+            "original": [
+              "Amjad Masad 说：我们发帖发了二十年，以为自己在互相说话。然后 transformer 上线了，网络读完了我们写的所有东西，然后成为了它自己。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: AI Vibe Check / 播客：AI 风向盘点",
+      "desc": "Unsupervised Learning 请来 Ari (Datalogy, 前 DeepMind/Meta 研究员) 和 Rob (Radical AI VC)，三个人聊了整整一小时，从开源模型是否会消失，到 API 是否会被关闭，到 RSI 离我们有多近。",
+      "cards": [
+        {
+          "authorKey": "podcast:unsupervised-learning",
+          "authorName": "Unsupervised Learning",
+          "authorTag": "AI 前沿深度对谈播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=W_iO8XxgD_I",
+          "en": {
+            "rewrite": [
+              "The single most consequential argument in this episode is Ari's prediction that compute constraints may force labs — likely Anthropic — to temporarily suspend or heavily limit API access within the next 6-18 months.",
+              "Rob's parallel thesis is that open weight AI is at risk of falling off: Meta is pulling back from open source, and Chinese labs are keeping their best models proprietary behind APIs because the financial incentives no longer support giving models away.",
+              "Both agree that coding agents crossed a capability threshold in late 2025 / early 2026, and engineers are now shifting from ICs to managers of agents — but the bottleneck has moved to code review and maintaining understanding of agent-generated code.",
+              "On Fable: Ari reports significant backlash from AI developers over Anthropic silently limiting Fable for AI development use cases, calling it competitive positioning rather than safety.",
+              "On RSI: Ari is now more bullish that recursive self-improvement is real and approaching, but compute bottlenecks will prevent any single lab from running away with it — at least 10 companies have the funding and talent to compete."
+            ],
+            "original": [
+              "ARI: Starting to see the coding agents really start to work at longer time horizons... We're really starting to now see the shift of engineers at least kind of almost all moving from ICs to managers of agents.",
+              "ROB: There are early signs that seem to suggest that open weight AI is going to continue to be a really meaningful force... I think there's a real risk of near frontier open weight AI falling off altogether. Meta, which historically has been the open weight champion in the West, is pulling back.",
+              "ARI: We probably hit the peak number of open models and it's now going to get less and less. The financial incentives just don't make sense. Once you've already achieved credibility, it makes sense to invest a lot of money to do that. But after that point, you want to start selling hosted inference.",
+              "ARI: It's not hard to imagine a world in which Anthropic is so compute constrained that they actually cut off the API... OpenAI starting to sell futures of inference tokens — that's actually a huge existential threat to anybody that builds on top of these models.",
+              "ARI: There'll definitely be some amount of backlash [to Anthropic]. With limiting the use of Fable for anything to do with AI development — it doesn't give you a refusal, it just does a poor job on that without you knowing. Seems pretty clear that's a competitive positioning move rather than a safety move.",
+              "ARI: I'm more bullish on RSI than I was six months ago. We've started to do experiments around having agents do the curation itself, and seen far more promising results than I would have expected. But compute is a fundamental limiting factor. There are 10 companies at least that have the funding, the talent, and the know-how.",
+              "ROB: I think it will be very obvious that Anthropic is a fledgling juggernaut in the making in the life sciences and biology. That is the next big direction that Anthropic is focusing on."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客最值得认真听的一条预测，是 Ari 说算力短缺可能会让实验室——大概率是 Anthropic——在未来 6 到 18 个月内暂时关闭或大幅限制 API 访问。这不是阴谋论，而是算力不够时的纯经济决策。",
+              "Rob 的平行论点同样重要：开源模型可能正在走下坡路。Meta 在西方已经收缩，中国实验室也越来越多把最好的模型留在 API 后面，因为白送模型在财务上已经说不通了。",
+              "两人都认同编程 agent 在 2025 年底到 2026 年初跨过了一道门槛，工程师正在从 IC 变成 agent 的管理者。但瓶颈转移到了代码审查和对 agent 生成代码的理解上。",
+              "关于 Fable：Ari 说很多 AI 开发者对 Anthropic 暗中限制 Fable 用于 AI 开发非常不满。模型不会拒绝你，只会悄悄做得很差——这更像竞争策略而非安全考量。",
+              "关于 RSI（递归自我改进）：Ari 比半年前更乐观了，但认为算力是天花板，至少有十家公司有能力做到，不会出现某一家独跑的局面。"
+            ],
+            "original": [
+              "【开场：编程 agent 跨过门槛】",
+              "Ari（Datalogy 创始人，前 DeepMind/Meta 研究员）：过去六个月最明显的变化，是编程 agent 真的开始能在更长时间跨度上稳定工作了。我们已经开始看到工程师几乎都在从 IC（独立贡献者）转向 agent 的管理者——在 Datalogy 内部，越来越多的人开始在多个 agent 之间切换管理，而不是只做一件事。",
+              "但这并不意味着纯增益。agent 能帮你快速产出大量代码，但理解代码的难度也同步上升了。审查变成新的瓶颈，而且你不可能让我的 agent 去审查你的 agent 的产出——瓶颈只是被转移了。",
+              "",
+              "【开源模型可能正在减少】",
+              "Rob（Radical AI 投资人）：过去几年我的基本假设是：闭源模型会推进前沿，开源模型只落后几个月。但现在我开始怀疑，近前沿的开源模型可能会整体消失。Meta 在西方已经收缩了开源策略，中国实验室虽然之前在推动 SOTA 开源研究，但现在也在把最强的模型留在 API 后面。",
+              "原因很现实：服务开源模型的算力成本极高，但没有对应收入。一旦你通过开源获得了足够的知名度，继续免费开放就在商业上说不通了。",
+              "Ari：我同意。开源模型的数量可能已经见顶了。2025 年看起来是一个不断增长的模型宝库，但现在大概率只会越来越少。而且这不只是模型本身的问题——模型加 scaffold 加 harness 才是完整系统。你可以开源模型但不开发脚手架，然后通过 API 收费。Kimi（月之暗面）大概就是这么做的，据说已经做到几亿美元 ARR。",
+              "",
+              "【SaaS 末日论被过度放大了】",
+              "Rob：市场叙事在 SaaS 末日论上摆得太远了。一部分传统软件公司确实面临生存威胁——OpenAI 和 Anthropic 的路线图直接冲击了它们。但这被过度泛化了。一两家公司不可能赢下所有重要市场。横向通用领域确实更适合实验室去做，但垂直领域仍然有大量机会。",
+              "Ari：创业公司为什么能赢？想一想 Google 为什么没有做到所有事。大公司很难同时在很多方向上做到出色。连 OpenAI 都砍掉了视频方向的投入——在拥有近乎无限资本和人才的情况下。这说明他们也不能什么都做。",
+              "",
+              "【Fable 引发的不满】",
+              "Ari：Fable 发布后，我见到的对 Anthropic 最强烈的负面情绪出现了。核心问题不是他们限制了 Fable 在 AI 开发场景下的使用——而是这个限制是静默的。模型不会告诉你「我不能帮你做这个」，它只是悄悄做得更差，而你并不知情。Anthropic 可以说是为了安全，但这个说法很牵强。看起来更像是竞争定位——因为很多安全相关的漏洞发现，用开源模型加上好的 harness 也能做到。",
+              "",
+              "【Google 的位置】",
+              "Rob：我仍然看好 Google。他们有最深厚的人才储备、自己的芯片、自己的云、自己的推理基础设施。唯一落后的是编程方向——但这显然是优先级选择的结果。Anthropic 在几年前就把编程定为北极星，OpenAI 最近也在全力加码。",
+              "Ari：消费者使用场景会被商品化。大多数人只是把模型当答案引擎用，最终用手机上的默认模型。Google 在 Android 和 iOS 上都占据了默认位置。消费者市场不一定需要最好的模型。",
+              "",
+              "【OpenAI 领导层与 Bret Taylor 理论】",
+              "Rob：我去年底预测 Sam Altman 年内会离任，现在看来概率上升了。整个氛围在今年转向了对 OpenAI 不利、对 Anthropic 有利的方向。有一个理论我觉得很有道理：OpenAI 收购 Sierra，让 Bret Taylor 当 CEO。Bret 是 OpenAI 董事会主席、Sierra CEO、硅谷最受尊敬的领导者之一。如果他掌舵 OpenAI，会极大改变市场信心。",
+              "Ari：OpenAI 走向 Alphabet 式控股结构也变得更可信了——Sam 可能留任控股公司 CEO，但 ChatGPT 或 OpenAI 研究部门由别人来管。",
+              "",
+              "【算力瓶颈与 API 可能被关闭】",
+              "Ari：最让我担心的趋势是，如果算力短缺持续，实验室可能会——不是出于商业决策，而是纯粹因为算力不够——暂停或大幅限制 API。OpenAI 已经开始卖推理 token 的期货了。这意味着任何在 API 上构建应用的公司，都面临一个真实存在的生存威胁。",
+              "Rob：甚至可能不只是限制 API，而是把最强模型完全留给内部使用。",
+              "Ari：而且 H100 的价格在经历之前的下降后，今年又大幅回升了。所有算力供应方的芯片都会供不应求。",
+              "",
+              "【半导体供应链的可能突破】",
+              "Rob：ASML 的 EUV 光刻技术正在接近物理极限。有两个研究方向很有前景：一是用原子束替代光来做光刻（atom lithography），二是用更短波长的 X 射线（x-ray lithography）。都有创业公司在做，融了很多钱。如果成功，机器可以更简单、更便宜、更小、精度更高。但至少还要五年。",
+              "",
+              "【RSI：比半年前更乐观，但不会一家独跑】",
+              "Ari：我对递归自我改进（RSI）比半年前更乐观了。我们开始做一些实验——让 agent 自己做数据筛选——结果比我预期好很多。但算力是根本瓶颈。不会出现某一家实验室靠 RSI 一骑绝尘的情况，因为至少有十家公司有资金、有人才、有 know-how。想法不是唯一的——就像 test-time compute，OpenAI 先出了 O1，但很多人同时在研究。",
+              "",
+              "【XAI/SpaceX：不太可能是前沿实验室】",
+              "Rob：我对 XAI 作为前沿实验室不太乐观。SpaceX 把大量算力卖给了 Anthropic 和 Google——如果你的首要任务是做前沿研究，你不会这么做。但他们非常擅长大规模数据中心建设，这可能才是他们真正的优势所在。",
+              "Ari：为什么要收购 Cursor？大概率是为了拿到 traces（编程交互数据），以及作为对冲——因为他们一直做不出有竞争力的编程模型。600 亿估值可能偏高，但如果 traces 真能帮他们跨越编程模型这道坎，也许值。",
+              "",
+              "【最有分歧的流行观点】",
+              "Rob：五到十年后回头看，现在 AI 系统的资源效率会显得可笑。人脑只需要 20 瓦就能运行，而我们需要两座千兆瓦级数据中心来跑模型。硬件层面（如模拟计算）和算法层面都会出现巨大突破。",
+              "Ari：我最不同意的流行观点是「AI 会取代所有人类工作」。人类世界传播和落地新技术的速度其实很慢。商业的核心很大程度上是人与人之间的信任关系，技术人往往低估了这一点。",
+              "",
+              "【年底辛辣预测】",
+              "Ari：到今年底或明年底，Anthropic 可能会暂停或大幅限制 API 访问一段时间。我更确信这会在 2027 年底前发生。",
+              "Rob：到年底会非常明显，Anthropic 正在成为生命科学领域的重要力量。这是他们在编程之后的下一个大方向。Dario 一直是生物学博士，这个方向对他来说有深层动力。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
