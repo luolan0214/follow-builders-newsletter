@@ -25,12 +25,12 @@ const snapshotDir = path.join(os.tmpdir(), 'follow-builders-newsletter');
 const feedXPath = path.join(snapshotDir, `feed-x-${publishDate}.json`);
 const feedPodcastsPath = path.join(snapshotDir, `feed-podcasts-${publishDate}.json`);
 const FEED_X_URLS = [
-  'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json',
   'https://cdn.jsdelivr.net/gh/zarazhangrui/follow-builders@main/feed-x.json',
+  'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json',
 ];
 const FEED_PODCASTS_URLS = [
-  'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json',
   'https://cdn.jsdelivr.net/gh/zarazhangrui/follow-builders@main/feed-podcasts.json',
+  'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json',
 ];
 
 function ensureDir(targetDir) {
@@ -40,7 +40,7 @@ function ensureDir(targetDir) {
 function tryDownload(url, targetPath) {
   return spawnSync(
     'curl',
-    ['-fsSL', '--retry', '3', '--retry-delay', '2', '--retry-connrefused', '--max-time', '60', url, '-o', targetPath],
+    ['-fsSL', '--http1.1', '--retry', '3', '--retry-delay', '2', '--retry-connrefused', '--max-time', '60', url, '-o', targetPath],
     {
       cwd: repoRoot,
       stdio: 'inherit',
