@@ -30,6 +30,8 @@
       <string>90</string>
       <key>OPENCLAW_TIMEOUT_SECONDS</key>
       <string>1800</string>
+      <key>OPENCLAW_AGENT_NAME</key>
+      <string>newsletter-publisher</string>
       <key>ALLOW_GIT_PULL_FAILURE</key>
       <string>1</string>
     </dict>

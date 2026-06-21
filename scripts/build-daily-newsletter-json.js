@@ -14,7 +14,7 @@ if (!publishDate) {
 
 const followBuildersScripts =
   process.env.FOLLOW_BUILDERS_SCRIPTS || path.join(process.env.HOME || '', '.claude', 'skills', 'follow-builders', 'scripts');
-const openclawAgentName = process.env.OPENCLAW_AGENT_NAME || 'main';
+const openclawAgentName = process.env.OPENCLAW_AGENT_NAME || 'newsletter-publisher';
 const openclawTimeoutSeconds = process.env.OPENCLAW_TIMEOUT_SECONDS || '3600';
 const openclawThinking = process.env.OPENCLAW_THINKING || 'low';
 
