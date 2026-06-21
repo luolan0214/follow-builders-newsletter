@@ -24,36 +24,59 @@ const jsonPath = path.join(dataIssuesDir, `ai-builders-digest-${publishDate}.jso
 const snapshotDir = path.join(os.tmpdir(), 'follow-builders-newsletter');
 const feedXPath = path.join(snapshotDir, `feed-x-${publishDate}.json`);
 const feedPodcastsPath = path.join(snapshotDir, `feed-podcasts-${publishDate}.json`);
-const FEED_X_URL = 'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json';
-const FEED_PODCASTS_URL = 'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json';
+const FEED_X_URLS = [
+  'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json',
+  'https://cdn.jsdelivr.net/gh/zarazhangrui/follow-builders@main/feed-x.json',
+];
+const FEED_PODCASTS_URLS = [
+  'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json',
+  'https://cdn.jsdelivr.net/gh/zarazhangrui/follow-builders@main/feed-podcasts.json',
+];
 
 function ensureDir(targetDir) {
   fs.mkdirSync(targetDir, { recursive: true });
 }
 
-function downloadFeedSnapshot(url, targetPath) {
-  const result = spawnSync(
+function tryDownload(url, targetPath) {
+  return spawnSync(
     'curl',
     ['-fsSL', '--retry', '3', '--retry-delay', '2', '--retry-connrefused', '--max-time', '60', url, '-o', targetPath],
     {
-    cwd: repoRoot,
-    stdio: 'inherit',
-    env: process.env,
+      cwd: repoRoot,
+      stdio: 'inherit',
+      env: process.env,
     }
   );
+}
 
-  if (result.error) {
-    throw result.error;
+function downloadFeedSnapshot(urls, targetPath) {
+  let lastFailure = null;
+
+  for (const url of urls) {
+    const result = tryDownload(url, targetPath);
+
+    if (result.error) {
+      lastFailure = result.error;
+      continue;
+    }
+
+    if ((result.status ?? 0) === 0) {
+      return url;
+    }
+
+    lastFailure = new Error(`curl failed for ${url} with exit code ${result.status ?? 1}`);
   }
 
-  if ((result.status ?? 0) !== 0) {
-    throw new Error(`curl failed for ${url} with exit code ${result.status ?? 1}`);
+  if (lastFailure) {
+    throw lastFailure;
   }
+
+  throw new Error(`No download URLs configured for ${targetPath}`);
 }
 
 ensureDir(snapshotDir);
-downloadFeedSnapshot(FEED_X_URL, feedXPath);
-downloadFeedSnapshot(FEED_PODCASTS_URL, feedPodcastsPath);
+downloadFeedSnapshot(FEED_X_URLS, feedXPath);
+downloadFeedSnapshot(FEED_PODCASTS_URLS, feedPodcastsPath);
 
 const prompt = `你正在目录 ${repoRoot} 中工作。
 
