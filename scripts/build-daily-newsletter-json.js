@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
@@ -19,6 +21,35 @@ const openclawTimeoutSeconds = process.env.OPENCLAW_TIMEOUT_SECONDS || '3600';
 const openclawThinking = process.env.OPENCLAW_THINKING || 'low';
 
 const jsonPath = path.join(dataIssuesDir, `ai-builders-digest-${publishDate}.json`);
+const snapshotDir = path.join(os.tmpdir(), 'follow-builders-newsletter');
+const feedXPath = path.join(snapshotDir, `feed-x-${publishDate}.json`);
+const feedPodcastsPath = path.join(snapshotDir, `feed-podcasts-${publishDate}.json`);
+const FEED_X_URL = 'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json';
+const FEED_PODCASTS_URL = 'https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json';
+
+function ensureDir(targetDir) {
+  fs.mkdirSync(targetDir, { recursive: true });
+}
+
+function downloadFeedSnapshot(url, targetPath) {
+  const result = spawnSync('curl', ['-fsSL', url, '-o', targetPath], {
+    cwd: repoRoot,
+    stdio: 'inherit',
+    env: process.env,
+  });
+
+  if (result.error) {
+    throw result.error;
+  }
+
+  if ((result.status ?? 0) !== 0) {
+    throw new Error(`curl failed for ${url} with exit code ${result.status ?? 1}`);
+  }
+}
+
+ensureDir(snapshotDir);
+downloadFeedSnapshot(FEED_X_URL, feedXPath);
+downloadFeedSnapshot(FEED_PODCASTS_URL, feedPodcastsPath);
 
 const prompt = `你正在目录 ${repoRoot} 中工作。
 
@@ -27,11 +58,13 @@ ${jsonPath}
 
 请严格遵循下面的要求：
 
-1. 先运行：
-   node "${followBuildersScripts}/prepare-digest.js"
-   必须从网络拉取最新 JSON，禁止使用任何本地旧稿、旧 json、旧 markdown 作为正文来源。
+1. 这次不要运行 node "${followBuildersScripts}/prepare-digest.js"。
+   我已经在调用你之前，用 curl 从 Follow Builders 上游拉取了两份最新 feed 快照，请只读取这两份本地快照作为唯一正文来源：
+   - ${feedXPath}
+   - ${feedPodcastsPath}
+   它们就是本次最新数据，禁止再改用任何本地旧稿、旧 json、旧 markdown 或其他历史缓存。
 
-2. 只使用最新 feed 中的内容，不要编造，不要补外部信息。
+2. 只使用这两份最新 feed 快照中的内容，不要编造，不要补外部信息。
 
 3. 参考当前仓库里这两份文件的结构和语气：
    - ${path.join(dataIssuesDir, 'ai-builders-digest-2026-05-20.json')}
@@ -79,7 +112,7 @@ ${jsonPath}
    - title 简短，像“接口底座日报”“组织重构日报”这种
    - desc 1 句话，概括当天主线
 
-8. 不要编造，不要补外部信息。只有当 tweets 和 podcasts 都完全没有可用内容时，才不要创建 JSON，并在结束时明确输出：NO_CONTENT。
+8. 不要编造，不要补外部信息。只有当 feed-x 和 feed-podcasts 都完全没有可用内容时，才不要创建 JSON，并在结束时明确输出：NO_CONTENT。
    如果只有 1 条播客、少量 tweets、或任意真实内容，也要正常生成 JSON；可以在 intro 和 archive.desc 中说明这是轻量版/单主题版。
 
 9. 完成后只做一件事：把 JSON 覆盖写入
