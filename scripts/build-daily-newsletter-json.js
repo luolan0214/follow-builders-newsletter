@@ -32,11 +32,15 @@ function ensureDir(targetDir) {
 }
 
 function downloadFeedSnapshot(url, targetPath) {
-  const result = spawnSync('curl', ['-fsSL', url, '-o', targetPath], {
+  const result = spawnSync(
+    'curl',
+    ['-fsSL', '--retry', '3', '--retry-delay', '2', '--retry-connrefused', '--max-time', '60', url, '-o', targetPath],
+    {
     cwd: repoRoot,
     stdio: 'inherit',
     env: process.env,
-  });
+    }
+  );
 
   if (result.error) {
     throw result.error;
