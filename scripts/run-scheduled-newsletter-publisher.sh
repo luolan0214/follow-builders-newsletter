@@ -9,6 +9,8 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 . "${SCRIPT_DIR}/github-auth-helper.sh"
 PUBLISH_SCRIPT="${REPO_ROOT}/scripts/publish-daily-newsletter.sh"
 LOCK_DIR="${TMPDIR:-/tmp}/follow-builders-newsletter.lock"
+LOCK_PID_FILE="${LOCK_DIR}/pid"
+LOCK_STALE_AFTER_SECONDS="${LOCK_STALE_AFTER_SECONDS:-3600}"
 LOOKBACK_DAYS="${PUBLISH_LOOKBACK_DAYS:-2}"
 RETRY_ATTEMPTS="${PUBLISH_RETRY_ATTEMPTS:-2}"
 RETRY_SLEEP_SECONDS="${PUBLISH_RETRY_SLEEP_SECONDS:-90}"
@@ -19,6 +21,64 @@ AUTO_STASH_DIRTY_WORKTREE="${AUTO_STASH_DIRTY_WORKTREE:-1}"
 
 log() {
   printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S %Z')" "$*"
+}
+
+lock_dir_mtime() {
+  if stat -f '%m' "${LOCK_DIR}" >/dev/null 2>&1; then
+    stat -f '%m' "${LOCK_DIR}"
+    return
+  fi
+
+  stat -c '%Y' "${LOCK_DIR}"
+}
+
+is_pid_running() {
+  local pid="$1"
+  [[ "${pid}" =~ ^[0-9]+$ ]] || return 1
+  kill -0 "${pid}" >/dev/null 2>&1
+}
+
+is_stale_lock() {
+  [[ -d "${LOCK_DIR}" ]] || return 1
+
+  if [[ -f "${LOCK_PID_FILE}" ]]; then
+    local lock_pid
+    lock_pid="$(<"${LOCK_PID_FILE}")"
+    if is_pid_running "${lock_pid}"; then
+      return 1
+    fi
+    return 0
+  fi
+
+  local now epoch age
+  now="$(date +%s)"
+  epoch="$(lock_dir_mtime)"
+  age="$((now - epoch))"
+  [[ "${age}" -ge "${LOCK_STALE_AFTER_SECONDS}" ]]
+}
+
+release_lock() {
+  rm -f "${LOCK_PID_FILE}" >/dev/null 2>&1 || true
+  rmdir "${LOCK_DIR}" >/dev/null 2>&1 || true
+}
+
+acquire_lock() {
+  if mkdir "${LOCK_DIR}" 2>/dev/null; then
+    printf '%s\n' "$$" > "${LOCK_PID_FILE}"
+    trap release_lock EXIT
+    return 0
+  fi
+
+  if is_stale_lock; then
+    log "Found a stale scheduled publisher lock; removing it and retrying."
+    rm -rf "${LOCK_DIR}"
+    mkdir "${LOCK_DIR}"
+    printf '%s\n' "$$" > "${LOCK_PID_FILE}"
+    trap release_lock EXIT
+    return 0
+  fi
+
+  return 1
 }
 
 date_days_ago() {
@@ -182,11 +242,10 @@ publish_date() {
 main() {
   local failed=0
 
-  if ! mkdir "${LOCK_DIR}" 2>/dev/null; then
+  if ! acquire_lock; then
     log "Another scheduled publisher run is already active; skipping."
     exit 0
   fi
-  trap 'rmdir "${LOCK_DIR}" >/dev/null 2>&1 || true' EXIT
   ensure_clean_worktree "scheduled publisher startup"
   while IFS= read -r publish_date; do
     [[ -n "${publish_date}" ]] || continue
