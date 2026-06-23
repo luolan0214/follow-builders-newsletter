@@ -1,0 +1,241 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-23",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的 feed 窗口与昨天有较大重叠，但换个角度，正好可以关注一些昨天没展开的内容。Rauch 分享了 Vercel 团队怎么把网站性能榨到极致——每帧都审查。Peter Yang 诚实地聊了一个很多 token 用户共有的心理矛盾：从小省吃俭用的匮乏心态，跟 tokenmaxxing 之间的张力。Sottiaux 发了一条只有链接但拿到 2000+ 赞的推文。另外，Nikunj 那条「祈祷没漏掉 DM」引起了大量共鸣——builder 圈的社交带宽问题，正在变成真问题。播客仍然是 Mike Krieger 聊 Fable 5，今天我们换几个角度来听。"
+  },
+  "archive": {
+    "title": "性能与心理日报",
+    "desc": "Vercel 逐帧优化性能，token 用户在匮乏心态与 tokenmaxxing 之间挣扎，builder 社交带宽成为瓶颈。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-23 source feeds. Note: feed window overlaps with 2026-06-22; this issue highlights content not featured in the previous edition.",
+  "sections": [
+    {
+      "title": "Performance & Craft / 性能与工艺",
+      "desc": "当工具链越来越强大，极致性能优化反而变成了一种稀缺的工艺。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2068838709517336756",
+          "en": {
+            "rewrite": [
+              "Rauch's post about Vercel.com performance is a rare peek into what 'every frame scrutinized' actually means in practice.",
+              "The scope is comprehensive: painting, layout, WebGPU shaders, blocking scripts — 'everything the light touches' was optimized, a clever Lion King reference.",
+              "His promise to update Next.js with the lessons learned turns an internal optimization into a public good — which is also a smart ecosystem strategy."
+            ],
+            "original": [
+              "The team cooked on https://vercel.com performance. 'Everything the light touches' was optimized Simba. Painting, layout, WebGPU shaders, blocking scripts. Every frame scrutinized. The best part is that we'll be updating our Next.js with the lessons learned!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 这条讲的是 Vercel 团队怎么把网站性能榨到极致。他的描述是「每一帧都审查过了」——这在一个大多数公司都不怎么关注前端性能的时代，其实相当稀缺。",
+              "优化范围非常全面：渲染、布局、WebGPU shader、阻塞脚本。「Everything the light touches」——用了狮子王的梗，意思是能优化的地方全优化了。",
+              "他说会把这次优化的经验更新到 Next.js 里——把内部优化变成公共资产，这同时也是很聪明的生态策略。"
+            ],
+            "original": [
+              "Rauch 说：团队在 vercel.com 的性能上下足了功夫。「阳光所及之处」都被优化了，辛巴。渲染、布局、WebGPU shader、阻塞脚本。每一帧都审查过了。最好的部分是，我们会把这些经验更新到 Next.js 里！"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Token Economy's Psychology / Token 经济的心理",
+      "desc": "当你买了一辆「无限」跑车，你会忍不住想把它开到极限——即使你骨子里是个省着用的人。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2068874249167884544",
+          "en": {
+            "rewrite": [
+              "Peter Yang's honest post captures a real psychological tension: growing up with a scarcity mindset (saving money, hoarding resources), but then encountering 'unlimited' token plans and feeling compelled to max them out.",
+              "His phrase 'tokenmaxxing' — treating the token limit as a target rather than a ceiling — is a neat description of a behavior many power users will recognize in themselves.",
+              "The disconnect he names is real: the instinct that says 'don't waste resources' collides with the feeling that 'not using all my tokens is a missed opportunity.' It's a first-world AI problem, but it reflects how token plans have become a new kind of utility bill."
+            ],
+            "original": [
+              "It's funny, growing up as an immigrant I developed a scarcity mindset around saving money and resources.",
+              "But when it comes to unlimited token plans and tokenmaxxing, it feels like a missed opportunity if I don't burn as many tokens as possible and hit the limit each time.",
+              "How do I address this disconnect?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 这条很诚实地说出了一个很多 token 重度用户共有的心理矛盾。",
+              "他从小作为移民长大，养成了省吃俭用的匮乏心态。但面对「无限」token 套餐时，他又忍不住想把额度用满——不然就觉得亏了。",
+              "他造了一个词叫「tokenmaxxing」——把 token 上限当目标来冲刺，而不是当天花板来遵守。这个行为模式很多重度用户都会有共鸣。",
+              "这种矛盾其实挺真实的：「不要浪费资源」的直觉跟「不用完就是亏了」的感觉撞在一起。"
+            ],
+            "original": [
+              "Peter Yang 说：有趣的是，作为移民长大的我从小就养成了省吃俭用的匮乏心态。",
+              "但面对无限 token 套餐和 tokenmaxxing，如果不用尽可能多的 token、不每次都打到上限，就觉得错过了机会。",
+              "我怎么调和这种矛盾呢？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Social Bandwidth / Builder 的社交带宽",
+      "desc": "当社区越来越活跃，维护一对一关系的成本正在悄悄失控。",
+      "cards": [
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2068714024934740476",
+          "en": {
+            "rewrite": [
+              "Nikunj's relatable post captures a growing pain in the builder community: the DM workflow is breaking down.",
+              "His sequence is instantly recognizable — see an interesting project on X, fork it, play with it, go to message the founder, and then pray you haven't missed a DM from them already.",
+              "The subtext is that as the AI builder community grows denser, the social bandwidth required to maintain one-on-one relationships is becoming a real bottleneck. Even VCs who pride themselves on responsiveness are drowning."
+            ],
+            "original": [
+              "Happens every week 🙈",
+              "> see an interesting project on X\n> play with it, fork it, try it, have some ideas\n> go to founder profile\n> press the message button",
+              "…",
+              "> pray to God that I haven't missed a DM from them before 😢",
+              "I try to respond to all the DMs but miss sometimes!!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 这条引起了很多共鸣，因为它说出了 builder 社区一个正在恶化的痛点：DM 流正在崩掉。",
+              "他的描述非常真实——每周都在发生：在 X 上看到一个有趣的项目，fork 它，试一试，有了想法，点开创始人主页按私信按钮，然后祈祷自己之前没漏掉对方的 DM。",
+              "背后的含义是：AI builder 社区越活跃，维护一对一关系的社交带宽就越紧张。连以「回复快」著称的投资人都开始溺水了。"
+            ],
+            "original": [
+              "Nikunj 说：每周都发生 🙈",
+              "在 X 上看到有趣的项目 → 玩一下、fork、试一试、有想法了 → 去创始人主页 → 点私信按钮",
+              "……",
+              "→ 祈求上帝之前没漏掉对方的 DM 😢",
+              "我尽量回复所有 DM，但有时候真的会漏！！"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Stealth Hits & Open Questions / 隐秘热帖与开放问题",
+      "desc": "有些最有信号量的帖子，恰恰是看起来最简单的那些。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2068792061265121316",
+          "en": {
+            "rewrite": [
+              "Sottiaux posted nothing but a link — and it got 2066 likes and 93 replies. That kind of engagement on a link-only post from an OpenAI Codex engineer suggests whatever he shared resonated hard with the developer community.",
+              "The high like-to-reply ratio (22:1) indicates people saw it, agreed or were impressed, but didn't feel the need to debate — a signal of widespread recognition rather than controversy.",
+              "Combined with his other posts this week (the Codex feedback thread with 3380 replies, the usage reset question with 868 replies), Sottiaux is establishing himself as one of the most effective community-facing product voices at OpenAI."
+            ],
+            "original": [
+              "https://t.co/pBWhE53c4A"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux（OpenAI Codex）发了一条只有链接的推文，拿到了 2066 个赞和 93 条回复。一个只有链接的帖子能有这种互动量，说明他分享的内容让开发者社区产生了很强的共鸣。",
+              "赞和回复的比例是 22:1——大部分人看了之后认同或被惊艳到，但觉得没必要争论。这说明是广泛共识而非争议。",
+              "加上他这周其他帖子（Codex 改进征集 3380 条回复、额度使用问题 868 条回复），Sottiaux 正在成为 OpenAI 最高效的社区-facing 产品声音之一。"
+            ],
+            "original": [
+              "Sottiaux 发布了一条仅包含链接的推文。（该推文获得了 2066 个赞和 93 条回复。）"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2068965200343224367",
+          "en": {
+            "rewrite": [
+              "Steinberger's post about a new way to read Twitter got 336 likes — modest by his standards, but the 39 replies suggest genuine curiosity about what the tool/approach actually is.",
+              "Given his OpenClaw work, this could be an agent-mediated reading interface — using Claude or a custom agent to filter, summarize, or restructure the Twitter feed for better signal-to-noise.",
+              "The fact that he's using his own product to change how he consumes social media is a form of extreme dogfooding that's worth watching."
+            ],
+            "original": [
+              "This is becoming my favorite way to read Twitter."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steinberger（OpenClaw 创始人）说「这正在成为我最喜欢的 Twitter 阅读方式」——拿到了 336 个赞和 39 条回复。",
+              "考虑到他在做 OpenClaw，这很可能是某种 agent 介导的阅读界面——用 agent 来过滤、摘要或重新组织 Twitter feed，提升信噪比。",
+              "用自己做的产品来改变自己消费社交媒体的方式，这种极端的 dogfooding 值得关注。"
+            ],
+            "original": [
+              "Steinberger 说：这正在成为我最喜欢的 Twitter 阅读方式。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Fable 5 — Different Angles / 播客：Fable 5 的不同切面",
+      "desc": "AI & I 的 Dan Shipper 采访 Anthropic Labs 负责人 Mike Krieger。跟昨天的刊物侧重实践技巧不同，今天换三个角度：Fable 在 code review 中的判断力、聊天是不是正确的界面、以及非技术者第一次把脑子里的东西做出来。",
+      "cards": [
+        {
+          "authorKey": "podcast:ai-and-i",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持的 AI 深度对谈播客",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Code review judgment: Mike highlights Fable's ability to not just accept feedback mechanically — it will say 'I understand your concern, but I actually disagree' and push back with reasoning. This judgment capacity is a meaningful training advancement.",
+              "Proactive system awareness: Fable will remind you about unfinished prerequisites — 'you said you'd turn on that feature flag three days ago, it won't work without it.' It tracks system-level dependencies across long sessions.",
+              "Is chat the right interface? Mike identifies three evolution paths: (1) decouple where work happens from where you converse about it, (2) progressive disclosure of complexity (Fable's output can be dense enough to need a walk), (3) multiplayer — multiple humans and their agents collaborating on shared work.",
+              "Non-technical builders: Mike shares a story about an Anthropic recruiting team member who, using Fable + internal MCPs, built a tool system now deployed to the entire GTM org. Her quote: 'this is the first time in my life where the thing in my head and the thing in the world are right next to each other.'",
+              "The senior engineer benchmark: Dan Shipper's test — can the model rewrite a codebase from first principles? Previous best: 62-63/100. Fable scored 90-91, reaching human senior engineer level."
+            ],
+            "original": [
+              "MIKE KRIEGER: Watching it respond to code review feedback — it doesn't just say 'oh yeah, that's an issue, I'm gonna go fix it.' It actually is really thoughtful: 'hey, for this level of fidelity of what we're building, I'm gonna accept this risk. Or I see what you mean, but I'm actually gonna push back. I don't think that's actually right.'",
+              "MIKE KRIEGER: It will keep bugging you — 'have you turned on that feature flag yet? It's not gonna work until you do.' You're like, 'you're right, I didn't turn on that feature flag.'",
+              "MIKE KRIEGER: Three things come to mind for evolving the interface. One: is your laptop the right place for it? Decoupling where the work is happening from where I'm talking about the work. Two: progressive disclosure of complexity — it will give you a lot of text, I need to take a walk to fully understand this. Three: thinking through multiplayer — can an independent Claude keep up with all the other work happening on the team?",
+              "MIKE KRIEGER: She said, 'it is the first time in my life where the thing that's in my head and the thing that exists in the world is now right next to each other. I can just do it.' She works in recruiting.",
+              "DAN SHIPPER: My benchmark — can it rewrite a codebase from first principles. Previous top was 62 or 63 out of 100. This model got a 90 or 91, which is human senior engineer level."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "今天换三个角度看 Mike Krieger 这期播客。",
+              "第一，Fable 在 code review 里的判断力：它不会机械地同意反馈，而是会想一下说「我理解你的意思，但我实际上不同意」——这种判断力是训练上的真正进步。它还会主动提醒你未完成的前置步骤。",
+              "第二，聊天是不是正确的界面：Mike 给了三个演化方向——解耦工作场所和对话场所、渐进式信息展示、多玩家协作。",
+              "第三，非技术者第一次「把脑子里的东西做出来」：一位招聘团队的同事用 Fable + 内部 MCP 搭了一套工具系统，现在部署给了整个 GTM 团队。",
+              "另外 Dan Shipper 分享了他的 senior engineer benchmark——让模型从第一性原理重写代码库。之前最好的模型 62-63 分，Fable 拿到了 90-91 分，达到了人类高级工程师水平。"
+            ],
+            "original": [
+              "【Fable 在 code review 中的判断力】",
+              "Mike 说：看它在 code review 里怎么回应反馈，是很有意思的。它不会简单地说「哦对，你说得对，我去改」。",
+              "「它会真的很认真地想：考虑到我们现在构建的东西的精度水平，我决定接受这个风险。或者：我理解你的意思，但我实际上不同意，我觉得那样做是不对的。」",
+              "「它还会持续提醒你——你三天前说要打开这个 feature flag，到现在还没做，功能不会工作的。你说：你说得对。」",
+              "「这种判断力的提升，是我能指出来的最明显的训练进步之一。」",
+              "",
+              "【聊天是正确的界面吗？】",
+              "Mike 说：我不认为「你发消息、它回消息」这个基本范式是完全错的，但有几个方向需要探索。",
+              "第一，你的笔记本是对的地方吗？我在 Anthropic 用远程 dev box，手机端的 Claude Code 越来越重要。Boris（Claude Code 的创造者）大约 9 个月前就跟我说，他已经把大量 Claude Code 工作搬到手机上了。我当时觉得不可能，现在我自己也到了这一步。",
+              "第二，渐进式信息展示。Fable 的输出有时候复杂到「你需要散步一趟才能消化」。你让它做的东西，它比你拥有更多上下文。能不能让它做更好的渐进式展示？",
+              "第三，多玩家协作。现在一个人加几个 Claude 是常态。但如果是事故响应——多个人、多个 Claude 同时参与——怎么让它们保持同步？这是一个未被充分探索的前沿。",
+              "「我觉得我们几乎在用错误的抽象来限制这些模型——它们已经能做到队友级别的协作了，但我们没有给它们正确的框架。」",
+              "",
+              "【非技术者第一次把脑子里的东西做出来】",
+              "Mike 说：有一位 Anthropic go-to-market 团队的同事，几个月来一直在用 Fable + 内部 MCP 搭一套深度集成到她整个工作流程里的系统。",
+              "「她说：这是我这辈子第一次，脑子里的东西和世界里的东西紧紧挨在一起了——我只要做就行了。」",
+              "「她在招聘部门工作，不是技术出身。但她搭出来的东西复杂度一直在增长，现在已经部署给了整个 GTM 团队。」",
+              "「以前模型的复杂度天花板到了一定程度就很难迭代了——不拆掉重构就会出问题。Fable 没有这个限制，她的系统一直在长。」",
+              "",
+              "【Senior Engineer Benchmark：Fable 拿到 90 分】",
+              "Dan Shipper 分享了他自己的基准测试——让模型从第一性原理重写代码库。",
+              "之前最好的模型得分是 62-63 分（满分 100）。Fable 拿到了 90-91 分，达到了人类高级工程师水平。",
+              "Mike 说：在 Instagram 那个时代，从想法到完整产品——v1 大概是 5 个通宵的工作量。现在差距已经不可同日而语了。",
+              "「我以前做 Instagram 的时候，一个人加一个合伙人，做的事情其实跟现在一个周末用 Fable 做的东西差不多。但关键是：那些以前只能在大公司内部完成的事，现在一个非技术的人也能做到了。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
