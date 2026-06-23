@@ -1,0 +1,440 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-22",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的主线是「agent 时代的软件长什么样」。Aaron Levie 说 agent 用软件的频率会是人的 100 倍——这意味着安全、审计、权限控制突然变成了核心品类。Rauch 警告说编程 agent 会榨干你的 IKEA 效应——你亲手「组装」出来的东西，哪怕只是审查了一遍，也会不自觉地高估它的质量。与此同时，Linear 的 Nan Yu 和 Zara 分别从不同角度讨论了同一个问题：AI 时代怎么保住品质。播客是 Every 的 Dan Shipper 采访 Anthropic Labs 负责人 Mike Krieger（Instagram 联合创始人），整整一期聊 Fable 5 到底改变了什么——从过夜任务到动态工作流，再到「软件工程是不是结束了」。"
+  },
+  "archive": {
+    "title": "Agent 原生软件日报",
+    "desc": "Agent 用软件的频率将是人的 100 倍；IKEA 效应成为新的质量陷阱；Fable 5 让过夜任务和动态工作流变成日常。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-22 source feeds.",
+  "sections": [
+    {
+      "title": "Agents Will Use Software 100x More / Agent 将以百倍频率使用软件",
+      "desc": "当 agent 成为软件的主要用户，整个 to-B 软件品类的设计逻辑都要重写。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2068851573175021864",
+          "en": {
+            "rewrite": [
+              "Levie's core thesis: agents will interact with enterprise software far more intensely than humans ever did. A single agentic task could pull more data than a human user touches in a month.",
+              "This creates five new requirements: guardrails on what agents can do, authoritative sources of truth, logging and auditing, human-agent collaboration interfaces, and a business model that works for headless interactions.",
+              "His conclusion: platforms that can move toward powering headless agent interactions — with the right business model and tech strategy — will be in the best position."
+            ],
+            "original": [
+              "Agents will use software 100X more than people.",
+              "When that happens, there's a huge need for guardrails on what the agents are doing so they don't leak data or change the wrong information, authoritative sources of truth for them to work with, logging and auditing of what they're doing, the ability to collaborate with people through these systems, and more.",
+              "A simple query on any given agentic task could pull in more data than a user touches in a month. As a result, lots of categories of software that when it goes headless the usage and value go up substantially.",
+              "The platforms that can move toward the model of powering these headless interactions, and have a business model and technology strategy to support this, will be in the best position in the future."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条的核心判断很大胆：agent 使用软件的频率会是人的 100 倍。一个 agent 任务拉取的数据量，可能比一个用户一个月摸过的还多。",
+              "这意味着企业软件需要五样新东西：agent 行为的护栏、权威数据源、日志和审计、人机协作接口、以及适配 headless 交互的商业模式。",
+              "他的结论：能把平台改造成支撑 headless agent 交互的公司——同时商业模式和技术架构都跟得上——才会赢。"
+            ],
+            "original": [
+              "Levie 说，agent 使用软件的频率将是人的 100 倍。",
+              "这意味着需要大量的护栏来防止 agent 泄露数据或修改错误信息，需要权威数据源供 agent 使用，需要对 agent 行为进行日志记录和审计，需要通过这些系统与人协作的能力。",
+              "一个简单的 agent 任务拉取的数据可能比一个用户一个月接触的还多。因此，很多软件品类一旦转向 headless 模式，使用量和价值都会大幅上升。",
+              "能够转向支撑这些 headless 交互的平台——拥有合适的商业模式和技术策略——将在未来占据最佳位置。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2068917230570795178",
+          "en": {
+            "rewrite": [
+              "Levie highlights Sakana's Fugu model as an architectural breakthrough: a single API that automatically routes tasks to the best-performing model for each subtask.",
+              "Fugu handles model selection, delegation, verification, and synthesis automatically — the complexity of multi-agent orchestration never reaches the developer's code.",
+              "Levie's broader point: this is how most applied AI products already build their agent harnesses internally. Making it available as a developer-facing LLM is the next logical step, and the routing layer will capture significant value as both closed and open models proliferate."
+            ],
+            "original": [
+              "Sakana released a model that effectively uses a mixture of models to get work done. You get a single API but then the work gets farmed out the model that best performs the task.",
+              "Fugu manages model selection, delegation, verification, and synthesis automatically. It solves tasks directly when that is enough, or coordinates a team of expert models when a problem calls for more. The complexity of a multi-agent system never reaches your code.",
+              "This is generally how applied AI products are building their agent harnesses at this point, but the idea of making this an LLM that any developer can interact with is also a great idea. As we get more innovation with both frontier closed and OSS models, there's going to be a ton of value produced for the layer that can route the best."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条介绍的是 Sakana 发布的 Fugu 模型——一个会自动调度的模型：你只需要一个 API，它会自动把任务分发给最适合的子模型来执行。",
+              "Fugu 自动处理模型选择、委派、验证和综合，多 agent 编排的复杂度完全不暴露给开发者。",
+              "Levie 的判断：这正是现在应用层 AI 产品内部已经在做的 agent harness，但把它做成一个开发者可以直接调用的 LLM，是顺理成章的下一步。随着闭源和开源模型越来越多，路由层会成为价值捕获的重要位置。"
+            ],
+            "original": [
+              "Levie 说，Sakana 发布了一个有效使用模型混合来完成工作的模型。你得到一个 API，然后工作被分发到最擅长该任务的模型。",
+              "Fugu 自动管理模型选择、委派、验证和综合。复杂的多 agent 系统不会触及你的代码。",
+              "这基本上就是应用层 AI 产品目前在构建 agent harness 的方式，但把它做成任何开发者都能交互的 LLM 也是个好主意。随着闭源和开源模型的创新增多，能够最好地做路由的层将产生巨大价值。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Quality, Taste & the IKEA Effect / 品质、品味与 IKEA 效应",
+      "desc": "AI 让生成变得容易，但也让质量判断变得更难——你亲手「组装」过的东西，总会不自觉地高估它。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2068778558672273422",
+          "en": {
+            "rewrite": [
+              "Rauch's one-liner captures a subtle but dangerous trap: when coding agents do the work, you naturally feel ownership over the output (the IKEA effect), even though your actual contribution was just writing a prompt and clicking approve.",
+              "This matters because the IKEA effect leads to overconfidence in code quality. You're less likely to catch bugs in something that feels like 'yours' but was actually generated.",
+              "The implication for teams: build verification practices that are rigorous enough to overcome the emotional bias of having 'made' something."
+            ],
+            "original": [
+              "Coding agents will squeeze every ounce of IKEA effect out of you, if you let them."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 这句话只有一句，但指向一个非常真实的陷阱：编程 agent 帮你干活的时候，你会对产出物产生一种虚假的拥有感——这就是心理学上的 IKEA 效应。",
+              "你亲手组装过的家具，你会觉得它比实际上更好。同理，你「指导」agent 写出来的代码，你也会不自觉地高估它的质量。",
+              "对团队的启示：需要建立足够严格的验证流程，来抵消这种情感偏差。光靠「这是我的所以应该没问题」是不够的。"
+            ],
+            "original": [
+              "Rauch 说：编程 agent 会把你身上的 IKEA 效应榨干——如果你任由它们的话。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thenanyu",
+          "sourceUrl": "https://x.com/thenanyu/status/2068778750800531640",
+          "en": {
+            "rewrite": [
+              "Nan Yu, Head of Product at Linear, is articulating what makes products like Linear (and Apple) feel different: an irrational commitment to quality that goes beyond what frameworks and best practices can give you.",
+              "The key phrase is 'controlling things top to bottom' — using common frameworks is rational, but building everything yourself gives you a level of polish that no abstraction can replicate.",
+              "This connects to the broader theme: as AI makes generation free, the differentiator moves entirely to taste — the willingness to be 'irrational' about details that most people would ship past."
+            ],
+            "original": [
+              "\"Quality is irrational\" is a great way to describe it. You have to have an irrational level of commitment to constantly choose quality and an irrational level of self-belief that controlling things top to bottom will yield better results than using common frameworks."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nan Yu 是 Linear 的产品负责人。他这条其实在回答一个很根本的问题：为什么 Linear 和 Apple 这种产品感觉不一样？",
+              "他说「品质是非理性的」——你需要一种非理性的承诺，不断选择品质而不是省事；还需要一种非理性的自信，相信从头到尾自己把控一切，比用通用框架出来的结果更好。",
+              "这跟今天的主题连在一起看很有意思：AI 让生成变得免费之后，差异化的来源就只剩品味——愿不愿意在大多数人都觉得「够好了」的地方再磨一磨。"
+            ],
+            "original": [
+              "Nan Yu 说：「品质是非理性的」是一个很好的描述。你需要一种非理性的承诺来不断选择品质，以及一种非理性的自信——相信从上到下把控一切会比使用通用框架产出更好的结果。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2068923768500793603",
+          "en": {
+            "rewrite": [
+              "Zara's rule of thumb for preventing AI slop: your input (context) should be 3-5 times longer than the desired output.",
+              "The logic is simple but profound: if you're producing more text than you're providing, the model is filling gaps with its own patterns — which is where slop creeps in.",
+              "Her follow-up — 'I'm talking about context, not prompt' — is an important clarification. Loading the prompt with instructions is different from providing rich background context that shapes the output."
+            ],
+            "original": [
+              "A good rule of thumb for preventing AI slop (in writing, design, etc):",
+              "Is your input (the context) longer than the output?",
+              "I've found that for the AI to produce quality results, my input is often 3-5 times the length of the output.",
+              "If your input is much shorter than the output, it's almost certainly going to produce slop."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 这条很实用：防止 AI 生成「塑料味」的一个经验法则是——你的输入（上下文）应该比输出长 3 到 5 倍。",
+              "逻辑很简单：如果你产出的比提供的内容还多，那多出来的部分就是模型在「自由发挥」，而那恰好就是塑料感最容易出现的地方。",
+              "她后续补充了一句很关键：「我说的是 context，不是 prompt。」在 prompt 里塞满指令，和提供丰富的背景上下文来塑造输出，是两件完全不同的事。"
+            ],
+            "original": [
+              "Zara 说，防止 AI 塑料感的一个好经验是：你的输入（上下文）是否比输出长？",
+              "她发现，要让 AI 产出高质量结果，输入通常是输出长度的 3-5 倍。如果输入比输出短得多，几乎肯定会生成塑料感内容。",
+              "她后来补充：我说的是 context，不是 prompt。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Personal Brains & Builder Habits / 个人大脑与构建者习惯",
+      "desc": "AGI 时代，你自己的上下文数据才是真正的 unlock。",
+      "cards": [
+        {
+          "authorKey": "x:garrytan",
+          "sourceUrl": "https://x.com/garrytan/status/2068701356358308112",
+          "en": {
+            "rewrite": [
+              "Garry Tan's argument: AGI gives you intelligence, but intelligence without personal context is generic. The real unlock comes from having your own 'brain' — a structured store of your context, decisions, and knowledge.",
+              "This is why he built and open-sourced GBrain: a system for collecting your personal and company context so that when you pipe it into an AI, the output is actually tailored to you.",
+              "The meta-point: in 2026, the scarce resource is not intelligence (models provide that) but context. Whoever owns the richest context layer wins the most from AI."
+            ],
+            "original": [
+              "I think one underestimated thing when we look back on it was how useful it is to have your own personal brain and company brain in 2026 at the dawn of usable AGI",
+              "AGI gives you the intelligence. You still have to collect your personal context to get the real unlock.",
+              "This is why I made GBrain and open sourced it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 这条说了一个很容易被低估的事：在 AGI 时代，智能本身已经不是稀缺品——模型给了你智能。真正稀缺的是你自己的上下文数据。",
+              "他的意思是：AGI 给你智能，但你还得自己去收集个人和公司的上下文，才能真正 unlock 价值。这就是他做 GBrain 并开源的原因。",
+              "更大的隐喻：2026 年，谁拥有最丰富的上下文层，谁就从 AI 中获益最多。模型是公共设施，上下文是私人资产。"
+            ],
+            "original": [
+              "Garry Tan 说，回顾 2026 年——usable AGI 的黎明——一件被低估的事是：拥有自己的个人大脑和公司大脑有多大用处。",
+              "AGI 给你智能，但你仍然需要收集个人上下文才能获得真正的 unlock。",
+              "这就是他做并开源 GBrain 的原因。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2068736857312198928",
+          "en": {
+            "rewrite": [
+              "Sottiaux, who builds Codex at OpenAI, posted a simple feedback request: 'What should we improve in the Codex app?' It got 3380 replies — an extraordinary engagement signal for a developer tool.",
+              "His companion tweet about usage resets — 'Are you a hoarder or do you use them without breaking a sweat?' — got 868 replies, revealing that token/usage anxiety is a real psychological barrier for users.",
+              "Together, these posts show that even the most popular coding agent still has massive room for UX improvement: users want better delight, clearer limits, and less cognitive overhead in managing their usage."
+            ],
+            "original": [
+              "What should we improve in the Codex app. What's not delightful?",
+              "Now that you can bank usage resets in Codex. Are you a hoarder or do you use them without breaking a sweat? How do you think about them?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 在 OpenAI 做 Codex，他发了一条很简单的征集：「Codex app 有什么该改进的？哪里不够好？」——收到了 3380 条回复。对于一个开发者工具来说，这个互动量相当惊人。",
+              "他另一条关于额度使用的提问——「你是囤积型还是不假思索型？」——收到 868 条回复，说明 token 焦虑是用户心理层面一个真实的障碍。",
+              "这两条合在一起看：即使是最流行的编程 agent，在用户体验上仍然有巨大的改进空间。用户要的是更好的愉悦感、更清晰的额度、以及更少的认知负担。"
+            ],
+            "original": [
+              "Sottiaux 问：Codex app 有什么该改进的？什么不够好？",
+              "他又问：现在 Codex 里可以存额度重置了——你是囤积型还是用起来不假思索型？你怎么想这个问题？"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2068755908319236338",
+          "en": {
+            "rewrite": [
+              "Peter Yang highlights @liu8in's insight that HTML turned out to be the foundation for agentic video making — because LLMs have no visual intelligence, but they can express visual aesthetics through HTML, CSS, and JavaScript.",
+              "The practical implication: footage, images, assets, SVGs can all sit on top of HTML, which the LLM already understands natively. This makes video generation tractable in a way that direct pixel manipulation never was.",
+              "This connects to a broader pattern: the best agent results often come not from giving the model new senses, but from mapping tasks onto modalities the model already understands."
+            ],
+            "original": [
+              "Why HTML turned out to be the foundation for agentic video making from @liu8in:",
+              "\"We've been trying to build a video agent. However, we learned the hard way that agents have no visual intelligence.",
+              "So that's when we turned to code. HTML is the LLM's native language. LLMs can express not only information, but also visual aesthetics through HTML, CSS, and JavaScript.",
+              "Footage, images, assets, SVGs can all sit on top of HTML.\""
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 转述了 @liu8in 的一个很有意思的发现：HTML 居然是做 agent 视频生成的最佳底座。",
+              "原因：agent 没有视觉智能——它们看不懂画面。但 HTML 是 LLM 的母语，它可以通过 HTML、CSS 和 JavaScript 来表达信息和视觉美学。素材、图片、SVG 全都可以挂在 HTML 上面。",
+              "这指向一个更通用的模式：让 agent 做事的最好方式，往往不是给它新的感官，而是把任务映射到它已经理解的模态上。"
+            ],
+            "original": [
+              "Peter Yang 转述 @liu8in 的观点：为什么 HTML 是 agentic 视频制作的基石。",
+              "「我们一直在尝试做视频 agent。但惨痛的教训是：agent 没有视觉智能。」",
+              "「所以我们转向了代码。HTML 是 LLM 的母语。LLM 不仅能通过 HTML 表达信息，还能表达视觉美学。」",
+              "「素材、图片、资源、SVG 都可以架在 HTML 之上。」"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cursor, OpenClaw & Multi-Model Skepticism / Cursor、OpenClaw 与多模型路由的怀疑",
+      "desc": "不是所有人都看好多模型路由——OpenClaw 创始人表达了怀疑，而 Cursor 的设计者在打磨细节体验。",
+      "cards": [
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2068960117253632160",
+          "en": {
+            "rewrite": [
+              "Steinberger (OpenClaw founder) publicly expresses skepticism about multi-model routing — the same architectural pattern Levie praised in Sakana's Fugu.",
+              "His concern likely stems from practical experience: routing decisions introduce failure modes, latency, and quality variance that a single-model approach avoids.",
+              "This is a genuine architectural debate: the theoretical efficiency of multi-model routing vs. the consistency and simplicity of sticking with one strong model."
+            ],
+            "original": [
+              "I was skeptical about the multi-model routing. Seems my hinch was right."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steinberger（OpenClaw 创始人）公开表示对多模型路由的怀疑——恰好跟 Levie 赞赏 Sakana Fugu 的那条形成对立。",
+              "他的担心可能来自实践：路由决策本身会引入新的故障模式、延迟和质量波动，而单模型方案不需要面对这些问题。",
+              "这是一个真实的架构分歧：多模型路由的理论效率 vs 单一强模型的一致性和简单性。"
+            ],
+            "original": [
+              "Steinberger 说：我一直对多模型路由持怀疑态度。看来我的直觉是对的。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:steipete",
+          "sourceUrl": "https://x.com/steipete/status/2068961217524490739",
+          "en": {
+            "rewrite": [
+              "Steinberger's update on OpenClaw: the hype phase has passed, but quality has improved, the team has grown, and they've established a non-profit structure unlike their VC-funded competitors.",
+              "His claim that 'this is our strongest week so far' suggests the post-hype phase is where real building happens — when the attention moves away and the team can focus on substance."
+            ],
+            "original": [
+              "People here discussing what happened with OpenClaw.",
+              "The hype died down. We improved quality and grew a team. We created a non-profit whereas competitors are VC funded and have other agendas.",
+              "This is our strongest week so far."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steinberger 这条是对 OpenClaw 现状的更新：热度期已经过去了，但质量在提升，团队在扩大，而且选择了非营利结构——跟 VC 资助的竞争对手不同。",
+              "他说「这是目前为止最强的一周」，暗示的是：真正的建设发生在热度退去之后——注意力转移了，团队反而可以专注于实质。"
+            ],
+            "original": [
+              "Steinberger 说：大家在这里讨论 OpenClaw 怎么样了。",
+              "热度退了。我们提升了质量，壮大了团队。我们创建了非营利组织，而竞争对手是 VC 资助的、有其他议程。",
+              "这是我们迄今为止最强的一周。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:ryolu_",
+          "sourceUrl": "https://x.com/ryolu_/status/2068923971136098633",
+          "en": {
+            "rewrite": [
+              "Ryo Lu, designer at Cursor, built a virtual bookshelf app called 'Books in ryOS' — starting in Cursor mobile, then hand-tuning animations and textures.",
+              "The detail matters: he missed 'wooden shelves' so he made them. It syncs with any epub and has account-based progress tracking.",
+              "This is a small but telling example of the 'quality is irrational' ethos Nan Yu described — a Cursor designer spending weekend hours getting wood grain textures right in a personal project."
+            ],
+            "original": [
+              "missing wooden shelves\nso i made Books in ryOS",
+              "started in Cursor mobile, then hand-tuned the animations and textures until things felt right",
+              "works with any epub\nsyncs progress with ryOS account"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu 是 Cursor 的设计师。他因为想念「木制书架」的感觉，做了一个叫 Books in ryOS 的虚拟书架——先用 Cursor mobile 起步，然后手动调动画和材质直到感觉对。",
+              "支持任意 epub，通过 ryOS 账号同步进度。",
+              "这件小事恰好印证了 Nan Yu 说的「品质是非理性的」——一个 Cursor 的设计师愿意花周末时间调木纹材质，就为了让一个个人项目感觉对。"
+            ],
+            "original": [
+              "Ryo Lu 说：想念木质书架，所以在 ryOS 里做了 Books。",
+              "先用 Cursor mobile 起步，然后手动调动画和材质，直到感觉对了。",
+              "支持任意 epub，通过 ryOS 账号同步进度。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Fable 5 Deep Dive with Mike Krieger / 播客：Fable 5 深度对谈",
+      "desc": "Every 的 Dan Shipper 请来 Anthropic Labs 负责人、Instagram 联合创始人 Mike Krieger，聊了一整期 Fable 5 在真实使用中到底改变了什么。",
+      "cards": [
+        {
+          "authorKey": "podcast:ai-and-i",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持的 AI 深度对谈播客",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Overnight delegation: Mike describes saying goodnight to Claude, setting up a complex task, and waking up to find it done by 2am — including the model writing its own scaffolded backend when a remote service went down, documenting the workaround, and planning to fix it when the service came back.",
+              "Architectural planning as a new modality: Mike uses Fable as a planning partner before writing any code — asking it to produce HTML diagrams or markdown docs to align the team before execution.",
+              "Self-modifying software: his weekend side project (a media tracker) includes a feature where you can ask Claude to modify the app's own code from within the app — previewing diffs live via Vercel.",
+              "Dynamic workflows for large tasks: Mike had Fable port an entire Python codebase to TypeScript over the weekend using a dynamic workflow — the model created its own spec, translated module by module, ran adversarial tests, and produced a working port.",
+              "Verification practices: every PR from Claude must include a photo or video of the UI. Mike also gives Claude video captures of what it built, and Claude (with FFmpeg) scrubs through to find animation jank on its own.",
+              "On 'is software engineering over?': Mike says the craft of writing code has fundamentally changed, but software production — understanding needs, owning outcomes, managing production incidents — is alive and well. PM and engineer roles are blurring.",
+              "Non-technical builders: an Anthropic recruiting team member said Fable gave her 'the first time in my life where the thing in my head and the thing in the world are right next to each other.'"
+            ],
+            "original": [
+              "MIKE KRIEGER: I was talking to somebody this morning where, I think about doing work. I had a flight, and I was like, okay, I can do most of this work remotely. And I don't even worry that the Wi-Fi is gonna drop out because I know that if I set up the right context instructions, I'll see it through.",
+              "MIKE KRIEGER: My last two months have been full of a lot of times where I will wish Claude a good night, set it up on a pretty complex task, and wake up to — actually, it's usually done by, like, two in the morning. I got stuck because this remote service went down. I'm gonna write a scaffolded back end for it for now. I'll document that. When it comes back online, I'll fix it.",
+              "MIKE KRIEGER: Can you just make an HTML page that represents what we just talked about so I can share it with the team.",
+              "MIKE KRIEGER: I built both a React Native version and a web version. What if you could actually modify the software from within itself? It used our managed agents to take edit requests, and then you can preview them.",
+              "MIKE KRIEGER: The craziest dynamic workflow I did with Fable: I had a Python codebase, needed it in TypeScript. Set up a workflow, let it run over the weekend. It did deep understanding, created a spec, went module by module, translated, tested incrementally, did an adversarial test. Came back to a working TypeScript port.",
+              "MIKE KRIEGER: For every pull request that Claude is putting out, there is an attached photo or video. Video has been really cool — I give Claude video captures and it scrubs through and says, this animation has some jank, I'm gonna go fix that.",
+              "MIKE KRIEGER: Software engineering is different. The craft of actually writing code — that has passed. But the overall software production — what needs do you have, what are you putting out, is it actually good — still a very human endeavor.",
+              "MIKE KRIEGER: She said, it is the first time in my life where the thing that's in my head and the thing that exists in the world is now right next to each other. I can just do it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客是了解 Fable 5 真实使用体验的最佳材料。Mike Krieger（Anthropic Labs 负责人、Instagram 联合创始人）跟 Dan Shipper 聊了整整一期，讲 Fable 5 在日常使用中到底改变了什么。",
+              "几个最值得关注的点：过夜任务变成了日常——Mike 对 Claude 说晚安，设好任务，醒来发现凌晨两点就做完了，中间遇到远程服务挂掉，模型自己写了临时后端、做了文档、计划好怎么修复。",
+              "自修改软件：他的个人项目里，你可以直接在 app 内让 Claude 修改 app 本身的代码，实时预览 diff。",
+              "动态工作流：他用 Fable 在一个周末把整个 Python 代码库移植到 TypeScript——模型自己拆解、逐模块翻译、增量测试、对抗测试。",
+              "验证实践：每个 PR 必须附 UI 截图或视频；他还把录屏丢给 Claude，模型自己用 FFmpeg 逐帧检查动画是否卡顿。",
+              "关于软件工程是否终结：Mike 说写代码的工艺已经根本性改变，但软件生产——理解需求、对结果负责、处理线上事故——仍然非常需要人。PM 和工程师的边界正在模糊。"
+            ],
+            "original": [
+              "【过夜任务：从设好到醒来】",
+              "Mike 说：过去两个月，我经常对 Claude 说晚安，设好一个复杂任务，然后睡觉。醒来发现通常凌晨两点就做完了。",
+              "「有一次它遇到远程服务挂了，就自己写了一个临时的后端 scaffold，做了文档记录，计划好等服务恢复后再修。我说：你做得对。这种级别的委派和信任，是以前不可能的。」",
+              "「我现在甚至不担心飞行途中 Wi-Fi 断了——只要上下文和指令设对了，它会自己跑完。」",
+              "",
+              "【架构规划成为一种新的使用方式】",
+              "Mike 说：我现在大量用 Fable 做架构规划——在写任何代码之前，先跟它讨论设计，让它生成一个 HTML 页面或 markdown 文档来对齐团队。",
+              "「哪怕只是让它做一个图来分享给团队，都很有价值。因为你很快能搭出原型，但把原型退回到计划阶段、形成共识，这一步不能跳。」",
+              "",
+              "【自修改软件：agent-native 架构的极致】",
+              "Mike 在个人项目中做了一个实验：你可以在 app 内部长按聊天按钮，直接要求 Claude 修改 app 本身的代码。",
+              "它用 managed agents 处理编辑请求，然后通过 Vercel 的实时预览展示 diff。你可以在对话里看到它做了什么修改。",
+              "「这是 agent-native 架构推到极致的体现：不仅每个功能都通过 agent 可访问，agent 还能直接改软件本身。」",
+              "",
+              "【动态工作流：一个周末移植整个代码库】",
+              "Mike 用 Fable + 动态工作流，在一个周末把一个 Python 项目完整移植到了 TypeScript。",
+              "工作流拆解：深度理解原代码 → 创建迁移规格 → 逐模块翻译 → 增量测试 → 对抗测试 → 检查遗漏。",
+              "「回来之后，它已经是一个可运行的 TypeScript 版本了，还标注了哪些部分没法移植以及原因。我不认为之前的模型能做到这种成功率，更不可能在没有工作流脚手架的情况下做到。」",
+              "",
+              "【验证实践：截图、视频和 FFmpeg】",
+              "Mike 说：每个 Claude 提交的 PR 都必须附带 UI 截图或视频。",
+              "「最有意思的是我把录屏丢给 Claude，它用 FFmpeg 逐帧检查，然后说：第八秒的动画有点卡，我去修一下。这是截图永远做不到的。」",
+              "他还强调：验证的关键是让模型跑真实流程，而不是静态注入数据。要让它能登录到 staging 环境的真实账户上，用真实数据测试。",
+              "",
+              "【软件工程终结了吗？】",
+              "Mike 说：软件工程确实不一样了。如果我还在用 Instagram 时期的方式定义它——想架构、在编辑器里改代码、调 Django ORM 的 bug——那这些确实大部分已经变了。",
+              "「但软件生产——理解需求、对产出负责、管理线上事故——仍然非常需要人。PM 和工程师的界限正在模糊，工程师的角色更接近于多个 agent 的管理者。」",
+              "「我会跟工程师说：Claude 做完了这个 PR，但你能不能给我讲清楚它做的每一个权衡？如果你讲不清楚，那你自己得先搞明白再合并。」",
+              "「很多优秀工程师跟我说：他们既兴奋又有点失落。以前你会梦到代码，醒来想到了一个优雅的解法——那种感觉确实过去了。但同时，你现在能完成的工作量是以前不敢想的。」",
+              "",
+              "【非技术者第一次「把脑子里的东西做出来」】",
+              "Mike 分享了一个 Anthropic 内部的故事：一位招聘团队的同事，用 Fable + 内部 MCP 搭了一套自己的工具系统。",
+              "她说：这是我这辈子第一次，脑子里的东西和世界里的东西紧紧挨在一起了——我只要做就行了。",
+              "「她不是技术出身，但现在在给整个 GTM 团队部署这套工具。这说明模型复杂度的天花板已经被推得足够高，非技术的人也能在自己的领域里做出真正能用的东西。」",
+              "",
+              "【关于 Fable 的成本】",
+              "Mike 承认 Fable 很贵，但他认为需要分场景看：对企业团队，如果 Fable 能一次做对、省掉九到十轮后续修正，那性价比其实不错。",
+              "「Dan 的 senior engineer benchmark——让模型从第一性原理重写代码库——之前最好的模型得分 62-63，Fable 拿到了 90-91，达到了人类高级工程师水平。」",
+              "「对个人用户和独立开发者，成本确实是一个需要认真考虑的问题。我的建议是：试一试，看它在一次任务中能帮你做到什么程度，不要只看 per-turn 成本，要看完成任务到你满意的总成本。」",
+              "",
+              "【Fable 在 code review 中的判断力】",
+              "Mike 最欣赏 Fable 的一个特质：它不会在收到 review 反馈时机械地同意。",
+              "「它会想一下然后说：我理解你的意思，但我实际上不同意——我觉得这样做是合理的。或者在另一个 Claude 审查者的反馈面前坚持自己的判断。这种判断力是训练上的真正进步。」",
+              "「它还会提醒你：你三天前说要打开这个 feature flag，到现在还没做，这个功能不会工作的。你说：你说得对。」",
+              "",
+              "【聊天是正确的界面吗？】",
+              "Mike 认为聊天不是最终答案，但也不算完全错。三个方向需要探索：",
+              "第一，解耦工作场所和对话场所——很多重活跑在远程 dev box 上，手机端的 Claude Code 越来越重要。",
+              "第二，渐进式信息展示——Fable 的输出有时候复杂到「需要散步一趟才能消化」，需要更好的可视化。",
+              "第三，多玩家协作——多个人的 Claude 在同一个项目上协作，这还是未探索的前沿。",
+              "",
+              "【结束语的 AI 生成段子】",
+              "Mike 在节目最后让 Fable 生成了一段极其夸张的结束语，包括「Dan Shipper 是宇宙飞船的船长」和「我无可救药地爱上了你」——展示了 Fable 写幽默文案的能力，也作为整期节目轻松的收尾。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
