@@ -1,0 +1,365 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-24",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的内容密度很高，主线是「AI 正在重塑基础设施」——从安全到评估到软件架构。Sam Altman 和 OpenAI 团队发布了 GPT-5.5-Cyber 和 Patch The Planet，把 AI 安全从「发现问题」推进到「解决问题」。Aaron Levie 说 evals 才是所有 AI 进步的真正瓶颈——不是模型，不是算力，而是你能不能正确评估 agent 在你的工作流里干得好不好。Rauch 宣布 Claude Design 一键部署到 Vercel，设计到上线的链路又被压缩了一截。Cursor 设计师 Ryo Lu 分享了在 AI 时代怎么做产品的思考。播客换了全新一期：No Priors 请来 Mark Zuckerberg、Priscilla Chan 和 Alex Rives，聊 Biohub 怎么用 AI 做生物学的世界模型。"
+  },
+  "archive": {
+    "title": "安全与评估日报",
+    "desc": "OpenAI 发布 GPT-5.5-Cyber 把安全从发现推进到解决；Levie 说 evals 才是一切 AI 进步的瓶颈；Zuckerberg 夫妇聊 Biohub 用 AI 重塑生物学。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-24 source feeds.",
+  "sections": [
+    {
+      "title": "AI for Security / AI 与安全",
+      "desc": "OpenAI 的 Patch The Planet 把 AI 安全从被动发现推进到主动修复——这是安全领域的一个范式转换。",
+      "cards": [
+        {
+          "authorKey": "x:sama",
+          "sourceUrl": "https://x.com/sama/status/2069121360744550796",
+          "en": {
+            "rewrite": [
+              "Sam Altman's announcement of GPT-5.5-Cyber and Patch The Planet represents a meaningful shift in AI-powered security: from finding vulnerabilities to actually fixing them.",
+              "The full version of GPT-5.5-Cyber achieves state-of-the-art performance on CyberGym, and Codex Security is designed to help solve security problems rather than just flag them.",
+              "His framing — 'working with the USG and the security ecosystem' — signals that OpenAI is positioning this as infrastructure-level capability, not just a feature for power users."
+            ],
+            "original": [
+              "We want to help all companies be secure, working with the USG and the security ecosystem.",
+              "*The full version of GPT-5.5-Cyber is here; state of the art performance on CyberGym.",
+              "*Patch The Planet and Codex Security will help solve security problems instead of just finding them."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 这条宣布了两件事：GPT-5.5-Cyber 完整版上线，在 CyberGym 上达到 SOTA；以及 Patch The Planet + Codex Security——帮你修安全漏洞，而不只是发现它们。",
+              "这个区别很重要：过去 AI 在安全领域的角色主要是「发现问题」，现在 OpenAI 把它推到了「解决问题」。这是一个范式转换。",
+              "他特别提到「与美国政府和安全生态合作」，说明 OpenAI 在把这定位为基础设施数量级的能力，不只是给高级用户的功能。"
+            ],
+            "original": [
+              "Altman 说：我们希望帮助所有公司提升安全，与美国政府和安全生态系统合作。",
+              "GPT-5.5-Cyber 完整版已上线，在 CyberGym 上达到最先进表现。",
+              "Patch The Planet 和 Codex Security 将帮助解决安全问题，而不只是发现它们。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2069152290326630518",
+          "en": {
+            "rewrite": [
+              "Sottiaux's post — 'Let's Patch The Planet' — is the product-side companion to Altman's strategic announcement, framing the Codex Security updates and GPT-5.5-Cyber as a celebration day for cyber defense acceleration.",
+              "The 1386 likes and 111 replies indicate the developer community received this as a significant milestone, not just a routine release.",
+              "His earlier link-only post (210 likes) and this one together suggest OpenAI is doing coordinated product drops across Codex and security."
+            ],
+            "original": [
+              "Let's Patch The Planet. Updates to codex security and a new GPT-5.5-Cyber. A day of celebration for cyber defense acceleration."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 这条是 Altman 那条的产品端呼应——「Let's Patch The Planet」，把 Codex Security 更新和 GPT-5.5-Cyber 发布定义为一个值得庆祝的里程碑。",
+              "1386 个赞和 111 条回复说明开发者社区确实把它当作了一个重要时刻，而不是常规发布。",
+              "结合他前一条只有链接但拿到 210 赞的帖子，OpenAI 这波是在 Codex 和安全两条线做协同产品发布。"
+            ],
+            "original": [
+              "Sottiaux 说：Let's Patch The Planet。Codex 安全更新和全新的 GPT-5.5-Cyber。网络安全防御加速的庆祝日。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Evals Are Everything / 评估才是一切",
+      "desc": "Levie 的判断：几乎所有 AI 进步——模型、agent、企业部署——最终都卡在 evals 上。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2069228335255949775",
+          "en": {
+            "rewrite": [
+              "Levie's thesis is sharp: almost all AI progress is downstream from evals. Open weights post-training for specific domains comes down to evals. Agent improvements come down to evals. Enterprise deployments come down to evals.",
+              "His prediction: evals will become a core competency of every enterprise. The companies that best understand their own workflows and can measure how well agents participate in them will drive the most real automation.",
+              "This connects to Box's own strategy: if enterprise content (documents, policies, knowledge) is the substrate that agents work with, then Box needs to be excellent at helping enterprises evaluate agent performance on that content."
+            ],
+            "original": [
+              "Almost all AI model and agent progress is downstream from evals. Open weights post training for specific domains comes down to evals. Agent improvements in the applied AI layer is all about evals. Agentic enterprise deployments that actually can augment work is all about evals. It's all evals.",
+              "This will become a core competency of any enterprise in the future. The companies that are able to best understand their own (and/or customers) workflows and how well agents participate in that work will be in the best position to actually drive real automation."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条的判断非常锋利：几乎所有 AI 进步——开源模型的领域微调、agent 在应用层的改进、企业里的 agent 部署——最终都卡在 evals 上。",
+              "他的预测：evals 会成为每家企业的核心竞争力。谁能最好地理解自己的工作流、能最好地衡量 agent 在这些工作流里的表现，谁就能推动真正的自动化。",
+              "这跟 Box 自身的策略也连着：如果企业内容（文档、策略、知识）是 agent 的工作对象，那 Box 就得帮企业做好对 agent 表现的评估。"
+            ],
+            "original": [
+              "Levie 说：几乎所有 AI 模型和 agent 的进步都是 evals 的下游。特定领域的开源后训练取决于 evals。应用层的 agent 改进全是 evals。能真正增强工作的企业 agent 部署全是 evals。全是 evals。",
+              "这将成为未来任何企业的核心能力。最能理解自己（和/或客户）工作流、以及 agent 在其中表现如何的公司，将最有能力驱动真正的自动化。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2069140445205348432",
+          "en": {
+            "rewrite": [
+              "Levie's Box announcement — HTML preview, edit, version management, and secure sharing for agent-produced content — is a direct response to the resurgence of HTML as a primary output format for AI agents.",
+              "This connects to Rauch's 'markdown is the new programming language' thesis and Peter Yang's 'HTML is the foundation for agentic video': HTML is having a renaissance because it's the format both humans and agents can produce and consume.",
+              "Box is positioning itself as the enterprise-grade home for agent-generated HTML content."
+            ],
+            "original": [
+              "We heard that HTML is a big deal again. You can now preview, edit, manage versions, and securely share any HTML based content on Box. Great for being able to work with any agent produced content immediately."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条宣布了 Box 的新功能：HTML 内容的预览、编辑、版本管理和安全分享。这是对 HTML 重新成为 agent 产出的主要格式的直接回应。",
+              "这跟 Rauch 的「markdown 是新编程语言」、Peter Yang 的「HTML 是 agent 视频生成的基石」是一条线上的——HTML 正在复兴，因为它是人和 agent 都能生产和消费的格式。",
+              "Box 在把自己定位为 agent 生成内容的企业级管理平台。"
+            ],
+            "original": [
+              "Levie 说：我们听说 HTML 又变重要了。你现在可以在 Box 上预览、编辑、管理版本和安全分享任何基于 HTML 的内容。非常适合立即处理 agent 生成的内容。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Design → Deploy, Compressed / 设计到部署，继续压缩",
+      "desc": "Claude Design 一键部署到 Vercel；WebSocket 全链路支持；Cursor 设计师分享 AI 时代的产品哲学。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2069219190834127276",
+          "en": {
+            "rewrite": [
+              "Rauch's one-liner — 'Claude Design → Vercel, in one click' — compresses the entire design-to-deploy pipeline into a single action.",
+              "This is the productization of the agent-native workflow: AI generates the design, AI generates the code, and one click puts it live on global edge infrastructure.",
+              "The implication for designers and developers: the gap between 'I have an idea' and 'it's live on the internet' is approaching zero."
+            ],
+            "original": [
+              "Claude Design → Vercel, in one click"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 这条只有一句话：「Claude Design → Vercel，一键部署」。但它压缩的是整个设计到上线的流程。",
+              "这是 agent-native 工作流的产品化：AI 生成设计、AI 生成代码、一键上线到全球边缘网络。",
+              "对设计师和开发者来说：「我有一个想法」到「它已经在互联网上活着」之间的距离，正在趋近于零。"
+            ],
+            "original": [
+              "Rauch 说：Claude Design → Vercel，一键完成。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2069109057433035171",
+          "en": {
+            "rewrite": [
+              "WebSocket support on Vercel — from CDN to Fluid compute — is a meaningful infrastructure milestone. Real-time applications (chat, collaboration, live dashboards) can now run natively on Vercel without third-party services.",
+              "Rauch calls it a 'full circle moment' for Vercel, suggesting this was a long-requested capability that required architectural changes to the platform.",
+              "The 934 likes indicate developers received this as a major unlock for building real-time apps."
+            ],
+            "original": [
+              "𝚆𝚎𝚋𝚂𝚘𝚌𝚔𝚎𝚝 (and 𝚜𝚘𝚌𝚔𝚎𝚝.𝚒𝚘) now supported on Vercel, from CDN to Fluid.",
+              "Special full circle moment for @vercel"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Vercel 宣布全链路支持 WebSocket——从 CDN 到 Fluid 计算。这意味着实时应用（聊天、协作、实时仪表盘）现在可以直接在 Vercel 上跑，不需要第三方服务。",
+              "Rauch 说这是一个「full circle moment」，暗示这是社区长期要求的能力，需要对平台架构做改动才能实现。",
+              "934 个赞说明开发者确实把它当作了一个重要的 unlock。"
+            ],
+            "original": [
+              "Rauch 宣布：WebSocket（和 socket.io）现在在 Vercel 上全面支持，从 CDN 到 Fluid。",
+              "对 Vercel 来说是一个特别的 full circle 时刻。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:ryolu_",
+          "sourceUrl": "https://x.com/ryolu_/status/2069218497272717661",
+          "en": {
+            "rewrite": [
+              "Ryo Lu, Design lead at Cursor, gave a talk at Cursor Compile about how they build products in the age of AI and what doesn't change.",
+              "The 958 likes and 53 retweets suggest this resonated strongly with the design and builder community — Cursor's design philosophy is being studied as a template for AI-native product development.",
+              "His framing — 'what doesn't change' — is the key insight: as AI transforms how software is built, the fundamental principles of good design (clarity, speed, respect for the user) remain constant."
+            ],
+            "original": [
+              "here's my talk at Cursor Compile",
+              "some thoughts on how we build in the age of AI",
+              "and what doesn't change"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu 是 Cursor 的设计负责人，他在 Cursor Compile 大会上做了一个分享：在 AI 时代怎么做产品，以及什么东西不会变。",
+              "958 个赞和 53 次转发说明这个话题引起了设计和 builder 社区的强烈共鸣——Cursor 的产品哲学正在被当作 AI-native 产品开发的模板来研究。",
+              "他最关键的角度是「什么不会变」：AI 在改变软件怎么做，但好设计的基本原则——清晰、快速、尊重用户——是不变的。"
+            ],
+            "original": [
+              "Ryo Lu 说：这是我在 Cursor Compile 的演讲。关于我们在 AI 时代如何构建产品，以及什么不会改变。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Observations / 构建者观察",
+      "desc": "swyx 算了一笔关于 SpaceX 的账，Peter Yang 在跟 ragebait 搏斗，Sottiaux 在凌晨问大家在 codexing 什么。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2069301071965741388",
+          "en": {
+            "rewrite": [
+              "Swyx's analysis: SpaceX is simultaneously a leading model lab AND a neocloud (GPU provider), which no other company can claim.",
+              "His math: SpaceX has already recouped about half its Cursor investment through compute deals. The other half is covered if Composer 3 performs well.",
+              "The strategic insight: this combo is 'crazy effective' because it works whether in-house training goes very well (you need the GPUs) or poorly (you can sell the GPU supply to others)."
+            ],
+            "original": [
+              "i dont think anyone is correctly doing the math around how SpaceX, the NeoCloud+NeoLab, is currently going to market?",
+              "SpaceX has already recouped about HALF its investment in Cursor, in compute deals. The other half is paid for if Composer 3 does well.",
+              "No other company is simultaneously a leading model lab + neocloud (at least where GPUs is concerned). its a crazy effective combo iff you've adequately planned out gpu supply if inhouse training 1) goes very well 2) doesn't go very well"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 这条算了一笔很少有人算过的账：SpaceX 同时是一个模型实验室和一个 neocloud（GPU 供应商）——没有其他公司能同时扮演这两个角色。",
+              "他的数学：SpaceX 已经通过算力交易收回了投资 Cursor 的大约一半成本。如果 Composer 3 表现好，另一半也覆盖了。",
+              "战略上的洞察：这个组合「疯狂有效」，因为不管内部训练走得好还是不好都能赢——训练好了你需要 GPU，训练不好你可以把 GPU 卖给别人。"
+            ],
+            "original": [
+              "Swyx 说：我认为没有人在正确计算 SpaceX 作为 NeoCloud+NeoLab 是怎么走向市场的。",
+              "SpaceX 已经通过算力交易收回了投资 Cursor 的约一半。如果 Composer 3 表现好，另一半也覆盖了。",
+              "没有其他公司同时是领先的模型实验室加 neocloud。如果你充分规划了 GPU 供应，不管内部训练是 1）非常顺利还是 2）不太顺利，这个组合都非常有效。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2069267387464274366",
+          "en": {
+            "rewrite": [
+              "Sottiaux's late-night 'What are we codexing tonight' got 924 likes and 491 replies — effectively a roll-call for the Codex community.",
+              "The engagement pattern (nearly 2:1 like-to-reply ratio) indicates this functioned as a community gathering moment, not just a question. People wanted to share what they were building.",
+              "This is a subtle but effective form of community building: the product team isn't just collecting feedback — they're creating a sense of shared experience among late-night Codex users."
+            ],
+            "original": [
+              "What are we codexing tonight"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 凌晨发了一条「今晚大家在 codexing 什么」——拿到 924 个赞和 491 条回复。这基本上是 Codex 社区的一次深夜点名。",
+              "互动模式（赞和回复接近 2:1）说明这不只是一个问题，更像是一次社区聚集时刻。大家想分享自己在做什么。",
+              "这是一种微妙但有效的社区建设方式：产品团队不是在收集反馈，而是在深夜 Codex 用户中创造一种共同体验。"
+            ],
+            "original": [
+              "Sottiaux 问：今晚大家在 codexing 什么？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Biohub — AI Meets Biology / 播客：Biohub——AI 遇见生物学",
+      "desc": "No Priors 请来 Mark Zuckerberg、Priscilla Chan 和科学负责人 Alex Rives，聊 Biohub 怎么用前沿 AI 做生物学的世界模型——从蛋白质到细胞到整个生物系统。",
+      "cards": [
+        {
+          "authorKey": "podcast:no-priors",
+          "authorName": "No Priors",
+          "authorTag": "AI 行业深度对谈播客",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "The origin story: Priscilla and Mark started by telling Nobel laureates they wanted to 'cure all disease by end of century' — scientists laughed. Ten years later, they've committed $500M to the virtual biology initiative, and Mark says that timeline now seems 'too conservative'.",
+              "ESM Fold launch: Alex's team trained a language model on billions of protein sequences. It folded 1.1 billion proteins, predicted their structures, and can design new proteins — including single-chain antibodies at nanomolar binder strength — as an emergent property. Not a specialized antibody model; a general protein world model.",
+              "Why open source, not venture-backed: Mark's argument is that the data bottleneck (needing to invent new scientific methods to generate data) requires a 10-15 year horizon that doesn't fit venture economics. Priscilla adds that the neutral nonprofit structure attracts more talent and enables the entire biotech ecosystem to collaborate.",
+              "The hierarchical world model strategy: start with proteins (largely solved), build up to cells (the virtual cell — next big challenge), then to systems (immune system, inflammation). Each layer requires different data types and modeling techniques, but they need to be built hierarchically.",
+              "Mechanistic interpretability for biology: Alex's team is applying mech interp — originally developed for LLMs — to protein language models. The models learn biological structure and function emergently, and you can 'open the black box' to understand the biology the model represents, including for proteins where we previously knew nothing.",
+              "Priscilla's vision: treat each individual as an individual. Understand the genetic → protein → disease chain mechanistically, then design a bespoke intervention. Not 'you're kind of like these people we studied' — actual mechanistic understanding.",
+              "Rare diseases as the wedge: patient groups are self-organizing registries, biobanks, even their own clinical trials. With AI-designed therapeutics, the economics of treating rare diseases flip — and you learn more about biology from rare edge cases than from common ones.",
+              "Mark on AI curve: 'The nature of an exponential curve is it doesn't just keep going — it keeps accelerating.' He says the industry remains on track, which validates making very large investments."
+            ],
+            "original": [
+              "PRISCILLA: We had a series of hilarious meetings with scientists that, like, famous Nobel Prize winning scientists were just laughing at us.",
+              "MARK: We don't think that we're gonna be the ones curing the diseases. Our goal is always to build tools that could accelerate the whole scientific field. Now I think it's like too conservative.",
+              "ALEX: We folded over 1,100,000,000 proteins and predicted their structures. We didn't design a model for antibodies. We didn't design a model to be able to bind one particular target. We just designed a model that could understand proteins.",
+              "MARK: We'll have a bigger impact by getting this in more scientists' hands quicker by doing it as open source projects instead. It's not just like there's some factory somewhere that you can pay to produce the data. You actually need to invent new novel scientific approaches.",
+              "PRISCILLA: My goal is to be able to treat the individual as an individual, understand the mechanisms, and be able to intervene.",
+              "MARK: The nature of an exponential curve is it doesn't just keep going. It keeps accelerating. Exponential growth is accelerating. It has remained on that curve."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客信息量极大。No Priors 请来了 Mark Zuckerberg、Priscilla Chan 和 Biohub 科学负责人 Alex Rives，聊 Biohub 怎么用前沿 AI 做生物学的世界模型。",
+              "起源故事：十年前他们跟诺贝尔奖得主说想「在本世纪末治愈所有疾病」，科学家笑了。现在投了 5 亿美元做 virtual biology initiative，Mark 说那个时间表现在看起来「太保守了」。",
+              "ESM Fold 发布：用十亿级蛋白质序列训练语言模型，折叠了 11 亿个蛋白质并预测结构，还能设计新蛋白质——包括纳摩尔级结合力的单链抗体。不是专门的抗体模型，而是一个通用蛋白质世界模型，抗体设计是涌现出来的能力。",
+              "为什么开源不做商业化：数据瓶颈（需要发明新科学方法来生产数据）需要 10-15 年周期，不适合 VC 模式。非营利结构还能吸引更多人才，让整个生物技术生态协作。",
+              "层级化策略：蛋白质（基本解决）→ 细胞（下一个大挑战：virtual cell）→ 系统层面（免疫系统、炎症）。每一层需要不同的数据和建模方法，但必须层级化构建。",
+              "Priscilla 的愿景：把每个人当作独立的个体来治疗——从基因到蛋白质到疾病的机制链全搞清楚，然后设计个性化干预方案。"
+            ],
+            "original": [
+              "【起源：被诺贝尔奖得主嘲笑的雄心】",
+              "Priscilla 回忆：我们跟科学家开了一系列好笑的会议。著名的诺贝尔奖得主直接嘲笑我们。",
+              "主持人：你们的开场白就是「我们要治愈所有疾病」？",
+              "Mark：澄清一下，我们不认为我们会是治愈疾病的人。我们的目标一直是建造工具，加速整个科学领域，让科学界集体来治愈所有疾病。当时人们觉得本世纪末能做到太夸张了。现在我觉得那个时间表太保守了。",
+              "Priscilla：我们不断追问「为什么你觉得不可能？」最终有人说：「我们在各自为战。发表论文时信息不共享，被长期锁起来。而且我们没有共享工具——一个博士后做了一个好工具，等他毕业走了，工具就消失了。」",
+              "Mark：所以我们开始了 Biohub——把工程师和科学家跨大学聚在一起，专注长期工具开发。基本模型奏效了。我们从旧金山扩展到了纽约、芝加哥。现在的主线是 virtual biology initiative——用独特数据集来做生物学的世界模型。",
+              "",
+              "【为什么是 AI + 生物学，而不是纯生物学】",
+              "Mark：跟语言模型不同，互联网上没有那么多生物学数据。你需要能看见以前看不见的东西（所以我们做成像），能记录体内发生的事（所以做细胞工程），能测量以前测不到的东西比如炎症（所以芝加哥 Biohub 在做设备）。这些会创造全新的数据集，支撑全新的模型。",
+              "Priscilla：我们最初做单细胞测序，只是资助方法学分享。后来做 Human Cell Atlas，现在是最大的单细胞转录组数据库之一。再后来建了 Cell by Gene 注释工具，社区自发贡献数据。有人说我们只是在「集邮」——光攒数据不出知识。然后大语言模型出现了，我们突然意识到：如果我们能用模型理解这些数据呢？把生物学从发现型科学变成工程型科学？",
+              "",
+              "【ESM Fold：蛋白质世界模型】",
+              "Alex：我们一周前发布了 ESM Fold。这是一个基于语言模型的蛋白质生物学世界模型，在十亿级蛋白质序列上训练，学会了涌现式的蛋白质生物学表征。",
+              "它可以预测原子级分辨率的蛋白质结构，速度极快，在结构预测的各个基准上几乎都达到了 SOTA。我们折叠了 11 亿个蛋白质，预测了它们的结构。",
+              "但最让人兴奋的是：这是一个通用蛋白质模型，不是为抗体设计的，不是为某个靶点设计的。但你用它来设计蛋白质和单链抗体时，得到了纳摩尔级的结合剂——达到了治疗活性水平。",
+              "这意味着你可以在数字世界里筛选数十万条轨迹，然后只合成 96 个蛋白质在实验室里验证。这把传统需要高通量筛选数百万抗体的工作压缩了几个数量级。",
+              "",
+              "【为什么不做 VC 支持的公司】",
+              "主持人：为什么选非营利而不是创业公司？",
+              "Mark：我们想把工具交给整个科学界。以开源项目的形式，能更快到达更多科学家手里。而且数据不是你能花钱买的——你需要发明新的科学方法来生产数据。这需要 10-15 年的周期，不太适合 VC 模式。",
+              "Priscilla：作为这里最不会赚钱的人（笑），我觉得非营利的定位实际上帮助我们吸引更多人加入。要理解人类生物学的全部、治愈所有疾病，你需要整个学术和生物技术行业一起合作。不能排除任何人才。罕见病的长尾特别长——如果你把工具交给关心某种罕见病的人，他们能做出进展，而这个进展反过来帮助我们理解更多关于人体运作的知识。",
+              "",
+              "【层级化世界模型策略】",
+              "Mark：你需要层级化构建。不理解蛋白质相互作用就没法理解细胞。不理解细胞就没法理解免疫系统。你可以高层次抽象模拟一个系统，但如果真想理解它怎么运作，你得在每一层做模拟。",
+              "Priscilla：我们独特的地方在于 AI 和湿实验是一个整体。我们战略性地收集跨层级的数据——单细胞转录组加空间信息、半透明斑马鱼的发育过程、细胞间通讯传感器——来帮助模型建立跨层级的连接。",
+              "",
+              "【机制可解释性：打开黑箱】",
+              "Alex：传统的机制可解释性是用在大语言模型上的——理解模型的表征空间和计算方式。我们把同样的工具用在蛋白质语言模型上。",
+              "模型在十亿级蛋白质序列上训练，涵盖了已知和未知的生物学。它涌现出了对生物学结构和功能的理解。通过机制可解释性，我们可以在已知蛋白质和未知蛋白质之间建立桥梁——因为它们在模型的表征空间里共享底层结构和语法。",
+              "",
+              "【Priscilla 的愿景：把每个人当个体来治】",
+              "Priscilla：我对疾病的思考方式不是按疾病分类，而是：我想理解一个人的基因，理解 ta 的疾病风险，理解基因变异→蛋白质→疾病过程的机制链。如果你理解了这条链，你就可以设计一种蛋白质、一种药物，专门针对 ta 来干预。",
+              "现在的现实是：你得了一个哪怕稍微不那么标准的病，你去 PubMed 查论文，翻补充材料里的方法，然后想「我跟论文里研究的人像不像？」——我们在猜。我们真的没有机制层面的理解。",
+              "",
+              "【罕见病作为突破口】",
+              "Mark：我们有个项目叫 Rare as One。很多公司只关注常见病，因为经济上划算。但如果你能用 AI 更容易地设计分子，再配上自组织的患者群体，经济学就翻转了。",
+              "Priscilla：患者群体在自建登记册、生物样本库，甚至自己组织临床试验。有一种基因治疗，患者团体在三到五年内就推进了——而不是几十年。",
+              "Mark：而且从科学角度，你经常从罕见或奇怪的边缘案例中学到更多关于系统的知识。",
+              "",
+              "【关于人才：为什么 AI 研究员要来 Biohub】",
+              "Mark：这里的 AI 研究员可以去任何主流实验室做语言模型。但那些实验室没有前沿生物学。如果你关心的是这个使命，世界上没有其他地方同时在做前沿 AI 和前沿生物学。",
+              "Alex：这很简单。我们的使命是治愈、预防疾病。我们正处于这个目标看起来可以实现的历史时刻。",
+              "",
+              "【Mark 对 AI 指数曲线的判断】",
+              "Mark：指数曲线的本质不是「持续增长」——而是「持续加速」。当你在一条指数曲线上时，情感上的感觉是「不可能继续吧」。但它确实在继续，而且在加速。",
+              "这个行业仍然在这条曲线上。这验证了我们做大规模投资的决定。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
