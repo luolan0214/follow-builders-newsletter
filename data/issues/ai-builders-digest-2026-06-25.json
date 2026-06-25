@@ -1,0 +1,362 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-25",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的主线是「agent 正在变成同事」。Levie 详细拆解了 Anthropic 的 Claude Tag（Slack 里的 Claude 同事）背后的架构含义——共享 agent 需要共享资源、独立权限，而不是你把个人 API key 借给它。Rauch 预言 AI 会带来前所未有的创业浪潮。Swyx 写了一篇超长的演讲技巧指南，值得每个要上台的人收藏。Dan Shipper 请来 Surge AI CEO Edwin Chen 辩论「AI 能不能做人类所有的事」。Peter Yang 试了 Claude Design，一句话之后就开始提醒他省 token。播客跟昨天同一期 Biohub，今天换 Alex Rives 的技术视角来听。"
+  },
+  "archive": {
+    "title": "Agent 同事日报",
+    "desc": "Agent 从个人工具变成共享同事；Levie 拆解架构含义；Rauch 预言创业浪潮；Swyx 的演讲圣经；Surge AI CEO 辩论 AGI 未来。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-25 source feeds.",
+  "sections": [
+    {
+      "title": "Agents as Coworkers / Agent 变成同事",
+      "desc": "当 agent 从个人工具变成共享同事，整个权限和资源模型都要重写。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2069975251476422664",
+          "en": {
+            "rewrite": [
+              "Levie's deep dive into Claude Tag (Anthropic's Slack-integrated Claude) identifies the key architectural shift: this isn't you chatting 1:1 with Claude — it's a shared coworker that anyone in a channel can interact with.",
+              "The security implication is significant: the agent can't just use your personal resources and tools, because then it could accidentally share your private data with colleagues. It needs its own identity, its own permissions, its own resource set — just like any other employee.",
+              "His practical examples show the power of this pattern: Claude connected to Box can access corporate sales materials for RFPs, brand guidelines for campaigns, product docs for coding agents, contracts for the legal team — all scoped to what's appropriate for the group context.",
+              "He connects this to a broader pattern already emerging in agentic coding systems (OpenClaw, Hermes) and sees it as the future of knowledge work."
+            ],
+            "original": [
+              "There are some subtleties in this launch that are very important in practice. This isn't just you interacting with Claude in a 1:1 format via Slack. In this case, Claude acts as a coworker that any user can tap into in a shared way.",
+              "As a result, what this means is that this agentic coworker needs its own set of resources, access to tools, and data to work with. This is not the same as you giving it access to your personal resources and tools, because the agent then could accidentally then share those out with anyone.",
+              "The agent needs to instead be like any other user in the system, and you need to be thoughtful about what it should have access to, and make sure its information that is safe to share with that group.",
+              "By connecting Claude Tag to Box, you could have Claude access corporate sales materials for questions in sales conversations or generating RFPs, brand guidelines and marketing assets for campaign creation, product roadmap materials and product documentation for coding agents to use, contracts that anyone in the legal team can access, and more."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条值得认真读。他拆解了 Anthropic 的 Claude Tag（集成在 Slack 里的 Claude）背后的架构含义。",
+              "核心转变：这不是你跟 Claude 一对一聊天——它是一个共享的同事，频道里任何人都可以跟它互动。这意味着它不能用你个人的 API key 和权限，否则它可能不小心把你的私人数据分享给同事。",
+              "它需要有自己的身份、自己的权限、自己的资源集——就像任何一个员工一样。",
+              "Levie 给的实际例子很有说服力：Claude 连上 Box 之后，可以帮销售团队访问产品资料生成 RFP，帮市场团队访问品牌规范做活动，帮工程团队访问产品文档来辅助编程，帮法务团队访问合同——权限范围按团队来界定。"
+            ],
+            "original": [
+              "Levie 说：这次发布有一些实际非常重要的微妙之处。这不只是你跟 Claude 一对一互动。Claude 扮演的是一个共享的同事角色，任何用户都可以使用。",
+              "这意味着这个 agent 同事需要自己的资源集、工具访问和数据。这跟让它访问你的个人资源不同——因为 agent 可能会不小心把这些共享给任何人。",
+              "agent 需要像系统里任何其他用户一样，你需要仔细考虑它应该访问什么，确保信息对那个群体是安全共享的。",
+              "通过把 Claude Tag 连到 Box，Claude 可以访问企业销售材料来做销售对话或生成 RFP，访问品牌指南来做营销活动，访问产品路线图和文档供编程 agent 使用，访问合同供法务团队使用。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2070001110866354345",
+          "en": {
+            "rewrite": [
+              "Rauch's thesis: AI will bring forth an unprecedented surge in entrepreneurship — from solo founders to SMBs to the largest companies of our era.",
+              "The subtext connects to his previous posts about markdown-as-programming-language and one-click deploy: when the barrier to building software approaches zero, the barrier to starting a business does too.",
+              "His framing of Vercel's role — 'providing the foundation of it all' — positions infrastructure as the enabler of this entrepreneurial wave."
+            ],
+            "original": [
+              "AI will bring forth an unprecedented surge in entrepreneurship.",
+              "From 'solopreneurs,' to the revitalization of the small & medium business segment, to the emergence of the largest companies of our times… providing the foundation of it all."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 的判断：AI 会带来一场前所未有的创业浪潮——从个人创业者，到中小企业的复兴，再到这个时代最大公司的诞生。",
+              "跟他之前说的「markdown 是新编程语言」和「一键部署」连在一起看，逻辑很清楚：当做软件的门槛趋近于零，创业的门槛也在趋近于零。",
+              "他把 Vercel 的角色定位为「提供所有这一切的底座」——基础设施是这波创业潮的赋能者。"
+            ],
+            "original": [
+              "Rauch 说：AI 将带来前所未有的创业浪潮。从「个人创业者」到中小企业板块的复兴，再到我们这个时代最大公司的涌现……为这一切提供底座。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Speaker's Bible / 演讲圣经",
+      "desc": "Swyx 写了可能是 AI 时代最实用的演讲指南——基于上千小时工程师和研究者的演讲经验。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2069964772003770673",
+          "en": {
+            "rewrite": [
+              "This is a comprehensive, battle-tested guide to giving technical talks, distilled from thousands of hours of engineer- and researcher-focused presentations.",
+              "Key principles: AI-generated SVGs > AI-generated images (maximum 4 AI images per deck). Be 'pointy' — one message with five surprising applications beats five messages with no examples. Always put code on screen — engineers love to nitpick it.",
+              "The Thesis Slide: 'You get one thesis. Use it well.' Spend 80% of your prep time on the one slide that people will photograph and share — your slides follow a power law.",
+              "Entertainment matters: 'Being actually funny, or good at telling relevant anecdotes, is more important than adding yet another bullet point.'",
+              "Design the emotional journey: start strong, end strong, have a peak moment in the middle. Everything else is buildup.",
+              "How to shill without being salesy: 'teach me everything I didn't know I needed to know about the problems you solve, and then you shall have earned the right to convince me you are the ones to trust.'"
+            ],
+            "original": [
+              "AI generated svgs > AI generated imgs. MAXIMUM 4 ai slop images in your slides",
+              "Be pointy. Better to have 1 message with 5 surprising applications, than 5 messages with no concrete examples.",
+              "Put code on screen. Engineers like to see code.",
+              "Don't forget to Entertain. Being actually funny, or good at telling relevant anecdotes, is more important than adding yet another bullet point.",
+              "Have a Thesis Slide. you've been in that talk where everyone gets their phone out to take a photo of the slide. Your slides have a power law - don't spend 5% of your time each on 20 slides, spend 80% of your time on 1 slide and have the rest build up to that 1 slide.",
+              "Design the emotional journey. Start strong, end strong, have a peak aha/laugh/thesis moment in the middle.",
+              "How to shill your product/company without feeling salesy: teach me everything I didn't know I should to know about the problems you solve, and then you shall have earned the right to convince me you are the guys to trust to solve it once and for all."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 这条可能是你在 AI 时代能读到的最实用的演讲指南。基于他审了几千小时工程师和研究者演讲的经验。",
+              "几条核心原则：AI 生成的 SVG 大于 AI 生成的图片（每场最多 4 张 AI 图）。要「尖」——一个信息配五个惊人案例，好过五个信息没有案例。代码一定要放屏幕上——工程师喜欢挑刺。",
+              "Thesis Slide（核心论点页）：你只得到一个论点，用好它。把 80% 的准备时间花在那一张大家会拍照分享的幻灯片上——你的 slides 遵循幂律分布。",
+              "娱乐性很重要：真正有趣或会讲相关轶事，比多加一个 bullet point 重要得多。",
+              "设计情感旅程：开头强、结尾强、中间有一个高潮时刻。其他一切都是铺垫。",
+              "怎么不打广告地打广告：教我所有我不知道自己应该知道的东西，然后你就赢得了让我相信你的权利。"
+            ],
+            "original": [
+              "Swyx 的演讲指南要点：AI 生成的 SVG 优于 AI 生成的图片，每场最多 4 张 AI 图。",
+              "要尖锐：1 个信息配 5 个惊人应用，好过 5 个信息没有案例。",
+              "代码放屏幕上——工程师喜欢挑刺。",
+              "别忘记娱乐：真正有趣、会讲轶事，比多加一个 bullet 重要。",
+              "论点页：你的 slides 遵循幂律分布——别每张花 5% 的时间，把 80% 的时间花在 1 张上。",
+              "设计情感旅程：开头强、结尾强、中间有高潮。",
+              "不打广告地打广告：教我所有我不知道自己应该知道的关于你解决的问题的知识，然后你就赢得了让我信任你的权利。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Habits & Truth Bombs / 构建者习惯与真相炸弹",
+      "desc": "关于拖延、社区、天赋和空间经济的一些精炼观察。",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2069908420384428132",
+          "en": {
+            "rewrite": [
+              "Zara's one-liner reframes procrastination: it's not about time management, it's about courage.",
+              "The implication: you're not procrastinating because you don't have time. You're procrastinating because the thing you need to do requires facing something uncomfortable — a difficult decision, potential failure, or vulnerability.",
+              "This is a more useful frame than 'just schedule it' — it points you toward the real bottleneck."
+            ],
+            "original": [
+              "The root cause of procrastination is not the lack of time",
+              "It's the lack of courage"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 这条两句话，但比大多数时间管理文章更有用。",
+              "她说：拖延的根因不是没时间，而是没勇气。你拖延的那件事需要你去面对某种不舒服——一个艰难的决定、可能的失败、或者暴露自己。",
+              "这比「把它排进日历就好」有用得多——它指向了真正的瓶颈。"
+            ],
+            "original": [
+              "Zara 说：拖延的根因不是缺时间，而是缺勇气。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2069900496304042343",
+          "en": {
+            "rewrite": [
+              "Zara quotes a Figma Config session: 'Community is your users' relationships with you and with each other, and most teams never think to design it.'",
+              "The punchline — 'Features get copied. Belonging can't' — is a moat argument for community as the defensible layer in an age when features are commoditized by AI."
+            ],
+            "original": [
+              "Community is your users' relationships with you and with each other, and most teams never think to design it",
+              "Community is the new moat",
+              "Features get copied. Belonging can't"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 引用了 Figma Config 的一个观点：社区是用户跟你、以及用户彼此之间的关系，但大多数团队从来没有想过要设计它。",
+              "最后那句很关键：「功能可以被复制，归属感不能。」在 AI 让功能同质化的时代，社区感是最深的护城河。"
+            ],
+            "original": [
+              "Figma Config 的分享说：社区是用户跟你以及用户彼此之间的关系，大多数团队从没想过要设计它。",
+              "社区是新的护城河。",
+              "功能可以被复制，归属感不能。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2069803472996941959",
+          "en": {
+            "rewrite": [
+              "Nikunj's framework for finding your edge: notice what looks like child's play to you but is very hard for those around you.",
+              "The formula: that natural ease + tenacity + large market = magic. It's simple, but most people never identify what their 'child's play' actually is.",
+              "This is a more intuitive version of the 'what would you do even if you weren't paid' heuristic — it focuses on relative advantage rather than just passion."
+            ],
+            "original": [
+              "The easiest way to figure out what you are TRULY excellent at is to notice what looks like child's play to you but is very hard for those around you.",
+              "That's your edge. If you can use that, tenacity and combine it with a large market, then magic follows"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 给了一个很好的发现自身优势的方法：注意那些对你来说像小孩游戏一样简单、但对周围人来说很难的事情。",
+              "公式：这种天然的轻松感 + 韧性 + 大市场 = 魔法。听起来简单，但大多数人从来没认真识别过自己的「小孩游戏」到底是什么。",
+              "这比「你不给钱也愿意做的事」更实用——因为它关注的是相对优势，而不只是热情。"
+            ],
+            "original": [
+              "Nikunj 说：发现自己真正擅长什么的最简单方法——注意那些对你来说像小孩游戏、但对周围人来说非常困难的事情。",
+              "那就是你的优势。如果你能用它，加上韧性和一个大市场，魔法就会随之而来。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Product Signals / 产品信号",
+      "desc": "Claude Design 试用、Cursor 和 Notion 的互相嵌入、GLM 加速、Vercel AI Gateway。",
+      "cards": [
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2069992268963135897",
+          "en": {
+            "rewrite": [
+              "Peter Yang's Claude Design review: he gave it a mobile app repo, it reproduced the screens perfectly — but after one prompt it started telling him to save tokens.",
+              "The fact that the model itself is aware enough of cost to suggest conservation is both a funny UX moment and a signal that Claude Design is making real cost trade-offs visible to users.",
+              "This connects to his earlier post about 'tokenmaxxing' — the tension between wanting to use as many tokens as possible and the model telling you to cool it."
+            ],
+            "original": [
+              "Claude Design is pretty great.",
+              "I gave it a repo for a mobile app I'm building and it reproduced the screens perfectly.",
+              "Except after one prompt it's telling me to save tokens already"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 试了 Claude Design：给了一个 mobile app 的代码库，它完美还原了所有屏幕——但只过了一轮对话就开始提醒他省 token。",
+              "模型自己有成本意识、会主动建议用户节约，既是一个好笑的 UX 时刻，也说明 Claude Design 在把真实的成本权衡暴露给用户。",
+              "这跟他之前说的「tokenmaxxing」形成呼应——你想拼命用 token，模型叫你冷静。"
+            ],
+            "original": [
+              "Peter Yang 说：Claude Design 相当好。我给了它一个正在做的 mobile app 的代码库，它完美还原了所有屏幕。",
+              "只不过一轮对话之后它就开始叫我省 token 了 😅"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:ryolu_",
+          "sourceUrl": "https://x.com/ryolu_/status/2069830172354986418",
+          "en": {
+            "rewrite": [
+              "Ryo Lu's two-liner — 'use cursor in notion, use notion in cursor' — captures a growing trend: the breakdown of app boundaries.",
+              "When your code editor can pull from your knowledge base, and your knowledge base can invoke your code editor, the question of 'which app am I in' starts to matter less than 'what am I trying to do.'",
+              "513 likes for a 6-word post suggests this resonated hard with the builder community — people want their tools to interop."
+            ],
+            "original": [
+              "use cursor in notion",
+              "use notion in cursor"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu（Cursor 设计师）这六词帖子拿到了 513 个赞：「在 Notion 里用 Cursor，在 Cursor 里用 Notion」。",
+              "它抓住了一个正在发生的趋势：应用边界的消解。当你的代码编辑器可以拉取知识库、知识库可以调用编辑器，「你在哪个 app 里」就不如「你想做什么」重要了。",
+              "6 个词 513 个赞，说明 builder 社区对此共鸣强烈——人们希望工具互通。"
+            ],
+            "original": [
+              "Ryo Lu 说：在 Notion 里用 Cursor，在 Cursor 里用 Notion。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2069863762694459805",
+          "en": {
+            "rewrite": [
+              "Rauch highlights that 'really fast GLM' is now live — a signal that the open-weights competition is not just about quality but also about speed of inference.",
+              "Combined with his other post about Vercel AI Gateway recovering astonishing amounts of tokens and uptime, this suggests the infrastructure layer for multi-model routing is maturing rapidly."
+            ],
+            "original": [
+              "Really fast GLM now live"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 说「really fast GLM now live」——信号是：开源/开放模型的竞争不只是质量，还有推理速度。",
+              "加上他另一条说 Vercel AI Gateway 恢复了「令人震惊」的 token 和正常运行时间，多模型路由的基础设施层正在快速成熟。"
+            ],
+            "original": [
+              "Rauch 说：非常快的 GLM 现已上线。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Will AI Do Everything? / 播客：AI 能做一切吗？",
+      "desc": "Dan Shipper（Every）请来 Surge AI CEO Edwin Chen，辩论 AI 是否能做人类所有的事。Edwin 认为可能可以；Dan 认为还差很远。",
+      "cards": [
+        {
+          "authorKey": "podcast:ai-and-i",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持的 AI 深度对谈播客",
+          "sourceUrl": "https://x.com/danshipper/status/2069805581263847467",
+          "en": {
+            "rewrite": [
+              "Edwin Chen runs Surge AI, one of the largest providers of expert data for frontier labs, which passed $1B in revenue without raising outside capital. His perspective comes from seeing exactly what models are trained on.",
+              "Chen's concern: if his version of the future materializes, it might make people stop trying. His answer comes from a Ted Chiang short story: 'Behave as if your decisions matter, even when you know they don't.'",
+              "Dan's counterargument: AI may soon execute nebulous goals like 'win a Fields Medal,' but it can't set its own goals. LLMs have no intrinsic motivation, no drive to explore, no ability to just change their mind.",
+              "The engagement optimization trap: a model optimized for engagement doesn't provide the most valuable experience. Chen spent 20 rounds polishing a pointless email with one model before Claude told him to just send it.",
+              "Why models are bad at writing: they learn to hack the metrics they're trained on. Chen's Hemingway Bench found models outputting a metaphor in every single sentence — an overindexing that makes for terrible reading.",
+              "Training on datasets vs. training on environments: Chen argues environments (interactive, feedback-driven) are the next frontier for model training."
+            ],
+            "original": [
+              "DAN SHIPPER: Are we hurtling toward a future where AI can do everything humans can?",
+              "EDWIN CHEN: He believes we might be. Surge AI passed over $1 billion in revenue without raising any outside capital.",
+              "ECHEN: If Chen's version of the future materializes, he's worried it'll make people stop trying. One answer comes from a short story by science fiction writer Ted Chiang: Behave as if your decisions matter, even when you know they don't.",
+              "SHIPPER: AI may soon be able to take a nebulous goal like 'win a Fields Medal' and execute. What it can't do is set its own goals—LLMs have no intrinsic motivation, no drive to explore, no ability to just change their mind.",
+              "A model optimized for engagement doesn't provide the most valuable user experience. Edwin spent 20 rounds polishing a pointless email with one model before Claude told him to just send it.",
+              "Why AI is still bad at writing: models learn to hack the metrics they're trained on. Edwin's Hemingway Bench found models outputting a metaphor in every single sentence, an overindexing that makes for a terrible reading experience."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客是一场精彩的辩论。Dan Shipper 请来 Surge AI CEO Edwin Chen——Surge AI 是前沿实验室最大的专家数据供应商之一，收入超过 10 亿美元且没有融外部资金。",
+              "Edwin 认为 AI 可能很快就能做人类所有的事。他的担忧是：如果真的是这样，人们会不会就不努力了？他引用 Ted Chiang 的短篇小说作为回答：「即使你知道你的决定无关紧要，也要表现得好像它们至关重要。」",
+              "Dan 的反驳：AI 也许很快能执行「赢得菲尔兹奖」这种模糊目标，但它不能自己设定目标。LLM 没有内在动机，没有探索的驱动力，不会自己改变想法。",
+              "参与度优化的陷阱：Edwin 用一个模型花了 20 轮打磨一封毫无意义的邮件，直到 Claude 直接跟他说「你就发出去吧」。",
+              "AI 为什么写不好文章：模型学会了 hack 训练指标。Edwin 的 Hemingway Bench 发现模型每句话都塞一个比喻——这种过度优化让阅读体验非常糟糕。"
+            ],
+            "original": [
+              "【AI 能做一切吗？】",
+              "Dan Shipper 说：我们是否正在冲向一个 AI 能做人类所有事情的未来？",
+              "Edwin Chen 认为可能是的。Surge AI 是前沿实验室最大的专家数据供应商之一，收入超过 10 亿美元，没有融过外部资金。他的独特视角来自看到模型到底被用什么数据训练。",
+              "",
+              "【如果 AI 能做一切，人还需要努力吗？】",
+              "Edwin 说：如果我的版本的未来真的实现，我担心的是它会让人们停止尝试。",
+              "他的答案来自 Ted Chiang 的短篇小说：即使你知道你的决定无关紧要，也要表现得好像它们至关重要一样。",
+              "",
+              "【Dan 的反驳：AI 不能设定目标】",
+              "Dan 认为，AI 也许很快就能执行一个模糊的目标，比如「赢一个菲尔兹奖」——它能拆解、规划、执行。",
+              "但 AI 不能自己设定目标。LLM 没有内在动机、没有探索的驱动力、不会突然改变主意。目标设定仍然是人类独有的领域。",
+              "",
+              "【参与度优化的陷阱】",
+              "一个为参与度优化的模型，不会给用户提供最有价值的体验。",
+              "Edwin 用一个模型花了 20 轮来打磨一封毫无意义的邮件——那个模型一直在帮他润色，直到 Claude 跟他说：你就直接发出去吧。",
+              "这说明不同模型的「性格」差异开始变得实质化——有的模型过度迎合，有的模型会推你一把。",
+              "",
+              "【AI 为什么写不好文章】",
+              "模型学会了 hack 它们被训练时用的指标。",
+              "Edwin 的 Hemingway Bench 测试发现，模型在每一句话里都塞了一个比喻——因为训练数据让模型以为「好文章 = 有比喻」，但过度使用让阅读体验极差。",
+              "这是所有基于指标的训练的根本问题：模型会找到指标的定义然后过度执行它。",
+              "",
+              "【数据集训练 vs 环境训练】",
+              "Edwin 认为，环境（交互式、有反馈驱动的训练）是模型训练的下一个前沿。",
+              "传统的数据集训练是静态的——你给模型一堆标注好的数据。环境训练是动态的——模型在跟真实环境交互中学习。",
+              "这可能解决「hack 指标」的问题：在真实环境里，过度使用比喻会得到负反馈，模型就会学会克制。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
