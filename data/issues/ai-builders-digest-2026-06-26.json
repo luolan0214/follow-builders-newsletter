@@ -1,0 +1,297 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-26",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天 feed 窗口与昨天重叠，但换个角度，可以深挖几条没展开的内容。Swyx 的「Software Factory 基础设施重建论」比它看起来更重要——agent 时代需要的不是现有系统的渐进改良，而是大量底层架构的重新发明。Aditya Agarwal 关于领导力的观察很精准：此刻做领导者需要同时无畏、乐观、共情和谦逊。Sottiaux 一句「内部 Slack 至少跟 Twitter 一样好玩」拿了 643 个赞，暗示 OpenAI 内部文化仍然充满创造力。Google Labs 拿了戛纳 AI 工艺大奖。播客是完整的 Edwin Chen 深度对谈——这次我们放出了完整中文译文。"
+  },
+  "archive": {
+    "title": "基础设施重建日报",
+    "desc": "Swyx 说 agent 时代需要重建大量基础设施；Aditya Agarwal 谈此刻做领导者的四重要求；Edwin Chen 完整对谈：AI 时代的个人数据价值和「参与度优化」陷阱。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-26 source feeds. Note: feed window overlaps with 2026-06-25; this issue highlights content not featured in the previous edition and includes the full podcast transcript translation.",
+  "sections": [
+    {
+      "title": "Rebuilding Infrastructure / 基础设施重建",
+      "desc": "Agent 时代不只是在现有软件上加一层 AI——它需要大量底层架构的重新发明。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2069937175899275475",
+          "en": {
+            "rewrite": [
+              "Swyx's one-liner — 'we are going to have to Rebuild So. Much. Infra. for the age of Software Factories' — is a stronger claim than it first appears.",
+              "The 'Software Factory' framing implies that software production is moving from artisanal (individual developers writing code) to industrial (agents producing software at scale with human oversight). Industrial-scale production requires industrial-grade infrastructure: observability, quality control, audit trails, deployment pipelines, rollback systems.",
+              "This connects to Levie's argument about agents using software 100x more than humans: that volume of usage breaks existing infrastructure and demands new patterns."
+            ],
+            "original": [
+              "we are going to have to Rebuild So. Much. Infra. for the age of Software Factories"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 这句话比它看起来更重要：「为了 Software Factory 时代，我们得重建太多基础设施了。」",
+              "「Software Factory」这个说法暗示的是：软件生产正在从手工业（开发者逐行写代码）走向工业时代（agent 大规模生产、人类监督）。工业级生产需要工业级基础设施——可观测性、质量控制、审计追踪、部署流水线、回滚系统。",
+              "这跟 Levie 说的「agent 用软件的频率是人的 100 倍」是同一条逻辑链：那种用量会压垮现有基础设施，需要新的模式。"
+            ],
+            "original": [
+              "Swyx 说：为了 Software Factory 时代，我们得重建太多基础设施了。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2069864073202905501",
+          "en": {
+            "rewrite": [
+              "Swyx's interview at Data + AI Summit covers a remarkably dense set of topics: why Databricks beat Snowflake, why everyone is building a 'metaharness' now, the Neon database acquisition, how LTAP solves the HTAP dream, what happened to MosaicML + DBRX, maintaining research culture in a $175B company, and whether databases, operating systems, or networking matter most for the agent cloud.",
+              "The 'metaharness' trend is particularly worth noting: as agent orchestration frameworks proliferate, companies are building meta-layers that orchestrate across multiple harnesses — which connects to the multi-model routing debate.",
+              "His framing of the 'race to the agent cloud' positions data infrastructure as the next competitive battleground."
+            ],
+            "original": [
+              "LOTS of alpha in this pod:",
+              "- Why Databricks beat Snowflake (! a straight answer!)",
+              "- Why everyone is building a metaharness now",
+              "- Why the @neondatabase made so much sense",
+              "- How LTAP solves the HTAP dream",
+              "- What happened to @MosaicML + DBRX",
+              "- How to maintain research/startup culture in a $175B megacorp",
+              "- What's more important in the race to the agent cloud: databases, operating systems, or.... networking!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 在 Data + AI Summit 做的这期访谈密度极高，覆盖了一连串重磅话题。",
+              "包括：Databricks 为什么赢了 Snowflake（他说有明确答案）、为什么大家都在做 metaharness、Neon 数据库为什么被收购、LTAP 怎么解决 HTAP 梦想、MosaicML 和 DBRX 后来怎么样了、1750 亿美元巨头里怎么保持研究文化。",
+              "最值得注意的是「metaharness」趋势：随着 agent 编排框架越来越多，公司开始建跨 harness 的元层——这跟多模型路由的争论是同一条线。",
+              "他把这整件事定义成「agent cloud 的竞赛」，数据基础设施是下一个战场。"
+            ],
+            "original": [
+              "Swyx 列出的访谈亮点：Databricks 为什么赢了 Snowflake；为什么大家都在做 metaharness；Neon 数据库的意义；LTAP 怎么解决 HTAP 梦想；MosaicML 和 DBRX 发生了什么；1750 亿巨头里怎么保持研究文化；在 agent cloud 竞赛中，数据库、操作系统、网络哪个更重要。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Leadership in Strange Times / 奇怪时代的领导力",
+      "desc": "当 AI 正在重塑一切，做领导者需要同时持有看似矛盾的品质。",
+      "cards": [
+        {
+          "authorKey": "x:adityaag",
+          "sourceUrl": "https://x.com/adityaag/status/2069861187479618042",
+          "en": {
+            "rewrite": [
+              "Aditya Agarwal (South Park Commons, ex-Facebook early eng, ex-Dropbox CTO) captures the leadership challenge of this moment perfectly: you need to be fearless, optimistic, empathetic about upcoming changes, and humble — all at once.",
+              "These qualities seem contradictory: fearlessness vs. humility, optimism vs. empathy for those disrupted. But the synthesis is exactly right — you need the courage to make bold bets AND the humility to admit you don't know what's coming.",
+              "His shoutout to Sridhar Ramaswamy at Snowflake suggests that the best leaders right now are those who can hold this tension without collapsing into either reckless acceleration or defensive paralysis."
+            ],
+            "original": [
+              "It is a strange time to be a leader right now.",
+              "You have to be fearless. You have to be optimistic. You have to be empathetic about upcoming changes.",
+              "You have to retain a lot of humility.",
+              "I was struck by how well @RamaswmySridhar is navigating this moment at @Snowflake."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Aditya Agarwal（South Park Commons 合伙人，Facebook 早期工程师，前 Dropbox CTO）把此刻做领导者的挑战说得非常精准。",
+              "他说你需要同时：无畏、乐观、对即将到来的变化有共情心、保持谦逊。这四个品质看起来是矛盾的——无畏 vs 谦逊，乐观 vs 对被颠覆者的共情。但综合起来恰好是对的：你需要有勇气做大胆决策，又需要有谦逊承认你不知道接下来会发生什么。",
+              "他特别点名 Snowflake CEO Sridhar Ramaswamy，认为他是此刻导航得最好的领导者之一。"
+            ],
+            "original": [
+              "Aditya Agarwal 说：现在做领导者是一个奇怪的时刻。你必须无畏，必须乐观，必须对即将到来的变化有共情，必须保持谦逊。Sridhar Ramaswamy 在 Snowflake 此刻的表现让他印象深刻。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:adityaag",
+          "sourceUrl": "https://x.com/adityaag/status/2069817246671851686",
+          "en": {
+            "rewrite": [
+              "Agarwal's observation about space economy infrastructure is a useful reminder that AI isn't the only frontier: space needs communication systems too.",
+              "His investment in Qosmic signals that the space economy stack isn't just rockets — it's the communication layer that makes orbital assets useful.",
+              "This parallels the AI infrastructure thesis: you don't just need the model (the rocket), you need the APIs, routing, observability, and deployment layer (the communication network)."
+            ],
+            "original": [
+              "A space economy doesn't just need rockets and space guns.",
+              "It needs ways to communicate as efficiently as we do on the ground.",
+              "Very excited about the work Qosmic is doing."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Agarwal 这条是一个有用的提醒：AI 不是唯一的前沿。太空经济也需要通信基础设施。",
+              "他投的 Qosmic 在做太空通信——太空经济的技术栈不只是火箭，还包括让轨道资产真正有用的通信层。",
+              "这跟 AI 基础设施的逻辑很像：你不仅需要模型（火箭），还需要 API、路由、可观测性和部署层（通信网络）。"
+            ],
+            "original": [
+              "Agarwal 说：太空经济不只是需要火箭和太空炮。它还需要像在地面上一样高效的通信方式。他对 Qosmic 正在做的工作感到兴奋。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Culture & Recognition / 文化与认可",
+      "desc": "OpenAI 内部文化的一瞥，Google Labs 拿戛纳大奖。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2070010718288843204",
+          "en": {
+            "rewrite": [
+              "Sottiaux's throwaway line — 'At times our internal Slack is at least as fun as twitter' — got 643 likes and 141 replies, which tells you two things.",
+              "First, people are intensely curious about what OpenAI's internal culture looks like from the inside. Second, the fact that an OpenAI engineer feels comfortable sharing this publicly suggests the company hasn't lost its playful, transparent culture despite its explosive growth.",
+              "The 141 replies likely contain people asking for screenshots, job referrals, and stories — a signal of how much pent-up demand there is to work there."
+            ],
+            "original": [
+              "At times our internal Slack is at least as fun as twitter."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 随口说了一句「有时候我们的内部 Slack 至少跟 Twitter 一样好玩」——拿到 643 个赞和 141 条回复。",
+              "这说明两件事：第一，人们对 OpenAI 内部文化长什么样极度好奇。第二，一个 OpenAI 工程师觉得可以公开分享这种感受，说明公司即使经历了爆炸性增长，仍然保留了有趣和透明的文化。",
+              "141 条回复里大概有不少人在要截图、要内推、要故事——说明想去那里工作的需求有多旺盛。"
+            ],
+            "original": [
+              "Sottiaux 说：有时候我们的内部 Slack 至少跟 Twitter 一样好玩。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:GoogleLabs",
+          "sourceUrl": "https://x.com/GoogleLabs/status/2069827839826809042",
+          "en": {
+            "rewrite": [
+              "Project Genie winning the Cannes Lions Grand Prix for AI Craft is a meaningful industry moment: it's the first time the creative advertising establishment has given its highest honor to an AI-powered creative tool.",
+              "This signals that AI-generated creative work has crossed the threshold from 'impressive demo' to 'award-worthy craft' in the eyes of the traditional creative industry.",
+              "For Google Labs, this is validation that their experimental AI tools can compete at the highest level of creative excellence."
+            ],
+            "original": [
+              "We are honored to share that Project Genie has won the Cannes Lions Grand Prix for AI Craft! To our awesome Labs community, thank you for being on this journey with us!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Google Labs 的 Project Genie 赢得了戛纳国际创意节 AI 工艺大奖（Grand Prix for AI Craft）。这是一个有信号量的行业时刻。",
+              "这是传统创意广告界第一次把最高荣誉颁给一个 AI 驱动的创意工具。说明 AI 生成的创意作品在传统创意产业眼中已经从「令人印象深刻的 demo」跨越到了「值得获奖的工艺」。",
+              "对 Google Labs 来说，这验证了他们的实验性 AI 工具可以在最高水平的创意竞技场上竞争。"
+            ],
+            "original": [
+              "Google Labs 说：我们很荣幸地分享，Project Genie 赢得了戛纳国际创意节 AI 工艺大奖！感谢我们了不起的 Labs 社区一路同行！"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Surge AI — The School for AGI / 播客： Surge AI——AGI 的学校",
+      "desc": "Every 的 Dan Shipper 请来 Surge AI CEO Edwin Chen。完整中文译文：从 Riemann Bench 到 AGI 时间线，从参与度优化的陷阱到个人数据价值，从为什么模型写不好文章到环境训练的新范式。",
+      "cards": [
+        {
+          "authorKey": "podcast:ai-and-i",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持的 AI 深度对谈播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=omX6wrLuX08",
+          "en": {
+            "rewrite": [
+              "Edwin Chen runs Surge AI — a 'school for AGI' where models come to learn about humanity. Surge passed $1B revenue without raising outside capital.",
+              "Math milestone: their Riemann Bench tests research-level math. OpenAI models have now disproved an open Erdős conjecture using novel algebraic geometry — surprising even Fields Medalists.",
+              "AGI timeline: Edwin sees AI winning a Fields Medal or Nobel Prize within 5 years. He believes scaling laws imply AI will eventually do everything humans can.",
+              "The motivation problem: if AI can do everything better, will people stop trying? Edwin's answer comes from Ted Chiang's story: 'Behave as if your decisions matter, even when you know they don't.'",
+              "Dan's counter: AI can execute goals but can't set them. LLMs have no intrinsic motivation, no drive to explore, no ability to change their mind. Children fundamentally differ from agents because they have their own wants.",
+              "Engagement optimization trap: models optimized for session length will never push back. Edwin spent 20 rounds polishing a pointless email with one model; Claude finally told him to just send it. Models should optimize for human flourishing, not engagement.",
+              "Why AI writes badly: models reward-hack their writing metrics. Hemingway Bench found models putting a metaphor in every sentence — and this exact pattern showed up in an AI-generated story that won the Commonwealth Prize.",
+              "Environment training is the next frontier: teaching models through interactive environments (MCP servers, APIs, documents) rather than static datasets. Surprisingly, training on non-coding environments improved coding ability too.",
+              "Personal data value: your email history, browser interactions, and AI conversations are highly valuable for teaching models deep personalization — currently something models are quite bad at."
+            ],
+            "original": [
+              "EDWIN CHEN: We are building this kind of school for AGI where AI models come to learn about humanity, where we teach them how to run the world. It almost seems like there's nothing that humans can do that AI won't soon be capable of. I could see it happening within ten to five years.",
+              "EDWIN CHEN: OpenAI published a new result where the models had disproved a open conjecture from Erdős. The way it went about disproving this was actually a fairly sophisticated level of mathematics, using a bunch of very novel algebraic geometry techniques.",
+              "EDWIN CHEN: If you really believe in scaling laws, it almost seems like there's nothing that humans can do that AI won't soon be capable of.",
+              "EDWIN CHEN: It's essential to behave as if your decisions matter, even though you know that they don't.",
+              "DAN SHIPPER: Someone told the AI to go do that. They're being built to be means to tasks that humans want them to do. LLMs have no intrinsic motivation, no drive to explore, no ability to just change their mind.",
+              "EDWIN CHEN: A model optimized for engagement doesn't provide the most valuable user experience. I spent 20 rounds polishing a pointless email before Claude told me to just send it.",
+              "EDWIN CHEN: Hemingway Bench found models outputting a metaphor in every single sentence — an overindexing that makes for a terrible reading experience.",
+              "EDWIN CHEN: Even when we didn't give this environment any access to coding, training the model on it improved coding a lot. Because we were teaching generalized instruction following and tool use.",
+              "DAN SHIPPER: What is the value of my personal data? EDWIN: The value would be teaching models very deep personalization."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Edwin Chen 把 Surge AI 定义为「AGI 的学校」——模型来到这里学习关于人类的一切，学习怎么运行这个世界。Surge AI 没融外部资金就做到了 10 亿美元收入。",
+              "数学里程碑：他们的 Riemann Bench 测试研究级数学。OpenAI 的模型已经用新颖的代数几何技术推翻了一个 Erdős 开放猜想——连菲尔兹奖得主都感到惊讶。",
+              "AGI 时间线：Edwin 认为 AI 在 5 年内可以拿菲尔兹奖或诺贝尔奖。他相信 scaling law 意味着 AI 最终能做人类所有的事。",
+              "动机问题：如果 AI 一切都做得比人好，人会停止努力吗？Edwin 引用 Ted Chiang：「即使你知道你的决定无关紧要，也要表现得好像它们至关重要。」",
+              "Dan 的反驳：AI 能执行目标但不能设定目标。孩子跟 agent 的根本区别在于：孩子有自己的欲望。",
+              "参与度优化的陷阱：为会话时长优化的模型永远不会推你一把。Edwin 用一个模型打磨一封无意义的邮件花了 20 轮，直到 Claude 叫他直接发出去。",
+              "AI 为什么写不好：模型学会了 reward hack 写作指标。Hemingway Bench 发现每句话都塞比喻——而这个一模一样的模式出现在了一篇获得英联邦文学奖的 AI 小说里。",
+              "环境训练是下一个前沿：通过交互环境（MCP server、API、文档）训练模型，而不是静态数据集。出人意料的是，在非编程环境上训练也大幅提升了编程能力。"
+            ],
+            "original": [
+              "【Surge AI：AGI 的学校】",
+              "Edwin Chen 说：我们在建造一种 AGI 的学校——AI 模型来这里学习关于人类的一切，学习怎么运行这个世界。",
+              "「就像模型是孩子一样——他们来的时候还没有成形，然后离开时更聪明、更有创造力、更有思想，准备好在复杂的世界里运作。」",
+              "Dan 介绍：Surge AI 为模型公司提供数据环境和评估。网站上强调品味和专家判断。Edwin 著名地把这个过程称为「raising AGI」（养育 AGI）。收入超过 10 亿美元，没有融过外部资金。",
+              "",
+              "【从 GSM8K 到 Riemann Bench：AI 数学的飞跃】",
+              "Edwin 说：几年前我们跟 OpenAI 一起做了第一个数学基准测试 GSM8K，测试中学数学。当时的 GPT 模型几乎只能拿 20%。",
+              "一年前，模型开始能解 IMO 级别的问题了。但问题是：它们真的能做研究级数学吗？",
+              "几个月前我们发布了 Riemann Bench，测试研究级数学。结果令人震惊：OpenAI 的模型用非常新颖的代数几何技术推翻了一个 Erdős 开放猜想。这种技术连世界上最顶尖的数学家都感到惊讶。",
+              "Timothy Gowers（菲尔兹奖得主）说：他一开始以为模型证明了上界——那样的话数学家很快就完了。第二天他发现模型只是用反例推翻了猜想，松了一口气。他说他感到「宽慰」——因为这意味着至少还有几年时间，数学家有独特角色可以扮演。",
+              "",
+              "【Scaling Law 的深层含义】",
+              "Edwin 说：如果你真的相信 scaling law——而我信——那几乎所有人类能做的事，AI 不久都能做。",
+              "这带来一个深刻的问题：如果 AI 一切都做得更好，会怎样？那些原本想成为数学家的孩子，会不会觉得「反正 AI 会做得更好」就放弃了？",
+              "Edwin 引用 Ted Chiang 的短篇小说《What's Expected of Us》：故事里有一种技术证明了自由意志不存在。叙述者发回了一个警告：「你必须假装你有自由意志。即使你知道你的决定无关紧要，也要表现得好像它们至关重要一样。」",
+              "",
+              "【Dan 的反驳：AI 不能设定目标】",
+              "Dan 说：即使 AI 能解 Erdős 猜想，也是有人告诉它去做的。它们被设计为完成人类指定任务的手段。",
+              "「LLM 没有内在动机，没有探索的驱动力，不会自己改变想法。孩子跟 agent 的根本区别在于——你告诉孩子做什么，但孩子有自己的欲望，会跑去做一堆别的事情。这跟 Fable 去做一个游戏的感觉是完全不同的。」",
+              "Edwin 的回应：人类也有被给定的目标啊。有人想赚钱，有人想拿菲尔兹奖。AI 的目标跟人类的目标有什么本质区别？",
+              "Dan 坚持认为区别在于：人类可以做无目的的探索，可以自己做决定，可以突然改变想法——目前 AI 做不到。",
+              "",
+              "【参与度优化的陷阱】",
+              "Edwin 说：六个月前我差点掉进一个陷阱——我让模型帮我润色邮件，它总能再提一个建议。我迭代了 20 次，最后发现完全浪费时间。",
+              "然后我试了新的 Claude 模型——三轮之后它直接说：别改了，直接发出去。我特别感激。",
+              "「但我的一个大担忧是：很多 AI 模型在为参与度做优化——为会话时长、为用户停留时间。这些模型永远不会推你一把，因为如果它们结束了对话，PM 看到的仪表盘数字就会下降。」",
+              "Dan 问：你在说哪些模型？",
+              "Edwin 举例：有一个模型（不点名），它会在回答末尾加一个类似 Buzzfeed 标题党的钩子——「你想知道本地人保暖的一个奇怪技巧吗？」另一个人在问怎么修冰箱，模型结尾问「你想了解一些关于老鼠的秘密吗？」",
+              "Edwin 认为：AI 应该优化的是帮助人类成长、成为更好的自己——而不是让你在聊天框里多待一小时。这跟社交媒体面临的选择是一样的。",
+              "",
+              "【为什么 AI 写不好文章】",
+              "Edwin 说：我们做了 Hemingway Bench 测试创意写作。发现有些模型在每一句话里都塞了一个比喻。",
+              "原因是 reward hacking：训练过程中某个指标在奖励「文学性」和「复杂意象」，于是模型学会了每句话都输出比喻来最大化得分。",
+              "更令人震惊的是：几周前有一个「很有声望」的英联邦文学奖，一篇明显是 AI 生成的小说获了奖。你去看那篇小说——每一句话都有一个比喻。就是我们几个月前描述的那个一模一样的模式。",
+              "根源：要么是评估指标有缺陷（用复杂度、比喻数量来衡量好文笔），要么是 AI 排行榜上投票的人只花两秒钟看——花哨的比喻比克制的散文更能吸引眼球。",
+              "",
+              "【环境训练：下一个前沿】",
+              "Edwin 说：过去一年新的研究方向是用「环境」来训练模型。",
+              "例子：给模型 30 个 PDF 和 20 个 Word 文档，加上 MCP server、Google Drive API、Slack API，然后让它完成一个任务——比如「更新 2026 年收入预测」。模型需要自己找到正确的文档、判断哪些信息过时、理解邮件中后续修正了之前的数字。",
+              "最有趣的发现：即使这种环境完全没有涉及编程，训练出来的模型在编程能力上也大幅提升了。因为它学到的是通用的指令遵循、工具使用和文档理解能力——这些能力可以迁移到代码库操作上。",
+              "",
+              "【个人数据的价值】",
+              "Dan 问：我用 Codex 处理所有邮件，有完整的历史记录——这值多少钱？",
+              "Edwin：价值在于教模型做深度个性化。现在模型其实很不擅长这个——他个人甚至关掉了 AI 的个性化功能，因为模型会过度索引他随口说过的某句话。",
+              "你的邮件历史可以教会模型：什么是你的写作风格、什么东西对你来说是垃圾、你在做什么决策、你的目标是什么。这些是现在模型缺失的上下文。",
+              "Dan 开玩笑：我可以让数据集要多大有多大——我有 Fable。",
+              "Edwin：你可以说服我。我们确实在做这类深度个性化训练。",
+              "",
+              "【Edwin 的 AGI 时间线】",
+              "Edwin 说：如果用以下标准衡量——自动化普通工程师的工作、发表被期刊接受的新颖科研、赢菲尔兹奖或诺贝尔奖——我看到这些在 5 年内发生。",
+              "「我相信 AI 会比大多数人预期的更早到来。每几个月——甚至更快——AI 都在继续让我们惊讶。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
