@@ -1,0 +1,285 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-27",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天 feed 里最重磅的内容是一条全新播客——MAD Podcast 采访 Cloudflare CEO Matthew Prince，讲了一个多小时互联网基础设施的过去、现在和未来。他说 agent 时代的流量会是今天的一千倍，但 bots 不点广告——互联网的商业模式必须被重新发明。除此之外，swyx 留了一句非常有信号量的话：为了 Software Factory 时代，得重建大量基础设施。Levie 继续深挖企业级 agent 架构，Rauch 说 Vercel AI Gateway 恢复了大量 token 和正常运行时间。这是一个关于底座的日报。"
+  },
+  "archive": {
+    "title": "互联网底座日报",
+    "desc": "Cloudflare CEO 讲 agent 时代的流量爆炸和商业模式重写；swyx 的基础设施重建论；Levie 继续拆解企业 agent 安全架构。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-27 source feeds.",
+  "sections": [
+    {
+      "title": "Internet Infrastructure Reboot / 互联网基础设施重启",
+      "desc": "当 agent 时代的流量暴增一千倍，从 CDN 到支付到内容创作，每一个底层环节都要被重写。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2069937175899275475",
+          "en": {
+            "rewrite": [
+              "Swyx's one-liner is a stronger claim than it appears: software production is moving from artisanal to industrial, and industrial-scale production requires entirely new infrastructure.",
+              "This isn't about adding AI to existing systems—it's about rebuilding observability, quality control, deployment, and security for a world where agents produce and consume software at 100x human volume.",
+              "It connects to Levie's 'agents use software 100x more than humans' thesis: that usage volume breaks existing infrastructure."
+            ],
+            "original": [
+              "we are going to have to Rebuild So. Much. Infra. for the age of Software Factories"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 这句话比它看起来更重要：软件生产正在从手工业走向工业时代，工业级生产需要全新的基础设施。",
+              "这不是在现有系统上加一层 AI——而是重建可观测性、质量控制、部署和安全，为 agent 以百倍于人的体量生产和消费软件的世界做准备。",
+              "跟 Levie 说的「agent 用软件的频率是人的 100 倍」是同一条逻辑链：那种用量会压垮现有基础设施。"
+            ],
+            "original": [
+              "Swyx 说：为了 Software Factory 时代，我们得重建太多基础设施了。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2070065736339780642",
+          "en": {
+            "rewrite": [
+              "Rauch highlights that Vercel AI Gateway has recovered an 'absurd' amount of tokens and uptime — suggesting the multi-model routing layer is maturing rapidly.",
+              "Combined with his earlier post about 'really fast GLM now live,' this signals that the infrastructure layer for agentic AI is consolidating around a few key platforms: Vercel for deployment, Cloudflare for edge/security, and model routers for cost optimization.",
+              "The AI Gateway acts as the smart layer between applications and models — handling failover, cost routing, and caching automatically."
+            ],
+            "original": [
+              "The amount of tokens and uptime recovered by Vercel AI Gateway is absurd."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 说 Vercel AI Gateway 恢复的 token 和正常运行时间是「荒谬的」（意思是好到不真实）。",
+              "结合他之前说「very fast GLM now live」，这说明 agent AI 的基础设施层正在围绕几个关键平台快速整合：Vercel 做部署、Cloudflare 做边缘和安全、模型路由器做成本优化。",
+              "AI Gateway 是应用和模型之间的智能层——自动处理故障转移、成本路由和缓存。"
+            ],
+            "original": [
+              "Rauch 说：Vercel AI Gateway 恢复的 token 数量和正常运行时间是荒谬的。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Enterprise Agent Security / 企业级 Agent 安全",
+      "desc": "当 agent 从个人工具变成共享同事，权限、身份和资源管理变成核心安全挑战。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2069975251476422664",
+          "en": {
+            "rewrite": [
+              "Levie's deep dive into Claude Tag (Anthropic's Slack-integrated Claude) identifies the key architectural shift: a shared coworker that needs its own identity, permissions, and resource set.",
+              "The security implication: the agent can't use your personal credentials, because it could accidentally share private data with colleagues. It needs its own scoped access — like any other employee.",
+              "Practical examples: Claude connected to Box accessing sales materials for RFPs, brand guidelines for campaigns, product docs for coding agents, contracts for legal — all scoped to the appropriate group context."
+            ],
+            "original": [
+              "There are some subtleties in this launch that are very important in practice. This isn't just you interacting with Claude in a 1:1 format via Slack. In this case, Claude acts as a coworker that any user can tap into in a shared way.",
+              "As a result, what this means is that this agentic coworker needs its own set of resources, access to tools, and data to work with. This is not the same as you giving it access to your personal resources and tools, because the agent then could accidentally then share those out with anyone.",
+              "The agent needs to instead be like any other user in the system, and you need to be thoughtful about what it should have access to.",
+              "By connecting Claude Tag to Box, you could have Claude access corporate sales materials for questions in sales conversations or generating RFPs, brand guidelines and marketing assets for campaign creation, product roadmap materials and product documentation for coding agents to use, contracts that anyone in the legal team can access, and more."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 拆解了 Claude Tag 的架构转变：它不是一个你跟 Claude 一对一聊天的工具，而是一个共享同事，频道里任何人都可以跟它互动。",
+              "安全含义：agent 不能用你个人的权限和工具，否则它可能不小心把你的私人数据分享给同事。它需要有自己的身份和权限范围——就像任何一个员工一样。",
+              "实际例子：Claude 连上 Box 之后，可以帮销售访问产品资料生成 RFP，帮市场访问品牌规范做活动，帮工程访问产品文档辅助编程，帮法务访问合同——权限按团队界定。"
+            ],
+            "original": [
+              "Levie 说：这次发布有实际非常重要的微妙之处。Claude 扮演的是一个共享同事角色，任何用户都可以使用。",
+              "这意味着 agent 同事需要自己的资源集、工具访问和数据。不能让它访问你的个人资源——因为 agent 可能会不小心把这些共享给任何人。",
+              "agent 需要像系统里任何其他用户一样，你需要仔细考虑它应该访问什么。",
+              "把 Claude Tag 连到 Box 之后，可以访问企业销售材料、品牌指南、产品路线图和文档、合同等。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Mindset / 构建者心态",
+      "desc": "关于拖延、社区护城河和天赋发现——几条精炼的观察。",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2069908420384428132",
+          "en": {
+            "rewrite": [
+              "Zara reframes procrastination: it's not about time management, it's about courage. You're not procrastinating because you don't have time — you're procrastinating because the thing requires facing something uncomfortable.",
+              "This is more useful than 'just schedule it' because it points to the real bottleneck: fear of a difficult decision, potential failure, or vulnerability."
+            ],
+            "original": [
+              "The root cause of procrastination is not the lack of time",
+              "It's the lack of courage"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 两句话重新定义了拖延：根因不是没时间，而是没勇气。",
+              "你拖延的那件事需要你去面对某种不舒服——艰难的决定、可能的失败、或者暴露自己。这比「排进日历就好」有用得多。"
+            ],
+            "original": [
+              "Zara 说：拖延的根因不是缺时间，而是缺勇气。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2069900496304042343",
+          "en": {
+            "rewrite": [
+              "Zara quotes Figma Config: 'Community is your users' relationships with you and with each other, and most teams never think to design it.'",
+              "The punchline: 'Features get copied. Belonging can't.' In an age when AI commoditizes features, community is the deepest moat."
+            ],
+            "original": [
+              "Community is your users' relationships with you and with each other, and most teams never think to design it",
+              "Community is the new moat",
+              "Features get copied. Belonging can't"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 引用了 Figma Config 的观点：社区是用户跟你、以及用户彼此之间的关系，但大多数团队从来没有想过要设计它。",
+              "「功能可以被复制，归属感不能。」AI 让功能同质化的时代，社区感是最深的护城河。"
+            ],
+            "original": [
+              "Figma Config 说：社区是用户跟你以及彼此的关系，大多数团队从没想过设计它。社区是新的护城河。功能可以被复制，归属感不能。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:nikunj",
+          "sourceUrl": "https://x.com/nikunj/status/2069803472996941959",
+          "en": {
+            "rewrite": [
+              "Nikunj's framework: notice what looks like child's play to you but is very hard for those around you. That's your edge.",
+              "The formula: natural ease + tenacity + large market = magic. Most people never identify what their 'child's play' actually is."
+            ],
+            "original": [
+              "The easiest way to figure out what you are TRULY excellent at is to notice what looks like child's play to you but is very hard for those around you.",
+              "That's your edge. If you can use that, tenacity and combine it with a large market, then magic follows"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 给了一个发现自身优势的方法：注意那些对你来说像小孩游戏、但对周围人来说很难的事。那就是你的优势。",
+              "公式：天然优势 + 韧性 + 大市场 = 魔法。大多数人从来没认真识别过自己的「小孩游戏」是什么。"
+            ],
+            "original": [
+              "Nikunj 说：发现自己真正擅长什么的最简单方法——注意什么对你像小孩游戏但对周围人很困难。那就是你的优势。加上韧性和大市场，魔法就会随之而来。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Cloudflare & The Future Internet / 播客：Cloudflare 与互联网的未来",
+      "desc": "MAD Podcast 采访 Cloudflare CEO Matthew Prince。完整中文译文：从 agent 时代的流量爆炸到互联网商业模式重写，从土耳其色情网站的攻击到 JPMorgan 被黑，再到内部 AI 文化和裁掉 20% 中层管理者的决策。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad",
+          "authorName": "MAD Podcast",
+          "authorTag": "Matt Turk 主持的科技与投资深度对谈",
+          "sourceUrl": "https://www.youtube.com/@MADPodcast",
+          "en": {
+            "rewrite": [
+              "Traffic explosion: agent-driven internet traffic will grow 1000x in 5 years. A single shopping task might generate 5,000 site visits vs 5 by a human. During COVID, internet traffic doubled in 2 weeks — that will seem quaint.",
+              "Business model crisis: bots don't click on ads. The ad-based model that powered 28 years of the internet won't work. Something new must replace it — micropayments, AI licensing, or a combination.",
+              "The Turkish escort story: Cloudflare's ML systems categorized attacks on Turkish escort sites, which turned out to be the same attacker (an Iranian student) who later hit Eurovision and JPMorgan — now running all of Iran's cyber attacks. This demonstrates the network effect of Cloudflare's immune system.",
+              "Security outlook: for the next 2 years (104 weeks), expect a Log4j-scale vulnerability every week. AI is incredible at finding them. But after 2 years, software quality will dramatically improve as AI-powered code review becomes standard.",
+              "Internal AI culture: 93% of R&D uses AI coding tools. Cloudflare OS (internal agent harness) automates IR document generation from 2 weeks to 3 minutes. Internal audit expanded from 6-10 risk areas per quarter to continuous audit of all 105.",
+              "Layoffs: cut 20% of staff, specifically middle managers. Went from 6:1 to 12:1 span of control. Prince calls waiting to do this 'chicken shit' — the kindest thing is to act early so people can find jobs before the market floods.",
+              "Content Independence Day: Cloudflare is building the infrastructure for the next internet business model — including micropayments at 10M transactions/second (100x Visa's capacity), HTML-to-markdown conversion for AI crawlers, and the x402 payment protocol.",
+              "Spotify as the model: Daniel Ek shared that one creator makes €40M/year writing songs for unfulfilled Spotify queries. Prince sees this as the template — AI reveals gaps in human knowledge, and creators who fill those gaps should be rewarded."
+            ],
+            "original": [
+              "PRINCE: If I go to ChatGPT or Claude and I'm shopping for a digital camera, you see thousands of times more site visits for that same activity. I might visit five sites, whereas my agent might visit 5,000.",
+              "PRINCE: During COVID we saw Internet traffic double over the course of two weeks. If our projections are right, that's gonna seem quaint very soon. In five years, you might have a thousand times as much traffic on the internet as you do today.",
+              "PRINCE: The business model of the Internet historically has been ads and bots don't click on ads. The most interesting question in the world today is over the next five years, the business model of the Internet is gonna change radically.",
+              "PRINCE: It turns out it actually wasn't anyone in Turkey. It was originally a student in Iran who saw what was happening in Turkey and thought it was repugnant. Then saw the Eurovision contest, launched attacks. Got brought into the Iranian military cyber apparatus, then attacked a bunch of US banks. The same guy to this day is running all of Iranian cyber attacks.",
+              "PRINCE: For the next 104 weeks, you're gonna see a Log4j-like vulnerability every single week. But two years from now, software is going to get just massively better as a result.",
+              "PRINCE: We laid off more than 20% of our team. Not because the business was struggling. We just need fewer middle managers. The cruelest thing you can do is wait. We went from six to one to twelve to one span of control.",
+              "PRINCE: We process about half a billion requests per second. We estimate 1-10% would be monetizable through micropayments. That means 10 million financial transactions per second with a clear ramp to 100 million. Visa does fewer than 100,000.",
+              "PRINCE: One creator based in Denmark is making something like €40 million a year just writing songs for unfulfilled Spotify queries."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客信息量极大。Cloudflare CEO Matthew Prince 跟 MAD Podcast 聊了一个多小时，讲互联网基础设施的过去、现在和未来。",
+              "核心判断：agent 时代的流量会在 5 年内暴增 1000 倍。一个购物任务，人可能看 5 个网站，agent 可能看 5000 个。但 bots 不点广告——互联网的商业模式必须被重新发明。",
+              "安全预测：未来两年每周都会出现一个 Log4j 级别的漏洞。但两年后软件质量会大幅提升，因为 AI 驱动的代码审查会成为标准。",
+              "内部文化：93% 的研发团队使用 AI 编程工具。内部 Cloudflare OS 把投资者关系文档生成从两周压缩到三分钟。",
+              "裁员：砍掉 20% 员工，主要是中层管理者。控制跨度从 6:1 扩大到 12:1。他说等到人「是懦夫行为」——趁市场还没被淹没，尽早做才是对员工最善良的。",
+              "互联网商业模式：Cloudflare 正在建下一代基础设施——包括每秒 1000 万笔的微支付系统（Visa 的 100 倍）、HTML 转 markdown 的 AI 爬虫接口、以及 x402 支付协议。"
+            ],
+            "original": [
+              "【Agent 时代的流量爆炸】",
+              "Prince 说：如果我去 ChatGPT 或 Claude 买数码相机，同一个任务会产生数千倍于人的网站访问。我可能看 5 个网站，但我的 agent 可能看 5000 个。",
+              "「新冠期间我们在两周内看到互联网流量翻倍。如果我们的预测正确，那看起来会很微不足道。五年内，互联网流量可能是今天的一千倍。」",
+              "这意味着需要更多的服务器、网络基础设施、CPU、GPU、内存——所有服务 bot 的东西都变得非常重要。而且我们必须找到新的商业模式来为此买单，因为互联网 28 年来的商业模式是广告，而 bots 不点广告。",
+              "",
+              "【品牌在 agent 世界里意味着什么】",
+              "Prince 说：品牌历来是告诉人类的捷径——看到沃尔玛的 logo，你就知道走进去会是什么样。但 bots 有无限的耐心去发现一切。所以品牌的定义在 agent 驱动的商业和互联网体验中将完全不同。",
+              "",
+              "【Cloudflare 的起源故事】",
+              "Prince 说：Cloudflare 一开始是把防火墙放到云端。最早只在 5 个城市有服务器——芝加哥、阿什本、圣何塞、阿姆斯特丹和东京（东京还得加星号，因为路由没搞明白，我们会根据谁醒着来开关东京服务器）。",
+              "今天在超过 50 个城市、1000 多个数据中心。秘诀是提供大量免费服务，吸引到各种人——黑客小孩（因为互相攻击）和人权组织（因为总是被攻击）。",
+              "",
+              "【土耳其色情网站 → Eurovision → JPMorgan 的攻击链】",
+              "Prince 讲了一个精彩的故事：2010 年，上千个土耳其色情网站一夜之间注册了 Cloudflare。我们联系了其中一个站长，他说：在土耳其西部（偏欧洲），人们对他们做的事容忍度高；但越往东部走，越保守、越穆斯林，就越觉得这是邪恶的。",
+              "他们总是遭受来自保守派的攻击。Cloudflare 保护了他们。我们的机器学习系统把这种攻击标记为「TE」（Turkish Escort）。",
+              "一年后，阿塞拜疆的欧洲歌唱大赛（Eurovision）被攻击——因为参赛者中有跨性别者。攻击模式？TE、TE、TE——一模一样。",
+              "又一年后，摩根大通被攻击。我们的工程师看了日志说：「哦，这帮人。就是那个攻击土耳其色情网站的。」",
+              "结果发现，最初是伊朗的一个学生。他先看到土耳其的事，觉得恶心，开始攻击；然后看到 Eurovision，又攻击。这让他被伊朗军方看中，被招募进网络战部门，之后攻击了美国银行。同一个人现在运营着伊朗的所有网络攻击。",
+              "「这说明 Cloudflare 服务所有人——甚至是互联网最奇怪的角落——帮助我们学到的东西，最终让全球最大的金融机构和政府也受益。」",
+              "",
+              "【安全预测：两年 Log4j，然后大幅改善】",
+              "Prince 说：未来 104 周（两年），你会每周看到一个 Log4j 级别的漏洞。AI 模型在发现漏洞方面极其强大。",
+              "「会有很多 VC 投一堆网络安全公司来应对。但我觉得这是个头假动作——因为两年后，软件质量会因为 AI 驱动的代码审查而大幅提升。」",
+              "「内部我们建了一个 agent，审查每一次代码发布和每一次配置变更。背景噪音级别的故障率出现了一个悬崖式下降——就是 agent 上线的那一刻。」",
+              "「AI 的真正有趣之处不只是替代人的任务。它还有跟组织内其他人不相关的偏见——这让它成为极其有效的独立测量工具。」",
+              "",
+              "【内部 AI 文化：Cloudflare OS】",
+              "Prince 说：93% 的研发团队在用 AI 编程工具，3,683 个内部用户，2410 亿 token。",
+              "工程师端传播很快，但非技术团队怎么办？我们建了一个叫 Cloudflare OS 的内部 harness——让财务、法务、市场的人也能用 agent 做事。",
+              "关键设计：agent 可以继承用户的安全权限，接入 ERP、销售系统、工作场所管理系统。",
+              "「怎么发现真实的工作需求？我们设了一个 auto-cloudflare@cloudflare.com 邮箱，告诉所有人这是一个魔法 AI agent。实际上背后是 20 个人 7×24 值班——用 AI 工具，但真正在收集真实问题。然后把这些变成 skill files。」",
+              "「投资者关系团队的一个同事，把每季度两周的 IR 文档准备工作自动化到了三分钟。而且比人工更准确——还发现了以前的一些小错误。」",
+              "",
+              "【裁员 20%：控制跨度从 6:1 到 12:1】",
+              "Prince 说：我们裁掉了超过 20% 的团队。不是因为业务不好，而是因为需要更少的中层管理者。",
+              "「我跟其他公司的同行聊，他们都在看到同样的事情，都觉得自己迟早要做。但很多 CEO 害怕做第一个。」",
+              "「恕我直言，这是懦夫行为。一旦你知道变化会发生，对团队最善良的事就是尽快做。因为今天找比六到十二个月后找容易得多——到时候市场会被淹没。」",
+              "「我们提供了科技行业最慷慨的补偿包——包括股票继续 vest。我们努力帮这些人找到新工作。一个 Cloudflare 的中层管理者可以去初创公司做高级管理者，做得很出色。」",
+              "控制跨度从 6:1 扩大到 12:1（Meta 在尝试 50:1，Prince 觉得太多了）。组织更扁平，反应更快。",
+              "",
+              "【Content Independence Day：互联网的新商业模式】",
+              "Prince 说：我们每秒处理大约 5 亿次请求。估计其中 1-10% 可以通过微支付来变现——这意味着第一天就需要支持每秒 1000 万笔金融交易，未来要到 1 亿笔。",
+              "对比：Visa 是全球最大的支付网络，每秒不到 10 万笔。我们需要比 Visa 大两个数量级。",
+              "我们正在和 Coinbase、Stripe 合作，以及 x402 协议——HTTP 402「Payment Required」状态码，从互联网早期就有，但从没真正用过。",
+              "",
+              "【Spotify 模式：填补知识空白的人应该被奖励】",
+              "Prince 说：我去斯德哥尔摩见了 Daniel Ek（Spotify 创始人）。他讲了一个故事：如果你在 Spotify 搜「泰勒·斯威夫特 Shake It Off」，他们知道能给你准确结果。但如果你搜「我想要一首关于跟我的猫跳舞有多开心的迪斯科节拍的歌」，他们也能返回结果，但他们知道自己可能没有。",
+              "Spotify 会把这些未满足的查询发布给音乐创作者。有一个在丹麦的创作者，光靠给未满足的 Spotify 查询写歌，一年赚 4000 万欧元。",
+              "Prince 说：LLM 就像人类知识的数学模型——它展示了知识的形状，但也展示了空白在哪里。就像一块巨大的瑞士奶酪：有很多奶酪，但也有很多洞。",
+              "AI 公司想要的不是又一篇关于白宫的文章——他们想要填补空白的高质量新知识。",
+              "「我和妻子买下了我们家乡 Park City 的当地报纸。今年我们从 AI 授权交易中赚的钱预计会超过展示广告。因为如果你计划去犹他州滑雪，唯一有当地实时信息的地方就是那份报纸。」",
+              "「过去 28 年的互联网杀死了本地的、奇特的、独特的信息。我希望接下来 28 年能把这些带回来——因为真实、有趣、本地化的内容才是 AI 想要的。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
