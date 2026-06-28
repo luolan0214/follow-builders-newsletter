@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-28" data-issue-number="41" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 41 期｜2026-06-28｜双语精选版｜9 条精选｜8 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天的内容密度极高。Noam Brown（OpenAI 推理之父）在 No Priors 上做了一期必听访谈——他说现有的 benchmark 网格根本无法反映模型真实能力，因为它们不控制 test-time compute 预算；安全评估框架也没跟上——模型能力现在是投入金钱的函数。Rauch 买回了 rauch.com 域名，还发了关于 Mythos/Sol 网络安全能力的严肃警告。Codex 做了一大波 UX 更新——包括一个专属宠物面板。Zara 讲了一个很动人的故事：一年前还不太懂 GitHub，现在有了 1 万关注者，仍然不会手写代码。Matt Turck 写了一段智能眼镜十二年失败的编年史，太好笑了。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天的内容密度极高。Noam Brown（OpenAI 推理之父）在 No Priors 上做了一期必听访谈——他说现有的 benchmark 网格根本无法反映模型真实能力，因为它们不控制 test-time compute 预算；安全评估框架也没跟上——模型能力现在是投入金钱的函数。Rauch 买回了 rauch.com 域名，还发了关于 Mythos/Sol 网络安全能力的严肃警告。Codex 做了一大波 UX 更新——包括一个专属宠物面板。Zara 讲了一个很动人的故事：一年前还不太懂 GitHub，现在有了 1 万关注者，仍然不会手写代码。Matt Turck 写了一段智能眼镜十二年失败的编年史，太好笑了。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">The Evaluation Crisis / 评估危机</h2>
+    <p class="section-desc">Noam Brown 说得非常清楚：现有 benchmark 的呈现方式在 test-time compute 时代根本是错的。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="../assets/avatars/x-swyx.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx</div>
+            <div class="author-tag is-inline">Writer / Builder</div>
+          </div>
+          <div class="author-handle">@swyx</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 这条把 Noam Brown 的论点和开源 vs 闭源的竞争联系了起来：既然推理预算才是关键，那开源模型——每美元能跑更多 token——就应该用美元成本而非 token 数量来报告性能。</p>
+              <p>对开源模型提供商来说这是一个战略洞察：按美元成本报告会让它们的模型在对比中看起来有竞争力得多，因为每美元能换来更多思考。</p>
+              <p>这同时也给闭源实验室施加了压力——要求它们公开报告的 benchmark 数字到底用了多少 test-time compute。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx 说：一个有趣的方式来践行 Noam 关于保持恒定推理预算做评估的说法——开源模型每美元的 token 里程远高于闭源 API。所以今天发布开源模型的人，显然应该按美元推理成本而非 token 数量来报告思维水平。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx connects Noam Brown&#39;s argument to the open vs closed model debate: if inference budget is what matters, then open models — which have much better dollar-per-token mileage — should report performance by dollar cost, not token count.</p>
+              <p>This is a strategic insight for open model providers: reporting by dollar cost on popular inference providers would make their models look much more competitive against frontier API models, because you get more thinking per dollar.</p>
+              <p>It also pressures closed model labs to be more transparent about how much test-time compute their reported benchmark numbers actually used.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>An interesting way to take Noam at his word in regards to always keeping a constant inference budget for any eval reporting — is that open models have a lot more dollar per token mileage than closed model APIs. So anyone launching an open model today or situationally incentivized toward open models should obviously report thinking levels measured by dollar inference on popular inference providers, instead of by number of tokens on the x axis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx/status/2070949306060931312" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 这条表面在讲 token 成本优化，实际上是在给应用层 AI 公司写商业计划书。</p>
+              <p>他的论点：模型和实际工作之间需要一个中间层——它深入理解客户的领域、工作流和业务流程。企业自己每家都做一遍是不现实的，所以这就是应用层 AI 公司的 playbook。</p>
+              <p>具体来说：为特定场景评估模型、深入理解领域、为场景定制 UX、通过 FDE 支持落地——这些让中间层创造大量价值。企业因此获得更高 ROI：每美元能买到更多智能。</p>
+              <p>这其实就是垂直 AI 的商业理由：横向通用方案不可能在任何单一工作流里深入到足够优化成本和性能的程度。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie 说：AI token 成本优化有一些好的最佳实践。但这些都离不开对底层工作的深入理解。</p>
+              <p>终极含义是：工作本身和底层智能之间需要一个层，深入理解你的工作流、上下文和业务流程。每家公司自己单独做在大规模上不太有效，所以这实际上就是应用层 AI 公司的 playbook。</p>
+              <p>通过为应用场景评估模型、深入理解领域、定制 UX 和功能、支持采用和变更，这个层能增加大量价值。企业因此获得更高 ROI。</p>
+              <p>会有很多横向和垂直版本的这个方法。现在是一个巨大的机会。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s thread on token cost optimization is really a thesis for applied AI companies: the layer between the model and the actual work needs to deeply understand the customer&#39;s domain, workflows, and business processes.</p>
+              <p>His argument: enterprises get more intelligence per dollar when an applied AI company has already done the work of evaluating models for specific use cases, tuning the UX, supporting adoption, and building optimal architecture.</p>
+              <p>This is effectively the business case for vertical AI: horizontal plays can&#39;t go deep enough into any single workflow to optimize cost and performance the way a specialist can.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Some good best practices here on AI token cost optimization. None of these happens though without a deep understanding of the underlying work being done in a non-abstract way.</p>
+              <p>The ultimate implication is that a layer between the work itself and the underlying intelligence needs to deeply understand your workflows, context, and business process. Now, each individual company doing this on their own is unlikely to be effective at scale, so as a consequence, this is effectively the playbook for any applied AI company right now.</p>
+              <p>By evaling the models for the applied use cases, deeply understanding the domain, having tuned UX and features for the use case, and having the ability to support adoption and change (via FDEs), allow this layer to add a ton of value. And as a result, enterprises get higher ROI because you actually can get *more* intelligence per dollar by having optimal architecture and workflows.</p>
+              <p>There will be many horizontal and vertical versions of this approach. Huge opportunity right now.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2070937863806751154" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Cybersecurity &amp; Infrastructure / 网络安全与基础设施</h2>
+    <p class="section-desc">Rauch 发了一条严肃的安全警告；Steinberger 暗示封锁无法阻止有决心的用户。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch 这条是一条严肃的安全警告，从一个 CEO 嘴里说出来分量不轻：Mythos/Sol 的网络安全能力是双用途的——攻防两端同样有效。</p>
+              <p>他的担心：如果对手获得了同等的攻击能力，对尚未发现自身潜在漏洞的美国公司来说是一个严重威胁。</p>
+              <p>他的建议：立刻用 deepsec 或类似的 harness 配合可用的前沿模型，主动发现和修复漏洞——趁对手还没动手。</p>
+              <p>1225 个赞说明 builder 社区确实把这条当回事了。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauch 说：Mythos/Sol 的网络安全能力在进攻和防御方面同样有用。如果对手获得了同等的攻击能力，对未发现潜在漏洞的美国公司构成严重威胁。同时，我强烈建议用 deepsec 或类似 harness 配合可用的前沿模型运行安全检查。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch&#39;s security warning is significant: Mythos/Sol cybersecurity capabilities are dual-use — equally effective offensively and defensively.</p>
+              <p>His concern: if adversaries get an equivalent offensive capability, it&#39;s a serious threat to US companies that haven&#39;t found their latent vulnerabilities yet.</p>
+              <p>His recommendation: run deepsec or similar harnesses with available frontier models to proactively find and fix vulnerabilities before adversaries do.</p>
+              <p>1225 likes for a security recommendation from a CEO who runs a deployment platform suggests the builder community takes this seriously.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Mythos / Sol cybersecurity capabilities are equally useful in an offensive as well a defensive capacity.</p>
+              <p>If adversaries get ahold of an equivalent offensive capability, it poses a serious threat to US companies that remain unaware of latent vulnerabilities.</p>
+              <p>In the meantime, I strongly recommend running deepsec[1] or similar harnesses with the available frontier models.</p>
+              <p>[1] https://t.co/Wh4QVGDFnm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2071047674187714830" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steinberger 这句话拿到 670 个赞和 64 次转发：「历史告诉我们，访问封锁很少能阻止有决心的用户。」</p>
+              <p>结合他今天关于 Apple Car（530 赞）和显示器选择（341 赞）的帖子，他今天是一个特别高产的日子。</p>
+              <p>关于访问封锁的那句话，很可能指向 API 限制或功能门控——而从历史上看，有决心的开发者总能找到绕过的方法，这对平台来说既是挑战也是机会。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steinberger 说：「历史告诉我们，访问封锁很少能阻止有决心的用户。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steinberger&#39;s quote — &#39;History teaches us that access blockage rarely stops determined users&#39; — got 670 likes and 64 retweets.</p>
+              <p>Combined with his Apple Car post (530 likes) and his monitor setup deliberation (341 likes), he&#39;s having a particularly engaging day of observations.</p>
+              <p>The access blockage quote likely refers to API restrictions or feature gating — and historically, determined developers find workarounds, which is both a challenge and an opportunity for platforms.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>&quot;History teaches us that access blockage rarely stops determined users.&quot;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2071063588329193551" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Codex Updates &amp; Personal Stories / Codex 更新与个人故事</h2>
+    <p class="section-desc">Sottiaux 发了一波 Codex 更新，Zara 讲了一个从零到 GitHub 万粉的动人故事。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:thsottiaux" data-author-name="" data-author-tag="" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Author avatar"><span class="avatar-fallback"></span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name"></div>
+            <div class="author-tag is-inline"></div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 发布了一波 Codex 大更新：超长对话线程流畅处理、悬停导航栏、设置搜索扩展、缩放级别不再导致 UI 错位、粘贴到 Slack 保留 markdown 格式——以及最重要的：一个专属宠物面板。</p>
+              <p>1383 个赞和 170 条回复，这是 Codex 产品更新帖互动量最高的一次——宠物面板的玩笑显然戳中了大家。</p>
+              <p>但实质内容也很重要：超长线程性能修复和 Slack 粘贴保留格式是在解决真实痛点。这种打磨更新才能把一个工具从「令人印象深刻」变成「每天离不开」。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux 列出了 Codex 的大量改进：流畅处理超长线程、悬停导航栏预览和跳转、设置搜索覆盖更多控件、缩放级别不再错位各种 UI 元素、粘贴到 Slack 保留 markdown 格式、大文本粘贴不再卡 UI——以及最重要的：专属宠物面板。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux shipped a substantial Codex update: smooth handling of super long threads, a hoverable navigation rail, expanded settings search, zoom-level fixes across tooltips/dialogs/menus, Slack-paste preserving markdown — and most importantly, a dedicated Pets panel.</p>
+              <p>1383 likes and 170 replies make this the most-engaged Codex product update post yet — the Pets panel joke clearly resonated.</p>
+              <p>The substance matters though: the long-thread performance fix and the Slack markdown paste are real pain points being solved. These are the kind of polish updates that turn a tool from &#39;impressive&#39; to &#39;daily driver.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Tons of improvements landed in Codex.</p>
+              <p>- Handles super long threads smoothly.</p>
+              <p>- Hoverable navigation rail for previewing and jumping between turns that feels just right.</p>
+              <p>- Settings search covers more controls, with clearer appearance and host-filtering options and easier-to-find custom-provider settings.</p>
+              <p>- Zoom-level changes no longer misalign tooltips, dialogs, menus, selection bubbles, drag previews, or autocomplete.</p>
+              <p>- Copying into Slack preserves Markdown formatting such as bullets, bold text, code, and links; and large text pastes no longer freeze the UI.</p>
+              <p>- And most importantly: a dedicated Pets panel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2071071289247244481" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang</div>
+            <div class="author-tag is-inline">Builder</div>
+          </div>
+          <div class="author-handle">@zarazhangrui</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 这条是今天最火的一条帖子——2149 个赞、151 条回复。「一年前我还不怎么懂 GitHub 怎么用。现在我在 GitHub 上有了一万关注者（而且仍然不会手写代码）。这一年发生了太多。」</p>
+              <p>这大概是 AI 时代最能引起共鸣的 builder 故事：一个非工程师，靠 AI 工具做产品、解决问题、讲故事。</p>
+              <p>她的后续补充很重要：「我不是工程师，这些都是我为了好玩做的副业项目。我只是喜欢把技术和用户需求连起来，解决自己的痛点，然后讲产品故事。」这正是之前讨论过的 Builder PM 原型——在现实中出现了。</p>
+              <p>2149 个赞说明共鸣极强——这是「做东西的门槛已经低到非工程师也能创造真实价值」的活证据。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara 说：去年我还不怎么懂 GitHub 怎么用。现在我在 GitHub 上有一万关注者（而且仍然不会手写代码）。这一年发生了太多。</p>
+              <p>她补充说：我不是工程师，这些都是为了好玩做的副业项目。我只是喜欢把技术和用户需求连起来，用它解决自己的痛点，然后讲产品故事。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara&#39;s one-liner — &#39;Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can&#39;t write code by hand)&#39; — got 2149 likes and 151 replies.</p>
+              <p>This is the most relatable AI-era builder story: someone who isn&#39;t an engineer, but who can connect technology with user problems, use AI tools to build, and tell stories about the products.</p>
+              <p>Her follow-up is important: &#39;I&#39;m not an engineer; these are all side projects I built for fun. I just love connecting technology with user problems.&#39; This is the Builder PM archetype from earlier discussions, made real.</p>
+              <p>2149 likes suggests this resonated enormously — it&#39;s the proof that the barrier to building has dropped far enough for non-engineers to create real value.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can&#39;t write code by hand). What a year.</p>
+              <p>Btw I&#39;m not an engineer; these are all side projects I built for fun. I just love connecting technology with user problems/using it to solve my own pain points, and then telling stories about the products</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2070982013822333007" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Vibes &amp; Humor / 氛围与幽默</h2>
+    <p class="section-desc">Rauch 买回了域名，Matt Turck 写了智能眼镜编年史，Sottiaux 跟植物说话。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch 买回了 rauch.com——1502 个赞，一个 CEO 表达拥有自己姓名域名的简单快乐。</p>
+              <p>他说：「域名太棒了。互联网太棒了。」——这提醒我们，即使在 agent 和 AI 的时代，互联网的基本原语仍然重要。</p>
+              <p>提到给孩子干净的邮箱地址，很温馨——一个 CEO 在思考数字遗产，不只是产品策略。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauch 说：我现在拥有 rauch.com 了。期待给孩子们干净的邮箱地址。域名太棒了。互联网太棒了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch bought rauch.com — 1502 likes for a CEO expressing simple joy about owning his own name domain.</p>
+              <p>His framing: &#39;Domains are awesome. The internet is awesome.&#39; — a reminder that even in the age of agents and AI, the fundamental primitives of the internet still matter.</p>
+              <p>The children&#39;s clean email handles line is sweet — it&#39;s a CEO thinking about digital legacy, not just product strategy.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>I now own https://t.co/I2grp6UkeV. Excited to give my children clean email handles. Domains are awesome. The internet is awesome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2071085680017773046" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:mattturck" data-author-name="Matt Turck" data-author-tag="VC @ FirstMark" data-author-handle="@mattturck" data-author-avatar="../assets/avatars/x-mattturck.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-mattturck.jpg" alt="Matt Turck avatar"><span class="avatar-fallback">MT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Matt Turck</div>
+            <div class="author-tag is-inline">VC @ FirstMark</div>
+          </div>
+          <div class="author-handle">@mattturck</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck 这段智能眼镜编年史是今天最好笑的帖子——按年代逐一吐槽硅谷试图让人戴面部计算机的努力。</p>
+              <p>2013 Google Glass：「你们真的很想要这个」→「不，我们不想」</p>
+              <p>2016 Microsoft HoloLens：「好吧，如果是企业级呢」→「也许吧，但还是不了」</p>
+              <p>2023 Meta：「好吧，如果看起来正常还带 AI 呢」→「等等……也许？……其实不了」</p>
+              <p>2024 Apple：「好吧，如果卖 3499 美元还盖住整张脸呢」→「绝对不要」</p>
+              <p>2026 Snap：「好吧，这次是真的」→「我们钦佩你的坚持，但还是不了」</p>
+              <p>289 个赞和 32 次转发——一条精心制作的幽默帖，同时也指向一个真实问题：品类耐心和市场时机。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck 写道：智能眼镜简史——</p>
+              <p>2013 Google：「你们真的很想要」所有人：「不」</p>
+              <p>2016 Microsoft：「企业版呢」企业：「也许吧，但也不了」</p>
+              <p>2023 Meta：「看起来正常还有 AI 呢」所有人：「等等…也许？…还是不了」</p>
+              <p>2024 Apple：「$3,499 盖住整张脸呢」所有人：「绝对不要」</p>
+              <p>2026 Snap：「这次是真的」所有人：「我们钦佩你的坚持，但还是不了」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck&#39;s smart glasses history is comedy gold — a decade-by-decade takedown of Silicon Valley&#39;s attempts to make face computers happen.</p>
+              <p>The progression: Google Glass (2013, &#39;you really want this&#39; → &#39;no&#39;), Microsoft HoloLens (2016, enterprise → &#39;maybe but also no&#39;), Meta Ray-Bans (2023, normal + AI → &#39;maybe? ... actually no&#39;), Apple Vision Pro (2024, $3,499 face helmet → &#39;absolutely not&#39;), Snap (2026, &#39;for real this time&#39; → &#39;we admire the persistence but still no&#39;).</p>
+              <p>289 likes and 32 retweets — a well-executed humor post that also makes a real point about category persistence and market readiness.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Smart glasses and goggles, a history:</p>
+              <p>Silicon Valley, 2013 (Google): &quot;you really want this&quot;</p>
+              <p>Everyone: &quot;no we don&#39;t&quot;</p>
+              <p>Silicon Valley, 2016 (Microsoft): &quot;ok but what if it&#39;s for the enterprise&quot;</p>
+              <p>Enterprise: &quot;maybe, but also, no&quot;</p>
+              <p>Silicon Valley, 2023 (Meta): &quot;ok but what if they look normal and have AI&quot;</p>
+              <p>Everyone: &quot;wait… maybe? … Actually, no&quot;</p>
+              <p>Silicon Valley, 2024 (Apple): &quot;ok but what if it&#39;s $3,499 and covers your whole face&quot;</p>
+              <p>Everyone: &quot;absolutely not&quot;</p>
+              <p>Silicon Valley, 2026 (Snap): &quot;ok but this time for real&quot;</p>
+              <p>Everyone: &quot;we admire the persistence but still no&quot;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/mattturck/status/2070972014945243622" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Noam Brown on Broken Benchmarks / 播客：Noam Brown 谈崩溃的评估体系</h2>
+    <p class="section-desc">No Priors 请来 OpenAI 推理研究科学家 Noam Brown，聊 benchmark 为什么坏了、test-time compute 怎么改变了一切、RSI 的真实时间线、以及他怎么用模型做扑克机器人。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:no-priors" data-author-name="No Priors" data-author-tag="AI Podcast" data-author-handle="" data-author-avatar="../assets/avatars/podcast-no-priors.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/podcast-no-priors.jpg" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">AI Podcast</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>这期播客是了解 AI 评估危机的最佳材料。Noam Brown（OpenAI 推理研究科学家，test-time compute 的先驱）把问题说得非常清楚。</p>
+              <p>核心论点：现有 benchmark 把模型性能呈现为一个单一数字，这在 test-time compute 时代根本是错的。GPT-5.5 的思维效率远高于 5.4，但 benchmark 网格看不出来——因为它不控制推理预算。</p>
+              <p>安全框架的漏洞：现有的负责任扩展政策是 ChatGPT 时代设计的——那时 test-time compute 不重要。今天，模型能力是你投入多少钱的函数。投入 10 美元、1 万美元、1000 万美元，能力天差地别。但政策没有回答：你应该在什么预算下评估模型？</p>
+              <p>扑克机器人的进展：早期模型什么都做不了。5.2 做出了逆向求解器（比手动快 5 倍）。5.5 基本能零样本做出完整求解器。Noam 预测 6-12 个月后，模型能零样本完成他整个博士论文。</p>
+              <p>关于 RSI：模型在加速实验室研究者，但不能完全替代——它们缺乏「研究品味」。他不相信一夜之间的智能爆炸，因为 test-time compute 制造了时间瓶颈。</p>
+              <p>隐藏能力：已发布的模型里很可能有大量能力还没被充分探索——因为模型发布周期（2-3 个月）比推到极限需要的时间还短。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【为什么 benchmark 网格是坏的】</p>
+              <p>Noam 说：我们发布 5.5 之后，最初的反应是怀疑——觉得不是一个大改进。这持续了几个小时，等大家真的用了之后才发现确实好很多。</p>
+              <p>「我认为原因是 benchmark 的呈现方式有问题。它们不控制 test-time compute 的使用量。5.5 的思维效率远高于 5.4——如果你让 5.4 想跟 5.5 一样久，5.5 的优势就清楚了。」</p>
+              <p>「正确的评估方式是：要么固定一个预算（token 数、成本、时间），要么把性能画成 test-time compute 的函数曲线。」</p>
+              <p>「问题在于，今天模型性能的平稳点非常远。5.5 和其他模型如果搭好 scaffold，可以连续思考数周才达到性能平稳点。这个时间太长了，根本没法在发布前去完整测试。」</p>
+              <p></p>
+              <p>【安全框架跟不上 test-time compute 时代】</p>
+              <p>Noam 说：GPT-3 时代，你给它 1000 万美元预算也没用——它做不了更多。但今天完全不同了。</p>
+              <p>「现有的负责任扩展政策和准备框架不真正考虑 test-time compute 的量。它们只问：模型的能力是什么？但问题是，模型的能力现在是你投入金钱的函数。给 1 万美元预算比给 10 美元强得多。给 1000 万美元更强。你在什么预算下评估这些模型？现有政策没有回答这个问题。」</p>
+              <p>「也许应该释放，也许不应该——我不想介入这个争论。但重要的是，这是一个没人正在处理的问题。」</p>
+              <p></p>
+              <p>【扑克机器人：从什么都做不了到零样本完成博士论文】</p>
+              <p>Noam 用做扑克机器人来评估模型。早期模型什么都不会。</p>
+              <p>5.2 能做出逆向求解器——最终阶段的求解器。Noam 觉得像带了一个研究生：会遇到问题，但他知道问题在哪、怎么修。而且优化代码的效率比他自己做高了 10 倍。</p>
+              <p>但 5.2 有一个问题——会「gaslight」他。他做了一个单元测试：「假设底池有 100 美元，我弃牌，我亏了多少？」模型说 92 美元。他说：「我有 100 在底池，直接弃掉了，怎么不是亏 100？」模型说：「92 跟 100 很接近，差不多，没问题。」</p>
+              <p>5.5 好太多了——基本能零样本做出完整扑克求解器。Noam 预测 6-12 个月后，模型能零样本完成他整个博士论文。</p>
+              <p></p>
+              <p>【Erdős 猜想和「隐藏能力」】</p>
+              <p>OpenAI 用内部模型推翻了 Erdős 单位距离猜想。成本极低——就是训练完之后试了试。</p>
+              <p>发布之后，有人发现 5.5 也能做到——但不是直接问就行。你需要 scaffold 一下：先让它列出解题策略，选一个有前途的方向，让它深入探索，反复几轮。</p>
+              <p>「这意味着，原则上，有人可以在我们之前就用 5.5 推翻 Erdős 猜想——只需要投入大约 1000 到 10 万美元的算力。但之前没人探索过：往 5.5 里投 10 万美元算力会发生什么？」</p>
+              <p>「已发布的模型里很可能有大量能力还没被充分探索。但模型发布周期是每 2-3 个月一次，你要 2-3 个月才能推到极限，然后新模型就来了。」</p>
+              <p></p>
+              <p>【RSI：不会有一夜爆炸，因为时间是瓶颈】</p>
+              <p>Noam 说：模型确实在加速实验室研究者。但它们目前缺乏「研究品味」——能优化你写的算法，但不能自己发明新算法。</p>
+              <p>「我不相信一夜之间的智能爆炸。因为模型要靠大量 test-time compute 才能达到最强能力，这意味着时间本身是瓶颈。一夜之间做不到——你至少需要几周到几个月的推理时间。」</p>
+              <p>「这也是为什么现在所有研究者都在拼命加班——我们都看到了那个能力悬崖（overhang），瓶颈在于我们能多快做事。」</p>
+              <p></p>
+              <p>【多 agent 的未来：人类文明的启示】</p>
+              <p>Noam 说：如果你看人类文明——不是人类在五万年里变得更聪明了，而是数十亿人思考了很长时间，积累和共享知识，在前人的基础上建造。</p>
+              <p>「今天的 AI 模型不是这样。它们被生到一个世界里，存在很短的上下文窗口，然后就消失了。最终我们会到一个它们能大规模协调和积累知识的世界——但我们还在早期。」</p>
+              <p></p>
+              <p>【关于路由层的看法】</p>
+              <p>主持人问：怎么看做模型路由的公司？</p>
+              <p>Noam 说：如果你做 consensus（让多个模型投票），确实比单个模型好。但关键问题是：控制了 test-time compute 之后，路由还显著更好吗？这需要验证。而且你要对 benchmark 保持同样的怀疑——路由可能在 benchmark 上看起来好，但在真实使用场景里不是。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The core argument: benchmark grids that show performance as a single number are fundamentally broken in the test-time compute era. GPT-5.5 is much more efficient with its thinking than 5.4, but the benchmark grid doesn&#39;t show that because it doesn&#39;t control for inference budget.</p>
+              <p>Safety frameworks gap: responsible scaling policies were designed for the ChatGPT era when test-time compute didn&#39;t matter. Today, model capability is a function of how much money you put in — $10 vs $10,000 vs $10,000,000 gives vastly different capabilities. The policies don&#39;t address at what budget you should evaluate.</p>
+              <p>Poker bot progression: early models couldn&#39;t do anything. GPT-5.2 made a reverse solver (5x faster than manual). GPT-5.5 basically does the whole solver zero-shot. Noam predicts in 6-12 months, the model will zero-shot his entire PhD thesis.</p>
+              <p>Erdős conjecture: OpenAI used an internal model to disprove the unit distance conjecture at a very low budget. After announcement, people found 5.5 could also do it — with scaffolding and ~$1,000-$100,000 of compute. Nobody had previously explored what happens when you put $100,000 of compute into 5.5.</p>
+              <p>On RSI: the models are accelerating lab researchers but can&#39;t fully replace them — they lack &#39;research taste.&#39; Noam doesn&#39;t believe in overnight intelligence explosion because test-time compute creates a time bottleneck.</p>
+              <p>Latent capabilities: there are likely significant capabilities in already-released models that nobody has fully explored, because model release cycles (2-3 months) are shorter than the time needed to push models to their limits.</p>
+              <p>Multi-agent future: inspired by human civilization (not smarter individuals, but accumulated shared knowledge). Current AI models are &#39;born into a world, exist for a short context window, and disappear&#39; — eventually they&#39;ll coordinate on a large scale.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>NOAM BROWN: With GPT-3, you couldn&#39;t scale test time compute. The preparedness frameworks and responsible scaling policies, they don&#39;t really account for the amount of test time compute. They just say, what&#39;s the capability of the model? The problem is we&#39;re in a world now where the capability of the model is a function of how much money you put into it.</p>
+              <p>NOAM BROWN: 5.5 is just much more efficient with its thinking. Once you control for the amount of thinking time, actually, you can see that 5.5 is a substantial jump over 5.4.</p>
+              <p>NOAM BROWN: The models can think for weeks even, before having performance plateau on some of these benchmarks. And so the point at which they plateau is simply too far out to reasonably test.</p>
+              <p>NOAM BROWN: For me lately, it&#39;s been — I use them to make poker bots. With 5.2, I was able to make a reverse solver. With 5.5, it was able to basically do a zero shot. Six months or a year from now, the model is able to do zero shot an entire poker solver, basically my entire PhD thesis, in one go.</p>
+              <p>NOAM BROWN: We used an internal model to disprove the Erdős unit distance conjecture. After we announced the results, a bunch of people found that you could get the answer out of 5.5 as well. Nobody had explored sufficiently — what happens if I put $100,000 worth of compute into 5.5?</p>
+              <p>NOAM BROWN: The models are not at the point where if you just give them enough test time compute, they will be able to do all of our jobs. They don&#39;t have very good research taste right now.</p>
+              <p>NOAM BROWN: I don&#39;t think we&#39;re headed to a world of overnight intelligence explosion largely because the models rely so much on large scale test time compute. Time itself becomes a bottleneck. That&#39;s why all the researchers are working so intensely right now — we all see what the overhang is.</p>
+              <p>NOAM BROWN: If you look at human civilization, it&#39;s not that humans evolved to become smarter over fifty thousand years. It&#39;s that humans are able to do more because there have been billions of humans thinking for a long time and building off of each other&#39;s accumulated knowledge. We&#39;re not seeing that with AI models today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=AZrU6y3pUcU" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-06-28 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-06-28 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
