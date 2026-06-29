@@ -1,0 +1,265 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-29",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天最重磅的内容是一条全新播客——MAD Podcast 采访 Lambda Labs CEO Stephen Balaban，讲了一个多小时 AI 数据中心的物理现实。他从光子进、token 出的完整管道讲起，解释了为什么大多数 NeoCloud 根本没有真正的云技术。Noam Brown 的 benchmark 危机继续发酵——swyx 指出按美元成本报告性能会让开源模型看起来有竞争力得多。Rauch 买了 rauch.com，还发了关于 Mythos/Sol 网络安全能力的严肃警告。Zara 一年从零到 GitHub 万粉的故事仍然是今天最火的帖子。"
+  },
+  "archive": {
+    "title": "算力管道日报",
+    "desc": "Lambda CEO 从光子到 token 拆解 AI 数据中心；Noam Brown 的 benchmark 危机继续；Rauch 买回域名并发安全警告。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-29 source feeds.",
+  "sections": [
+    {
+      "title": "Benchmark Crisis Continued / 评估危机续",
+      "desc": "Noam Brown 的 benchmark 批评继续在社区发酵——swyx 和 Levie 分别从不同角度做了延伸。",
+      "cards": [
+        {
+          "authorKey": "x:swyx",
+          "sourceUrl": "https://x.com/swyx/status/2070949306060931312",
+          "en": {
+            "rewrite": [
+              "Swyx connects Noam Brown's argument to the open vs closed model debate: if inference budget is what matters, open models — with better dollar-per-token mileage — should report performance by dollar cost.",
+              "This pressures closed labs to be transparent about how much test-time compute their benchmark numbers used. It's also a strategic insight for open model providers: reporting by cost would make them look much more competitive."
+            ],
+            "original": [
+              "An interesting way to take Noam at his word in regards to always keeping a constant inference budget for any eval reporting — is that open models have a lot more dollar per token mileage than closed model APIs. So anyone launching an open model today or situationally incentivized toward open models should obviously report thinking levels measured by dollar inference on popular inference providers, instead of by number of tokens on the x axis"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 把 Noam Brown 关于推理预算的论点和开源 vs 闭源竞争联系了起来：既然推理预算才决定能力，那开源模型每美元能跑更多 token，就应该按美元成本来报告性能。",
+              "这给闭源实验室施压，要求它们公开 benchmark 数字用了多少 test-time compute。对开源模型来说，按成本报告会让它们看起来有竞争力得多。"
+            ],
+            "original": [
+              "Swyx 说：开源模型每美元的 token 里程远高于闭源 API。所以发布开源模型的人应该按美元推理成本而非 token 数量来报告思维水平。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2070937863806751154",
+          "en": {
+            "rewrite": [
+              "Levie's thread on token cost optimization is effectively a business plan for applied AI companies: the layer between model and work needs to deeply understand domain, workflows, and business processes.",
+              "Enterprises get more intelligence per dollar when an applied AI company has already evaluated models for specific use cases, tuned UX, and built optimal architecture.",
+              "This is the business case for vertical AI: horizontal plays can't go deep enough to optimize cost and performance for any single workflow."
+            ],
+            "original": [
+              "Some good best practices here on AI token cost optimization. None of these happens though without a deep understanding of the underlying work being done in a non-abstract way.",
+              "The ultimate implication is that a layer between the work itself and the underlying intelligence needs to deeply understand your workflows, context, and business process.",
+              "By evaling the models for the applied use cases, deeply understanding the domain, having tuned UX and features for the use case, and having the ability to support adoption and change (via FDEs), allow this layer to add a ton of value.",
+              "There will be many horizontal and vertical versions of this approach. Huge opportunity right now."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 这条表面讲 token 成本优化，实际上是在给应用层 AI 公司写商业计划书。",
+              "模型和实际工作之间需要一个中间层，深入理解客户的领域、工作流和业务流程。企业自己每家都做不现实，所以这就是应用层 AI 公司的 playbook。",
+              "这其实是垂直 AI 的商业理由：横向通用方案不可能在任何单一工作流里深入到足够优化成本和性能的程度。"
+            ],
+            "original": [
+              "Levie 说：AI token 成本优化有一些好的最佳实践。但离不开对底层工作的深入理解。工作和底层智能之间需要一个层，深入理解你的工作流、上下文和业务流程。通过为场景评估模型、定制 UX、支持落地，这个层能增加大量价值。巨大的机会。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cybersecurity & Infrastructure / 网络安全与基础设施",
+      "desc": "Rauch 发了严肃的安全警告；Steinberger 暗示封锁无法阻止有决心的用户。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2071047674187714830",
+          "en": {
+            "rewrite": [
+              "Rauch's warning: Mythos/Sol cybersecurity capabilities are dual-use — equally effective offensively and defensively.",
+              "If adversaries get equivalent offensive capability, it's a serious threat to US companies with latent vulnerabilities. He recommends running deepsec or similar harnesses with frontier models to proactively find and fix vulnerabilities.",
+              "1225 likes for a security recommendation from a CEO suggests the builder community takes this seriously."
+            ],
+            "original": [
+              "Mythos / Sol cybersecurity capabilities are equally useful in an offensive as well a defensive capacity.",
+              "If adversaries get ahold of an equivalent offensive capability, it poses a serious threat to US companies that remain unaware of latent vulnerabilities.",
+              "In the meantime, I strongly recommend running deepsec or similar harnesses with the available frontier models."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 这条是严肃的安全警告：Mythos/Sol 的网络安全能力是双用途的——攻防同样有效。",
+              "如果对手获得同等攻击能力，对尚未发现潜在漏洞的美国公司是严重威胁。他建议立刻用 deepsec 或类似 harness 配合前沿模型做安全检查。",
+              "1225 个赞说明 builder 社区确实把这条当回事了。"
+            ],
+            "original": [
+              "Rauch 说：Mythos/Sol 的网络安全能力攻防同样有用。如果对手获得同等攻击能力，对未发现潜在漏洞的美国公司构成严重威胁。强烈建议用 deepsec 或类似 harness 配合前沿模型运行安全检查。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Personal Stories & Vibes / 个人故事与氛围",
+      "desc": "Zara 的一年从零到万粉；Rauch 买回域名；Codex 大更新含宠物面板；Sottiaux 凌晨问大家在 codexing 什么。",
+      "cards": [
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2070982013822333007",
+          "en": {
+            "rewrite": [
+              "Zara's story — 'Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can't write code by hand)' — got 2149 likes.",
+              "She's not an engineer; these are side projects built for fun. She connects technology with user problems, uses AI to build, and tells stories about the products.",
+              "This is the Builder PM archetype made real — proof that the barrier to building has dropped far enough for non-engineers to create real value."
+            ],
+            "original": [
+              "Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can't write code by hand). What a year.",
+              "Btw I'm not an engineer; these are all side projects I built for fun. I just love connecting technology with user problems/using it to solve my own pain points, and then telling stories about the products"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 今天最火的一条——2149 个赞：「一年前不懂 GitHub，现在万粉，仍然不会手写代码。」",
+              "她不是工程师，这些都是为了好玩做的副业项目。她把技术和用户需求连起来，用 AI 做产品，讲故事。",
+              "这正是 Builder PM 原型在现实中出现——做东西的门槛已经低到非工程师也能创造真实价值。"
+            ],
+            "original": [
+              "Zara 说：去年我还不怎么懂 GitHub 怎么用。现在我在 GitHub 上有一万关注者（而且仍然不会手写代码）。我不是工程师，这些都是为了好玩做的副业项目。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2071071289247244481",
+          "en": {
+            "rewrite": [
+              "Sottiaux shipped a substantial Codex update: smooth long threads, hoverable navigation rail, expanded settings search, zoom fixes, Slack-paste preserving markdown — and a dedicated Pets panel.",
+              "1383 likes and 170 replies — the most-engaged Codex product update yet. The Pets panel joke clearly resonated, but the substance (long-thread performance, Slack paste) solves real pain points.",
+              "These polish updates turn a tool from 'impressive' to 'daily driver.'"
+            ],
+            "original": [
+              "Tons of improvements landed in Codex.",
+              "- Handles super long threads smoothly.",
+              "- Hoverable navigation rail for previewing and jumping between turns that feels just right.",
+              "- Settings search covers more controls, with clearer appearance and host-filtering options and easier-to-find custom-provider settings.",
+              "- Zoom-level changes no longer misalign tooltips, dialogs, menus, selection bubbles, drag previews, or autocomplete.",
+              "- Copying into Slack preserves Markdown formatting such as bullets, bold text, code, and links; and large text pastes no longer freeze the UI.",
+              "- And most importantly: a dedicated Pets panel."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 发布了一波 Codex 大更新：超长线程流畅处理、悬停导航栏、设置搜索扩展、缩放不错位、Slack 粘贴保留 markdown——以及一个专属宠物面板。",
+              "1383 个赞，Codex 产品更新互动最高的一次。宠物面板的玩笑戳中了大家，但实质内容（长线程性能、Slack 粘贴）也在解决真实痛点。",
+              "这种打磨更新才能把工具从「令人印象深刻」变成「每天离不开」。"
+            ],
+            "original": [
+              "Sottiaux 列出 Codex 大量改进：流畅处理超长线程、悬停导航栏、设置搜索扩展、缩放不错位、粘贴到 Slack 保留 markdown——以及最重要的：专属宠物面板。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Lambda Labs — From Photons to Tokens / 播客：Lambda Labs——从光子到 Token",
+      "desc": "MAD Podcast 采访 Lambda Labs CEO Stephen Balaban。完整中文译文：从 AI 数据中心的物理管道到神经操作系统的愿景，从 NeoCloud 的竞争格局到 GPU 作为资产类的成熟。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad",
+          "authorName": "MAD Podcast",
+          "authorTag": "Matt Turk 主持的科技与投资深度对谈",
+          "sourceUrl": "https://www.youtube.com/@MADPodcast",
+          "en": {
+            "rewrite": [
+              "The compute pipeline: Balaban explains the full stack from photons (solar) or gas molecules in, through power plant → watts → data center (PUE) → FLOPS → tokens out. The server portion ($35-45B/GW) dwarfs power plant ($2-3B/GW) and data center ($10-15B/GW).",
+              "Why most NeoClouds aren't real clouds: they lack the software to partition a 10,000 GPU cluster — simultaneously coordinating in-band network, out-of-band monitoring, and compute fabric with RDMA. This requires tens to hundreds of millions in software investment that most haven't made.",
+              "GPU as asset class: H100s deployed in 2023 are now leasing at higher rates than originally — demand has outpaced any depreciation. Creditors are treating NVIDIA chips as a mature, underwritable asset class.",
+              "Vertical integration strategy: Lambda is moving from renting → financing → full vertical (identify land, design data center, finance construction, deploy servers, attach offtake agreements). Goal: match or beat SpaceX AI's 200-day data center deployment record.",
+              "Neural software / neural OS: Balaban's vision is that LLMs will become software rather than generate it. Instead of vibe coding → compile → run, you interact with the LLM directly and it emulates software behavior. No code runs — just modifications to the model's activation space. He estimates 10-15 years to mass adoption.",
+              "Overhyped: agentic workflows for non-verifiable domains (anything that can't be tested like code). Underrated: the same agentic workflows for software development — most people still haven't tried spinning up 10 agents on maximum effort.",
+              "One person, one GPU: inspired by Apple's 'one person, one computer' vision from 1976 — which took 50 years to fully realize. Balaban believes everyone will eventually need the compute power of one GPU or more for daily work, creativity, and entertainment."
+            ],
+            "original": [
+              "BALABAN: On the left hand side is all of the energy production, and then on my right hand side is tokens being consumed. You've got photons coming in per second or molecules of natural gas. That through a power plant gets converted into joules per second. The data center needs to cool itself, that's the PUE. You put the servers in, and that's producing FLOPS per second. That gets turned into tokens per second.",
+              "BALABAN: The server portion is by far and away the largest: servers can be anywhere from 35 to $45 billion a gigawatt. Power plant is 2 to $3 billion a gigawatt. Data center is between 10 and $15 billion a gigawatt.",
+              "BALABAN: Most neo clouds don't have this kind of technology. Most neo clouds have not made the tens to hundreds of millions of dollars of software investment that you need to make to build a real cloud system that can partition a high performance computing environment.",
+              "BALABAN: We have GPUs that we've commissioned that are fully depreciated from an accounting perspective. The usable life is longer than the accounting depreciation schedule. The people who said you're gonna throw these GPUs out in five years are completely wrong.",
+              "BALABAN: I want Lambda to be this vertically integrated, high velocity powerhouse. There's two companies in the world that can do high velocity deployments: SpaceX AI and Lambda.",
+              "BALABAN: Neural software means the LLM becomes the software, not generates the software. There is no code that's running. It's just modifications of the feature activation space and the context in the mind of the neural network.",
+              "BALABAN: Before people believed in the AI thesis, I would talk about one person, one GPU. In the future, everybody in the United States will need the computational power of one GPU or more.",
+              "BALABAN: Agentic workflows for things that are not software engineering tend to be overhyped. The reason is you need very concrete feedback mechanisms, which are done brilliantly through automated testing. It's not done brilliantly for 'hey Claude, make me a billion dollars.'"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客是了解 AI 数据中心物理现实的最好材料。Lambda Labs CEO Stephen Balaban 跟 Matt Turk 聊了一个多小时。",
+              "他从光子进、token 出的完整管道讲起：光子或天然气分子 → 发电厂 → 瓦特 → 数据中心（PUE 效率）→ FLOPS → token。服务器成本（每吉瓦 350-450 亿美元）远超发电厂（20-30 亿）和数据中心建筑（100-150 亿）。",
+              "为什么大多数 NeoCloud 不是真正的云：它们缺乏同时协调带内网络、带外监控和计算 fabric 的软件——这需要数千万到上亿美元的投资。",
+              "GPU 作为资产类：2023 年部署的 H100 现在租赁价格比当初还高——需求远超任何折旧。债权人开始把 NVIDIA 芯片当作成熟的可承保资产类。",
+              "垂直整合策略：Lambda 从租房→融资→全栈（选地、设计、建设、部署、绑定承购协议）。目标：匹敌甚至超越 SpaceX AI 200 天建数据中心的记录。",
+              "神经软件愿景：LLM 会变成软件本身，而不是生成软件。没有代码在运行——只是模型激活空间的修改。他估计 10-15 年到大规模采用。",
+              "被高估的：非可验证领域的 agent 工作流（任何不能像代码一样测试的东西）。被低估的：软件开发 agent 工作流——大多数人还没试过开 10 个 agent 全力跑。"
+            ],
+            "original": [
+              "【AI 数据中心的完整物理管道】",
+              "Balaban 说：从物理角度，左边是所有能源生产，右边是 token 被消耗。",
+              "「左边是光子（太阳能）或天然气分子每秒进入。通过发电厂转化为每秒焦耳——也就是瓦特。数据中心需要冷却自身，这是 PUE。然后放入服务器，产生每秒浮点运算（FLOPS）。FLOPS 被模型训练或推理消耗，转化为每秒 token。」",
+              "成本结构：服务器的资本堆栈占比最大——每吉瓦 350-450 亿美元。发电厂每吉瓦 20-30 亿。数据中心建筑每吉瓦 100-150 亿。",
+              "「最大的一部分成本是 GPU 小时的折旧。你怎么提取更多价值？靠利用率——如果 50% 时间使用，每小时折旧就是 1/0.5 = 2 倍。所以怎么做出让人爱用的云产品来驱动高利用率，是竞争优势的核心。」",
+              "",
+              "【为什么大多数 NeoCloud 不是真正的云】",
+              "Balaban 说：大多数 NeoCloud 根本没有真正的云技术。",
+              "「想象一个 10000 GPU 的集群。你想把它分区。你需要同时分区带内网络（存储读写）、带外监控网络（BMC/DPU）和计算 fabric（InfiniBand/Ethernet）。还要支持 RDMA——GPU 直接读写另一个 GPU 的 HBM 内存，不经过 CPU。」",
+              "「这个复杂的协调需要大量软件投资——数千万到上亿美元。大多数 NeoCloud 没做这个投资。他们只有一堆裸金属机器，没法按小时租出去。」",
+              "",
+              "【GPU 作为资产类：比人们想的耐用得多】",
+              "Balaban 说：说 GPU 三五年就报废的人完全错了。",
+              "「我们 2023 年部署的 H100，现在的租赁价格比当初还高。我们从会计角度已经完全折旧的 GPU，仍然在产生收入。」",
+              "「使用寿命长于会计折旧周期。真正重要的是经济使用寿命。债权人开始意识到 NVIDIA 芯片是一种很好的信用投资——资产价值清晰、现金流可预测。」",
+              "",
+              "【垂直整合：从租房到建厂】",
+              "Balaban 说：Lambda 正在走向全栈垂直整合。",
+              "「我们最初是租户。然后开始自己融资建设。现在是全流程：选地、带设计方案、融资建设、放服务器、绑定大客户的长期承购协议。」",
+              "「我希望 Lambda 成为高速度部署的 powerhouse。世界上只有两家公司能做到高速度部署——SpaceX AI 和 Lambda。」",
+              "他说 xAI 建数据中心的记录大约是 200 天。他认为这个速度可以被匹敌甚至超越——关键在于砍掉流程里的每一个多余环节。",
+              "",
+              "【神经软件：LLM 变成软件本身】",
+              "Balaban 说：我想区分 vibe coding 和神经软件。",
+              "「Vibe coding 是你给一个 prompt，它输出 C 代码或 Python 代码，然后通过编译器运行。软件是静态的——一旦生成就不能变。」",
+              "「神经软件是你直接跟 LLM 交互，它模拟软件的行为。没有代码在运行——只是模型激活空间和上下文的修改。」",
+              "「最好的体验方式：去 ChatGPT 或 Claude，让它渲染一个 ASCII art 桌面界面，然后让它假装是一个操作系统。你点击、打开、操作——它全部用文本模拟。」",
+              "「这不是不可能有 bug——只有对 prompt 的误解。最终它也会有生成每个像素的多模态网络。」",
+              "他估计 10-15 年到大规模采用。Tesla 的端到端自动驾驶就是一个神经软件的现存例子。",
+              "",
+              "【Lambda 的起源故事】",
+              "Balaban 2012 年创立 Lambda，最初做人脸识别。在 Google Code 上拉了 CUDA-ConvNet 代码库——「这说明 Lambda 有多老，Google Code 还在。」",
+              "做了 Dreamscope（用 ConvNet 把照片变成画作——「早期版 Midjourney」），100 万用户，每月 4 万美元 AWS 账单。为了省钱，花了 6 万美元买了一组工作站集群——「当时我们吓坏了，觉得这笔 CapEx 会搞死我们。」",
+              "结果一个半月就回本了。「我们想：省的钱比赚的还多。不如去做 AI 算力生意。」",
+              "2017 年硬件业务 300 万收入→2018 年 1000 万→2019 年 3000 万→增长到约 2 亿。云业务 2019 年开始，现在接近 10 亿美元收入。已完全退出硬件业务。",
+              "",
+              "【请 CEO：Stephen 转任 CTO】",
+              "Balaban 说：作为创始人，能把公司做到可以请得起 Michel Combe（前 SoftBank International CEO、前 Sprint CEO、Alcatel CEO、McLaren 董事）来当 CEO，是一种荣誉。",
+              "「我从来不觉得非得当 founder CEO。我关心技术。融资和日常管理是不得不做的事，不是我热爱的事。」",
+              "他转任 CTO 后专注于：怎么大幅缩短数据中心部署周期。",
+              "",
+              "【被高估和被低估的】",
+              "被高估的：非软件工程领域的 agent 工作流。「因为 agent 需要非常具体的反馈机制——自动化测试做得极好，但'嘿 Claude 帮我赚十亿'没有。」",
+              "「但也不是说只有软件工程才行——CAD、有限元分析、计算流体动力学，这些可验证的领域也适合。」",
+              "被低估的：软件开发 agent 工作流。「大多数人还是不了解。他们没试过——去 Claude，开最大努力，用最新模型，说'开 10 个 agent 来做'。很多人从没这么干过。」",
+              "",
+              "【一人一 GPU】",
+              "Balaban 说：我 2020、2021 年融资时就讲「一人一 GPU」——灵感来自 Apple 1976 年的「一人一电脑」。",
+              "「Steve Jobs 有远见，但 Apple 1976 年创立，到真正实现一人一电脑花了 50 年——到 2024 年才有真正的电商渗透。」",
+              "「我相信未来美国每个人都需要一个 GPU 或更多的算力——工作、娱乐、创造。但我也知道这需要很长时间。这不是一夜之间的事。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

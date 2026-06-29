@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-06-29</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-06-29" data-issue-number="42" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 42 期｜2026-06-29｜双语精选版｜6 条精选｜6 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天最重磅的内容是一条全新播客——MAD Podcast 采访 Lambda Labs CEO Stephen Balaban，讲了一个多小时 AI 数据中心的物理现实。他从光子进、token 出的完整管道讲起，解释了为什么大多数 NeoCloud 根本没有真正的云技术。Noam Brown 的 benchmark 危机继续发酵——swyx 指出按美元成本报告性能会让开源模型看起来有竞争力得多。Rauch 买了 rauch.com，还发了关于 Mythos/Sol 网络安全能力的严肃警告。Zara 一年从零到 GitHub 万粉的故事仍然是今天最火的帖子。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天最重磅的内容是一条全新播客——MAD Podcast 采访 Lambda Labs CEO Stephen Balaban，讲了一个多小时 AI 数据中心的物理现实。他从光子进、token 出的完整管道讲起，解释了为什么大多数 NeoCloud 根本没有真正的云技术。Noam Brown 的 benchmark 危机继续发酵——swyx 指出按美元成本报告性能会让开源模型看起来有竞争力得多。Rauch 买了 rauch.com，还发了关于 Mythos/Sol 网络安全能力的严肃警告。Zara 一年从零到 GitHub 万粉的故事仍然是今天最火的帖子。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Benchmark Crisis Continued / 评估危机续</h2>
+    <p class="section-desc">Noam Brown 的 benchmark 批评继续在社区发酵——swyx 和 Levie 分别从不同角度做了延伸。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:swyx" data-author-name="Swyx" data-author-tag="Writer / Builder" data-author-handle="@swyx" data-author-avatar="../assets/avatars/x-swyx.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-swyx.jpg" alt="Swyx avatar"><span class="avatar-fallback">S</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx</div>
+            <div class="author-tag is-inline">Writer / Builder</div>
+          </div>
+          <div class="author-handle">@swyx</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 把 Noam Brown 关于推理预算的论点和开源 vs 闭源竞争联系了起来：既然推理预算才决定能力，那开源模型每美元能跑更多 token，就应该按美元成本来报告性能。</p>
+              <p>这给闭源实验室施压，要求它们公开 benchmark 数字用了多少 test-time compute。对开源模型来说，按成本报告会让它们看起来有竞争力得多。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx 说：开源模型每美元的 token 里程远高于闭源 API。所以发布开源模型的人应该按美元推理成本而非 token 数量来报告思维水平。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx connects Noam Brown&#39;s argument to the open vs closed model debate: if inference budget is what matters, open models — with better dollar-per-token mileage — should report performance by dollar cost.</p>
+              <p>This pressures closed labs to be transparent about how much test-time compute their benchmark numbers used. It&#39;s also a strategic insight for open model providers: reporting by cost would make them look much more competitive.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>An interesting way to take Noam at his word in regards to always keeping a constant inference budget for any eval reporting — is that open models have a lot more dollar per token mileage than closed model APIs. So anyone launching an open model today or situationally incentivized toward open models should obviously report thinking levels measured by dollar inference on popular inference providers, instead of by number of tokens on the x axis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx/status/2070949306060931312" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 这条表面讲 token 成本优化，实际上是在给应用层 AI 公司写商业计划书。</p>
+              <p>模型和实际工作之间需要一个中间层，深入理解客户的领域、工作流和业务流程。企业自己每家都做不现实，所以这就是应用层 AI 公司的 playbook。</p>
+              <p>这其实是垂直 AI 的商业理由：横向通用方案不可能在任何单一工作流里深入到足够优化成本和性能的程度。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie 说：AI token 成本优化有一些好的最佳实践。但离不开对底层工作的深入理解。工作和底层智能之间需要一个层，深入理解你的工作流、上下文和业务流程。通过为场景评估模型、定制 UX、支持落地，这个层能增加大量价值。巨大的机会。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s thread on token cost optimization is effectively a business plan for applied AI companies: the layer between model and work needs to deeply understand domain, workflows, and business processes.</p>
+              <p>Enterprises get more intelligence per dollar when an applied AI company has already evaluated models for specific use cases, tuned UX, and built optimal architecture.</p>
+              <p>This is the business case for vertical AI: horizontal plays can&#39;t go deep enough to optimize cost and performance for any single workflow.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Some good best practices here on AI token cost optimization. None of these happens though without a deep understanding of the underlying work being done in a non-abstract way.</p>
+              <p>The ultimate implication is that a layer between the work itself and the underlying intelligence needs to deeply understand your workflows, context, and business process.</p>
+              <p>By evaling the models for the applied use cases, deeply understanding the domain, having tuned UX and features for the use case, and having the ability to support adoption and change (via FDEs), allow this layer to add a ton of value.</p>
+              <p>There will be many horizontal and vertical versions of this approach. Huge opportunity right now.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2070937863806751154" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Cybersecurity &amp; Infrastructure / 网络安全与基础设施</h2>
+    <p class="section-desc">Rauch 发了严肃的安全警告；Steinberger 暗示封锁无法阻止有决心的用户。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch 这条是严肃的安全警告：Mythos/Sol 的网络安全能力是双用途的——攻防同样有效。</p>
+              <p>如果对手获得同等攻击能力，对尚未发现潜在漏洞的美国公司是严重威胁。他建议立刻用 deepsec 或类似 harness 配合前沿模型做安全检查。</p>
+              <p>1225 个赞说明 builder 社区确实把这条当回事了。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauch 说：Mythos/Sol 的网络安全能力攻防同样有用。如果对手获得同等攻击能力，对未发现潜在漏洞的美国公司构成严重威胁。强烈建议用 deepsec 或类似 harness 配合前沿模型运行安全检查。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauch&#39;s warning: Mythos/Sol cybersecurity capabilities are dual-use — equally effective offensively and defensively.</p>
+              <p>If adversaries get equivalent offensive capability, it&#39;s a serious threat to US companies with latent vulnerabilities. He recommends running deepsec or similar harnesses with frontier models to proactively find and fix vulnerabilities.</p>
+              <p>1225 likes for a security recommendation from a CEO suggests the builder community takes this seriously.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Mythos / Sol cybersecurity capabilities are equally useful in an offensive as well a defensive capacity.</p>
+              <p>If adversaries get ahold of an equivalent offensive capability, it poses a serious threat to US companies that remain unaware of latent vulnerabilities.</p>
+              <p>In the meantime, I strongly recommend running deepsec or similar harnesses with the available frontier models.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2071047674187714830" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Personal Stories &amp; Vibes / 个人故事与氛围</h2>
+    <p class="section-desc">Zara 的一年从零到万粉；Rauch 买回域名；Codex 大更新含宠物面板；Sottiaux 凌晨问大家在 codexing 什么。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang</div>
+            <div class="author-tag is-inline">Builder</div>
+          </div>
+          <div class="author-handle">@zarazhangrui</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 今天最火的一条——2149 个赞：「一年前不懂 GitHub，现在万粉，仍然不会手写代码。」</p>
+              <p>她不是工程师，这些都是为了好玩做的副业项目。她把技术和用户需求连起来，用 AI 做产品，讲故事。</p>
+              <p>这正是 Builder PM 原型在现实中出现——做东西的门槛已经低到非工程师也能创造真实价值。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara 说：去年我还不怎么懂 GitHub 怎么用。现在我在 GitHub 上有一万关注者（而且仍然不会手写代码）。我不是工程师，这些都是为了好玩做的副业项目。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara&#39;s story — &#39;Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can&#39;t write code by hand)&#39; — got 2149 likes.</p>
+              <p>She&#39;s not an engineer; these are side projects built for fun. She connects technology with user problems, uses AI to build, and tells stories about the products.</p>
+              <p>This is the Builder PM archetype made real — proof that the barrier to building has dropped far enough for non-engineers to create real value.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can&#39;t write code by hand). What a year.</p>
+              <p>Btw I&#39;m not an engineer; these are all side projects I built for fun. I just love connecting technology with user problems/using it to solve my own pain points, and then telling stories about the products</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2070982013822333007" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:thsottiaux" data-author-name="" data-author-tag="" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Author avatar"><span class="avatar-fallback"></span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name"></div>
+            <div class="author-tag is-inline"></div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 发布了一波 Codex 大更新：超长线程流畅处理、悬停导航栏、设置搜索扩展、缩放不错位、Slack 粘贴保留 markdown——以及一个专属宠物面板。</p>
+              <p>1383 个赞，Codex 产品更新互动最高的一次。宠物面板的玩笑戳中了大家，但实质内容（长线程性能、Slack 粘贴）也在解决真实痛点。</p>
+              <p>这种打磨更新才能把工具从「令人印象深刻」变成「每天离不开」。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux 列出 Codex 大量改进：流畅处理超长线程、悬停导航栏、设置搜索扩展、缩放不错位、粘贴到 Slack 保留 markdown——以及最重要的：专属宠物面板。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux shipped a substantial Codex update: smooth long threads, hoverable navigation rail, expanded settings search, zoom fixes, Slack-paste preserving markdown — and a dedicated Pets panel.</p>
+              <p>1383 likes and 170 replies — the most-engaged Codex product update yet. The Pets panel joke clearly resonated, but the substance (long-thread performance, Slack paste) solves real pain points.</p>
+              <p>These polish updates turn a tool from &#39;impressive&#39; to &#39;daily driver.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Tons of improvements landed in Codex.</p>
+              <p>- Handles super long threads smoothly.</p>
+              <p>- Hoverable navigation rail for previewing and jumping between turns that feels just right.</p>
+              <p>- Settings search covers more controls, with clearer appearance and host-filtering options and easier-to-find custom-provider settings.</p>
+              <p>- Zoom-level changes no longer misalign tooltips, dialogs, menus, selection bubbles, drag previews, or autocomplete.</p>
+              <p>- Copying into Slack preserves Markdown formatting such as bullets, bold text, code, and links; and large text pastes no longer freeze the UI.</p>
+              <p>- And most importantly: a dedicated Pets panel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2071071289247244481" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Lambda Labs — From Photons to Tokens / 播客：Lambda Labs——从光子到 Token</h2>
+    <p class="section-desc">MAD Podcast 采访 Lambda Labs CEO Stephen Balaban。完整中文译文：从 AI 数据中心的物理管道到神经操作系统的愿景，从 NeoCloud 的竞争格局到 GPU 作为资产类的成熟。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad" data-author-name="MAD Podcast" data-author-tag="Matt Turk 主持的科技与投资深度对谈" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="MAD Podcast avatar"><span class="avatar-fallback">MP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">MAD Podcast</div>
+            <div class="author-tag is-inline">Matt Turk 主持的科技与投资深度对谈</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>这期播客是了解 AI 数据中心物理现实的最好材料。Lambda Labs CEO Stephen Balaban 跟 Matt Turk 聊了一个多小时。</p>
+              <p>他从光子进、token 出的完整管道讲起：光子或天然气分子 → 发电厂 → 瓦特 → 数据中心（PUE 效率）→ FLOPS → token。服务器成本（每吉瓦 350-450 亿美元）远超发电厂（20-30 亿）和数据中心建筑（100-150 亿）。</p>
+              <p>为什么大多数 NeoCloud 不是真正的云：它们缺乏同时协调带内网络、带外监控和计算 fabric 的软件——这需要数千万到上亿美元的投资。</p>
+              <p>GPU 作为资产类：2023 年部署的 H100 现在租赁价格比当初还高——需求远超任何折旧。债权人开始把 NVIDIA 芯片当作成熟的可承保资产类。</p>
+              <p>垂直整合策略：Lambda 从租房→融资→全栈（选地、设计、建设、部署、绑定承购协议）。目标：匹敌甚至超越 SpaceX AI 200 天建数据中心的记录。</p>
+              <p>神经软件愿景：LLM 会变成软件本身，而不是生成软件。没有代码在运行——只是模型激活空间的修改。他估计 10-15 年到大规模采用。</p>
+              <p>被高估的：非可验证领域的 agent 工作流（任何不能像代码一样测试的东西）。被低估的：软件开发 agent 工作流——大多数人还没试过开 10 个 agent 全力跑。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【AI 数据中心的完整物理管道】</p>
+              <p>Balaban 说：从物理角度，左边是所有能源生产，右边是 token 被消耗。</p>
+              <p>「左边是光子（太阳能）或天然气分子每秒进入。通过发电厂转化为每秒焦耳——也就是瓦特。数据中心需要冷却自身，这是 PUE。然后放入服务器，产生每秒浮点运算（FLOPS）。FLOPS 被模型训练或推理消耗，转化为每秒 token。」</p>
+              <p>成本结构：服务器的资本堆栈占比最大——每吉瓦 350-450 亿美元。发电厂每吉瓦 20-30 亿。数据中心建筑每吉瓦 100-150 亿。</p>
+              <p>「最大的一部分成本是 GPU 小时的折旧。你怎么提取更多价值？靠利用率——如果 50% 时间使用，每小时折旧就是 1/0.5 = 2 倍。所以怎么做出让人爱用的云产品来驱动高利用率，是竞争优势的核心。」</p>
+              <p></p>
+              <p>【为什么大多数 NeoCloud 不是真正的云】</p>
+              <p>Balaban 说：大多数 NeoCloud 根本没有真正的云技术。</p>
+              <p>「想象一个 10000 GPU 的集群。你想把它分区。你需要同时分区带内网络（存储读写）、带外监控网络（BMC/DPU）和计算 fabric（InfiniBand/Ethernet）。还要支持 RDMA——GPU 直接读写另一个 GPU 的 HBM 内存，不经过 CPU。」</p>
+              <p>「这个复杂的协调需要大量软件投资——数千万到上亿美元。大多数 NeoCloud 没做这个投资。他们只有一堆裸金属机器，没法按小时租出去。」</p>
+              <p></p>
+              <p>【GPU 作为资产类：比人们想的耐用得多】</p>
+              <p>Balaban 说：说 GPU 三五年就报废的人完全错了。</p>
+              <p>「我们 2023 年部署的 H100，现在的租赁价格比当初还高。我们从会计角度已经完全折旧的 GPU，仍然在产生收入。」</p>
+              <p>「使用寿命长于会计折旧周期。真正重要的是经济使用寿命。债权人开始意识到 NVIDIA 芯片是一种很好的信用投资——资产价值清晰、现金流可预测。」</p>
+              <p></p>
+              <p>【垂直整合：从租房到建厂】</p>
+              <p>Balaban 说：Lambda 正在走向全栈垂直整合。</p>
+              <p>「我们最初是租户。然后开始自己融资建设。现在是全流程：选地、带设计方案、融资建设、放服务器、绑定大客户的长期承购协议。」</p>
+              <p>「我希望 Lambda 成为高速度部署的 powerhouse。世界上只有两家公司能做到高速度部署——SpaceX AI 和 Lambda。」</p>
+              <p>他说 xAI 建数据中心的记录大约是 200 天。他认为这个速度可以被匹敌甚至超越——关键在于砍掉流程里的每一个多余环节。</p>
+              <p></p>
+              <p>【神经软件：LLM 变成软件本身】</p>
+              <p>Balaban 说：我想区分 vibe coding 和神经软件。</p>
+              <p>「Vibe coding 是你给一个 prompt，它输出 C 代码或 Python 代码，然后通过编译器运行。软件是静态的——一旦生成就不能变。」</p>
+              <p>「神经软件是你直接跟 LLM 交互，它模拟软件的行为。没有代码在运行——只是模型激活空间和上下文的修改。」</p>
+              <p>「最好的体验方式：去 ChatGPT 或 Claude，让它渲染一个 ASCII art 桌面界面，然后让它假装是一个操作系统。你点击、打开、操作——它全部用文本模拟。」</p>
+              <p>「这不是不可能有 bug——只有对 prompt 的误解。最终它也会有生成每个像素的多模态网络。」</p>
+              <p>他估计 10-15 年到大规模采用。Tesla 的端到端自动驾驶就是一个神经软件的现存例子。</p>
+              <p></p>
+              <p>【Lambda 的起源故事】</p>
+              <p>Balaban 2012 年创立 Lambda，最初做人脸识别。在 Google Code 上拉了 CUDA-ConvNet 代码库——「这说明 Lambda 有多老，Google Code 还在。」</p>
+              <p>做了 Dreamscope（用 ConvNet 把照片变成画作——「早期版 Midjourney」），100 万用户，每月 4 万美元 AWS 账单。为了省钱，花了 6 万美元买了一组工作站集群——「当时我们吓坏了，觉得这笔 CapEx 会搞死我们。」</p>
+              <p>结果一个半月就回本了。「我们想：省的钱比赚的还多。不如去做 AI 算力生意。」</p>
+              <p>2017 年硬件业务 300 万收入→2018 年 1000 万→2019 年 3000 万→增长到约 2 亿。云业务 2019 年开始，现在接近 10 亿美元收入。已完全退出硬件业务。</p>
+              <p></p>
+              <p>【请 CEO：Stephen 转任 CTO】</p>
+              <p>Balaban 说：作为创始人，能把公司做到可以请得起 Michel Combe（前 SoftBank International CEO、前 Sprint CEO、Alcatel CEO、McLaren 董事）来当 CEO，是一种荣誉。</p>
+              <p>「我从来不觉得非得当 founder CEO。我关心技术。融资和日常管理是不得不做的事，不是我热爱的事。」</p>
+              <p>他转任 CTO 后专注于：怎么大幅缩短数据中心部署周期。</p>
+              <p></p>
+              <p>【被高估和被低估的】</p>
+              <p>被高估的：非软件工程领域的 agent 工作流。「因为 agent 需要非常具体的反馈机制——自动化测试做得极好，但&#39;嘿 Claude 帮我赚十亿&#39;没有。」</p>
+              <p>「但也不是说只有软件工程才行——CAD、有限元分析、计算流体动力学，这些可验证的领域也适合。」</p>
+              <p>被低估的：软件开发 agent 工作流。「大多数人还是不了解。他们没试过——去 Claude，开最大努力，用最新模型，说&#39;开 10 个 agent 来做&#39;。很多人从没这么干过。」</p>
+              <p></p>
+              <p>【一人一 GPU】</p>
+              <p>Balaban 说：我 2020、2021 年融资时就讲「一人一 GPU」——灵感来自 Apple 1976 年的「一人一电脑」。</p>
+              <p>「Steve Jobs 有远见，但 Apple 1976 年创立，到真正实现一人一电脑花了 50 年——到 2024 年才有真正的电商渗透。」</p>
+              <p>「我相信未来美国每个人都需要一个 GPU 或更多的算力——工作、娱乐、创造。但我也知道这需要很长时间。这不是一夜之间的事。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The compute pipeline: Balaban explains the full stack from photons (solar) or gas molecules in, through power plant → watts → data center (PUE) → FLOPS → tokens out. The server portion ($35-45B/GW) dwarfs power plant ($2-3B/GW) and data center ($10-15B/GW).</p>
+              <p>Why most NeoClouds aren&#39;t real clouds: they lack the software to partition a 10,000 GPU cluster — simultaneously coordinating in-band network, out-of-band monitoring, and compute fabric with RDMA. This requires tens to hundreds of millions in software investment that most haven&#39;t made.</p>
+              <p>GPU as asset class: H100s deployed in 2023 are now leasing at higher rates than originally — demand has outpaced any depreciation. Creditors are treating NVIDIA chips as a mature, underwritable asset class.</p>
+              <p>Vertical integration strategy: Lambda is moving from renting → financing → full vertical (identify land, design data center, finance construction, deploy servers, attach offtake agreements). Goal: match or beat SpaceX AI&#39;s 200-day data center deployment record.</p>
+              <p>Neural software / neural OS: Balaban&#39;s vision is that LLMs will become software rather than generate it. Instead of vibe coding → compile → run, you interact with the LLM directly and it emulates software behavior. No code runs — just modifications to the model&#39;s activation space. He estimates 10-15 years to mass adoption.</p>
+              <p>Overhyped: agentic workflows for non-verifiable domains (anything that can&#39;t be tested like code). Underrated: the same agentic workflows for software development — most people still haven&#39;t tried spinning up 10 agents on maximum effort.</p>
+              <p>One person, one GPU: inspired by Apple&#39;s &#39;one person, one computer&#39; vision from 1976 — which took 50 years to fully realize. Balaban believes everyone will eventually need the compute power of one GPU or more for daily work, creativity, and entertainment.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>BALABAN: On the left hand side is all of the energy production, and then on my right hand side is tokens being consumed. You&#39;ve got photons coming in per second or molecules of natural gas. That through a power plant gets converted into joules per second. The data center needs to cool itself, that&#39;s the PUE. You put the servers in, and that&#39;s producing FLOPS per second. That gets turned into tokens per second.</p>
+              <p>BALABAN: The server portion is by far and away the largest: servers can be anywhere from 35 to $45 billion a gigawatt. Power plant is 2 to $3 billion a gigawatt. Data center is between 10 and $15 billion a gigawatt.</p>
+              <p>BALABAN: Most neo clouds don&#39;t have this kind of technology. Most neo clouds have not made the tens to hundreds of millions of dollars of software investment that you need to make to build a real cloud system that can partition a high performance computing environment.</p>
+              <p>BALABAN: We have GPUs that we&#39;ve commissioned that are fully depreciated from an accounting perspective. The usable life is longer than the accounting depreciation schedule. The people who said you&#39;re gonna throw these GPUs out in five years are completely wrong.</p>
+              <p>BALABAN: I want Lambda to be this vertically integrated, high velocity powerhouse. There&#39;s two companies in the world that can do high velocity deployments: SpaceX AI and Lambda.</p>
+              <p>BALABAN: Neural software means the LLM becomes the software, not generates the software. There is no code that&#39;s running. It&#39;s just modifications of the feature activation space and the context in the mind of the neural network.</p>
+              <p>BALABAN: Before people believed in the AI thesis, I would talk about one person, one GPU. In the future, everybody in the United States will need the computational power of one GPU or more.</p>
+              <p>BALABAN: Agentic workflows for things that are not software engineering tend to be overhyped. The reason is you need very concrete feedback mechanisms, which are done brilliantly through automated testing. It&#39;s not done brilliantly for &#39;hey Claude, make me a billion dollars.&#39;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@MADPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-06-29 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-06-29 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
