@@ -1,0 +1,360 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-06-30",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "周末最爆的一条来自 Claude Code 团队的 Boris Cherny——他把工程、产品、设计融合后的新角色拆成五种原型，拿了近 12000 个赞。OpenAI Codex 团队周日开 warroom 调查 usage 异常，硬重置了所有人限额。Rauch 说「你需要的不是 LinkedIn，而是你网站上展示你做了什么的那页」，6000 多赞。Thariq 指出 coding agent 正在改变遗留代码迁移的经济学。Levie 对 AI 监管和开源竞争提出了他最尖锐的论点。播客仍然是 Lambda Labs CEO Stephen Balaban 那期，完整中文译文保留。"
+  },
+  "archive": {
+    "title": "角色重塑日报",
+    "desc": "Claude Code 团队的五种新角色原型爆火；Codex 周日 warroom 调查 usage 异常并全量重置；Rauch 说做出来的东西比 LinkedIn 重要。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-06-30 source feeds.",
+  "sections": [
+    {
+      "title": "Five Archetypes for the AI-Native Team / AI 原生团队的五种角色原型",
+      "desc": "Boris Cherny 在 Claude Code 团队看到了工程、产品、设计融合后的新形态，他把它拆成了五种角色。",
+      "cards": [
+        {
+          "authorKey": "x:bcherny",
+          "sourceUrl": "https://x.com/bcherny/status/2071379474277613732",
+          "en": {
+            "rewrite": [
+              "Boris Cherny (Claude Code @ Anthropic) identifies five archetypes emerging as engineering, product, design, and DS merge into a new kind of role: Prototyper, Builder, Sweeper, Grower, Maintainer.",
+              "The key insight: these roles aren't tied to job function. Some designers are Prototypers, some are Sweepers. Same for engineers and PMs. A person can span 2-3 roles.",
+              "Team composition shifts with product stage: pre-PMF needs Prototyper+Builder+Sweeper; growing product needs Builder+Sweeper+Grower+some Maintainer; mature product needs Sweeper+Grower+Maintainer+some Builder.",
+              "11598 likes — this clearly resonated. It's one of the most engaged AI team-design posts ever."
+            ],
+            "original": [
+              "As engineering, product, design, DS, etc. melt into a new kind of role, I was reflecting on what roles might look like in the future. For example, when I look at the Claude Code team I see what I think is five archetypes:",
+              "1. Prototyper: comes up with brand new ideas; churns out many ideas, most of which don't ship",
+              "2. Builder: quickly turns a prototype/idea into production-grade product/infra",
+              "3. Sweeper: cleans up the UI, simplifies the code and system, unships, optimizes performance",
+              "4. Grower: takes a product that has been built and iterates on it to improve Product-Market Fit",
+              "5. Maintainer: owns a mature system to make it secure, reliable, fast, and efficient as it scales",
+              "Many people span across 2 roles, and sometimes 3 roles. I also notice that these roles are not really tied to job function -- eg. across Anthropic, some designers match category 1, some 2, some 3; same for engineers, PM, DS.",
+              "A healthy team needs a mix of these, depending on the product:",
+              "- A product that is new and pre-PMF needs people that are strong at 1+2+3",
+              "- A product that is growing and has found PMF needs 2+3+4 and some 5",
+              "- A product that has strong PMF needs 3+4+5 and some 2",
+              "Maybe product roles of the future will look more like this, and less like the domain-specific roles of today?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Boris Cherny（Anthropic Claude Code 团队）把工程、产品、设计融合后涌现的新角色拆成了五种原型：Prototyper、Builder、Sweeper、Grower、Maintainer。",
+              "最核心的洞察：这些角色跟岗位 title 没关系。有些设计师是 Prototyper，有些是 Sweeper；工程师和 PM 也是一样。一个人可以横跨 2-3 个角色。",
+              "团队组合跟着产品阶段变：还在找 PMF 的产品需要 Prototyper+Builder+Sweeper；找到 PMF 在增长的加 Grower；成熟产品需要更多 Maintainer。",
+              "11598 个赞——这说明这个框架戳中了很多人。可能是目前讨论 AI-native 团队设计最有影响力的一条帖子。"
+            ],
+            "original": [
+              "Boris Cherny 说：当工程、产品、设计和数据科学融合成一种新角色时，我开始思考未来的角色会长什么样。在 Claude Code 团队里，我看到了五种原型：",
+              "1. Prototyper（原型者）：想出新点子，产出很多想法，但大部分不会上线。",
+              "2. Builder（建造者）：快速把原型或想法变成生产级的产品或基础设施。",
+              "3. Sweeper（清扫者）：打理 UI、简化代码和系统、下线不该留的功能、优化性能。",
+              "4. Grower（增长者）：接手已经做出来的产品，持续迭代，提升 PMF。",
+              "5. Maintainer（维护者）：拥有一个成熟系统，保证它安全、可靠、快速、高效地扩展。",
+              "很多人会横跨 2 个角色，有时 3 个。而且这些角色并不跟岗位绑定——在 Anthropic，有些设计师是第 1 类，有些是第 2 类，有些是第 3 类；工程师和 PM 也一样。",
+              "一个健康的团队需要根据产品阶段来搭配：",
+              "- 还在找 PMF 的新产品：需要 1+2+3 强的人",
+              "- 找到 PMF 在增长的产品：需要 2+3+4 加一些 5",
+              "- PMF 稳固的成熟产品：需要 3+4+5 加一些 2",
+              "也许未来的产品角色会更像这样，而不是今天这种按职能划分的方式？"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:petergyang",
+          "sourceUrl": "https://x.com/petergyang/status/2071292628302434361",
+          "en": {
+            "rewrite": [
+              "Peter Yang shares a quote from Jess, product lead for Claude Managed Agents at Anthropic, on how PMs use agents to get closer to the product.",
+              "The key unlock: codebase access lets PMs track PRs directly instead of poking engineers for status updates. This changes the PM-engineer information dynamic fundamentally.",
+              "This pairs naturally with Boris Cherny's archetype framework — PMs who can read code and track PRs are effectively operating as Growers or Sweepers, not just specification writers."
+            ],
+            "original": [
+              "How Anthropic PMs use agents internally to get closer to the product from Jess, product lead for Claude Managed Agents:",
+              "\"Access to our codebase has been the biggest unlock for me.",
+              "It helps me manage state more easily. Rather than poking a bunch of engineers on what they're doing, I can just track the PRs directly and see which ones are merged, which ones are deployed.",
+              "I deeply understand and interact with my product so much more than I've ever been able to in the past.\""
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 分享了 Anthropic Claude Managed Agents 产品负责人 Jess 的做法：PM 用 agent 直接看代码库，追踪 PR 状态。",
+              "关键变化：PM 不用再反复问工程师「做到哪了」，而是自己看 PR 是否 merge、是否 deploy。这改变了 PM 和工程师之间的信息流。",
+              "这跟 Boris 的角色框架刚好呼应——能看代码、追 PR 的 PM，实际上在做 Grower 或 Sweeper 的事，而不只是写需求文档。"
+            ],
+            "original": [
+              "Peter Yang 引用 Anthropic Claude Managed Agents 产品负责人 Jess 的话：",
+              "「能访问代码库对我来说是最大的解锁。」",
+              "「它让我更容易管理状态。我不用反复戳工程师问他们在做什么，而是直接看 PR——哪些 merge 了，哪些部署了。」",
+              "「我对产品的理解和参与程度比以前深了很多。」"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Codex Usage Crisis / Codex 用量危机",
+      "desc": "OpenAI Codex 团队周日开 warroom 调查 usage 异常，然后硬重置了所有人的限额。",
+      "cards": [
+        {
+          "authorKey": "x:thsottiaux",
+          "sourceUrl": "https://x.com/thsottiaux/status/2071381664853319742",
+          "en": {
+            "rewrite": [
+              "Sottiaux announced a hard reset of everyone's Codex usage limits while the team investigates increased usage drains for some users. This overrides banked resets too.",
+              "The timeline: Sunday warroom → logs investigation → full reset for all users → promise of additional manual resets after investigation concludes.",
+              "Combined engagement across the three tweets: ~9000 likes. The Codex user base clearly felt the pain — and appreciated the transparency.",
+              "The 'RESET week' coincidence (OpenAI's internal relaxation week) added dark humor: it was supposed to be a chill week, but turned into a literal reset week."
+            ],
+            "original": [
+              "Codex team is in a warroom on a Sunday combing through logs and checking whether there is anything that could lead to increased usage drains for some users. Taking it very seriously and won't rest until we get to the bottom of it.",
+              "As we are still investigating, I have reset everyone's Codex usage limits. This is a hard reset given some users had stacked up to three banked resets already that they can apply on their own schedule.",
+              "Funnily enough, this week at OpenAI is called the RESET week, which is meant for folks to relax a bit. However it will be a different kind of RESET week. Enjoy.",
+              "If you happened to have used your previous reset in the few hours before and didn't go through your usage, do not worry, you will get more manual resets after we conclude the investigation."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 宣布硬重置所有用户的 Codex 用量限额——团队在调查部分用户的异常用量消耗。",
+              "时间线：周日开 warroom → 翻日志 → 全量重置 → 承诺调查结束后补发手动重置。",
+              "三条推文加起来近 9000 个赞。Codex 用户群体确实感受到了痛点——也认可团队的透明度。",
+              "巧合的是，这周在 OpenAI 内部叫「RESET week」，本来是让大家放松的——结果变成了字面意义上的 reset week。"
+            ],
+            "original": [
+              "Sottiaux 周日发推：Codex 团队正在 warroom 里翻日志，检查是否有任何因素导致部分用户的用量异常增加。非常认真地对待，不查到底不休息。",
+              "随后宣布：由于调查仍在进行，我已经重置了所有人的 Codex 用量限额。这是一次硬重置——有些用户已经攒了最多三次 banked reset。",
+              "有趣的是，OpenAI 这周内部叫「RESET week」，本来是让大家放松一下的。但这会是一种不一样的 RESET week。",
+              "如果你恰好在之前几小时内用掉了上一次重置，不用担心，调查结束后会给更多手动重置。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Ship Over Resume / 做出来比简历重要",
+      "desc": "Rauch 的一条推文引爆了关于「什么才重要」的讨论。Zara 补了做和讲的比例。Thariq 指出 agent 正在改变遗留代码迁移的经济学。",
+      "cards": [
+        {
+          "authorKey": "x:rauchg",
+          "sourceUrl": "https://x.com/rauchg/status/2071284129275285580",
+          "en": {
+            "rewrite": [
+              "Rauch's tweet: 'You don't need a LinkedIn, you need a page on your website describing and linking to what you shipped.' 6235 likes.",
+              "The follow-up: 'You need a Link, not a LinkedIn 😂'",
+              "This resonated massively because it captures a cultural shift in how AI-native builders prove value — through shipped artifacts, not credential lists. In a world where titles matter less and output matters more, your personal page linking to real work is the new resume."
+            ],
+            "original": [
+              "You don't need a LinkedIn, you need a page on your website describing and linking to what you shipped",
+              "You need a Link, not a LinkedIn 😂"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauch 这条拿了 6235 个赞：「你需要的不是 LinkedIn，而是你自己网站上那个页面——描述你做了什么，附上链接。」",
+              "随后补了一刀：「你需要的是一个 Link，不是一个 LinkedIn 😂」",
+              "这条之所以炸了，是因为它说出了一个文化变化：AI 时代的 builder 证明自己价值的方式，不是靠简历列表，而是靠做出来的东西。title 不如 output 重要，你的个人页面上挂着什么真实作品，就是新的简历。"
+            ],
+            "original": [
+              "Rauch 说：你需要的不是 LinkedIn，你需要在你的网站上放一个页面，描述并链接到你做出来的东西。",
+              "随后补了一条：你需要的是一个 Link，不是一个 LinkedIn 😂"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:zarazhangrui",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2071319754128978030",
+          "en": {
+            "rewrite": [
+              "Zara's principle: for every hour you spend building the product, spend two hours explaining it, demonstrating it, selling it, teaching it.",
+              "She calls this her favorite part about building — telling the world about it, then refining based on contact with reality.",
+              "This pairs perfectly with Rauch's point. Shipping isn't just about the artifact — it's about the explanation loop. The ratio she suggests (1:2 build:explain) is surprisingly aggressive and probably correct."
+            ],
+            "original": [
+              "For every hour you spend on building the product, spend two hours on explaining it, demonstrating it, selling it, teaching it…",
+              "This is my favorite part about building: telling the world about it and then refining it based on contact with reality"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 的原则：每花一小时做产品，就要花两小时去解释它、演示它、推广它、教别人用。",
+              "她说这是做东西最享受的部分——告诉全世界，然后根据和真实世界的接触来改进。",
+              "这跟 Rauch 说的完全互补。做出来不只是产出物本身——还有解释和反馈的循环。她建议的比例（1:2 做和讲的比）可能看起来很激进，但很可能是对的。"
+            ],
+            "original": [
+              "Zara 说：每花一小时做产品，就花两小时去解释、演示、推广和教学。",
+              "这是做东西我最喜欢的部分：告诉全世界，然后根据和现实的碰撞来改进。"
+            ]
+          }
+        },
+        {
+          "authorKey": "x:trq212",
+          "sourceUrl": "https://x.com/trq212/status/2071419473433854221",
+          "en": {
+            "rewrite": [
+              "Thariq (Claude Code @ Anthropic) points out that coding agents are changing the fundamental economics of working with legacy codebases.",
+              "His observation: the engineering math on whether to maintain, refactor, or port a legacy system shifts when agents can handle the tedium. The cost of 'just rewrite it' drops dramatically.",
+              "660 likes suggests this hit a nerve — every engineering team with a legacy codebase is quietly recalculating this equation."
+            ],
+            "original": [
+              "this has to be because coding agents change the engineering math on how it is to work with or port a legacy codebase, right?",
+              "anyone at Riot able to confirm?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq（Anthropic Claude Code 团队）指出：coding agent 正在改变维护和迁移遗留代码库的经济学。",
+              "当 agent 能处理那些枯燥的迁移工作，「是维护旧代码还是直接重写」的计算就变了——重写的成本大幅下降。",
+              "660 个赞说明戳中了很多团队的痛点——每个有遗留代码的工程团队都在默默重新算这笔账。"
+            ],
+            "original": [
+              "Thariq 说：这一定是因为 coding agent 改变了维护或迁移遗留代码库的工程数学，对吧？有 Riot 的人能确认吗？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Security & Open Model Debate / AI 安全与开源模型之争",
+      "desc": "Levie 对模型监管和开源竞争提出了他这周最尖锐的论点。",
+      "cards": [
+        {
+          "authorKey": "x:levie",
+          "sourceUrl": "https://x.com/levie/status/2071253118252356001",
+          "en": {
+            "rewrite": [
+              "Levie's argument: mythos-level cybersecurity models will inevitably become open and available to anyone. When that happens, alternative tech stacks will emerge that drive economic value away from the US tech stack.",
+              "His policy conclusion: if advanced models will become open regardless, then gating your best models doesn't make you more secure — it just asymmetrically disadvantages you.",
+              "He frames the regulatory problem bluntly: much of AI regulation assumes China can't catch up. All evidence suggests they can and are. Betting against their long-term ingenuity and motivation is a bad bet.",
+              "The real strategic choice: either gate your models and fall behind, or stay at the frontier and drive future AI architectures."
+            ],
+            "original": [
+              "It should be 100% obvious that there will soon be mythos level models on cyber security that are open and available to anyone. As a byproduct of this, alternative tech stacks will emerge that also drive more economic value and control away from the US's tech stack.",
+              "This is what should be considered when thinking through the gate keeping you want to have in AI. If advanced models will become open and available regardless, then by not allowing the release of models you're neither more secure nor better off strategically.",
+              "So much of the regulatory approach to AI has to assume China can't catch up, when all current evidence suggests they can and are. And further, hard to imagine a higher priority than winning in AI for China; so you're basically betting against their long term ingenuity, talent and motivation. Seems like a bad bet.",
+              "So your options are either to create gates around your best models, which means you're asymmetrically disadvantaging yourself, or you work to ensure you're always at the frontier and driving the future architectures of AI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 的核心论点：很快就会有 mythos 级别的网络安全模型开源给所有人。届时会出现替代技术栈，把更多经济价值和控制权从美国技术栈中转移出去。",
+              "他的政策结论：如果先进模型无论如何都会开源，那限制你最好模型的发布既不会让你更安全，也不会让你在战略上更好——只会让你不对称地 disadvantaged。",
+              "他对监管的批评很直接：大部分 AI 监管的假设是中国追不上。但所有现有证据都表明他们能追上而且在追。押注他们长期缺乏创造力、人才和动力是一个糟糕的赌注。",
+              "真正的战略选择：要么管住你最好的模型然后落后，要么始终站在前沿并驱动未来的 AI 架构。"
+            ],
+            "original": [
+              "Levie 说：很快就会有 mythos 级别的网络安全开源模型，任何人都可以用。随之而来的是替代技术栈的出现，把更多经济价值和控制权从美国技术栈转移出去。",
+              "如果先进模型无论如何都会开源，那不允许发布模型并不能让你更安全或更处于有利地位。",
+              "AI 监管太多建立在「中国追不上」的假设上。但所有证据都表明他们能追上而且在追。押注他们缺乏长期的创造力、人才和动力，看起来是个糟糕的赌注。",
+              "所以选择是：要么给你的最好模型设门，不对称地让自己处于劣势；要么确保自己始终站在前沿，驱动 AI 的未来架构。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Lambda Labs — From Photons to Tokens / 播客：Lambda Labs——从光子到 Token",
+      "desc": "MAD Podcast 采访 Lambda Labs CEO Stephen Balaban。完整中文译文：从 AI 数据中心的物理管道到神经操作系统的愿景，从 NeoCloud 的竞争格局到 GPU 作为资产类的成熟。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad",
+          "authorName": "MAD Podcast",
+          "authorTag": "Matt Turk 主持的科技与投资深度对谈",
+          "sourceUrl": "https://www.youtube.com/watch?v=0NttU4CbyVs",
+          "en": {
+            "rewrite": [
+              "The compute pipeline: Balaban explains the full stack from photons (solar) or gas molecules in, through power plant → watts → data center (PUE) → FLOPS → tokens out. The server portion ($35-45B/GW) dwarfs power plant ($2-3B/GW) and data center ($10-15B/GW).",
+              "Why most NeoClouds aren't real clouds: they lack the software to partition a 10,000 GPU cluster — simultaneously coordinating in-band network, out-of-band monitoring, and compute fabric with RDMA. This requires tens to hundreds of millions in software investment that most haven't made.",
+              "GPU as asset class: H100s deployed in 2023 are now leasing at higher rates than originally — demand has outpaced any depreciation. Creditors are treating NVIDIA chips as a mature, underwritable asset class.",
+              "Vertical integration strategy: Lambda is moving from renting → financing → full vertical (identify land, design data center, finance construction, deploy servers, attach offtake agreements). Goal: match or beat SpaceX AI's 200-day data center deployment record.",
+              "Neural software / neural OS: Balaban's vision is that LLMs will become software rather than generate it. Instead of vibe coding → compile → run, you interact with the LLM directly and it emulates software behavior. No code runs — just modifications to the model's activation space. He estimates 10-15 years to mass adoption.",
+              "Overhyped: agentic workflows for non-verifiable domains (anything that can't be tested like code). Underrated: the same agentic workflows for software development — most people still haven't tried spinning up 10 agents on maximum effort.",
+              "One person, one GPU: inspired by Apple's 'one person, one computer' vision from 1976 — which took 50 years to fully realize. Balaban believes everyone will eventually need the compute power of one GPU or more for daily work, creativity, and entertainment."
+            ],
+            "original": [
+              "BALABAN: On the left hand side is all of the energy production, and then on my right hand side is tokens being consumed. You've got photons coming in per second or molecules of natural gas. That through a power plant gets converted into joules per second. The data center needs to cool itself, that's the PUE. You put the servers in, and that's producing FLOPS per second. That gets turned into tokens per second.",
+              "BALABAN: The server portion is by far and away the largest: servers can be anywhere from 35 to $45 billion a gigawatt. Power plant is 2 to $3 billion a gigawatt. Data center is between 10 and $15 billion a gigawatt.",
+              "BALABAN: Most neo clouds don't have this kind of technology. Most neo clouds have not made the tens to hundreds of millions of dollars of software investment that you need to make to build a real cloud system that can partition a high performance computing environment.",
+              "BALABAN: We have GPUs that we've commissioned that are fully depreciated from an accounting perspective. The usable life is longer than the accounting depreciation schedule. The people who said you're gonna throw these GPUs out in five years are completely wrong.",
+              "BALABAN: I want Lambda to be this vertically integrated, high velocity powerhouse. There's two companies in the world that can do high velocity deployments: SpaceX AI and Lambda.",
+              "BALABAN: Neural software means the LLM becomes the software, not generates the software. There is no code that's running. It's just modifications of the feature activation space and the context in the mind of the neural network.",
+              "BALABAN: Before people believed in the AI thesis, I would talk about one person, one GPU. In the future, everybody in the United States will need the computational power of one GPU or more.",
+              "BALABAN: Agentic workflows for things that are not software engineering tend to be overhyped. The reason is you need very concrete feedback mechanisms, which are done brilliantly through automated testing. It's not done brilliantly for 'hey Claude, make me a billion dollars.'"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这期播客是了解 AI 数据中心物理现实的最好材料。Lambda Labs CEO Stephen Balaban 跟 Matt Turk 聊了一个多小时。",
+              "他从光子进、token 出的完整管道讲起：光子或天然气分子 → 发电厂 → 瓦特 → 数据中心（PUE 效率）→ FLOPS → token。服务器成本（每吉瓦 350-450 亿美元）远超发电厂（20-30 亿）和数据中心建筑（100-150 亿）。",
+              "为什么大多数 NeoCloud 不是真正的云：它们缺乏同时协调带内网络、带外监控和计算 fabric 的软件——这需要数千万到上亿美元的投资。",
+              "GPU 作为资产类：2023 年部署的 H100 现在租赁价格比当初还高——需求远超任何折旧。债权人开始把 NVIDIA 芯片当作成熟的可承保资产类。",
+              "垂直整合策略：Lambda 从租房→融资→全栈（选地、设计、建设、部署、绑定承购协议）。目标：匹敌甚至超越 SpaceX AI 200 天建数据中心的记录。",
+              "神经软件愿景：LLM 会变成软件本身，而不是生成软件。没有代码在运行——只是模型激活空间的修改。他估计 10-15 年到大规模采用。",
+              "被高估的：非可验证领域的 agent 工作流（任何不能像代码一样测试的东西）。被低估的：软件开发 agent 工作流——大多数人还没试过开 10 个 agent 全力跑。"
+            ],
+            "original": [
+              "【AI 数据中心的完整物理管道】",
+              "Balaban 说：从物理角度，左边是所有能源生产，右边是 token 被消耗。",
+              "「左边是光子（太阳能）或天然气分子每秒进入。通过发电厂转化为每秒焦耳——也就是瓦特。数据中心需要冷却自身，这是 PUE。然后放入服务器，产生每秒浮点运算（FLOPS）。FLOPS 被模型训练或推理消耗，转化为每秒 token。」",
+              "成本结构：服务器的资本堆栈占比最大——每吉瓦 350-450 亿美元。发电厂每吉瓦 20-30 亿。数据中心建筑每吉瓦 100-150 亿。",
+              "「最大的一部分成本是 GPU 小时的折旧。你怎么提取更多价值？靠利用率——如果 50% 时间使用，每小时折旧就是 1/0.5 = 2 倍。所以怎么做出让人爱用的云产品来驱动高利用率，是竞争优势的核心。」",
+              "",
+              "【为什么大多数 NeoCloud 不是真正的云】",
+              "Balaban 说：大多数 NeoCloud 根本没有真正的云技术。",
+              "「想象一个 10000 GPU 的集群。你想把它分区。你需要同时分区带内网络（存储读写）、带外监控网络（BMC/DPU）和计算 fabric（InfiniBand/Ethernet）。还要支持 RDMA——GPU 直接读写另一个 GPU 的 HBM 内存，不经过 CPU。」",
+              "「这个复杂的协调需要大量软件投资——数千万到上亿美元。大多数 NeoCloud 没做这个投资。他们只有一堆裸金属机器，没法按小时租出去。」",
+              "",
+              "【GPU 作为资产类：比人们想的耐用得多】",
+              "Balaban 说：说 GPU 三五年就报废的人完全错了。",
+              "「我们 2023 年部署的 H100，现在的租赁价格比当初还高。我们从会计角度已经完全折旧的 GPU，仍然在产生收入。」",
+              "「使用寿命长于会计折旧周期。真正重要的是经济使用寿命。债权人开始意识到 NVIDIA 芯片是一种很好的信用投资——资产价值清晰、现金流可预测。」",
+              "",
+              "【垂直整合：从租房到建厂】",
+              "Balaban 说：Lambda 正在走向全栈垂直整合。",
+              "「我们最初是租户。然后开始自己融资建设。现在是全流程：选地、带设计方案、融资建设、放服务器、绑定大客户的长期承购协议。」",
+              "「我希望 Lambda 成为高速度部署的 powerhouse。世界上只有两家公司能做到高速度部署——SpaceX AI 和 Lambda。」",
+              "他说 xAI 建数据中心的记录大约是 200 天。他认为这个速度可以被匹敌甚至超越——关键在于砍掉流程里的每一个多余环节。",
+              "",
+              "【神经软件：LLM 变成软件本身】",
+              "Balaban 说：我想区分 vibe coding 和神经软件。",
+              "「Vibe coding 是你给一个 prompt，它输出 C 代码或 Python 代码，然后通过编译器运行。软件是静态的——一旦生成就不能变。」",
+              "「神经软件是你直接跟 LLM 交互，它模拟软件的行为。没有代码在运行——只是模型激活空间和上下文的修改。」",
+              "「最好的体验方式：去 ChatGPT 或 Claude，让它渲染一个 ASCII art 桌面界面，然后让它假装是一个操作系统。你点击、打开、操作——它全部用文本模拟。」",
+              "「这不是不可能有 bug——只有对 prompt 的误解。最终它也会有生成每个像素的多模态网络。」",
+              "他估计 10-15 年到大规模采用。Tesla 的端到端自动驾驶就是一个神经软件的现存例子。",
+              "",
+              "【Lambda 的起源故事】",
+              "Balaban 2012 年创立 Lambda，最初做人脸识别。在 Google Code 上拉了 CUDA-ConvNet 代码库——「这说明 Lambda 有多老，Google Code 还在。」",
+              "做了 Dreamscope（用 ConvNet 把照片变成画作——「早期版 Midjourney」），100 万用户，每月 4 万美元 AWS 账单。为了省钱，花了 6 万美元买了一组工作站集群——「当时我们吓坏了，觉得这笔 CapEx 会搞死我们。」",
+              "结果一个半月就回本了。「我们想：省的钱比赚的还多。不如去做 AI 算力生意。」",
+              "2017 年硬件业务 300 万收入→2018 年 1000 万→2019 年 3000 万→增长到约 2 亿。云业务 2019 年开始，现在接近 10 亿美元收入。已完全退出硬件业务。",
+              "",
+              "【请 CEO：Stephen 转任 CTO】",
+              "Balaban 说：作为创始人，能把公司做到可以请得起 Michel Combe（前 SoftBank International CEO、前 Sprint CEO、Alcatel CEO、McLaren 董事）来当 CEO，是一种荣誉。",
+              "「我从来不觉得非得当 founder CEO。我关心技术。融资和日常管理是不得不做的事，不是我热爱的事。」",
+              "他转任 CTO 后专注于：怎么大幅缩短数据中心部署周期。",
+              "",
+              "【被高估和被低估的】",
+              "被高估的：非软件工程领域的 agent 工作流。「因为 agent 需要非常具体的反馈机制——自动化测试做得极好，但'嘿 Claude 帮我赚十亿'没有。」",
+              "「但也不是说只有软件工程才行——CAD、有限元分析、计算流体动力学，这些可验证的领域也适合。」",
+              "被低估的：软件开发 agent 工作流。「大多数人还是不了解。他们没试过——去 Claude，开最大努力，用最新模型，说'开 10 个 agent 来做'。很多人从没这么干过。」",
+              "",
+              "【一人一 GPU】",
+              "Balaban 说：我 2020、2021 年融资时就讲「一人一 GPU」——灵感来自 Apple 1976 年的「一人一电脑」。",
+              "「Steve Jobs 有远见，但 Apple 1976 年创立，到真正实现一人一电脑花了 50 年——到 2024 年才有真正的电商渗透。」",
+              "「我相信未来美国每个人都需要一个 GPU 或更多的算力——工作、娱乐、创造。但我也知道这需要很长时间。这不是一夜之间的事。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
