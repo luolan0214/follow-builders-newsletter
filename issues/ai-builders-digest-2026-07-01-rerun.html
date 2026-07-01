@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-01" data-issue-number="44" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 44 期｜2026-07-01｜双语精选版｜12 条精选｜11 位作者｜6 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天的主线是 Claude Sonnet 5 发布——性能接近 Opus 4.8，价格低得多，免费用户也能用。Boris Cherny 同步发了 Claude Desktop Linux 版。Thariq 澄清了 Claude Code 分类器更新：小部分常规编程任务会被标记降级到 Opus，团队在持续优化减少误报。Steinberger 说了一句被很多人转的话：「price per token != cost per task」。Amjad Masad 转发了 Etched 的推理硬件——专门为 LLM 设计的芯片。Levie 做了 Box 对 Sonnet 5 的企业级 eval，还分享了 AI 采用率和雇佣增长正相关的数据。播客是 Training Data（Sequoia 出品）采访 SemiAnalysis 的 Dylan Patel——hardware-software co-design 才是真正的 100x。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天的主线是 Claude Sonnet 5 发布——性能接近 Opus 4.8，价格低得多，免费用户也能用。Boris Cherny 同步发了 Claude Desktop Linux 版。Thariq 澄清了 Claude Code 分类器更新：小部分常规编程任务会被标记降级到 Opus，团队在持续优化减少误报。Steinberger 说了一句被很多人转的话：「price per token != cost per task」。Amjad Masad 转发了 Etched 的推理硬件——专门为 LLM 设计的芯片。Levie 做了 Box 对 Sonnet 5 的企业级 eval，还分享了 AI 采用率和雇佣增长正相关的数据。播客是 Training Data（Sequoia 出品）采访 SemiAnalysis 的 Dylan Patel——hardware-software co-design 才是真正的 100x。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Sonnet 5 Launch / Sonnet 5 发布</h2>
+    <p class="section-desc">Anthropic 发布 Sonnet 5：性能接近 Opus 4.8，价格大幅降低，免费用户可用。同步上线 Claude Desktop Linux 版。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:claudeai" data-author-name="Claude" data-author-tag="Anthropic Assistant" data-author-handle="@claudeai" data-author-avatar="../assets/avatars/x-claudeai.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-claudeai.jpg" alt="Claude avatar"><span class="avatar-fallback">C</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Claude</div>
+            <div class="author-tag is-inline">Anthropic Assistant</div>
+          </div>
+          <div class="author-handle">@claudeai</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic 发布 Sonnet 5：在推理、工具使用、编程和知识工作上比 Sonnet 4.6 大幅提升，性能接近 Opus 4.8，但价格低得多。</p>
+              <p>官方三条推文合计近 9000 赞。核心卖点：Sonnet 5 能完成之前 Sonnet 完成不了的复杂任务、会自查输出、agentic 能力强。</p>
+              <p>8 月 31 日前是入门定价。已上线所有 Claude 应用和平台。免费和 Pro 用户默认使用，Max/Team/Enterprise 也可用。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Anthropic 官方：Sonnet 5 在推理、工具使用、编程和知识工作方面比 Sonnet 4.6 有大幅提升。性能接近 Opus 4.8，价格更低。</p>
+              <p>早期体验伙伴发现 Sonnet 5 能完成之前 Sonnet 做不到的复杂任务，会主动自查输出，agentic 工作性价比很高。</p>
+              <p>Sonnet 5 现已在免费版和 Pro 版默认启用，Max、Team 和 Enterprise 用户也可使用。已上线所有 Claude 应用和平台，8 月 31 日前享受入门定价。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic launched Sonnet 5: &#39;substantial improvement over Sonnet 4.6 on reasoning, tool use, coding, and knowledge work. Performance close to Opus 4.8, at lower prices.&#39;</p>
+              <p>Three tweets from the official account: the model announcement (4607 likes), early access partner feedback on task completion (2227 likes), and availability/pricing (2060 likes).</p>
+              <p>Introductory pricing through August 31. Live across all Claude apps and the Claude Platform. Default on Free and Pro, available to Max, Team, and Enterprise.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sonnet 5 is a substantial improvement over Sonnet 4.6 on reasoning, tool use, coding, and knowledge work.</p>
+              <p>Its performance is close to Opus 4.8, at lower prices.</p>
+              <p>Early access partners found Sonnet 5 finishes complex tasks where previous Sonnets stopped short, checks its own output without being asked, and does all its agentic work at an attractive price point.</p>
+              <p>Sonnet 5 is now the default on Free and Pro, and available to Max, Team, and Enterprise users. It&#39;s live across all Claude apps and the Claude Platform today, with introductory pricing through August 31.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/claudeai/status/2072017452335087996" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:bcherny" data-author-name="" data-author-tag="" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Author avatar"><span class="avatar-fallback"></span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name"></div>
+            <div class="author-tag is-inline"></div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny 跟 Sonnet 5 同步发布了 Claude Desktop Linux 版。3503 个赞。</p>
+              <p>Linux 一直是 Claude Desktop 呼声最高的平台。这对日常用 Linux 的开发者来说去掉了一个真实的摩擦点。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny：你们要的，我们听了。Claude Desktop Linux 版来了！</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny shipped Claude Desktop on Linux alongside the Sonnet 5 launch. 3503 likes.</p>
+              <p>Linux has been the most-requested platform for Claude Desktop. This removes a real friction point for developers who live in Linux environments.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>You asked, we listened. Claude Desktop on Linux is here!</p>
+              <p>Download link: https://t.co/gjgHZvbKyi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny/status/2072000214634742243" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 把 Sonnet 5 跑了一遍 Box 的企业级 agentic benchmark——用真实文档做端到端测试。</p>
+              <p>对比 Sonnet 4.6：能源（+4.7 个百分点）、零售（+4.4）、专业服务（+2.6）等领域明显领先。</p>
+              <p>具体亮点：从原始资产负债表算出流动性/杠杆比率，还发现报告自身的数字有误；正确处理了坏掉的电子表格引用单元格；按正确子类分母计算 SKU 收入贡献而不是简单总和。</p>
+              <p>这就是企业 AI 评估应该有的样子——真实文档工作、端到端、可量化的差异。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie 说：我们把 Sonnet 5 跑了 Box AI Complex Work Eval——用真实企业文档做端到端的 agentic benchmark。</p>
+              <p>Sonnet 5 保持前沿级质量，在能源（+4.7pp）、零售（+4.4pp）、专业服务（+2.6pp）等领域领先 Sonnet 4.6。</p>
+              <p>亮点举例：</p>
+              <p>* 融资尽调：从原始资产负债表算出流动性和杠杆比率，发现报告自身的债务权益比数字低估了，三个贷款契约全部违约而非报告承认的那些。</p>
+              <p>* 大修成本分析：按公司自己的 KPI 定义计算「总成本」，正确地将「损失生产成本」分离出来，还处理了坏掉的引用单元格。</p>
+              <p>* SKU 收入分析：按正确子类分母计算贡献率，避免了除以类别总额的低级错误，还解释了为什么 Pet 类没有 SKU 进入前 9。</p>
+              <p>Sonnet 5 即将在 Box AI Studio 上线。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie ran Sonnet 5 through Box&#39;s AI Complex Work Eval — an agentic benchmark for real enterprise document tasks.</p>
+              <p>Results vs Sonnet 4.6: Sonnet 5 holds frontier-class quality and pulls ahead in Energy (+4.7pp), Retail (+4.4pp), Professional Services (+2.6pp).</p>
+              <p>Concrete wins: computed liquidity/leverage ratios from raw balance sheets and caught the source report&#39;s own errors; correctly handled broken spreadsheet reference cells; computed SKU revenue against correct subcategory denominators instead of naive totals.</p>
+              <p>This is how enterprise AI evaluation should look — real document work, end-to-end, measurable deltas.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>We&#39;ve been running Anthropic&#39;s Claude Sonnet 5 through the Box AI Complex Work Eval, our agentic benchmark that puts models through real enterprise document work end-to-end.</p>
+              <p>Sonnet 5 holds frontier-class quality on complex multi-step work and pulls ahead of Sonnet 4.6 in several core enterprise domains like Energy (+4.7pp), Retail (+4.4pp), and Professional Services (+2.6pp), and other spaces where unstructured data is heavily complex.</p>
+              <p>Here are a few examples of wins compared to Sonnet 4.6:</p>
+              <p>* Financing due diligence: It computed the company&#39;s liquidity and leverage ratios from the raw balance sheet, and caught that the source report&#39;s own stated debt-to-equity figure understated the leverage, flagging all three loan covenants as violated, not just the ones the document admitted.</p>
+              <p>* Overhaul cost analysis: It scoped &quot;total cost&quot; to the company&#39;s own KPI definitions, correctly separating out Lost Production Cost because the guidance said to track it separately rather than naively summing every number on the sheet. It also caught and handled a broken reference cell in the spreadsheet.</p>
+              <p>* SKU revenue analysis: On segmented sales data, it computed each product&#39;s contribution against the correct subcategory denominator, sidestepping the easy mistake of dividing by the category total, and flagged why no Pet-category SKU cracked the top 9.</p>
+              <p>Sonnet 5 will be available in the Box AI Studio shortly for customers to build custom agents with.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2072046374045249671" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Claude Code Classifier Update / Claude Code 分类器更新</h2>
+    <p class="section-desc">Thariq 澄清了更新后的分类器：小部分常规编程任务会被标记降级到 Opus，团队在优化减少误报。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:trq212" data-author-name="Thariq" data-author-tag="Claude Code @ Anthropic" data-author-handle="@trq212" data-author-avatar="../assets/avatars/x-trq212.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-trq212.jpg" alt="Thariq avatar"><span class="avatar-fallback">T</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq</div>
+            <div class="author-tag is-inline">Claude Code @ Anthropic</div>
+          </div>
+          <div class="author-handle">@trq212</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 澄清了更新后的 Claude Code 分类器：一小部分常规编程和调试任务会被标记，降级到 Opus。</p>
+              <p>团队在持续优化安全机制，更好地区分真正滥用和正常使用，减少误报。</p>
+              <p>主推文 1350 个赞——Claude Code 用户群体在密切关注访问恢复的每个细节。</p>
+              <p>这是继周末 warroom 和用量重置之后、计划明天恢复访问之前的最新更新。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq 说：看到了一些关于更新后分类器的问题，想澄清一下。</p>
+              <p>和原来的分类器一样，一小部分常规编程和调试任务会被标记并降级到 Opus。</p>
+              <p>我们很高兴明天能让大家重新获得访问权限。</p>
+              <p>正如我们在博客中说的，我们正在继续优化这些安全机制，更好地区分真正滥用和正常请求，减少误报。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq clarified the updated Claude Code classifiers: a small fraction of routine coding and debugging tasks will be flagged and fall back to Opus.</p>
+              <p>The team is continuing to refine safeguards to better distinguish genuine misuse from legitimate requests and reduce false positives.</p>
+              <p>1350 likes on the main clarification tweet — the Claude Code user base is clearly paying close attention to every detail of access restoration.</p>
+              <p>This follows the weekend warroom and usage reset, and precedes the planned access restoration tomorrow.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Have seen some questions about the updated classifiers and wanted to clarify.</p>
+              <p>As with the original classifiers, a small fraction of routine coding and debugging tasks will be flagged and fall back to Opus.</p>
+              <p>We&#39;re excited for guys to get access back tomorrow.</p>
+              <p>And as we say in our blog, we&#39;re continuing to refine these safeguards to better distinguish genuine misuse from legitimate requests and reduce false positives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212/status/2072185565076988326" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">AI Economics / AI 经济学</h2>
+    <p class="section-desc">Steinberger 的 price per token != cost per task 引发共鸣。Masad 转发 Etched 推理专用芯片。Levie 分享 AI 采用率与雇佣增长的正面数据。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:steipete" data-author-name="Peter Steinberger" data-author-tag="iOS Builder" data-author-handle="@steipete" data-author-avatar="../assets/avatars/x-steipete.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-steipete.jpg" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">iOS Builder</div>
+          </div>
+          <div class="author-handle">@steipete</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steinberger 这条拿了 1072 个赞：「price per token != cost per task」。</p>
+              <p>这说出了一个真实的经济学问题：两个 token 价格一样的模型，完成同一个任务的成本可能差很多——因为需要的 token 数量不同、失败重试次数不同、需要人工修正的量不同。</p>
+              <p>这就是 AI 版的「每次点击成本 ≠ 每次获客成本」——大家看的是单位价格，但真正重要的是完成一个任务的总成本。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steinberger：每个 token 的价格 ≠ 每个任务的成本。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steinberger&#39;s insight: &#39;Price per token != cost per task.&#39; 1072 likes.</p>
+              <p>This distills a real economic insight: two models with identical token prices can have very different per-task costs because of how many tokens they need, how often they fail and retry, and how much human correction they require.</p>
+              <p>It&#39;s the AI version of &#39;cost per click != cost per acquisition&#39; — the unit price metric everyone sees vs the outcome metric that actually matters.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Price per token != cost per task</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2072144627474579925" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:amasad" data-author-name="Amjad Masad" data-author-tag="CEO @ Replit" data-author-handle="@amasad" data-author-avatar="../assets/avatars/x-amasad.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-amasad.jpg" alt="Amjad Masad avatar"><span class="avatar-fallback">AM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad Masad</div>
+            <div class="author-tag is-inline">CEO @ Replit</div>
+          </div>
+          <div class="author-handle">@amasad</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad Masad（Replit CEO）转发了 Etched——第一个从零开始为现代 LLM 推理设计的系统，不是在通用 GPU 硬件上改造的。</p>
+              <p>1419 个赞。背景：今天大部分 AI 工作负载跑在 LLM 出现之前就设计好的硬件上。专用推理芯片可能从根本上改变成本结构。</p>
+              <p>这跟 Steinberger 的观点直接相关——如果你改了硬件，你改的是每个任务的成本，不只是每个 token 的价格。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad：AI 运行成本高，部分原因是今天大部分工作负载跑在 LLM 出现之前设计的通用硬件上。Etched 是第一个从头为现代推理设计的系统。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad Masad (Replit CEO) highlighted Etched — the first inference system designed from the ground up for modern LLM inference, not retrofitted from general-purpose GPU hardware.</p>
+              <p>1419 likes. The context: most AI workloads today run on hardware designed before LLMs existed. Purpose-built inference chips could fundamentally change the cost structure.</p>
+              <p>This connects directly to Steinberger&#39;s point — if you change the hardware, you change the cost per task, not just the cost per token.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>AI is expensive to run partly because most workloads today run on generic hardware designed pre-LLMs. Etched is the first system designed from the ground up for modern inference.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad/status/2071992110132117740" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:levie" data-author-name="Aaron Levie" data-author-tag="CEO @ Box" data-author-handle="@levie" data-author-avatar="../assets/avatars/x-levie.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-levie.jpg" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">CEO @ Box</div>
+          </div>
+          <div class="author-handle">@levie</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 分享了反驳「AI 杀工作」叙事的数据：Box 调查了 1600 多家中大型企业——58% 预期未来三年人数增长，但在 AI 采用最成熟的企业中这个比例高达 79%。</p>
+              <p>Ramp 的数据也显示同样规律：AI 采用越多，人数增长越多。</p>
+              <p>因果逻辑：AI 让你卖更多，所以你招更多销售。AI 让你做更多，所以你招更多工程师。项目变大了，不是变小了。</p>
+              <p>Levie 也提了 caveat：能负担 AI 采用的公司本身也增长更快。但重点是：最重度使用 AI 的公司并没有在减少招聘。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：更多数据显示 AI 采用和就业的关系跟很多人预期相反。Ramp 发现 AI 采用越多的公司人数增长越多。</p>
+              <p>Box 调查了 1600 多家中大型企业：58% 预期未来三年人数增长，但在 AI 采用最成熟的企业中升至 79%。</p>
+              <p>当然，能负担 AI 采用的公司本身也在增长。但最重要的结论是：最重度采用 AI 的公司并没有在减少招聘。</p>
+              <p>现实中：AI 让你获得更多客户，你就招更多销售；AI 让你建更多软件，你就招更多工程师，因为项目更大了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie shared data pushing back on the &#39;AI kills jobs&#39; narrative: Box surveyed 1600+ mid/large companies — 58% expect headcount to grow over 3 years, but that climbs to 79% among the most mature AI adopters.</p>
+              <p>Ramp data shows the same pattern: more AI adoption correlates with more headcount growth.</p>
+              <p>The causal logic: AI lets you sell more, so you hire more salespeople. AI lets you build more, so you hire more engineers. The projects get bigger, not smaller.</p>
+              <p>Caveat Levie notes: companies that can afford AI adoption are also growing faster anyway. But the key point is the opposite of fears — heavy AI adopters are NOT hiring fewer people.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>More data is showing the opposite of what many people expected with AI adoption and jobs. Ramp found that the more AI adoption a company has the more their headcount grows.</p>
+              <p>At Box, we recently did a survey of 1,600+ mid and large sized companies, and the findings were similar. 58% of respondents expected headcount to rise over the next three years. Interestingly, that figure climbs to 79% among the most mature adopters of AI.</p>
+              <p>Of course it&#39;s true that the companies that can afford to adopt AI the most are also the ones that likely are seeing growth in their business, leading to more headcount. So the point of the story isn&#39;t necessarily that by adopting AI you will inherently grow.</p>
+              <p>But the most important takeaway is that the opposite is not proving out. The fears a couple years ago would have been that the companies adopting AI the most would be hiring fewer people.</p>
+              <p>But in reality this is what actually you should expect to happen. If a company can get more customers because they use AI in sales for account or market intelligence, they hire more sales people not fewer. If you can build way more software than before, you end up hiring more engineers because the projects get bigger and you take on more.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2071992799109824562" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Builder Perspectives / 构建者视角</h2>
+    <p class="section-desc">Garry Tan 谈 Gbrain 的规模，Aditya Agarwal 感叹中国开源模型主导美国创新，Zara 转发关于 taste 的洞察。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:garrytan" data-author-name="Garry Tan" data-author-tag="CEO @ Y Combinator" data-author-handle="@garrytan" data-author-avatar="../assets/avatars/x-garrytan.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-garrytan.jpg" alt="Garry Tan avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan</div>
+            <div class="author-tag is-inline">CEO @ Y Combinator</div>
+          </div>
+          <div class="author-handle">@garrytan</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan：Gbrain 在 10000+ markdown 文件时才真正有用——无论是个人 brain 还是公司 brain。728 个赞。</p>
+              <p>含义：个人知识管理工具在 AI 能跨文件连接想法时才过拐点。低于一万文件，价值感弱得多。</p>
+              <p>验证了「第二大脑」的命题——但只在大规模时成立。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：Gbrain 在个人 brain 或公司 brain 中有 10000+ markdown 文件时才有用。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan: Gbrain becomes genuinely useful at 10,000+ markdown files — whether it&#39;s a personal brain or a company brain.</p>
+              <p>728 likes. The implication: personal knowledge management tools cross an inflection point when you have enough accumulated context for AI to connect ideas across files.</p>
+              <p>This validates the &#39;second brain&#39; thesis — but only at scale. Below 10k files, the value proposition is much weaker.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Gbrain is mostly useful at 10,000+ markdown files in your personal brain or company brain</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2071910876496757145" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:adityaag" data-author-name="Aditya Agarwal" data-author-tag="GP @ South Park Commons" data-author-handle="@adityaag" data-author-avatar="../assets/avatars/x-adityaag.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-adityaag.jpg" alt="Aditya Agarwal avatar"><span class="avatar-fallback">AA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aditya Agarwal</div>
+            <div class="author-tag is-inline">GP @ South Park Commons</div>
+          </div>
+          <div class="author-handle">@adityaag</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aditya Agarwal（South Park Commons GP，前 Facebook 早期工程师、前 Dropbox CTO）：「驱动美国创新的模型是中国的开源模型——这是一个非常奇怪的世界状态。」284 个赞。</p>
+              <p>这是美国 AI 生态里很多人在回避的不舒服的事实：最好的开源权重模型越来越多地来自中国（Qwen、DeepSeek），美国公司在上面构建。</p>
+              <p>这跟 Levie 之前的推文连起来——不发布模型没用，你不发布，别人（中国）会发布，他们会设定开源标准。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aditya Agarwal：驱动美国创新的模型是中国的开源模型——这是一个非常奇怪的世界状态。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aditya Agarwal (GP @ South Park Commons, ex-early Facebook eng, ex-Dropbox CTO): &#39;It is a very strange state of the world where the models powering innovation in the USA are Chinese open source models.&#39;</p>
+              <p>284 likes. This is the uncomfortable truth that many in the US AI ecosystem are dancing around. The best open-weight models are increasingly coming from China (Qwen, DeepSeek), and US companies are building on them.</p>
+              <p>This connects to Levie&#39;s earlier tweet about why gating model releases doesn&#39;t work — if you don&#39;t release, someone else (China) will, and they&#39;ll set the open standard.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>It is a very strange state of the world where the models powering innovation in the USA are Chinese open source models.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/adityaag/status/2071983952894837062" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="x:zarazhangrui" data-author-name="Zara Zhang" data-author-tag="Builder" data-author-handle="@zarazhangrui" data-author-avatar="../assets/avatars/x-zarazhangrui.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-zarazhangrui.jpg" alt="Zara Zhang avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang</div>
+            <div class="author-tag is-inline">Builder</div>
+          </div>
+          <div class="author-handle">@zarazhangrui</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 转发了一句关于 taste 的话：「Taste 值钱不是因为它无法被复制。Taste 值钱恰恰因为它定义了其他人选择去复制什么。」</p>
+              <p>这比常见的「taste 是护城河」论点更锐利。Taste 不是防御墙——它是攻击武器，塑造了其他人操作的版图。</p>
+              <p>在 AI 能生成一切的时代尤其相关：当任何人都能生成任何东西时，知道什么值得做（什么值得被复制）的人才有真正的杠杆。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara 引用：「Taste 不是因为无法复制才有价值。Taste 恰恰因为定义了别人选择复制什么才有价值。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara shared a quote on taste: &#39;Taste isn&#39;t valuable because it&#39;s impossible to copy. Taste is valuable exactly because it defines what everyone else chooses to copy.&#39;</p>
+              <p>This is a sharper formulation than the usual &#39;taste is a moat&#39; argument. Taste isn&#39;t a defensive wall — it&#39;s an offensive weapon that shapes the landscape everyone else operates in.</p>
+              <p>Particularly relevant in the age of AI-generated everything: when anyone can generate anything, the person who knows what&#39;s worth making (and worth copying) has the real leverage.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>&quot;Taste isn&#39;t valuable because it&#39;s impossible to copy. Taste is valuable exactly because it defines what everyone else chooses to copy.&quot;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2072197929138602079" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Vercel Services &amp; Platform / Vercel 服务与平台</h2>
+    <p class="section-desc">Rauch 发布 Vercel Services——同一项目里混合 Python 后端、Express 服务器和 React SPA。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="x:rauchg" data-author-name="Guillermo Rauch" data-author-tag="CEO @ Vercel" data-author-handle="@rauchg" data-author-avatar="../assets/avatars/x-rauchg.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/x-rauchg.jpg" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">CEO @ Vercel</div>
+          </div>
+          <div class="author-handle">@rauchg</div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Vercel Services 发布：在同一个 Vercel 项目里混合 Python 后端 API、ExpressJS 服务器和 React SPA。</p>
+              <p>全部可以用 `vc dev` 本地跑、一起部署一起回滚、共享可观测性/监控/调试、内部网络互通。</p>
+              <p>1046 个赞。解决了一个真实痛点——需要多种后端运行时的全栈应用不再需要分开部署。</p>
+              <p>Rauch 还分享了 Vercel 跟 Shopify/Tobi 合作推进 agentic web，以及晚饭时一位科技高管转达了他公司和 12 岁儿子的 Vercel 反馈。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauch 发布 Vercel Services：</p>
+              <p>现在可以在一个 Vercel 项目里放 Python 后端 API、ExpressJS 服务器和 React SPA。</p>
+              <p>要点：全部本地 vc dev 跑、一起部署和回滚、一起监控和调试、内部网络互通。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Vercel Services launch: collocate a Python backend API, an ExpressJS server, and a React SPA in one Vercel project.</p>
+              <p>All run locally with `vc dev`, deploy and rollback together, share observability/monitoring/debugging, and have internal networking.</p>
+              <p>1046 likes. This removes a real pain point — full-stack apps that need multiple backend runtimes no longer need separate deployment pipelines.</p>
+              <p>Rauch also shared that Vercel is partnering with Shopify/Tobi to &#39;push the agentic web forward,&#39; and posted about a dinner where a tech exec relayed both his company&#39;s and his 12-year-old son&#39;s Vercel feedback.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Vercel Services</p>
+              <p>You can now collocate e.g.: a Python backend API, an ExpressJS server, and a React SPA in one Vercel project.</p>
+              <p>tl:dr;</p>
+              <p>▪️ You can run all locally with 𝚟𝚌 𝚍𝚎𝚟</p>
+              <p>▪️ Deploy and rollback all at once</p>
+              <p>▪️ Observe, monitor, debug together</p>
+              <p>▪️ Internal networking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2071966055308607765" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 06</div>
+    <h2 class="section-title">Podcast: SemiAnalysis — Hardware-Software Co-Design / 播客：SemiAnalysis——硬件软件协同设计</h2>
+    <p class="section-desc">Training Data（Sequoia 出品）采访 SemiAnalysis 创始人 Dylan Patel。完整中文译文：从半导体供应链到 InferenceX 基准测试，从 NVIDIA vs TPU 之争到太空数据中心，从 NeoCloud 生态到 Jensen Huang 的多极化战略。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:trainingdata" data-author-name="Training Data" data-author-tag="Sequoia 出品的 AI 基础设施深度对谈" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Sequoia 出品的 AI 基础设施深度对谈</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>SemiAnalysis 创始人 Dylan Patel（年收入约 1 亿美元，90 人团队）跟 Sequoia 的 Sean Maguire 和 Sonya Huang 聊了为什么硬件软件协同设计才是 AI 真正的 100x。</p>
+              <p>核心论点：你在每一层（模型、基础设施软件、硬件）各拿 2x，三层各自乘起来是 8x。但如果你跨层协同优化，不是 8x——是 100x。最好的实验室（Anthropic、OpenAI、Google）都这么做。DeepSeek V3 的专家形状是为 Hopper 优化的；V4 是为 Blackwell 和华为芯片优化的。</p>
+              <p>InferenceX：SemiAnalysis 的实时基准测试系统——超过 5000 万美元的捐赠硬件，来自 CoreWeave、Crusoe、Nebius、Oracle、Microsoft、Amazon、Google、OpenAI。每天在 15+ 种芯片上跑所有主流模型的基准。生成吞吐量 vs 交互速度的 Pareto 最优曲线。AI 基础设施领域最重要的图表。</p>
+              <p>NVIDIA vs TPU：Dylan 说他可以一本正经地为任一方辩护。Google 的 ICI 不用交换机连 8000 颗芯片，NVIDIA 的 NVLink 只连 72 颗——各有优势。真正的问题是模型-硬件协同优化。OpenAI 的稀疏架构偏向 GPU；Anthropic 更密的架构适合 TPU/Trainium。</p>
+              <p>Jensen 的多极化战略：NVIDIA 投资 NeoCloud 和 AI labs 是为了防止一个由超大规模云厂商（Google/Amazon 自研芯片）主导的世界。</p>
+              <p>太空数据中心：2030 年前占算力不到 1%，但 2040 年新增算力的多数可能在天上——因为陆地电力限制。</p>
+              <p>Anthropic Q2 净利润为正（不含股权激励）；Q3 可能含股权激励也盈利。Opus 4.8 每 token 毛利率 80%+——无论算力成本多高都能赚钱。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【SemiAnalysis 起源】</p>
+              <p>Dylan Patel 在汽车旅馆长大，父母开汽车旅馆和加油站。12 岁开始在网上论坛做版主，追踪 Android、Apple、GPU 和半导体行业。</p>
+              <p>曾做量化交易员，2020 年多重事件（奖金被抢功、祖母去世、COVID）让他辞职。无家可归期间开着皮卡走遍美国国家公园，同时研读半导体教科书。</p>
+              <p>20 岁生日那天发了两篇博客，正式以真名运营 SemiAnalysis。「最早的两篇现在看不太好，但当时是网上能找到的最好的半导体分析。」</p>
+              <p></p>
+              <p>【协同设计：真正的 100x】</p>
+              <p>Patel 说：这叫软件硬件协同设计。每一层都有创新，但真正的突破是跨层协同优化——本来每层 2x，三层乘起来 8x，但如果你跨层优化，不是 8x，是 100x。</p>
+              <p>「DeepSeek V3 的所有专家形状都是为 Hopper 优化的。V4 是为 Blackwell 和华为芯片优化的。如果你把模型拉出来放到旧硬件上跑，效果其实很差。」</p>
+              <p>TPU 客观上是极好的芯片——DeepMind 和 Anthropic 预训练都用它——但跑 DeepSeek 很烂。反过来，有些模型在 TPU 上跑得很好但在 NVIDIA GPU 上不行。</p>
+              <p></p>
+              <p>【InferenceX：活的标准基准】</p>
+              <p>Patel 说：推理性能每时每刻都在变——新模型、新驱动、新推理优化每周都在出。我们看过同等质量下模型成本每年降 60 倍。</p>
+              <p>「所以你不能做一次性的基准测试。你需要一个活的、呼吸的基准——每天在最新硬件上跑最新模型。」</p>
+              <p>他们从生态拿到了超过 5000 万美元的捐赠硬件（CoreWeave、Crusoe、Nebius、Oracle、Microsoft、Amazon、Google、OpenAI），加上 NVIDIA、AMD、Google（TPU）、Amazon（Trainium）的协作。</p>
+              <p>产出：吞吐量 vs 交互速度的 Pareto 最优曲线。Patel 认为「AI 基础设施下游的一切——硬件、模型、应用——都由这条曲线决定」。</p>
+              <p></p>
+              <p>【NVIDIA vs TPU vs 自研芯片】</p>
+              <p>Patel 说：我可以一本正经地论证 GPU 比 TPU 好，也可以一本正经地论证 TPU 比 GPU 好。关键在协同设计。</p>
+              <p>OpenAI 的模型非常稀疏（更多专家，每个专家更小），这对 GPU 有利。Anthropic 的模型更密，这在 TPU 和 Trainium 上工作得更好。Google 的 Gemini 专门为 TPU 优化。</p>
+              <p>Google 的 ICI 网络不用交换机，能连 8000 颗芯片但要通过其他芯片转发。NVIDIA 的 NVLink 用交换机，但只连 72 颗 GPU。各有取舍。</p>
+              <p>Google 有三个不同的 TPU 设计项目——跟 Broadcom 合作的一种架构、跟 MediaTek 合作的另一种架构、还有一种完全不同的研究架构。</p>
+              <p></p>
+              <p>【Jensen 的多极化战略】</p>
+              <p>Patel 说：Jensen 绝对讨厌超大规模云厂商一家独大的世界。他往各种 AI labs 和 NeoCloud 撒钱，是因为他需要一个多极化世界。</p>
+              <p>「如果只有闭源实验室和超大规模云厂商的自研芯片存在，NVIDIA 就完了。NeoCloud 和新实验室的存在让 Google TPU 更弱，让 Amazon Trainium 更弱。」</p>
+              <p>「今天卖给 Crusoe 的 GPU 和卖给 Google 的 GPU 价格一样。但五年后，Crusoe 和 CoreWeave 的存在意味着 Google TPU 更弱，Amazon Trainium 更弱。」</p>
+              <p></p>
+              <p>【Anthropic 的盈利能力】</p>
+              <p>Patel 说：Anthropic Q2 净利润为正（不含股权激励）。Q3 可能含股权激励也盈利。</p>
+              <p>Opus 4.8 每 token 的毛利率超过 80%。这意味着无论算力成本多高，他们都能赚钱。他们可以用高于市场的价格抢 GPU——每租一块 GPU 立刻就能卖 token 赚钱。</p>
+              <p>xAI 卖给 Google 的 GPU 价格高达每小时 11 美元——「这很疯狂，但他们即使有 TPU 也愿意付这个价格。」</p>
+              <p></p>
+              <p>【太空数据中心】</p>
+              <p>Patel 说：2030 年前太空数据中心占比不到 1%。但 2040 年新增算力的大部分可能在天上。</p>
+              <p>核心驱动是陆地电力成本。2030 年仅 OpenAI 和 Anthropic 加起来就需要超过 100 吉瓦。2040 年是太瓦级别。</p>
+              <p></p>
+              <p>【NeoCloud 为什么存在】</p>
+              <p>Patel 说：传统云厂商的优势在 AI 时代反而变成了劣势。</p>
+              <p>Amazon 的 Nitro NIC 为传统云很好，但损害 AI 性能。Google 和 Amazon 的定制网络对 CPU 工作负载很好，但对 AI 反而更差。</p>
+              <p>NeoCloud 团队（CoreWeave、Crusoe）是高杠杆的股权持有者——他们如果更快交付算力就能暴富。大公司没有人因为建数据中心更快而发财。</p>
+              <p></p>
+              <p>【被激怒的话题】</p>
+              <p>Patel 说：「AI 没有 ROI」或「模型正在触顶」让我很愤怒。</p>
+              <p>「能力一直在线性上升。那些人说某个 benchmark 没提升——那是因为已经到 90% 了。换新 benchmark，又在飞了。」</p>
+              <p>「半导体这么复杂的东西，我不怪普通人不懂。但我每天都在学新东西——昨天刚发现有一个年销售额 1000 亿美元的化学品，每颗芯片都需要它，我之前居然不知道。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dylan Patel (founder of SemiAnalysis, ~$100M revenue, 90 people) sat down with Sequoia&#39;s Sean Maguire and Sonya Huang to explain why hardware-software co-design is the real 100x in AI.</p>
+              <p>The co-design thesis: you can get 2x gains at each layer (model, infra software, hardware), but if you co-optimize all three together, you don&#39;t get 8x — you get 100x. The best labs (Anthropic, OpenAI, Google) do this. DeepSeek&#39;s model architecture was shaped to fit Hopper&#39;s matrix multiply unit; their V4 is reshaped for Blackwell.</p>
+              <p>InferenceX: SemiAnalysis&#39;s living benchmark system — over $50M of donated hardware from CoreWeave, Crusoe, Nebius, Oracle, Microsoft, Amazon, Google, OpenAI. Runs daily benchmarks across 15+ chip types on all major models. Creates Pareto optimal curves of throughput vs interactivity. The most important chart in AI infrastructure.</p>
+              <p>NVIDIA vs TPU: Dylan argues with a straight face for either side. Google&#39;s ICI connects 8,000 chips without switches vs NVIDIA&#39;s NVLink at 72 — different strengths. The real question is model-hardware co-optimization. OpenAI&#39;s sparse architecture favors GPUs; Anthropic&#39;s denser architecture works well on TPUs/Trainium.</p>
+              <p>Jensen&#39;s multipolar strategy: NVIDIA invests in NeoClouds and AI labs to prevent a world where hyperscalers (Google/Amazon with custom chips) dominate. If only closed labs with proprietary hardware exist, NVIDIA loses leverage.</p>
+              <p>On space data centers: sub-1% of compute by 2030, but majority of incremental compute by 2040. Driven by terrestrial power constraints.</p>
+              <p>Anthropic Q2 is net income profitable (excluding stock-based comp); Q3 may be profitable including SBC. Per-token margins on Opus 4.8 are 80%+ — they can pay whatever compute costs and still profit.</p>
+              <p>Trigger topic: &#39;AI has no ROI&#39; or &#39;models are plateauing&#39; — Dylan finds these infuriating. &#39;The line has been up and to the right the entire time.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>PATEL: It&#39;s called software hardware co design, and that&#39;s what&#39;s really exciting about what I think my day to day is. There&#39;s all these innovations happening on every layer. The real breakthrough innovation is when you leapfrog a few layers, you co optimize and co design them, and now all of a sudden you&#39;ve taken what could have been a 2x here, 2x here, 2x here, and instead of being multiplicative to 8x, it&#39;s actually 100x, because you&#39;ve optimized across all three layers.</p>
+              <p>PATEL: The shapes of all the experts in DeepSeek V3, they were all optimized for Hopper. And for V4, they&#39;re optimized for Blackwell and Huawei&#39;s chip.</p>
+              <p>PATEL: Over $50,000,000 of hardware donated to us. Once we launch TPUs and training, it&#39;ll actually be over $100,000,000 of hardware.</p>
+              <p>PATEL: I could with a straight face argue with you that GPUs are way better than TPUs, or TPUs are way better than GPUs, but it comes down to hardware software co design.</p>
+              <p>PATEL: Jensen absolutely hates a world where all the hyperscalers have all the power. He needs to create a multipolar world.</p>
+              <p>PATEL: By 2030, just OpenAI and Anthropic will have over 100 gigawatts combined. By 2040 it will be terawatts.</p>
+              <p>PATEL: Anthropic in Q2 is profitable, their net income profitable, excluding stock based compensation. By Q3 they may even be profitable including stock based compensation.</p>
+              <p>PATEL: AI has no ROI — it infuriates me. The line has been up and to the right in terms of capabilities this entire time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=f6D_aiy8qyU" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-01 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-01 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
