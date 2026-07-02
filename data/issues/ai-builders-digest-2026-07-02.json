@@ -1,0 +1,112 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-02",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的 X feed 没有显著新增内容（周末+AIEWF 会议期间），但播客是一条重磅新节目：Dan Shipper（Every CEO）采访自己公司的咨询负责人 Natalia，深聊她日常怎么用 Codex 和 Claude 构建工作流——从邮件分拣到 CRM 自动化，从给 81 岁父亲做的护理协调 app，到用 AI 规划旅行。这是目前关于「非工程师如何用 AI 做事」最具体的实操案例之一。轻量版，单主题。"
+  },
+  "archive": {
+    "title": "AI 工作流实战日报",
+    "desc": "Every 咨询团队负责人 Natalia 展示她的 Codex 工作流：邮件分拣 app、CRM 自动化、父亲护理协调系统，以及从 vibe coding 转回专业 SaaS 的经验。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-02 source feeds.",
+  "sections": [
+    {
+      "title": "Podcast: AI Workflows Behind Every's Consulting / 播客：Every 咨询团队的 AI 工作流",
+      "desc": "Dan Shipper（Every CEO）采访咨询团队负责人 Natalia。完整中文译文：从 AI agent Claudie 的进化到为什么从 vibe-coded CRM 转回专业 SaaS，从 Codex 邮件分拣到给 81 岁父亲做的护理 app。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持的 AI 实操对话节目",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Every's head of consulting Natalia shows Dan Shipper her actual Codex workflows: email triage app with Attio/Asana integration, a learning-skill that turns research into cartoons, and a care coordination app she built for her 81-year-old father.",
+              "Key decision: moving OFF a vibe-coded CRM (Google Sheets + Claudie) onto Attio. The lesson: 'You can build anything with AI, but should you? Sometimes a company whose entire business is doing this one thing well is better than your custom build.'",
+              "The 'loops' concept: knowledge work is changing from sculpting (every action is yours) to gardening (you create conditions for growth). A loop = build the system, intervene at key points, compound learnings back.",
+              "Codex as a non-engineer's tool: 'I don't have to think about file systems and folder structures. It just works.' Terminal and browser directly in chat — she can build buttons and integrations on the go.",
+              "The dad care app: a password-protected site shared by family and nurses. Google Form reports + WhatsApp threads aggregated in one place, with Spanish-to-English toggle. 'Instead of digging through threads, one central place to digest everything.'",
+              "Enterprise advice: start with the systems you already have (OKRs, KPIs). Write down one SOP really well. Don't try to remake everything at once. 'The work at baseline isn't sexy — it's reading a markdown file.'"
+            ],
+            "original": [
+              "NATALIA: What Codex helped me do was basically create kind of like an operating system. My email knows what's going on more than I do.",
+              "NATALIA: You can build anything in the era of AI. The question is, should you build and maintain whatever you actually build?",
+              "NATALIA: It turns out there are actually private and public companies whose entire business it is to do these things really well. This is Attio's entire business.",
+              "DAN: Knowledge work now is turning into something like gardening, where when you're gardening, you're creating the conditions for the growth to happen, but you're not making the plant with your hands.",
+              "NATALIA: Codex has been life changing. Having the terminal and the browser directly in the chat interface and just having such a powerful model like 5.5 that just wants to do hard work.",
+              "NATALIA: I just gave Codex a goal which was to set up my CRM to accurately reflect what had happened in my conversations. Six hours later, I woke up to effectively a CRM that was fully set up. It had done what would have been weeks of work.",
+              "NATALIA: My dad works with, he's 81, he works with multiple nurses who support his care. Codex helped me create an operating system for how as a family we could triage my dad's care.",
+              "NATALIA: Start with the systems that you have already. If you have KPIs and OKRs that you're tracking, the same architecture give to AI. Then think about what tasks you want only your people to focus on."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Every 咨询团队负责人 Natalia 向 Dan Shipper 展示了她日常的 Codex 工作流：带 Attio/Asana 集成的邮件分拣 app、把研究变成漫画的学习技能、以及为 81 岁父亲做的护理协调 app。",
+              "关键决策：从 vibe-coded CRM（Google Sheets + Claudie）迁移到 Attio。教训：「在 AI 时代你什么都能做，但你应不应该做？有时候一家专门做这件事的公司比你自己搭的更好。」",
+              "「循环（loops）」概念：知识工作正从雕塑（每个动作都是你亲手做的）变成园艺（你创造生长的条件，但不是用手去制造植物）。循环 = 搭系统 → 在关键节点介入 → 把学到的回灌进去。",
+              "Codex 作为非工程师工具：「我不用再想文件系统和文件夹结构。它就是能用。」终端和浏览器直接在聊天界面里——她可以随时加按钮和集成。",
+              "父亲护理 app：一个密码保护的网站，家人和护士共享。Google Form 报告 + WhatsApp 线索聚合在一处，支持西班牙语/英语切换。「不用翻各种聊天记录，一个地方看完所有信息。」",
+              "企业建议：从你已有的系统开始（OKR、KPI）。把一个 SOP 写好。别想着一次性重做一切。「底层的活不性感——就是读一个 markdown 文件。」"
+            ],
+            "original": [
+              "【Claudie 的进化】",
+              "Natalia 说：Claudie 现在每天为我们工作。它有自己的 LinkedIn 和 Twitter，管理我们的仪表盘，现在还有了一个「信任电池」——在一个循环里自我评估表现，根据我们给的反馈改进。",
+              "",
+              "【为什么从 vibe-coded CRM 转回专业 SaaS】",
+              "Natalia 说：我之前 vibe code 了一个 CRM 工具，用 Google Sheets 管理销售管道。Claudie 读取邮件和会议记录，把 inbound lead 追踪到表格里。",
+              "「但这些需要维护。要让数据质量好到能做有意思的事，你必须像 Attio 一样盯紧数据质量。」",
+              "「事实证明，有些公司——无论私人的还是上市的——它们的全职工作就是把这些特定事情做好。这就是 Attio 的整个生意。」",
+              "她后来也上了 Asana 做项目管理。结论：「我们能做到现在的规模，是因为 Attio、Asana 和 Claudie 一起管理这些信息。团队负担反而更轻了。」",
+              "",
+              "【软件 vs 语言模型的比喻】",
+              "Dan 说：软件像你的骨头——没有骨头你就是一滩水母。语言模型像你的大脑和韧带——没有它你只是一堆棍子。",
+              "「语言模型可以长出骨头，这跟人体不一样。但长好骨头很复杂，整个身体计划更复杂。」",
+              "",
+              "【Codex 工作流：邮件分拣】",
+              "Natalia 基于 Dan 给她的开源邮件 app 做了自己的版本。",
+              "她的版本：训练于她最近 150 封发出的邮件（ghost writer 技能），理解所有沟通上下文。",
+              "功能：批准发送 / 要求重写 / 归档 / 归档并写入客户 markdown 文件 / 创建 Asana 任务 / 标记垃圾邮件。",
+              "「基本上我的邮件比我自己更清楚发生了什么。它起草的回复可能比我手写的还准确一点。」",
+              "",
+              "【循环概念：从雕塑到园艺】",
+              "Dan 说：以前的知识工作像雕塑——每个动作都是你亲手做的。现在像园艺——你创造生长的条件，但不是用手去制造植物。",
+              "Natalia 说：这就是你四年前说的 manager 比喻。我们从把 AI 当 individual contributor 用，进化到创建一个系统——就像一个好的管理者管大团队一样。",
+              "",
+              "【最佳循环：六小时搞定 CRM 初始化】",
+              "Natalia 说：我最好的循环是设置 Attio 的时候。我给 Codex 一个目标——根据邮件和会议的上下文，准确地为几百个客户和潜在客户初始化 CRM。",
+              "「六小时后我醒来，CRM 全部设好了。原本需要几周的活，一夜完成。」",
+              "",
+              "【父亲护理 app】",
+              "Natalia 说：我爸爸 81 岁，有多个护士支持他的护理。有很多医疗事务需要协调——预约、术后随访、护士间的 WhatsApp 消息、家人的沟通。",
+              "「我让 Codex 帮我创建了一个系统，让我们全家可以协调爸爸的护理。」",
+              "这是一个密码保护的网站。护士有她们的版本，可以看到其他护士在做什么——护理连续性。家人有任务追踪器，标记谁负责跟进什么。",
+              "Google Form 报告 + WhatsApp 消息聚合在一处。支持西班牙语/英语切换。",
+              "「最好的工具不是关于工具本身——护士只是觉得我们是更积极的合作伙伴。」",
+              "",
+              "【学习技能：研究变漫画】",
+              "Natalia 用 Codex 的视觉模型把学习内容做成漫画（zine）。例如：学了体育教育的历史和解剖学——肌肉比韧带长得快、韧带比骨头长得快。",
+              "「这是我周末最大的乐趣。读十二小时的学习指南，然后做成我可以在地铁上翻的漫画。」",
+              "",
+              "【旅行规划：新奥尔良 French Quarter Fest】",
+              "Natalia 让 Claude 读她的 Spotify 播放列表，了解她喜欢的音乐，然后根据音乐节 lineup 挑选最可能合她口味的乐队。",
+              "「Timba 和 Salsa 乐队被高亮了。我们可以在音乐节上最优地利用时间。」",
+              "",
+              "【给企业的建议】",
+              "Natalia 说：从你已有的系统开始。如果你在追踪 OKR 和 KPI，把同样的架构给 AI。",
+              "「想想哪些事只有你的人能做——上客户电话、做真正的判断。然后从小任务开始。」",
+              "「最常见的错误是想一次性重做一切，要'AI-first'。但底层的工作不性感——就是写好一个 markdown 文件，定义好一个任务什么时候算完成。」",
+              "Dan 补充：我们会开源 Tend（邮件分拣 app）。你可以直接丢进 Codex，或者把这一集视频丢给 Codex，它会看着视频帮你做一个适合你的版本。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
