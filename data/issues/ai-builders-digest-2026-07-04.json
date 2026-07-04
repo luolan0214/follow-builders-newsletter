@@ -1,0 +1,398 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-04",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天的主线是模型升级与企业落地。Sottiaux 一条「GPT-5.6 Sol Ultra 要来了」的推文拿下 9610 赞，炸翻社区；Anthropic 这边同样热闹——Boris Cherny 说 Claude Code Artifacts「改变人生」（1776 赞），Cat Wu 透露 Claude Tag 内部版本已自动合并 65% 的产品 PR，Thariq 承诺 Fable 会在产能允许后尽快回到订阅。Levie 则泼了一盆冷水：企业部署 AI 不是聊天框一接就完事的，需要清理数据、改造 IT 系统、建 eval 体系——FDE（前沿部署工程师）将成为科技行业最关键的岗位之一。播客是 No Priors 的一期重磅：Isaiah Taylor 创立的 Valar Atomics 刚刚成为史上第一家发出核电的核裂变创业公司，他们还用核反应堆直接驱动了一颗 NVIDIA Blackwell 芯片。"
+  },
+  "archive": {
+    "title": "模型升级与核电破冰日报",
+    "desc": "GPT-5.6 预热、Claude Tag 企业落地、Valar Atomics 成为首家发电的核裂变创业公司。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-04 source feeds.",
+  "sections": [
+    {
+      "title": "GPT-5.6 Tease & Claude Ecosystem / GPT-5.6 预热与 Claude 生态",
+      "desc": "Sottiaux 预告 GPT-5.6 Sol Ultra（9610 赞）；Claude Code Artifacts 扩展到 Pro 和 Max；Thariq 承诺 Fable 将在产能允许后回归订阅。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux/status/2072607914217320644",
+          "en": {
+            "rewrite": [
+              "OpenAI's Thibault Sottiaux (Codex & ChatGPT lead) dropped the most-engaged tweet of the day: 'Can't wait to see what people will do with GPT-5.6 Sol Ultra. Stash your hardest prompts somewhere.' — 9610 likes, 388 retweets, 1525 replies. No official announcement yet, but the community is bracing for a major model drop."
+            ],
+            "original": [
+              "Can't wait to see what people will do with GPT-5.6 Sol Ultra. Stash your hardest prompts somewhere."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI Codex & ChatGPT 负责人 Sottiaux 发了今日互动量最高的一条推文：「等不及想看大家用 GPT-5.6 Sol Ultra 做什么。把你们最难的 prompt 攒好吧。」——9610 赞、388 转发、1525 条回复。虽然没有官方公告，但社区已经在为一次重大模型发布做准备了。"
+            ],
+            "original": [
+              "等不及想看大家用 GPT-5.6 Sol Ultra 做什么。把你们最难的 prompt 攒好吧。"
+            ]
+          }
+        },
+        {
+          "authorKey": "bcherny",
+          "authorName": "Boris Cherny",
+          "authorTag": "Claude Code @Anthropic",
+          "sourceUrl": "https://x.com/bcherny/status/2072777472970563995",
+          "en": {
+            "rewrite": [
+              "Boris Cherny (Claude Code lead at Anthropic) says Artifacts in Claude Code have been 'life changing' and he's excited to expand the feature to Pro and Max plans (1776 likes, 105 replies). The feature lets users generate and preview rich content — diagrams, web apps, documents — directly within Claude Code sessions."
+            ],
+            "original": [
+              "Artifacts in Claude Code have been life changing. Excited to expand to Pro and Max!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic Claude Code 负责人 Boris Cherny 表示 Claude Code 中的 Artifacts 功能「改变人生」，并宣布将扩展到 Pro 和 Max 计划（1776 赞、105 条回复）。该功能让用户在 Claude Code 会话中直接生成和预览富内容——图表、web 应用、文档等。"
+            ],
+            "original": [
+              "Claude Code 中的 Artifacts 功能改变了我的人生。很高兴能扩展到 Pro 和 Max！"
+            ]
+          }
+        },
+        {
+          "authorKey": "trq212",
+          "authorName": "Thariq",
+          "authorTag": "Claude Code @Anthropic",
+          "sourceUrl": "https://x.com/trq212/status/2072814903170408784",
+          "en": {
+            "rewrite": [
+              "Thariq addressed the biggest user concern head-on: Fable will come off subscriptions after July 7th, BUT 'we aim to restore Fable as a standard part of our subscriptions as soon as capacity allows, as we mentioned in our original blog post.' This tweet got 6942 likes and 656 retweets — the second most-engaged tweet of the day after Sottiaux's."
+            ],
+            "original": [
+              "I've heard a lot of questions about Fable's availability on subscription plans. While it will come off subscriptions after July 7th, we aim to restore Fable as a standard part of our subscriptions as soon as capacity allows, as we mentioned in our original blog post."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 直接回应了用户最关心的问题：Fable 在 7 月 7 日后会从订阅中下线，但「我们的目标是在产能允许后尽快将 Fable 恢复为订阅的标准部分，正如我们在最初的博客文章中提到的。」这条推文拿到 6942 赞和 656 转发——今日互动量第二高。"
+            ],
+            "original": [
+              "我听到了很多关于 Fable 在订阅计划上可用性的问题。虽然它会在 7 月 7 日之后从订阅中下线，但我们的目标是在产能允许后尽快将 Fable 恢复为订阅的标准部分，正如我们在最初的博客文章中提到的。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Tag & Enterprise Deployment / Claude Tag 与企业部署",
+      "desc": "Cat Wu 透露 Claude Tag 内部版本合并 65% 的产品 PR；Claude 官方发布生命科学黑客松（10 万美元奖金）；Levie 论企业 AI 落地的真实难度。",
+      "cards": [
+        {
+          "authorKey": "_catwu+claudeai",
+          "authorName": "Cat Wu / Claude",
+          "authorTag": "Claude Code + Cowork @Anthropic",
+          "sourceUrl": "https://x.com/_catwu/status/2072731500928508331",
+          "en": {
+            "rewrite": [
+              "Cat Wu (Claude Code + Cowork) revealed that Claude Tag — Anthropic's agentic coding system — is now used across the entire org: eng, product, data, sales, marketing. The internal version lands 65% of product PRs automatically. She outlines the CEO/CTO playbook for rolling it out and how security was designed in from day one. Claude's official account added that Fable 5 is now available in Claude Tag (2620 likes).",
+              "Incentive: Anthropic is granting $25k in credits for Claude Enterprise orgs and $2.5k for Claude Team orgs to use Claude Tag through September 1st."
+            ],
+            "original": [
+              "Cat Wu: Claude Tag is unlocking productivity across our entire org: eng, product, data, sales, marketing. Our internal version lands 65% of product PRs. We cover the CEO/CTO playbook for rolling it out, why security was designed in from day one, and what this means for the future of work.",
+              "Claude: A conversation with Boris Cherny and Cat Wu on the path from Claude Code to Claude Tag, and how it spread from engineering to the rest of Anthropic. Claude Fable 5 is now available in Claude Tag.",
+              "Cat Wu: We are granting $25k in credits for Claude Enterprise orgs and $2.5k in credits for Claude Team orgs to use Claude Tag through September 1st."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cat Wu（Claude Code + Cowork）透露：Claude Tag——Anthropic 的 agent 化编码系统——现在已经在全公司使用：工程、产品、数据、销售、市场。内部版本自动合并 65% 的产品 PR。她梳理了 CEO/CTO 推行 Claude Tag 的实操手册和安全设计。Claude 官方补充：Fable 5 现已可在 Claude Tag 中使用（2620 赞）。",
+              "激励措施：Anthropic 为 Claude Enterprise 组织提供 2.5 万美元额度、Team 组织提供 2500 美元额度，可在 9 月 1 日前使用 Claude Tag。"
+            ],
+            "original": [
+              "Cat Wu：Claude Tag 正在释放我们整个组织的生产力：工程、产品、数据、销售、市场。我们的内部版本合并了 65% 的产品 PR。我们分享了 CEO/CTO 推行它的实操手册、为什么安全从一开始就被设计进来，以及这对未来的工作意味着什么。",
+              "Claude 官方：与 Boris Cherny 和 Cat Wu 的对话——从 Claude Code 到 Claude Tag 的路径，以及它如何从工程团队扩展到 Anthropic 的其他部门。Claude Fable 5 现已可在 Claude Tag 中使用。",
+              "Cat Wu：我们为 Claude Enterprise 组织提供 2.5 万美元额度，为 Claude Team 组织提供 2500 美元额度，可在 9 月 1 日前使用 Claude Tag。"
+            ]
+          }
+        },
+        {
+          "authorKey": "claudeai-hackathon",
+          "authorName": "Claude",
+          "authorTag": "生命科学黑客松",
+          "sourceUrl": "https://x.com/claudeai/status/2072681853971001849",
+          "en": {
+            "rewrite": [
+              "Anthropic announced 'Built with Claude: Life Sciences' — a global virtual hackathon (July 7-13) with Gladstone Institutes, featuring Claude Science and Claude Code. Prize pool: $100k in credits. 4558 likes, 445 retweets — one of the most engaged announcements of the week."
+            ],
+            "original": [
+              "Announcing Built with Claude: Life Sciences, a global virtual hackathon. Join us and @GladstoneInst for a week of researching and building with Claude Science and Claude Code, with a prize pool of $100k in credits. The hackathon will run July 7-13. Apply by Sunday."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 宣布「Built with Claude: 生命科学」——与 Gladstone 研究所合办的全球虚拟黑客松（7 月 7-13 日），使用 Claude Science 和 Claude Code 进行研究和构建。奖金池：10 万美元额度。4558 赞、445 转发——本周互动量最高的公告之一。"
+            ],
+            "original": [
+              "宣布 Built with Claude: 生命科学——一场全球虚拟黑客松。加入我们和 Gladstone 研究所，用 Claude Science 和 Claude Code 进行一周的研究和构建，奖金池为 10 万美元额度。黑客松将在 7 月 7-13 日举行。请在周日之前申请。"
+            ]
+          }
+        },
+        {
+          "authorKey": "levie",
+          "authorName": "Aaron Levie",
+          "authorTag": "Box CEO",
+          "sourceUrl": "https://x.com/levie/status/2072875685811716182",
+          "en": {
+            "rewrite": [
+              "Levie's reality check on enterprise AI: deploying agents beyond a chatbot interface takes 'real work.' Most enterprise workflows weren't designed for agents — fragmented data, legacy systems agents can't connect to, institutional knowledge that's never been documented. To deploy at scale you need: clean data, modernized IT, evals, change management, human-in-the-loop design, and new IP formation.",
+              "This is why applied AI companies are expanding FDE (Forward Deployed Engineer) efforts and launching 'deploycos.' Levie: 'The FDE role will be one of the most critical jobs in tech going forward.'"
+            ],
+            "original": [
+              "The deployment of AI in the enterprise beyond just interacting with a chatbot will unequivocally take real work to align AI systems to the underlying business processes they're involved in and drive the desired outcomes. Most workflows weren't designed for AI agents to just drop into. Workflows today in the enterprise deal with fragmented data, legacy software systems that agents can't connect with, institutional instead of documented knowledge, and more. To deploy agents reliably at scale you need to get data cleaned up, modernize IT systems, figure out evals, drive change management for the new end state process, and so on. This also involves designing where humans remain in the loop, and figuring out what a company's new IP looks like. This is why so many applied AI companies are expanding FDE efforts and launching deploycos, and why the FDE role will be one of the most critical jobs in tech going forward."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 给企业 AI 泼了盆冷水：在聊天框之外部署 agent 需要「真正的硬活」。大多数企业工作流不是为 agent 设计的——碎片化数据、agent 连不上的遗留系统、从未被文档化的隐性知识。大规模部署需要：清理数据、IT 现代化、建 eval 体系、变革管理、人在回路设计、新 IP 形成。",
+              "「这就是为什么应用 AI 公司在扩大 FDE（前沿部署工程师）团队、推出 deployco。FDE 将成为科技行业最关键的岗位之一。」"
+            ],
+            "original": [
+              "在企业中部署 AI——不只是跟聊天机器人交互——需要真正的工作来对齐 AI 系统和底层业务流程。今天企业的工作流涉及碎片化数据、agent 无法连接的遗留软件系统、只存在于人脑中而非文档中的制度性知识等等。要大规模可靠地部署 agent，你需要清理数据、现代化 IT 系统、搞定 eval、推动面向新流程的变革管理。这还涉及设计人在回路中的位置，以及搞清楚公司的新 IP 长什么样。这就是为什么这么多应用 AI 公司在扩大 FDE 团队、推出 deployco——FDE 将成为科技行业未来最关键的岗位之一。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Infrastructure & Tooling / AI 基础设施与工具",
+      "desc": "Vercel AI Gateway 支持模型路由动态重写；Peter Yang 的 Fable 省钱攻略和 Codex 亲子项目；Dan Shipper 谈 agent 可观测性。",
+      "cards": [
+        {
+          "authorKey": "rauchg",
+          "authorName": "Guillermo Rauch",
+          "authorTag": "Vercel CEO",
+          "sourceUrl": "https://x.com/rauchg/status/2072741369848746315",
+          "en": {
+            "rewrite": [
+              "Vercel frames its AI Gateway as a 'Token Delivery Network' — like a CDN for AI models. The killer feature: AI Gateway Rules let you dynamically rewrite model routes without redeployment. Example: when Fable was retired, you could instantly redirect traffic from claude-fable-5 to claude-opus-5 with one CLI command. 'If you drop tokens, you lose revenue and customers.'",
+              "Separately: Vercel shipped private connectivity between services via bindings in vercel.json (1 LOC), and Rauchg observed that everyone in NYC has the same French bulldog (340 likes)."
+            ],
+            "original": [
+              "We've been explaining AI Gateway as a Content Token Delivery Network. Like a CDN for AI models. One great feature of CDNs is the ability to dynamically re-route or deny traffic without redeployment. When Fable was suddenly retired, we worried about production workloads depending on it. We're solving this now with AI Gateway Rules. e.g.: you can now rewrite model 'routes' on the fly! vercel ai-gateway rules add --type rewrite --source anthropic/claude-fable-5 --destination anthropic/claude-opus-5"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Vercel 把 AI Gateway 定位为「Token 分发网络」——像 CDN 但服务于 AI 模型。杀手锏功能：AI Gateway Rules 让你无需重新部署就能动态重写模型路由。比如 Fable 下线时，一条 CLI 命令就能把流量从 claude-fable-5 即时切到 claude-opus-5。「掉 token 就是掉收入和客户。」",
+              "另外：Vercel 还发布了通过 vercel.json 中的 bindings 实现服务间私有连接（一行代码）。Rauchg 还观察到纽约人手一只法国斗牛犬（340 赞）。"
+            ],
+            "original": [
+              "我们一直把 AI Gateway 解释为内容 Token 分发网络，就像 AI 模型的 CDN。CDN 的一个重要能力是无需重新部署就能动态重路由或拒绝流量。当 Fable 突然下线时，我们担心依赖它的生产环境工作负载。我们现在通过 AI Gateway Rules 来解决这个问题——你可以在运行时重写模型路由！例如：vercel ai-gateway rules add --type rewrite --source anthropic/claude-fable-5 --destination anthropic/claude-opus-5。如果你丢了 token，你就丢了收入和客户。"
+            ]
+          }
+        },
+        {
+          "authorKey": "petergyang+danshipper",
+          "authorName": "Peter Yang / Dan Shipper",
+          "authorTag": "Fable 使用策略 / Agent 体验",
+          "sourceUrl": "https://x.com/petergyang/status/2072842766053499353",
+          "en": {
+            "rewrite": [
+              "Peter Yang shared 3 Fable-saving tips before July 7: (1) Prep context with cheaper models first, then hand off to Fable. (2) Plan with Fable, execute with a cheaper model. (3) Use lower effort like Medium and babysit what Fable is doing. He also posted a charming weekend project: his 8-year-old daughter drew a dragon, they uploaded it to Codex, used image gen for more poses, and sent it to customstickers.com for sticker sheets (~$20 for 10 sheets).",
+              "Dan Shipper flagged an emerging UX problem: Fable 'can go off for hours at a time and then comes back with a 2 paragraph explanation of what it did. We need better ways for AI to tell us stories.' (133 likes)"
+            ],
+            "original": [
+              "Peter Yang: How I'm getting the most out of Fable before July 7: 1. Prep context with cheaper models 2. Plan with Fable, execute with another model 3. Use lower effort, like Medium, and babysit what Fable is doing.",
+              "Peter Yang: Thought I'd share a fun activity I did with my 8-year-old daughter and Codex today: 1. She drew a picture of a dragon. 2. We uploaded her drawing to Codex and used image gen to make a few more dragon poses. 3. We sent it to customstickers.com to print sticker sheets. Now she can share her stickers with her friends when they arrive in the mail next week.",
+              "Dan Shipper: i feel this a LOT right now with fable, where it can go off for hours at a time and then comes back with a 2 paragraph explanation of what it did. we need better ways for AI to tell us stories"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 分享了 7 月 7 日前的三条 Fable 省钱策略：（1）先用便宜模型准备好上下文，再交给 Fable。（2）用 Fable 做规划，用便宜模型执行。（3）用更低 effort（如 Medium）并盯着 Fable 做的事。他还发了一个暖心周末项目：8 岁女儿画了一条龙，上传到 Codex 生成更多姿势，然后发到 customstickers.com 印贴纸（约 20 美元 10 张）。",
+              "Dan Shipper 标记了一个正在浮现的 UX 问题：Fable「可以一跑就是几个小时，然后回来给你两段话解释它做了什么。我们需要更好的方式让 AI 给我们讲故事。」（133 赞）"
+            ],
+            "original": [
+              "Peter Yang：7 月 7 日前我如何最大化利用 Fable：1. 用便宜模型准备上下文 2. 用 Fable 做规划，用其他模型执行 3. 用更低的 effort（比如 Medium），并盯着 Fable 做的事。",
+              "Peter Yang：分享一个今天和 8 岁女儿用 Codex 做的有趣活动：1. 她画了一条龙。2. 我们把她的画上传到 Codex，用图像生成做了更多龙的姿势。3. 我们发到 customstickers.com 印贴纸。现在她可以在贴纸下周到货时和朋友分享了。",
+              "Dan Shipper：我现在对 Fable 有很深的感受——它可以一跑就是几个小时，然后回来给你两段话解释它做了什么。我们需要更好的方式让 AI 给我们讲故事。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Culture, Markets & Notes / 文化、市场与杂谈",
+      "desc": "Sam Altman 在世界杯美国队现场；Zara 谈 AI vs 大学课堂；Steipete 的 ATT 客服奇遇；Matt Turck 发布 NVIDIA 深度对谈。",
+      "cards": [
+        {
+          "authorKey": "sama+zarazhangrui+steipete",
+          "authorName": "Sam Altman / Zara / Peter Steinberger",
+          "authorTag": "文化观察",
+          "sourceUrl": "https://x.com/sama/status/2072773542576586790",
+          "en": {
+            "rewrite": [
+              "Sam Altman at the World Cup: 'going to world cup games is always awesome, but watching the USA win in the USA during USA birthday week was just incredible' — 11,126 likes, the single most-engaged tweet in today's feed.",
+              "Zara shared a telling anecdote: 'A recent college grad told me that when they were in school, they would feed the lecture decks to an AI and ask it to teach the material instead of attending the actual lecture. They often found that the AI taught better than the professors.' (254 likes)",
+              "Peter Steinberger (OpenClaw) continues his ATT saga: 'By now I have daily calls with the ATT rep who tries its hardest to get my $3 Apple Watch plan addition approved. Fun fact: he knows OpenClaw and uses it every day.' (287 likes)"
+            ],
+            "original": [
+              "Sam Altman: going to world cup games is always awesome, but watching the USA win in the USA during USA birthday week was just incredible",
+              "Zara: A recent college grad told me that when they were in school, they would feed the lecture decks to an AI and ask it to teach the material (instead of attending the actual lecture). They often found that the AI taught better than the professors.",
+              "Peter Steinberger: This is getting better and better. By now I have daily calls with the ATT rep who tries it's hardest to get my 3$ Apple Watch plan addition approved. Fun fact he knows OpenClaw and uses it every day."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 在世界杯现场：「去看世界杯比赛总是很棒，但在美国独立日这一周，在美国看美国队赢球简直太不可思议了」——11126 赞，今日 feed 中互动量最高的一条推文。",
+              "Zara 分享了一个标志性轶事：「一个刚毕业的大学生告诉我，他们在学校时会把课件喂给 AI，让它来教内容（而不是去上课）。他们经常发现 AI 教得比教授好。」（254 赞）",
+              "Peter Steinberger（OpenClaw）的 ATT 客服连续剧还在更新：「到现在我每天跟 ATT 的客服代表打电话，他拼命想帮我批下 3 美元的 Apple Watch 附加套餐。有趣的是：他知道 OpenClaw 而且每天都在用。」（287 赞）"
+            ],
+            "original": [
+              "Sam Altman：去看世界杯比赛总是很棒，但在美国独立日这一周，在美国看美国队赢球简直太不可思议了。",
+              "Zara：一个刚毕业的大学生告诉我，他们在学校时会把课件喂给 AI，让它来教内容（而不是去上课）。他们经常发现 AI 教得比教授好。",
+              "Peter Steinberger：越来越有意思了。到现在我每天跟 ATT 的客服代表打电话，他拼命想帮我批下 3 美元的 Apple Watch 附加套餐。有趣的是：他知道 OpenClaw 而且每天都在用。"
+            ]
+          }
+        },
+        {
+          "authorKey": "mattturck+nikunj",
+          "authorName": "Matt Turck / Nikunj Kothari",
+          "authorTag": "NVIDIA 对谈 / SF 辩护",
+          "sourceUrl": "https://x.com/mattturck/status/2072723410975629364",
+          "en": {
+            "rewrite": [
+              "Matt Turck (FirstMark) published a deep conversation with Bryan Catanzaro (NVIDIA AI lab lead), covering: Is open source catching the frontier? Why companies actually choose open models. The 'crazy' 2008 bet on ML+GPUs. Nemotron model family (Nano/Super/Ultra). Hybrid Mamba-Transformer explained simply. Mixture of experts and NVL72. Multi-token prediction. Why NVIDIA builds its own models (the real reason). The controversial case: open AI is safer than closed. Full timestamps in the tweet (147 likes, 28 retweets).",
+              "Nikunj (FPV Ventures) defended SF against AI-boom tourists: 'Don't be a tourist, and spend time here. Booms and busts will happen. But it really can be wonderful.' (42 likes)"
+            ],
+            "original": [
+              "Matt Turck: Inside Nemotron and NVIDIA's AI lab: my conversation with Bryan Catanzaro. NVIDIA is a chip company. So why does it put hundreds of researchers on building AI models — and then give them away for free? We go deep into the Nemotron models, what it takes to build a top AI lab, and the future of frontier AI. [Full timestamp breakdown in original tweet]",
+              "Nikunj: It's AGI summer and I'm seeing plenty of 'tourists' who are visiting SF. And then they go back and say SF has no soul, it's just 996 culture and it's just AI. Don't be a tourist, and spend time here. Booms and busts will happen. But, it really can be wonderful."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck（FirstMark）发布了与 Bryan Catanzaro（NVIDIA AI 实验室负责人）的深度对谈，涵盖：开源是否在追赶前沿？企业为什么选开源模型？2008 年 ML+GPU 的「疯狂」押注。Nemotron 模型家族（Nano/Super/Ultra）。混合 Mamba-Transformer 简明解释。MoE 与 NVL72。多 token 预测。NVIDIA 为什么自建模型（真正原因）。争议性观点：开源 AI 比闭源更安全。完整时间戳在推文中（147 赞、28 转发）。",
+              "Nikunj（FPV Ventures）为旧金山辩护，反击 AI 热潮游客：「别当游客，在这里待一段时间。繁荣和萧条都会发生。但这座城市真的可以很美好。」（42 赞）"
+            ],
+            "original": [
+              "Matt Turck：深入 Nemotron 和 NVIDIA 的 AI 实验室：我与 Bryan Catanzaro 的对话。NVIDIA 是一家芯片公司。那它为什么要投入数百名研究人员来构建 AI 模型——然后免费开放？我们深入探讨了 Nemotron 模型、构建顶级 AI 实验室需要什么，以及前沿 AI 的未来。",
+              "Nikunj：现在是 AGI 之夏，我看到很多来 SF 「旅游」的人——跟去年一样。然后他们回去了说 SF 没有灵魂，只有 996 文化和 AI。别当游客，在这里待一段时间。繁荣和萧条都会发生。但这座城市真的可以很美好。如果你不合适，那就不合适。回去把你回去的地方建设成你想要的样子。（签名人：在这里住了 14 年的人）"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Valar Atomics — Nuclear for AI Compute / 播客：Valar Atomics——为 AI 算力供电的核裂变",
+      "desc": "No Priors 的 Isaiah Taylor（Valar Atomics 创始人）访谈：史上第一家发出核电的核裂变创业公司，用核反应堆直接驱动 NVIDIA Blackwell 芯片。完整中文译文。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors",
+          "authorName": "No Priors",
+          "authorTag": "Elad Gil & Sarah Guo 主持的 AI 投资视角播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=5Xvbq_zvOQ4",
+          "en": {
+            "rewrite": [
+              "Isaiah Taylor founded Valar Atomics out of 'sheer frustration that nobody else was working on it with the pace required.' Less than 3 years later, Valar is the first private company founded since the discovery of nuclear fission to actually make nuclear power. Their Ward 250 reactor is the first advanced reactor to make power by a startup, and the fifth new nuclear device to make power in the US since 2000.",
+              "Key thesis: nuclear is not a design problem — it's a hardware execution problem. The industry has been stuck in modeling and simulation ('paper reactors') for 40 years. Valar's approach: build simple, safe reactors, iterate through hardware (not software), and drive 'tick rate' — the time between reactor criticalities — from years down to minutes.",
+              "Safety philosophy: instead of reducing the odds of accidents (traditional approach), reduce the consequence. Their TRISO-fueled, graphite-moderated, helium-cooled reactor is designed so that even if EVERYTHING fails — all safety systems off, all power cut — passive physics (water jackets going into natural circulation) removes decay heat over 2 days with zero operator input.",
+              "The NVIDIA demo: they connected an NVIDIA Blackwell directly to the reactor and hosted nuclearwebsite.com from it. The site tells you exactly how many uranium atoms were split to deliver each page load. It's also the only place to buy Valor merch.",
+              "Vertical integration as secret weapon: when a vendor quoted $5M and 2.5 years for the Reactor Protection System, Valar built their own in 6 weeks with 5 engineers for $400K. The vendor then went to expert-call platforms trashing them — proving the industry's fake cost structure is a real moat for Valor.",
+              "The big vision: 'Energy is the fundamental input to the quality of human life.' With AI + robotics converting human labor to energy, and nuclear making energy 10x cheaper, 'the cost of buying a thing will become the cost of energy used to make it' — hyper techno industrialism."
+            ],
+            "original": [
+              "Isaiah: We are making nuclear reactors built for planetary scale. Nuclear has never had its Ford moment or its Tesla moment. That's what Valar Atomics is working on doing.",
+              "Isaiah: Most of the nuclear industry is a modeling and simulation industry. They're not focused on hardware iteration, hardware execution, building the simplest and safest reactor that allows them to scale.",
+              "Isaiah: We just demonstrated we are [focused on hardware execution]. The first ever AI chip powered by a nuclear reactor. First TRISO reactor to turn on in over fifty years in The United States.",
+              "Isaiah: Our safety basis when we go to the regulator is everything in the plant has failed. Absolutely everything. And it is safe.",
+              "Isaiah: This box [RPS] was quoted at $5M and 2.5 years to build. We built our own in 6 weeks with 5 engineers for $400K. Everywhere in nuclear is like this — totally fake costs from an industry that is just totally anemic.",
+              "Isaiah: Energy being a commodity, the demand is set by the price. If you can figure out how to make energy cheaper, you will have demand.",
+              "Isaiah: With AI and robotics, energy will become the cost of all things. The cost of buying a thing will become the cost of energy used to make it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Isaiah Taylor 出于「纯粹的沮丧——没有其他人以所需的速度做这件事」创立了 Valar Atomics。不到三年后，Valar 成为自核裂变发现以来第一家真正发出核电的创业公司。他们的 Ward 250 反应堆是第一座由创业公司建造并发电的先进反应堆，也是 2000 年以来美国第五个发出核电的新核装置。",
+              "核心论点：核能不是设计问题——是硬件执行问题。整个行业在建模和仿真（「纸面反应堆」）里卡了 40 年。Valar 的方法：造简单、安全的反应堆，通过硬件迭代（不是软件）推进，把「tick rate」——两次临界之间的时间——从年缩短到分钟。",
+              "安全哲学：不降低事故概率（传统思路），而是降低事故后果。他们的 TRISO 燃料、石墨慢化、氦气冷却反应堆被设计为：即使一切都坏了——所有安全系统关闭、所有电源切断——被动物理（水夹套进入自然循环）能在两天内零操作员干预地移除衰变热。",
+              "NVIDIA 演示：他们把一颗 NVIDIA Blackwell 直接连到反应堆上，从上面托管了 nuclearwebsite.com。网站会告诉你每次加载页面裂变了多少铀原子。这也是唯一能买到 Valor 周边的地方。",
+              "垂直整合作为秘密武器：当一个供应商报价 500 万美元、2.5 年交货的反应堆保护系统（RPS）时，Valar 用 5 个工程师、6 周、40 万美元自己造了一个。那个供应商后来跑到专家电话平台上抹黑他们——恰好证明了这个行业的虚假成本结构正是 Valor 的护城河。",
+              "大愿景：「能源是人类生活质量的根本输入。」当 AI + 机器人把人力转化为能源消耗，而核能让能源便宜 10 倍时，「买一件东西的成本将等于制造它所消耗的能源成本」——超科技工业主义。"
+            ],
+            "original": [
+              "【为什么要做 Valar】",
+              "Isaiah 说：核裂变是一项老技术了，我们从 1940 年代就开始研究。我们建了很多反应堆，但从来没有为大规模量产而建造。核能从来没有迎来它的福特时刻或特斯拉时刻。",
+              "「我出于纯粹的沮丧创立了这家公司——没有其他人以所需的速度和规模来做这件事。」",
+              "Isaiah 的曾祖父是曼哈顿计划的核物理学家，曾祖母也在二战期间的「秘密城市」工作。他从小就认为核能是一项不可思议的技术。",
+              "他在高中时得出了关于核能为什么停滞的结论，至今仍然坚持：三里岛事件后，公众恐惧导致核电停滞；而当人们重新产生兴趣时，美国已经从擅长大型基建变成了擅长先进制造。",
+              "",
+              "【核能不是设计问题，是硬件执行问题】",
+              "Isaiah 说：核能公司可以分为两类——认为这是硬件执行问题的，和认为这是设计问题的。Valor 坚定地站在硬件执行这一边。",
+              "「核能行业本质上是一个建模和仿真行业。你看那些大家都知道名字的核能公司，掀开盖子看，其实就是一家建模和仿真公司。他们制造非常精确的'纸面反应堆'——对理论上的东西有很好的预测。」",
+              "「我们不造兰博基尼。我们要造的是非常简单、非常便宜、非常安全的反应堆，能造几万台的那种。这才是能让能源便宜 10 倍的方法。」",
+              "",
+              "【DOE 通道：绕过 NRC 的鸡蛋问题】",
+              "核能行业有一个先有鸡还是先有蛋的问题：你需要数据才能去找监管机构，但你需要运行过反应堆才能有数据。",
+              "Isaiah 发现了一个被遗忘了 40 年的法规路径：能源部（DOE）最初源自原子能委员会的拆分——NRC 负责商业部署，DOE（原名 ERDA）负责测试。",
+              "「特朗普政府发布了行政令 EO14301，要求在 7 月 4 日之前在美国土地上让三座先进反应堆达到临界。我们就是在 DOE 的授权下建造了这个反应堆。」",
+              "",
+              "【安全哲学：降低后果，而非降低概率】",
+              "Isaiah 说：传统能源按死亡率和能源产出的比例计算，核能已经是史上最安全的能源形式——甚至比太阳能还安全（太阳能的死亡主要来自安装工人从屋顶坠落）。",
+              "传统核能降低风险的方式是降低事故概率——设计大量冗余冷却系统确保「永远不发生」。Valor 选择了另一条路：降低后果。",
+              "「我们的安全基准是：假设工厂里的一切都坏了。绝对的一切。它仍然是安全的。」",
+              "他们将在周五演示：按下紧急停堆按钮（scram），然后立刻切断全厂所有电源——所有冷却系统、所有泵全部关掉。RCCS 水夹套会进入被动循环模式：水沸腾→蒸汽离开→冷凝→回流，完全没有移动部件、没有操作员输入，在两天内自然移除衰变热。",
+              "",
+              "【TRISO 燃料与氦气冷却的优势】",
+              "TRISO 燃料：三结构各向同性包覆颗粒燃料，极度安全。",
+              "氦气冷却：氦气是惰性气体，化学性质简单，不像水冷堆需要担心湿蒸汽腐蚀。",
+              "石墨是亲水的，会吸收水分——这是 Fort St. Vrain（历史上的氦气石墨反应堆）的问题之一。Valor 通过氦气净化系统持续去除水分来解决。",
+              "",
+              "【Tick Rate：从两年到分钟】",
+              "Valor 用「tick rate」（来自游戏术语，指游戏状态变化之间的时间间隔）来衡量自己。",
+              "「从公司注册到第一次裂变原子：两年四个月。从 Project Nova（第一次临界）到 Ward 250（第二次）：约七个月。目标：把这个窗口压缩到分钟级。每几分钟就有一座新反应堆上线。」",
+              "",
+              "【模块化堡垒：预制混凝土块】",
+              "78 英寸厚的混凝土生物屏蔽层。不是现场浇筑，而是在工厂预制——他们在盐湖城有一个「Citadel 工厂」，年产能 3000 块。",
+              "块之间的接缝是正弦曲线（sine wave），确保伽马射线和中子没有直线逃逸路径。不需要灌浆、不需要螺栓——纯堆叠。42 小时搭完（传统需要 3 个月）。",
+              "他们甚至自己发明了一种混凝土配方：需要足够密度阻挡伽马射线、足够强度自承重（不用钢筋，因为会被中子活化变成核废料）。两个工程师（23 岁和 21 岁）飞遍全国收集岩石样本，用酸溶解后做光谱分析——被称为「寻石行动」。",
+              "",
+              "【核反应堆直接驱动 NVIDIA Blackwell】",
+              "Valor 把一颗 NVIDIA Blackwell 芯片直接连到了反应堆上，从上面托管了 nuclearwebsite.com。",
+              "网站会精确告诉你：为了加载这个页面，裂变了多少铀原子。",
+              "这也是唯一能买到 Valor 周边商品的地方——他们一直说，在真正裂变原子之前不卖任何周边。",
+              "反应堆关掉后网站也会下线——有时限的独家性。",
+              "",
+              "【垂直整合：500 万美元的 RPS，6 周 40 万搞定】",
+              "反应堆保护系统（RPS）——反应堆的大脑——被供应商报价 500 万美元、交货期 2.5 年。",
+              "Valor 的 I&C 负责人 Joe（布朗大学辍学生）带着 5 个工程师，把自己关在会议室里 6 周，花了 40 万美元自己造了一个。",
+              "当供应商发现 Valor 要自己干时，他们的 CTO 跑到各种专家电话平台上抹黑 Valor 是「不安全的公司」——因为这威胁到了他们 100 倍的利润率。",
+              "「核能行业到处都是这样的虚假成本——一个 40 年没真正建造过任何东西的行业，仅有的那点建造还在收 100 倍的利润。」",
+              "",
+              "【为什么用股权融资而不是项目融资】",
+              "Isaiah 说：所有核能创业公司的传统计划都是做一些工程设计+客户意向书，组装一个「纸面包」去吸引项目融资。",
+              "「我看着这个模式在其他公司身上一次次失败。我创立 Valor 时就知道我们不会走这条路。」",
+              "「美国有一个独特的优势：愿意承担风险的股权资本环境。VC 最擅长承保技术风险——这不是物理学风险，而是机械工程、热工水力、仪表控制、制造方法的风险。这比火箭发动机简单多了。」",
+              "「当竞争对手还在试图说服风险厌恶型融资方时，我们已经到第五座反应堆了。那时候项目融资才有意义——但早期的股权支持者已经建立了巨大的护城河。」",
+              "",
+              "【Giga Site 策略：先把电建好，客户自然会来】",
+              "Valor 不去做那种多方谈判的定制交易——找场地、谈许可、谈多年的交付时间线。",
+              "「我们可以直接在地上放 1GW。用自己的节奏。那个节奏会比世界上任何人都快。问题翻转过来：如果我有一 GW 的电力+土地+光纤，会有人来建数据中心吗？答案是：当然会。」",
+              "",
+              "【超科技工业主义：当能源变成万物成本】",
+              "Isaiah 的终极愿景：AI + 机器人将人力转化为能源消耗。制造业的三个输入——人、材料、能源——在 AI+机器人时代变成两个：机器和能源。而机器也来自工厂，工厂也消耗能源。",
+              "「如果你不断追问这些东西从哪来，最终你会发现：能源是根本输入。当我们让能源便宜 10 倍再 10 倍，买一件东西的成本将等于制造它所用的能源成本。基本上一切都会变得免费。」",
+              "「如果我们要去探索星空、在火星建基地，我们需要很多东西——而且需要比现在便宜得多的东西。这就是让我兴奋的地方。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
