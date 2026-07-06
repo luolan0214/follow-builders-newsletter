@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-06" data-issue-number="49" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 49 期｜2026-07-06｜双语精选版｜5 条精选｜5 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="独立日长周末的尾巴。X feed 偏轻——大量世界杯讨论（Rauchg 预言美国 vs 阿根廷决赛，1545 赞；Sam Altman 关于孩子认知能力和 GPT-5.6 的对比拿了今日最高的 11071 赞），但也有几条实操干货：Cat Wu 的 Claude Code 招聘工作流（555 赞）、Amanda Askell 关于从医生那里获取概率信息的无奈（1382 赞）、Nan Yu 批评「实时策略游戏」式的 agent 管理模式。播客是本期重头戏：MAD Podcast × Cloudflare CEO Matthew Prince，深聊机器人流量首次超过人类流量、互联网商业模式即将巨变、Cloudflare 裁员 20% 的决策逻辑、以及未来内容创作者的微支付体系。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">独立日长周末的尾巴。X feed 偏轻——大量世界杯讨论（Rauchg 预言美国 vs 阿根廷决赛，1545 赞；Sam Altman 关于孩子认知能力和 GPT-5.6 的对比拿了今日最高的 11071 赞），但也有几条实操干货：Cat Wu 的 Claude Code 招聘工作流（555 赞）、Amanda Askell 关于从医生那里获取概率信息的无奈（1382 赞）、Nan Yu 批评「实时策略游戏」式的 agent 管理模式。播客是本期重头戏：MAD Podcast × Cloudflare CEO Matthew Prince，深聊机器人流量首次超过人类流量、互联网商业模式即将巨变、Cloudflare 裁员 20% 的决策逻辑、以及未来内容创作者的微支付体系。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">World Cup Weekend &amp; Culture / 世界杯周末与文化</h2>
+    <p class="section-desc">Sam Altman 谈孩子认知 vs GPT-5.6（11071 赞）；Rauchg 预言美国 vs 阿根廷决赛（1545 赞）；Masad 祝美国 250 岁生日（791 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+rauchg+amasad" data-author-name="Sam Altman / Guillermo Rauch / Amjad Masad" data-author-tag="OpenAI / Vercel / Replit" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sam Altman / Guillermo Rauch / Amjad Masad avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sam Altman / Guillermo Rauch / Amjad Masad</div>
+            <div class="author-tag is-inline">OpenAI / Vercel / Replit</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sam Altman 今日互动量最高的推文（11071 赞、294 转发）：「我们家大的那个孩子第一次把两个词拼在一起说了出来，我对这个认知壮举的惊叹程度，大约和 GPT-5.6 发现新数学差不多」——OpenAI CEO 的人性化时刻。</p>
+              <p>Rauchg 做了一个大胆的世界杯预言（1545 赞、310 条回复）：「🇺🇸 美国 - 🇦🇷 阿根廷决赛。你先在这里听到的。」Masad 庆祝独立日：「美国 250 岁生日快乐 🇺🇸」（791 赞）。Matt Turck 盛赞挪威：「最好的球衣、最好的球迷庆祝、最好的前锋」（70 赞），还说这届是「老门将的锦标赛」（64 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：我们家大的那个孩子第一次把两个词拼在一起说了出来，我对这个认知壮举的惊叹程度，大约和 GPT-5.6 发现新数学差不多。</p>
+              <p>Guillermo Rauch：🇺🇸 美国 - 🇦🇷 阿根廷决赛。你先在这里听到的。</p>
+              <p>Amjad Masad：美国 250 岁生日快乐 🇺🇸</p>
+              <p>Matt Turck：挪威：最好的球衣、最好的球迷庆祝、最好的前锋。</p>
+              <p>Matt Turck：老门将的锦标赛。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sam Altman&#39;s most-engaged tweet of the day (11071 likes, 294 retweets): &#39;our older kid put two words together for the first time and i am approximately as amazed by this cognitive feat as i am by GPT-5.6 discovering new math&#39; — a humanizing moment from the OpenAI CEO that resonated massively.</p>
+              <p>Rauchg made a bold World Cup prediction (1545 likes, 310 replies): &#39;🇺🇸 USA - 🇦🇷 ARG final. You heard it here first.&#39; Amjad Masad celebrated Independence Day: &#39;Happy 250 🇺🇸&#39; (791 likes). Matt Turck praised Norway: &#39;best jersey, best fan celebration, best striker&#39; (70 likes) and noted this is a &#39;tournament of the older goalies&#39; (64 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: our older kid put two words together for the first time and i am approximately as amazed by this cognitive feat as i am by GPT-5.6 discovering new math</p>
+              <p>Guillermo Rauch: 🇺🇸 USA - 🇦🇷 ARG final. you heard it here first</p>
+              <p>Amjad Masad: Happy 250 🇺🇸</p>
+              <p>Matt Turck: Norway: best jersey, best fan celebration, best striker.</p>
+              <p>Matt Turck: Tournament of the older goalies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama/status/2073791666553844074" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Agent Workflows &amp; Real Talk / Agent 工作流与真话</h2>
+    <p class="section-desc">Cat Wu 的 Claude Code 招聘工作流（555 赞）；Nan Yu 批评 RTS 式 agent 管理；Dan Shipper 的 Fable 幽默；Thariq 的 SF/ASI 段子（581 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="_catwu+thenanyu" data-author-name="Cat Wu / Nan Yu" data-author-tag="Claude Code + Cowork @Anthropic / Head of Product @Linear" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Cat Wu / Nan Yu avatar"><span class="avatar-fallback">CW</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Cat Wu / Nan Yu</div>
+            <div class="author-tag is-inline">Claude Code + Cowork @Anthropic / Head of Product @Linear</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cat Wu 分享了她最新的 Claude Code 招聘工作流（555 赞、92 条回复）：告诉 Claude Code 你要的职位和背景 → 它启动动态工作流找 100 个候选人，包含 LinkedIn、Twitter、博客、播客链接和一句话推荐 → 让 CC 生成 artifact 并发邮件给你 → 锁屏走人 → 在外面用手机审核列表。端到端的 agent 化招聘。</p>
+              <p>Nan Yu（Linear 产品负责人）两条犀利评论：（1）「炫耀自己开了 10 个 Claude Code 标签页就是表演」（12 赞）——反击那种表演性的复杂设置。（2）「『实时策略游戏』式的 agent 管理模式显然是死路一条。按当前标准已经古老的 AI 在 RTS 游戏中已经击败 99% 的人类玩家，而且在微操上远远超越」——论人类微操 agent 是必输策略。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cat Wu：你最喜欢的 Claude Code + workflows + artifacts 用例是什么？我最近最爱的是招人：- 告诉 cc 你要的职位和背景 - 让 cc 启动动态工作流找 100 个候选人，包含 LinkedIn、Twitter、博客、播客和一句话推荐 - 让 cc 做成 artifact 发邮件给我。然后我锁屏出门 - 在外面用手机审核！</p>
+              <p>Nan Yu：炫耀自己开了 10 个 Claude Code 标签页就是表演。</p>
+              <p>Nan Yu：「实时策略游戏」式的 agent 管理模式显然是死路一条。按当前标准已经古老的 AI 在 RTS 中已经击败 99% 的人类玩家，微操远超人类。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cat Wu shared her new favorite Claude Code workflow for sourcing candidates (555 likes, 92 replies): tell Claude Code about the role and backgrounds you want → it kicks off a dynamic workflow to find 100 candidates with LinkedIn, Twitter, blog, podcast links and a one-line pitch for each → ask CC to make an artifact and email it to you → lock your laptop and head out → review the list on the go once CC is done. End-to-end agentic recruiting.</p>
+              <p>Nan Yu (Head of Product at Linear) with two sharp takes: (1) &#39;Bragging about running 10 Claude code tabs is just theater&#39; (12 likes) — pushing back on performatively complex setups. (2) &#39;The real-time strategy game model of managing agents is clearly a dead end. AI that&#39;s ancient by current standards already beats &gt;99% of human players and out-micros them to an extreme degree&#39; (31 likes) — arguing that humans micromanaging agents is a losing strategy.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cat Wu: what are your top claude code + workflows + artifacts use cases? one of my new favorites is for sourcing candidates: - tell cc about the role and backgrounds i&#39;m looking for - ask cc to kick off a dynamic workflow to find 100 candidates, and include linkedin, twitter, blog, podcasts, and one-line pitch for each - ask cc to make an artifact and email it to me. then, i lock my laptop and head out for the day - i review the list on the go once cc is done!</p>
+              <p>Nan Yu: Bragging about running 10 Claude code tabs is just theater</p>
+              <p>Nan Yu: The &quot;real-time strategy game&quot; model of managing agents is clearly a dead end. AI that&#39;s ancient by current standards already beats &gt;99% of human players and out-micros them to an extreme degree</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/_catwu/status/2073806626965049686" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="trq212+danshipper+AmandaAskell" data-author-name="Thariq / Dan Shipper / Amanda Askell" data-author-tag="Claude Code @Anthropic / Every CEO / Philosopher @Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq / Dan Shipper / Amanda Askell avatar"><span class="avatar-fallback">T/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq / Dan Shipper / Amanda Askell</div>
+            <div class="author-tag is-inline">Claude Code @Anthropic / Every CEO / Philosopher @Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的旧金山笑话（581 赞、43 条回复）：「『上帝给了我一个信号』（想起自己住在旧金山）『我的意思是，我被时间尽头的 ASI 因果反向影响了，以最大化人类的期望值』」——完美模仿旧金山理性主义圈子如何重新解释日常体验。</p>
+              <p>Dan Shipper 的 Fable 段子（153 赞）：「我：把这个按钮颜色改一下。Fable：好的，我刚启动了一支 100 个 agent 的舰队来帮你搞定」——捕捉到看似简单的请求背后不成比例的计算量。</p>
+              <p>Amanda Askell（Anthropic 哲学家）关于一个普遍的挫败感（1382 赞、131 条回复）：「从医生那里获取一个概率是人生中不必要的 boss 战之一。就算你求他们给你一个区间值的主观概率——到那个程度你基本上就是在要他们的直觉——他们也给不了。我不知道他们是不是怕给信息会被起诉之类的。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：「『上帝给了我一个信号』（想起自己住在旧金山）『我的意思是，我被时间尽头的 ASI 因果反向影响了，以最大化人类的期望值』」</p>
+              <p>Dan Shipper：我：把这个按钮颜色改一下。Fable：好的，我刚启动了一支 100 个 agent 的舰队来帮你搞定。</p>
+              <p>Amanda Askell：从医生那里获取一个概率是人生中不必要的 boss 战之一。就算你求他们给你一个区间值的主观概率——到那个程度你基本上就是在要他们的直觉——他们也给不了。我不知道他们是不是怕给信息会被起诉。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s SF joke (581 likes, 43 replies): &#39;&quot;God gave me a sign&quot; (remembering i live in San Francisco) &quot;I mean, I was acausally influenced by the ASI at the end of time to maximize EV for humanity&quot;&#39; — a perfect parody of how rationalist SFculture reinterprets everyday experiences.</p>
+              <p>Dan Shipper&#39;s Fable parody (153 likes): &#39;me: change this button color. Fable: sure I just spun up a fleet of 100 agents to get that done for you&#39; — capturing the feeling of disproportionate computational effort behind seemingly simple requests.</p>
+              <p>Amanda Askell (Anthropic philosopher) on a universal frustration (1382 likes, 131 replies): &#39;Extracting a probability from a doctor is one of life&#39;s unnecessary boss battles. Even if you beg them for an interval-valued subjective probability, and at that point you&#39;re basically asking for their hunch. I don&#39;t know if they get sued for giving out information or something.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: &quot;God gave me a sign&quot; (remembering i live in San Francisco) &quot;I mean, I was acausally influenced by the ASI at the end of time to maximize EV for humanity&quot;</p>
+              <p>Dan Shipper: me: change this button color. Fable: sure I just spun up a fleet of 100 agents to get that done for you</p>
+              <p>Amanda Askell: Extracting a probability from a doctor is one of life&#39;s unnecessary boss battles. Even if you beg them for an interval-valued subjective probability, and at that point you&#39;re basically asking for their hunch. I don&#39;t know if they get sued for giving out information or something.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212/status/2073956140610924936" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Perspectives &amp; Commentary / 视角与评论</h2>
+    <p class="section-desc">Garry Tan 论杠杆与创意（51 赞）；Nikunj 吐槽 VC-founder 会议套路（113 赞）；Zara 重新发布代码理解 skill（125 赞）；Steipete 安利（184 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+nikunj+zarazhangrui+steipete" data-author-name="Garry Tan / Nikunj / Zara / Peter Steinberger" data-author-tag="YC CEO / FPV Ventures / Builder / OpenClaw" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Nikunj / Zara / Peter Steinberger avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Nikunj / Zara / Peter Steinberger</div>
+            <div class="author-tag is-inline">YC CEO / FPV Ventures / Builder / OpenClaw</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 在大阪发出的哲学双连推（51 + 39 赞）：「我在大阪，很明显：日本已经做了天花板的实验——三十年零增长，但建出了地球上最好的火车、服务和工艺。当你无法在&#39;更多&#39;上竞争时，你就在&#39;更好&#39;上竞争。」随后：「所以人类财富的真正约束从来不是资源，而是如何互相服务的好主意，以及行动的杠杆。我们刚刚为所有人解除了杠杆约束。现在只差创意了。去想吧，然后做出来。是你们的时代了。」</p>
+              <p>Nikunj 的 VC 会议吐槽（113 赞、16 条回复）：「我还在等那位创始人——要求 VC 先玩过产品、带着至少两条反馈来再聊。简直无法理解人们整天上 Zoom 听一个背出来的 deck 聊 30 分钟……这时候双方把自己的 prompt 上传给 Claude 反而更高效 😂」</p>
+              <p>Zara 重新发布了她的代码理解 skill（125 赞）：「重新浮出这个我做的 skill（既然理解你的代码现在成了潮流）」——踩着代码理解工具的关注浪潮。Steipete 只说了句「不能更推荐了」（184 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：我在大阪，很明显：日本已经做了天花板的实验——三十年零增长，但建出了地球上最好的火车、服务和工艺。当你无法在&#39;更多&#39;上竞争时，你就在&#39;更好&#39;上竞争。更好和更多同时来。</p>
+              <p>Garry Tan：所以人类财富的真正约束从来不是资源，而是如何互相服务的好主意，以及行动的杠杆。我们刚刚为所有人解除了杠杆约束。现在只差创意了。去想吧，然后做出来。是你们的时代了。</p>
+              <p>Nikunj：我还在等那位创始人——要求 VC 先玩过产品、带着至少两条反馈来再聊。简直无法理解人们整天上 Zoom 听一个背出来的 deck 聊 30 分钟——本来可以是一个更有成效的产品头脑风暴。难道只有我觉得奇怪吗？你们整天听同一个故事得到什么 alpha？双方把自己的 prompt 上传给 Claude 反而更高效 😂</p>
+              <p>Zara：重新浮出这个我做的 skill（既然理解你的代码现在成了潮流）。</p>
+              <p>Peter Steinberger：不能更推荐了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan, from Osaka, with a philosophical pair of tweets (51 + 39 likes): &#39;I&#39;m in Osaka now, and it&#39;s clear: Japan already ran the experiment on the ceiling. Thirty years of zero growth and it built the best trains, service, and craft on earth. When you can&#39;t compete on more, you compete on better.&#39; Followed by: &#39;So the real constraint on human wealth was never resources. It was good ideas for how to serve one another, and the leverage to act on them. We just deleted the leverage constraint for everybody. Now it&#39;s only the ideas. Go have them, and then build them.&#39;</p>
+              <p>Nikunj&#39;s VC meeting rant (113 likes, 16 replies): &#39;Still waiting on that one founder who gates a VC chat until they have played with the product and come with at least two pieces of feedback. Blows my mind that people go on Zoom and chat for 30 mins on a parroted deck... It&#39;s just more efficient for both sides to upload their personal &quot;prompts&quot; to Claude at this point 😂&#39;</p>
+              <p>Zara resurfaced her code-understanding skill (125 likes): &#39;Resurfacing this skill I built (now that understanding your code is in vogue)&#39; — timed to the wave of interest in code comprehension tools. Steipete recommended something with just &#39;Can&#39;t recommend enough&#39; (184 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: I&#39;m in Osaka now, and it&#39;s clear: Japan already ran the experiment on the ceiling. Thirty years of zero growth and it built the best trains, service, and craft on earth. When you can&#39;t compete on more, you compete on better. Better AND more at the same time.</p>
+              <p>Garry Tan: So the real constraint on human wealth was never resources. It was good ideas for how to serve one another, and the leverage to act on them. We just deleted the leverage constraint for everybody. Now it&#39;s only the ideas. Go have them, and then build them. It&#39;s your time.</p>
+              <p>Nikunj: Still waiting on that one founder who gates a VC chat until they have played with the product and come with at least two pieces of feedback.. Blows my mind that people go on Zoom and chat for 30 mins on a parroted deck for literally the entire day - where it could have been a significantly more productive conversation if you just did a product brainstorm instead. Am I just weird? What alpha do you get from hearing the same story again? It&#39;s just more efficient for both sides to upload their personal &quot;prompts&quot; to Claude at this point 😂</p>
+              <p>Zara: Resurfacing this skill I built (now that understanding your code is in vogue)</p>
+              <p>Peter Steinberger: Can&#39;t recommend enough.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan/status/2073881439700168925" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Cloudflare CEO — The Internet&#39;s Business Model Is Dead / 播客：Cloudflare CEO——互联网商业模式已死</h2>
+    <p class="section-desc">MAD Podcast × Matthew Prince（Cloudflare CEO）。完整中文译文：bot 流量首超人类、互联网商业模式巨变、Cloudflare 裁员 20% 的决策逻辑、AI 安全的两年窗口期、内容创作者微支付体系。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad" data-author-name="The MAD Podcast with Matt Turck" data-author-tag="Matt Turck（FirstMark）主持的 AI 行业播客" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="The MAD Podcast with Matt Turck avatar"><span class="avatar-fallback">TM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">The MAD Podcast with Matt Turck</div>
+            <div class="author-tag is-inline">Matt Turck（FirstMark）主持的 AI 行业播客</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cloudflare CEO Matthew Prince 关于互联网现状的一堂大师课。关键里程碑：2026 年上半年，机器人流量首次超过人类流量。他预测 5 年内 bot 流量将是人类的 1000 倍——人类购物可能访问 5 个网站，agent 会访问 5000 个。</p>
+              <p>互联网的商业模式（广告）已死：「机器人不点广告。」下一个商业模式尚未定义。Cloudflare 正在研究微支付基础设施，上线首日需处理每秒 1000 万笔交易（Visa 每秒不到 10 万笔），使用 x402 等协议。</p>
+              <p>关于裁员：Cloudflare 裁掉了 20% 以上的团队——不是因为业务不好，而是因为 AI 工具消除了很多中层管理角色的需求。管理幅度从 6:1（哈佛商学院标准）转向 12:1。「最残忍的事情就是等。」他预计大多数公司会在 6-12 个月内做同样的事。</p>
+              <p>关于安全：未来 2 年，每周都会出现一个 Log4j 级别的漏洞，因为 AI 会把它们全找出来。但之后软件会大幅改善。Cloudflare 内部的 agent——训练于十年事故数据——已经让背景事故率断崖式下降。</p>
+              <p>关于 Cloudflare OS：面向非工程团队（法务、财务、市场）的内部 AI 平台。捕捉真实工作流的技巧：设一个「魔法 AI agent」邮箱（autocloudflare.com），背后是 20 个人，收集真实问题后构建 skill 文件。投资者关系文档准备从 2 周缩短到 3 分钟。</p>
+              <p>关于内容的未来：Prince 买下了他家乡 Park City 的本地报纸，预计今年 AI 授权收入将超过广告收入。他设想一个类似 Spotify 的模式——AI 实验室奖励那些填补人类知识「瑞士奶酪里的洞」的创作者——创造净新知识，而不是又一篇关于 1500 Pennsylvania Avenue 的报道。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【里程碑：机器人流量首超人类】</p>
+              <p>Matthew Prince 说：在 Cloudflare 的历史上，bot 流量一直大约占 20%，直到大约两年前开始因为 AI 和 LLM 而急速上升。去年秋天我被问到自动流量什么时候会超过人类流量，我们 extrapolated 了一下趋势，认为是 2027 年底。</p>
+              <p>「快进到 2026 年 3 月的 SXSW，同样的问题，我们再看数据——已经变成了 2027 上半年。然后几周前我的团队来找我：你不会信，但 bot 流量在 2026 年上半年已经超过了人类流量。」</p>
+              <p>「如果你 extrapolate 下去，5 年内你将看到 bot 流量是人类的 1000 倍。而且我愿意押注这个数字还会更高。」</p>
+              <p>比如你买数码相机，我自己可能访问 5 个网站做决定。但你的 agent 可能访问 5000 个——这就是推动流量暴增的核心力量。</p>
+              <p></p>
+              <p>【互联网商业模式已死】</p>
+              <p>Matthew Prince 说：互联网底层商业模式在过去 28 年里基本没变——主要是广告，其次是订阅。问题在于：bot 不点广告。</p>
+              <p>「首先，运营互联网的成本会暴涨——1000 倍的流量意味着更多的服务器、CPU、GPU、内存、网络。其次，有人得为此买单。广告模式行不通了。」</p>
+              <p>「品牌会变成什么？品牌本质上是给人类的快捷方式——看到 Walmart 的 logo 就知道进去是什么体验。但 bot 有无限的耐心去发现一切，所以品牌的概念在 agent 时代会完全不同。」</p>
+              <p></p>
+              <p>【Cloudflare 的起源故事】</p>
+              <p>Cloudflare 最初的想法很简单：把防火墙放到云里。但最初的免费策略吸引了两个群体：黑客少年（互相攻击）和人权/非营利组织（被政府攻击）。</p>
+              <p>「我们在 2010 年注册了一个域名——一个土耳其色情网站。然后一周内来了 1000 多个土耳其色情网站。我们完全不知道为什么。」</p>
+              <p>他们联系了一个站长，得知：土耳其西部比较世俗化，但东部比较保守和穆斯林化，认为这些网站是邪恶的，于是发动攻击。Cloudflare 免费版保护了他们。</p>
+              <p>Cloudflare 的机器学习系统将这类攻击标记为「TE」（Turkish Escort）。一年后，2012 年 Eurovision 歌曲大赛在巴库举行——一个跨性别选手参赛引发保守派攻击，他们保护了赛事。攻击模式？TE、TE、TE——同一个攻击者。</p>
+              <p>又一年后，摩根大通的 CTO 打来电话——美国银行遭到大规模攻击。Cloudflare 的工程师一看日志：「哦，这些家伙——就是那个土耳其色情攻击者。」</p>
+              <p>真相：一个伊朗学生，从攻击土耳其色情网站开始，到攻击 Eurovision，被发现后 recruited 进了伊朗军方网络战部门——至今仍在运行伊朗所有网络攻击。</p>
+              <p>「这就是 Cloudflare 服务所有人的力量——甚至从互联网最奇怪的角落里，我们也能学到东西。」</p>
+              <p></p>
+              <p>【Cloudflare 的 AI 产品线】</p>
+              <p>Workers（开发平台）：2017 年开始构建，因为 Cloudflare 需要一种能快速部署、快速回滚、成本高效的软件开发方式。用 isolates（浏览器标签页隔离技术）而非容器，启动快得多、成本低得多。</p>
+              <p>Workers AI（推理）：在全球数百个城市的边缘 GPU 上运行推理。OpenAI 的移动 app 跑在 Cloudflare 上，Anthropic 的 cloud.ai 也跑在 Cloudflare 上。</p>
+              <p>AI Gateway（审计与路由）：审计所有发给 AI 的 prompt 和返回的响应；为企业注入安全护栏；智能路由——简单任务用便宜模型，复杂任务用前沿模型——控制成本。</p>
+              <p>「如果你想象地球上每个知识工作者都有一个 agent 在替他们工作——CPU 需求量是当前全球年 CPU 产量的 40 倍。如果是几百个 agent 呢？传统的 AWS 容器方式太贵了。Workers 的 isolates 模式是 agent 工作负载的完美环境。」</p>
+              <p></p>
+              <p>【安全：两年的恐怖窗口期】</p>
+              <p>Matthew Prince 说：我认为未来 104 周（两年），你每周都会看到一个 Log4j 级别的漏洞。因为 AI 模型在寻找漏洞方面非常厉害。</p>
+              <p>「会有很多 VC 投很多钱到网络安全公司。但我认为这是一个假动作——因为两年后，软件会大幅改善。AI 不仅找到漏洞，还能修复它们。」</p>
+              <p>Cloudflare 内部已经用 agent 审查每个代码发布和每个配置变更——训练于十年的事故数据。效果：背景事故率断崖式下降。</p>
+              <p>「AI 的一个被低估的优势：它的偏见与组织内其他人的偏见不相关。一个团队一起工作久了会形成一致的盲点，AI 没有那些盲点——它有不同的盲点。这种不相关性让它在发现问题方面极其有效。」</p>
+              <p></p>
+              <p>【Cloudflare 裁员 20% 的决策逻辑】</p>
+              <p>Matthew Prince 说：我们裁掉了超过 20% 的团队——不是因为业务不好，而是我们不需要那么多中层管理者和「度量者」了。</p>
+              <p>「管理幅度——每个经理的直接下属数——哈佛商学院的研究说理想值是 6。这正是我们之前的数字。但现在用 AI 工具，一个经理可以管更多人。Meta 在尝试 50:1，我觉得太多了，但 12:1 是对的。」</p>
+              <p>「越多直接下属 = 越扁平的组织 = 越快。」</p>
+              <p>「我跟其他公司的同行聊，他们都在看到同样的事，都说&#39;我们也得做&#39;——但很多 CEO 害怕做第一个。我觉得这是懦弱的。一旦你知道变革要来，对团队最善良的事就是尽快做——因为今天找工作比 6-12 个月后容易得多，到时候市场会被 flooding。」</p>
+              <p>Cloudflare 提供了科技行业最慷慨的遣散包——股票继续 vest——并努力帮被裁者找工作。「一个 Cloudflare 的中层管理者可以到一个创业公司做高级管理者。」</p>
+              <p></p>
+              <p>【Cloudflare OS：内部 AI 平台】</p>
+              <p>工程师团队自然地采用了 AI 编码工具。但法务、财务、市场团队呢？</p>
+              <p>他们构建了「Cloudflare OS」——一个安全的 AI 平台，让非技术人员也能用 agent 做事。关键优势：Cloudflare 已有完整的安全基础设施，agent 可以继承用户的访问权限。</p>
+              <p>「捕捉真实工作流的技巧：我们设了一个邮箱 autocloudflare.com，告诉所有人这是一个&#39;魔法 AI agent&#39;。背后其实是 20 个人 24/7 在回答——但他们用 AI 工具，同时收集真实问题，然后把这些变成 skill 文件。」</p>
+              <p>案例：投资者关系团队的 Heather——每次财报需要两周准备所有 IR 文档。自动化后：从两周缩短到三分钟，而且比人工更准确。</p>
+              <p></p>
+              <p>【未来内容创作者的微支付体系】</p>
+              <p>Matthew Prince 说：互联网商业模式需要重建。第一步：创建供给稀缺性——给内容创作者工具，让他们能控制谁能访问他们的内容。</p>
+              <p>「Conde Nast、Dotdash Meredith 这些大出版商已经在用我们的工具，跟 AI 公司签了更好的授权协议。但小博客和独立创作者呢？他们需要微支付。」</p>
+              <p>技术挑战：Cloudflare 每秒处理约 5 亿个请求。估计其中 1-10% 可以通过微支付变现——意味着上线首日需要支持每秒 1000 万笔金融交易，目标 1 亿笔/秒。作为对比，Visa 每秒不到 10 万笔。</p>
+              <p>他们正在和 Coinbase、Stripe 以及 x402 协议合作。</p>
+              <p></p>
+              <p>【内容的未来：填补瑞士奶酪里的洞】</p>
+              <p>Matthew Prince 说：我和 Spotify 创始人 Daniel Ek 聊过。他告诉我，有人在 Spotify 上搜索「一首迪斯科节拍的关于和我的猫跳舞有多开心的歌」——Spotify 把这些未满足的查询返回给音乐创作者。有创作者仅靠写这些歌就年收入 4000 万欧元。</p>
+              <p>「我们第一次在人类历史上拥有了一个关于所有人类知识的数学模型（LLM）。它也展示了知识中的空白——就像一块巨大的瑞士奶酪。」</p>
+              <p>「AI 实验室不需要又一篇关于 1500 Pennsylvania Avenue 的报道。他们需要的是填补空白、贡献净新知识的人。我们应该奖励这些人。」</p>
+              <p>他和妻子买下了家乡 Park City 的本地报纸。「我预计今年 AI 授权收入会超过广告收入。」因为关于 Park City 滑雪、餐厅、演出的本地信息，只有本地报纸有。</p>
+              <p>「过去 28 年的互联网杀死了本地化的、奇特的、有趣的信息。我希望下一个 28 年的互联网把它们带回来。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cloudflare CEO Matthew Prince delivers a masterclass on the state of the internet. Key milestone: in H1 2026, bot traffic surpassed human traffic online for the first time. He predicts in 5 years there will be 1000x more bot traffic than human traffic — agents visit 5000 sites where a human would visit 5.</p>
+              <p>The internet&#39;s business model (advertising) is dead: &#39;bots don&#39;t click on ads.&#39; The next business model is undefined. Cloudflare is working on micro-payment infrastructure that would need to handle 10M transactions/second at launch (Visa does &lt;100K/s), using protocols like x402.</p>
+              <p>On the layoff: Cloudflare cut 20%+ of its team — not because business was struggling, but because AI tools eliminated the need for many middle management roles. Span of control is moving from 6:1 (Harvard B School standard) to 12:1. &#39;The cruelest thing you can do is wait.&#39; He expects most companies will do the same in 6-12 months.</p>
+              <p>On security: for the next 2 years, we&#39;ll see a Log4j-scale vulnerability every week as AI finds them all. But then software will get dramatically better. Cloudflare&#39;s internal agent — trained on 10 years of incidents — already reduced their background incident rate off a cliff.</p>
+              <p>On Cloudflare OS: an internal AI platform for non-engineering teams (legal, finance, marketing). The trick to capturing real workflows: set up a &#39;magic AI agent&#39; email address (autocloudflare.com) staffed by 20 humans, gather real problems, then build skill files. IR document prep went from 2 weeks to 3 minutes.</p>
+              <p>On the future of content: Prince bought his local Park City newspaper and expects AI licensing deals to exceed ad revenue this year. He envisions a Spotify-like model where AI labs reward creators who fill &#39;holes in the Swiss cheese&#39; of human knowledge — net new information, not another story about 1500 Pennsylvania Avenue.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matthew Prince: We actually had bot traffic pass human traffic online in the first half of twenty twenty six.</p>
+              <p>Matthew Prince: The underlying business model of the internet for the last twenty eight years has remained basically the same, which is it&#39;s largely advertising. The problem is bots don&#39;t click on ads.</p>
+              <p>Matthew Prince: We laid off more than 20% of our team and not because the business was struggling. We just need fewer middle managers, we need fewer measures.</p>
+              <p>Matthew Prince: I think for the next 104 weeks, so two years, you&#39;re gonna see a Log4j like vulnerability every single week.</p>
+              <p>Matthew Prince: We told everyone it&#39;s a magic AI agent. In reality behind the scenes, it was a team of about 20 people that staff this 24/7. They were really gathering the information about what are the real problems that people have in their jobs.</p>
+              <p>Matthew Prince: My wife and I bought the local newspaper in our hometown Park City, Utah. I think we will make more this year off AI licensing deals than we do off display ads.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=UN47z_opfmo" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-06 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-06 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
