@@ -1,0 +1,51 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-08",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "轻量版。今日 feed 快照与昨日完全一致（generatedAt: 2026-07-07T07:28Z, lookbackHours: 24），无 7 月 8 日新增内容。所有推文和播客均已在 2026-07-07 期中完整覆盖。为保持连续性，本期生成轻量归档页面，引用昨日核心内容。如需完整阅读请参见 7 月 7 日刊。"
+  },
+  "archive": {
+    "title": "静默日·无新增内容",
+    "desc": "Feed 快照未刷新，今日无新增推文或播客。请参见 7 月 7 日刊获取完整内容。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-08 source feeds (identical to 2026-07-07 snapshot).",
+  "sections": [
+    {
+      "title": "Carry-over Notice / 顺延通知",
+      "desc": "今日 feed 快照与昨日完全一致，无 7 月 8 日新增内容。以下为昨日核心摘要，完整版请参见 7 月 7 日刊。",
+      "cards": [
+        {
+          "authorKey": "notice",
+          "sourceUrl": "https://x.com/claudeai/status/2074244664199115201",
+          "en": {
+            "rewrite": [
+              "Feed snapshot for 2026-07-08 is identical to 2026-07-07 (same generatedAt timestamp, same lookback window). No new tweets or podcasts appeared for July 8th. This is a carry-over rest day.",
+              "Yesterday's highlights: Anthropic published the Claude Code origin story (2959 likes). Boris Cherny: 'We are 1% done' (2513 likes). Sottiaux teased GPT-5.6 at AIEWF closing (4509 + 1970 likes). Fable 5 left subscriptions at 11:59pm PT on 7/7. Replit: Atlanta real estate company saved $100K replacing Salesforce (1487 likes). Podcast: Surge CEO Edwin Chen on building 'a school for AGI.'"
+            ],
+            "original": [
+              "Feed snapshot generatedAt: 2026-07-07T07:28:28.695Z, lookbackHours: 24 — identical to the 2026-07-07 feed.",
+              "All tweets are dated 2026-07-06 or 2026-07-07. Podcast publishedAt: 2026-06-24."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "2026-07-08 的 feed 快照与 2026-07-07 完全一致（相同的 generatedAt 时间戳，相同的回溯窗口），无 7 月 8 日新增内容。本期为顺延休息日。",
+              "昨日核心：Anthropic 发布 Claude Code 起源故事（2959 赞）；Boris Cherny「只做了 1%」（2513 赞）；Sottiaux 在 AIEWF 暗示 GPT-5.6（合计 6479 赞）；Fable 5 于太平洋时间 7/7 晚 11:59 从订阅下线；Replit 客户用自建 CRM 替换 Salesforce 省 10 万美元（1487 赞）；播客：Surge CEO Edwin Chen 谈「为 AGI 建学校」。"
+            ],
+            "original": [
+              "Feed 快照 generatedAt: 2026-07-07T07:28:28.695Z, lookbackHours: 24——与 2026-07-07 feed 完全一致。",
+              "所有推文日期为 2026-07-06 或 2026-07-07。播客发布于 2026-06-24。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
