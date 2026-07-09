@@ -1,0 +1,288 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-09",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今天是个大日子。Sam Altman 一条推文官宣 GPT-5.6 Sol 周四发布（12175 赞，今日最高），Sottiaux 配合预热「戴上墨镜，Sol 来了」（4150 赞）。Anthropic 这边也有动作——Claude Fable 5 访问延长至 7 月 12 日（72725 赞！！推特全场最高），Cowork 双倍额度延长至 8 月 5 日。Levie 发了今天最长的干货推文——与几十位企业 IT 领袖讨论 AI agent 后总结的六大主题。Steipete 一条「让 Fable 做 head coach，让 Codex 做工作马」拿了 3290 赞。播客是 Training Data × Zipline——全球最大商业自主飞行系统：1.4 亿英里零事故，即将从每天 5000 次飞向量级跃升至每天 100 万次。"
+  },
+  "archive": {
+    "title": "GPT-5.6官宣与Fable延期日报",
+    "desc": "Sam Altman 官宣 GPT-5.6 Sol 周四发布，Claude Fable 5 延长至 7/12，Levie 企业 AI 六大主题，Zipline 1.4 亿英里零事故。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-09 source feeds.",
+  "sections": [
+    {
+      "title": "GPT-5.6 Sol Launch & Fable Extended / GPT-5.6 Sol 发布与 Fable 延期",
+      "desc": "Sam Altman 官宣 GPT-5.6 Sol 周四发布（12175 赞）；Sottiaux 配合预热（4150 赞）；Claude Fable 5 延长至 7/12（72725 赞！！）。",
+      "cards": [
+        {
+          "authorKey": "sama+thsottiaux",
+          "authorName": "Sam Altman / Thibault Sottiaux",
+          "authorTag": "OpenAI CEO / Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/sama/status/2074709023807664454",
+          "en": {
+            "rewrite": [
+              "Sam Altman made it official: 'GPT-5.6 sol launches thursday! happy building' — 12175 likes, 948 retweets, 1045 replies. The single most-engaged tweet in today's entire feed.",
+              "Sottiaux (OpenAI Codex & ChatGPT lead) followed up with sunglasses: 'Prepare your sunglasses. Sol is coming. 😎' — 4150 likes, 230 retweets, 368 replies. This confirms what his cryptic tweets yesterday were teasing."
+            ],
+            "original": [
+              "Sam Altman: GPT-5.6 sol launches thursday! happy building",
+              "Thibault Sottiaux: Prepare your sunglasses. Sol is coming. 😎"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sam Altman 正式官宣：「GPT-5.6 sol 周四发布！祝大家玩得开心」——12175 赞、948 转发、1045 条回复。今日全场互动量最高的推文。",
+              "Sottiaux（OpenAI Codex & ChatGPT 负责人）配合预热：「准备好你的墨镜。Sol 来了。😎」——4150 赞、230 转发、368 条回复。这证实了他昨天神秘推文在暗示的就是这件事。"
+            ],
+            "original": [
+              "Sam Altman：GPT-5.6 sol 周四发布！祝大家玩得开心。",
+              "Thibault Sottiaux：准备好你的墨镜。Sol 来了。😎"
+            ]
+          }
+        },
+        {
+          "authorKey": "claudeai",
+          "authorName": "Claude",
+          "authorTag": "@anthropicai 官方账号",
+          "sourceUrl": "https://x.com/claudeai/status/2074548242386178258",
+          "en": {
+            "rewrite": [
+              "In a move that shocked the community (in a good way), Anthropic extended Claude Fable 5 access through July 12 — just when everyone thought it was gone for good after the 7/7 deadline. The announcement tweet got 72725 likes, 8669 retweets, and 5153 replies — by far the most-engaged tweet in the entire feed across all days.",
+              "Details: up to 50% of weekly usage limit can be used on Fable 5, after which usage credits or model switching applies. Cowork doubled usage limits were also extended through August 5."
+            ],
+            "original": [
+              "Claude: We're extending access to Claude Fable 5 on all paid plans through July 12.",
+              "Claude: As before, you can use up to 50% of your weekly usage limit on Claude Fable 5. After that, you can keep using Fable 5 with usage credits, or switch to another model to keep working within your remaining limits.",
+              "Claude: We're extending doubled Cowork usage limits through August 5, so you can delegate bigger work to Claude."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 做了一个让社区惊喜的操作——Claude Fable 5 访问延长至 7 月 12 日，就在所有人都以为它在 7/7 截止后已经永远离开的时候。公告推文获得了 72725 个赞、8669 条转发和 5153 条回复——是所有 feed 中互动量最高的一条推文。",
+              "细节：Fable 5 可用至每周用量配额的 50%，超出后可使用额外用量额度或切换其他模型。Cowork 双倍额度也延长至 8 月 5 日。"
+            ],
+            "original": [
+              "Claude 官方：我们将 Claude Fable 5 在所有付费计划上的访问延长至 7 月 12 日。",
+              "Claude 官方：与之前一样，你可以将每周用量配额的最多 50% 用于 Claude Fable 5。超出后可以继续使用额外用量额度，或切换其他模型。",
+              "Claude 官方：我们将 Cowork 双倍用量额度延长至 8 月 5 日，你可以把更大的工作交给 Claude。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Steipete's Fable-Codex Workflow & Builder Tips / Steipete 的 Fable-Codex 工作流与构建者技巧",
+      "desc": "Steipete「让 Fable 做 head coach，让 Codex 做工作马」（3290 赞）；Zara 论 AI 时代如何学习（293 赞）；Rauchg 展示 Vercel 文件系统 agent（243 赞）。",
+      "cards": [
+        {
+          "authorKey": "steipete+zarazhangrui+rauchg",
+          "authorName": "Peter Steinberger / Zara / Guillermo Rauch",
+          "authorTag": "OpenClaw / Builder / Vercel CEO",
+          "sourceUrl": "https://x.com/steipete/status/2074638582418231495",
+          "en": {
+            "rewrite": [
+              "Steipete's breakout tweet (3290 likes, 187 retweets, 139 replies): the optimal workflow is Fable as 'head coach' and Codex as the 'workhorse.' Let Fable architect the solution and break it into tasks, then have Codex execute. 'If you run this workflow, ask Fable to make codex the workhorse.' He also flagged frustration with Anthropic: 'We're a very large customer of Anthropic and they still have yet to tell us about the lawsuit. I learned about it from a reporter, not our partner.' (200 likes)",
+              "Zara reshared her essay on 'How to learn in the age of AI' (293 likes, 26 retweets). Rauchg demonstrated Vercel's filesystem-based agent tools: define tools/github.ts and export createGithubTools() to give your agent GitHub powers — part of Vercel's push for an open ecosystem of pluggable models, skills, channels, and tools (243 likes)."
+            ],
+            "original": [
+              "Peter Steinberger: If you run this workflow, ask Fable to make codex the workhorse.",
+              "Peter Steinberger: \"We're a very large customer of Anthropic and they still have yet to tell us about the lawsuit. I learned about it from a reporter, not our \"partner.\"\"",
+              "Zara: How to learn in the age of AI",
+              "Guillermo Rauch: The filesystem is beautiful. Want your agent to have GitHub powers? Define 𝚝𝚘𝚘𝚕𝚜/𝚐𝚒𝚝𝚑𝚞𝚋.𝚝𝚜 and export 𝚌𝚛𝚎𝚊𝚝𝚎𝙶𝚒𝚝𝚑𝚞𝚋𝚃𝚘𝚘𝚕𝚜(). Eve exists to shape an open ecosystem of pluggable models, skills, channels, and tools like this."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的爆款推文（3290 赞、187 转发、139 条回复）：最优工作流是让 Fable 做「总教练」，让 Codex 做「工作马」。让 Fable 架构解决方案并拆分成任务，然后让 Codex 执行。「如果你跑这个工作流，让 Fable 把 Codex 设成工作马。」他还表达了对 Anthropic 的不满：「我们是 Anthropic 的大客户，他们到现在都没告诉我们诉讼的事。我是从记者那里知道的，不是从我们的'合作伙伴'那里。」（200 赞）",
+              "Zara 重新分享了她的文章《在 AI 时代如何学习》（293 赞、26 转发）。Rauchg 展示了 Vercel 基于文件系统的 agent 工具：定义 tools/github.ts 并 export createGithubTools() 就能让你的 agent 拥有 GitHub 能力——这是 Vercel 推动可插拔模型、skill、channel 和工具的开放生态系统的一部分（243 赞）。"
+            ],
+            "original": [
+              "Peter Steinberger：如果你跑这个工作流，让 Fable 把 Codex 设成工作马。",
+              "Peter Steinberger：「我们是 Anthropic 的大客户，他们到现在都没告诉我们诉讼的事。我是从记者那里知道的，不是从我们的'合作伙伴'那里。」",
+              "Zara：在 AI 时代如何学习。",
+              "Guillermo Rauch：文件系统是美丽的。想让你的 agent 拥有 GitHub 能力？定义 tools/github.ts 并 export createGithubTools()。Eve 的存在是为了塑造一个可插拔模型、skill、channel 和工具的开放生态系统。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Enterprise AI Reality Check / 企业 AI 落地现实检验",
+      "desc": "Levie 与几十位企业 IT 领袖讨论后的六大主题（359 赞）；数据是新时代的石油（121 赞）；Madhu Guru 论 evals 不是低技能活（57 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+realmadhuguru",
+          "authorName": "Aaron Levie / Madhu Guru",
+          "authorTag": "Box CEO / Prev Product Leader at Google - Gemini",
+          "sourceUrl": "https://x.com/levie/status/2074719479377109312",
+          "en": {
+            "rewrite": [
+              "Levie published a comprehensive thread from meetings with a couple dozen enterprise IT leaders. Six themes: (1) Operating model challenge — agents work best tied to processes that cut across org silos, but who manages these cross-cutting agents? (2) Data fragmentation remains the #1 blocker — structured and unstructured data scattered across legacy systems. (3) Data moats — if everyone has the same superintelligence, the context you feed models becomes the proprietary value. (4) Metrics — tokens are wrong metric; business outcomes are right but harder to manage top-down. (5) Multi-model world — growing interest in routing layers (frontier + open weights for cost/performance). (6) Talent shortage — most companies training internally because external talent pool doesn't exist. Bonus: best use cases fundamentally change the work, not just make existing processes faster.",
+              "Levie followed up: 'A small percentage of useful data is on the open web. Most lives inside organizations — in legacy systems, in people's heads, fragmented. Data actually is the new oil.' (121 likes)",
+              "Madhu Guru (prev Google Gemini product lead) pushed back on the perception that data/evals are low-skill grunt work: 'People think data and evals are low skill... in practice, the model lifecycle is model strategy → evals → pre/post training aligned to evals → GTM. Like any product strategy, you need strong opinions up front.' (57 likes)"
+            ],
+            "original": [
+              "Levie: Just coming off of meetings with a couple dozen enterprise IT leaders discussing AI agents. Here are a few of the common themes that stand out: Lots of conversation that you have to solve an operating model challenge... Data fragmentation remains a major issue... Clear sense that companies need to figure out what their core data moats are going to be... Everyone is trying to figure out the right metrics... Growing view that enterprises are going to live in a multi-model world... Talent for driving AI adoption and implementation still remains a major issue... The best use-cases tend to be those that fundamentally change the work being done.",
+              "Levie: A small percentage of useful data is on the open web available to all models. Most of it lives inside of organizations... Data actually is the new oil.",
+              "Madhu Guru: People think data and evals are low skill, grunt work... in practice, the model lifecycle looks something like model strategy -> evals -> pre/post training/rl aligned to evals -> GTM."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 发了今天最长的干货推文——与几十位企业 IT 领袖讨论 AI agent 后的六大主题：（1）运营模式挑战——agent 在跨部门流程中最有效，但谁来管理这些跨部门 agent？（2）数据碎片化仍是头号阻碍——结构化和非结构化数据散落在遗留系统中。（3）数据护城河——如果大家都有相同的超级智能，喂给模型的上下文就是专有价值。（4）指标——token 是错误指标；业务结果才对但更难自上而下管理。（5）多模型世界——对路由层（前沿+开源权重以平衡成本/性能）兴趣增长。（6）人才短缺——多数公司在内部培训因为外部人才池不存在。额外洞察：最好的用例是根本性改变工作本身，而不只是让现有流程更快。",
+              "Levie 补充：「只有一小部分有用数据在开放网络上。大部分在企业内部——遗留系统里、人脑里、碎片化分布。数据真的是新时代的石油。」（121 赞）",
+              "Madhu Guru（前 Google Gemini 产品负责人）反驳了「数据和 evals 是低技能体力活」的偏见：「人们觉得数据和 evals 是低技能的……实际上模型生命周期是：模型策略 → evals → 对齐 evals 的训练/强化学习 → 上市。像任何产品策略一样，你需要先有强烈的观点。」（57 赞）"
+            ],
+            "original": [
+              "Levie：刚结束与几十位企业 IT 领袖关于 AI agent 的讨论。几个共同主题：你需要解决运营模式挑战才能获得 AI 的全部收益……数据碎片化仍是主要问题……大家意识到需要搞清楚未来的核心数据护城河……每个人都在想正确的指标……越来越多企业将生活在多模型世界中……推动 AI 采用和落地的人才仍然严重短缺……最好的 AI 用例往往是那些根本性改变工作方式的，而不只是更高效地替代现有流程。",
+              "Levie：只有一小部分有用数据在开放网络上可供所有模型训练或 agent 使用。大部分在企业内部——通常是遗留系统、人脑中或碎片化分布。无论是训练模型还是作为 agent 的上下文，这些数据的价值只会越来越高。数据确实是新时代的石油。",
+              "Madhu Guru：人们觉得数据和 evals 是低技能体力活……实际上模型生命周期是：模型策略 → evals → 对齐 evals 的训练/强化学习 → 上市。像任何产品策略一样，你需要先有强烈的观点，但因为打造一个什么都擅长的 LLM 的诱惑力太大，这比一般产品难 100 倍。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Culture & Notes / 文化与杂谈",
+      "desc": "Rauchg 庆祝阿根廷胜利（1396 赞）；Vercel 收购 Better Auth（955 赞）；Garry Tan 谈 SF 政治与住房（467 赞）；Matt Turck 的 VC meme（122 赞）；Nikunj 吐槽 GMV ≠ ARR（74 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+mattturck+nikunj",
+          "authorName": "Rauchg / Garry Tan / Matt Turck / Nikunj",
+          "authorTag": "Vercel / YC / FirstMark / FPV Ventures",
+          "sourceUrl": "https://x.com/rauchg/status/2074555608578281920",
+          "en": {
+            "rewrite": [
+              "Rauchg celebrated Argentina's win: 'Heavenly victory 🇦🇷' (1396 likes). He also welcomed Bereket (Better Auth) to Vercel: 'Developers deserve better auth, to serve humans and agents, built in the open and with taste' (955 likes).",
+              "Garry Tan engaged with SF politics — calling for common sense Democrats to organize against radical leftism (467 likes), and arguing SF must build housing or turn 'a mega economic W into the biggest L in civic history' (36 likes).",
+              "Matt Turck's VC meme (122 likes): 'VC greeting his top AI portfolio company vs that SaaS investment from 8 years ago that's running out of cash.' Nikunj reminded everyone: 'GMV is NOT ARR' (74 likes). Peter Yang asked an honest question about local vs cloud cron jobs (78 likes, 37 replies)."
+            ],
+            "original": [
+              "Guillermo Rauch: Heavenly victory 🇦🇷",
+              "Guillermo Rauch: Welcome @bekacru to Vercel. Developers deserve better auth, to serve humans and agents, built in the open and with taste.",
+              "Garry Tan: Common sense Democrats take note. Time to organize against radical leftism and asset seizure inside the party.",
+              "Garry Tan: Without building housing, San Francisco will turn a mega economic W into the biggest L in civic history.",
+              "Matt Turck: VC greeting his top AI portfolio company vs that SaaS investment from 8 years ago that's running out of cash",
+              "Nikunj: I have been screaming this for the past year, but kind reminder to everyone: GMV is NOT ARR."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 庆祝阿根廷胜利：「天国之胜 🇦🇷」（1396 赞）。他还欢迎 Bereket（Better Auth）加入 Vercel：「开发者值得更好的认证——为人类和 agent 服务，以开放和品味构建」（955 赞）。",
+              "Garry Tan 参与 SF 政治——呼吁常识民主党人组织起来对抗激进左翼（467 赞），并主张 SF 必须建住房否则将「把经济大胜变成市政史上最大的 L」（36 赞）。",
+              "Matt Turck 的 VC meme（122 赞）：「VC 跟他最爱的 AI 投资公司打招呼 vs 跟 8 年前那个快没钱了的 SaaS 投资打招呼」。Nikunj 提醒所有人：「GMV 不等于 ARR」（74 赞）。Peter Yang 问了个老实问题：本地 cron job 该不该挪到云端（78 赞、37 条回复）。"
+            ],
+            "original": [
+              "Guillermo Rauch：天国之胜 🇦🇷",
+              "Guillermo Rauch：欢迎 @bekacru 加入 Vercel。开发者值得更好的认证——为人类和 agent 服务，以开放和品味构建。",
+              "Garry Tan：常识民主党人注意了。是时候组织起来对抗党内的激进左翼和资产没收了。",
+              "Garry Tan：不建住房的话，旧金山将把经济大胜变成市政史上最大的 L。",
+              "Matt Turck：VC 跟他最爱的 AI 投资公司打招呼 vs 跟 8 年前那个快没钱了的 SaaS 投资打招呼。",
+              "Nikunj：我过去一年一直在喊：GMV 不等于 ARR。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Zipline — 140M Miles, Zero Incidents / 播客：Zipline——1.4 亿英里，零事故",
+      "desc": "Training Data × Zipline 创始人 Keller Rinaudo 和安全负责人 Eric。完整中文译文：全球最大商业自主飞行系统、从卢旺达送血到美国送外卖、700 个自研零件、双飞行计算机架构、从 5000 次/天到 100 万次/天的量级跃升。",
+      "cards": [
+        {
+          "authorKey": "podcast:trainingdata",
+          "authorName": "Training Data",
+          "authorTag": "Sequoia 出品的 AI 与机器人播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=6bGxm8gX41o",
+          "en": {
+            "rewrite": [
+              "Zipline is the largest commercial autonomous system on Earth — 140 million autonomous miles, 2.5 million deliveries, zero safety incidents. They operate across 8 countries serving 5000+ hospitals. A UPenn study showed 51% reduction in maternal mortality thanks to Zipline.",
+              "Origin story: founded 2011, launched in Rwanda 2016 delivering blood transfusions. Key lesson: the drone is only 15% of the complexity. The other 85% is inventory management, aviation authority integration, healthcare system integration, ordering, demand management, and all the auxiliary software systems.",
+              "Engineering: 700 unique components designed from scratch, 43 major sub-assemblies. Dual flight computer architecture (both active, third arbiter monitors). Survived a main computer failure last week — backup took over, aircraft landed itself. Cost target: aerospace-grade safety at smartphone-supply-chain prices.",
+              "Scale transition: took a decade to reach 1 million cumulative deliveries. Soon doing 1 million/day. Currently ~5000 flights/day in Dallas, exiting 2025 at 30,000/day. Unit economics just crossed below cost of car delivery this summer — robot delivery is now cheaper than human delivery.",
+              "Vertical integration as survival: started buying off-the-shelf parts, crashed constantly. Ripped out and redesigned every component from scratch — motor controllers, GPS modules, batteries. 'You adopt the darkness. I was born in it.' — 10 years building robotics before it was cool.",
+              "Market expansion: 5.5B instant deliveries/year in US currently. Based on Dallas behavior, Zipline projects 55B — 10x expansion. No tip is the #1 customer comment. Nursing homes are big demand centers. 80-year-old grandma ordered 350+ times in a year.",
+              "Air traffic control crisis: 50% of US ATCs are over 45, 20% about to retire. System designed in 1950s can't handle autonomous vehicle volume. Zipline built its own ATC software from scratch for partner countries. Multiple billion-dollar public companies exist just in ATC software."
+            ],
+            "original": [
+              "Keller Rinaudo: We've always wanted to be an extremely customer obsessed company. Our goal was always to build an automated logistics system for Earth and to approximate teleportation.",
+              "Keller Rinaudo: The drone is 15% of the complexity of the solution. The physical drone, the hardware is only 15%. We had to build so many auxiliary software systems.",
+              "Eric: One of the weirdest things is actually solar weather. There's solar flares that happen on the sun... They can mess with the ionosphere, and that can cause the RF signals coming from GPS satellites to be faster, slower than you expect.",
+              "Keller Rinaudo: We now have 140 million commercial autonomous miles and zero safety incidents. Zero. If you were to drive 140 million miles, you would have 600 accidents, 100 injuries, and somewhere between 2 and 6 fatalities.",
+              "Keller Rinaudo: Individual aircraft in the commercial fleet that have flown more than a million commercial autonomous miles.",
+              "Keller Rinaudo: It took Zipline from 2014 to 2024 to do our first million deliveries. Zipline is now in the very near future going to be doing a million deliveries a day.",
+              "Keller Rinaudo: The fully burdened unit economics of these systems is just now in the process of falling below the cost of using cars to deliver things. It is now more cost effective to use a robot in logistics than it is to use a human."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zipline 是全球最大的商业自主飞行系统——1.4 亿自主英里、250 万次配送、零安全事故。在 8 个国家运营，服务 5000+ 家医院。宾大研究显示 Zipline 让孕产妇死亡率下降了 51%。",
+              "起源：2011 年创立，2016 年在卢旺达上线送血液。核心教训：无人机只占复杂度的 15%，另外 85% 是库存管理、民航局对接、医疗系统整合、订购和需求管理。",
+              "工程：700 个自研零件、43 个主要子组件。双飞行计算机架构（同时运行，第三个仲裁者监控）。上周刚经历了一次主计算机故障——备份接管，飞机自己飞回来降落了。成本目标：航空级安全性 + 手机供应链价格。",
+              "量级跃升：花了十年达到累计 100 万次配送。很快将达到每天 100 万次。目前达拉斯约 5000 次/天，年底目标 30000 次/天。单位经济刚在今年夏天低于汽车配送成本——机器人配送现在比人工更便宜。",
+              "垂直整合即生存：一开始买现成零件，结果不断坠机。逐个拆掉重做——电机控制器、GPS 模块、电池。「你们适应了黑暗，我生在黑暗中」——在机器人变酷之前干了十年。",
+              "市场扩张：美国目前 55 亿次即时配送/年。基于达拉斯数据，Zipline 预测将达到 550 亿次——10 倍扩张。「不用给小费」是客户评论第一名。养老院是需求大户。一位 80 岁奶奶一年下了 350+ 单。",
+              "空管危机：50% 的美国空管员超过 45 岁，20% 即将退休。1950 年代设计的系统无法承受自主飞行器的数量。Zipline 为合作国家自建了空管软件。仅空管软件就有多家市值超 100 亿美元的上市公司。"
+            ],
+            "original": [
+              "【起源：从卢旺达送血开始】",
+              "Keller 说：我们一直想成为一家极度痴迷客户的公司。我们的目标始终是为地球建造一个自动化物流系统，近似瞬移。",
+              "「所有今天使用 Zipline 的客户，他们不关心幕后的技术。他们关心的是：下载 app，看到大量品牌和餐厅，点一个按钮，五分钟后送到。」",
+              "2011 年创业时做机器人公司是最蠢的事。23、24 岁去找投资人，描述「为地球建造自动化物流系统」的愿景。投资人说：这在美国不是违法的吗？回答：是的。然后投资人说：我们不投违法的东西。",
+              "于是去了卢旺达——2016 年上线，直接给医院和基层医疗设施送血液。",
+              "",
+              "【核心教训：无人机只占 15%】",
+              "Keller 说：我们以为造一架酷炫的飞行器就是解决方案的大部分。第一年学到的教训是：飞行器只占解决方案复杂度的 15%。",
+              "「我们不得不建造这么多辅助软件系统——维护系统、库存管理、与国家民航局的整合、与国家医疗系统的整合、订购和需求管理。」",
+              "「这就是为什么很多人看 Zipline 觉得'哇，好酷的无人机公司'，但实际情况是飞行器只是让一切 24/7/365 像魔法一样可靠运行所需系统的 15%。现在有数亿人依赖这个服务。」",
+              "",
+              "【规模与影响】",
+              "Keller 说：我们现在服务 8 个国家的 5000 家医院和医疗设施。这是地球上最大的商业自主系统。",
+              "「宾夕法尼亚大学刚发表了一项研究，显示 Zipline 让孕产妇死亡率下降了 51%。一半的妈妈不再在分娩中失去生命。我们的一些合作伙伴估计，Zipline 每年拯救 10000 到 12000 条生命。」",
+              "「1.4 亿商业自主英里。这相当于在美国每一条道路上开 30 多次。1400 万英里如果开车的话，会有 600 起事故、100 人受伤、2 到 6 人死亡。我们是零。」",
+              "「机队中有单架飞机累计飞行超过 100 万商业自主英里。」",
+              "",
+              "【美国国务院 5.5 亿美元合作】",
+              "Keller 说：我们在 12 月宣布了与美国国务院 5.5 亿美元的合作，扩大 Zipline 的救命服务。随着 USAID 被关闭，美国正在寻找新的方式在这些国家参与。",
+              "「这些国家厌倦了 NGO 提供的低质量免费援助。他们想要的是高薪工作、创业精神和技术。美国的战略转向叫'商业外交'——让发展中世界建立在美国 AI 和机器人技术之上。」",
+              "",
+              "【工程：太阳耀斑与双飞行计算机】",
+              "Eric 说：你不会想到的东西——太阳天气。太阳耀斑发送辐射到地球，干扰电离层，导致 GPS 信号变快或变慢，影响导航。",
+              "双飞行计算机架构：两台都认为自己在飞飞机，同时接收传感器数据、发送指令。第三个小计算机监控两台的健康，告诉所有节点听谁的。如果仲裁者坏了，正在飞的那台继续飞。",
+              "「上周刚发生了一次——送完包裹后，主飞行计算机出故障，切到备份。飞机自己飞回家，降落，一切正常。」",
+              "「一架 Boeing 777 的飞行计算机成本是几百万美元。我们用手机供应链的组件，以几十到几百美元实现类似的安全级别，速度快 100 倍，成本低 100 倍。」",
+              "",
+              "【从 5000 次/天到 100 万次/天】",
+              "Keller 说：从 2014 年到 2024/2025 年，花了大约十年达到累计 100 万次配送。Zipline 很快将达到每天 100 万次配送。",
+              "「达拉斯现在每天约 5000 次飞行，年底目标超过 30000 次/天。美国最大的航空公司每天约 5000 次航班——Zipline 下个月就超过它们。达到每天 100 万次时，将是美国所有航空公司航班总和的 40-80 倍。」",
+              "「所有供应链和产能决策都不只为了达到 100 万次/天，而是为了超过之后继续加速。」",
+              "",
+              "【单位经济：机器人配送刚变得比人工更便宜】",
+              "Keller 说：2016 年上线时每次配送成本以为会是 30 美元。实际上线时是 300 美元。然后逐年下降：120 → 75 → 40 → 28 → 18 → 现在长程技术 12 美元。",
+              "「今年夏天，完全负担的单位经济即将低于用汽车配送的成本。机器人配送比人工更便宜——这件事正在悄然发生。」",
+              "美国目前 55 亿次即时配送/年。基于达拉斯客户行为外推，市场将扩张到 550 亿次——10 倍。",
+              "「客户最爱的一条评论：不用给小费！！！养老院是需求大户。一位 80 岁的奶奶一年下了 350+ 单。」",
+              "",
+              "【垂直整合：拆掉重来】",
+              "Keller 说：一开始买现成的零件，在测试场坠机，不断坠机。意识到这些东西又贵又不可靠。于是逐个拆掉——电机控制器自己设计、GPS 导航模块自己设计、电池自己设计。",
+              "「700 个自研零件、43 个主要子组件。连电机都是从零设计的，因为市面上的电机达不到我们需要的推重比。」",
+              "「飞行器上有 NVIDIA GPU 驱动的飞行计算机。投放吊舱也有自己的 NVIDIA GPU 运行 AI 自主决策——能在夜间精确识别最佳的包裹放置位置。吊舱还能在 x/y 轴独立调整位置来对抗风力。」",
+              "",
+              "【空管危机与未来】",
+              "Keller 说：50% 的美国空管员超过 45 岁，20% 即将退休。没有人把空管当职业了。",
+              "「我们不得不自建空管软件——有多家上市公司只做空管软件，市值超 100 亿美元。Zipline 内部有好几个这样的公司。」",
+              "「天空很大。如果我们能更有效地利用天空，就可以把地面还给人类——让社区更安静、更安全、更少污染和交通。空中将有 10 倍于地面的自主飞行器。」",
+              "给硬件创业者的建议：「你觉得成本是 X？实际上线时是 10X。按 10 倍成本来规划——你的方案在 10 倍成本下还成立吗？」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

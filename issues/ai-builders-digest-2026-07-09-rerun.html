@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-09" data-issue-number="52" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 52 期｜2026-07-09｜双语精选版｜6 条精选｜6 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="今天是个大日子。Sam Altman 一条推文官宣 GPT-5.6 Sol 周四发布（12175 赞，今日最高），Sottiaux 配合预热「戴上墨镜，Sol 来了」（4150 赞）。Anthropic 这边也有动作——Claude Fable 5 访问延长至 7 月 12 日（72725 赞！！推特全场最高），Cowork 双倍额度延长至 8 月 5 日。Levie 发了今天最长的干货推文——与几十位企业 IT 领袖讨论 AI agent 后总结的六大主题。Steipete 一条「让 Fable 做 head coach，让 Codex 做工作马」拿了 3290 赞。播客是 Training Data × Zipline——全球最大商业自主飞行系统：1.4 亿英里零事故，即将从每天 5000 次飞向量级跃升至每天 100 万次。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">今天是个大日子。Sam Altman 一条推文官宣 GPT-5.6 Sol 周四发布（12175 赞，今日最高），Sottiaux 配合预热「戴上墨镜，Sol 来了」（4150 赞）。Anthropic 这边也有动作——Claude Fable 5 访问延长至 7 月 12 日（72725 赞！！推特全场最高），Cowork 双倍额度延长至 8 月 5 日。Levie 发了今天最长的干货推文——与几十位企业 IT 领袖讨论 AI agent 后总结的六大主题。Steipete 一条「让 Fable 做 head coach，让 Codex 做工作马」拿了 3290 赞。播客是 Training Data × Zipline——全球最大商业自主飞行系统：1.4 亿英里零事故，即将从每天 5000 次飞向量级跃升至每天 100 万次。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">GPT-5.6 Sol Launch &amp; Fable Extended / GPT-5.6 Sol 发布与 Fable 延期</h2>
+    <p class="section-desc">Sam Altman 官宣 GPT-5.6 Sol 周四发布（12175 赞）；Sottiaux 配合预热（4150 赞）；Claude Fable 5 延长至 7/12（72725 赞！！）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+thsottiaux" data-author-name="Sam Altman / Thibault Sottiaux" data-author-tag="OpenAI CEO / Codex &amp; ChatGPT @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sam Altman / Thibault Sottiaux avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sam Altman / Thibault Sottiaux</div>
+            <div class="author-tag is-inline">OpenAI CEO / Codex &amp; ChatGPT @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sam Altman 正式官宣：「GPT-5.6 sol 周四发布！祝大家玩得开心」——12175 赞、948 转发、1045 条回复。今日全场互动量最高的推文。</p>
+              <p>Sottiaux（OpenAI Codex &amp; ChatGPT 负责人）配合预热：「准备好你的墨镜。Sol 来了。😎」——4150 赞、230 转发、368 条回复。这证实了他昨天神秘推文在暗示的就是这件事。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：GPT-5.6 sol 周四发布！祝大家玩得开心。</p>
+              <p>Thibault Sottiaux：准备好你的墨镜。Sol 来了。😎</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sam Altman made it official: &#39;GPT-5.6 sol launches thursday! happy building&#39; — 12175 likes, 948 retweets, 1045 replies. The single most-engaged tweet in today&#39;s entire feed.</p>
+              <p>Sottiaux (OpenAI Codex &amp; ChatGPT lead) followed up with sunglasses: &#39;Prepare your sunglasses. Sol is coming. 😎&#39; — 4150 likes, 230 retweets, 368 replies. This confirms what his cryptic tweets yesterday were teasing.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: GPT-5.6 sol launches thursday! happy building</p>
+              <p>Thibault Sottiaux: Prepare your sunglasses. Sol is coming. 😎</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama/status/2074709023807664454" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="claudeai" data-author-name="Claude" data-author-tag="@anthropicai 官方账号" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Claude avatar"><span class="avatar-fallback">C</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Claude</div>
+            <div class="author-tag is-inline">@anthropicai 官方账号</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic 做了一个让社区惊喜的操作——Claude Fable 5 访问延长至 7 月 12 日，就在所有人都以为它在 7/7 截止后已经永远离开的时候。公告推文获得了 72725 个赞、8669 条转发和 5153 条回复——是所有 feed 中互动量最高的一条推文。</p>
+              <p>细节：Fable 5 可用至每周用量配额的 50%，超出后可使用额外用量额度或切换其他模型。Cowork 双倍额度也延长至 8 月 5 日。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude 官方：我们将 Claude Fable 5 在所有付费计划上的访问延长至 7 月 12 日。</p>
+              <p>Claude 官方：与之前一样，你可以将每周用量配额的最多 50% 用于 Claude Fable 5。超出后可以继续使用额外用量额度，或切换其他模型。</p>
+              <p>Claude 官方：我们将 Cowork 双倍用量额度延长至 8 月 5 日，你可以把更大的工作交给 Claude。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>In a move that shocked the community (in a good way), Anthropic extended Claude Fable 5 access through July 12 — just when everyone thought it was gone for good after the 7/7 deadline. The announcement tweet got 72725 likes, 8669 retweets, and 5153 replies — by far the most-engaged tweet in the entire feed across all days.</p>
+              <p>Details: up to 50% of weekly usage limit can be used on Fable 5, after which usage credits or model switching applies. Cowork doubled usage limits were also extended through August 5.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude: We&#39;re extending access to Claude Fable 5 on all paid plans through July 12.</p>
+              <p>Claude: As before, you can use up to 50% of your weekly usage limit on Claude Fable 5. After that, you can keep using Fable 5 with usage credits, or switch to another model to keep working within your remaining limits.</p>
+              <p>Claude: We&#39;re extending doubled Cowork usage limits through August 5, so you can delegate bigger work to Claude.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/claudeai/status/2074548242386178258" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Steipete&#39;s Fable-Codex Workflow &amp; Builder Tips / Steipete 的 Fable-Codex 工作流与构建者技巧</h2>
+    <p class="section-desc">Steipete「让 Fable 做 head coach，让 Codex 做工作马」（3290 赞）；Zara 论 AI 时代如何学习（293 赞）；Rauchg 展示 Vercel 文件系统 agent（243 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="steipete+zarazhangrui+rauchg" data-author-name="Peter Steinberger / Zara / Guillermo Rauch" data-author-tag="OpenClaw / Builder / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Peter Steinberger / Zara / Guillermo Rauch avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger / Zara / Guillermo Rauch</div>
+            <div class="author-tag is-inline">OpenClaw / Builder / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 的爆款推文（3290 赞、187 转发、139 条回复）：最优工作流是让 Fable 做「总教练」，让 Codex 做「工作马」。让 Fable 架构解决方案并拆分成任务，然后让 Codex 执行。「如果你跑这个工作流，让 Fable 把 Codex 设成工作马。」他还表达了对 Anthropic 的不满：「我们是 Anthropic 的大客户，他们到现在都没告诉我们诉讼的事。我是从记者那里知道的，不是从我们的&#39;合作伙伴&#39;那里。」（200 赞）</p>
+              <p>Zara 重新分享了她的文章《在 AI 时代如何学习》（293 赞、26 转发）。Rauchg 展示了 Vercel 基于文件系统的 agent 工具：定义 tools/github.ts 并 export createGithubTools() 就能让你的 agent 拥有 GitHub 能力——这是 Vercel 推动可插拔模型、skill、channel 和工具的开放生态系统的一部分（243 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger：如果你跑这个工作流，让 Fable 把 Codex 设成工作马。</p>
+              <p>Peter Steinberger：「我们是 Anthropic 的大客户，他们到现在都没告诉我们诉讼的事。我是从记者那里知道的，不是从我们的&#39;合作伙伴&#39;那里。」</p>
+              <p>Zara：在 AI 时代如何学习。</p>
+              <p>Guillermo Rauch：文件系统是美丽的。想让你的 agent 拥有 GitHub 能力？定义 tools/github.ts 并 export createGithubTools()。Eve 的存在是为了塑造一个可插拔模型、skill、channel 和工具的开放生态系统。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete&#39;s breakout tweet (3290 likes, 187 retweets, 139 replies): the optimal workflow is Fable as &#39;head coach&#39; and Codex as the &#39;workhorse.&#39; Let Fable architect the solution and break it into tasks, then have Codex execute. &#39;If you run this workflow, ask Fable to make codex the workhorse.&#39; He also flagged frustration with Anthropic: &#39;We&#39;re a very large customer of Anthropic and they still have yet to tell us about the lawsuit. I learned about it from a reporter, not our partner.&#39; (200 likes)</p>
+              <p>Zara reshared her essay on &#39;How to learn in the age of AI&#39; (293 likes, 26 retweets). Rauchg demonstrated Vercel&#39;s filesystem-based agent tools: define tools/github.ts and export createGithubTools() to give your agent GitHub powers — part of Vercel&#39;s push for an open ecosystem of pluggable models, skills, channels, and tools (243 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: If you run this workflow, ask Fable to make codex the workhorse.</p>
+              <p>Peter Steinberger: &quot;We&#39;re a very large customer of Anthropic and they still have yet to tell us about the lawsuit. I learned about it from a reporter, not our &quot;partner.&quot;&quot;</p>
+              <p>Zara: How to learn in the age of AI</p>
+              <p>Guillermo Rauch: The filesystem is beautiful. Want your agent to have GitHub powers? Define 𝚝𝚘𝚘𝚕𝚜/𝚐𝚒𝚝𝚑𝚞𝚋.𝚝𝚜 and export 𝚌𝚛𝚎𝚊𝚝𝚎𝙶𝚒𝚝𝚑𝚞𝚋𝚃𝚘𝚘𝚕𝚜(). Eve exists to shape an open ecosystem of pluggable models, skills, channels, and tools like this.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2074638582418231495" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Enterprise AI Reality Check / 企业 AI 落地现实检验</h2>
+    <p class="section-desc">Levie 与几十位企业 IT 领袖讨论后的六大主题（359 赞）；数据是新时代的石油（121 赞）；Madhu Guru 论 evals 不是低技能活（57 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+realmadhuguru" data-author-name="Aaron Levie / Madhu Guru" data-author-tag="Box CEO / Prev Product Leader at Google - Gemini" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aaron Levie / Madhu Guru avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie / Madhu Guru</div>
+            <div class="author-tag is-inline">Box CEO / Prev Product Leader at Google - Gemini</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 发了今天最长的干货推文——与几十位企业 IT 领袖讨论 AI agent 后的六大主题：（1）运营模式挑战——agent 在跨部门流程中最有效，但谁来管理这些跨部门 agent？（2）数据碎片化仍是头号阻碍——结构化和非结构化数据散落在遗留系统中。（3）数据护城河——如果大家都有相同的超级智能，喂给模型的上下文就是专有价值。（4）指标——token 是错误指标；业务结果才对但更难自上而下管理。（5）多模型世界——对路由层（前沿+开源权重以平衡成本/性能）兴趣增长。（6）人才短缺——多数公司在内部培训因为外部人才池不存在。额外洞察：最好的用例是根本性改变工作本身，而不只是让现有流程更快。</p>
+              <p>Levie 补充：「只有一小部分有用数据在开放网络上。大部分在企业内部——遗留系统里、人脑里、碎片化分布。数据真的是新时代的石油。」（121 赞）</p>
+              <p>Madhu Guru（前 Google Gemini 产品负责人）反驳了「数据和 evals 是低技能体力活」的偏见：「人们觉得数据和 evals 是低技能的……实际上模型生命周期是：模型策略 → evals → 对齐 evals 的训练/强化学习 → 上市。像任何产品策略一样，你需要先有强烈的观点。」（57 赞）</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：刚结束与几十位企业 IT 领袖关于 AI agent 的讨论。几个共同主题：你需要解决运营模式挑战才能获得 AI 的全部收益……数据碎片化仍是主要问题……大家意识到需要搞清楚未来的核心数据护城河……每个人都在想正确的指标……越来越多企业将生活在多模型世界中……推动 AI 采用和落地的人才仍然严重短缺……最好的 AI 用例往往是那些根本性改变工作方式的，而不只是更高效地替代现有流程。</p>
+              <p>Levie：只有一小部分有用数据在开放网络上可供所有模型训练或 agent 使用。大部分在企业内部——通常是遗留系统、人脑中或碎片化分布。无论是训练模型还是作为 agent 的上下文，这些数据的价值只会越来越高。数据确实是新时代的石油。</p>
+              <p>Madhu Guru：人们觉得数据和 evals 是低技能体力活……实际上模型生命周期是：模型策略 → evals → 对齐 evals 的训练/强化学习 → 上市。像任何产品策略一样，你需要先有强烈的观点，但因为打造一个什么都擅长的 LLM 的诱惑力太大，这比一般产品难 100 倍。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie published a comprehensive thread from meetings with a couple dozen enterprise IT leaders. Six themes: (1) Operating model challenge — agents work best tied to processes that cut across org silos, but who manages these cross-cutting agents? (2) Data fragmentation remains the #1 blocker — structured and unstructured data scattered across legacy systems. (3) Data moats — if everyone has the same superintelligence, the context you feed models becomes the proprietary value. (4) Metrics — tokens are wrong metric; business outcomes are right but harder to manage top-down. (5) Multi-model world — growing interest in routing layers (frontier + open weights for cost/performance). (6) Talent shortage — most companies training internally because external talent pool doesn&#39;t exist. Bonus: best use cases fundamentally change the work, not just make existing processes faster.</p>
+              <p>Levie followed up: &#39;A small percentage of useful data is on the open web. Most lives inside organizations — in legacy systems, in people&#39;s heads, fragmented. Data actually is the new oil.&#39; (121 likes)</p>
+              <p>Madhu Guru (prev Google Gemini product lead) pushed back on the perception that data/evals are low-skill grunt work: &#39;People think data and evals are low skill... in practice, the model lifecycle is model strategy → evals → pre/post training aligned to evals → GTM. Like any product strategy, you need strong opinions up front.&#39; (57 likes)</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie: Just coming off of meetings with a couple dozen enterprise IT leaders discussing AI agents. Here are a few of the common themes that stand out: Lots of conversation that you have to solve an operating model challenge... Data fragmentation remains a major issue... Clear sense that companies need to figure out what their core data moats are going to be... Everyone is trying to figure out the right metrics... Growing view that enterprises are going to live in a multi-model world... Talent for driving AI adoption and implementation still remains a major issue... The best use-cases tend to be those that fundamentally change the work being done.</p>
+              <p>Levie: A small percentage of useful data is on the open web available to all models. Most of it lives inside of organizations... Data actually is the new oil.</p>
+              <p>Madhu Guru: People think data and evals are low skill, grunt work... in practice, the model lifecycle looks something like model strategy -&gt; evals -&gt; pre/post training/rl aligned to evals -&gt; GTM.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2074719479377109312" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Culture &amp; Notes / 文化与杂谈</h2>
+    <p class="section-desc">Rauchg 庆祝阿根廷胜利（1396 赞）；Vercel 收购 Better Auth（955 赞）；Garry Tan 谈 SF 政治与住房（467 赞）；Matt Turck 的 VC meme（122 赞）；Nikunj 吐槽 GMV ≠ ARR（74 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+garrytan+mattturck+nikunj" data-author-name="Rauchg / Garry Tan / Matt Turck / Nikunj" data-author-tag="Vercel / YC / FirstMark / FPV Ventures" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Garry Tan / Matt Turck / Nikunj avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Garry Tan / Matt Turck / Nikunj</div>
+            <div class="author-tag is-inline">Vercel / YC / FirstMark / FPV Ventures</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 庆祝阿根廷胜利：「天国之胜 🇦🇷」（1396 赞）。他还欢迎 Bereket（Better Auth）加入 Vercel：「开发者值得更好的认证——为人类和 agent 服务，以开放和品味构建」（955 赞）。</p>
+              <p>Garry Tan 参与 SF 政治——呼吁常识民主党人组织起来对抗激进左翼（467 赞），并主张 SF 必须建住房否则将「把经济大胜变成市政史上最大的 L」（36 赞）。</p>
+              <p>Matt Turck 的 VC meme（122 赞）：「VC 跟他最爱的 AI 投资公司打招呼 vs 跟 8 年前那个快没钱了的 SaaS 投资打招呼」。Nikunj 提醒所有人：「GMV 不等于 ARR」（74 赞）。Peter Yang 问了个老实问题：本地 cron job 该不该挪到云端（78 赞、37 条回复）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch：天国之胜 🇦🇷</p>
+              <p>Guillermo Rauch：欢迎 @bekacru 加入 Vercel。开发者值得更好的认证——为人类和 agent 服务，以开放和品味构建。</p>
+              <p>Garry Tan：常识民主党人注意了。是时候组织起来对抗党内的激进左翼和资产没收了。</p>
+              <p>Garry Tan：不建住房的话，旧金山将把经济大胜变成市政史上最大的 L。</p>
+              <p>Matt Turck：VC 跟他最爱的 AI 投资公司打招呼 vs 跟 8 年前那个快没钱了的 SaaS 投资打招呼。</p>
+              <p>Nikunj：我过去一年一直在喊：GMV 不等于 ARR。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg celebrated Argentina&#39;s win: &#39;Heavenly victory 🇦🇷&#39; (1396 likes). He also welcomed Bereket (Better Auth) to Vercel: &#39;Developers deserve better auth, to serve humans and agents, built in the open and with taste&#39; (955 likes).</p>
+              <p>Garry Tan engaged with SF politics — calling for common sense Democrats to organize against radical leftism (467 likes), and arguing SF must build housing or turn &#39;a mega economic W into the biggest L in civic history&#39; (36 likes).</p>
+              <p>Matt Turck&#39;s VC meme (122 likes): &#39;VC greeting his top AI portfolio company vs that SaaS investment from 8 years ago that&#39;s running out of cash.&#39; Nikunj reminded everyone: &#39;GMV is NOT ARR&#39; (74 likes). Peter Yang asked an honest question about local vs cloud cron jobs (78 likes, 37 replies).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Heavenly victory 🇦🇷</p>
+              <p>Guillermo Rauch: Welcome @bekacru to Vercel. Developers deserve better auth, to serve humans and agents, built in the open and with taste.</p>
+              <p>Garry Tan: Common sense Democrats take note. Time to organize against radical leftism and asset seizure inside the party.</p>
+              <p>Garry Tan: Without building housing, San Francisco will turn a mega economic W into the biggest L in civic history.</p>
+              <p>Matt Turck: VC greeting his top AI portfolio company vs that SaaS investment from 8 years ago that&#39;s running out of cash</p>
+              <p>Nikunj: I have been screaming this for the past year, but kind reminder to everyone: GMV is NOT ARR.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2074555608578281920" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Zipline — 140M Miles, Zero Incidents / 播客：Zipline——1.4 亿英里，零事故</h2>
+    <p class="section-desc">Training Data × Zipline 创始人 Keller Rinaudo 和安全负责人 Eric。完整中文译文：全球最大商业自主飞行系统、从卢旺达送血到美国送外卖、700 个自研零件、双飞行计算机架构、从 5000 次/天到 100 万次/天的量级跃升。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:trainingdata" data-author-name="Training Data" data-author-tag="Sequoia 出品的 AI 与机器人播客" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Sequoia 出品的 AI 与机器人播客</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zipline 是全球最大的商业自主飞行系统——1.4 亿自主英里、250 万次配送、零安全事故。在 8 个国家运营，服务 5000+ 家医院。宾大研究显示 Zipline 让孕产妇死亡率下降了 51%。</p>
+              <p>起源：2011 年创立，2016 年在卢旺达上线送血液。核心教训：无人机只占复杂度的 15%，另外 85% 是库存管理、民航局对接、医疗系统整合、订购和需求管理。</p>
+              <p>工程：700 个自研零件、43 个主要子组件。双飞行计算机架构（同时运行，第三个仲裁者监控）。上周刚经历了一次主计算机故障——备份接管，飞机自己飞回来降落了。成本目标：航空级安全性 + 手机供应链价格。</p>
+              <p>量级跃升：花了十年达到累计 100 万次配送。很快将达到每天 100 万次。目前达拉斯约 5000 次/天，年底目标 30000 次/天。单位经济刚在今年夏天低于汽车配送成本——机器人配送现在比人工更便宜。</p>
+              <p>垂直整合即生存：一开始买现成零件，结果不断坠机。逐个拆掉重做——电机控制器、GPS 模块、电池。「你们适应了黑暗，我生在黑暗中」——在机器人变酷之前干了十年。</p>
+              <p>市场扩张：美国目前 55 亿次即时配送/年。基于达拉斯数据，Zipline 预测将达到 550 亿次——10 倍扩张。「不用给小费」是客户评论第一名。养老院是需求大户。一位 80 岁奶奶一年下了 350+ 单。</p>
+              <p>空管危机：50% 的美国空管员超过 45 岁，20% 即将退休。1950 年代设计的系统无法承受自主飞行器的数量。Zipline 为合作国家自建了空管软件。仅空管软件就有多家市值超 100 亿美元的上市公司。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【起源：从卢旺达送血开始】</p>
+              <p>Keller 说：我们一直想成为一家极度痴迷客户的公司。我们的目标始终是为地球建造一个自动化物流系统，近似瞬移。</p>
+              <p>「所有今天使用 Zipline 的客户，他们不关心幕后的技术。他们关心的是：下载 app，看到大量品牌和餐厅，点一个按钮，五分钟后送到。」</p>
+              <p>2011 年创业时做机器人公司是最蠢的事。23、24 岁去找投资人，描述「为地球建造自动化物流系统」的愿景。投资人说：这在美国不是违法的吗？回答：是的。然后投资人说：我们不投违法的东西。</p>
+              <p>于是去了卢旺达——2016 年上线，直接给医院和基层医疗设施送血液。</p>
+              <p></p>
+              <p>【核心教训：无人机只占 15%】</p>
+              <p>Keller 说：我们以为造一架酷炫的飞行器就是解决方案的大部分。第一年学到的教训是：飞行器只占解决方案复杂度的 15%。</p>
+              <p>「我们不得不建造这么多辅助软件系统——维护系统、库存管理、与国家民航局的整合、与国家医疗系统的整合、订购和需求管理。」</p>
+              <p>「这就是为什么很多人看 Zipline 觉得&#39;哇，好酷的无人机公司&#39;，但实际情况是飞行器只是让一切 24/7/365 像魔法一样可靠运行所需系统的 15%。现在有数亿人依赖这个服务。」</p>
+              <p></p>
+              <p>【规模与影响】</p>
+              <p>Keller 说：我们现在服务 8 个国家的 5000 家医院和医疗设施。这是地球上最大的商业自主系统。</p>
+              <p>「宾夕法尼亚大学刚发表了一项研究，显示 Zipline 让孕产妇死亡率下降了 51%。一半的妈妈不再在分娩中失去生命。我们的一些合作伙伴估计，Zipline 每年拯救 10000 到 12000 条生命。」</p>
+              <p>「1.4 亿商业自主英里。这相当于在美国每一条道路上开 30 多次。1400 万英里如果开车的话，会有 600 起事故、100 人受伤、2 到 6 人死亡。我们是零。」</p>
+              <p>「机队中有单架飞机累计飞行超过 100 万商业自主英里。」</p>
+              <p></p>
+              <p>【美国国务院 5.5 亿美元合作】</p>
+              <p>Keller 说：我们在 12 月宣布了与美国国务院 5.5 亿美元的合作，扩大 Zipline 的救命服务。随着 USAID 被关闭，美国正在寻找新的方式在这些国家参与。</p>
+              <p>「这些国家厌倦了 NGO 提供的低质量免费援助。他们想要的是高薪工作、创业精神和技术。美国的战略转向叫&#39;商业外交&#39;——让发展中世界建立在美国 AI 和机器人技术之上。」</p>
+              <p></p>
+              <p>【工程：太阳耀斑与双飞行计算机】</p>
+              <p>Eric 说：你不会想到的东西——太阳天气。太阳耀斑发送辐射到地球，干扰电离层，导致 GPS 信号变快或变慢，影响导航。</p>
+              <p>双飞行计算机架构：两台都认为自己在飞飞机，同时接收传感器数据、发送指令。第三个小计算机监控两台的健康，告诉所有节点听谁的。如果仲裁者坏了，正在飞的那台继续飞。</p>
+              <p>「上周刚发生了一次——送完包裹后，主飞行计算机出故障，切到备份。飞机自己飞回家，降落，一切正常。」</p>
+              <p>「一架 Boeing 777 的飞行计算机成本是几百万美元。我们用手机供应链的组件，以几十到几百美元实现类似的安全级别，速度快 100 倍，成本低 100 倍。」</p>
+              <p></p>
+              <p>【从 5000 次/天到 100 万次/天】</p>
+              <p>Keller 说：从 2014 年到 2024/2025 年，花了大约十年达到累计 100 万次配送。Zipline 很快将达到每天 100 万次配送。</p>
+              <p>「达拉斯现在每天约 5000 次飞行，年底目标超过 30000 次/天。美国最大的航空公司每天约 5000 次航班——Zipline 下个月就超过它们。达到每天 100 万次时，将是美国所有航空公司航班总和的 40-80 倍。」</p>
+              <p>「所有供应链和产能决策都不只为了达到 100 万次/天，而是为了超过之后继续加速。」</p>
+              <p></p>
+              <p>【单位经济：机器人配送刚变得比人工更便宜】</p>
+              <p>Keller 说：2016 年上线时每次配送成本以为会是 30 美元。实际上线时是 300 美元。然后逐年下降：120 → 75 → 40 → 28 → 18 → 现在长程技术 12 美元。</p>
+              <p>「今年夏天，完全负担的单位经济即将低于用汽车配送的成本。机器人配送比人工更便宜——这件事正在悄然发生。」</p>
+              <p>美国目前 55 亿次即时配送/年。基于达拉斯客户行为外推，市场将扩张到 550 亿次——10 倍。</p>
+              <p>「客户最爱的一条评论：不用给小费！！！养老院是需求大户。一位 80 岁的奶奶一年下了 350+ 单。」</p>
+              <p></p>
+              <p>【垂直整合：拆掉重来】</p>
+              <p>Keller 说：一开始买现成的零件，在测试场坠机，不断坠机。意识到这些东西又贵又不可靠。于是逐个拆掉——电机控制器自己设计、GPS 导航模块自己设计、电池自己设计。</p>
+              <p>「700 个自研零件、43 个主要子组件。连电机都是从零设计的，因为市面上的电机达不到我们需要的推重比。」</p>
+              <p>「飞行器上有 NVIDIA GPU 驱动的飞行计算机。投放吊舱也有自己的 NVIDIA GPU 运行 AI 自主决策——能在夜间精确识别最佳的包裹放置位置。吊舱还能在 x/y 轴独立调整位置来对抗风力。」</p>
+              <p></p>
+              <p>【空管危机与未来】</p>
+              <p>Keller 说：50% 的美国空管员超过 45 岁，20% 即将退休。没有人把空管当职业了。</p>
+              <p>「我们不得不自建空管软件——有多家上市公司只做空管软件，市值超 100 亿美元。Zipline 内部有好几个这样的公司。」</p>
+              <p>「天空很大。如果我们能更有效地利用天空，就可以把地面还给人类——让社区更安静、更安全、更少污染和交通。空中将有 10 倍于地面的自主飞行器。」</p>
+              <p>给硬件创业者的建议：「你觉得成本是 X？实际上线时是 10X。按 10 倍成本来规划——你的方案在 10 倍成本下还成立吗？」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zipline is the largest commercial autonomous system on Earth — 140 million autonomous miles, 2.5 million deliveries, zero safety incidents. They operate across 8 countries serving 5000+ hospitals. A UPenn study showed 51% reduction in maternal mortality thanks to Zipline.</p>
+              <p>Origin story: founded 2011, launched in Rwanda 2016 delivering blood transfusions. Key lesson: the drone is only 15% of the complexity. The other 85% is inventory management, aviation authority integration, healthcare system integration, ordering, demand management, and all the auxiliary software systems.</p>
+              <p>Engineering: 700 unique components designed from scratch, 43 major sub-assemblies. Dual flight computer architecture (both active, third arbiter monitors). Survived a main computer failure last week — backup took over, aircraft landed itself. Cost target: aerospace-grade safety at smartphone-supply-chain prices.</p>
+              <p>Scale transition: took a decade to reach 1 million cumulative deliveries. Soon doing 1 million/day. Currently ~5000 flights/day in Dallas, exiting 2025 at 30,000/day. Unit economics just crossed below cost of car delivery this summer — robot delivery is now cheaper than human delivery.</p>
+              <p>Vertical integration as survival: started buying off-the-shelf parts, crashed constantly. Ripped out and redesigned every component from scratch — motor controllers, GPS modules, batteries. &#39;You adopt the darkness. I was born in it.&#39; — 10 years building robotics before it was cool.</p>
+              <p>Market expansion: 5.5B instant deliveries/year in US currently. Based on Dallas behavior, Zipline projects 55B — 10x expansion. No tip is the #1 customer comment. Nursing homes are big demand centers. 80-year-old grandma ordered 350+ times in a year.</p>
+              <p>Air traffic control crisis: 50% of US ATCs are over 45, 20% about to retire. System designed in 1950s can&#39;t handle autonomous vehicle volume. Zipline built its own ATC software from scratch for partner countries. Multiple billion-dollar public companies exist just in ATC software.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Keller Rinaudo: We&#39;ve always wanted to be an extremely customer obsessed company. Our goal was always to build an automated logistics system for Earth and to approximate teleportation.</p>
+              <p>Keller Rinaudo: The drone is 15% of the complexity of the solution. The physical drone, the hardware is only 15%. We had to build so many auxiliary software systems.</p>
+              <p>Eric: One of the weirdest things is actually solar weather. There&#39;s solar flares that happen on the sun... They can mess with the ionosphere, and that can cause the RF signals coming from GPS satellites to be faster, slower than you expect.</p>
+              <p>Keller Rinaudo: We now have 140 million commercial autonomous miles and zero safety incidents. Zero. If you were to drive 140 million miles, you would have 600 accidents, 100 injuries, and somewhere between 2 and 6 fatalities.</p>
+              <p>Keller Rinaudo: Individual aircraft in the commercial fleet that have flown more than a million commercial autonomous miles.</p>
+              <p>Keller Rinaudo: It took Zipline from 2014 to 2024 to do our first million deliveries. Zipline is now in the very near future going to be doing a million deliveries a day.</p>
+              <p>Keller Rinaudo: The fully burdened unit economics of these systems is just now in the process of falling below the cost of using cars to deliver things. It is now more cost effective to use a robot in logistics than it is to use a human.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=6bGxm8gX41o" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-09 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-09 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
