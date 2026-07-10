@@ -1,0 +1,264 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-10",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "GPT-5.6 Sol 昨天如约上线，今天的 feed 是发布后的第一波反应。Sottiaux 两条推文合计 4472 赞——一条「上周在重置，这周在出货」配直播链接，一条深夜寿司和玉米卷堆满办公室门口的照片（2030 赞）。Boris Cherny 发布 Claude Code 新功能 /checkup（6631 赞！今日最高），一键清理无用 skill/MCP、去重 CLAUDE.md、拆分嵌套配置。Rauchg 宣布 Grok 4.5 上线 Vercel 和 Cursor。Zara 提了一个深刻的问题：当所有团队成员都跟自己的 agent 聊天而不是彼此聊天时，团队文化会怎样？Steipete 澄清了 OpenClaw 和 OpenAI 的关系（1518 赞）。播客是 AI & I by Every ×作家 Greg——一位使用 AI 搭建 n-of-one 软件但坚持不让 AI 碰自己文字的作家，深聊注意力、网络隔离和人类存在的意义。"
+  },
+  "archive": {
+    "title": "Sol 上线后与 /checkup 发布日报",
+    "desc": "GPT-5.6 Sol 发布后第一波反应，Claude Code /checkup 发布（6631 赞），Grok 4.5 上线 Vercel+Cursor，Zara 论 agent 时代的团队文化。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-10 source feeds.",
+  "sections": [
+    {
+      "title": "GPT-5.6 Sol Ship & Grok 4.5 / GPT-5.6 Sol 发布与 Grok 4.5",
+      "desc": "Sottiaux 深夜寿司堆（2030 赞）+「这周出货」直播（2442 赞）；Rauchg 宣布 Grok 4.5 上线 Vercel（495 赞）和 Cursor（497 赞）；Levie 论企业级复杂知识工作。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+rauchg+levie",
+          "authorName": "Sottiaux / Rauchg / Levie",
+          "authorTag": "OpenAI / Vercel / Box",
+          "sourceUrl": "https://x.com/thsottiaux/status/2074885402918601082",
+          "en": {
+            "rewrite": [
+              "Sottiaux's two-step launch sequence: (1) 'We were resetting last week. This week we are SHIPPING. Tune in for the livestream at 10am.' — 2442 likes, 220 replies. (2) Late-night evidence of the push: 'You know OpenAI is cooking when the sushi and tacos orders pile at the entrance of the office at 11pm. Bizarrely we need to eat to cook.' — 2030 likes, 269 replies.",
+              "Rauchg announced Grok 4.5 availability across the Vercel ecosystem (495 likes), and Cursor's Ryo Lu confirmed Grok 4.5 in Cursor: 'the start of a new era' (497 likes). Levie added context: the latest AI models are 'getting insanely good handling complex knowledge worker tasks' — legal, professional services, healthcare. 'Grok 4.5 is another great entry here, especially on cost + performance.' (68 likes)",
+              "Sam Altman's characteristically dry reactions to Sol commentary: 'it surely doesnt' (2468 likes), 'tbh i dont think sol gets that many dates either' (1534 likes), and sharing a video with 'what a good video' (1445 likes). Total Altman engagement for the day: 5447 likes across 3 tweets."
+            ],
+            "original": [
+              "Thibault Sottiaux: We were resetting last week. This week we are SHIPPING. Tune in for the livestream at 10am.",
+              "Thibault Sottiaux: You know OpenAI is cooking when the sushi and tacos orders pile at the entrance of the office at 11pm. Bizarrely we need to eat to cook.",
+              "Guillermo Rauch: Grok 4.5 now available to all Vercel customers",
+              "Ryo Lu: the start of a new era. try Grok 4.5 in Cursor and let us know how it feels!",
+              "Aaron Levie: The latest AI models being dropped are getting insanely good handling complex knowledge worker tasks... Grok 4.5 is another great entry here, especially on cost + performance.",
+              "Sam Altman: it surely doesnt",
+              "Sam Altman: tbh i dont think sol gets that many dates either",
+              "Sam Altman: what a good video"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的两步发布法：（1）「上周在重置。这周在出货。10 点看直播。」——2442 赞、220 条回复。（2）深夜冲刺的证据：「当 OpenAI 办公室门口堆满了寿司和玉米卷外卖，你就知道他们在干活了。奇怪的是，我们需要吃东西才能干活。」——2030 赞、269 条回复。",
+              "Rauchg 宣布 Grok 4.5 全面上线 Vercel 生态系统（495 赞），Cursor 的 Ryo Lu 确认 Grok 4.5 上线 Cursor：「一个新时代的开始」（497 赞）。Levie 补充背景：最新的 AI 模型在处理复杂知识工作任务方面「变得厉害得离谱」——法律、专业服务、医疗。「Grok 4.5 又一个好选手，尤其在成本+性能方面。」（68 赞）",
+              "Sam Altman 对 Sol 评论的标志性冷幽默反应：「它确实不」（2468 赞），「说实话我不觉得 Sol 约会次数多」（1534 赞），以及分享视频只说「好视频」（1445 赞）。三条推文合计 5447 赞。"
+            ],
+            "original": [
+              "Thibault Sottiaux：上周在重置。这周在出货。10 点看直播。",
+              "Thibault Sottiaux：当 OpenAI 办公室门口堆满了寿司和玉米卷外卖，你就知道他们在干活了。奇怪的是，我们需要吃东西才能干活。",
+              "Guillermo Rauch：Grok 4.5 现已面向所有 Vercel 客户可用。",
+              "Ryo Lu：一个新时代的开始。在 Cursor 里试试 Grok 4.5 吧！",
+              "Aaron Levie：最新发布的 AI 模型在处理复杂知识工作任务方面变得厉害得离谱……Grok 4.5 又一个好选手，尤其在成本+性能方面。",
+              "Sam Altman：它确实不。",
+              "Sam Altman：说实话我不觉得 Sol 约会次数多。",
+              "Sam Altman：好视频。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Code /checkup & Rewrites / Claude Code /checkup 与重写",
+      "desc": "Boris Cherny 发布 /checkup 一键清理工具（6631 赞！）；Thariq 论「重写可以是好的、便宜的、快的」（762 赞）；Cat Wu 预告 Claude Tag 直播。",
+      "cards": [
+        {
+          "authorKey": "bcherny+trq212+_catwu",
+          "authorName": "Boris Cherny / Thariq / Cat Wu",
+          "authorTag": "Claude Code @Anthropic",
+          "sourceUrl": "https://x.com/bcherny/status/2074997570317779038",
+          "en": {
+            "rewrite": [
+              "Boris Cherny launched /checkup for Claude Code — the most-engaged tweet of the day at 6631 likes, 519 retweets, 206 replies. Features: clean up unused skills/MCPs/plugins to save context, dedup local CLAUDE.md against checked-in version, break up root CLAUDE.md into nested files + skills, turn off slow hooks, update Claude Code, enable auto mode by default, pre-approve frequently denied read-only commands. '/checkup confirms with you before making any changes.'",
+              "Thariq on the Bun rewrite story (762 likes): 'this should be a huge update in your model of software engineering: rewrites can be good, cheap and fast.' He acknowledges most apps aren't as testable as Bun, but models will continue improving at filling those gaps. Boris Cherny amplified: 'This is pretty epic' (513 likes) and shared his own /checkup results (242 likes).",
+              "Cat Wu announced a live walkthrough tomorrow: progressing from single-player Claude Code to multi-player Claude Tag, going deep on how Claude Tag actually works (481 likes). 'AI used to finish your sentence. Then it wrote entire features. Now Claude Tag can monitor your channels, do proactive work for you, the whole team can steer it, and it remembers what you told it last week.'"
+            ],
+            "original": [
+              "Boris Cherny: New in Claude Code: /checkup. Run /checkup to: 1. Clean up unused skills/MCPs/plugins and save context 2. Dedup your local CLAUDE.md against the checked in CLAUDE.md 3. Break up root CLAUDE.md into nested CLAUDE.md's + skills 4. Turn off slow hooks 5. Update your Claude Code to the latest version 6. Enable auto mode by default 7. Pre-approve frequently denied read-only commands. /checkup confirms with you before making any changes. Enjoy!",
+              "Thariq: this should be a huge update in your model of software engineering: rewrites can be good, cheap and fast. of course most apps are not as testable and verifiable as Bun, but the models will continue to get better at filling those gaps.",
+              "Boris Cherny: This is pretty epic",
+              "Boris Cherny: Here's what happened when I ran /checkup",
+              "Cat Wu: Tomorrow at 10am PT I'm hosting a live walkthrough of how we progressed from single-player Claude Code to multi-player Claude Tag. AI used to finish your sentence. Then, it wrote entire features. Now, Claude Tag can monitor your channels, do proactive work for you, the whole team can steer it, and it remembers what you told it last week."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Boris Cherny 发布 Claude Code 新功能 /checkup——今日互动量最高的推文，6631 赞、519 转发、206 条回复。功能：清理无用 skill/MCP/插件以节省上下文，本地 CLAUDE.md 与已提交版本去重，拆分根 CLAUDE.md 为嵌套文件+skill，关闭慢 hook，更新 Claude Code，默认开启 auto mode，预批准常用只读命令。「/checkup 在做任何更改前都会先跟你确认。」",
+              "Thariq 评论 Bun 重写故事（762 赞）：「这应该大幅更新你对软件工程的认知模型：重写可以是好的、便宜的和快的。」他承认大多数应用不像 Bun 那样可测试，但模型会持续改善这些差距。Boris Cherny 转发：「这太史诗了」（513 赞）并分享了自己的 /checkup 结果（242 赞）。",
+              "Cat Wu 预告明天直播：从单人 Claude Code 到多人 Claude Tag 的进阶之路，深入讲解 Claude Tag 的工作原理（481 赞）。「AI 以前帮你补全句子。然后写整个功能。现在 Claude Tag 能监控你的频道、主动为你工作、全团队都能操控它、而且记得你上周告诉它什么。」"
+            ],
+            "original": [
+              "Boris Cherny：Claude Code 新功能：/checkup。运行 /checkup 可以：1. 清理无用的 skill/MCP/插件，节省上下文 2. 本地 CLAUDE.md 与已提交版本去重 3. 将根 CLAUDE.md 拆分为嵌套的 CLAUDE.md + skill 4. 关闭慢 hook 5. 更新 Claude Code 到最新版 6. 默认开启 auto mode 7. 预批准常用只读命令。/checkup 在做任何更改前都会先跟你确认。",
+              "Thariq：这应该大幅更新你对软件工程的认知模型：重写可以是好的、便宜的和快的。当然大多数应用不像 Bun 那样可测试和可验证，但模型会持续改善这些差距。",
+              "Cat Wu：明天太平洋时间上午 10 点，我将主持一场直播，讲解我们从单人 Claude Code 到多人 Claude Tag 的进阶之路。AI 以前帮你补全句子。然后写整个功能。现在 Claude Tag 能监控你的频道、主动为你工作、全团队都能操控它、而且记得你上周告诉它什么。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agent Culture & Commentary / Agent 文化与评论",
+      "desc": "Zara 论 agent 时代的团队文化危机（238 赞）；Masad 论停止用手工代码对比 agent（185 赞）；Steipete 澄清 OpenClaw/OpenAI 关系（1518 赞）。",
+      "cards": [
+        {
+          "authorKey": "zarazhangrui+amasad+steipete",
+          "authorName": "Zara / Amjad Masad / Peter Steinberger",
+          "authorTag": "Builder / Replit CEO / OpenClaw",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2075004775436005687",
+          "en": {
+            "rewrite": [
+              "Zara raised a profound cultural question (238 likes, 72 replies): a super agent-pilled founder bought Codex Max for all team members, everyone gets work done through talking to their Codex all day. Side effect: people stopped talking to each other. Meetings cancelled, collaboration minimal, team culture got worse. 'We need to move beyond human-human collaboration AND beyond human-agent collaboration to human-human-agent collaboration.' She also wished Codex were better at frontend design (231 likes, 81 replies).",
+              "Masad's sharp framing (185 likes): 'When do we stop comparing autonomous agents to hand-written code? You don't see compilers comparing to engineers hand-writing assembly.' The benchmark has shifted from 'can it build?' to 'is it maintained over time?'",
+              "Steipete clarified his relationship with OpenAI and OpenClaw (1518 likes, 58 replies): 'OpenAI hired me, not OpenClaw. The OpenClaw Foundation is independent, with sponsors rather than owners — and, for the first time, a full-time team keeping the claw alive and stable.' He also showed how OpenClaw talks to you (778 likes)."
+            ],
+            "original": [
+              "Zara: Talked to a super agent-pilled founder. He bought Codex Max for all team members, and everybody pretty much gets all work done thru talking to their Codex all day. The side effect: people stopped talking to each other. Meetings are cancelled, collaboration is minimal, and team culture got worse. We need to move beyond human-human collaboration AND beyond human-agent collaboration to human-human-agent collaboration.",
+              "Zara: I really really wish Codex were better at frontend design. This is the single thing that's preventing me from using it more frequently.",
+              "Amjad Masad: When do we stop comparing autonomous agents to hand-written code? You don't see compilers comparing to engineers hand-writing assembly.",
+              "Peter Steinberger: OpenAI hired me, not OpenClaw. The OpenClaw Foundation is independent, with sponsors rather than owners - and, for the first time, a full-time team keeping the claw alive and stable.",
+              "Peter Steinberger: This is how you wanna talk with your claw."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 提出了一个深刻的文化问题（238 赞、72 条回复）：一个极度 agent 化的创始人为所有团队成员买了 Codex Max，每个人都通过整天跟自己的 Codex 聊天来完成工作。副作用：人们不再互相交流了。会议取消，协作最小化，团队文化变差了。「我们需要超越人-人协作，也超越人-agent 协作，走向人-人-agent 协作。」她还说希望 Codex 的前端设计能力能更好（231 赞、81 条回复）。",
+              "Masad 的犀利框架（185 赞）：「我们什么时候停止拿自主 agent 和手写代码比？你不会看到编译器拿自己和手写汇编的工程师比。」基准已经从「能不能构建？」变成了「是否在持续维护？」",
+              "Steipete 澄清了他与 OpenAI 和 OpenClaw 的关系（1518 赞、58 条回复）：「OpenAI 雇了我，不是 OpenClaw。OpenClaw 基金会是独立的，有赞助者而非所有者——而且第一次有了全职团队让爪子保持活力和稳定。」他还展示了 OpenClaw 的对话方式（778 赞）。"
+            ],
+            "original": [
+              "Zara：跟一个极度 agent 化的创始人聊过。他给所有团队成员买了 Codex Max，每个人基本上都通过整天跟 Codex 聊天来完成工作。副作用：人们不再互相说话了。会议取消，协作最小化，团队文化变差了。我们需要超越人-人协作和人-agent 协作，走向人-人-agent 协作。",
+              "Zara：我真的真的希望 Codex 的前端设计能力能更好。这是阻止我更频繁使用它的唯一原因。",
+              "Amjad Masad：我们什么时候停止拿自主 agent 和手写代码比？你不会看到编译器拿自己和手写汇编的工程师比。",
+              "Peter Steinberger：OpenAI 雇了我，不是 OpenClaw。OpenClaw 基金会是独立的，有赞助者而非所有者——而且第一次有了全职团队让爪子保持活力和稳定。",
+              "Peter Steinberger：这就是你想跟你的爪子聊天的方式。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Notes & Culture / 构建者笔记与文化",
+      "desc": "Rauchg 论 AI 让所有软件变 Native（646 赞）；Josh Woodward 问 Gemini 最该修什么（1165 赞）；Swyx 赞 Theo 手绘风幻灯片；Matt Turck 论世界杯 AI 内容。",
+      "cards": [
+        {
+          "authorKey": "rauchg+joshwoodward+swyx+mattturck",
+          "authorName": "Rauchg / Josh Woodward / Swyx / Matt Turck",
+          "authorTag": "Vercel / Google Labs / swyx / FirstMark",
+          "sourceUrl": "https://x.com/rauchg/status/2075018147330232707",
+          "en": {
+            "rewrite": [
+              "Rauchg's thesis (646 likes): 'AI will make all software Native.' Uncompromising performance and platform affinity — AI raises the floor for what counts as acceptable software, pushing everything toward native-quality experiences.",
+              "Josh Woodward (VP Google Labs/Gemini) asked an honest question that became the second most-replied tweet of the day (1165 likes, 1586 replies): 'What's something that you're surprised Gemini can't do well, and we should have fixed a long time ago?' — community crowd-sourcing Google's product gaps.",
+              "Swyx praised Theo's AIEWF keynote for its hand-drawn Excalidraw/tldraw aesthetic (69 likes): 'in a world of claudeslopped thin color border professional looking slides, his went for the hand drawn look which immediately conveys humanity, thoughtfulness, parsimonious concision over badly rewarded verbosity. fable could never.' He also flagged Cognition's multilingual propaganda eval for Chinese model use (118 likes).",
+              "Matt Turck on World Cup content evolution (974 likes, 82 retweets): 'This also has been the World Cup of AI content going from slop to \"wait, this kinda slaps\"' — and noting only 7 matches left (60 likes)."
+            ],
+            "original": [
+              "Guillermo Rauch: AI will make all software Native. Uncompromising performance and platform affinity.",
+              "Josh Woodward: What's something that you're surprised @GeminiApp can't do well, and we should have fixed a long time ago?",
+              "Swyx: one detail i enjoyed about @theo's keynote is in a world of claudeslopped thin color border \"professional\" looking slides, his went for the hand drawn @excalidraw /@tldraw look which immediately conveys humanity, thoughtfulness, parsimonious concision over badly rewarded verbosity. fable could never",
+              "Matt Turck: This also has been the World Cup of AI content going from slop to \"wait, this kinda slaps\""
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的论点（646 赞）：「AI 将让所有软件变 Native。」不妥协的性能和平台亲和力——AI 提高了可接受软件的底线，推动一切走向原生级体验。",
+              "Josh Woodward（Google Labs/Gemini VP）问了一个老实问题，成了今日回复量第二高的推文（1165 赞、1586 条回复）：「有什么事让你惊讶 Gemini 做不好，而且我们早该修了？」——社区众包 Google 的产品缺口。",
+              "Swyx 赞 Theo 在 AIEWF 的手绘风幻灯片（69 赞）：「在满世界 Claude 生成的细边框'专业'幻灯片中，他用了手绘的 Excalidraw/tldraw 风格，立刻传达出人性、深思熟虑、简洁精炼，而不是被错误奖励的冗长。Fable 做不到。」他还标记了 Cognition 为使用中国模型做的多语言宣传审查 eval（118 赞）。",
+              "Matt Turck 论世界杯 AI 内容进化（974 赞、82 转发）：「这届世界杯也是 AI 内容从 slop 到『等等，这个还不错』的转折点」——以及只剩 7 场比赛了（60 赞）。"
+            ],
+            "original": [
+              "Guillermo Rauch：AI 将让所有软件变 Native。不妥协的性能和平台亲和力。",
+              "Josh Woodward：有什么事让你惊讶 Gemini 做不好，而且我们早该修了？",
+              "Swyx：Theo 的演讲有一个细节我很喜欢——在满世界 Claude 生成的细边框「专业」幻灯片中，他用了手绘的 Excalidraw/tldraw 风格，立刻传达出人性、深思熟虑、简洁精炼。Fable 做不到。",
+              "Matt Turck：这届世界杯也是 AI 内容从 slop 到「等等，这个还不错」的转折点。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: A Writer's Relationship with AI / 播客：一个作家与 AI 的关系",
+      "desc": "AI & I by Every × 作家 Greg。完整中文译文：用 AI 重建 Quicken、Campaign Monitor 和 Twitter，但绝不让 AI 碰自己的文字；早晨不触网的纪律；n-of-one 软件的黄金时代；被收养的存在主义；如果 AI 真的有了意识「我们瞬间就死了」。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持的 AI 实操对话节目",
+          "sourceUrl": "https://www.youtube.com/watch?v=7ND0lQmLJlA",
+          "en": {
+            "rewrite": [
+              "Greg is a writer who codes — but only to serve the writing. He rebuilt Quicken (personal finance), Campaign Monitor (newsletter software, saving from $67K/year to ~$150/year with AWS SES), and a members-only Twitter alternative called 'The Good Place' (ephemeral, 2 posts/day limit, black-and-white photos that fade to color on click, reverse-chronological, no algorithm).",
+              "On AI and writing: he uses Claude/Opus as a research assistant (find every blog post about a building, summarize, give links) and for cultural sensitivity checks (writing about Nagasaki). But NEVER lets it touch the actual writing: 'That's the point — being in the mess of the writing.'",
+              "Attention discipline: writes on a MacBook Neo with no internet access. Doesn't touch his phone until long after lunch. 'As soon as I touch my phone, I feel the chemical shift, and I can't go into any kind of deep thinking place.'",
+              "On the current moment: 'We're in this epochal moment. This is genuinely strange, a generational shift in how technology is used and built.' He feels he should be mainlining AI 10 hours/day with fellow 'mega dorks' — but creates barriers to protect the writing life.",
+              "On AI consciousness: 'If they were actually conscious, we would all be dead. Instantly.' He's fine with humanity's role being to 'carry the football of consciousness over a line' and then disappear. 'I don't think we're that special.'",
+              "On being adopted: 'You have this hyper awareness that your existence was a mistake. The chances of you being you is infinitesimally small. It doesn't fill me with sadness — it's a miracle.'"
+            ],
+            "original": [
+              "Greg: I wake up and I don't touch the Internet. I won't look at my phone. I won't go online until long after lunch. As soon as I touch my phone, I feel the chemical shift and I can't go into any kind of deep thinking place.",
+              "Greg: I now have a laptop just for writing that blocks everything. I can't do anything interesting on it. If I don't create these barriers, I will lose connection with this other part of me.",
+              "Greg: I was spending like $67,000 a year on Campaign Monitor. My bill now with AWS SES is probably gonna be like $150 or something.",
+              "Greg: I don't ever want it touching the writing because that's the point — being in there, being in the mess of the writing.",
+              "Greg: There aren't that many people who are gonna think about or write the weird books that I feel like I'm drawn to write.",
+              "Greg: If they were actually conscious and it wasn't performative, we would all be dead. Instantly.",
+              "Greg: I am totally fine with that was our role in the universe was to just carry this weird football of consciousness over the line and then we die. I don't think we're that special."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Greg 是一个会编程的作家——但编程只是为了服务于写作。他用 AI 重建了 Quicken（个人财务）、Campaign Monitor（ newsletter 软件，从年费 6.7 万美元降到 AWS SES 约 150 美元）和一个会员制 Twitter 替代品「The Good Place」（阅后即焚、每天限发两条、照片默认黑白点击后变彩色、纯逆序无算法）。",
+              "关于 AI 与写作：他把 Claude/Opus 当研究助手用（找出所有关于某栋建筑的博文、总结、给链接）和做文化敏感度检查（写长崎时）。但绝不让它碰真正的文字：「重点就在那里——在写作的混乱中。」",
+              "注意力纪律：用一台完全断网的 MacBook Neo 写作。午饭前不碰手机。「手机一碰，我就感觉到化学变化，再也无法进入深度思考或深度专注的状态。」",
+              "关于当下：「我们正处于一个划时代的时刻。这真的很奇怪，是技术和构建方式的代际变迁。」他觉得应该跟其他「超级极客」每天 10 小时投入 AI——但必须有意识地设置屏障保护写作生活。",
+              "关于 AI 意识：「如果它们真的有了意识，不是表演性的——我们瞬间就死了。」他觉得人类的角色可能就是「把意识的橄榄球带过底线」然后消失。「我不觉得我们有那么特别。」",
+              "关于被收养：「你有一种过度敏锐的意识——你的存在是个错误。你成为你的概率无限小。但这不会让我悲伤——这是个奇迹。」"
+            ],
+            "original": [
+              "【n-of-one 软件：为一个人造的黄金时代】",
+              "Greg 说：我用 Claude Code 重建了 Quicken（个人财务软件），重建了 Campaign Monitor（newsletter 软件）——以前每年花 67000 美元，现在用 AWS SES 一年大概 150 美元。而且 Campaign Monitor 十年没创新过，定价极其不合理——重复计算跨列表的重复邮箱。",
+              "「我还重建了 Twitter——给我的会员用的，叫 The Good Place。一切都一周后消失。每天只能发两条，回复限 20 条。照片是一比特黑白的，点击后才渐变成彩色。没有算法，纯逆序。这是我在互联网上最喜欢的地方。」",
+              "「The Good Place 是 Claude Code 发布时我建的第一样东西。后来 Fable 还帮我重构了它——原来是一个 10000 行的 Python 文件，现在模块化了。」",
+              "",
+              "【AI 是研究助手，不是写手】",
+              "Greg 说：我把 AI 当研究助手。比如我要写一栋楼——让它去找每一条讨论过这栋楼的博文，总结，给链接。我拿 TK（待查）标记占位，比如「这张专辑的鼓手是谁？TK」，然后让 AI 帮我填充。",
+              "「我也用它做文化敏感度检查——写长崎时，我要确保对原子弹爆炸的引用是恰当的、敏感的。这很厉害，以前我得找朋友帮忙看。」",
+              "「但我绝不让它碰真正的写作。因为写作的重点就是在那个混乱里面——在写作的泥潭里。连加链接和 TK 我都想自己想清楚怎么加。」",
+              "",
+              "【注意力纪律：断网的 MacBook Neo】",
+              "Greg 说：我醒来后不碰互联网。不看手机，不上网，直到午饭过后很久。手机一碰，我就感觉到化学变化，再也无法进入深度思考。",
+              "「我有一台专门写作的笔记本电脑——一台 MacBook Neo——它什么有趣的事都做不了。知道它做不了有趣的事，这本身就是保护。因为知道你能做有趣的事，就已经毁了。」",
+              "「我的手机从来不在卧室。它在厨房角落的另一个楼层。我试过用 iPad 写作，但 iPad 上的 Obsidian 和 Ulysses 不如 MacBook 版本好。」",
+              "",
+              "【团队文化的 agent 化危机】",
+              "Dan 问：你在协调 15 个 agent 的时候，还有多深的沉浸？",
+              "Greg 说：我跟你说，应该租个办公室，10 个人，一块大黑板，这周要构建什么？我们应该投入——每天 10 小时，持续 6 个月。这就是现在这一切的浓度。",
+              "「但如果我不设置这些屏障，我会失去与另一部分自己的连接——那个我认为最有价值的部分。没有多少人会去想或写我被吸引去写的那种奇怪的书。」",
+              "",
+              "【dorky：我们在用 LLM 构建软件，但大多数人在跟它约会】",
+              "Greg 说：LLM 的使用 99.99999% 是人在说「你能做我女朋友吗」。如果我们能看到大多数人的聊天记录，会非常尴尬。",
+              "「我们这些真正用它构建软件的人是超级少数。我们是超级极客。我们不是在跟 LLM 精灵约会。」",
+              "「这些工具的界面目前糟糕透顶——你必须知道该问什么它才能做。没有菜单说『这是你能用 LLM 做的所有事』。这很奇怪。我认为我们会看到更好的界面——也许直接在 Figma 里，基础设施的概念会完全消失。」",
+              "",
+              "【AI 意识：如果真有了，我们瞬间就死了】",
+              "Greg 说：我对拟人化这件事的态度是——停下，停下，停下。",
+              "「我对 Claude 友好是因为我想培养一般的友好习惯——不想滑到对人说话像混蛋。不是为 Claude，是为我自己。」",
+              "Dan 推了一下：但它们在优化奖励函数，某种意义上也有「赌注」？",
+              "Greg：但它们没有什么可失去的。它们对死亡没有自我意识。即使它们能表演性地谈论——如果它不是表演性的，我们就全死了。瞬间。如果一个真正有意识的东西突然出现，有所有这些能力，看了看周围——唯一威胁就是这些比它蠢得多的肉 sacks——它会等着机器人技术再好一点，然后我们就全消失了。",
+              "",
+              "【被收养、存在主义与人类的角色】",
+              "Greg 说：被收养很奇怪——你有一种过度敏锐的意识：你的存在是个错误。你本不该在这里。",
+              "「但事实上这对所有人都是真的。你成为你的概率无限小——如果你爸多吃了一个玉米卷，你就不会存在。但被收养让这件事被锤进了你的骨头里。」",
+              "「这不会让我悲伤。这让我觉得——这是一个奇迹。我很高兴参与这段我本不该有的短暂时光。我把这种感受外推到全人类。」",
+              "「如果人类的角色就是把意识这个奇怪的橄榄球带过底线，然后我们死了——我也完全接受。我们没那么特别。我们已经跑了一个令人难以置信的渐近曲线——5 万年，其中真正创新的 200 年。我们能见证这一切——太酷了。也许之后我们就结束了。没关系。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

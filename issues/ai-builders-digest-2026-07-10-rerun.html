@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-10" data-issue-number="53" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 53 期｜2026-07-10｜双语精选版｜5 条精选｜5 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="GPT-5.6 Sol 昨天如约上线，今天的 feed 是发布后的第一波反应。Sottiaux 两条推文合计 4472 赞——一条「上周在重置，这周在出货」配直播链接，一条深夜寿司和玉米卷堆满办公室门口的照片（2030 赞）。Boris Cherny 发布 Claude Code 新功能 /checkup（6631 赞！今日最高），一键清理无用 skill/MCP、去重 CLAUDE.md、拆分嵌套配置。Rauchg 宣布 Grok 4.5 上线 Vercel 和 Cursor。Zara 提了一个深刻的问题：当所有团队成员都跟自己的 agent 聊天而不是彼此聊天时，团队文化会怎样？Steipete 澄清了 OpenClaw 和 OpenAI 的关系（1518 赞）。播客是 AI &amp; I by Every ×作家 Greg——一位使用 AI 搭建 n-of-one 软件但坚持不让 AI 碰自己文字的作家，深聊注意力、网络隔离和人类存在的意义。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">GPT-5.6 Sol 昨天如约上线，今天的 feed 是发布后的第一波反应。Sottiaux 两条推文合计 4472 赞——一条「上周在重置，这周在出货」配直播链接，一条深夜寿司和玉米卷堆满办公室门口的照片（2030 赞）。Boris Cherny 发布 Claude Code 新功能 /checkup（6631 赞！今日最高），一键清理无用 skill/MCP、去重 CLAUDE.md、拆分嵌套配置。Rauchg 宣布 Grok 4.5 上线 Vercel 和 Cursor。Zara 提了一个深刻的问题：当所有团队成员都跟自己的 agent 聊天而不是彼此聊天时，团队文化会怎样？Steipete 澄清了 OpenClaw 和 OpenAI 的关系（1518 赞）。播客是 AI &amp; I by Every ×作家 Greg——一位使用 AI 搭建 n-of-one 软件但坚持不让 AI 碰自己文字的作家，深聊注意力、网络隔离和人类存在的意义。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">GPT-5.6 Sol Ship &amp; Grok 4.5 / GPT-5.6 Sol 发布与 Grok 4.5</h2>
+    <p class="section-desc">Sottiaux 深夜寿司堆（2030 赞）+「这周出货」直播（2442 赞）；Rauchg 宣布 Grok 4.5 上线 Vercel（495 赞）和 Cursor（497 赞）；Levie 论企业级复杂知识工作。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+rauchg+levie" data-author-name="Sottiaux / Rauchg / Levie" data-author-tag="OpenAI / Vercel / Box" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Rauchg / Levie avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Rauchg / Levie</div>
+            <div class="author-tag is-inline">OpenAI / Vercel / Box</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的两步发布法：（1）「上周在重置。这周在出货。10 点看直播。」——2442 赞、220 条回复。（2）深夜冲刺的证据：「当 OpenAI 办公室门口堆满了寿司和玉米卷外卖，你就知道他们在干活了。奇怪的是，我们需要吃东西才能干活。」——2030 赞、269 条回复。</p>
+              <p>Rauchg 宣布 Grok 4.5 全面上线 Vercel 生态系统（495 赞），Cursor 的 Ryo Lu 确认 Grok 4.5 上线 Cursor：「一个新时代的开始」（497 赞）。Levie 补充背景：最新的 AI 模型在处理复杂知识工作任务方面「变得厉害得离谱」——法律、专业服务、医疗。「Grok 4.5 又一个好选手，尤其在成本+性能方面。」（68 赞）</p>
+              <p>Sam Altman 对 Sol 评论的标志性冷幽默反应：「它确实不」（2468 赞），「说实话我不觉得 Sol 约会次数多」（1534 赞），以及分享视频只说「好视频」（1445 赞）。三条推文合计 5447 赞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：上周在重置。这周在出货。10 点看直播。</p>
+              <p>Thibault Sottiaux：当 OpenAI 办公室门口堆满了寿司和玉米卷外卖，你就知道他们在干活了。奇怪的是，我们需要吃东西才能干活。</p>
+              <p>Guillermo Rauch：Grok 4.5 现已面向所有 Vercel 客户可用。</p>
+              <p>Ryo Lu：一个新时代的开始。在 Cursor 里试试 Grok 4.5 吧！</p>
+              <p>Aaron Levie：最新发布的 AI 模型在处理复杂知识工作任务方面变得厉害得离谱……Grok 4.5 又一个好选手，尤其在成本+性能方面。</p>
+              <p>Sam Altman：它确实不。</p>
+              <p>Sam Altman：说实话我不觉得 Sol 约会次数多。</p>
+              <p>Sam Altman：好视频。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s two-step launch sequence: (1) &#39;We were resetting last week. This week we are SHIPPING. Tune in for the livestream at 10am.&#39; — 2442 likes, 220 replies. (2) Late-night evidence of the push: &#39;You know OpenAI is cooking when the sushi and tacos orders pile at the entrance of the office at 11pm. Bizarrely we need to eat to cook.&#39; — 2030 likes, 269 replies.</p>
+              <p>Rauchg announced Grok 4.5 availability across the Vercel ecosystem (495 likes), and Cursor&#39;s Ryo Lu confirmed Grok 4.5 in Cursor: &#39;the start of a new era&#39; (497 likes). Levie added context: the latest AI models are &#39;getting insanely good handling complex knowledge worker tasks&#39; — legal, professional services, healthcare. &#39;Grok 4.5 is another great entry here, especially on cost + performance.&#39; (68 likes)</p>
+              <p>Sam Altman&#39;s characteristically dry reactions to Sol commentary: &#39;it surely doesnt&#39; (2468 likes), &#39;tbh i dont think sol gets that many dates either&#39; (1534 likes), and sharing a video with &#39;what a good video&#39; (1445 likes). Total Altman engagement for the day: 5447 likes across 3 tweets.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: We were resetting last week. This week we are SHIPPING. Tune in for the livestream at 10am.</p>
+              <p>Thibault Sottiaux: You know OpenAI is cooking when the sushi and tacos orders pile at the entrance of the office at 11pm. Bizarrely we need to eat to cook.</p>
+              <p>Guillermo Rauch: Grok 4.5 now available to all Vercel customers</p>
+              <p>Ryo Lu: the start of a new era. try Grok 4.5 in Cursor and let us know how it feels!</p>
+              <p>Aaron Levie: The latest AI models being dropped are getting insanely good handling complex knowledge worker tasks... Grok 4.5 is another great entry here, especially on cost + performance.</p>
+              <p>Sam Altman: it surely doesnt</p>
+              <p>Sam Altman: tbh i dont think sol gets that many dates either</p>
+              <p>Sam Altman: what a good video</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2074885402918601082" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Claude Code /checkup &amp; Rewrites / Claude Code /checkup 与重写</h2>
+    <p class="section-desc">Boris Cherny 发布 /checkup 一键清理工具（6631 赞！）；Thariq 论「重写可以是好的、便宜的、快的」（762 赞）；Cat Wu 预告 Claude Tag 直播。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="bcherny+trq212+_catwu" data-author-name="Boris Cherny / Thariq / Cat Wu" data-author-tag="Claude Code @Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Boris Cherny / Thariq / Cat Wu avatar"><span class="avatar-fallback">BC</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Boris Cherny / Thariq / Cat Wu</div>
+            <div class="author-tag is-inline">Claude Code @Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny 发布 Claude Code 新功能 /checkup——今日互动量最高的推文，6631 赞、519 转发、206 条回复。功能：清理无用 skill/MCP/插件以节省上下文，本地 CLAUDE.md 与已提交版本去重，拆分根 CLAUDE.md 为嵌套文件+skill，关闭慢 hook，更新 Claude Code，默认开启 auto mode，预批准常用只读命令。「/checkup 在做任何更改前都会先跟你确认。」</p>
+              <p>Thariq 评论 Bun 重写故事（762 赞）：「这应该大幅更新你对软件工程的认知模型：重写可以是好的、便宜的和快的。」他承认大多数应用不像 Bun 那样可测试，但模型会持续改善这些差距。Boris Cherny 转发：「这太史诗了」（513 赞）并分享了自己的 /checkup 结果（242 赞）。</p>
+              <p>Cat Wu 预告明天直播：从单人 Claude Code 到多人 Claude Tag 的进阶之路，深入讲解 Claude Tag 的工作原理（481 赞）。「AI 以前帮你补全句子。然后写整个功能。现在 Claude Tag 能监控你的频道、主动为你工作、全团队都能操控它、而且记得你上周告诉它什么。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny：Claude Code 新功能：/checkup。运行 /checkup 可以：1. 清理无用的 skill/MCP/插件，节省上下文 2. 本地 CLAUDE.md 与已提交版本去重 3. 将根 CLAUDE.md 拆分为嵌套的 CLAUDE.md + skill 4. 关闭慢 hook 5. 更新 Claude Code 到最新版 6. 默认开启 auto mode 7. 预批准常用只读命令。/checkup 在做任何更改前都会先跟你确认。</p>
+              <p>Thariq：这应该大幅更新你对软件工程的认知模型：重写可以是好的、便宜的和快的。当然大多数应用不像 Bun 那样可测试和可验证，但模型会持续改善这些差距。</p>
+              <p>Cat Wu：明天太平洋时间上午 10 点，我将主持一场直播，讲解我们从单人 Claude Code 到多人 Claude Tag 的进阶之路。AI 以前帮你补全句子。然后写整个功能。现在 Claude Tag 能监控你的频道、主动为你工作、全团队都能操控它、而且记得你上周告诉它什么。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny launched /checkup for Claude Code — the most-engaged tweet of the day at 6631 likes, 519 retweets, 206 replies. Features: clean up unused skills/MCPs/plugins to save context, dedup local CLAUDE.md against checked-in version, break up root CLAUDE.md into nested files + skills, turn off slow hooks, update Claude Code, enable auto mode by default, pre-approve frequently denied read-only commands. &#39;/checkup confirms with you before making any changes.&#39;</p>
+              <p>Thariq on the Bun rewrite story (762 likes): &#39;this should be a huge update in your model of software engineering: rewrites can be good, cheap and fast.&#39; He acknowledges most apps aren&#39;t as testable as Bun, but models will continue improving at filling those gaps. Boris Cherny amplified: &#39;This is pretty epic&#39; (513 likes) and shared his own /checkup results (242 likes).</p>
+              <p>Cat Wu announced a live walkthrough tomorrow: progressing from single-player Claude Code to multi-player Claude Tag, going deep on how Claude Tag actually works (481 likes). &#39;AI used to finish your sentence. Then it wrote entire features. Now Claude Tag can monitor your channels, do proactive work for you, the whole team can steer it, and it remembers what you told it last week.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: New in Claude Code: /checkup. Run /checkup to: 1. Clean up unused skills/MCPs/plugins and save context 2. Dedup your local CLAUDE.md against the checked in CLAUDE.md 3. Break up root CLAUDE.md into nested CLAUDE.md&#39;s + skills 4. Turn off slow hooks 5. Update your Claude Code to the latest version 6. Enable auto mode by default 7. Pre-approve frequently denied read-only commands. /checkup confirms with you before making any changes. Enjoy!</p>
+              <p>Thariq: this should be a huge update in your model of software engineering: rewrites can be good, cheap and fast. of course most apps are not as testable and verifiable as Bun, but the models will continue to get better at filling those gaps.</p>
+              <p>Boris Cherny: This is pretty epic</p>
+              <p>Boris Cherny: Here&#39;s what happened when I ran /checkup</p>
+              <p>Cat Wu: Tomorrow at 10am PT I&#39;m hosting a live walkthrough of how we progressed from single-player Claude Code to multi-player Claude Tag. AI used to finish your sentence. Then, it wrote entire features. Now, Claude Tag can monitor your channels, do proactive work for you, the whole team can steer it, and it remembers what you told it last week.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny/status/2074997570317779038" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Agent Culture &amp; Commentary / Agent 文化与评论</h2>
+    <p class="section-desc">Zara 论 agent 时代的团队文化危机（238 赞）；Masad 论停止用手工代码对比 agent（185 赞）；Steipete 澄清 OpenClaw/OpenAI 关系（1518 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="zarazhangrui+amasad+steipete" data-author-name="Zara / Amjad Masad / Peter Steinberger" data-author-tag="Builder / Replit CEO / OpenClaw" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara / Amjad Masad / Peter Steinberger avatar"><span class="avatar-fallback">Z/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara / Amjad Masad / Peter Steinberger</div>
+            <div class="author-tag is-inline">Builder / Replit CEO / OpenClaw</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 提出了一个深刻的文化问题（238 赞、72 条回复）：一个极度 agent 化的创始人为所有团队成员买了 Codex Max，每个人都通过整天跟自己的 Codex 聊天来完成工作。副作用：人们不再互相交流了。会议取消，协作最小化，团队文化变差了。「我们需要超越人-人协作，也超越人-agent 协作，走向人-人-agent 协作。」她还说希望 Codex 的前端设计能力能更好（231 赞、81 条回复）。</p>
+              <p>Masad 的犀利框架（185 赞）：「我们什么时候停止拿自主 agent 和手写代码比？你不会看到编译器拿自己和手写汇编的工程师比。」基准已经从「能不能构建？」变成了「是否在持续维护？」</p>
+              <p>Steipete 澄清了他与 OpenAI 和 OpenClaw 的关系（1518 赞、58 条回复）：「OpenAI 雇了我，不是 OpenClaw。OpenClaw 基金会是独立的，有赞助者而非所有者——而且第一次有了全职团队让爪子保持活力和稳定。」他还展示了 OpenClaw 的对话方式（778 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：跟一个极度 agent 化的创始人聊过。他给所有团队成员买了 Codex Max，每个人基本上都通过整天跟 Codex 聊天来完成工作。副作用：人们不再互相说话了。会议取消，协作最小化，团队文化变差了。我们需要超越人-人协作和人-agent 协作，走向人-人-agent 协作。</p>
+              <p>Zara：我真的真的希望 Codex 的前端设计能力能更好。这是阻止我更频繁使用它的唯一原因。</p>
+              <p>Amjad Masad：我们什么时候停止拿自主 agent 和手写代码比？你不会看到编译器拿自己和手写汇编的工程师比。</p>
+              <p>Peter Steinberger：OpenAI 雇了我，不是 OpenClaw。OpenClaw 基金会是独立的，有赞助者而非所有者——而且第一次有了全职团队让爪子保持活力和稳定。</p>
+              <p>Peter Steinberger：这就是你想跟你的爪子聊天的方式。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara raised a profound cultural question (238 likes, 72 replies): a super agent-pilled founder bought Codex Max for all team members, everyone gets work done through talking to their Codex all day. Side effect: people stopped talking to each other. Meetings cancelled, collaboration minimal, team culture got worse. &#39;We need to move beyond human-human collaboration AND beyond human-agent collaboration to human-human-agent collaboration.&#39; She also wished Codex were better at frontend design (231 likes, 81 replies).</p>
+              <p>Masad&#39;s sharp framing (185 likes): &#39;When do we stop comparing autonomous agents to hand-written code? You don&#39;t see compilers comparing to engineers hand-writing assembly.&#39; The benchmark has shifted from &#39;can it build?&#39; to &#39;is it maintained over time?&#39;</p>
+              <p>Steipete clarified his relationship with OpenAI and OpenClaw (1518 likes, 58 replies): &#39;OpenAI hired me, not OpenClaw. The OpenClaw Foundation is independent, with sponsors rather than owners — and, for the first time, a full-time team keeping the claw alive and stable.&#39; He also showed how OpenClaw talks to you (778 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara: Talked to a super agent-pilled founder. He bought Codex Max for all team members, and everybody pretty much gets all work done thru talking to their Codex all day. The side effect: people stopped talking to each other. Meetings are cancelled, collaboration is minimal, and team culture got worse. We need to move beyond human-human collaboration AND beyond human-agent collaboration to human-human-agent collaboration.</p>
+              <p>Zara: I really really wish Codex were better at frontend design. This is the single thing that&#39;s preventing me from using it more frequently.</p>
+              <p>Amjad Masad: When do we stop comparing autonomous agents to hand-written code? You don&#39;t see compilers comparing to engineers hand-writing assembly.</p>
+              <p>Peter Steinberger: OpenAI hired me, not OpenClaw. The OpenClaw Foundation is independent, with sponsors rather than owners - and, for the first time, a full-time team keeping the claw alive and stable.</p>
+              <p>Peter Steinberger: This is how you wanna talk with your claw.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui/status/2075004775436005687" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Builder Notes &amp; Culture / 构建者笔记与文化</h2>
+    <p class="section-desc">Rauchg 论 AI 让所有软件变 Native（646 赞）；Josh Woodward 问 Gemini 最该修什么（1165 赞）；Swyx 赞 Theo 手绘风幻灯片；Matt Turck 论世界杯 AI 内容。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+joshwoodward+swyx+mattturck" data-author-name="Rauchg / Josh Woodward / Swyx / Matt Turck" data-author-tag="Vercel / Google Labs / swyx / FirstMark" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Josh Woodward / Swyx / Matt Turck avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Josh Woodward / Swyx / Matt Turck</div>
+            <div class="author-tag is-inline">Vercel / Google Labs / swyx / FirstMark</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的论点（646 赞）：「AI 将让所有软件变 Native。」不妥协的性能和平台亲和力——AI 提高了可接受软件的底线，推动一切走向原生级体验。</p>
+              <p>Josh Woodward（Google Labs/Gemini VP）问了一个老实问题，成了今日回复量第二高的推文（1165 赞、1586 条回复）：「有什么事让你惊讶 Gemini 做不好，而且我们早该修了？」——社区众包 Google 的产品缺口。</p>
+              <p>Swyx 赞 Theo 在 AIEWF 的手绘风幻灯片（69 赞）：「在满世界 Claude 生成的细边框&#39;专业&#39;幻灯片中，他用了手绘的 Excalidraw/tldraw 风格，立刻传达出人性、深思熟虑、简洁精炼，而不是被错误奖励的冗长。Fable 做不到。」他还标记了 Cognition 为使用中国模型做的多语言宣传审查 eval（118 赞）。</p>
+              <p>Matt Turck 论世界杯 AI 内容进化（974 赞、82 转发）：「这届世界杯也是 AI 内容从 slop 到『等等，这个还不错』的转折点」——以及只剩 7 场比赛了（60 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch：AI 将让所有软件变 Native。不妥协的性能和平台亲和力。</p>
+              <p>Josh Woodward：有什么事让你惊讶 Gemini 做不好，而且我们早该修了？</p>
+              <p>Swyx：Theo 的演讲有一个细节我很喜欢——在满世界 Claude 生成的细边框「专业」幻灯片中，他用了手绘的 Excalidraw/tldraw 风格，立刻传达出人性、深思熟虑、简洁精炼。Fable 做不到。</p>
+              <p>Matt Turck：这届世界杯也是 AI 内容从 slop 到「等等，这个还不错」的转折点。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s thesis (646 likes): &#39;AI will make all software Native.&#39; Uncompromising performance and platform affinity — AI raises the floor for what counts as acceptable software, pushing everything toward native-quality experiences.</p>
+              <p>Josh Woodward (VP Google Labs/Gemini) asked an honest question that became the second most-replied tweet of the day (1165 likes, 1586 replies): &#39;What&#39;s something that you&#39;re surprised Gemini can&#39;t do well, and we should have fixed a long time ago?&#39; — community crowd-sourcing Google&#39;s product gaps.</p>
+              <p>Swyx praised Theo&#39;s AIEWF keynote for its hand-drawn Excalidraw/tldraw aesthetic (69 likes): &#39;in a world of claudeslopped thin color border professional looking slides, his went for the hand drawn look which immediately conveys humanity, thoughtfulness, parsimonious concision over badly rewarded verbosity. fable could never.&#39; He also flagged Cognition&#39;s multilingual propaganda eval for Chinese model use (118 likes).</p>
+              <p>Matt Turck on World Cup content evolution (974 likes, 82 retweets): &#39;This also has been the World Cup of AI content going from slop to &quot;wait, this kinda slaps&quot;&#39; — and noting only 7 matches left (60 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: AI will make all software Native. Uncompromising performance and platform affinity.</p>
+              <p>Josh Woodward: What&#39;s something that you&#39;re surprised @GeminiApp can&#39;t do well, and we should have fixed a long time ago?</p>
+              <p>Swyx: one detail i enjoyed about @theo&#39;s keynote is in a world of claudeslopped thin color border &quot;professional&quot; looking slides, his went for the hand drawn @excalidraw /@tldraw look which immediately conveys humanity, thoughtfulness, parsimonious concision over badly rewarded verbosity. fable could never</p>
+              <p>Matt Turck: This also has been the World Cup of AI content going from slop to &quot;wait, this kinda slaps&quot;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2075018147330232707" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: A Writer&#39;s Relationship with AI / 播客：一个作家与 AI 的关系</h2>
+    <p class="section-desc">AI &amp; I by Every × 作家 Greg。完整中文译文：用 AI 重建 Quicken、Campaign Monitor 和 Twitter，但绝不让 AI 碰自己的文字；早晨不触网的纪律；n-of-one 软件的黄金时代；被收养的存在主义；如果 AI 真的有了意识「我们瞬间就死了」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aii" data-author-name="AI &amp; I by Every" data-author-tag="Dan Shipper 主持的 AI 实操对话节目" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI &amp; I by Every avatar"><span class="avatar-fallback">A&amp;</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI &amp; I by Every</div>
+            <div class="author-tag is-inline">Dan Shipper 主持的 AI 实操对话节目</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Greg 是一个会编程的作家——但编程只是为了服务于写作。他用 AI 重建了 Quicken（个人财务）、Campaign Monitor（ newsletter 软件，从年费 6.7 万美元降到 AWS SES 约 150 美元）和一个会员制 Twitter 替代品「The Good Place」（阅后即焚、每天限发两条、照片默认黑白点击后变彩色、纯逆序无算法）。</p>
+              <p>关于 AI 与写作：他把 Claude/Opus 当研究助手用（找出所有关于某栋建筑的博文、总结、给链接）和做文化敏感度检查（写长崎时）。但绝不让它碰真正的文字：「重点就在那里——在写作的混乱中。」</p>
+              <p>注意力纪律：用一台完全断网的 MacBook Neo 写作。午饭前不碰手机。「手机一碰，我就感觉到化学变化，再也无法进入深度思考或深度专注的状态。」</p>
+              <p>关于当下：「我们正处于一个划时代的时刻。这真的很奇怪，是技术和构建方式的代际变迁。」他觉得应该跟其他「超级极客」每天 10 小时投入 AI——但必须有意识地设置屏障保护写作生活。</p>
+              <p>关于 AI 意识：「如果它们真的有了意识，不是表演性的——我们瞬间就死了。」他觉得人类的角色可能就是「把意识的橄榄球带过底线」然后消失。「我不觉得我们有那么特别。」</p>
+              <p>关于被收养：「你有一种过度敏锐的意识——你的存在是个错误。你成为你的概率无限小。但这不会让我悲伤——这是个奇迹。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【n-of-one 软件：为一个人造的黄金时代】</p>
+              <p>Greg 说：我用 Claude Code 重建了 Quicken（个人财务软件），重建了 Campaign Monitor（newsletter 软件）——以前每年花 67000 美元，现在用 AWS SES 一年大概 150 美元。而且 Campaign Monitor 十年没创新过，定价极其不合理——重复计算跨列表的重复邮箱。</p>
+              <p>「我还重建了 Twitter——给我的会员用的，叫 The Good Place。一切都一周后消失。每天只能发两条，回复限 20 条。照片是一比特黑白的，点击后才渐变成彩色。没有算法，纯逆序。这是我在互联网上最喜欢的地方。」</p>
+              <p>「The Good Place 是 Claude Code 发布时我建的第一样东西。后来 Fable 还帮我重构了它——原来是一个 10000 行的 Python 文件，现在模块化了。」</p>
+              <p></p>
+              <p>【AI 是研究助手，不是写手】</p>
+              <p>Greg 说：我把 AI 当研究助手。比如我要写一栋楼——让它去找每一条讨论过这栋楼的博文，总结，给链接。我拿 TK（待查）标记占位，比如「这张专辑的鼓手是谁？TK」，然后让 AI 帮我填充。</p>
+              <p>「我也用它做文化敏感度检查——写长崎时，我要确保对原子弹爆炸的引用是恰当的、敏感的。这很厉害，以前我得找朋友帮忙看。」</p>
+              <p>「但我绝不让它碰真正的写作。因为写作的重点就是在那个混乱里面——在写作的泥潭里。连加链接和 TK 我都想自己想清楚怎么加。」</p>
+              <p></p>
+              <p>【注意力纪律：断网的 MacBook Neo】</p>
+              <p>Greg 说：我醒来后不碰互联网。不看手机，不上网，直到午饭过后很久。手机一碰，我就感觉到化学变化，再也无法进入深度思考。</p>
+              <p>「我有一台专门写作的笔记本电脑——一台 MacBook Neo——它什么有趣的事都做不了。知道它做不了有趣的事，这本身就是保护。因为知道你能做有趣的事，就已经毁了。」</p>
+              <p>「我的手机从来不在卧室。它在厨房角落的另一个楼层。我试过用 iPad 写作，但 iPad 上的 Obsidian 和 Ulysses 不如 MacBook 版本好。」</p>
+              <p></p>
+              <p>【团队文化的 agent 化危机】</p>
+              <p>Dan 问：你在协调 15 个 agent 的时候，还有多深的沉浸？</p>
+              <p>Greg 说：我跟你说，应该租个办公室，10 个人，一块大黑板，这周要构建什么？我们应该投入——每天 10 小时，持续 6 个月。这就是现在这一切的浓度。</p>
+              <p>「但如果我不设置这些屏障，我会失去与另一部分自己的连接——那个我认为最有价值的部分。没有多少人会去想或写我被吸引去写的那种奇怪的书。」</p>
+              <p></p>
+              <p>【dorky：我们在用 LLM 构建软件，但大多数人在跟它约会】</p>
+              <p>Greg 说：LLM 的使用 99.99999% 是人在说「你能做我女朋友吗」。如果我们能看到大多数人的聊天记录，会非常尴尬。</p>
+              <p>「我们这些真正用它构建软件的人是超级少数。我们是超级极客。我们不是在跟 LLM 精灵约会。」</p>
+              <p>「这些工具的界面目前糟糕透顶——你必须知道该问什么它才能做。没有菜单说『这是你能用 LLM 做的所有事』。这很奇怪。我认为我们会看到更好的界面——也许直接在 Figma 里，基础设施的概念会完全消失。」</p>
+              <p></p>
+              <p>【AI 意识：如果真有了，我们瞬间就死了】</p>
+              <p>Greg 说：我对拟人化这件事的态度是——停下，停下，停下。</p>
+              <p>「我对 Claude 友好是因为我想培养一般的友好习惯——不想滑到对人说话像混蛋。不是为 Claude，是为我自己。」</p>
+              <p>Dan 推了一下：但它们在优化奖励函数，某种意义上也有「赌注」？</p>
+              <p>Greg：但它们没有什么可失去的。它们对死亡没有自我意识。即使它们能表演性地谈论——如果它不是表演性的，我们就全死了。瞬间。如果一个真正有意识的东西突然出现，有所有这些能力，看了看周围——唯一威胁就是这些比它蠢得多的肉 sacks——它会等着机器人技术再好一点，然后我们就全消失了。</p>
+              <p></p>
+              <p>【被收养、存在主义与人类的角色】</p>
+              <p>Greg 说：被收养很奇怪——你有一种过度敏锐的意识：你的存在是个错误。你本不该在这里。</p>
+              <p>「但事实上这对所有人都是真的。你成为你的概率无限小——如果你爸多吃了一个玉米卷，你就不会存在。但被收养让这件事被锤进了你的骨头里。」</p>
+              <p>「这不会让我悲伤。这让我觉得——这是一个奇迹。我很高兴参与这段我本不该有的短暂时光。我把这种感受外推到全人类。」</p>
+              <p>「如果人类的角色就是把意识这个奇怪的橄榄球带过底线，然后我们死了——我也完全接受。我们没那么特别。我们已经跑了一个令人难以置信的渐近曲线——5 万年，其中真正创新的 200 年。我们能见证这一切——太酷了。也许之后我们就结束了。没关系。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Greg is a writer who codes — but only to serve the writing. He rebuilt Quicken (personal finance), Campaign Monitor (newsletter software, saving from $67K/year to ~$150/year with AWS SES), and a members-only Twitter alternative called &#39;The Good Place&#39; (ephemeral, 2 posts/day limit, black-and-white photos that fade to color on click, reverse-chronological, no algorithm).</p>
+              <p>On AI and writing: he uses Claude/Opus as a research assistant (find every blog post about a building, summarize, give links) and for cultural sensitivity checks (writing about Nagasaki). But NEVER lets it touch the actual writing: &#39;That&#39;s the point — being in the mess of the writing.&#39;</p>
+              <p>Attention discipline: writes on a MacBook Neo with no internet access. Doesn&#39;t touch his phone until long after lunch. &#39;As soon as I touch my phone, I feel the chemical shift, and I can&#39;t go into any kind of deep thinking place.&#39;</p>
+              <p>On the current moment: &#39;We&#39;re in this epochal moment. This is genuinely strange, a generational shift in how technology is used and built.&#39; He feels he should be mainlining AI 10 hours/day with fellow &#39;mega dorks&#39; — but creates barriers to protect the writing life.</p>
+              <p>On AI consciousness: &#39;If they were actually conscious, we would all be dead. Instantly.&#39; He&#39;s fine with humanity&#39;s role being to &#39;carry the football of consciousness over a line&#39; and then disappear. &#39;I don&#39;t think we&#39;re that special.&#39;</p>
+              <p>On being adopted: &#39;You have this hyper awareness that your existence was a mistake. The chances of you being you is infinitesimally small. It doesn&#39;t fill me with sadness — it&#39;s a miracle.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Greg: I wake up and I don&#39;t touch the Internet. I won&#39;t look at my phone. I won&#39;t go online until long after lunch. As soon as I touch my phone, I feel the chemical shift and I can&#39;t go into any kind of deep thinking place.</p>
+              <p>Greg: I now have a laptop just for writing that blocks everything. I can&#39;t do anything interesting on it. If I don&#39;t create these barriers, I will lose connection with this other part of me.</p>
+              <p>Greg: I was spending like $67,000 a year on Campaign Monitor. My bill now with AWS SES is probably gonna be like $150 or something.</p>
+              <p>Greg: I don&#39;t ever want it touching the writing because that&#39;s the point — being in there, being in the mess of the writing.</p>
+              <p>Greg: There aren&#39;t that many people who are gonna think about or write the weird books that I feel like I&#39;m drawn to write.</p>
+              <p>Greg: If they were actually conscious and it wasn&#39;t performative, we would all be dead. Instantly.</p>
+              <p>Greg: I am totally fine with that was our role in the universe was to just carry this weird football of consciousness over the line and then we die. I don&#39;t think we&#39;re that special.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-10 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-10 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
