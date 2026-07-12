@@ -1,0 +1,101 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-12",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "轻量版/播客特辑。今日 X feed 上游拉取失败（HTTP 402，所有账号返回空），无推文内容。但播客是一条重磅新节目：MAD Podcast × Emily Leigh-Howard（Stripe AI 产品负责人），深聊 Agentic Commerce 的全貌——从 agent 身份验证到 shared payment token、从 vibe deployment 到 token theft 三大欺诈模式、从 usage-based billing 到 streaming payments（Tempo + Metronome）、以及 agent 作为微型企业的未来愿景。"
+  },
+  "archive": {
+    "title": "Agentic Commerce 特辑",
+    "desc": "Stripe AI 产品负责人深聊 agent 商务全貌：身份、支付、欺诈、计费与 agent 微型企业愿景。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-12 source feeds. X feed unavailable (HTTP 402).",
+  "sections": [
+    {
+      "title": "Podcast: Stripe — The Architecture of Agentic Commerce / 播客：Stripe——Agentic Commerce 的架构",
+      "desc": "MAD Podcast × Emily Leigh-Howard（Stripe AI 产品负责人）。完整中文译文：agent 身份与信任、shared payment token、vibe deployment、token theft 三大欺诈、usage-based billing、streaming payments（Tempo+Metronome）、AI 创业生态数据、agent 微型企业愿景。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad",
+          "authorName": "The MAD Podcast with Matt Turck",
+          "authorTag": "Matt Turck（FirstMark）主持的 AI 行业播客",
+          "sourceUrl": "https://www.youtube.com/watch?v=G9hKL3KEu-E",
+          "en": {
+            "rewrite": [
+              "Emily Leigh-Howard leads AI products at Stripe. This is the most comprehensive conversation to date on how payment infrastructure must change when agents become economic actors.",
+              "Agent identity is the foundation: Stripe extended Link (one-click checkout) to work with agent permissions. Consumers set fine-grained guardrails — spend limits, trusted merchants, category restrictions. The agent never sees underlying credentials; each transaction is scored in real time by Stripe Radar (which now looks at 2% of global GDP).",
+              "Vibe deployment as the new bottleneck: coding is basically solved (agent traffic to Stripe docs grew 10x+, now 40% of all docs traffic; Stripe CLI is now 70% agent-driven). But deploying still requires manually creating accounts. Stripe Projects lets agents sign up for and configure all needed services from CLI — 16+ partners including Vercel, Supabase, Cloudflare, Twilio, Clerk.",
+              "Token theft — the most underdiscussed AI topic: three major fraud patterns. (1) Multi-account abuse: >1 in 6 signups at AI companies are bad actors harvesting new-user credits. (2) Free trial abuse: spin up trials with disposable cards, drain credits, never convert — doubled on Stripe in 6 months. (3) Token dine-and-dash: rack up thousands in usage, billed at month-end, never pay. Resale: steal tokens, mass-generate music, upload to Spotify, collect royalties.",
+              "Usage-based billing as existential: SaaS near-zero marginal cost breaks with AI. Hybrid model emerging: freemium threshold, then fixed subscription, then usage-based above. Lovable and ElevenLabs both evolved this way. Agents at machine speed demand real-time metering (Metronome) + real-time billing (Tempo blockchain streaming in stables).",
+              "AI startup ecosystem: Stripe business formation doubled. Atlas 2026 cohort tracking to 5x revenue of 2025 cohort. Emergent Labs (founded 2024): 70% international revenue, 16 countries.",
+              "12-month vision: agents as multifaceted economic actors — buying, selling, provisioning, running businesses end to end. Stripe Directory (public preview) for agent provider discovery. Ultimate end state: a solo agent running a complete micro-firm."
+            ],
+            "original": [
+              "Emily: We now look across just about 2% of global GDP. In the context of AI, basically all AI buyers and all AI sellers are on Link and on Stripe.",
+              "Emily: Agent traffic to Stripe's documentation grew more than 10x. Agent traffic is now about 40% of all our docs traffic.",
+              "Emily: Our CLI — 70% of its API resource requests are from agents. The majority of entities using our CLI today aren't people.",
+              "Emily: Vibe Coding was easy. Vibe deployment has become the binding constraint.",
+              "Emily: Fraudsters have figured out that in AI, you don't need to steal money or credentials. You can just steal tokens.",
+              "Emily: More than one in six signups at AI companies are this kind of abuse.",
+              "Emily: The pace of new businesses launching has doubled since we talked last year. Atlas startups from the 2026 cohort are tracking to five times the revenue.",
+              "Emily: I think we'll start to see agents that are multifaceted economic actors — buying, selling, provisioning infrastructure, running businesses."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Emily Leigh-Howard 是 Stripe 的 AI 产品负责人。这是迄今关于 agent 成为经济参与者后支付基础设施需要如何改变最全面的一次对话。",
+              "Agent 身份是基石：Stripe 将 Link 扩展为支持 agent 权限。消费者设置细粒度护栏——消费限额、信任商家、品类限制。Agent 永远看不到底层凭证；每笔交易由 Stripe Radar 实时评分（监控全球 GDP 的 2%）。",
+              "Vibe deployment 是新瓶颈：编码基本已解决（agent 流量占 Stripe 文档 40%，CLI 70% agent 驱动）。Stripe Projects 让 agent 从命令行直接注册配置所有需要的服务——16+ 合作伙伴。",
+              "Token theft——最被低估的 AI 欺诈：三大模式。（1）多账号滥用：AI 公司超过 1/6 注册是恶意的。（2）免费试用滥用：一次性卡开通试用抽干额度——半年翻倍。（3）Token 吃霸王餐：累积数千美元不付。转卖黑产：偷 token 生成音乐上传 Spotify 收版税。",
+              "Usage-based billing 生死攸关：SaaS 近零边际成本在 AI 时代崩溃。混合模式兴起：免费额度、固定订阅、超额按用量。Lovable 和 ElevenLabs 都走了这条路。Agent 机器速度消费需实时计量（Metronome）+ 实时流式支付（Tempo 区块链，稳定币结算）。",
+              "AI 创业生态：新企业翻倍，Atlas 2026 届收入轨迹 5 倍于 2025 届。Emergent Labs：70% 国际收入，16 个国家。",
+              "12 个月愿景：agent 成为多面经济参与者——买卖、配置、运营。Stripe Directory 公测让 agent 发现服务商。终极：solo agent 运营完整微型企业。"
+            ],
+            "original": [
+              "【Agent 身份与信任】",
+              "Emily 说：我们与 Tempo 合作推出了机器支付协议（MPP）——一个开放标准。Agent 请求访问服务，服务返回支付请求，agent 付款。没有账号创建、没有结账 UI、没有人在回路——机器可读的标准化方式让 agent 购买。",
+              "消费者有细粒度护栏和控制。Agent 永远看不到底层凭证——每次交易由 Stripe Radar 实时评分。凭证不再像人类在随机网站输入信用卡号那样通过不受信任的服务传播。",
+              "我们监控全球 GDP 的约 2%。在 AI 领域比例更大，因为所有 AI 买家和卖家都在 Link 和 Stripe 上。",
+              "",
+              "【Vibe Deployment：编码已解决，部署成新瓶颈】",
+              "Emily 说：Agent 流量到 Stripe 文档增长 10 倍以上，现在占 40%。CLI 70% 的 API 请求来自 agent。大多数使用 CLI 的实体不是人。",
+              "Vibe Coding 搞定了。但然后呢？Agent 20 分钟写了完整应用。但你还有大摩擦——数据库、认证、托管、邮件提供商，手动创建账户，复制粘贴凭证。",
+              "每个服务的入门流程都是为人设计的。现在编码不是长板了，部署成了约束。Stripe Projects 让 agent 从命令行注册和配置所有服务——Vercel、Supabase、Cloudflare、Twilio、Clerk 等加 16 个合作伙伴。",
+              "",
+              "【Token Theft：最被低估的 AI 欺诈】",
+              "Emily 说：欺诈者发现——在 AI 里你不需要偷钱或凭证，你只需要偷 token。Token 有真实价值。",
+              "三大模式：",
+              "（1）多账号滥用：AI 公司超过六分之一的注册是恶意刷新额度。",
+              "（2）免费试用滥用：用一次性卡（24 小时过期）开通试用，抽干额度，从不转化。六个月翻倍。有人向她推销免费试用卡。",
+              "（3）Token 吃霸王餐：累积数千美元成本，月底账单来了不付。",
+              "转卖链条：偷 token 批量生成音乐上传 Spotify 收版税。或淘宝折扣转卖。或 vibe code 克隆网站后端全是偷来的服务。",
+              "AI 公司都极度关注——这对利润率是存在性威胁。几周内就能上线一个防御 API。",
+              "",
+              "【Usage-based Billing：SaaS 模型已碎】",
+              "Emily 说：SaaS 的近零边际成本在 AI 时代碎了——每次 prompt 都有真实成本。客户的用法直接决定你赚还是亏。",
+              "混合模式成为标准：Lovable 从纯订阅进化到订阅加超额按 token 计费。ElevenLabs 同样路径。",
+              "Agent 以机器速度消费。月底才账单可能已经花了天文数字。需要实时计量（Metronome）加实时流式支付（Tempo 区块链，稳定币即时结算）。",
+              "",
+              "【AI 创业生态：新企业翻倍，5 倍收入轨迹】",
+              "Emily 说：全球新企业注册大幅增长——荷兰 40%，芬兰 70%，法国 80%。Stripe 新企业上线速度翻倍。",
+              "Atlas 2026 届收入轨迹是 2025 届的 5 倍。更快拿第一笔钱，更快规模化。",
+              "全球化从第一天开始：Emergent Labs 70% 国际收入，16 个国家。",
+              "",
+              "【12 个月愿景：Agent 微型企业】",
+              "Emily 说：我们将看到 agent 成为多面经济参与者——买、卖、配置基础设施、运营业务。",
+              "不是 Emily 给 agent 授权购买。而是 Emily 有一个 agent，任务是运营一个企业——包括买、卖、赚利润。",
+              "Stripe Directory 公测——让 agent 发现服务商。通过 Projects 直接集成。Agent 发现、集成、购买所有服务，组合成自己的产品出售。",
+              "12 个月后完全可能看到 solo agent 运营完整微型企业的例子。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
