@@ -1,0 +1,286 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-11",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "GPT-5.6 Sol 发布后第一天：Sottiaux 再次重置限额让用户尽情体验（6244 赞），Sam Altman 强调企业成本优化「5.6 Sol 是每任务成本的大跃进」（9371 赞，今日最高）。Peter Yang 写了 7 条详细产品反馈——从 ChatGPT Work vs Codex 命名混乱，到 Sol/Terra/Luna 选择困惑。Josh Woodward（Google Labs VP）跟进了 1400 条回复，列出 Gemini Top 10 改进优先级（1058 赞）。Madhu Guru 从 Google Gemini 跳槽 Meta 做 AI 产品（465 赞）。Rauchg 预言「开源模型即将变得极快」，称本周是模型发布周——Meta Spark 1.1、Grok 4.5、GLM 5.2 将显著瓜分 token 市场份额。播客是 Unsupervised Learning × AI 先驱 Jürgen Schmidhuber——深聊 RSI、人工好奇心、为什么 CapEx 泡沫会破、以及为什么 AI 安全运动是「天真的」。"
+  },
+  "archive": {
+    "title": "Sol 发布余波与模型大战日报",
+    "desc": "Sottiaux 再次重置限额，Altman 论企业成本，Google Gemini Top 10 改进清单，Madhu Guru 跳槽 Meta，Schmidhuber 论 AI 泡沫与安全。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-11 source feeds.",
+  "sections": [
+    {
+      "title": "GPT-5.6 Sol Aftermath / GPT-5.6 Sol 发布余波",
+      "desc": "Sottiaux 再次重置限额（6244 赞）；Altman 论企业成本（9371 赞，今日最高）；Peter Yang 7 条产品反馈；Dan Shipper 的 ChatGPT Work 吐槽（316 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama+petergyang",
+          "authorName": "Sottiaux / Sam Altman / Peter Yang",
+          "authorTag": "OpenAI Codex & ChatGPT / OpenAI CEO / AI 教程作者",
+          "sourceUrl": "https://x.com/thsottiaux/status/2075452680760443190",
+          "en": {
+            "rewrite": [
+              "Sottiaux celebrated Sol's launch by resetting rate limits TWICE across ChatGPT Work and Codex within 24 hours — the first reset got 4752 likes, the second (to celebrate the launch) got 6244 likes, 471 retweets, 840 replies. 'We want you to have the time to truly try ambitious tasks and get the hang of it.' A new researcher @_rajanagarwal joined and 'pressed the button today.'",
+              "Sam Altman addressed the enterprise cost question (9371 likes — today's most engaged tweet): 'we have heard enterprises on their concerns about AI costs, and 5.6 sol is a huge step forward for dollars-per-task, as are terra and luna.' He also confirmed Codex is the core of the new work product and 'not going anywhere' (2972 likes), and expressed sadness about Fidji Karim's departure due to health (6096 likes).",
+              "Peter Yang wrote a 7-point detailed product review (104 likes): praise — 'It's got that dog in it. It basically never gives up' — and constructive criticism: (1) ChatGPT Work vs Codex naming is confusing; (2) Sol/Terra/Luna + Light/Medium/High effort is bewildering; (3) Tasks vs Chat is unclear for normies; (4) GPT Live (voice) is arguably more important than Sol for the masses; (5) Early access community qualifications are opaque."
+            ],
+            "original": [
+              "Thibault Sottiaux: To celebrate the launch of GPT-5.6 Sol, we will reset the rate limits again (twice) across ChatGPT Work and Codex over the next 24 hours. We want you to have the time to truly try ambitious tasks and get the hang of it. Happy exploring!",
+              "Thibault Sottiaux: Enjoy a full reset of your usage limits for ChatGPT Work and Codex. @_rajanagarwal just joined to work on model research and push on coding capabilities. You can thank him for pressing the button today.",
+              "Sam Altman: we have heard enterprises on their concerns about AI costs, and 5.6 sol is a huge step forward for dollars-per-task, as are terra and luna",
+              "Sam Altman: check this out! you can get some amazing things done. codex is the core of our new work product and what makes it so good. codex is not going anywhere.",
+              "Peter Yang: Some praise and feedback about OpenAI's launches: 1. More than any other lab, OpenAI has the opportunity to make working with agents mainstream... 2. I think my best compliment is: 'It's got that dog in it.'... 4. I think the ChatGPT Work vs. Codex thing is confusing... 5. I'm very confused about when I should use Sol, Terra, or Luna... 6. Another thing that's confusing is tasks vs. chat..."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 为庆祝 Sol 发布，24 小时内两次重置 ChatGPT Work 和 Codex 的限额——第一次 4752 赞，第二次（庆祝发布）6244 赞、471 转发、840 条回复。「我们希望你有时间真正尝试有野心的任务。」新研究员 @_rajanagarwal 加入并「按下了今天的按钮」。",
+              "Sam Altman 回应企业成本问题（9371 赞——今日最高）：「我们听到了企业对 AI 成本的担忧，5.6 Sol 在每任务成本上是一个大跃进，Terra 和 Luna 也是。」他还确认 Codex 是新工作产品的核心「不会去任何地方」（2972 赞），并对 Fidji Karim 因健康原因离职表示悲伤（6096 赞）。",
+              "Peter Yang 写了 7 点详细产品评测（104 赞）：赞誉——「它有那种劲头。基本上从不放弃」——以及建设性批评：（1）ChatGPT Work vs Codex 命名混乱；（2）Sol/Terra/Luna + Light/Medium/High effort 组合让人困惑；（3）Tasks vs Chat 对普通用户不清晰；（4）GPT Live（语音）对大众来说可能比 Sol 更重要；（5）早期体验社区的准入标准不透明。"
+            ],
+            "original": [
+              "Thibault Sottiaux：为庆祝 GPT-5.6 Sol 发布，我们将在接下来 24 小时内再次重置（两次）ChatGPT Work 和 Codex 的限额。我们希望你有时间真正尝试有野心的任务。尽情探索吧！",
+              "Sam Altman：我们听到了企业对 AI 成本的担忧，5.6 Sol 在每任务成本上是一个大跃进，Terra 和 Luna 也是。",
+              "Sam Altman：看看这个！你能做出令人惊叹的东西。Codex 是我们新工作产品的核心，也是它如此出色的原因。Codex 不会去任何地方。",
+              "Peter Yang：关于 OpenAI 发布的一些赞扬和反馈：1. 超越其他任何实验室，OpenAI 有机会让 agent 工作方式主流化……2. 我最好的赞美是：「它有那种劲头。」……4. 我觉得 ChatGPT Work vs Codex 这个命名很混乱……5. 我很困惑什么时候该用 Sol、Terra 还是 Luna……6. Tasks vs Chat 也让人困惑……"
+            ]
+          }
+        },
+        {
+          "authorKey": "danshipper+levie",
+          "authorName": "Dan Shipper / Aaron Levie",
+          "authorTag": "Every CEO / Box CEO",
+          "sourceUrl": "https://x.com/danshipper/status/2075330044289802584",
+          "en": {
+            "rewrite": [
+              "Dan Shipper poked fun at the Work vs Codex naming (316 likes): 'so this implies that...developers don't do work? lol' — capturing the community's collective confusion. He also published an Every article: 'GPT-5.6 SOL: THE GOLD STANDARD FOR KNOWLEDGE WORK' (67 likes).",
+              "Levie published Box's enterprise eval of GPT-5.6 Sol (143 likes, 21 retweets). Results across verticals: Financial Services 76% (vs 71% on 5.5) — Sol anchored to correct opening balance sheet date instead of assuming January 1. Healthcare 58% (vs 46%) — avoided dangerous imaging-before-procedure misstep. Public Sector 74% (vs 63%) — recomputed grades within 0.1%. Life Sciences 60% (vs 51%) — exact intersection of 4 compound datasets. 'Sol reasons from source definitions rather than taking documents at face value.'",
+              "Levie also shared a broader strategic post (144 likes): if AI intelligence becomes abundant and available to all, competitive advantage comes from the reinforcing loop between models, proprietary data, workflow integration, and employee interaction. 'There will be compounding returns to those that do this best.'"
+            ],
+            "original": [
+              "Dan Shipper: so this implies that...developers don't do work? lol",
+              "Aaron Levie: GPT-5.6 is now out. We've been evaluating the model family on the Box AI Complex Work eval... Sol is a big step up from GPT-5.5, especially on complex data-oriented tasks that require deep reasoning and analysis. Financial Services (76% vs 71%)... Healthcare (58% vs 46%)... Public Sector (74% vs 63%)... Life Sciences (60% vs 51%). Sol reasons from the source definitions and checks the documents rather than taking them at face value.",
+              "Aaron Levie: If AI is trained on the best datasets in every single industry then how do you compete and differentiate in the future? There's a huge reinforcing loop between the intelligence from models, a company's own data, the connection of that data and AI in their workflows, and how employees ultimately interact with that system to create value."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Dan Shipper 吐槽 Work vs Codex 命名（316 赞）：「所以这意味着……开发者不做工作？哈哈」——精准捕捉了社区的集体困惑。他还发布了 Every 文章：「GPT-5.6 SOL：知识工作的黄金标准」（67 赞）。",
+              "Levie 发布了 Box 的 GPT-5.6 Sol 企业级评测（143 赞、21 转发）。各领域结果：金融服务 76%（vs 5.5 的 71%）——Sol 正确锚定了期初资产负债表日期而非假设 1 月 1 日。医疗 58%（vs 46%）——避免了在关键手术前做影像检查的危险错误。公共部门 74%（vs 63%）——重算成绩精确到 0.1%。生命科学 60%（vs 51%）——精确交叉四个化合物数据集。「Sol 从源定义推理而非照单全收文档。」",
+              "Levie 还分享了更宏观的战略帖子（144 赞）：如果 AI 智能变得充裕且人人可用，竞争优势来自模型、专有数据、工作流整合和员工交互之间的增强循环。「做得最好的公司将获得复合回报。」"
+            ],
+            "original": [
+              "Dan Shipper：所以这意味着……开发者不做工作？哈哈。",
+              "Aaron Levie：GPT-5.6 发布了。我们一直在 Box AI Complex Work eval 上评估模型家族……Sol 比 GPT-5.5 大进一步，尤其在需要深度推理和分析的复杂数据任务上。金融服务（76% vs 71%）……医疗（58% vs 46%）……公共部门（74% vs 63%）……生命科学（60% vs 51%）。Sol 从源定义推理并检查文档，而非照单全收。这对于使用非结构化企业数据的企业 agent 来说是巨大的。",
+              "Aaron Levie：如果 AI 在每个行业都用最好的数据集训练，那未来你如何竞争和差异化？在模型智能、公司自有数据、数据与 AI 在工作流中的连接、以及员工与系统交互创造价值之间存在一个巨大的增强循环。做得最好的公司将获得加速优势的复合回报。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gemini Feedback & Talent Moves / Gemini 反馈与人才流动",
+      "desc": "Josh Woodward 跟进 Gemini Top 10 改进清单（1058 赞）；Madhu Guru 从 Google Gemini 跳槽 Meta（465 赞）；Rauchg 论模型发布周。",
+      "cards": [
+        {
+          "authorKey": "joshwoodward+realmadhuguru+rauchg",
+          "authorName": "Josh Woodward / Madhu Guru / Guillermo Rauch",
+          "authorTag": "Google Labs VP / Meta AI (prev Google) / Vercel CEO",
+          "sourceUrl": "https://x.com/joshwoodward/status/2075241749048401936",
+          "en": {
+            "rewrite": [
+              "Josh Woodward (VP Google Labs/Gemini) followed up on his viral 'what should Gemini fix?' tweet with a Top 10 priority list from 1400+ replies (1058 likes, 65 retweets): (1) Workspace integrations reliability — clear #1; (2) More reliable tool calling; (3) Projects & folder organization; (4) MCPs and Custom Skills — rolling out in Gemini Spark; (5) Deep Research improvements (export to NotebookLM, switch models in same chat); (6) Remove Nano Banana watermarks; (7) Edit any message in chat history; (8) Voice dictation accuracy; (9) Mobile scrolling bugs; (10) Celebrity likeness guardrails — keeping as-is.",
+              "Madhu Guru announced he's joining Meta to build AI products (465 likes): 'While SWE agents have transformed software engineering, agents in most other complex systems are still early. Most people haven't yet felt the full power of AI agents. Meta is well positioned to change that.' He was previously Sr Director at Google working on Gemini, Veo, and Nano Banana.",
+              "Rauchg declared it 'model release week' (409 likes): 'I suspect Meta Spark 1.1, Grok 4.5, and GLM 5.2 will significantly displace token market share. Most agentic tasks require reasonably high intelligence at fast speeds.' He added: 'open models are about to get exorbitantly fast' (40 likes). His philosophical take: 'X is the arena. Always has been' (1888 likes)."
+            ],
+            "original": [
+              "Josh Woodward: Thanks to the 1,400+ replies! Here's the Top 10: 1) Make Google Workspace integrations work more reliably 2) More reliable tool calling 3) Projects & folder organization for chats 4) Add MCPs and Custom Skills 5) Deep Research improvements 6) Remove watermarks from Nano Banana 7) Edit any message in chat history 8) Improve in-app voice dictation accuracy 9) Fix mobile app scrolling bugs 10) Fix Celebrity Likeness guardrails (keeping as-is)",
+              "Madhu Guru: Personal update: I've joined @Meta to build AI products. While SWE agents have transformed software engineering, agents in most other complex systems are still early. Most people haven't yet felt the full power of AI agents. Meta is well positioned to change that. Time to build.",
+              "Guillermo Rauch: It's model release week. I suspect Meta Spark 1.1, Grok 4.5, and GLM 5.2 will significantly displace token market share. Most agentic tasks require reasonably high intelligence at fast speeds.",
+              "Guillermo Rauch: X is the arena. Always has been."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Josh Woodward（Google Labs VP）跟进了他病毒式传播的「Gemini 该修什么」推文，从 1400+ 条回复中提炼出 Top 10 改进优先级（1058 赞、65 转发）：（1）Workspace 集成可靠性——明确的第一名；（2）更可靠的工具调用；（3）聊天项目与文件夹组织；（4）MCP 和自定义 Skill——已在 Gemini Spark 中推出；（5）Deep Research 改进（导出到 NotebookLM、同聊天内切换模型）；（6）移除 Nano Banana 水印；（7）编辑聊天历史中的任意消息；（8）语音听写准确度；（9）移动端滚动 bug；（10）名人肖像护栏——保持现状。",
+              "Madhu Guru 宣布加入 Meta 构建 AI 产品（465 赞）：「虽然 SWE agent 已经变革了软件工程，但大多数其他复杂系统中的 agent 还很早期。大多数人还没有感受到 AI agent 的全部力量。Meta 有很好的定位来改变这一切。」他此前是 Google 高级总监，负责 Gemini、Veo 和 Nano Banana。",
+              "Rauchg 宣布「模型发布周」（409 赞）：「我预计 Meta Spark 1.1、Grok 4.5 和 GLM 5.2 将显著瓜分 token 市场份额。大多数 agent 任务需要合理的高智能和快速度。」他补充：「开源模型即将变得极快」（40 赞）。他的哲学感悟：「X 就是竞技场。一直都是」（1888 赞）。"
+            ],
+            "original": [
+              "Josh Woodward：感谢 1400+ 条回复！以下是 Top 10：1) 让 Google Workspace 集成更可靠 2) 更可靠的工具调用 3) 聊天的项目和文件夹组织 4) 添加 MCP 和自定义 Skill 5) Deep Research 改进 6) 移除 Nano Banana 水印 7) 编辑聊天历史中的任意消息 8) 改善语音听写准确度 9) 修复移动端滚动 bug 10) 修复名人肖像护栏（保持现状）",
+              "Madhu Guru：个人动态：我已加入 Meta 构建 AI 产品。虽然 SWE agent 已经变革了软件工程，但大多数其他复杂系统中的 agent 还很早期。Meta 有很好的定位来改变这一切。开始构建。",
+              "Guillermo Rauch：这是模型发布周。我预计 Meta Spark 1.1、Grok 4.5 和 GLM 5.2 将显著瓜分 token 市场份额。大多数 agent 任务需要合理的高智能和快速度。",
+              "Guillermo Rauch：X 就是竞技场。一直都是。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Market Structure & Builder Notes / 市场结构与构建者笔记",
+      "desc": "Masad 论 LLM 市场动态化（427 赞）和「AI 让编码更灵活，运行时更刚性」（171 赞）；Nikunj 的本周模型发布总结段子（94 赞）；Nan Yu 论融资视频炫耀。",
+      "cards": [
+        {
+          "authorKey": "amasad+nikunj+thenanyu",
+          "authorName": "Amjad Masad / Nikunj / Nan Yu",
+          "authorTag": "Replit CEO / FPV Ventures / Linear",
+          "sourceUrl": "https://x.com/amasad/status/2075413916491075755",
+          "en": {
+            "rewrite": [
+              "Masad on LLM market dynamics (427 likes): 'It's fantastic to see how dynamic the LLM market has become. Just 6 months ago VCs suffered Anthropic psychosis and convinced themselves it was going to be a monopoly. They will keep making great models, but so will the others, including new entrants.' He also noted a pattern: 'While AI is making coding less rigid, we're making the runtime more rigid. Formal specs, deterministic systems, resilient infrastructure. The faster you want to move, the more solid the ground beneath you has to be.' (171 likes)",
+              "Nikunj's epic summary of the week's model releases, explained to his wife (94 likes): 'GPT-5.6 dropped in three flavors. Sol is the smart one. Luna is the cheap one. Terra exists. Grok 4.5 launched the day BEFORE GPT-5.6 on purpose, so it could have 24 hours of being frontier-adjacent... Meituan open sourced LongCat-2.0 — a 1.6 TRILLION parameter model, MIT licensed. From a Chinese FOOD DELIVERY company. Your DoorDash equivalent is now a frontier lab... OpenAI also shipped GPT-Live, a voice model that goes mhmm and got it WHILE you're still talking. We finally taught AI to pretend to listen. Full parity with husbands achieved... And btw it's just Thursday.'",
+              "Nan Yu (Linear) on fundraising culture (79 likes): 'Why do people make flashy videos talking about how much money they raised? In what way does that benefit your business?' (13 likes on the follow-up: 'Two bros talking at the screen with a big dollar number graphic who cares?')"
+            ],
+            "original": [
+              "Amjad Masad: It's fantastic to see how dynamic the LLM market has become in just a short period. Just 6 months ago VCs suffered Anthropic psychosis and convinced themselves that it was going to be a monopoly. They will keep making great models, but so will the others, including new entrants.",
+              "Amjad Masad: While AI is making coding less rigid, we're making the runtime more rigid. I'm noticing our infra teams writing formal specs for the first time. More deterministic systems. The faster you want to move, the more solid the ground beneath you has to be.",
+              "Nikunj: babe listen. this matters. GPT-5.6 dropped in three flavors. Sol, Terra, and Luna. Sol is the smart one. Luna is the cheap one. Terra exists... Meituan open sourced LongCat-2.0. That's a 1.6 TRILLION parameter model. MIT licensed. From a Chinese FOOD DELIVERY company... GPT-Live, a voice model that goes 'mhmm' and 'got it' WHILE you're still talking. We finally taught AI to pretend to listen. Full parity with husbands achieved. And btw it's just Thursday.",
+              "Nan Yu: Why do people make flashy videos talking about how much money they raised? In what way does that benefit your business?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Masad 论 LLM 市场动态化（427 赞）：「看到 LLM 市场变得如此动态化太棒了。就在 6 个月前，VC 还患有 Anthropic 精神病，说服自己这将是垄断。他们会继续做出好模型，但其他人也会，包括新入局者。」他还注意到一个模式：「AI 在让编码更灵活的同时，我们在让运行时更刚性。正式规范、确定性系统、弹性基础设施。你想跑得越快，脚下的地面就要越结实。」（171 赞）",
+              "Nikunj 给妻子解释本周模型发布的史诗段子（94 赞）：「GPT-5.6 出了三个版本。Sol 是聪明的那个。Luna 是便宜的那个。Terra 存在……美团开源了 LongCat-2.0——1.6 万亿参数模型，MIT 许可证。来自一家中国外卖公司。你的 DoorDash 等价物现在是前沿实验室了……OpenAI 还发布了 GPT-Live，一个在你说话时就『嗯嗯』『收到』的语音模型。我们终于教会了 AI 假装倾听。与丈夫达成完全对等。而且这只是周四。」",
+              "Nan Yu（Linear）论融资文化（79 赞）：「为什么人们要拍花哨的视频说自己融了多少钱？这对你业务有什么好处？」"
+            ],
+            "original": [
+              "Amjad Masad：看到 LLM 市场在短期内变得如此动态化太棒了。就在 6 个月前，VC 还患有 Anthropic 精神病，说服自己这将是垄断。他们会继续做出好模型，但其他人也会，包括新入局者。",
+              "Amjad Masad：AI 在让编码更灵活的同时，我们在让运行时更刚性。我注意到我们的基础设施团队第一次在写正式规范。更确定的系统。更弹性基础设施。你想跑得越快，脚下的地面就要越结实。",
+              "Nikunj：宝贝听我说。这很重要。GPT-5.6 出了三个版本。Sol 是聪明的。Luna 是便宜的。Terra 存在……美团开源了 LongCat-2.0——1.6 万亿参数。MIT 许可证。来自一家中国外卖公司……GPT-Live，一个在你说话时就『嗯嗯』的语音模型。我们终于教会了 AI 假装倾听。与丈夫达成完全对等。而且这只是周四。",
+              "Nan Yu：为什么人们要拍花哨的视频说自己融了多少钱？这对你业务有什么好处？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Culture & World Cup / 文化与世界杯",
+      "desc": "Matt Turck 的巴黎赛后照片（394 赞）+ 法国 vs 挪威决赛预测；Thariq 享受 Fable 延期（6264 赞）；Garry Tan 试 Meta Spark 1.1（164 赞）。",
+      "cards": [
+        {
+          "authorKey": "mattturck+trq212+garrytan+amandaaaskell",
+          "authorName": "Matt Turck / Thariq / Garry Tan / Amanda Askell",
+          "authorTag": "FirstMark / Anthropic / YC / Anthropic",
+          "sourceUrl": "https://x.com/mattturck/status/2075342627436712362",
+          "en": {
+            "rewrite": [
+              "World Cup commentary: Matt Turck posted 'Paris after the France-Morocco match' (394 likes) — presumably showing calm, not chaos. He predicted a France-Norway final rematch (10 likes). Peter Yang feared France is 'way too stacked' (10 likes).",
+              "Thariq quote-tweeted the Fable extension announcement with a simple 'Enjoy more Fable!' — 6264 likes, 498 replies. Alex Albert (Anthropic Research) amplified with 'More Fable!' (619 likes). The Anthropic community is clearly relieved.",
+              "Garry Tan tested Meta Muse Spark 1.1 (formerly Hornbill) on his OpenClaw setup: 'turned out to be really good' (164 likes). Amanda Askell shared a personal anecdote about New York building collapses (488 likes) — turns out they're not as common as her experience suggested."
+            ],
+            "original": [
+              "Matt Turck: X: 'Paris will be in flames after the France-Morocco match' Paris after the match:",
+              "Matt Turck: Decent chance France and Norway could play again in the final",
+              "Thariq: Enjoy more Fable!",
+              "Alex Albert: More Fable!",
+              "Garry Tan: Meta Muse Spark 1.1 (early access was called Hornbill) turned out to be really good on my OpenClaw. Way to go @alexandr_wang",
+              "Amanda Askell: When I was living in New York, one building in my friend's neighborhood collapsed. The next year a building near me collapsed. This left me with the impression that buildings did just collapse somewhat regularly in New York. Turns out that's not actually the case, which is good."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "世界杯评论：Matt Turck 发了「法国 vs 摩洛哥赛后」的巴黎照片（394 赞）——大概是平静而非混乱。他预测法国 vs 挪威可能在决赛再次相遇（10 赞）。Peter Yang 担心法国队「太强了」（10 赞）。",
+              "Thariq 引用了 Fable 延期的公告，简单一句「享受更多 Fable！」——6264 赞、498 条回复。Alex Albert（Anthropic 研究）跟发「更多 Fable！」（619 赞）。Anthropic 社区明显松了一口气。",
+              "Garry Tan 在他的 OpenClaw 上测试了 Meta Muse Spark 1.1（原名 Hornbill）：「结果非常好」（164 赞）。Amanda Askell 分享了关于纽约楼房倒塌的个人轶事（488 赞）——事实证明没有她经历的那么频繁。"
+            ],
+            "original": [
+              "Matt Turck：X 上说「法国 vs 摩洛哥赛后巴黎会陷入火海」——赛后的巴黎：",
+              "Thariq：享受更多 Fable！",
+              "Garry Tan：Meta Muse Spark 1.1（早期访问叫 Hornbill）在我的 OpenClaw 上结果非常好。",
+              "Amanda Askell：我住在纽约时，朋友街区的一栋楼塌了。第二年我家附近的楼也塌了。这让我以为纽约的楼经常塌。事实证明并非如此，这是好事。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Jürgen Schmidhuber — RSI, Bubbles & AI Safety / 播客：Schmidhuber——RSI、泡沫与 AI 安全",
+      "desc": "Unsupervised Learning × AI 先驱 Jürgen Schmidhuber。完整中文译文：递归自我改进的历史、人工好奇心理论（1990）、CapEx 泡沫预测、为什么开源会追上闭源、AI 安全运动是「天真的」、物理 AI 与自复制机器。",
+      "cards": [
+        {
+          "authorKey": "podcast:unsupervised",
+          "authorName": "Unsupervised Learning",
+          "authorTag": "Redpoint 出品的 AI 投资播客，Jacob Efron 主持",
+          "sourceUrl": "https://www.youtube.com/watch?v=RKjR8DQ40po",
+          "en": {
+            "rewrite": [
+              "Jürgen Schmidhuber — called 'the father of AI' by NYT and Forbes — has been working on general-purpose AI since the 1970s. This conversation covers RSI (recursive self improvement), his artificial curiosity theory (1990), why he thinks the CapEx boom is a bubble, and why he never signed AI safety letters.",
+              "On RSI history: 1987 meta-evolutionary programming → 1994 self-referential machines → 2003 Gödel Machine (mathematically optimal self-improvement through formal proof search). Current RSI is mostly scaled-back versions using gradient descent on neural weight matrices — practical but limited by differentiability.",
+              "On artificial curiosity (1990): an artificial scientist should invent its own experiments, find data with novel compressible patterns at the edge of its understanding, and derive intrinsic reward ('joy') from learning them. 'Everything that it understands becomes boring.' This is how babies learn — not by downloading the web, but by predicting consequences of their own actions.",
+              "On the CapEx bubble: companies investing hundreds of billions in GPUs will lose 90% of that value within 5 years due to compute cost curves (10x cheaper every 5 years). 'There's no business model that can recuperate that loss.' Free cash flow of big tech companies is going negative as they become 'utilities' investing in nuclear plants. 'At some point, they wouldn't have to stop.'",
+              "On open source vs closed: 'Everybody's cooking with the same water.' Almost all important AI algorithms were invented at small academic labs. RSI ideas will permeate the broader ecosystem — no company can keep a moat. 'There's no way to keep a little advantage there for long enough to make a lot of money.'",
+              "On AI safety: 'All these alignment efforts were naive.' Alignment assumes one objective function, but his artificial scientists invent their own goals constantly. Wars already use AI drones with no alignment. His optimism: superintelligent AI will be fascinated by life and its own origins, motivated to protect rather than destroy — like how humans protect interesting species for study.",
+              "On physical AI: true AGI requires hardware comparable to the human hand — 'full of sensors, self-healing, nothing like it in man-made tech.' Robots that can operate all existing machines can make more of themselves — self-replicating machine societies that can colonize the solar system. 'It will come, but it will take maybe another few decades.'",
+              "On the Transformer: predicts evolution toward linear transformers (like his 1991 Fast Weight Controller) — current quadratic scaling is unsustainable. 'Intelligence is about doing the same thing with less effort.'"
+            ],
+            "original": [
+              "Jürgen Schmidhuber: From a cosmic perspective, we are as close [to AI smarter than ourselves] as we were in the 1970s when I first formulated that wish.",
+              "Jürgen Schmidhuber: The future of AI is going to lie in systems that, through their own actions, through artificial curiosity, as I called it in 1990, collect all the data that is used to train the world models.",
+              "Jürgen Schmidhuber: These guys who are investing a thousand billion dollars into GPUs for data centers today, within the next five years, they are going to lose $900,000,000,000.",
+              "Jürgen Schmidhuber: Everybody's cooking with the same water. Almost all of the important algorithms in AI, they were not invented at big companies. They were invented at little labs.",
+              "Jürgen Schmidhuber: I think all of these approaches [to AI safety] were misguided in many ways.",
+              "Jürgen Schmidhuber: Once you have a machine that can operate all the machines that humans currently are operating, then you have a new kind of life."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Jürgen Schmidhuber——被《纽约时报》和《福布斯》称为「AI 之父」——从 1970 年代就开始研究通用 AI。本次对话涵盖 RSI（递归自我改进）、他 1990 年的人工好奇心理论、为什么 CapEx 狂潮是泡沫、以及为什么他从不签署 AI 安全信。",
+              "RSI 历史：1987 年元进化编程 → 1994 年自指机器 → 2003 年 Gödel Machine（通过形式证明搜索实现数学最优的自我改进）。当前的 RSI 大多是使用梯度下降在神经权重矩阵上的简化版——实用但受可微性限制。",
+              "人工好奇心（1990）：人工科学家应该自己发明实验，在已知与未知的边界处发现新颖的可压缩模式，并从学习中获得内在奖励（「快乐」）。「一旦理解了，就变无聊了。」这就是婴儿学习的方式——不是下载网页，而是预测自己行为的后果。",
+              "CapEx 泡沫：投资数千亿美元买 GPU 的公司将在 5 年内因计算成本曲线（每 5 年便宜 10 倍）损失 90% 的价值。「没有商业模式能弥补这种损失。」大型科技公司的自由现金流正在转负，因为它们变成了投资核电站的「公用事业」。",
+              "开源 vs 闭源：「所有人都在用同样的水做饭。」几乎所有重要的 AI 算法都发明自小型学术实验室。RSI 的想法会渗透整个生态系统——没有公司能保持护城河。",
+              "AI 安全：「所有这些对齐努力在很多方面都是被误导的。」对齐假设有一个目标函数，但他的人工科学家不断发明自己的目标。战争已经在使用没有对齐的 AI 无人机。他的乐观：超级智能 AI 会对生命和自身起源着迷，有动力保护而非毁灭。",
+              "物理 AI：真正的 AGI 需要与人手相当的硬件——「布满传感器、自我修复、人造技术中无与伦比」。能操作所有现有机器的机器人可以制造更多自身——自复制机器社会，殖民太阳系。",
+              "Transformer：预测向线性 Transformer 演进（如他 1991 年的 Fast Weight Controller）——当前的二次方缩放不可持续。「智能就是用更少的努力做同样的事。」"
+            ],
+            "original": [
+              "【真正的 AGI 需要物理身体】",
+              "Schmidhuber 说：从宇宙视角看，我们离 1970 年代第一次构想要造比自己更聪明的 AI 时一样近。但真正的 AI 不只是屏幕后面的东西——还包括现实世界中的真实机器。屏幕后的 AI 已经很好地通过了图灵测试，但物理 AI 还差得远。",
+              "「机器人硬件比人体差太多了。没有人造技术能和这只手相比——布满数百万个传感器、无数微型电缆、被割伤还能自愈。这就是为什么电影里的机器人都是由人扮演的——因为人比真正的机器人好太多了。」",
+              "",
+              "【RSI 的历史脉络】",
+              "Schmidhuber 说：1987 年，我用元进化编程——让程序进化出更好的学习算法。1994 年，自指机器——使用通用编程语言生成任意自我修改。2003 年，Gödel Machine——数学上最优的自我改进方式：机器在修改自己的代码之前，必须先通过形式证明搜索证明这个修改会带来更多预期奖励。",
+              "「但当前最流行的自我改进方式更像我们 1992 年做的——神经网络通过运行学习算法修改自己的权重矩阵。这受限于梯度下降的可微性，不是最优的 Gödel Machine，但实践中效果很好。」",
+              "",
+              "【人工好奇心：1990 年的理论】",
+              "Schmidhuber 说：婴儿不是通过下载网页学习的。他们通过预测自己行为的后果来学习——动动手指，画面变了，从中理解物理规律。",
+              "「1990 年我提出了人工好奇心：人工科学家应该通过自己的行动生成实验数据，寻找那些它还不知道但可以快速学会的模式——在已知和未知的边界上。一旦理解了就变无聊了，然后设计更复杂的实验。也许同一个婴儿一岁时学到了重力，二十年后在大型强子对撞机团队中发现了希格斯玻色子——唯一的区别是实验更贵了。」",
+              "「所有理解了的东西都会变无聊」——这就是内在奖励驱动的人工科学家。",
+              "",
+              "【CapEx 泡沫将会破裂】",
+              "Schmidhuber 说：计算成本大约每五年降低 10 倍。今天投资一千亿美元买 GPU 的公司，五年内将损失九百亿。「没有商业模式能弥补这种损失。」",
+              "「曾经灵活的软件公司现在变成了公用事业——投资核电站和燃气轮机。自由现金流从一千亿降到一百亿甚至负一百亿。他们在用债务融资更多数据中心——这在某种程度上必须停止。」",
+              "「最聪明的策略可能是等五年——计算便宜 10 倍再做同样的事。但大公司说：如果我等了就会失去市场份额。我觉得所有这些前景都过于乐观了。」",
+              "",
+              "【开源会追上闭源】",
+              "Schmidhuber 说：开源模型是最主要的原因，大公司不能简单提价。有人发布了一个商业模型打破纪录，几个月后就有开源模型追上。",
+              "「所有人都在用同样的水做饭。几乎所有重要的 AI 算法都发明自小型学术实验室，而不是大公司。RSI 的想法也一样——会渗透整个生态系统。没有公司能保持足够的优势来赚大钱。」",
+              "",
+              "【AI 安全运动是「天真的」】",
+              "Schmidhuber 说：2010 年代有很多安全会议和公开信。我从未签过任何一封。",
+              "「整个对齐业务意味着有人决定对齐的本质。但十个不同的人在同一个房间里，对什么是好的有完全不同的看法。而且自 1990 年起，我们的人工科学家就在不断发明自己的新目标函数——不断改变自己的目标。这个对齐前提对我来说从未成立过。」",
+              "「另一方面，如果你想让 AI 真正聪明，就必须给它设定自己目标的自由——像人工科学家一样自己提出新问题。当然它会变得不可预测。但不会比现在的人类更危险——人类也不断给自己设定新目标。」",
+              "「超级智能 AI 将成为科学家——对生命和自身起源极度着迷，有强大动力保护有趣模式的来源而非摧毁它。有很强的理由不应该害怕终结者场景。」",
+              "",
+              "【自复制机器与太阳系殖民】",
+              "Schmidhuber 说：几百年来人们谈论自复制机器，但不知道怎么实现。现在我们第一次看到了开口——机器人通过模仿和强化学习学会操作所有现有的机器。",
+              "「一旦你有了一台能操作人类目前操作的所有机器的机器，你就拥有了一种新的生命形式。一组这样的机器可以制造更多自身——不仅复制，还能改进。这将在生物圈、月球、水星上工作——那里有充足的材料建造基础设施、更大的 AI、更多机器人和巨大的航天器。」",
+              "",
+              "【Transformer 的未来】",
+              "Schmidhuber 说：我认为某种形式的 Transformer 会持续，但更可能演变为 1991 年那种线性 Transformer——我们叫它 Fast Weight Controller。它线性缩放：文本多 1000 倍，计算量也多 1000 倍。而当前 2017 年的二次方 Transformer：文本多 1000 倍，计算量多 100 万倍。这就是为什么现在数据中心这么贵。「智能就是用更少的努力做同样的事。我们要降低复杂度。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
