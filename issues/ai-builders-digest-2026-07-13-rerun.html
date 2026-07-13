@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-13" data-issue-number="56" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 56 期｜2026-07-13｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="周末+周一版，feed 内容适中。Sam Altman 又拿了全场最高互动——一条关于 GPT-5.6 Sol 和 Elon 的段子拿到 49330 赞。Sottiaux 做了一件社区超爱的事：发布了让 Claude Code 跑 GPT-5.6 Sol 的 claudex alias（3871 赞），还列出了 Sol 在速度/后端/前端/useEffect 上的全面进步（2557 赞）。Levie 论 Jevons 悖论：AI 降低了软件生产成本，但软件岗位需求反而在涨。Swyx 补充：编码不是例外，而是先驱。Garry Tan 的乐观主义双连推（1612 赞）。Zara 终于承认 Sol 前端不错了。播客是 No Priors × Booking.com CEO Glenn Fogel——一个在 Priceline 从股价 1 美元到接近 6000 美元待了 27 年的老兵，深聊 AI 如何重塑旅游业、Penny agent 的实际表现、以及为什么没有护城河。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">周末+周一版，feed 内容适中。Sam Altman 又拿了全场最高互动——一条关于 GPT-5.6 Sol 和 Elon 的段子拿到 49330 赞。Sottiaux 做了一件社区超爱的事：发布了让 Claude Code 跑 GPT-5.6 Sol 的 claudex alias（3871 赞），还列出了 Sol 在速度/后端/前端/useEffect 上的全面进步（2557 赞）。Levie 论 Jevons 悖论：AI 降低了软件生产成本，但软件岗位需求反而在涨。Swyx 补充：编码不是例外，而是先驱。Garry Tan 的乐观主义双连推（1612 赞）。Zara 终于承认 Sol 前端不错了。播客是 No Priors × Booking.com CEO Glenn Fogel——一个在 Priceline 从股价 1 美元到接近 6000 美元待了 27 年的老兵，深聊 AI 如何重塑旅游业、Penny agent 的实际表现、以及为什么没有护城河。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">GPT-5.6 Sol Community Response / GPT-5.6 Sol 社区反响</h2>
+    <p class="section-desc">Sottiaux 发布 claudex alias 让 Claude Code 跑 Sol（3871 赞）+ Sol 全面进步清单（2557 赞）；Zara 终于认可 Sol 前端（110 赞）；Altman 的 Elon 段子（49330 赞！！）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+zarazhangrui+sama" data-author-name="Sottiaux / Zara / Sam Altman" data-author-tag="Codex &amp; ChatGPT @OpenAI / Builder / OpenAI CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Zara / Sam Altman avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Zara / Sam Altman</div>
+            <div class="author-tag is-inline">Codex &amp; ChatGPT @OpenAI / Builder / OpenAI CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 做了社区最爱的一件事：手把手教你如何通过 CLIProxyAPI 让 Claude Code 跑 GPT-5.6 Sol，附带一个叫 claudex 的 alias（3871 赞、243 转发、315 条回复）。「如果这个被封了，我欠你一次重置。」他还列出了 Sol 的全面进步：速度/token 效率、后端开发、前端开发，以及特别标注「不再到处用 useEffect」——然后问社区「下一步是什么？」（2557 赞、805 条回复）。</p>
+              <p>Zara 终于松口：「好吧，5.6 Sol 的前端确实不错」（110 赞）——这反转了她之前说 Codex 前端是阻止她更频繁使用的唯一原因。</p>
+              <p>Sam Altman 在所有 feed 中互动量最高的推文（49330 赞、2330 转发、3404 条回复）：「有很多基准测试表明 5.6 Sol 是目前世界上最好的模型，但最可靠的判断方式是 Elon 又开始对我着迷了。」他还关注了 Fable 成本数据：「30% 的成本花在了这个用量水平上的 fable 上？」（9734 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：如果你还没胆量装 Codex app，你可以留在你的橙色螃蟹旁边，把它指向 GPT 5.6 Sol。5 分钟搞定。alias claudex=&#39;CLAUDE_CODE_SUBAGENT_MODEL=gpt-5.6-sol ... claude --model gpt-5.6-sol&#39;。如果被封了，我欠你一次重置。</p>
+              <p>Thibault Sottiaux：不同时期你们抱怨过速度、代码质量、前端质量……每次发布我们都在改进，GPT 5.6 Sol 是：快速且 token 高效 / 后端开发硬核 / 前端出色 / 不再到处用 useEffect。下一步是什么？</p>
+              <p>Zara：好吧，5.6 Sol 的前端确实不错。</p>
+              <p>Sam Altman：有很多基准测试表明 5.6 Sol 是目前世界上最好的模型，但最可靠的判断方式是 Elon 又开始对我着迷了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s community-favorite move: a step-by-step guide to run GPT-5.6 Sol inside Claude Code via CLIProxyAPI, with an alias called &#39;claudex&#39; (3871 likes, 243 retweets, 315 replies). &#39;If this gets blocked, I owe you a reset.&#39; He also listed Sol&#39;s improvements across speed/token efficiency, back-end dev, front-end dev, and notably &#39;does not use useEffect everywhere&#39; — asking the community &#39;what is next?&#39; (2557 likes, 805 replies).</p>
+              <p>Zara finally conceded: &#39;Ok 5.6 Sol is very good at front end&#39; (110 likes) — a reversal from her earlier complaint that Codex&#39;s frontend was the single thing preventing more frequent use.</p>
+              <p>Sam Altman&#39;s most-engaged tweet across all feeds (49330 likes, 2330 retweets, 3404 replies): &#39;there are a lot of benchmarks that suggest 5.6 sol is the best model in the world right now, but the most reliable way to tell is that elon is obsessed with me again.&#39; He also engaged with Fable cost data: &#39;30% of the cost was on fable at these levels of usage?&#39; (9734 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: If you aren&#39;t yet bold enough to install the Codex app, you can stay in the presence of your orange crab and point it at GPT 5.6 Sol. Takes 5 minutes. alias claudex=&#39;CLAUDE_CODE_SUBAGENT_MODEL=gpt-5.6-sol ... claude --model gpt-5.6-sol&#39;</p>
+              <p>Thibault Sottiaux: At different times you complained about speed, code slop, frontend quality... With each release we improve and GPT 5.6 Sol is: Fast and token efficient / Hardcore at back-end dev / Great at front-end / Does not use useEffect everywhere. What is next?</p>
+              <p>Zara: Ok 5.6 Sol is very good at front end</p>
+              <p>Sam Altman: there are a lot of benchmarks that suggest 5.6 sol is the best model in the world right now, but the most reliable way to tell is that elon is obsessed with me again</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2076119366647894371" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Jevons Paradox &amp; Optimism / Jevons 悖论与乐观主义</h2>
+    <p class="section-desc">Levie 论 AI 让软件岗位反涨（193 赞）；Swyx 补充编码只是先驱（143 赞）；Garry Tan 乐观主义双连推（1612 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+swyx+garrytan" data-author-name="Aaron Levie / Swyx / Garry Tan" data-author-tag="Box CEO / swyx / YC CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aaron Levie / Swyx / Garry Tan avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie / Swyx / Garry Tan</div>
+            <div class="author-tag is-inline">Box CEO / swyx / YC CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 论软件领域的 Jevons 悖论（193 赞）：软件岗位需求正在超越其他领域——与 AI 替代预测完全相反。降低生产成本→人们要更多→公司启动更多项目→仍需人维护和决策。「Agent 带来的将是富足而非替代。」</p>
+              <p>Swyx 补充（143 赞）：Jevons 悖论不只适用于软件——编程 agent 突破到所有知识工作是先驱信号。效率上升、单位成本下降时，总需求和更高质量的需求上升而非下降。「编码不是例外，而是先驱。」</p>
+              <p>Garry Tan 的乐观主义双连推（1612 + 219 赞）：「可能出错的事太多了。但有趣的问题永远是：如果一切顺利呢？」外加加州 CEQA 改革推动（219 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie：AI 本应取代的工作正在经历与预期完全相反的结果。软件岗位需求超越其他领域……Agent 带来的将是富足而非替代。</p>
+              <p>Swyx：如果你只在 agent 工程时代的软件需求语境下学过 Jevons 悖论……编码发生的事不是例外，而是先驱。</p>
+              <p>Garry Tan：可能出错的事太多了。但有趣的问题永远是：如果一切顺利呢？</p>
+              <p>Garry Tan：如果你想让加州重新加速建设，你需要废除和改革 CEQA。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie on the Jevons paradox in software (193 likes): software job postings are outpacing other fields — the exact opposite of what AI-replacement predicted. When you lower the cost of production of something with many use cases, people want more of it. Software is now cheaper per unit, so companies light up more projects. But since the job isn&#39;t fully automated, you still need people to maintain, decide, update, and run systems. &#39;Agents will cause more abundance than replacement.&#39;</p>
+              <p>Swyx added nuance (143 likes): Jevons paradox applies beyond software — coding agents breaking containment to all knowledge work is the herald. As efficiency goes up and unit cost goes down, demand for total work and better knowledge goes up, not down. &#39;What happened to coding isn&#39;t the exception; it&#39;s the herald.&#39;</p>
+              <p>Garry Tan&#39;s optimism pair (1612 likes + 219 likes): &#39;So much could go wrong. But the interesting question is always: what happens if things go right?&#39; Plus a policy push: CEQA reform needed to unblock California housing (219 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: The job that AI was supposed to replace is experiencing the opposite of the expected outcome. Software job postings are outpacing other fields... Agents will cause more abundance than replacement.</p>
+              <p>Swyx: if you only learned about jevons paradox primarily wrt software demand in the age of agentic engineering... what happened to coding isnt the exception; it&#39;s the herald.</p>
+              <p>Garry Tan: So much could go wrong. But the interesting question is always: what happens if things go right?</p>
+              <p>Garry Tan: If you want to supercharge building in California again, you&#39;re going to need to repeal and reform CEQA.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie/status/2076116544980214164" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">World Cup &amp; Notes / 世界杯与杂谈</h2>
+    <p class="section-desc">Matt Turck 的阿根廷表现分析（4966 赞）；Nikunj 预测英阿决赛（23 赞）；Rauchg 的瑞士法郎（298 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="mattturck+nikunj+rauchg" data-author-name="Matt Turck / Nikunj / Rauchg" data-author-tag="FirstMark / FPV Ventures / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Matt Turck / Nikunj / Rauchg avatar"><span class="avatar-fallback">MT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Matt Turck / Nikunj / Rauchg</div>
+            <div class="author-tag is-inline">FirstMark / FPV Ventures / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck 的世界杯分析拿到了今日第二高互动（4966 赞、418 转发）：「阿根廷对世界第 64 艰难取胜，差点被第 26 淘汰，现在跟少一人的第 19 打到加时。」Peter Yang 补充解说：「即使多一个人也踢得这么烂」（20 赞），以及「不确定他们对英格兰会怎样」（31 赞）。</p>
+              <p>Nikunj 的预测：「阿根廷有天命……Alvarez 好球。英格兰 vs 阿根廷。法国 vs 西班牙。纯电影。」（23 赞）。Rauchg 发了瑞士角度：「轻松赚钱（瑞士法郎）」（298 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck：阿根廷对世界第 64 艰难取胜，差点被第 26 淘汰，现在跟少一人的第 19 打到加时。</p>
+              <p>Peter Yang：即使多一个人也踢得这么烂。</p>
+              <p>Nikunj：阿根廷有天命……Alvarez 好球。英格兰 vs 阿根廷。法国 vs 西班牙。纯电影。</p>
+              <p>Guillermo Rauch：轻松赚钱（瑞士法郎）。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck&#39;s World Cup analysis got the second-most engagement of the day (4966 likes, 418 retweets): &#39;Argentina struggled against the world&#39;s #64, almost got eliminated by the world&#39;s #26, and they&#39;re now in extra time against the world&#39;s #19 which is down to 10 players.&#39; Peter Yang added color commentary: &#39;They&#39;re playing so badly even up one man&#39; (20 likes) and &#39;Not sure how they&#39;ll do against England&#39; (31 likes).</p>
+              <p>Nikunj called it: &#39;Argentina has the mandate of heaven. England vs. Argentina. France vs. Spain. Pure cinema.&#39; (23 likes). Rauchg posted a Swiss angle: &#39;Easy money (Swiss francs)&#39; (298 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck: Argentina struggled against the world&#39;s #64, almost got eliminated by the world&#39;s #26, and they&#39;re now in extra time against the world&#39;s #19 which is down to 10 players.</p>
+              <p>Peter Yang: They&#39;re playing so badly even up one man</p>
+              <p>Nikunj: Argentina has the mandate of heaven.. what a strike by Alvarez. England vs. Argentina. France vs. Spain. Pure cinema</p>
+              <p>Guillermo Rauch: Easy money (Swiss francs)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/mattturck/status/2076141940484010189" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Booking.com CEO — Travel Through the Lens of AI / 播客：Booking.com CEO——透过 AI 看旅游</h2>
+    <p class="section-desc">No Priors × Glenn Fogel（Booking Holdings CEO）。完整中文译文：从 Priceline 股价 1 美元到 6000 美元的 27 年旅程、Penny agent 实际表现、为什么没有护城河、AI 如何解决旅行规划痛点、投机泡沫的历史教训。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:nopriors" data-author-name="No Priors" data-author-tag="Elad Gil &amp; Sarah Guo 主持的 AI 投资视角播客" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">Elad Gil &amp; Sarah Guo 主持的 AI 投资视角播客</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Glenn Fogel 在 Booking Holdings（原 Priceline）待了 27 年。他在互联网泡沫破裂前夕加入——市值从 300 亿美元跌到几亿美元。股价从 1 美元（拆分后 6 美元）涨到接近 6000 美元——25 年 1000 倍回报。市值峰值接近 1800 亿美元。</p>
+              <p>关于 AI 与旅游：「没有护城河这种东西。」唯一能长期赢的方式是持续开发新服务。AI 是让市场更好的工具——不是取代 OTA 的颠覆者。</p>
+              <p>关于 Penny（Priceline 的 AI agent）：每月翻倍增长。Fogel 用它规划了一次复杂的家庭旅行——多舱位、不同返程城市、里程优化、酒店+火车。「太棒了。」终极目标：预测性干扰——在问题发生前看到并建议替代方案。</p>
+              <p>关于 OpenAI 放弃 ChatGPT 旅游结账：人们高估了旅游商务的简单程度。OpenAI 说不做 merchant of record 后，Booking 股票涨了 8%。</p>
+              <p>关于 AI 泡沫：与 1999 年平行。「会有大量的失望。很多人会亏很多钱。」但真实价值会被创造。</p>
+              <p>关于成本：Penny 的实际数字相对于 1860 亿美元的年旅游收入来说还很小。Token 成本和 ROI 是关键问题。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【没有护城河】</p>
+              <p>Glenn Fogel 说：没有护城河这种东西。没有你能免受创新冲击的地方。今天我们在某些领域有竞争优势，但那些明天就可能消失。长期获胜的唯一方式是持续开发新服务。</p>
+              <p>「如果你觉得你只要进入这个行业就能干掉这些大玩家，我说你应该在投入资本之前先真正理解这个行业。」</p>
+              <p></p>
+              <p>【从 1 美元到 6000 美元】</p>
+              <p>Fogel 的职业旅程：Wharton 金融出身 → IBM 大型机操作员 → 投行 → 1995 年被裁员 → 写小说没出版但娶了编辑老婆 → Morgan Stanley 交易员 → 2000 年加入 Priceline。</p>
+              <p>「我加入的时候市值从 300 亿美元跌到了大约 150 亿。九个月后市值只有几亿美元。股价跌到 1 美元，要被摘牌了。我们做了反向拆股回到 6 美元。我留下来了，已经第 27 年了。去年夏天股价接近 6000 美元。25 年涨了 1000 倍。市值峰值约 1800 亿美元。」</p>
+              <p>被裁员的教训：「知道被裁是什么感觉——这让我在整个职业生涯中都知道怎么正确地裁人和怎么错误地裁人。」</p>
+              <p></p>
+              <p>【AI 如何重塑旅游：Penny agent】</p>
+              <p>Fogel 说：旅游规划很痛苦。复杂的多目的地家庭旅行，不同需求——人们开始规划然后放弃了，因为太麻烦了。</p>
+              <p>「我等不及让我们的公司推出个性化 agent——它知道关于你的一切、你想要的一切，能做到任何人类旅行代理做不到的事。机器从不遗忘，有无限的排列组合能力，能快速搜索和回溯。」</p>
+              <p>他用 Penny（Priceline 的 AI agent）测试了一次真实需求：夫妻坐前面、成年孩子坐后面、一个孩子回不同城市、去欧洲、到达城市和实际目的地不同、需要火车转场、有里程积分要优化。</p>
+              <p>「太棒了。它来回问我问题——每个航空公司有多少里程？然后推荐用里程给前排买票、用现金给孩子买票。在到达城市住一晚，第二天火车去目的地。」</p>
+              <p>终极目标：「旅行像多米诺骨牌——一个倒了全倒。AI 的美妙之处在于能提前看到问题——在发生之前预测并建议改变。」</p>
+              <p>Penny 数据：每月翻倍增长。转化率提升、搜索更快、预订路径更短、取消率更低、客户满意度更高。</p>
+              <p></p>
+              <p>【OpenAI 放弃旅游结账】</p>
+              <p>Fogel 说：从外面看旅游业觉得很容易——AI 搞定一切，所有旅游公司都不值钱了。OpenAI 后来说不做 merchant of record，然后人们说「哦，我错了」，Booking 股票涨了 8%。</p>
+              <p>「真相是我们把 AI 看作一个不可思议的工具——让我们更容易、更便宜、更好地为客户完成使命。我不会对那条新闻做过多解读。」</p>
+              <p></p>
+              <p>【AI 泡沫与历史教训】</p>
+              <p>Fogel 说：我不知道这次成功与失败的比例会怎样。但过去 150 年来一直有这种投机热潮——淘金热、汽车热潮、互联网泡沫。会有大量创新，但也会有大量失望。</p>
+              <p>「很多人会亏很多钱——这就是投机泡沫的本质。但这不意味着没有很多公司会创造真正的价值。」</p>
+              <p></p>
+              <p>【成本与 ROI】</p>
+              <p>Fogel 说：Penny 还很小——相对于我们去年 1860 亿美元的旅游交易额来说。我们还没全力推广，因为要考虑成本。</p>
+              <p>「运行它的成本是多少？我们消耗了多少 token？给我算出来——为这个用户规划这次旅行花了多少钱？ROI 是什么？长期回报呢——他回来吗？忠诚度提升了吗？」</p>
+              <p>「当 AI 在每个环节都更高效时——从搜索到预订到客服到问题处理——那才是真正的回报。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Glenn Fogel has been at Booking Holdings (originally Priceline) for 27 years. He joined right before the dot-com crash when market cap went from $30B to a few hundred million. Stock went from $1 (post-reverse-split $6) to nearly $6,000 — a 1000x return over 25 years. Market cap peaked near $180B.</p>
+              <p>On AI and travel: the &#39;no moat&#39; thesis is foundational. &#39;There is no such thing as somewhere you&#39;re gonna be protected against innovation.&#39; The only way to win long-term is continuous new service development. AI is a tool that makes the marketplace better for both travelers and partners — not a disruptor that replaces OTAs.</p>
+              <p>On Penny (Priceline&#39;s AI agent): adoption doubling every month. Fogel tested it with a complex family trip — multiple cabins, different return cities, frequent flyer mile optimization, hotel + train routing. &#39;It was wonderful.&#39; The holy grail: predictive disruption — seeing problems before they happen and suggesting alternatives.</p>
+              <p>On OpenAI dropping checkout/ChatGPT travel: people overestimated how easy travel commerce is. When OpenAI said they weren&#39;t going to be a merchant of record, Booking stock jumped 8%. &#39;I wouldn&#39;t read too much into that one way or the other.&#39;</p>
+              <p>On the AI bubble: sees parallels to 1999. &#39;There will be a great deal of disappointment. A lot of people will lose a lot of money.&#39; But real value will be created. Compares to gold rush — lots of axe sellers, few winners.</p>
+              <p>On costs: Penny&#39;s actual numbers are still very small relative to $186B in annual travel. Token costs and ROI are the key questions — &#39;Tell me how much was the cost of us getting that trip for that person, and what is our ROI going to be?&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Glenn Fogel: There is no such thing as a moat. There is no such thing as somewhere you&#39;re gonna be protected against innovation.</p>
+              <p>Glenn Fogel: The only way to win long term is to continue to develop new services, new ways to do things.</p>
+              <p>Glenn Fogel: If you think you&#39;re just gonna come in and do this business and knock away these very big players, I&#39;d say you should really understand what the business is before you decide to commit your capital.</p>
+              <p>Glenn Fogel: I can&#39;t wait until we are offering up these personalized agents that know everything about you, everything you want, and able to do so much more for you than any human travel agent could ever do.</p>
+              <p>Glenn Fogel: There will be a great deal of disappointment. There&#39;ll be a lot of people who are gonna lose a lot of money, of course. That&#39;s just the nature of how our economy is working.</p>
+              <p>Glenn Fogel: What is the cost of running it? How many tokens are we consuming? Tell me how much was the cost of us getting that trip for that person, and what is our ROI going to be?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=8nj_0wZkbtA" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-13 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-13 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
