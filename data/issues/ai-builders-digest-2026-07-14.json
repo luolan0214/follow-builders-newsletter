@@ -1,0 +1,208 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-14",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "信息密度回来了。Sottiaux 暗示 ChatGPT Work 明天可能突破 800 万活跃用户（3531 赞），Sam Altman 吐槽竞品客服并在三条推文里拿到合计近 2 万赞。Ryo Lu 用 Cursor 刷了自定义电子书阅读器固件（947 赞），Garry Tan 宣告「绅士科学家的时代回来了」（1009 赞）。Swyx 公开了他的 Big Boy 项目模型路由栈——Sol Ultra 规划、Fable 审视、Sonnet/Terra/SWE 执行（364 赞）。Rauchg 分享数据：开源模型 token 占比从 4 月的 11% 涨到 29%（247 赞）。Claude Code Artifacts 迎来重大更新——Thariq 和 Cat Wu 展示了可组合的仪表板式 artifact（合计 1057 赞）。播客是 No Priors × Valar Atomics Isaiah Taylor（与 7 月 4 日刊同一期，重复播出，不再重复翻译）。"
+  },
+  "archive": {
+    "title": "800万用户前夜与模型路由日报",
+    "desc": "Sottiaux 暗示 ChatGPT Work 明日破 800 万活跃用户，Swyx 公开模型路由栈，Rauchg 数据显示开源模型 token 占比涨至 29%，Cursor 刷电子书固件。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-14 source feeds.",
+  "sections": [
+    {
+      "title": "ChatGPT Work Scale & Altman Commentary / ChatGPT Work 规模化与 Altman 评论",
+      "desc": "Sottiaux 暗示 800 万活跃用户（3531 赞）+ ChatGPT Work 功能展示（1700 赞）；Altman 吐槽竞品客服（8294 赞）+ 模型设计突破（6817 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama",
+          "authorName": "Sottiaux / Sam Altman",
+          "authorTag": "Codex & ChatGPT @OpenAI / OpenAI CEO",
+          "sourceUrl": "https://x.com/thsottiaux/status/2076400542917599502",
+          "en": {
+            "rewrite": [
+              "Sottiaux teases tomorrow's milestone: 'Tomorrow might be 8M active user celebration day. Just saying' (3531 likes, 116 retweets, 580 replies). He also previewed a ChatGPT Work feature with a cryptic 'presents' link (1700 likes) and posted 'Build your dreams' (243 likes).",
+              "Sam Altman had a three-tweet day totaling ~20K likes. (1) Sharing what he thought was satire but turned out real — a competitor's customer service response (8294 likes). (2) 'still sorta breaks my brain to see our models be good at design finally' (6817 likes). (3) Quoting a 'hard questions are great but only if we deem you worthy enough to not silently downgrade you' — poking fun at tiered model access friction (4678 likes)."
+            ],
+            "original": [
+              "Thibault Sottiaux: Tomorrow might be 8M active user celebration day. Just saying",
+              "Thibault Sottiaux: ChatGPT Work presents",
+              "Sam Altman: i thought this was satire, kept looking for the handle to be spelled c1audeai or something",
+              "Sam Altman: still sorta breaks my brain to see our models be good at design finally",
+              "Sam Altman: hard questions are great but only if we deem you worthy enough to not silently downgrade you, or even get access at all"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 暗示明天的里程碑：「明天可能是 800 万活跃用户庆祝日。说说而已」（3531 赞、116 转发、580 条回复）。他还预告了一个 ChatGPT Work 功能（1700 赞）以及发了「构建你的梦想」（243 赞）。",
+              "Sam Altman 三条推文合计约 2 万赞。（1）分享了他以为是讽刺但结果是真的内容——竞品的客服回复（8294 赞）。（2）「到现在还是觉得不可思议——我们的模型终于擅长设计了」（6817 赞）。（3）引用「难问题很好，但只有我们觉得你够格才不会被静默降级甚至获得访问权限」——调侃分级模型访问的摩擦（4678 赞）。"
+            ],
+            "original": [
+              "Thibault Sottiaux：明天可能是 800 万活跃用户庆祝日。说说而已。",
+              "Sam Altman：我以为这是讽刺，一直在找那个 handle 是不是拼成了 c1audeai 之类的。",
+              "Sam Altman：到现在还是觉得不可思议——我们的模型终于擅长设计了。",
+              "Sam Altman：「难问题很好，但只有我们觉得你够格才不会被静默降级，甚至获得访问权限」"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Model Routing & Open-Weight Gains / 模型路由与开源权重增长",
+      "desc": "Swyx 公开他的 Big Boy 项目模型路由栈（364 赞）；Rauchg 数据：开源模型 token 占比从 11% 涨到 29%（247 赞）+ 可观测性（236 赞）；Levie 论前沿智能 + 企业模型挑战。",
+      "cards": [
+        {
+          "authorKey": "swyx+rauchg+levie",
+          "authorName": "Swyx / Rauchg / Levie",
+          "authorTag": "swyx / Vercel CEO / Box CEO",
+          "sourceUrl": "https://x.com/swyx/status/2076453895530320211",
+          "en": {
+            "rewrite": [
+              "Swyx's model routing stack for major projects (364 likes, 40 replies): Sol Ultra to plan → Fable 5 to critique → Sonnet 5 / Terra Ultra / SWE 1.7 to execute. This is the first public articulation of a multi-model orchestration pattern that many power users are converging on — each model plays its strengths.",
+              "Rauchg shared Vercel data: 'Open-weight models ran 29% of gateway tokens, up from 11% in April' (247 likes). He also flagged the two most popular Vercel features: filesystem API ease-of-use and observability (236 likes). Plus: agents that can set up and optimize their own infrastructure — 'a powerful building block for autonomous, self-optimizing websites and applications' (145 likes).",
+              "Levie on AI structure (142 likes): frontier intelligence continues unabated, but the biggest enterprise challenge is that your most valuable information often isn't in a format models can reason over (187 likes). 'A few thoughts on what we will see in AI structurally for the foreseeable future.'"
+            ],
+            "original": [
+              "Swyx: where i'm currently at for Big Boy projects: - sol ultra to plan - fable 5 to critique - sonnet 5/terra ultra/swe 1.7 to execute",
+              "Guillermo Rauch: Open-weight models ran 29% of gateway tokens, up from 11% in April",
+              "Guillermo Rauch: The two most popular features so far have been: 1) The ease of use / filesystem API 2) Observability",
+              "Aaron Levie: A few thoughts on what we will see in AI structurally for the foreseeable future: * Frontier intelligence continues unabated...",
+              "Aaron Levie: The biggest challenge right now with the topic of every enterprise having their own model is that your most valuable information often isn't in a format models can reason over."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 公开了他做大型项目时的模型路由栈（364 赞、40 条回复）：Sol Ultra 做规划 → Fable 5 做审视 → Sonnet 5 / Terra Ultra / SWE 1.7 做执行。这是对多模型编排模式的首次公开阐述——每个模型发挥所长，很多重度用户正在收敛到这个模式。",
+              "Rauchg 分享了 Vercel 数据：「开源权重模型占网关 token 的 29%，从 4 月的 11% 上涨」（247 赞）。他还标记了 Vercel 最受欢迎的两个功能：文件系统 API 的易用性和可观测性（236 赞）。还有：让 agent 自行设置和优化基础设施——「自主、自我优化网站和应用的强大构建块」（145 赞）。",
+              "Levie 论 AI 结构性趋势（142 赞）：前沿智能持续进步，但企业最大的挑战是你最有价值的信息往往不是模型能推理的格式（187 赞）。"
+            ],
+            "original": [
+              "Swyx：我目前做大型项目的模型路由栈：- Sol Ultra 规划 - Fable 5 审视 - Sonnet 5 / Terra Ultra / SWE 1.7 执行。",
+              "Guillermo Rauch：开源权重模型占网关 token 的 29%，从 4 月的 11% 上涨。",
+              "Guillermo Rauch：目前最受欢迎的两个功能：1) 文件系统 API 的易用性 2) 可观测性。",
+              "Aaron Levie：关于 AI 结构性趋势的一些想法：* 前沿智能持续不减速……",
+              "Aaron Levie：每个企业都有自己的模型这个话题目前最大的挑战是，你最有价值的信息往往不是模型能推理的格式。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Code Artifacts Upgrade & Hardware Hacks / Claude Code Artifacts 升级与硬件改造",
+      "desc": "Thariq 展示可组合的仪表板式 artifact（845 赞）；Cat Wu 预告 Artifacts 升级（212 赞）；Ryo Lu 用 Cursor 刷电子书固件（947 赞）；Masad 实时训练进度（180 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+_catwu+ryolu_+amasad",
+          "authorName": "Thariq / Cat Wu / Ryo Lu / Amjad Masad",
+          "authorTag": "Claude Code @Anthropic / Claude Code + Cowork / Cursor / Replit CEO",
+          "sourceUrl": "https://x.com/trq212/status/2076490779483955497",
+          "en": {
+            "rewrite": [
+              "Claude Code Artifacts got a major upgrade. Thariq showed how artifacts are now much more expressive and can be combined in creative ways — his favorite is a dashboard that aggregates multiple artifacts into one view (845 likes). Cat Wu announced the upgrade with a demo (212 likes). This transforms Artifacts from isolated outputs into composable UI components.",
+              "Ryo Lu (Cursor) built custom e-reader firmware with Cursor — hardware hacking with AI coding agents (947 likes, 35 retweets). 'Beautiful Latin + CJK typography' support, works on Xteink X3 + X4. He also announced Jenny joining to lead the team (1937 likes) — 'personally excited to regain [bandwidth].'",
+              "Masad shared realtime progress updates on model training runs (180 likes): 'This feels like early vibe coding except it's making persistent changes.' Plus Replit's code is now public (125 likes). Steipete moved OpenClaw's maintainer agent to the cloud and 'they are fighting already' (26 likes), shipped iOS/Android updates (72 likes), and found 'stress test' is a good prompt (164 likes)."
+            ],
+            "original": [
+              "Thariq: This makes artifacts much more expressive and can be combined in creative ways. One of my favorites is to create a dashboard...",
+              "Cat Wu: Artifacts just got an upgrade!",
+              "Ryo Lu: built a custom e-reader firmware with Cursor, hardware hacking is fun! made for: beautiful latin + CJK typography",
+              "Ryo Lu: super stoked for jenny to join and lead our team",
+              "Amjad Masad: Getting realtime progress updates on my model training runs. This feels like early vibe coding except it's making persistent changes.",
+              "Peter Steinberger: I moved our maintainer agent to the cloud and they are fighting already.",
+              "Peter Steinberger: stress test is a good prompt."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude Code Artifacts 迎来重大升级。Thariq 展示了 Artifacts 现在更富表达力且可以创意组合——他最喜欢的是一个把多个 artifact 聚合成仪表板视图的方式（845 赞）。Cat Wu 也发了升级预告和 demo（212 赞）。这把 Artifacts 从孤立输出变成了可组合的 UI 组件。",
+              "Ryo Lu（Cursor）用 Cursor 刷了自定义电子书阅读器固件——用 AI 编程 agent 做硬件改造（947 赞、35 转发）。支持「优美的拉丁文 + 中日韩排版」，兼容 Xteink X3 + X4。他还宣布 Jenny 加入带领团队（1937 赞）——「个人很高兴能重新获得带宽」。",
+              "Masad 分享了模型训练的实时进度更新（180 赞）：「这感觉像早期的 vibe coding，只不过是在做持久的改动。」另外 Replit 代码现已公开（125 赞）。Steipete 把 OpenClaw 维护者 agent 移到云端「它们已经在打架了」（26 赞），发布了 iOS/Android 更新（72 赞），还发现「stress test」是个好 prompt（164 赞）。"
+            ],
+            "original": [
+              "Thariq：这让 Artifacts 更富表达力，可以创意组合。我最喜欢的方式之一是创建一个仪表板……",
+              "Cat Wu：Artifacts 刚刚升级了！",
+              "Ryo Lu：用 Cursor 刷了自定义电子书阅读器固件，硬件改造真有趣！支持优美的拉丁文 + 中日韩排版。",
+              "Ryo Lu：超级开心 Jenny 加入并带领我们的团队。",
+              "Amjad Masad：模型训练的实时进度更新。这感觉像早期的 vibe coding，只不过是在做持久的改动。",
+              "Peter Steinberger：把维护者 agent 移到云端了，它们已经在打架了。",
+              "Peter Steinberger：「stress test」是个好 prompt。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gentleman Scientist & AI Adoption / 绅士科学家与 AI 采纳",
+      "desc": "Garry Tan 宣告绅士科学家时代回归（1009 赞）；Zara 的 AI 采纳三层模型（62 赞）；Nikunj 用 Ramp CLI 自动化报销（25 赞）；Aditya Agarwal 用 Codex 做股权谈判。",
+      "cards": [
+        {
+          "authorKey": "garrytan+zarazhangrui+nikunj+adityaag",
+          "authorName": "Garry Tan / Zara / Nikunj / Aditya Agarwal",
+          "authorTag": "YC CEO / Builder / FPV Ventures / South Park Commons",
+          "sourceUrl": "https://x.com/garrytan/status/2076478656466161758",
+          "en": {
+            "rewrite": [
+              "Garry Tan: 'Era of the Gentleman Scientist is so back' (1009 likes, 62 retweets) — capturing the cultural moment where AI tools let individual builders tackle problems that previously required institutions. The quote-tweet or image likely showed someone doing cross-disciplinary work solo.",
+              "Zara published a framework: 'The 3 levels of AI adoption for organizations. Most companies are at level 2' (62 likes, 17 retweets). She also resurfaced her 45-min conversation with Ashe on building in public (27 likes).",
+              "Nikunj automated his Ramp expenses with CLI + Fable (25 likes): 'So @tryramp's core mission is save money AND time, but I was still spending time categorizing & adding receipts.' He one-shot a video with Fable via voice prompt while driving (2 likes). Aditya Agarwal (South Park Commons) shared his surreal moment: 'I don't know if I am using Codex or ChatGPT (wtf). But I do know that I am asking a AGI LEVEL coding agent: What neck [...]?' (11 likes) — capturing the naming confusion even sophisticated users feel."
+            ],
+            "original": [
+              "Garry Tan: Era of the Gentleman Scientist is so back",
+              "Zara: The 3 levels of AI adoption for organizations. Most companies are at level 2",
+              "Nikunj: So @tryramp's core mission is save money AND time, but I was still spending time categorizing & adding receipts to my [expenses]...",
+              "Aditya Agarwal: I don't know if I am using Codex or ChatGPT (wtf). But I do know that I am asking a AGI LEVEL coding agent: What neck[...]"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan：「绅士科学家的时代回来了」（1009 赞、62 转发）——捕捉到了 AI 工具让个人构建者能独立解决以前需要机构才能处理的问题的文化时刻。",
+              "Zara 发布了一个框架：「组织 AI 采纳的三个层级。大多数公司在第二级」（62 赞、17 转发）。她还重新发布了与 Ashe 关于 building in public 的 45 分钟对话（27 赞）。",
+              "Nikunj 用 Ramp CLI + Fable 自动化了他的报销（25 赞）：「Ramp 的核心使命是省时省钱，但我还在花时间给收据分类和添加。」他在开车时用 Fable 语音 prompt 一次生成了一个视频（2 赞）。Aditya Agarwal（South Park Commons）分享了他的超现实时刻：「我不知道我在用 Codex 还是 ChatGPT（搞什么）。但我知道我在向一个 AGI 级别的编码 agent 问：什么颈[...]？」（11 赞）——即使资深用户也感到命名混乱。"
+            ],
+            "original": [
+              "Garry Tan：绅士科学家的时代回来了。",
+              "Zara：组织 AI 采纳的三个层级。大多数公司在第二级。",
+              "Nikunj：Ramp 的核心使命是省时省钱，但我还在花时间给收据分类和添加到报销里……",
+              "Aditya Agarwal：我不知道我在用 Codex 还是 ChatGPT（搞什么）。但我知道我在向一个 AGI 级别的编码 agent 提问。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Note: Valar Atomics (Repeat) / 播客备注：Valar Atomics（重播）",
+      "desc": "No Priors × Isaiah Taylor（Valar Atomics）——与 2026-07-04 期刊同一期播客，feed 中重复推送。完整中文译文请参见 7 月 4 日刊。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-repeat",
+          "authorName": "No Priors (repeat)",
+          "authorTag": "与 07-04 同一期，不再重复翻译",
+          "sourceUrl": "https://www.youtube.com/watch?v=5Xvbq_zvOQ4",
+          "en": {
+            "rewrite": [
+              "This is the same Valar Atomics podcast that appeared in the 2026-07-04 issue (published 2026-07-02). Full English and Chinese transcript coverage available in that issue. Key topics: first private company since nuclear fission discovery to make power, TRISO reactor safety philosophy, NVIDIA Blackwell driven by nuclear reactor, agentic mapreduce, vertical integration as moat, energy as universal cost."
+            ],
+            "original": [
+              "Note: This podcast episode is identical to the one in the 2026-07-04 digest. Please refer to ai-builders-digest-2026-07-04.json for the full bilingual transcript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这是与 2026-07-04 期刊中同一期 Valar Atomics 播客（发布于 2026-07-02），feed 中重复推送。完整中英双语译文请参见 7 月 4 日刊。核心话题：首家发出核电的核裂变创业公司、TRISO 反应堆安全哲学、核反应堆直接驱动 NVIDIA Blackwell、垂直整合护城河、能源作为万物成本。"
+            ],
+            "original": [
+              "备注：本期播客与 2026-07-04 期刊中的内容完全一致。完整中英双语译文请参见 ai-builders-digest-2026-07-04.json。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
