@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-15" data-issue-number="58" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 58 期｜2026-07-15｜双语精选版｜5 条精选｜5 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Sol 增长在爆发——Altman 说「5.6 Sol 的增长是疯狂的，推理团队做了英雄级的工作」（9749 赞，今日最高）。Sottiaux 在 9M 用户门槛前又玩起了互动——要么再重置限额，要么直接发 100 美元 Codex 额度换反馈（5757 赞）。Matt Turck 的一条法国半决赛表现分析意外拿到了今日第二高互动（3175 赞）。Ryo Lu 写了一段关于「当梦想变成工作」的思考（809 赞），同时宣布 Cursor 正在组建最好的设计团队（896 赞）。Claude 官方发布了 Claude for Teachers（合计 1437 赞），Anthropic 进军教育市场。Levie 论代码可测试性是 agent 友好的核心属性（149 赞）。播客是 MAD × NVIDIA Nemotron（与 07-05 期同一期，不再重复翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sol 增长在爆发——Altman 说「5.6 Sol 的增长是疯狂的，推理团队做了英雄级的工作」（9749 赞，今日最高）。Sottiaux 在 9M 用户门槛前又玩起了互动——要么再重置限额，要么直接发 100 美元 Codex 额度换反馈（5757 赞）。Matt Turck 的一条法国半决赛表现分析意外拿到了今日第二高互动（3175 赞）。Ryo Lu 写了一段关于「当梦想变成工作」的思考（809 赞），同时宣布 Cursor 正在组建最好的设计团队（896 赞）。Claude 官方发布了 Claude for Teachers（合计 1437 赞），Anthropic 进军教育市场。Levie 论代码可测试性是 agent 友好的核心属性（149 赞）。播客是 MAD × NVIDIA Nemotron（与 07-05 期同一期，不再重复翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Sol Growth &amp; 9M Sprint / Sol 增长与 900 万冲刺</h2>
+    <p class="section-desc">Altman 确认 Sol 增长疯狂（9749 赞）；Sottiaux 冲刺 900 万用户 + 发钱换反馈（5757 赞）；Peter Yang 预告 ChatGPT Work 教程。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+thsottiaux+petergyang" data-author-name="Sam Altman / Sottiaux / Peter Yang" data-author-tag="OpenAI CEO / Codex &amp; ChatGPT @OpenAI / AI 教程作者" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sam Altman / Sottiaux / Peter Yang avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sam Altman / Sottiaux / Peter Yang</div>
+            <div class="author-tag is-inline">OpenAI CEO / Codex &amp; ChatGPT @OpenAI / AI 教程作者</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 的增长确认（9749 赞——今日最高）：「5.6 Sol 的增长是疯狂的。推理团队做了英雄级的工作来支持需求。我们将移山倒海继续下去。」他还表态支持开源 harness（4800 赞），以及发了一条「你好！」拿到 5366 赞。</p>
+              <p>Sottiaux 在 900 万门槛前：「财富令人尴尬。看起来可能很快突破 900 万。是再重置 ChatGPT Work 和 Codex 用量，还是给它一些空间？」（3608 赞）。然后转到一个创意促销：「或者……如果你告诉我们你爱 GPT-5.6 Sol 的什么，或者你为什么切换，我们给你 100 美元 Codex 额度？」（5757 赞）。第三条：只是在刷推特找反馈（5530 赞）。</p>
+              <p>Peter Yang 预告明天发新视频教程——如何用 ChatGPT Work（又名 Codex 😅）做「电脑上几乎所有事」（36 赞）。Aditya Agarwal 指出了功能丰富性与摩擦的取舍：「我以前每天用 ChatGPT（经典版）15-20 次做快速任务……现在更强大了但简单任务更慢了」（18 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：5.6 Sol 的增长是疯狂的。推理团队做了英雄级的工作来支持需求。我们将移山倒海继续下去。</p>
+              <p>Sam Altman：支持开源 harness 的另一个理由。</p>
+              <p>Thibault Sottiaux：财富令人尴尬。看起来可能很快突破 900 万。是再重置用量还是给它一些空间？</p>
+              <p>Thibault Sottiaux：或者……如果你告诉我们你爱 GPT-5.6 Sol 的什么或为什么切换，我们给你 100 美元 Codex 额度？</p>
+              <p>Peter Yang：明天分享新视频——我如何用 ChatGPT Work（又名 Codex 😅）做电脑上几乎所有的事。</p>
+              <p>Aditya Agarwal：我欣赏新版 ChatGPT 的深度功能集……但有一个真实的取舍。我以前每天用经典版 15-20 次做快速任务。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman&#39;s growth confirmation (9749 likes — today&#39;s most engaged tweet): &#39;5.6 sol growth is insane. The inference team has done heroic work to support demand. We are going to move mountains to continue.&#39; He also backed open-source harnesses (4800 likes) and posted a simple &#39;hello!&#39; that got 5366 likes.</p>
+              <p>Sottiaux at the 9M threshold: &#39;Embarrassment of riches. But looks like we might hit 9M soon. Should we reset the ChatGPT Work and Codex usage again or give it some space?&#39; (3608 likes). Then pivoted to a creative promotion: &#39;Or... what if we gave you $100 in Codex credits if you tell us what you love about GPT-5.6 Sol or why you switched?&#39; (5757 likes). His third tweet: just scrolling Twitter looking for feedback (5530 likes).</p>
+              <p>Peter Yang announced a new video tutorial dropping tomorrow on how he uses ChatGPT Work (aka Codex) for &#39;almost everything on my computer&#39; (36 likes). Aditya Agarwal noted the feature richness vs. friction tradeoff: &#39;I used ChatGPT (Legacy) 15-20 times a day for quick things... now it&#39;s more powerful but slower for simple tasks&#39; (18 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: 5.6 sol growth is insane. The inference team has done heroic work to be able to support demand. We are going to move mountains to continue.</p>
+              <p>Sam Altman: also, a reason to favor open-source harnesses.</p>
+              <p>Thibault Sottiaux: Embarrassment of riches. But looks like we might hit 9M soon. Should we reset the ChatGPT Work and Codex usage again or give it some space?</p>
+              <p>Thibault Sottiaux: Or… what if we gave you $100 in Codex credits if you tell us what you love about GPT-5.6 Sol or why you switched?</p>
+              <p>Peter Yang: Tomorrow, I&#39;m sharing a new video on how I use ChatGPT Work (also known as Codex) to do almost everything on my computer.</p>
+              <p>Aditya Agarwal: I appreciate the in-depth feature set of the new ChatGPT app... But there is a real tradeoff. I used ChatGPT (Legacy) 15-20 times a day for quick things.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama/status/2076787324990374304" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Claude for Teachers &amp; Education / Claude for Teachers 与教育</h2>
+    <p class="section-desc">Claude 官方发布 K-12 教师版（合计 1437 赞）；Thariq 用 Claude Code 玩 Pokémon 竞技（302 赞）；Levie 论代码可测试性（149 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="claudeai+trq212+levie" data-author-name="Claude / Thariq / Levie" data-author-tag="Anthropic 官方 / Claude Code @Anthropic / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Claude / Thariq / Levie avatar"><span class="avatar-fallback">C/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Claude / Thariq / Levie</div>
+            <div class="author-tag is-inline">Anthropic 官方 / Claude Code @Anthropic / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic 发布了 Claude for Teachers——专为 K-12 教育设计，隐私优先。要教案？Claude 从你所在州的标准和高质量课程开始（通过 Learning Commons 集成）（647 赞）。隐私保证：绝不训练你的对话，学生数据受数据驻留保护（514 赞）。这标志着 Anthropic 从开发者工具扩展到教育市场。</p>
+              <p>Thariq 的爱好用例：用 Claude Code 搭了一个 Pokémon Champions 竞技分析工具，调用 Smogon 的 npm 库。「它写代码、算伤害、建议队伍配置」（302 赞）。他说会开源。还分享了他的 Mega Sceptile 队伍分析 artifact（66 赞）。</p>
+              <p>Levie 论为什么代码对 agent 友好（149 赞）：「代码有很多属性让它非常适合 agent——其中之一是你基本上可以快速测试它。」代码是少数能自动验证正确性的领域——这就是为什么编码 agent 比大多数其他领域的 agent 工作得更好。他还支持建立一个 AI 标准组织（112 赞）——区别于监管机构。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude 官方：要教案？Claude 从你所在州的标准和高质量课程开始，通过 Learning Commons 连接。</p>
+              <p>Claude 官方：Claude for Teachers 为 K-12 隐私而建。我们从不训练你的对话，学生信息受保护。</p>
+              <p>Thariq：最近一直在玩 Pokémon Champions，开始用 Claude Code 辅助。它用 Smogon 的 npm 库写代码……</p>
+              <p>Aaron Levie：代码有很多属性让它非常适合 agent——其中之一是你基本上可以快速测试它。</p>
+              <p>Aaron Levie：为 AI 建立标准组织的深思熟虑提案。这不同于监管机构。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Anthropic launched Claude for Teachers — purpose-built for K-12 education with privacy-first design. Ask for a lesson plan and Claude starts from your state standards and high-quality curricula via Learning Commons integration (647 likes). Key privacy guarantee: never trains on conversations, student data protected by data residency (514 likes). The move signals Anthropic is expanding beyond developer tools into education.</p>
+              <p>Thariq&#39;s hobby use case: using Claude Code to build a Pokémon Champions competitive team analysis tool with Smogon&#39;s npm library. &#39;It writes code, runs damage calcs, suggests team comps&#39; (302 likes). He&#39;ll open-source it. Also shared his Mega Sceptile team breakdown artifact (66 likes).</p>
+              <p>Levie on why code is agent-friendly (149 likes): &#39;One of the many properties that code has that makes it highly amenable to agents is that you can more or less quickly test it.&#39; Code is one of the few domains where you can automatically verify correctness — which is why coding agents work better than agents for most other domains. He also backed a standards body for AI (112 likes) — distinct from regulation.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude: Ask for a lesson plan, and Claude starts from your state standards and high-quality curricula by connecting through Learning Commons.</p>
+              <p>Claude: Claude for Teachers is built for K-12 privacy. We never train our models on your conversations, and student information is protected.</p>
+              <p>Thariq: I&#39;ve been playing a lot of Pokemon Champions recently and started using Claude Code to help me. It writes code using Smogon&#39;s npm library...</p>
+              <p>Aaron Levie: One of the many properties that code has that makes it highly amenable to agents is that you can more or less quickly test it.</p>
+              <p>Aaron Levie: Thoughtful proposal for a standards body for AI. This is distinct from a regulatory agency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/claudeai/status/2076800542576586790" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Cursor Design Team &amp; Builder Culture / Cursor 设计团队与构建者文化</h2>
+    <p class="section-desc">Ryo Lu 论「当梦想变成工作」（809 赞）+ 组建设计团队（896 赞）；Rauchg 开放 AI Gateway token 数据集（83 赞）+ agentmail（159 赞）；Steipete 的 autoreview（141 赞）和 Suno AI 音乐（167 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="ryolu_+rauchg+steipete" data-author-name="Ryo Lu / Rauchg / Steipete" data-author-tag="Cursor / Vercel CEO / OpenClaw" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Ryo Lu / Rauchg / Steipete avatar"><span class="avatar-fallback">RL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Ryo Lu / Rauchg / Steipete</div>
+            <div class="author-tag is-inline">Cursor / Vercel CEO / OpenClaw</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Ryo Lu 的反思帖（809 赞、49 转发）：「当梦想变成工作——我以前以为梦想就是把爱好变成工作。把一生花在我热爱的东西旁边：电脑、代码、手艺……」这是对激情扩展为责任时发生的变化的冥想。他还在 Cursor 组建「最好的设计团队」，也在找设计工程师（896 赞）。</p>
+              <p>Rauchg 开放了 Vercel AI Gateway 的 AI token 流量数据集（83 赞）——「里面有令人着迷的洞察！」他还推广了 agentmail：让你的 agent 运行 vercel install agentmail——无需注册、自动设置、统一计费（159 赞）。</p>
+              <p>Steipete 分享了两个实用技巧：「这就是为什么你总要跑 autoreview」（141 赞）+「Suno AI 在出大热单！」（167 赞）。还提到压力测试虽然烧 token 但能让你安心（13 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Ryo Lu：当梦想变成工作。我以前以为梦想就是把爱好变成工作。把一生花在我热爱的东西旁边：电脑、代码、手艺……</p>
+              <p>Ryo Lu：组建最好的设计团队（也在找设计工程师）</p>
+              <p>Guillermo Rauch：我们开放了 Vercel AI Gateway 的 AI token 流量数据集。里面有令人着迷的洞察！</p>
+              <p>Guillermo Rauch：告诉你的 agent 运行 vercel install agentmail——无需注册、自动设置、统一计费。</p>
+              <p>Peter Steinberger：这就是为什么你总要跑 autoreview。</p>
+              <p>Peter Steinberger：Suno AI 在出大热单！</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Ryo Lu&#39;s reflective thread (809 likes, 49 retweets): &#39;when the dream becomes the job — i used to think the dream was to make my hobby my work. to spend my life close to the things i loved: computers, code, the craft...&#39; A meditation on the transformation that happens when passion scales into responsibility. He&#39;s also assembling &#39;the best design team&#39; at Cursor, looking for design engineers too (896 likes).</p>
+              <p>Rauchg opened up the AI token flows dataset from Vercel AI Gateway (83 likes) — &#39;fascinating insights contained within!&#39; He also promoted agentmail: tell your agent to vercel install agentmail — no signup, automatic setup, unified billing (159 likes).</p>
+              <p>Steipete shared two practical tips: &#39;That&#39;s why you always wanna run autoreview&#39; (141 likes) — showing a code review catch. And: &#39;Suno AI is delivering bangers!&#39; (167 likes). Plus a note that stress-testing burns tokens but calms nerves (13 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Ryo Lu: when the dream becomes the job. i used to think the dream was to make my hobby my work. to spend my life close to the things i loved: computers, code, the craft...</p>
+              <p>Ryo Lu: assembling the best design team (looking for design engs, too)</p>
+              <p>Guillermo Rauch: We&#39;re opening up the dataset of AI token flows on @vercel AI Gateway. Fascinating insights contained within!</p>
+              <p>Guillermo Rauch: Tell your agent to vercel install agentmail – no signup, automatic setup and unified billing.</p>
+              <p>Peter Steinberger: That&#39;s why you always wanna run autoreview.</p>
+              <p>Peter Steinberger: Suno AI is delivering bangers!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/ryolu_/status/2076733881033564506" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">World Cup &amp; Culture / 世界杯与文化</h2>
+    <p class="section-desc">Matt Turck 论法国半决赛表现（3175 赞）；Garry Tan 的 SF 评论（486 赞）；Nikunj 论工程师也应该 extremely online（23 赞）；Dan Shipper 预告 Every 线下聚会。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="mattturck+garrytan+nikunj+danshipper" data-author-name="Matt Turck / Garry Tan / Nikunj / Dan Shipper" data-author-tag="FirstMark / YC CEO / FPV Ventures / Every CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Matt Turck / Garry Tan / Nikunj / Dan Shipper avatar"><span class="avatar-fallback">MT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Matt Turck / Garry Tan / Nikunj / Dan Shipper</div>
+            <div class="author-tag is-inline">FirstMark / YC CEO / FPV Ventures / Every CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck 的法国半决赛分析拿到今日第二高互动（3175 赞、173 转发）：「法国在整个世界杯踢 10/10 的足球，在半决赛踢 4/10——这需要在足球学校里被研究。」他还指出世界杯的残酷：「48 支球队里 47 支心碎回家。我们依然热爱」（64 赞）。Aditya Agarwal 补刀调侃 Yamal（27 赞）。</p>
+              <p>Garry Tan 论旧金山：「你们的税金在干活。SF 的 doom loop 不只是毁了正常市民的城市——也是在掠夺公共财产」（486 赞）。还有文化评论：「永远不要 fully omnicause」（107 赞）。</p>
+              <p>Nikunj 论 AI 时代的工程领导力（23 赞）：「AI 之前的工程领导者思维无法理解他们最强的工程师同时也是一个重度网民。当 agent 在工作时，工程师在刷时间线找 alpha。」Dan Shipper 宣布 Every 订阅者线下聚会——在布鲁克林的褐砂石别墅（16 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck：法国在整个世界杯踢 10/10 的足球，在半决赛踢 4/10——需要在足球学校里研究。</p>
+              <p>Matt Turck：世界杯的残酷现实是 48 支球队里 47 支心碎回家。我们依然热爱。</p>
+              <p>Garry Tan：你们的税金在干活。SF 的 doom loop 不只是毁了正常市民的城市，也是在掠夺公共财产。</p>
+              <p>Nikunj：AI 之前的工程领导者思维无法理解他们最强的工程师也是个重度网民。当 agent 在工作时，工程师在刷时间线找 alpha。</p>
+              <p>Dan Shipper：来看 @every IRL！明天在布鲁克林的褐砂石别墅举办订阅者聚会。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matt Turck&#39;s France semi-final analysis got today&#39;s second-highest engagement (3175 likes, 173 retweets): &#39;How France played 10/10 football throughout the World Cup and 4/10 football in the semi final will need to be studied in football school.&#39; He also noted the World Cup&#39;s cruelty: &#39;47 out of 48 teams go home heartbroken&#39; (64 likes). Aditya Agarwal piled on with a Yamal joke (27 likes).</p>
+              <p>Garry Tan on SF: &#39;Your tax dollars at work. The doom loop in SF isn&#39;t just about ruining the city for normal citizens. It&#39;s also about looting the public good&#39; (486 likes). Plus a cultural commentary: &#39;Never go full omnicause&#39; (107 likes).</p>
+              <p>Nikunj on engineering leadership in the AI era (23 likes): &#39;The pre-AI engineering leader mind can&#39;t comprehend that their most cracked engineer is also extremely online. While the agents are working, the engineer is sifting through timelines for alpha.&#39; Dan Shipper announced an Every subscriber meetup at their Brooklyn brownstone (16 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck: How France played 10/10 football throughout the World Cup and 4/10 football in the semi final will need to be studied in football school.</p>
+              <p>Matt Turck: The cruel reality of the World Cup is that 47 out of 48 teams go home heartbroken. We love it anyway.</p>
+              <p>Garry Tan: Your tax dollars at work. The doom loop in SF isn&#39;t just about ruining the city for normal citizens. It&#39;s also about looting the public good.</p>
+              <p>Garry Tan: Never go full omnicause.</p>
+              <p>Nikunj: The pre-AI engineering leader mind can&#39;t comprehend that their most cracked engineer is also extremely online. While the agents are working, the engineer is sifting through timelines for alpha.</p>
+              <p>Dan Shipper: COME SEE @EVERY IRL! We&#39;re hosting an @every subscriber meetup at our brownstone in Brooklyn TOMORROW.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/mattturck/status/2076774285307142574" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast Note: NVIDIA Nemotron (Repeat) / 播客备注：NVIDIA Nemotron（重播）</h2>
+    <p class="section-desc">MAD Podcast × Bryan Catanzaro（NVIDIA Nemotron）——与 2026-07-05 期刊同一期播客。完整中文译文请参见 7 月 5 日刊。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad-repeat" data-author-name="The MAD Podcast (repeat)" data-author-tag="与 07-05 同一期，不再重复翻译" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="The MAD Podcast (repeat) avatar"><span class="avatar-fallback">TM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">The MAD Podcast (repeat)</div>
+            <div class="author-tag is-inline">与 07-05 同一期，不再重复翻译</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>这是与 2026-07-05 期刊中同一期 NVIDIA Nemotron 播客（发布于 2026-07-02），feed 中重复推送。完整中英双语译文请参见 7 月 5 日刊。核心话题：4 bit 预训练经济学、混合 Mamba-Transformer 架构、MoE 与 NVL72、多 token 预测、多教师蒸馏、NVIDIA 为什么免费送模型、开源 AI 安全论。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>备注：本期播客与 2026-07-05 期刊中的内容完全一致。完整中英双语译文请参见 ai-builders-digest-2026-07-05.json。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>This is the same NVIDIA Nemotron podcast that appeared in the 2026-07-05 issue (published 2026-07-02). Full English and Chinese transcript coverage available in that issue. Key topics: 4-bit pretraining economics, hybrid Mamba-Transformer architecture, MoE with NVL72, multi-token prediction, multi-teacher distillation, why NVIDIA gives models away for free, open AI safety.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Note: This podcast episode is identical to the one in the 2026-07-05 digest. Please refer to ai-builders-digest-2026-07-05.json for the full bilingual transcript.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@DataDrivenNYC/videos" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-15 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-15 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

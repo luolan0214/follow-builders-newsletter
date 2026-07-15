@@ -1,0 +1,214 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-15",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sol 增长在爆发——Altman 说「5.6 Sol 的增长是疯狂的，推理团队做了英雄级的工作」（9749 赞，今日最高）。Sottiaux 在 9M 用户门槛前又玩起了互动——要么再重置限额，要么直接发 100 美元 Codex 额度换反馈（5757 赞）。Matt Turck 的一条法国半决赛表现分析意外拿到了今日第二高互动（3175 赞）。Ryo Lu 写了一段关于「当梦想变成工作」的思考（809 赞），同时宣布 Cursor 正在组建最好的设计团队（896 赞）。Claude 官方发布了 Claude for Teachers（合计 1437 赞），Anthropic 进军教育市场。Levie 论代码可测试性是 agent 友好的核心属性（149 赞）。播客是 MAD × NVIDIA Nemotron（与 07-05 期同一期，不再重复翻译）。"
+  },
+  "archive": {
+    "title": "Sol 爆发增长与教育市场日报",
+    "desc": "Altman 确认 Sol 增长疯狂，Sottiaux 冲刺 900 万用户，Claude for Teachers 发布，Cursor 组建设计团队。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-15 source feeds.",
+  "sections": [
+    {
+      "title": "Sol Growth & 9M Sprint / Sol 增长与 900 万冲刺",
+      "desc": "Altman 确认 Sol 增长疯狂（9749 赞）；Sottiaux 冲刺 900 万用户 + 发钱换反馈（5757 赞）；Peter Yang 预告 ChatGPT Work 教程。",
+      "cards": [
+        {
+          "authorKey": "sama+thsottiaux+petergyang",
+          "authorName": "Sam Altman / Sottiaux / Peter Yang",
+          "authorTag": "OpenAI CEO / Codex & ChatGPT @OpenAI / AI 教程作者",
+          "sourceUrl": "https://x.com/sama/status/2076787324990374304",
+          "en": {
+            "rewrite": [
+              "Altman's growth confirmation (9749 likes — today's most engaged tweet): '5.6 sol growth is insane. The inference team has done heroic work to support demand. We are going to move mountains to continue.' He also backed open-source harnesses (4800 likes) and posted a simple 'hello!' that got 5366 likes.",
+              "Sottiaux at the 9M threshold: 'Embarrassment of riches. But looks like we might hit 9M soon. Should we reset the ChatGPT Work and Codex usage again or give it some space?' (3608 likes). Then pivoted to a creative promotion: 'Or... what if we gave you $100 in Codex credits if you tell us what you love about GPT-5.6 Sol or why you switched?' (5757 likes). His third tweet: just scrolling Twitter looking for feedback (5530 likes).",
+              "Peter Yang announced a new video tutorial dropping tomorrow on how he uses ChatGPT Work (aka Codex) for 'almost everything on my computer' (36 likes). Aditya Agarwal noted the feature richness vs. friction tradeoff: 'I used ChatGPT (Legacy) 15-20 times a day for quick things... now it's more powerful but slower for simple tasks' (18 likes)."
+            ],
+            "original": [
+              "Sam Altman: 5.6 sol growth is insane. The inference team has done heroic work to be able to support demand. We are going to move mountains to continue.",
+              "Sam Altman: also, a reason to favor open-source harnesses.",
+              "Thibault Sottiaux: Embarrassment of riches. But looks like we might hit 9M soon. Should we reset the ChatGPT Work and Codex usage again or give it some space?",
+              "Thibault Sottiaux: Or… what if we gave you $100 in Codex credits if you tell us what you love about GPT-5.6 Sol or why you switched?",
+              "Peter Yang: Tomorrow, I'm sharing a new video on how I use ChatGPT Work (also known as Codex) to do almost everything on my computer.",
+              "Aditya Agarwal: I appreciate the in-depth feature set of the new ChatGPT app... But there is a real tradeoff. I used ChatGPT (Legacy) 15-20 times a day for quick things."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 的增长确认（9749 赞——今日最高）：「5.6 Sol 的增长是疯狂的。推理团队做了英雄级的工作来支持需求。我们将移山倒海继续下去。」他还表态支持开源 harness（4800 赞），以及发了一条「你好！」拿到 5366 赞。",
+              "Sottiaux 在 900 万门槛前：「财富令人尴尬。看起来可能很快突破 900 万。是再重置 ChatGPT Work 和 Codex 用量，还是给它一些空间？」（3608 赞）。然后转到一个创意促销：「或者……如果你告诉我们你爱 GPT-5.6 Sol 的什么，或者你为什么切换，我们给你 100 美元 Codex 额度？」（5757 赞）。第三条：只是在刷推特找反馈（5530 赞）。",
+              "Peter Yang 预告明天发新视频教程——如何用 ChatGPT Work（又名 Codex 😅）做「电脑上几乎所有事」（36 赞）。Aditya Agarwal 指出了功能丰富性与摩擦的取舍：「我以前每天用 ChatGPT（经典版）15-20 次做快速任务……现在更强大了但简单任务更慢了」（18 赞）。"
+            ],
+            "original": [
+              "Sam Altman：5.6 Sol 的增长是疯狂的。推理团队做了英雄级的工作来支持需求。我们将移山倒海继续下去。",
+              "Sam Altman：支持开源 harness 的另一个理由。",
+              "Thibault Sottiaux：财富令人尴尬。看起来可能很快突破 900 万。是再重置用量还是给它一些空间？",
+              "Thibault Sottiaux：或者……如果你告诉我们你爱 GPT-5.6 Sol 的什么或为什么切换，我们给你 100 美元 Codex 额度？",
+              "Peter Yang：明天分享新视频——我如何用 ChatGPT Work（又名 Codex 😅）做电脑上几乎所有的事。",
+              "Aditya Agarwal：我欣赏新版 ChatGPT 的深度功能集……但有一个真实的取舍。我以前每天用经典版 15-20 次做快速任务。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude for Teachers & Education / Claude for Teachers 与教育",
+      "desc": "Claude 官方发布 K-12 教师版（合计 1437 赞）；Thariq 用 Claude Code 玩 Pokémon 竞技（302 赞）；Levie 论代码可测试性（149 赞）。",
+      "cards": [
+        {
+          "authorKey": "claudeai+trq212+levie",
+          "authorName": "Claude / Thariq / Levie",
+          "authorTag": "Anthropic 官方 / Claude Code @Anthropic / Box CEO",
+          "sourceUrl": "https://x.com/claudeai/status/2076800542576586790",
+          "en": {
+            "rewrite": [
+              "Anthropic launched Claude for Teachers — purpose-built for K-12 education with privacy-first design. Ask for a lesson plan and Claude starts from your state standards and high-quality curricula via Learning Commons integration (647 likes). Key privacy guarantee: never trains on conversations, student data protected by data residency (514 likes). The move signals Anthropic is expanding beyond developer tools into education.",
+              "Thariq's hobby use case: using Claude Code to build a Pokémon Champions competitive team analysis tool with Smogon's npm library. 'It writes code, runs damage calcs, suggests team comps' (302 likes). He'll open-source it. Also shared his Mega Sceptile team breakdown artifact (66 likes).",
+              "Levie on why code is agent-friendly (149 likes): 'One of the many properties that code has that makes it highly amenable to agents is that you can more or less quickly test it.' Code is one of the few domains where you can automatically verify correctness — which is why coding agents work better than agents for most other domains. He also backed a standards body for AI (112 likes) — distinct from regulation."
+            ],
+            "original": [
+              "Claude: Ask for a lesson plan, and Claude starts from your state standards and high-quality curricula by connecting through Learning Commons.",
+              "Claude: Claude for Teachers is built for K-12 privacy. We never train our models on your conversations, and student information is protected.",
+              "Thariq: I've been playing a lot of Pokemon Champions recently and started using Claude Code to help me. It writes code using Smogon's npm library...",
+              "Aaron Levie: One of the many properties that code has that makes it highly amenable to agents is that you can more or less quickly test it.",
+              "Aaron Levie: Thoughtful proposal for a standards body for AI. This is distinct from a regulatory agency."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Anthropic 发布了 Claude for Teachers——专为 K-12 教育设计，隐私优先。要教案？Claude 从你所在州的标准和高质量课程开始（通过 Learning Commons 集成）（647 赞）。隐私保证：绝不训练你的对话，学生数据受数据驻留保护（514 赞）。这标志着 Anthropic 从开发者工具扩展到教育市场。",
+              "Thariq 的爱好用例：用 Claude Code 搭了一个 Pokémon Champions 竞技分析工具，调用 Smogon 的 npm 库。「它写代码、算伤害、建议队伍配置」（302 赞）。他说会开源。还分享了他的 Mega Sceptile 队伍分析 artifact（66 赞）。",
+              "Levie 论为什么代码对 agent 友好（149 赞）：「代码有很多属性让它非常适合 agent——其中之一是你基本上可以快速测试它。」代码是少数能自动验证正确性的领域——这就是为什么编码 agent 比大多数其他领域的 agent 工作得更好。他还支持建立一个 AI 标准组织（112 赞）——区别于监管机构。"
+            ],
+            "original": [
+              "Claude 官方：要教案？Claude 从你所在州的标准和高质量课程开始，通过 Learning Commons 连接。",
+              "Claude 官方：Claude for Teachers 为 K-12 隐私而建。我们从不训练你的对话，学生信息受保护。",
+              "Thariq：最近一直在玩 Pokémon Champions，开始用 Claude Code 辅助。它用 Smogon 的 npm 库写代码……",
+              "Aaron Levie：代码有很多属性让它非常适合 agent——其中之一是你基本上可以快速测试它。",
+              "Aaron Levie：为 AI 建立标准组织的深思熟虑提案。这不同于监管机构。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cursor Design Team & Builder Culture / Cursor 设计团队与构建者文化",
+      "desc": "Ryo Lu 论「当梦想变成工作」（809 赞）+ 组建设计团队（896 赞）；Rauchg 开放 AI Gateway token 数据集（83 赞）+ agentmail（159 赞）；Steipete 的 autoreview（141 赞）和 Suno AI 音乐（167 赞）。",
+      "cards": [
+        {
+          "authorKey": "ryolu_+rauchg+steipete",
+          "authorName": "Ryo Lu / Rauchg / Steipete",
+          "authorTag": "Cursor / Vercel CEO / OpenClaw",
+          "sourceUrl": "https://x.com/ryolu_/status/2076733881033564506",
+          "en": {
+            "rewrite": [
+              "Ryo Lu's reflective thread (809 likes, 49 retweets): 'when the dream becomes the job — i used to think the dream was to make my hobby my work. to spend my life close to the things i loved: computers, code, the craft...' A meditation on the transformation that happens when passion scales into responsibility. He's also assembling 'the best design team' at Cursor, looking for design engineers too (896 likes).",
+              "Rauchg opened up the AI token flows dataset from Vercel AI Gateway (83 likes) — 'fascinating insights contained within!' He also promoted agentmail: tell your agent to vercel install agentmail — no signup, automatic setup, unified billing (159 likes).",
+              "Steipete shared two practical tips: 'That's why you always wanna run autoreview' (141 likes) — showing a code review catch. And: 'Suno AI is delivering bangers!' (167 likes). Plus a note that stress-testing burns tokens but calms nerves (13 likes)."
+            ],
+            "original": [
+              "Ryo Lu: when the dream becomes the job. i used to think the dream was to make my hobby my work. to spend my life close to the things i loved: computers, code, the craft...",
+              "Ryo Lu: assembling the best design team (looking for design engs, too)",
+              "Guillermo Rauch: We're opening up the dataset of AI token flows on @vercel AI Gateway. Fascinating insights contained within!",
+              "Guillermo Rauch: Tell your agent to vercel install agentmail – no signup, automatic setup and unified billing.",
+              "Peter Steinberger: That's why you always wanna run autoreview.",
+              "Peter Steinberger: Suno AI is delivering bangers!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu 的反思帖（809 赞、49 转发）：「当梦想变成工作——我以前以为梦想就是把爱好变成工作。把一生花在我热爱的东西旁边：电脑、代码、手艺……」这是对激情扩展为责任时发生的变化的冥想。他还在 Cursor 组建「最好的设计团队」，也在找设计工程师（896 赞）。",
+              "Rauchg 开放了 Vercel AI Gateway 的 AI token 流量数据集（83 赞）——「里面有令人着迷的洞察！」他还推广了 agentmail：让你的 agent 运行 vercel install agentmail——无需注册、自动设置、统一计费（159 赞）。",
+              "Steipete 分享了两个实用技巧：「这就是为什么你总要跑 autoreview」（141 赞）+「Suno AI 在出大热单！」（167 赞）。还提到压力测试虽然烧 token 但能让你安心（13 赞）。"
+            ],
+            "original": [
+              "Ryo Lu：当梦想变成工作。我以前以为梦想就是把爱好变成工作。把一生花在我热爱的东西旁边：电脑、代码、手艺……",
+              "Ryo Lu：组建最好的设计团队（也在找设计工程师）",
+              "Guillermo Rauch：我们开放了 Vercel AI Gateway 的 AI token 流量数据集。里面有令人着迷的洞察！",
+              "Guillermo Rauch：告诉你的 agent 运行 vercel install agentmail——无需注册、自动设置、统一计费。",
+              "Peter Steinberger：这就是为什么你总要跑 autoreview。",
+              "Peter Steinberger：Suno AI 在出大热单！"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "World Cup & Culture / 世界杯与文化",
+      "desc": "Matt Turck 论法国半决赛表现（3175 赞）；Garry Tan 的 SF 评论（486 赞）；Nikunj 论工程师也应该 extremely online（23 赞）；Dan Shipper 预告 Every 线下聚会。",
+      "cards": [
+        {
+          "authorKey": "mattturck+garrytan+nikunj+danshipper",
+          "authorName": "Matt Turck / Garry Tan / Nikunj / Dan Shipper",
+          "authorTag": "FirstMark / YC CEO / FPV Ventures / Every CEO",
+          "sourceUrl": "https://x.com/mattturck/status/2076774285307142574",
+          "en": {
+            "rewrite": [
+              "Matt Turck's France semi-final analysis got today's second-highest engagement (3175 likes, 173 retweets): 'How France played 10/10 football throughout the World Cup and 4/10 football in the semi final will need to be studied in football school.' He also noted the World Cup's cruelty: '47 out of 48 teams go home heartbroken' (64 likes). Aditya Agarwal piled on with a Yamal joke (27 likes).",
+              "Garry Tan on SF: 'Your tax dollars at work. The doom loop in SF isn't just about ruining the city for normal citizens. It's also about looting the public good' (486 likes). Plus a cultural commentary: 'Never go full omnicause' (107 likes).",
+              "Nikunj on engineering leadership in the AI era (23 likes): 'The pre-AI engineering leader mind can't comprehend that their most cracked engineer is also extremely online. While the agents are working, the engineer is sifting through timelines for alpha.' Dan Shipper announced an Every subscriber meetup at their Brooklyn brownstone (16 likes)."
+            ],
+            "original": [
+              "Matt Turck: How France played 10/10 football throughout the World Cup and 4/10 football in the semi final will need to be studied in football school.",
+              "Matt Turck: The cruel reality of the World Cup is that 47 out of 48 teams go home heartbroken. We love it anyway.",
+              "Garry Tan: Your tax dollars at work. The doom loop in SF isn't just about ruining the city for normal citizens. It's also about looting the public good.",
+              "Garry Tan: Never go full omnicause.",
+              "Nikunj: The pre-AI engineering leader mind can't comprehend that their most cracked engineer is also extremely online. While the agents are working, the engineer is sifting through timelines for alpha.",
+              "Dan Shipper: COME SEE @EVERY IRL! We're hosting an @every subscriber meetup at our brownstone in Brooklyn TOMORROW."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Matt Turck 的法国半决赛分析拿到今日第二高互动（3175 赞、173 转发）：「法国在整个世界杯踢 10/10 的足球，在半决赛踢 4/10——这需要在足球学校里被研究。」他还指出世界杯的残酷：「48 支球队里 47 支心碎回家。我们依然热爱」（64 赞）。Aditya Agarwal 补刀调侃 Yamal（27 赞）。",
+              "Garry Tan 论旧金山：「你们的税金在干活。SF 的 doom loop 不只是毁了正常市民的城市——也是在掠夺公共财产」（486 赞）。还有文化评论：「永远不要 fully omnicause」（107 赞）。",
+              "Nikunj 论 AI 时代的工程领导力（23 赞）：「AI 之前的工程领导者思维无法理解他们最强的工程师同时也是一个重度网民。当 agent 在工作时，工程师在刷时间线找 alpha。」Dan Shipper 宣布 Every 订阅者线下聚会——在布鲁克林的褐砂石别墅（16 赞）。"
+            ],
+            "original": [
+              "Matt Turck：法国在整个世界杯踢 10/10 的足球，在半决赛踢 4/10——需要在足球学校里研究。",
+              "Matt Turck：世界杯的残酷现实是 48 支球队里 47 支心碎回家。我们依然热爱。",
+              "Garry Tan：你们的税金在干活。SF 的 doom loop 不只是毁了正常市民的城市，也是在掠夺公共财产。",
+              "Nikunj：AI 之前的工程领导者思维无法理解他们最强的工程师也是个重度网民。当 agent 在工作时，工程师在刷时间线找 alpha。",
+              "Dan Shipper：来看 @every IRL！明天在布鲁克林的褐砂石别墅举办订阅者聚会。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Note: NVIDIA Nemotron (Repeat) / 播客备注：NVIDIA Nemotron（重播）",
+      "desc": "MAD Podcast × Bryan Catanzaro（NVIDIA Nemotron）——与 2026-07-05 期刊同一期播客。完整中文译文请参见 7 月 5 日刊。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-repeat",
+          "authorName": "The MAD Podcast (repeat)",
+          "authorTag": "与 07-05 同一期，不再重复翻译",
+          "sourceUrl": "https://www.youtube.com/@DataDrivenNYC/videos",
+          "en": {
+            "rewrite": [
+              "This is the same NVIDIA Nemotron podcast that appeared in the 2026-07-05 issue (published 2026-07-02). Full English and Chinese transcript coverage available in that issue. Key topics: 4-bit pretraining economics, hybrid Mamba-Transformer architecture, MoE with NVL72, multi-token prediction, multi-teacher distillation, why NVIDIA gives models away for free, open AI safety."
+            ],
+            "original": [
+              "Note: This podcast episode is identical to the one in the 2026-07-05 digest. Please refer to ai-builders-digest-2026-07-05.json for the full bilingual transcript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这是与 2026-07-05 期刊中同一期 NVIDIA Nemotron 播客（发布于 2026-07-02），feed 中重复推送。完整中英双语译文请参见 7 月 5 日刊。核心话题：4 bit 预训练经济学、混合 Mamba-Transformer 架构、MoE 与 NVL72、多 token 预测、多教师蒸馏、NVIDIA 为什么免费送模型、开源 AI 安全论。"
+            ],
+            "original": [
+              "备注：本期播客与 2026-07-05 期刊中的内容完全一致。完整中英双语译文请参见 ai-builders-digest-2026-07-05.json。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
