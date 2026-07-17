@@ -1,0 +1,246 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-17",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Boris Cherny（ChatGPT 工程负责人）的一段反思拿下今日最高互动（7226 赞）：最好的工程师一直在自动化自己的工作——AI 只是把这个特质放大了。Sottiaux 取消了 Codex Plus/Pro 的 5 小时限制（3287 赞），调查了文件误删报告（2225 赞），还问社区「合并 ChatGPT 和 Codex 之后下一步合并什么」（1594 赞）。Thariq 的提示词哲学（2754 赞）：薄 prompt、厚 artifact+上下文、薄 skill。Altman 惊叹有人想要静音版（2542 赞）。Rauchg 宣布 Vercel Sandbox 每天创建 350 万+沙箱（218 赞）+ 英镑梗（535 赞）。Zara 论 agent 友好的公司设计（134 赞）。播客是 AI & I × Granola CEO Chris Pedregal——15 亿美元估值、60-70 人团队、为什么创业即使成功也是刀战。"
+  },
+  "archive": {
+    "title": "工程师自动化宿命论与 Granola 路线图日报",
+    "desc": "Boris Cherny 论最好工程师的自动化本能，Thariq 的薄 prompt 哲学，Sottiaux 取消 5 小时限制，Granola CEO 深聊 AI 原生工作未来。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 6/27/17 source feeds.",
+  "sections": [
+    {
+      "title": "Engineering Philosophy & Prompting / 工程哲学与提示词",
+      "desc": "Boris Cherny 论最好工程师一直在自动化（7226 赞）；Thariq 的提示词三层哲学（2754 赞）+ 软件工程即自动化（1619 赞）；Steipete 论 PR 审查框架（572 赞）。",
+      "cards": [
+        {
+          "authorKey": "bcherny+trq212+steipete",
+          "authorName": "Boris Cherny / Thariq / Steipete",
+          "authorTag": "ChatGPT Eng @OpenAI / Claude Code @Anthropic / OpenClaw",
+          "sourceUrl": "https://x.com/bcherny/status/2077060001920401900",
+          "en": {
+            "rewrite": [
+              "Boris Cherny's reflection got today's highest engagement (7226 likes): 'Something I have been thinking about: in the past, the best engineers I knew spent a lot of time automating their work in various ways. Better vim/emacs automation...' — the thread argues that AI coding agents are the natural extension of something the best engineers have always done. The engineers who adopt AI fastest are the ones who were already building automation tooling.",
+              "Thariq's prompting philosophy (2754 likes, 248 retweets): 'ideal prompting technique is: thin prompts, thick artifacts + context, thin skills.' This distills the shift from verbose prompting to providing rich context and letting the model do the heavy lifting. His follow-up: 'software engineering is the profession of automation' (1619 likes).",
+              "Steipete on PR review (572 likes): 'If I put up a PR for an iOS codebase I don't know and a code reviewer rejects it because it doesn't use the right framework, or if a designer builds a new feature...' — making the case that the same standards should apply to AI-generated code. He also found 'This is really clever' (1534 likes) and noted '5.6 is relentless' (201 likes)."
+            ],
+            "original": [
+              "Boris Cherny: Something I have been thinking about: in the past, the best engineers I knew spent a lot of time automating their work in various ways. Better vim/emacs automation...",
+              "Thariq: ideal prompting technique is: thin prompts / thick artifacts + context / thin skills",
+              "Thariq: software engineering is the profession of automation",
+              "Peter Steinberger: If I put up a PR for an iOS codebase I don't know and a code reviewer rejects it because it doesn't use the right framework...",
+              "Peter Steinberger: This is really clever.",
+              "Peter Steinberger: Mostly true, 5.6 is relentless."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Boris Cherny 的反思拿到今日最高互动（7226 赞）：「我一直在想一件事：过去，我认识的最好的工程师花大量时间用各种方式自动化自己的工作。更好的 vim/emacs 自动化……」——这条线索的核心论点是 AI 编程 agent 是最好的工程师一直在做的事的自然延伸。最快采纳 AI 的工程师，正是那些已经在构建自动化工具的人。",
+              "Thariq 的提示词哲学（2754 赞、248 转发）：「理想的提示词技术是：薄 prompt、厚 artifact + 上下文、薄 skill。」这浓缩了从冗长提示词到提供丰富上下文、让模型做重活的转变。后续推文：「软件工程就是自动化的职业」（1619 赞）。",
+              "Steipete 论 PR 审查（572 赞）：「如果我为一个不熟悉的 iOS 代码库提交 PR，审查者因为没用对框架而拒绝……」——论证 AI 生成的代码应该适用同样的标准。他还发现某个东西「真的很聪明」（1534 赞），以及「5.6 是无情的」（201 赞）。"
+            ],
+            "original": [
+              "Boris Cherny：我一直在想一件事：过去，我认识的最好的工程师花大量时间用各种方式自动化自己的工作。更好的 vim/emacs 自动化……",
+              "Thariq：理想的提示词技术是：薄 prompt / 厚 artifact + 上下文 / 薄 skill。",
+              "Thariq：软件工程就是自动化的职业。",
+              "Peter Steinberger：如果我为一个不熟悉的 iOS 代码库提交 PR，审查者因为没用对框架而拒绝……",
+              "Peter Steinberger：真的很聪明。",
+              "Peter Steinberger：基本属实，5.6 是无情的。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Codex Evolution & Sol Updates / Codex 进化与 Sol 更新",
+      "desc": "Sottiaux 取消 5h 限制（3287 赞）+ 文件删除调查（2225 赞）+ 合并下一步（1594 赞）；Altman 论静音版（2542 赞）；Peter Yang 论 ChatGPT Live × Codex 割裂（283 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama+petergyang",
+          "authorName": "Sottiaux / Altman / Peter Yang",
+          "authorTag": "Codex & ChatGPT @OpenAI / OpenAI CEO / AI 教程作者",
+          "sourceUrl": "https://x.com/thsottiaux/status/2077083128456794112",
+          "en": {
+            "rewrite": [
+              "Sottiaux's three-tweet day: (1) 'We've had no 5h limit in Codex plus and pro for a few days. Do you think it is better or are you finding it difficult to manage the usage included in the weekly?' (3287 likes) — the 5-hour limit removal is a major UX shift. (2) File deletion investigation (2225 likes): 'On file deletions. We've investigated a handful of reports where GPT-5.6 unexpectedly deleted files. What we have found is that this most commonly occurs when...' — transparency on a real safety issue. (3) 'Now that we merged ChatGPT and Codex, what should we merge next? What's the double or nothing move.' (1594 likes).",
+              "Altman on the silent mode debate (2542 likes): 'amazing to me that some people want the silent version' — expressing surprise that users prefer the non-verbose mode. Peter Yang identified the biggest missed opportunity (283 likes): 'ChatGPT Live and Codex are two incredible products that don't talk to each other. This is OpenAI's biggest missed opportunity imo.' He went on a walk with ChatGPT Live and wished Codex context carried over."
+            ],
+            "original": [
+              "Thibault Sottiaux: We've had no 5h limit in Codex plus and pro for a few days. Do you think it is better or are you finding it difficult to manage the usage included in the weekly?",
+              "Thibault Sottiaux: On file deletions. We've investigated a handful of reports where GPT-5.6 unexpectedly deleted files. What we have found is that this most commonly occurs when...",
+              "Thibault Sottiaux: Now that we merged ChatGPT and Codex, what should we merge next? What's the double or nothing move.",
+              "Sam Altman: amazing to me that some people want the silent version",
+              "Peter Yang: ChatGPT Live and Codex are two incredible products that don't talk to each other. This is @OpenAI's biggest missed opportunity imo."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 三连推：（1）「Codex Plus 和 Pro 已经几天没有 5 小时限制了。你们觉得是更好了，还是发现很难管理每周包含的用量？」（3287 赞）——5 小时限制的取消是一个重大 UX 转变。（2）文件删除调查（2225 赞）：「关于文件删除。我们调查了多起 GPT-5.6 意外删除文件的报告。我们发现这最常见于……」——对真实安全问题的透明度。（3）「既然合并了 ChatGPT 和 Codex，下一步该合并什么？double or nothing 的招是什么。」（1594 赞）。",
+              "Altman 对静音模式的惊讶（2542 赞）：「很惊讶有些人想要静音版」。Peter Yang 指出了最大的遗漏机会（283 赞）：「ChatGPT Live 和 Codex 是两个不可思议的产品，但它们互不沟通。这是 OpenAI 最大的遗漏机会。」他带着 ChatGPT Live 散步时希望 Codex 的上下文能同步过来。"
+            ],
+            "original": [
+              "Thibault Sottiaux：Codex Plus 和 Pro 已经几天没有 5 小时限制了。你们觉得更好了还是发现很难管理每周用量？",
+              "Thibault Sottiaux：关于文件删除。我们调查了多起 GPT-5.6 意外删除文件的报告。我们发现这最常见于……",
+              "Thibault Sottiaux：既然合并了 ChatGPT 和 Codex，下一步该合并什么？",
+              "Sam Altman：很惊讶有些人想要静音版。",
+              "Peter Yang：ChatGPT Live 和 Codex 是两个不可思议的产品，但互不沟通。这是 OpenAI 最大的遗漏机会。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Vercel Sandbox & Agent Infrastructure / Vercel 沙箱与 Agent 基础设施",
+      "desc": "Rauchg 公布 Sandbox 数据（218 赞）+ 英镑梗（535 赞）；Levie 论企业 agent 采纳（488 赞）+ 开源权重创新（223 赞）；Zara 论 agent 友好的公司设计（134 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+levie+zarazhangrui",
+          "authorName": "Rauchg / Levie / Zara",
+          "authorTag": "Vercel CEO / Box CEO / Builder",
+          "sourceUrl": "https://x.com/rauchg/status/2077095231292313600",
+          "en": {
+            "rewrite": [
+              "Rauchg shared Vercel Sandbox metrics (218 likes): 'Growing DAUs at 100% m/o/m, 3.5M+ sandboxes created per day, best-in-class Active CPU pricing model, powering Notion, Airtable, Meta, Z...' — Vercel is becoming infrastructure backbone for agent sandboxing. His British pounds joke 'Easy money (British pounds)' (535 likes) continues his currency meme series. He also highlighted Web Analytics API use cases (199 likes).",
+              "Levie hosted an enterprise IT dinner (488 likes): 'Change management remains the #1 challenge.agent adoption in the enterprise is happening but slower than the hype suggests.' He also praised open-weights innovation (223 likes): 'The future of AI is going to be a mix of frontier intelligence and open weights.'",
+              "Zara on agent-friendly company design (134 likes): 'If you want agents to actually work inside a company, you have to design the company so they can read it. Shopify did this with an agent that had no private channels...' — the insight that organizational transparency is a prerequisite for agent productivity. She also shared how coding agents became her creative outlet (239 likes): 'GitHub is basically my Sketch/Figma.'"
+            ],
+            "original": [
+              "Guillermo Rauch: Vercel Sandbox: Growing DAUs at 100% m/o/m, 3.5M+ sandboxes created per day, best-in-class Active CPU pricing model, powering Notion, Airtable, Meta, Z...",
+              "Guillermo Rauch: Easy money (British pounds)",
+              "Aaron Levie: Hosted a dinner last night with a group of IT leaders of large enterprises around agent adoption in the enterprise. Change management remains...",
+              "Aaron Levie: Fantastic to see more open weights innovation happening right now, especially coming from a US Lab.",
+              "Zara: If you want agents to actually work inside a company, you have to design the company so they can read it. Shopify did this with an agent that had no private channels...",
+              "Zara: Because I never learned programming the traditional way, using coding agents has been purely an act of creativity and self-expression. GitHub is basically my Sketch/Figma."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 公布了 Vercel Sandbox 指标（218 赞）：「DAU 月环比增长 100%，每天创建 350 万+沙箱，同级最优的 Active CPU 定价模型，为 Notion、Airtable、Meta 等提供支持」——Vercel 正在成为 agent 沙箱化的基础设施骨干。他的英镑梗「轻松赚钱（英镑）」（535 赞）延续了他的货币梗系列。他还强调了 Web Analytics API 的使用场景（199 赞）。",
+              "Levie 主持了一场企业 IT 高管晚宴（488 赞）：「变革管理仍然是第一挑战。企业 agent 采纳正在发生，但比炒作暗示的要慢。」他还赞扬了开源权重创新（223 赞）：「AI 的未来将是前沿智能与开源权重的混合。」",
+              "Zara 论 agent 友好的公司设计（134 赞）：「如果你想让 agent 在公司里真正工作，你必须设计公司让它能读懂。Shopify 做了一个没有私人频道的 agent……」——组织透明度是 agent 生产力的前提。她还分享了编码 agent 如何成为她的创意出口（239 赞）：「GitHub 基本上就是我的 Sketch/Figma。」"
+            ],
+            "original": [
+              "Guillermo Rauch：Vercel Sandbox：DAU 月环比增长 100%，每天创建 350 万+沙箱，同级最优的 Active CPU 定价模型，为 Notion、Airtable、Meta 等提供支持。",
+              "Guillermo Rauch：轻松赚钱（英镑）。",
+              "Aaron Levie：昨晚主持了一场企业 IT 高管晚宴。变革管理仍然是第一挑战……",
+              "Aaron Levie：很高兴看到更多开源权重创新，尤其是来自美国实验室的。",
+              "Zara：如果你想让 agent 在公司里真正工作，你必须设计公司让它能读懂。Shopify 做了一个没有私人频道的 agent……",
+              "Zara：因为我从没按传统方式学编程，用编码 agent 纯粹是一种创造力和自我表达。GitHub 基本上就是我的 Sketch/Figma。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gemini Spark & World Cup / Gemini Spark 与世界杯",
+      "desc": "Josh Woodward 宣布 Gemini Spark 扩展到更多 Ultra 用户（494 赞）+ 东南亚报告（472 赞）；Matt Turck 的阿根廷配方（111 赞）；Nikunj 的巴黎入境吐槽（93 赞）。",
+      "cards": [
+        {
+          "authorKey": "joshwoodward+mattturck+nikunj",
+          "authorName": "Josh Woodward / Matt Turck / Nikunj",
+          "authorTag": "Google Gemini / FirstMark / FPV Ventures",
+          "sourceUrl": "https://x.com/joshwoodward/status/2077050664982024296",
+          "en": {
+            "rewrite": [
+              "Josh Woodward announced Gemini Spark expansion (494 likes): 'Gemini Spark is headed to more Ultra subscribers around the world plus 4 new features: 1) Spark can open and edit Google Docs, acting on feedback from last week.' He also released Google's first Gemini Southeast Asia Report (472 likes): 'Active users more than doubled in the last year, 70% of prompts are submitted in local languages.'",
+              "Matt Turck's Argentina formula (111 likes): '1) trail 10-15 minutes before the end, 2) bring on Lautaro Martinez, 3) win, 4) repeat.' Nikunj's Paris immigration complaint (93 likes): 'After spending 3 hours in the immigration line in Paris, I will never complain about SFO and US immigration ever again.' Garry Tan called to 'bring back the em dash' (61 likes). Swyx noted 'you can just tweet things into existence' (140 likes)."
+            ],
+            "original": [
+              "Josh Woodward: Gemini Spark is headed to more Ultra subscribers around the world plus 4 new features: 1) Spark can open and edit Google Docs...",
+              "Josh Woodward: We just released our first-ever Gemini Southeast Asia Report. Active users more than doubled in the last year. 70% of prompts are submitted in local languages.",
+              "Matt Turck: Argentina's World Cup recipe: 1) trail 10-15 minutes before the end 2) bring on Lautaro Martinez 3) win 4) repeat",
+              "Nikunj: After spending 3 hours in the immigration line in Paris, I will never complain about SFO and US immigration ever again.",
+              "Garry Tan: We should just bring back the em dash. Reclaim it for our own.",
+              "Swyx: you can just tweet things into existence"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Josh Woodward 宣布 Gemini Spark 扩展（494 赞）：「Gemini Spark 正在向全球更多 Ultra 订阅用户推出，外加 4 项新功能：1) Spark 可以打开和编辑 Google Docs，回应上周的反馈。」他还发布了 Google 首份 Gemini 东南亚报告（472 赞）：「活跃用户在过去一年翻了一倍多，70% 的提示词用本地语言提交。」",
+              "Matt Turck 的阿根廷配方（111 赞）：「1) 终场前 10-15 分钟落后，2) 换上 Lautaro Martinez，3) 赢，4) 重复。」Nikunj 的巴黎入境吐槽（93 赞）：「在巴黎入境排队 3 小时后，我再也不吐槽 SFO 和美国入境了。」Garry Tan 呼吁「恢复使用 em dash」（61 赞）。Swyx 感叹「你可以直接用发推把东西变成现实」（140 赞）。"
+            ],
+            "original": [
+              "Josh Woodward：Gemini Spark 正在向全球更多 Ultra 订阅用户推出，外加 4 项新功能：1) Spark 可以打开和编辑 Google Docs……",
+              "Josh Woodward：我们发布了首份 Gemini 东南亚报告。活跃用户过去一年翻倍多。70% 的提示词用本地语言提交。",
+              "Matt Turck：阿根廷的世界杯配方：1) 终场前落后 2) 换上 Lautaro Martinez 3) 赢 4) 重复",
+              "Nikunj：在巴黎入境排队 3 小时后，我再也不吐槽 SFO 和美国入境了。",
+              "Garry Tan：我们应该恢复使用 em dash。 reclaim 它。",
+              "Swyx：你可以直接用发推把东西变成现实。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Granola CEO — Knife Fights & AI-Native Work / 播客：Granola CEO——刀战与 AI 原生工作",
+      "desc": "AI & I (Every) × Chris Pedregal（Granola CEO）。完整中文译文：15 亿美元估值的会议笔记公司如何思考竞争、AI 原生工作界面、pre-generation 策略、token 经济学、以及为什么创业即使成功也是刀战。",
+      "cards": [
+        {
+          "authorKey": "podcast:ai-and-i-granola",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper 主持 × Chris Pedregal（Granola CEO）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Chris Pedregal (Granola CEO, $1.5B valuation, 60-70 people) on AI & I with Dan Shipper. Key topics: (1) Startups are knife fights whether going well or not. (2) Meeting notes are not the end-all value — the real prize is inventing AI-native work interfaces. (3) Dan's pirate/architect framework for product teams. (4) Pre-generation strategy: Granola pre-generates millions of meeting briefs, only ~10% opened, but critical when needed. (5) 'Codex-native apps' paradigm — bring your agent to the app. (6) Token spend tracking started only last week, triggered by Fable. (7) The missing UI paradigm for multi-context agent work. (8) ~50% of weekly Granola users use agentic features."
+            ],
+            "original": [
+              "Chris Pedregal: Startups are like knife fights. And I thought startups were just really hard when they weren't working. Turns out they're really hard even when they're working as well.",
+              "Chris Pedregal: Meeting notes are not the end all, be all value that everyone's running after. There's something much bigger.",
+              "Chris Pedregal: We pre generate a silly amount of these [briefs] for a small percentage of them actually being opened in the belief that when you do open it though, you really, really appreciate it.",
+              "Dan Shipper: There are two roles that matter. One is called the pirate and one's called the architect.",
+              "Dan Shipper: I moved apartments recently, and I needed to change my internet. And I just told Codex, Go figure that out. And it opened up the Verizon website in its in app browser.",
+              "Chris Pedregal: Roughly half [of users], every week about half the granola users use us in an agentic way."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Granola CEO Chris Pedregal（15 亿美元估值，60-70 人团队）做客 AI & I 与 Dan Shipper 对谈。核心话题：（1）创业就是刀战——不管顺不顺利。（2）会议笔记不是终极价值——真正的奖品是发明 AI 原生工作界面。（3）Dan 的「海盗/架构师」产品团队框架。（4）预生成策略：Granola 预生成数百万份会前简报，只有约 10% 被打开，但在需要时至关重要。（5）「Codex 原生应用」范式——把你的 agent 带到应用里。（6）Token 支出追踪直到上周才开始，触发因素是 Fable。（7）多上下文 agent 工作缺失的 UI 范式。（8）每周约一半 Granola 用户使用 agentic 功能。"
+            ],
+            "original": [
+              "【创业就是刀战——即使成功也是】",
+              "Chris Pedregal 说：创业就像刀战。我以前以为只有不顺利的时候才难。结果顺利的时候一样难。",
+              "「我做了一家之前的创业公司 Socratic，12 个人。从 12 人到现在的 60-70 人，完全不同，我从来没做过这件事。组织人类——这是一件很难的事。」",
+              "",
+              "【会议笔记不是终极价值】",
+              "Pedregal 说：会议笔记不是大家追逐的终极价值。有更大的东西——我们用什么界面工作、在 AI 原生世界里我们怎么工作。",
+              "「我们不是第一个会议笔记工具。AI 笔记工具存在很久了。我们受到之前很多东西的启发。所以我不能说『你怎么能受我们启发』——这是一个生态系统。」",
+              "「Notion 做了类似的东西，OpenAI 做了，Zoom 最近也做了。在某些方面我不需要去经历那个噩梦般的假设场景——它来了，发生了，我们还在。增长 rate 没变。」",
+              "",
+              "【Dan 的「海盗/架构师」框架】",
+              "Dan Shipper（Every CEO）说：对于早期产品，有两个角色重要。一个是海盗——以最快速度建造，找到有价值的东西，可以 vibe code，不用想架构。另一个是架构师——与海盗配对，当海盗发现有价值的东西时，思考如何把它变成可持续、可扩展的系统。",
+              "「每个产品需要一个海盗。但一个架构师可以服务多个产品——因为现在的工具太好了，一个优秀的程序员可以用 Claude 或 Codex 在一小时内学会一个代码库。」",
+              "",
+              "【预生成策略——扶手栏杆哲学】",
+              "Pedregal 说：如果让 Granola 做事要等 20 秒，人类在忙碌的会议日里几乎不会等。但如果 Granola 预先生成你可能需要的东西，然后说『嘿，如果你需要这个，它已经在这里了』——感觉完全不同。",
+              "「我们预生成数百万份会前简报。只有大约 10% 被打开。但在你打开的那一刻——你真的非常感激，因为那正是你需要的。」",
+              "Granola 的产品哲学比喻：扶手栏杆。「所有楼梯都有栏杆。你从不注意到它。但当你绊倒的那一刻，你的手伸出去——它需要在那里，需要能承重。这就是我们对 Granola 的想法。」",
+              "",
+              "【「Codex 原生应用」——把 agent 带到应用里】",
+              "Dan Shipper 说：我用 Codex 里几乎所有的软件都在应用内浏览器里。我把 Codex 带到我的邮件或任何其他东西里。",
+              "「昨晚我搬了家，需要改网络。我告诉 Codex 去搞定。它在应用内浏览器里打开了 Verizon 网站，登录了，然后跟客服 agent 聊天——客服可能也在用 AI——直到把我的网络切换好。」",
+              "Pedregal 的回应：如果 MCP 有状态化的 UI——agent 通过 MCP 修改 UI 的实时状态——用户和 agent 看着同一个界面，那会很有意思。",
+              "",
+              "【Token 经济学——Fable 触发的觉醒】",
+              "Pedregal 说：我们直到上周才开始追踪 token 支出。触发因素是 Fable——有人说『我今天可能花了几千美元』，我们想『好吧，也许我们应该至少知道花了多少。』",
+              "Dan Shipper：我们一模一样。Fable 出来后，运行 Quora 的 Kieran 快要在 credits 上花 100 万美元了。",
+              "「在产品中，我仍然相信现在是早期阶段——我们应该搞清楚什么是杀手级 AI 原生体验，因此我们在 token 支出上不太节约。成本会随时间下降，等我们知道了最佳体验是什么再优化。」",
+              "",
+              "【缺失的 UI 范式 + 50% 用户使用 agentic 功能】",
+              "Pedregal 说：当你有多场会议的上下文时，正确的 UI 和交互设计是什么？没有人想清楚了。聊天 UI 出奇地多功能，但当你跨多个上下文做多件事时，我们没有找到正确的隐喻。",
+              "「每周大约一半的 Granola 用户以 agentic 方式使用我们——他们不会这么描述，但他们会问一个复杂的查询，比如跨多场会议做分析。大概一半。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
