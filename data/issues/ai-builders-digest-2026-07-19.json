@@ -1,0 +1,164 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-19",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "周末版。feed 数据与 7 月 18 日一致（周六上游未刷新），但两条重磅消息仍然主导讨论：Claude 官宣 Fable 5 从明天（7/20）起纳入所有 Max 和 Team Premium 计划（28134 赞），Sottiaux 的重置 + 「GPT-5.6 Sol 确认极其优秀」（合计超 2 万赞）。Peter Yang 预告今天发布与 Thariq 的视频。播客仍然是 MAD × OpenAI 计算负责人 Sachin Katti——人类历史上最大的基础设施建造。如果你昨天没看完，周末补上正好。"
+  },
+  "archive": {
+    "title": "周末延展版 · Fable 5 明日开放",
+    "desc": "feed 与 7/18 一致（周末未刷新）。Fable 5 明日纳入 Max/Team Premium，Sottiaux 重置持续生效，OpenAI 计算负责人播客值得补看。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-19 source feeds (weekend carry-over from 07-18).",
+  "sections": [
+    {
+      "title": "Fable 5 Eve & Sol Streak / Fable 5 前夜与 Sol 连胜",
+      "desc": "Claude 官宣 Fable 5 明日纳入 Max/Team Premium（28134 赞）；Sottiaux 重置全付费用户（9072 赞）+ Sol 确认极佳（10876 赞）；Steipete 的 loops vs graphs 哲学（2502 赞）。",
+      "cards": [
+        {
+          "authorKey": "claudeai+thsottiaux+steipete",
+          "authorName": "Claude / Sottiaux / Steipete",
+          "authorTag": "Anthropic 官方 / Codex & ChatGPT @OpenAI / OpenClaw",
+          "sourceUrl": "https://x.com/claudeai/status/2077450000000000000",
+          "en": {
+            "rewrite": [
+              "Claude's Fable 5 announcement remains the dominant topic (28134 likes): 'Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits.' Tomorrow is the day. The follow-up about giving users more certainty got 3108 likes.",
+              "Sottiaux's reset streak continues to dominate OpenAI engagement: 'Oops... I did it again' (9072 likes) + 'GPT-5.6 Sol confirmed to be an extremely good model' (10876 likes) + transitive rate limit resets (1159 likes). Combined: ~21K likes across three tweets.",
+              "Steipete's philosophical question gained traction over the weekend (2502 likes): 'Are we still talking loops or did we shift to graphs yet?' — a genuine architectural question about whether agent orchestration has moved from sequential loops to DAGs. He also built a codexbar icon editor (306 likes) and shared the Codex browser-use pain (317 likes)."
+            ],
+            "original": [
+              "Claude: Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits.",
+              "Claude: We know this has been frustrating, and we want to give you more certainty about what your plan includes.",
+              "Thibault Sottiaux: Oops... I did it again. Enjoy reset usage limits for all paid users for Codex and ChatGPT Work.",
+              "Thibault Sottiaux: GPT-5.6 Sol confirmed to be an extremely good model.",
+              "Peter Steinberger: Are we still talking loops or did we shift to graphs yet?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 的 Fable 5 公告仍然是主导话题（28134 赞）：「从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 计划，额度为限制的 50%。」明天就是那一天。关于给用户更多确定性的后续获得了 3108 赞。",
+              "Sottiaux 的重置连胜继续主导 OpenAI 互动：「哎呀……我又来了」（9072 赞）+「GPT-5.6 Sol 确认是一个极其优秀的模型」（10876 赞）+ 顺带重置了其他速率限制（1159 赞）。三条推文合计约 21000 赞。",
+              "Steipete 的哲学问题在周末持续发酵（2502 赞）：「我们还在谈论 loops 吗，还是已经转向 graphs 了？」——一个真正的架构问题：agent 编排是否已从顺序循环转向了有向无环图。他还建了 codexbar 图标编辑器（306 赞）并分享了 Codex 浏览器使用的痛点（317 赞）。"
+            ],
+            "original": [
+              "Claude 官方：从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 计划，额度为限制的 50%。",
+              "Claude 官方：我们知道这让人沮丧，我们想给你更多确定性。",
+              "Thibault Sottiaux：哎呀……我又来了。享受所有付费用户的 Codex 和 ChatGPT Work 重置用量限制。",
+              "Thibault Sottiaux：GPT-5.6 Sol 确认是一个极其优秀的模型。",
+              "Peter Steinberger：我们还在谈论 loops 吗，还是已经转向 graphs 了？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Practical Wisdom & Ecosystem / 实用智慧与生态",
+      "desc": "Swyx 自动化 SEO/AEO 研究（1019 赞）；Thariq 先建原型省 token（634 赞）；Levie 论 AI 越便宜生态越繁荣（331 赞）；Zara 论 building in public（206 赞）+ 会议录制文化变迁（141 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+trq212+levie+zarazhangrui",
+          "authorName": "Swyx / Thariq / Levie / Zara",
+          "authorTag": "swyx / Claude Code @Anthropic / Box CEO / Builder",
+          "sourceUrl": "https://x.com/swyx/status/2077410000000000000",
+          "en": {
+            "rewrite": [
+              "Swyx's automation tip (1019 likes): 'btw if you havent set your {codex | claude | gemini | devin} automations to autoresearch how to improve your seo/aeo every week you are really truly missing out.' Thariq's token-saving wisdom (634 likes): 'building prototypes of mockups, schemas, data models, proof of concepts, etc. is the best way to avoid spending tons of tokens before realizing you don't want [what you asked for].'",
+              "Levie on cost economics (331 likes): 'The cheaper AI gets, the more opportunity there is for the entire ecosystem — especially including end-customers — to benefit.' Madhu Guru on the enterprise talent gap (264 likes): 'The reason enterprises struggle to go beyond basic chat bots is the talent gap to build harnesses and evals.'",
+              "Zara's two insights: building in public tip (206 likes) — 'show the work already happening inside your product' — and meeting recording culture shift (141 likes): 'Just a few years ago, many people were uncomfortable with recording meetings. Now it's just assumed that all business meetings are recorded (not for humans, but for AI).' Rauchg: 'Ship like @shadcn' (193 likes). Peter Yang previewed his Thariq episode dropping today (33 likes)."
+            ],
+            "original": [
+              "Swyx: btw if you havent set your {codex | claude | gemini | devin} automations to autoresearch how to improve your seo/aeo every week you are really truly missing out",
+              "Thariq: building prototypes of mockups, schemas, data models, proof of concepts, etc. is the best way to avoid spending tons of tokens before realizing you don't want [what you asked for].",
+              "Aaron Levie: The cheaper AI gets, the more opportunity there is for the entire ecosystem - especially including end-customers - to benefit.",
+              "Zara: If making content feels like extra work, show the work already happening inside your product.",
+              "Zara: Just a few years ago, many people were uncomfortable with recording meetings. Now it's just assumed that all business meetings are recorded (not for humans, but for AI)."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 的自动化建议（1019 赞）：「如果你还没设置你的 {codex | claude | gemini | devin} 自动化来每周研究 SEO/AEO 改进，你真的错过了很多。」Thariq 的省 token 智慧（634 赞）：「构建 mockup、schema、数据模型、概念验证的原型，是避免在发现你不想要之前花掉大量 token 的最佳方式。」",
+              "Levie 论成本经济学（331 赞）：「AI 越便宜，整个生态系统的机会就越多——尤其是终端客户。」Madhu Guru 论企业人才缺口（264 赞）：「企业难以超越基础聊天机器人的原因是构建 harness 和 evals 的人才缺口。」",
+              "Zara 的两个洞见：building in public 技巧（206 赞）——「展示产品内部已经在进行的工作」——以及会议录制文化变迁（141 赞）：「几年前很多人不习惯录制会议。现在默认所有商务会议都会被录制（不是为了人类，而是为了 AI）。」Rauchg：「像 @shadcn 一样发布」（193 赞）。Peter Yang 预告今天发布与 Thariq 的视频（33 赞）。"
+            ],
+            "original": [
+              "Swyx：如果你还没设置自动化来每周研究 SEO/AEO 改进，你真的错过了很多。",
+              "Thariq：构建原型是避免在发现你不想要之前花掉大量 token 的最佳方式。",
+              "Aaron Levie：AI 越便宜，整个生态系统的机会越多。",
+              "Zara：展示产品内部已经在进行的工作。",
+              "Zara：几年前很多人不习惯录制会议。现在默认所有商务会议都会被录制——不是为了人类，而是为了 AI。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: OpenAI Compute Chief (Weekend Deep Dive) / 播客：OpenAI 计算负责人（周末深读）",
+      "desc": "MAD Podcast × Sachin Katti（OpenAI 工业计算负责人，前 Intel CTO）。完整中文译文：人类历史上最大的基础设施建造、液冷超级计算机、电网约束、核能、Jalapeno 自研芯片、推理成为算力主力、社区影响、AI 设计芯片的递归未来。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-openai-compute",
+          "authorName": "The MAD Podcast",
+          "authorTag": "Matt Turck 主持 × Sachin Katti（OpenAI Head of Industrial Compute, 前 Intel CTO）",
+          "sourceUrl": "https://www.youtube.com/watch?v=wEZBlmvxx4o",
+          "en": {
+            "rewrite": [
+              "Sachin Katti (OpenAI Head of Industrial Compute, ex-Intel CTO, ex-Stanford professor) on MAD with Matt Turck, recorded at RACE conference in Paris. The definitive deep-dive on AI compute infrastructure. Key topics: (1) 'Demand far outstrips compute supply — anything we bring online, we consume immediately.' (2) Data centers as giant factories turning electrons into tokens, liquid-cooled football-field-scale. (3) OpenAI spending ~$50B on compute this year; industry ~$700B. (4) Jalapeno custom silicon optimizing tokens-per-watt. (5) Inference is now the majority of compute. (6) 'Our biggest worry is we can't build fast enough — the physical world doesn't move that fast.' (7) Grid investment: 'We are not taking power away from the grid. We invest in new generation.' (8) 'The world of recursion is not far — AI will design the systems it needs to train the next generation of AI.' If you only watch one infrastructure podcast this year, this is it."
+            ],
+            "original": [
+              "Sachin Katti: Anytime you have thought you have enough compute, we can slow down. Always negatively surprises like, oh, we should not have slowed down. Demand far outstrips compute supply today.",
+              "Sachin Katti: The best way to visualize data centers is giant factories that are turning electrons into tokens.",
+              "Sachin Katti: Our biggest worry is that still at the scale at which we are trying to get compute and build compute, the physical world does not move that fast.",
+              "Sachin Katti: The key metric that Jalapeno is optimizing is maximizing the number of tokens you can produce per watt.",
+              "Sachin Katti: We do believe that the world of recursion is not that far where AI will design the systems it needs to train and run the next generation of AI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 工业计算负责人 Sachin Katti（前 Intel CTO、前斯坦福教授）在巴黎 RACE 大会上做客 MAD 播客。AI 计算基础设施的 definitive 深度对话。核心话题：（1）需求远超供应——上线多少就消耗多少。（2）数据中心 = 把电子变 token 的巨型液冷工厂。（3）OpenAI 今年算力花费约 500 亿美元；全行业约 7000 亿。（4）Jalapeno 自研芯片优化每瓦 token。（5）推理已是算力主体。（6）最大担忧是建得不够快。（7）电网投资承诺：不抢现有电力。（8）递归世界：AI 将设计下一代 AI 所需的系统。如果今年只看一期基础设施播客，就是这期。"
+            ],
+            "original": [
+              "【需求远超供应】",
+              "Katti 说：每次以为算力够了可以放慢，结果总是负面惊喜——不该放慢的。需求远超算力供应，上线多少就立刻消耗多少。",
+              "「在我们试图获取和建设算力的规模上，物理世界不会那么快。物理供应链、工厂不会那么快。电网也无法那么快增加容量。」",
+              "",
+              "【电子变 token 的巨型工厂】",
+              "Katti 说：最好的可视化方式是巨型工厂——把电子转化为 token。液冷是必须的——芯片太热了，气冷不行。需要冷却一切——芯片、线缆、变压器。",
+              "「越热越好——芯片越热，内存带宽越高，FLOPS 越多。冷却效率和智能产出直接相关。」",
+              "",
+              "【500 亿 + 7000 亿】",
+              "OpenAI 今年算力花费约 500 亿美元，全行业约 7000 亿美元，还在增长。",
+              "",
+              "【Jalapeno 自研芯片——每瓦 token 最大化】",
+              "因为我们知道确切的模型和负载，可以协同设计硬件。Jalapeno 优化指标：最大化每瓦 token 产出。世界受限于电力——同样电力产出更多 token 对所有人更好。",
+              "",
+              "【推理是算力主体】",
+              "推理可能是算力的大部分。大量训练现在也是推理——合成数据生成、后训练、测试时计算。",
+              "「AI 现在在做大量 AI 研究。以前研究者数量限制实验数量——现在 AI 可以做 AI 研究，实验数量爆炸，算力需求也爆炸。」",
+              "",
+              "【电网投资——不抢电力】",
+              "每次建数据中心，硬性承诺不从电网拿走电力。投资新发电设施——天然气、太阳能、水电——加输电线路和变电所。",
+              "「这些基础设施如果没有数据中心根本不会被资助。副作用是美国和全世界的电网正在快速升级。」",
+              "在电网极限地区做表后发电——数据中心现场自给。目前主要是燃气轮机——密度最高、可运输。",
+              "",
+              "【核能——越快越好】",
+              "核能是最密集、最清洁的能源形式。法国以外的世界需要快速追赶。",
+              "",
+              "【数据中心是干净的好邻居】",
+              "在农村地区建设——新房产税、资助学校和医院、投资电网、创造就业。建成后不产生气体或有毒化学物质——自包含，只生产智能。",
+              "水的误解：液冷但闭环回收。相对于家庭用水，数据中心用水量惊人地小。",
+              "",
+              "【递归世界——AI 设计 AI 的芯片】",
+              "递归世界不远了——AI 将设计训练和运行下一代 AI 所需的系统。AI 已经在帮助设计芯片。AI 做 AI 研究时，实验数量爆炸，算力需求也爆炸。可预见的未来不会出现算力过剩。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
