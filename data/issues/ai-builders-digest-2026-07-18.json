@@ -1,0 +1,214 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-18",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 又重置了——这次是所有付费用户的 Codex + ChatGPT Work 用量限制（9072 赞），然后一张「GPT-5.6 Sol confirmed to be an extremely good model」的截图拿到 10876 赞，今日最高。Claude 官方宣布 Fable 5 将从 7 月 20 日起纳入所有 Max 和 Team Premium 计划（28134 赞！——可能是 Follow Builders 历史最高单条互动）。Steipete 建了 codexbar 图标编辑器（306 赞），还吐槽 Codex 用浏览器+计算机操作打开 Chrome 去评论 PR 只为了一个上传（317 赞）。Swyx 建议每周自动研究 SEO/AEO 改进（1019 赞）。Levie 论 AI 越便宜生态越繁荣（331 赞）。播客是 MAD × OpenAI 计算基础设施负责人 Sachin Katti——前 Intel CTO、前斯坦福教授，深聊「人类历史上最大的基础设施建造」。"
+  },
+  "archive": {
+    "title": "重置日与计算基础设施日报",
+    "desc": "Sottiaux 再次重置全付费用户用量（9072 赞），Claude 宣布 Fable 5 纳入 Max/Team Premium（28134 赞），OpenAI 计算负责人深聊万亿级基础设施建造。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-18 source feeds.",
+  "sections": [
+    {
+      "title": "Usage Resets & Fable 5 Access / 用量重置与 Fable 5 开放",
+      "desc": "Sottiaux 重置所有付费用户（9072 赞）+ Sol 确认极佳模型（10876 赞）；Claude 宣布 Fable 5 纳入 Max/Team Premium（28134 赞）；Steipete 建 codexbar 图标编辑器（306 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+claudeai+steipete",
+          "authorName": "Sottiaux / Claude / Steipete",
+          "authorTag": "Codex & ChatGPT @OpenAI / Anthropic 官方 / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux/status/2077420000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's Friday double: (1) 'Oops... I did it again. Enjoy reset usage limits for all paid users for Codex and ChatGPT Work. Super grateful for an incredible team who is iterating at light[ning] speed.' (9072 likes). (2) 'GPT-5.6 Sol confirmed to be an extremely good model' with a screenshot (10876 likes — today's highest X engagement). He also noted 'And transitively might also have reset other rate limits out there. Let's see. You're welcome if so.' (1159 likes).",
+              "Claude's blockbuster announcement (28134 likes — possibly the highest single-tweet engagement in Follow Builders history): 'Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits. Pro and Team Standard users will continue to have access.' Plus a follow-up: 'We know this has been frustrating, and we want to give you more certainty about what your plan includes.' (3108 likes).",
+              "Steipete built a codexbar icon editor with Codex (306 likes): 'ya'all made me go crazy with codexbar icon customization issues, so I built an editor. (by me, I mean codex).' He also shared pain watching Codex use browser + computer use: 'It's both amazing and painful to watch codex use browser + computer use to open Chrome, go to my PR, tap on comment and wrangle with the macOS picker — all TO UPLOAD [a file]' (317 likes). Plus a philosophical question: 'Are we still talking loops or did we shift to graphs yet?' (2502 likes)."
+            ],
+            "original": [
+              "Thibault Sottiaux: Oops... I did it again. Enjoy reset usage limits for all paid users for Codex and ChatGPT Work.",
+              "Thibault Sottiaux: GPT-5.6 Sol confirmed to be an extremely good model",
+              "Claude: Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits.",
+              "Claude: We know this has been frustrating, and we want to give you more certainty about what your plan includes.",
+              "Peter Steinberger: ya'all made me go crazy with codexbar icon customization issues, so I built an editor. (by me, I mean codex)",
+              "Peter Steinberger: It's both amazing and painful to watch codex use browser + computer use to open Chrome, go to my PR, tap on comment...",
+              "Peter Steinberger: Are we still talking loops or did we shift to graphs yet?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的周五双连：（1）「哎呀……我又来了。享受所有付费用户的 Codex 和 ChatGPT Work 重置用量限制。超级感谢以光速迭代的不可思议团队。」（9072 赞）。（2）「GPT-5.6 Sol 确认是一个极其优秀的模型」配截图（10876 赞——今日 X 最高互动）。他还提到「顺带可能也重置了其他地方的速率限制。看看吧。不客气。」（1159 赞）。",
+              "Claude 的重磅公告（28134 赞——可能是 Follow Builders 历史最高单条互动）：「从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 计划，额度为限制的 50%。Pro 和 Team Standard 用户继续有访问权限。」后续：「我们知道这让人沮丧，我们想给你更多关于你的计划包含什么的确定性。」（3108 赞）。",
+              "Steipete 用 Codex 建了 codexbar 图标编辑器（306 赞）：「你们让我对 codexbar 图标定制问题发疯了，所以我建了个编辑器。（我说我，意思是 codex）。」他还分享了一个痛苦又好笑的观察：看着 Codex 用浏览器+计算机操作打开 Chrome、去 PR 页面、点评论、跟 macOS 文件选择器搏斗——全部只为了上传一个文件（317 赞）。还有哲学提问：「我们还在谈论 loops 吗，还是已经转向 graphs 了？」（2502 赞）。"
+            ],
+            "original": [
+              "Thibault Sottiaux：哎呀……我又来了。享受所有付费用户的 Codex 和 ChatGPT Work 重置用量限制。",
+              "Thibault Sottiaux：GPT-5.6 Sol 确认是一个极其优秀的模型。",
+              "Claude 官方：从 7 月 20 日起，Claude Fable 5 将纳入所有 Max 和 Team Premium 计划，额度为限制的 50%。",
+              "Claude 官方：我们知道这让人沮丧，我们想给你更多确定性。",
+              "Peter Steinberger：你们让我对 codexbar 图标定制问题发疯了，所以我建了个编辑器。（我说我，意思是 codex）",
+              "Peter Steinberger：既惊叹又痛苦地看着 Codex 用浏览器+计算机操作打开 Chrome、去我的 PR、点评论……",
+              "Peter Steinberger：我们还在谈论 loops 吗，还是已经转向 graphs 了？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "SEO/AEO Automation & Ecosystem / SEO/AEO 自动化与生态",
+      "desc": "Swyx 建议每周自动研究 SEO/AEO（1019 赞）；Levie 论 AI 越便宜生态越繁荣（331 赞）；Madhu Guru 论企业人才缺口（264 赞）；Altman 分享「这很酷」（2028 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+levie+realmadhuguru+sama",
+          "authorName": "Swyx / Levie / Madhu Guru / Altman",
+          "authorTag": "swyx / Box CEO / AI 产品经理 / OpenAI CEO",
+          "sourceUrl": "https://x.com/swyx/status/2077410000000000000",
+          "en": {
+            "rewrite": [
+              "Swyx's practical automation tip (1019 likes, 77 retweets): 'btw if you havent set your {codex | claude | gemini | devin} automations to autoresearch how to improve your seo/aeo every week you are really truly missing out.' He also noted 'alpha only gone when we all stop asking these level of questions' (10 likes) and posted 'still true' (4 likes).",
+              "Levie on cost economics (331 likes): 'This post is key. The cheaper AI gets, the more opportunity there is for the entire ecosystem — especially including end-customers — to benefit. Everything is [going to be fine].' Madhu Guru on enterprise bottlenecks (264 likes): 'The reason enterprises struggle to go beyond basic chat bots is the talent gap to build harnesses and evals.' She also noted that enterprises won't consume Kimi directly — they'll get it through Google Cloud for enterprise guarantees (85 likes).",
+              "Altman shared a simple endorsement (2028 likes): 'this is cool:' — amplifying something noteworthy. Peter Yang noted 'Codex browser use has finally been defeated' (29 likes) and previewed an upcoming episode with Thariq (33 likes), plus a relatable pain point: 'spending an entire day staring at screens trying to manage agents fries my brain. Much better to be walking around outside talking' (26 likes)."
+            ],
+            "original": [
+              "Swyx: btw if you havent set your {codex | claude | gemini | devin} automations to autoresearch how to improve your seo/aeo every week you are really truly missing out",
+              "Aaron Levie: This post is key. The cheaper AI gets, the more opportunity there is for the entire ecosystem - especially including end-customers - to benefit.",
+              "Madhu Guru: The reason enterprises struggle to go beyond basic chat bots is the talent gap to build harnesses and evals.",
+              "Sam Altman: this is cool:",
+              "Peter Yang: Codex browser use has finally been defeated.",
+              "Peter Yang: spending an entire day staring at screens trying to manage agents fries my brain. Much better to be walking around outside talking."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 的实用自动化建议（1019 赞、77 转发）：「顺便说，如果你还没设置你的 {codex | claude | gemini | devin} 自动化来每周研究如何改进你的 SEO/AEO，你真的、真的错过了很多。」他还提到「alpha 只在我们都停止问这类问题、开始讨论 on-policy autoaeo 时才算结束」（10 赞）。",
+              "Levie 论成本经济学（331 赞）：「这篇帖子很关键。AI 越便宜，整个生态系统的机会就越多——尤其是终端客户。」Madhu Guru 论企业瓶颈（264 赞）：「企业之所以难以超越基础聊天机器人，是因为构建 harness 和 evals 的人才缺口。」她还指出企业不会直接用 Kimi——他们会通过 Google Cloud 获取，因为需要企业级保障（85 赞）。",
+              "Altman 的简单背书（2028 赞）：「这很酷：」——在放大某个值得关注的东西。Peter Yang 宣布「Codex 浏览器使用终于被打败了」（29 赞），预告了与 Thariq 的即将发布的一期节目（33 赞），还说出了一个能引起共鸣的痛点：「整天盯着屏幕管理 agent 让我脑子炸了。还是在外面走来走去说话好得多」（26 赞）。"
+            ],
+            "original": [
+              "Swyx：顺便说，如果你还没设置你的 {codex | claude | gemini | devin} 自动化来每周研究 SEO/AEO 改进，你真的错过了很多。",
+              "Aaron Levie：这篇帖子很关键。AI 越便宜，整个生态系统的机会就越多——尤其是终端客户。",
+              "Madhu Guru：企业难以超越基础聊天机器人的原因是构建 harness 和 evals 的人才缺口。",
+              "Sam Altman：这很酷：",
+              "Peter Yang：Codex 浏览器使用终于被打败了。",
+              "Peter Yang：整天盯着屏幕管理 agent 让我脑子炸了。还是在外面走动说话好得多。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Building in Public & Meeting Culture / 公开构建与会议文化",
+      "desc": "Zara 论 building in public 技巧（206 赞）+ 会议录制观念变迁（141 赞）；Thariq 论先建原型省 token（634 赞）；Rauchg 的周五发布帖（70 赞）+ ship like shadcn（193 赞）。",
+      "cards": [
+        {
+          "authorKey": "zarazhangrui+trq212+rauchg",
+          "authorName": "Zara / Thariq / Rauchg",
+          "authorTag": "Builder / Claude Code @Anthropic / Vercel CEO",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2077430000000000000",
+          "en": {
+            "rewrite": [
+              "Zara's building-in-public tip (206 likes): 'If making content feels like extra work, show the work already happening inside your product. A tiny screen recording, the first version of something rough.' She also captured a cultural shift (141 likes): 'Just a few years ago, many people were uncomfortable with recording meetings. Now it's just assumed that all business meetings are recorded (not for humans, but for AI).'",
+              "Thariq on token economics (634 likes): 'building prototypes of mockups, schemas, data models, proof of concepts, etc. is the best way to avoid spending tons of tokens before realizing you don't want [what you asked for].' A practical engineering insight — validate the shape of the output before burning compute.",
+              "Rauchg's Friday ship post (70 likes): 'Sandbox data for downloads. Happy Friday! Time to ship more agents.' Plus praise for shipping velocity: 'Ship like @shadcn' (193 likes). Masad shared the Replit community's chess exploration: 'This is a sick exploration of chess history. The Replit community is ChessMaxxing' (94 likes)."
+            ],
+            "original": [
+              "Zara: If making content feels like extra work, show the work already happening inside your product. A tiny screen recording, the first version of something rough.",
+              "Zara: Just a few years ago, many people were uncomfortable with recording meetings. Now it's just assumed that all business meetings are recorded (not for humans, but for AI).",
+              "Thariq: building prototypes of mockups, schemas, data models, proof of concepts, etc. is the best way to avoid spending tons of tokens before realizing you don't want [what you asked for].",
+              "Guillermo Rauch: Sandbox data for downloads. Happy Friday! Time to ship more agents.",
+              "Guillermo Rauch: Ship like @shadcn",
+              "Amjad Masad: This is a sick exploration of chess history. The Replit community is ChessMaxxing."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 的 building in public 技巧（206 赞）：「如果做内容感觉像额外工作，展示产品内部已经在进行的工作。一段小屏幕录制，某个粗糙的第一个版本。」她还捕捉到一个文化转变（141 赞）：「就在几年前，很多人还不习惯录制会议。现在人们默认所有商务会议都会被录制（不是为了人类，而是为了 AI）。」",
+              "Thariq 论 token 经济学（634 赞）：「构建 mockup、schema、数据模型、概念验证等的原型，是避免在发现你不想要[你要求的东西]之前花掉大量 token 的最佳方式。」一个实用的工程洞见——先验证输出的形状再烧算力。",
+              "Rauchg 的周五发布帖（70 赞）：「沙箱数据已开放下载。周五快乐！是时候发布更多 agent 了。」还有对发布速度的赞扬：「像 @shadcn 一样发布」（193 赞）。Masad 分享了 Replit 社区的国际象棋探索：「这是一个超酷的象棋历史探索。Replit 社区在 ChessMaxxing」（94 赞）。"
+            ],
+            "original": [
+              "Zara：如果做内容感觉像额外工作，展示产品内部已经在进行的工作。一段小屏幕录制，某个粗糙的第一个版本。",
+              "Zara：就在几年前，很多人还不习惯录制会议。现在默认所有商务会议都会被录制（不是为了人类，而是为了 AI）。",
+              "Thariq：构建 mockup、schema、数据模型、概念验证的原型，是避免在发现你不想要之前花掉大量 token 的最佳方式。",
+              "Guillermo Rauch：沙箱数据开放下载。周五快乐！发布更多 agent 吧。",
+              "Guillermo Rauch：像 @shadcn 一样发布。",
+              "Amjad Masad：这是一个超酷的象棋历史探索。Replit 社区在 ChessMaxxing。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: OpenAI Compute Chief — We Can't Build Fast Enough / 播客：OpenAI 计算负责人——我们建得不够快",
+      "desc": "MAD Podcast × Sachin Katti（OpenAI 工业计算负责人，前 Intel CTO）。完整中文译文：人类历史上最大的基础设施建造、液冷超级计算机、电网约束、核能、Jalapeno 自研芯片、推理成为算力主力、社区影响。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-openai-compute",
+          "authorName": "The MAD Podcast",
+          "authorTag": "Matt Turck 主持 × Sachin Katti（OpenAI Head of Industrial Compute, 前 Intel CTO）",
+          "sourceUrl": "https://www.youtube.com/watch?v=wEZBlmvxx4o",
+          "en": {
+            "rewrite": [
+              "Sachin Katti (OpenAI Head of Industrial Compute, ex-Intel CTO, ex-Stanford professor) on MAD with Matt Turck. Recorded at RACE conference in Paris. Key topics: (1) 'Demand far outstrips compute supply today — anything we can bring online, we consume immediately.' (2) Data centers as giant factories turning electrons into tokens, liquid-cooled football-field-scale. (3) OpenAI spending ~$50B on compute this year; industry ~$700B. (4) Jalapeno custom silicon optimizing tokens-per-watt. (5) Inference is now the majority of compute — even training involves heavy inference (synthetic data, test-time compute). (6) 'Our biggest worry is we can't build fast enough — the physical world doesn't move that fast.' (7) Grid investment commitment: 'We are not taking power away from the grid. We invest in new generation.' (8) AI designing its own chips: 'The world of recursion is not far — AI will design the systems it needs to train the next generation of AI.'"
+            ],
+            "original": [
+              "Sachin Katti: Anytime you have thought you have enough compute, we can slow down. Always negatively surprises like, oh, we should not have slowed down. Demand far outstrips compute supply today.",
+              "Sachin Katti: The best way to visualize data centers is giant factories that are turning electrons into tokens.",
+              "Sachin Katti: Our biggest worry is that still at the scale at which we are trying to get compute and build compute, the physical world does not move that fast.",
+              "Sachin Katti: We do believe that the world of recursion is not that far where AI will design the systems it needs to train and run the next generation of AI.",
+              "Sachin Katti: The key metric that Jalapeno is optimizing is maximizing the number of tokens you can produce per watt.",
+              "Sachin Katti: Inference is a big, perhaps even the majority on compute. A lot of training is now inference — synthetic data generation, post-training, test-time compute."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "OpenAI 工业计算负责人 Sachin Katti（前 Intel CTO、前斯坦福教授）在巴黎 RACE 大会上做客 MAD 播客与 Matt Turck 对谈。核心话题：（1）「需求远超算力供应——我们上线多少就消耗多少。」（2）数据中心是把电子转化为 token 的巨型工厂，液冷，足球场大小。（3）OpenAI 今年在算力上花费约 500 亿美元；全行业约 7000 亿美元。（4）Jalapeno 自研芯片优化每瓦 token 数量。（5）推理现在是算力主体——甚至训练也包含大量推理（合成数据、测试时计算）。（6）「我们最大的担忧是建得不够快——物理世界不会那么快。」（7）电网投资承诺：「我们不会从电网拿走电力。我们投资新的发电设施。」（8）AI 设计自己的芯片：「递归的世界不远了——AI 将设计训练下一代 AI 所需的系统。」"
+            ],
+            "original": [
+              "【需求远超供应，我们建得不够快】",
+              "Katti 说：每次你以为算力够了、可以放慢了，结果总是负面惊喜——「我们不该放慢的」。需求远超算力供应，我们上线多少就立刻消耗多少。",
+              "「我们最大的担忧是——在我们试图获取和建设算力的规模上，物理世界不会那么快。物理供应链、工厂不会那么快。电网也无法那么快增加容量。」",
+              "",
+              "【数据中心：把电子变成 token 的巨型工厂】",
+              "Katti 说：最好的可视化方式是把数据中心看作巨型工厂——把电子转化为 token。",
+              "「这些芯片运行温度极高，液冷是必须的。你不能用气冷。大量液冷冰箱般大小的设备沿着建筑排列。需要冷却一切——芯片、连接芯片的线缆、变压器都太热了。」",
+              "「越热越好——芯片越热，内存带宽越高，FLOPS 越多。冷却效率和智能产出直接相关。」",
+              "",
+              "【500 亿美元算力支出 + 7000 亿全行业】",
+              "Katti 确认 OpenAI 今年在算力上花费约 500 亿美元，全行业约 7000 亿美元，而且还在增长。",
+              "",
+              "【Jalapeno 自研芯片——每瓦 token 最大化】",
+              "Katti 说：因为我们知道确切的模型和负载，我们可以协同设计硬件来极其高效地运行这些模型。Jalapeno 的关键优化指标是最大化每瓦能产出的 token 数量。世界受限于电力，所以同样的电力产出更多 token 对所有人更好。",
+              "",
+              "【推理是算力主体——训练也包含大量推理】",
+              "Katti 说：推理可能是算力的大部分。我们不喜欢区分训练和推理——因为大量训练现在也是推理。生成合成数据是推理。后训练是推理。测试时计算是推理。",
+              "「AI 本身现在在做大量 AI 研究。以前研究者数量限制了实验数量——现在 AI 可以做 AI 研究，实验数量爆炸，所需算力也爆炸。」",
+              "",
+              "【电网投资——不做电力抢夺者】",
+              "Katti 说：每次在某个地方建数据中心，我们硬性承诺不从电网拿走电力。我们投资新的发电设施——天然气、太阳能、水电——以及输电线路和变电所。",
+              "「这些基础设施如果没有数据中心根本不会被资助建设。这个大型数据中心建设潮的副作用是——美国和全世界的电网基础设施正在快速升级。」",
+              "在电网达到极限的地方，他们在做「表后发电」——数据中心的现场自给自足发电。目前主要是燃气轮机，因为那是密度最高、可运输的能源形式。",
+              "",
+              "【核能——来得越快越好】",
+              "Katti 说：核能来得越快越好。它是我们能生产和消费的最密集能源形式，而且清洁。法国以外的世界在建设这方面有很多追赶要做。",
+              "",
+              "【社区影响——数据中心是干净的好邻居】",
+              "Katti 说：数据中心对每个社区都是净正面。我们在美国农村地区建设——产生新房产税、资助学校和医院、投资电网基础设施、创造就业。数据中心建成后是非常干净的公民——不产生任何气体或有毒化学物质。它们是自包含的——只生产智能。",
+              "水的误解：数据中心是液冷的，但液体是循环回收的。相对于家庭用水，数据中心用水量惊人地小。一旦达到某个点，水就在闭环中循环使用。",
+              "",
+              "【递归世界——AI 设计 AI 的芯片】",
+              "Katti 说：我们相信递归的世界不远了——AI 将设计训练和运行下一代 AI 所需的系统。AI 现在已经在帮助设计芯片。当你让 AI 做 AI 研究时，实验数量爆炸，算力需求也爆炸。我们不认为在可预见的未来会出现算力过剩。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
