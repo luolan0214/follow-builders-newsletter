@@ -1,0 +1,209 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-20",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "世界杯决赛日——西班牙夺冠（Masad 1207 赞），Rauchg 向阿根廷致敬（2460 赞 + 1380 赞），Matt Turck 对决赛零射门的讽刺（235 赞），Nikunj 对阿根廷脏战术的失望（59 赞）。Sottiaux 换了一种互动方式——收集「ChatGPT 让你惊叹的瞬间」（1796 赞）。Cat Wu 分享了她的 Claude Cowork 日历管理 prompt（350 赞）。Garry Tan 宣告「Markdown 文件是通用的，能存活千年」（668 赞）+ GSkills 概念（621 赞）。Levie 三连：开源替代品让 gatekeeping 自残（232 赞）、AI 降成本反而增加总支出（235 赞）、AI 扩散受真实世界交互速率限制（280 赞）。Dan Shipper 确认自动化文案编辑突破 70%（107 赞）。播客是 Schmidhuber（与 07-11 同一期，不再重复翻译）。"
+  },
+  "archive": {
+    "title": "世界杯决赛与 Markdown 万岁日报",
+    "desc": "西班牙夺冠，Rauchg 致敬阿根廷，Sottiaux 收集用户惊叹瞬间，Cat Wu 日历 prompt，Garry Tan 论 Markdown 千年不灭，Levie 三连发论 AI 经济学。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-20 source feeds.",
+  "sections": [
+    {
+      "title": "World Cup Final & Reactions / 世界杯决赛与反响",
+      "desc": "Masad 庆祝西班牙（1207 赞）；Rauchg 向阿根廷致敬（2460 + 1380 赞）；Matt Turck 讽刺决赛零射门（235 赞）+ 红牌蠢货（307 赞）；Nikunj 对阿根廷脏战术失望（59 赞）。",
+      "cards": [
+        {
+          "authorKey": "amasad+rauchg+mattturck+nikunj",
+          "authorName": "Masad / Rauchg / Matt Turck / Nikunj",
+          "authorTag": "Replit CEO / Vercel CEO / FirstMark / FPV Ventures",
+          "sourceUrl": "https://x.com/amasad/status/2077760000000000000",
+          "en": {
+            "rewrite": [
+              "World Cup final day reactions dominated the feed. Masad: 'Let's go España!' (1207 likes). Rauchg posted a heartfelt tribute to Argentina: 'Thankful to Argentina for once again giving it all. Grit, passion, talent, faith. To Messi for proving he's the best ever. And to America for hosting such [a great tournament].' (1380 likes) plus a pre-match 'gm Argentina' post (2460 likes — today's highest).",
+              "Matt Turck's three World Cup posts: sarcastic summary of Argentina's performance — 'All the aggravation, attitude, fouls, taunting, vulgarity, fans throwing bottles at fans from the opposing team, to produce ZERO shot on goal during the final.' (235 likes). A red card reaction: 'what a moron through and through' (307 likes). And a parenting moment: 'Thank you for that bath' (71 likes).",
+              "Nikunj's frustration (59 likes): 'Really frustrating that a talented team like Argentina is resorting to such dirty tactics. Like each player is so SO good. Why all the antics?' Amanda Askell chimed in with dry humor: 'Argentinian goalkeeper sure is earning his salary.' (283 likes)."
+            ],
+            "original": [
+              "Amjad Masad: Let's go España!",
+              "Guillermo Rauch: Thankful to Argentina for once again giving it all. Grit, passion, talent, faith. To Messi for proving he's the best ever.",
+              "Matt Turck: All the aggravation, attitude, fouls, taunting, vulgarity, fans throwing bottles at fans from the opposing team, to produce ZERO shot on goal during the final.",
+              "Matt Turck: what a moron through and through",
+              "Nikunj: Really frustrating that a talented team like Argentina is resorting to such dirty tactics. Why all the antics?",
+              "Amanda Askell: Argentinian goalkeeper sure is earning his salary."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "世界杯决赛日反应主导了 feed。Masad：「西班牙冲！」（1207 赞）。Rauchg 发了 heartfelt 致敬：「感谢阿根廷再次倾尽所有。坚韧、激情、天赋、信念。感谢梅西证明他是史上最佳。感谢美国主办如此[精彩的比赛]。」（1380 赞）+ 赛前「早安阿根廷」（2460 赞——今日最高）。",
+              "Matt Turck 的世界杯三连：对阿根廷表现的讽刺总结——「所有的恼怒、态度、犯规、挑衅、粗俗、球迷向对方球迷扔瓶子，最终在决赛中产出零射门。」（235 赞）。红牌反应：「彻头彻尾的蠢货」（307 赞）。还有一个育儿时刻：「谢谢你洗澡」（71 赞）。",
+              "Nikunj 的沮丧（59 赞）：「真正令人沮丧的是阿根廷这样有天赋的球队居然诉诸这种脏战术。每个球员都那么那么优秀。为什么要搞这些花样？」Amanda Askell 以冷幽默插话：「阿根廷门将确实在挣他的工资。」（283 赞）。"
+            ],
+            "original": [
+              "Amjad Masad：西班牙冲！",
+              "Guillermo Rauch：感谢阿根廷再次倾尽所有。坚韧、激情、天赋、信念。梅西证明他是史上最佳。",
+              "Matt Turck：所有的恼怒、犯规、挑衅、粗俗……最终决赛零射门。",
+              "Matt Turck：彻头彻尾的蠢货。",
+              "Nikunj：阿根廷这样有天赋的球队居然用脏战术，真令人沮丧。",
+              "Amanda Askell：阿根廷门将确实在挣他的工资。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Markdown Forever & AI Economics / Markdown 万岁与 AI 经济学",
+      "desc": "Garry Tan 论 Markdown 千年不灭（668 赞）+ GSkills（621 赞）；Levie 三连：gatekeeping 自残（232 赞）、AI 降成本反增支出（235 赞）、扩散速率限制（280 赞）。",
+      "cards": [
+        {
+          "authorKey": "garrytan+levie",
+          "authorName": "Garry Tan / Levie",
+          "authorTag": "YC CEO / Box CEO",
+          "sourceUrl": "https://x.com/garrytan/status/2077750000000000000",
+          "en": {
+            "rewrite": [
+              "Garry Tan's Markdown manifesto (668 likes, 97 retweets): 'Markdown files are universal and will survive millennia. Unsurprisingly they are a fantastic data format when the intelligence stack is in flux at this extreme [rate of change].' Plus a playful 'GSkills anyone?' (621 likes) — suggesting skill files as portable, model-agnostic assets. His earlier point: 'Skill files are portable and free you from frontier model dependency. This is a good thing.'",
+              "Levie's three-tweet AI economics thread: (1) On open-source alternatives (232 likes): 'In a world where there are strong open source alternatives that are only just behind the frontier models, you make yourself less secure and competitive by gatekeeping.' (2) On cost dynamics (235 likes): 'A lot of people make the mistake of thinking that when AI costs drop, that spend on AI drops with it. Usually the opposite happens. When you make AI cheaper, [usage explodes].' (3) On AI diffusion (280 likes): 'Progress driven by AI will ultimately be rate limited by its interaction with the real world.'"
+            ],
+            "original": [
+              "Garry Tan: Markdown files are universal and will survive millennia. Unsurprisingly they are a fantastic data format when the intelligence stack is in flux at this extreme [rate of change].",
+              "Garry Tan: GSkills anyone?",
+              "Aaron Levie: In a world where there are strong open source alternatives that are only just behind the frontier models, you make yourself less secure and competitive by gatekeeping.",
+              "Aaron Levie: A lot of people make the mistake of thinking that when AI costs drop, that spend on AI drops with it. Usually the opposite happens.",
+              "Aaron Levie: Progress driven by AI will ultimately be rate limited by its interaction with the real world."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 的 Markdown 宣言（668 赞、97 转发）：「Markdown 文件是通用的，能存活千年。不意外地，当智能栈以这种极端[变化速度]动荡时，它是绝佳的数据格式。」还有俏皮的「GSkills 来了？」（621 赞）——暗示 skill 文件是可移植的、不依赖模型的资产。他之前的观点：「Skill 文件是可移植的，让你摆脱前沿模型依赖。这是好事。」",
+              "Levie 的 AI 经济学三连：（1）开源替代品让 gatekeeping 自残（232 赞）：「在有强大开源替代品仅略落后于前沿模型的世界里，gatekeeping 让你更不安全、更不具竞争力。」（2）成本动态（235 赞）：「很多人误以为 AI 降成本时 AI 支出也会降。通常相反。AI 变便宜时，[用量爆炸]。」（3）AI 扩散（280 赞）：「AI 驱动的进步最终将受限于它与真实世界交互的速率。」"
+            ],
+            "original": [
+              "Garry Tan：Markdown 文件是通用的，能存活千年。当智能栈以这种极端速度动荡时，它是绝佳的数据格式。",
+              "Garry Tan：GSkills 来了？",
+              "Aaron Levie：在有强大开源替代品的世界里，gatekeeping 让你更不安全、更不具竞争力。",
+              "Aaron Levie：很多人误以为 AI 降成本时支出也降。通常相反——变便宜时用量爆炸。",
+              "Aaron Levie：AI 驱动的进步最终将受限于它与真实世界交互的速率。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Cowork & Builder Notes / Claude Cowork 与构建者笔记",
+      "desc": "Cat Wu 分享 Claude Cowork 日历 prompt（350 赞）；Thariq 持续分享 system prompt 经验（1053 赞）；Dan Shipper 自动化文案编辑突破 70%（107 赞）；Sottiaux 收集用户惊叹瞬间（1796 赞）。",
+      "cards": [
+        {
+          "authorKey": "_catwu+trq212+danshipper+thsottiaux",
+          "authorName": "Cat Wu / Thariq / Dan Shipper / Sottiaux",
+          "authorTag": "Claude Code @Anthropic / Claude Code @Anthropic / Every CEO / Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/_catwu/status/2077740000000000000",
+          "en": {
+            "rewrite": [
+              "Cat Wu shared her Claude Cowork calendar management prompt (350 likes): 'Manage my calendar for the week. Requirements: 1. <20 hours of meetings 2. Dedupe co[ncurrent meetings]...' — practical, copy-pasteable prompt engineering for a real workflow. This is the kind of concrete artifact that gets saved and reused.",
+              "Thariq's system prompt learnings post (1053 likes): 'working more on a post about what we learned doing this and how you can apply this to your skills and system prompts.' He also fixed a Claude Code bug — 'if you've run into this, please restart Claude Code, fix should be propagating' (39 likes).",
+              "Dan Shipper's automation milestone (107 likes): 'Yes it just passed some barrier. Have been able to automatically do ~70% of the copy edits we would ordinarily do by hand internally @every for the last week.' Sottiaux continued community engagement (1796 likes): 'I was so inspired reading all the DMs on how folks here use ChatGPT Work. Let's try something else that will make the team smile. What's a time you saw ChatGPT [do something amazing]?'"
+            ],
+            "original": [
+              "Cat Wu: I love using Claude Cowork to manage my calendar. Here's my prompt for it: Manage my calendar for the week. Requirements: 1. <20 hours of meetings 2. Dedupe co[ncurrent meetings]...",
+              "Thariq: working more on a post about what we learned doing this and how you can apply this to your skills and system prompts.",
+              "Dan Shipper: Yes it just passed some barrier. Have been able to automatically do ~70% of the copy edits we would ordinarily do by hand internally @every for the last week.",
+              "Thibault Sottiaux: I was so inspired reading all the DMs on how folks here use ChatGPT Work. Let's try something else that will make the team smile. What's a time you saw ChatGPT [do something amazing]?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cat Wu 分享了她的 Claude Cowork 日历管理 prompt（350 赞）：「管理我这周的日历。要求：1. 会议 <20 小时 2. 去重[并发会议]……」——实用的、可直接复制使用的 prompt 工程，解决真实工作流。这种具体的 artifact 会被收藏和复用。",
+              "Thariq 的 system prompt 经验帖预告（1053 赞）：「正在写更多关于我们做这个学到的经验以及如何应用到你的 skills 和 system prompts。」他还修了一个 Claude Code bug——「如果你遇到了这个问题，请重启 Claude Code，修复正在传播」（39 赞）。",
+              "Dan Shipper 的自动化里程碑（107 赞）：「是的，它刚刚突破了某个障碍。过去一周已经能自动完成我们 @every 内部通常手动做的约 70% 的文案编辑。」Sottiaux 继续社区互动（1796 赞）：「读大家私信说如何用 ChatGPT Work 让我很受启发。来试个别的能让团队微笑的。你有没有什么时候看到 ChatGPT [做了让你惊叹的事]？」"
+            ],
+            "original": [
+              "Cat Wu：我喜欢用 Claude Cowork 管理日历。这是我的 prompt：管理我这周的日历。要求：1. 会议 <20 小时 2. 去重并发会议……",
+              "Thariq：正在写更多关于我们学到的经验以及如何应用到你的 skills 和 system prompts。",
+              "Dan Shipper：它刚突破了某个障碍。过去一周已能自动完成内部约 70% 的文案编辑。",
+              "Thibault Sottiaux：读大家如何用 ChatGPT Work 的私信很受启发。你有没有什么时候看到 ChatGPT 做了让你惊叹的事？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Disposable Code & Content Strategy / 一次性代码与内容策略",
+      "desc": "Zara 论代码可丢弃性（145 赞）+ 新手内容创作建议（201 赞）；Masad 论消费者 vs 企业软件支出（90 赞）；Rauchg 论网络安全作为超智基准（82 赞）；Steipete IYKYK（131 赞）。",
+      "cards": [
+        {
+          "authorKey": "zarazhangrui+amasad+rauchg+steipete",
+          "authorName": "Zara / Masad / Rauchg / Steipete",
+          "authorTag": "Builder / Replit CEO / Vercel CEO / OpenClaw",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2077730000000000000",
+          "en": {
+            "rewrite": [
+              "Zara's disposable code insight (145 likes): 'We need to get used to the idea that code/software can now be disposable. Some examples (all are discarded after usage): 1. Creating design playgrounds/modals for [exploration].' This captures a real mindset shift — code is no longer precious when generation is nearly free. She also shared content advice for beginners (201 likes): 'What are the top 3 questions [your audience asks]? Start there.'",
+              "Masad on consumer vs enterprise software (90 likes): 'Consumers spend money on food, rent, and entertainment, phone & internet, and shopping. Software is typically bought by their companies. Which is why outside [of enterprise], [consumer AI monetization is hard].' Rauchg on cybersecurity as an IQ test (82 likes): 'I'm very bullish on cybersecurity as one of the best benchmarks for superintelligence. The IQ test of software engineering. The best engineers [are also the best security thinkers].'",
+              "Steipete's cryptic IYKYK post (131 likes). Swyx appreciated custom keyboards (86 likes): 'even as someone who is most definitely not a custom keyboards guy, i gotta admit this is pretty dang cool.' Peter Yang shared his YouTube monetization struggle (9 likes) and a UX confusion about 'run this chat in the cloud' for non-technical users (15 likes)."
+            ],
+            "original": [
+              "Zara: We need to get used to the idea that code/software can now be disposable. Some examples (all are discarded after usage): 1. Creating design playgrounds/modals for [exploration].",
+              "Zara: What are the top 3 questions [your audience asks]? Start there.",
+              "Amjad Masad: Consumers spend money on food, rent, and entertainment, phone & internet, and shopping. Software is typically bought by their companies.",
+              "Guillermo Rauch: I'm very bullish on cybersecurity as one of the best benchmarks for superintelligence. The IQ test of software engineering.",
+              "Peter Steinberger: IYKYK",
+              "Swyx: even as someone who is most definitely not a custom keyboards guy, i gotta admit this is pretty dang cool."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 的一次性代码洞见（145 赞）：「我们需要习惯代码/软件现在可以是一次性的。例子（全部用后即弃）：1. 创建设计 playground/modal 用于[探索]。」这捕捉了一个真实的心态转变——当生成几乎免费时，代码不再珍贵。她还分享了新手内容创作建议（201 赞）：「[你的受众问的]前 3 个问题是什么？从那里开始。」",
+              "Masad 论消费者 vs 企业软件（90 赞）：「消费者花钱在食物、房租、娱乐、手机和网络、购物上。软件通常由他们的公司购买。这就是为什么[企业之外]消费者 AI 变现很难。」Rauchg 论网络安全作为 IQ 测试（82 赞）：「我很看好网络安全作为超级智能最佳基准之一。软件工程的 IQ 测试。最好的工程师[也是最好的安全思考者]。」",
+              "Steipete 的加密帖 IYKYK（131 赞）。Swyx 欣赏自定义键盘（86 赞）：「虽然我绝对不是自定义键盘圈的人，但不得不说这真的很酷。」Peter Yang 分享了他的 YouTube 变现挣扎（9 赞）和非技术用户对「在云端运行此聊天」的 UX 困惑（15 赞）。"
+            ],
+            "original": [
+              "Zara：我们需要习惯代码/软件现在可以是一次性的。例子（用后即弃）：1. 创建设计 playground 用于探索。",
+              "Zara：你的受众问的前 3 个问题是什么？从那里开始。",
+              "Amjad Masad：消费者花钱在食物、房租、娱乐上。软件通常由公司购买。",
+              "Guillermo Rauch：我很看好网络安全作为超级智能最佳基准之一。软件工程的 IQ 测试。",
+              "Peter Steinberger：IYKYK",
+              "Swyx：虽然我不是自定义键盘圈的人，但这真的很酷。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Note: Schmidhuber (Repeat) / 播客备注：Schmidhuber（重播）",
+      "desc": "Unsupervised Learning × Jürgen Schmidhuber——与 2026-07-11 期刊同一期播客。完整中文译文请参见 7 月 11 日刊。",
+      "cards": [
+        {
+          "authorKey": "podcast:schmidhuber-repeat",
+          "authorName": "Unsupervised Learning (repeat)",
+          "authorTag": "与 07-11 同一期，不再重复翻译",
+          "sourceUrl": "https://www.youtube.com/watch?v=RKjR8DQ40po",
+          "en": {
+            "rewrite": [
+              "This is the same Schmidhuber podcast that appeared in the 2026-07-11 issue (published 2026-07-09). Full English and Chinese transcript coverage available in that issue. Key topics: stock market crash predictions, robotics hardware inferiority, RSI (recursive self-improvement), AI bubbles historical comparison."
+            ],
+            "original": [
+              "Note: This podcast episode is identical to the one in the 2026-07-11 digest. Please refer to ai-builders-digest-2026-07-11.json for the full bilingual transcript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这是与 2026-07-11 期刊中同一期 Schmidhuber 播客（发布于 2026-07-09），feed 中重复推送。完整中英双语译文请参见 7 月 11 日刊。核心话题：股市崩盘预测、机器人硬件劣势、RSI（递归自我改进）、AI 泡沫历史对比。"
+            ],
+            "original": [
+              "备注：本期播客与 2026-07-11 期刊中的内容完全一致。完整中英双语译文请参见 ai-builders-digest-2026-07-11.json。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
