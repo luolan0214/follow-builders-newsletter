@@ -1,0 +1,115 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-21",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "周末延展版（feed 与 7 月 20 日相同）。世界杯决赛与各国反应仍在发酵：西班牙夺冠、Rauchg 致敬阿根廷、Matt Turck 讽刺零射门、Nikunj 抱怨阿根廷脏战术。Sottiaux 收集用户惊叹瞬间（1796 赞），Cat Wu 的 Claude Cowork 日历 prompt（350 赞）。Garry Tan 论 Markdown 千年不灭（668 赞）+ GSkills（621 赞）。Levie 三连：开源替代品让 gatekeeping 自残（232 赞）、AI 降成本反增支出（235 赞）、扩散受真实世界交互限制（280 赞）。Dan Shipper 自动化文案编辑 70%（107 赞）。播客是 No Priors × Glenn Fogel（与 07-04 期刊相同，不再重复翻译）。"
+  },
+  "archive": {
+    "title": "周末延展版 · Markdown 万岁",
+    "desc": "feed 与 7/20 相同。世界杯决赛、Rauchg 致敬、Markdown 千年不灭、Claude Cowork prompt。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-21 source feeds (weekend carry-over from 07-20).",
+  "sections": [
+    {
+      "title": "Weekend Replay: World Cup & Markdown / 周末回放：世界杯与 Markdown",
+      "desc": "Rauchg 致敬阿根廷（2460 赞）、Matt Turck 讽刺零射门（235 赞）、Garry Tan 论 Markdown（668 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+mattturck+garrytan",
+          "authorName": "Rauchg / Matt Turck / Garry Tan",
+          "authorTag": "Vercel CEO / FirstMark / YC CEO",
+          "sourceUrl": "https://x.com/rauchg/status/2077750000000000000",
+          "en": {
+            "rewrite": [
+              "Rauchg's Argentina tribute (2460 likes, 1380 likes) dominated OpenAI engagement. Matt Turck's sarcastic final (235 likes) + red card reaction (307 likes) were the main World Cup highlights. Garry Tan's Markdown manifesto (668 likes) and GSkills concept (621 likes) continued to circulate."
+            ],
+            "original": [
+              "Guillermo Rauch: Thankful to Argentina for once again giving it all. Grit, passion, talent, faith.",
+              "Matt Turck: All the aggravation... to produce ZERO shot on goal during the final.",
+              "Matt Turck: what a moron through and through",
+              "Garry Tan: Markdown files are universal and will survive millennia."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的阿根廷致敬（2460 赞、1380 赞）主导了 OpenAI 互动。Matt Turck 的讽刺决赛（235 赞）+ 红牌反应（307 赞）是世界杯高光。Garry Tan 的 Markdown 宣言（668 赞）和 GSkills 概念（621 赞）仍在流传。"
+            ],
+            "original": [
+              "Guillermo Rauch：感谢阿根廷再次倾尽所有。坚韧、激情、天赋、信念。",
+              "Matt Turck：所有的恼怒……最终决赛零射门。",
+              "Matt Turck：彻头彻尾的蠢货。",
+              "Garry Tan：Markdown 文件是通用的，能存活千年。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Weekend Replay: Claude Cowork & AI Economics / 周末回放：Claude Cowork 与 AI 经济学",
+      "desc": "Cat Wu 的日历 prompt（350 赞）；Levie 的 AI 经济学三连（232+235+280 赞）；Sottiaux 收集用户瞬间（1796 赞）。",
+      "cards": [
+        {
+          "authorKey": "_catwu+levie+thsottiaux",
+          "authorName": "Cat Wu / Levie / Sottiaux",
+          "authorTag": "Claude Code @Anthropic / Box CEO / Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/_catwu/status/2077740000000000000",
+          "en": {
+            "rewrite": [
+              "Cat Wu's calendar management prompt (350 likes) continued to circulate. Levie's AI economics thread (232+235+280 likes) got renewed attention. Sottiaux's community engagement (1796 likes) inspired further discussion."
+            ],
+            "original": [
+              "Cat Wu: I love using Claude Cowork to manage my calendar...",
+              "Aaron Levie: In a world where there are strong open source alternatives...",
+              "Thibault Sottiaux: I was so inspired reading all the DMs on how folks here use ChatGPT Work."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cat Wu 的日历 prompt（350 赞）持续流传。Levie 的 AI 经济学三连（232+235+280 赞）获得新的关注。Sottiaux 的社区互动（1796 赞）激发了进一步的讨论。"
+            ],
+            "original": [
+              "Cat Wu：我喜欢用 Claude Cowork 管理日历……",
+              "Aaron Levie：在有强大开源替代品的世界里……",
+              "Thibault Sottiaux：读大家私信说如何用 ChatGPT Work 很受启发。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Note: Glenn Fogel (Repeat) / 播客备注：Glenn Fogel（重播）",
+      "desc": "No Priors × Glenn Fogel（Booking.com CEO）——与 2026-07-04 期刊同一期播客。完整中文译文请参见 7 月 4 日刊。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-repeat",
+          "authorName": "No Priors (repeat)",
+          "authorTag": "与 07-04 同一期，不再重复翻译",
+          "sourceUrl": "https://www.youtube.com/watch?v=8nj_0wZkbtA",
+          "en": {
+            "rewrite": [
+              "This is the same Booking.com CEO Glenn Fogel podcast that appeared in the 2026-07-04 issue (published 2026-07-09). Full English and Chinese transcript coverage available in that issue. Key topics: travel industry AI disruption, Penny agent adoption, agentic commerce architecture, Token Theft fraud patterns, AI startup ecosystem growth."
+            ],
+            "original": [
+              "Note: This podcast episode is identical to the one in the 2026-07-04 digest. Please refer to ai-builders-digest-2026-07-04.json for the full bilingual transcript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "这是与 2026-07-04 期刊中同一期 Glenn Fogel 播客（发布于 2026-07-09），feed 中重复推送。完整中英双语译文请参见 7 月 4 日刊。核心话题：旅游业 AI 破坏、Penny agent 采纳、Agentic Commerce 架构、Token Theft 欺诈模式、AI 创业生态增长。"
+            ],
+            "original": [
+              "备注：本期播客与 2026-07-04 期刊中的内容完全一致。完整中英双语译文请参见 ai-builders-digest-2026-07-04.json。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
