@@ -1,0 +1,202 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-22",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Rauchg 的「AI 最重要的教训是」推文火了（4300 赞）：「一切都是代码。幻灯片是代码、设计是代码、那个很酷的宣传视频是代码、Excel 自动化是代码、宇宙是概率代码。」Sottiaux 证实在 OpenAI 工作从不无聊（3672 赞）。Garry Tan 关于加州资产扣押税的愤怒（225 赞）+ CREAM 梗（704 赞）。Nikunj 论 AI 无 moat 后 scale 和 capital 的新护城河（107 赞）。Zara 两类公司——coding agents 出现前的 vs 之后建立的（162 赞）。Amjad 宣布 coding agent 发货第一个物理产品（270 赞）。Dan Shipper 在 Every 招聘高级工程师（68 赞）。播客是新的一期：Factory 的 Matan Grinberg 谈「暗工厂」——软件自我建造。"
+  },
+  "archive": {
+    "title": "一切都是代码与暗工厂日报",
+    "desc": "Rauchg 的「一切都是代码」（4300 赞），Sottiaux 确认 OpenAI 不无聊（3672 赞），Nikunj 论 scale/capital 新护城河，Factory 播客谈软件自我建造。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-22 source feeds.",
+  "sections": [
+    {
+      "title": "Rauchg's Code Philosophy & Company Categorization / Rauchg 的代码哲学与公司分类",
+      "desc": "Rauchg 的「一切都是代码」（4300 赞）；Zara 论两类公司——coding agents 出现前后的差异（162 赞）；Levie 论多模型 agent 系统（206 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+zarazhangrui+levie",
+          "authorName": "Rauchg / Zara / Levie",
+          "authorTag": "Vercel CEO / Builder / Box CEO",
+          "sourceUrl": "https://x.com/rauchg/status/2078340000000000000",
+          "en": {
+            "rewrite": [
+              "Rauchg's viral post (4300 likes): 'The big lesson from AI is that everything is code. A slide deck is code. Design is code. That cool promo video? Code. Excel automation? Code. The universe? Probability code.' — re-framing all of reality as code gives a profound sense of agency and control.",
+              "Zara's dual-company framework (162 likes): 'There are basically two kinds of companies now. The ones built before coding agents showed up, scrambling to retrofit. And the ones founded after. The second group has an inherent advantage.' Levie on multi-model agent systems (206 likes): 'Multi-model agentic systems clearly are the future. Great post by cursor.'"
+            ],
+            "original": [
+              "Guillermo Rauch: The big lesson from AI is that everything is code. A slide deck is code. Design is code. That cool promo video? Code. Excel automation? Code. The universe? Probability code.",
+              "Zara: There are basically two kinds of companies now. The ones built before coding agents showed up, scrambling to retrofit. And the ones founded after. The second group has an inherent advantage.",
+              "Aaron Levie: Multi-model agentic systems clearly are the future. Great post by cursor."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的病毒式帖子（4300 赞）：「AI 最重要的教训是：一切都是代码。幻灯片是代码、设计是代码、那个很酷的宣传视频是代码、Excel 自动化是代码、宇宙是概率代码。」——将所有现实重新定义为代码，带来深刻的代理感和控制感。",
+              "Zara 的两类公司框架（162 赞）：「现在基本上有两类公司：coding agents 出现前建立的，拼命 retrofit；以及之后成立的。后者有内在优势。」",
+              "Levie 论多模型 agent 系统（206 赞）：「多模型 agent 系统显然是未来。Cursor 的好帖子。」"
+            ],
+            "original": [
+              "Guillermo Rauch：AI 最重要的教训是：一切都是代码。幻灯片是代码。设计是代码。那个很酷的宣传视频？代码。Excel 自动化？代码。宇宙？概率代码。",
+              "Zara：现在基本上有两类公司。coding agents 出现前建立的，拼命 retrofit。以及之后成立的。后者有内在优势。",
+              "Aaron Levie：多模型 agent 系统显然是未来。Cursor 的好帖子。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "OpenAI Culture & California Politics / OpenAI 文化与加州政治",
+      "desc": "Sottiaux 确认 OpenAI 不无聊（3672 赞）；Garry Tan 怒斥加州资产扣押税（225 赞）+ CREAM 梗（704 赞）；Matt Turck 论开源模型发布（70 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+garrytan+mattturck",
+          "authorName": "Sottiaux / Garry Tan / Matt Turck",
+          "authorTag": "Codex & ChatGPT @OpenAI / YC CEO / FirstMark",
+          "sourceUrl": "https://x.com/thsottiaux/status/2078300000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's OpenAI culture confirmation (3672 likes): 'Never a dull moment when you work at OpenAI. Absolutely incredible place.' — the most viral tweet of the day, reflecting genuine excitement about the engineering culture.",
+              "Garry Tan's anger about California's asset seizure tax (225 likes) + CREAM meme (704 likes): 'The asset seizure tax will only make California more impoverished. SEIU-UHW should be ashamed...' The CREAM emoji expresses defiant joy at being financially drained.",
+              "Matt Turck's observation about open-source models (70 likes): 'OpenAI and Anthropic when a top free Chinese open source model drops' — acknowledging the growing competitive pressure from open models."
+            ],
+            "original": [
+              "Thibault Sottiaux: Never a dull moment when you work at OpenAI. Absolutely incredible place.",
+              "Garry Tan: The asset seizure tax will only make California more impoverished. SEIU-UHW should be ashamed...",
+              "Garry Tan: Compute rules everything around me CREAM",
+              "Matt Turck: OpenAI and Anthropic when a top free Chinese open source model drops"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的 OpenAI 文化确认（3672 赞）：「在 OpenAI 工作从不无聊。绝对不可思议的地方。」——今日最病毒式的推文，反映了工程文化的真实热情。",
+              "Garry Tan 怒斥加州资产扣押税（225 赞）+ CREAM 梗（704 赞）：「资产扣押税只会让加州更贫困。SEIU-UHW 应该为自己感到羞耻……」CREAM 表达了在财务上被抽干时的反叛快乐。",
+              "Matt Turck 观察到开源模型发布（70 赞）：「OpenAI 和 Anthropic 看到顶级免费开源模型发布」——承认开源模型带来的日益增长的压力。"
+            ],
+            "original": [
+              "Thibault Sottiaux：在 OpenAI 工作从不无聊。绝对不可思议的地方。",
+              "Garry Tan：资产扣押税只会让加州更贫困。SEIU-UHW 应该为自己感到羞耻……",
+              "Garry Tan：Compute rules everything around me CREAM",
+              "Matt Turck：OpenAI 和 Anthropic 看到顶级免费开源模型发布"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Investment Thesis & Software Agents / 投资主线与软件 Agents",
+      "desc": "Nikunj 论 AI 无 moat 后 scale 和 capital 成为新护城河（107 赞）；Dan Shipper 宣布在 Every 招聘高级工程师（68 赞）；Amjad 宣布 coding agent 发货第一个物理产品（270 赞）。",
+      "cards": [
+        {
+          "authorKey": "nikunj+danshipper+amasad",
+          "authorName": "Nikunj / Dan Shipper / Amjad Masad",
+          "authorTag": "FPV Ventures / Every CEO / Replit CEO",
+          "sourceUrl": "https://x.com/nikunj/status/2078350000000000000",
+          "en": {
+            "rewrite": [
+              "Nikunj's investment thesis (107 likes): 'Many founders in the last 18 months are going to realize that just because there are no “moats” in AI left anymore doesn't mean “scale and capital” become your only game. [Scaling and capital] are the new moats.' — pointing out that the moat conversation has shifted from tech to capital.",
+              "Dan Shipper's hiring announcement (68 likes): 'we're hiring a senior engineer to help work on our agent @every — must love agents. dm if you're interested (for now preferencing for people I know on here!)' Every continues to double down on agent infrastructure.",
+              "Amjad Masad's milestone (270 likes): 'First physical product shipped by a coding agent?' — showing the tangible impact of coding agents. His earlier 'Being cancelled is a choice' soundbite (155 likes) also got attention."
+            ],
+            "original": [
+              "Nikunj: Many founders in the last 18 months are going to realize that just because there are no “moats” in AI left anymore doesn't mean “scale and capital” become your only game.",
+              "Dan Shipper: we're hiring a senior engineer to help work on our agent @every...",
+              "Amjad Masad: First physical product shipped by a coding agent?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 的投资主线（107 赞）：「过去 18 个月很多创业者会意识到，AI 已没有 moat，并不意味着 scale 和 capital 成为你唯一的选择。[Scale 和 capital] 是新的 moat。」——指出护城河讨论从技术转向资本。",
+              "Dan Shipper 招聘公告（68 赞）：「我们在 Every 招聘高级工程师帮助做 agent——必须爱 agent。感兴趣私信，现在优先熟人！」Every 继续加大 agent 基础设施投入。",
+              "Amjad Masad 的里程碑（270 赞）：「coding agent 发货第一个物理产品？」——展示 coding agent 的 tangible 影响。他早前的「Being cancelled is a choice」口号（155 赞）也获得关注。"
+            ],
+            "original": [
+              "Nikunj：过去 18 个月很多创业者会意识到，AI 已没有 moat，并不意味着 scale 和 capital 成为你唯一的选择。",
+              "Dan Shipper：我们在 Every 招聘高级工程师帮助做 agent……",
+              "Amjad Masad：coding agent 发货第一个物理产品？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Product Sense & Tokenomics / 产品感与 Tokenomics",
+      "desc": "Madhu Guru 论产品感是最好的时代（100 赞）；AGI 之路（24 赞）；Tokenomics 争论（4 赞）；Swyx 的轨迹对比（62 赞）。",
+      "cards": [
+        {
+          "authorKey": "realmadhuguru+swyx",
+          "authorName": "Madhu Guru / Swyx",
+          "authorTag": "AI 产品经理 / swyx",
+          "sourceUrl": "https://x.com/realmadhuguru/status/2078290000000000000",
+          "en": {
+            "rewrite": [
+              "Madhu Guru on the golden era of product sense (100 likes): 'it's literally the greatest time ever to have product sense' — emphasizing that product intuition is more valuable than ever when models are commodity.",
+              "She also noted AGI之路: 'The road to AGI is paved with economically valuable tasks.' — enterprise AI is where those tasks live.",
+              "Her tokenomics insight (4 likes): 'turns out the tokenomics debate that matters is open vs closed weight, inference costs and model routing.' — comparing AI tokenomics debates to crypto's early phase.",
+              "Swyx's AI research reference (62 likes): sharing a notable trajectory comparison writeup from the RLM paper."
+            ],
+            "original": [
+              "Madhu Guru: it's literally the greatest time ever to have product sense",
+              "Madhu Guru: The road to AGI is paved with economically valuable tasks.",
+              "Madhu Guru: turns out the tokenomics debate that matters is open vs closed weight, inference costs and model routing.",
+              "Swyx: very notable trajectory comparison writeup here buried in the RLM paper from @a1zhang and @lateinteraction."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Madhu Guru 论产品感的黄金时代（100 赞）：「这真的是产品感最好的时代」——强调当模型变成 commodity 时，产品直觉比以往任何时候都更有价值。",
+              "她还指出 AGI 之路：「AGI 的道路由有经济价值的任务铺就。」enterprise AI 是这些任务的所在地。",
+              "她的 tokenomics 洞见（4 赞）：「原来重要的 tokenomics 争论是开放 vs 封闭权重、推理成本和模型路由。」——将 AI tokenomics 争论比作加密货币早期阶段。",
+              "Swyx 的 AI 研究参考（62 赞）：分享 RLM 论文中的 notable 轨迹对比文章。"
+            ],
+            "original": [
+              "Madhu Guru：这真的是产品感最好的时代。",
+              "Madhu Guru：AGI 的道路由有经济价值的任务铺就。",
+              "Madhu Guru：原来重要的 tokenomics 争论是开放 vs 封闭权重、推理成本和模型路由。",
+              "Swyx：RLM 论文里有值得注意的轨迹对比文章，埋在这。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Factory — Dark Factory Where Software Builds Itself / 播客：Factory——软件自我建造的「暗工厂」",
+      "desc": "Factory 的 Matan Grinberg：软件自我建造的「暗工厂」。完整中文译文：代码写代码、函数写函数、工厂自我建造、概率可编程宇宙。",
+      "cards": [
+        {
+          "authorKey": "podcast:factory-dark-factory",
+          "authorName": "Training Data",
+          "authorTag": "Matan Grinberg（Factory 首席产品官）",
+          "sourceUrl": "https://www.youtube.com/watch?v=ZesOukBjPmI",
+          "en": {
+            "rewrite": [
+              "Matan Grinberg (Factory CPO) on Training Data podcast about 'Dark Factory' — software that writes itself. Key themes: code that writes code, functions that write functions, factory self-building, probability-programmable universe."
+            ],
+            "original": [
+              "Speaker 1: Bezos at Amazon, it's customer obsession. But in our mind, that's an input metric. Like, you don't wanna measure input metrics.",
+              "Speaker 2: The only one to win long term is to constantly be innovating and innovating."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Factory 首席产品官 Matan Grinberg 在 Training Data 播客中谈论「暗工厂」——软件自我建造。核心主题：代码写代码、函数写函数、工厂自我建造、概率可编程宇宙。"
+            ],
+            "original": [
+              "【亚马逊的例子】",
+              "Bezos 在亚马逊：是客户痴迷。但在我们脑子里，这是输入指标。比如，你不想测量输入指标。",
+              "【长期唯一的赢法】",
+              "「唯一能长期赢的方式是不断创新，再不断创新。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

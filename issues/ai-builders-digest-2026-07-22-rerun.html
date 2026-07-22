@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-22" data-issue-number="65" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 65 期｜2026-07-22｜双语精选版｜5 条精选｜5 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Rauchg 的「AI 最重要的教训是」推文火了（4300 赞）：「一切都是代码。幻灯片是代码、设计是代码、那个很酷的宣传视频是代码、Excel 自动化是代码、宇宙是概率代码。」Sottiaux 证实在 OpenAI 工作从不无聊（3672 赞）。Garry Tan 关于加州资产扣押税的愤怒（225 赞）+ CREAM 梗（704 赞）。Nikunj 论 AI 无 moat 后 scale 和 capital 的新护城河（107 赞）。Zara 两类公司——coding agents 出现前的 vs 之后建立的（162 赞）。Amjad 宣布 coding agent 发货第一个物理产品（270 赞）。Dan Shipper 在 Every 招聘高级工程师（68 赞）。播客是新的一期：Factory 的 Matan Grinberg 谈「暗工厂」——软件自我建造。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Rauchg 的「AI 最重要的教训是」推文火了（4300 赞）：「一切都是代码。幻灯片是代码、设计是代码、那个很酷的宣传视频是代码、Excel 自动化是代码、宇宙是概率代码。」Sottiaux 证实在 OpenAI 工作从不无聊（3672 赞）。Garry Tan 关于加州资产扣押税的愤怒（225 赞）+ CREAM 梗（704 赞）。Nikunj 论 AI 无 moat 后 scale 和 capital 的新护城河（107 赞）。Zara 两类公司——coding agents 出现前的 vs 之后建立的（162 赞）。Amjad 宣布 coding agent 发货第一个物理产品（270 赞）。Dan Shipper 在 Every 招聘高级工程师（68 赞）。播客是新的一期：Factory 的 Matan Grinberg 谈「暗工厂」——软件自我建造。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Rauchg&#39;s Code Philosophy &amp; Company Categorization / Rauchg 的代码哲学与公司分类</h2>
+    <p class="section-desc">Rauchg 的「一切都是代码」（4300 赞）；Zara 论两类公司——coding agents 出现前后的差异（162 赞）；Levie 论多模型 agent 系统（206 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+zarazhangrui+levie" data-author-name="Rauchg / Zara / Levie" data-author-tag="Vercel CEO / Builder / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Zara / Levie avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Zara / Levie</div>
+            <div class="author-tag is-inline">Vercel CEO / Builder / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的病毒式帖子（4300 赞）：「AI 最重要的教训是：一切都是代码。幻灯片是代码、设计是代码、那个很酷的宣传视频是代码、Excel 自动化是代码、宇宙是概率代码。」——将所有现实重新定义为代码，带来深刻的代理感和控制感。</p>
+              <p>Zara 的两类公司框架（162 赞）：「现在基本上有两类公司：coding agents 出现前建立的，拼命 retrofit；以及之后成立的。后者有内在优势。」</p>
+              <p>Levie 论多模型 agent 系统（206 赞）：「多模型 agent 系统显然是未来。Cursor 的好帖子。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch：AI 最重要的教训是：一切都是代码。幻灯片是代码。设计是代码。那个很酷的宣传视频？代码。Excel 自动化？代码。宇宙？概率代码。</p>
+              <p>Zara：现在基本上有两类公司。coding agents 出现前建立的，拼命 retrofit。以及之后成立的。后者有内在优势。</p>
+              <p>Aaron Levie：多模型 agent 系统显然是未来。Cursor 的好帖子。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s viral post (4300 likes): &#39;The big lesson from AI is that everything is code. A slide deck is code. Design is code. That cool promo video? Code. Excel automation? Code. The universe? Probability code.&#39; — re-framing all of reality as code gives a profound sense of agency and control.</p>
+              <p>Zara&#39;s dual-company framework (162 likes): &#39;There are basically two kinds of companies now. The ones built before coding agents showed up, scrambling to retrofit. And the ones founded after. The second group has an inherent advantage.&#39; Levie on multi-model agent systems (206 likes): &#39;Multi-model agentic systems clearly are the future. Great post by cursor.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: The big lesson from AI is that everything is code. A slide deck is code. Design is code. That cool promo video? Code. Excel automation? Code. The universe? Probability code.</p>
+              <p>Zara: There are basically two kinds of companies now. The ones built before coding agents showed up, scrambling to retrofit. And the ones founded after. The second group has an inherent advantage.</p>
+              <p>Aaron Levie: Multi-model agentic systems clearly are the future. Great post by cursor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg/status/2078340000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">OpenAI Culture &amp; California Politics / OpenAI 文化与加州政治</h2>
+    <p class="section-desc">Sottiaux 确认 OpenAI 不无聊（3672 赞）；Garry Tan 怒斥加州资产扣押税（225 赞）+ CREAM 梗（704 赞）；Matt Turck 论开源模型发布（70 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+garrytan+mattturck" data-author-name="Sottiaux / Garry Tan / Matt Turck" data-author-tag="Codex &amp; ChatGPT @OpenAI / YC CEO / FirstMark" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Garry Tan / Matt Turck avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Garry Tan / Matt Turck</div>
+            <div class="author-tag is-inline">Codex &amp; ChatGPT @OpenAI / YC CEO / FirstMark</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的 OpenAI 文化确认（3672 赞）：「在 OpenAI 工作从不无聊。绝对不可思议的地方。」——今日最病毒式的推文，反映了工程文化的真实热情。</p>
+              <p>Garry Tan 怒斥加州资产扣押税（225 赞）+ CREAM 梗（704 赞）：「资产扣押税只会让加州更贫困。SEIU-UHW 应该为自己感到羞耻……」CREAM 表达了在财务上被抽干时的反叛快乐。</p>
+              <p>Matt Turck 观察到开源模型发布（70 赞）：「OpenAI 和 Anthropic 看到顶级免费开源模型发布」——承认开源模型带来的日益增长的压力。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：在 OpenAI 工作从不无聊。绝对不可思议的地方。</p>
+              <p>Garry Tan：资产扣押税只会让加州更贫困。SEIU-UHW 应该为自己感到羞耻……</p>
+              <p>Garry Tan：Compute rules everything around me CREAM</p>
+              <p>Matt Turck：OpenAI 和 Anthropic 看到顶级免费开源模型发布</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s OpenAI culture confirmation (3672 likes): &#39;Never a dull moment when you work at OpenAI. Absolutely incredible place.&#39; — the most viral tweet of the day, reflecting genuine excitement about the engineering culture.</p>
+              <p>Garry Tan&#39;s anger about California&#39;s asset seizure tax (225 likes) + CREAM meme (704 likes): &#39;The asset seizure tax will only make California more impoverished. SEIU-UHW should be ashamed...&#39; The CREAM emoji expresses defiant joy at being financially drained.</p>
+              <p>Matt Turck&#39;s observation about open-source models (70 likes): &#39;OpenAI and Anthropic when a top free Chinese open source model drops&#39; — acknowledging the growing competitive pressure from open models.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Never a dull moment when you work at OpenAI. Absolutely incredible place.</p>
+              <p>Garry Tan: The asset seizure tax will only make California more impoverished. SEIU-UHW should be ashamed...</p>
+              <p>Garry Tan: Compute rules everything around me CREAM</p>
+              <p>Matt Turck: OpenAI and Anthropic when a top free Chinese open source model drops</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2078300000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Investment Thesis &amp; Software Agents / 投资主线与软件 Agents</h2>
+    <p class="section-desc">Nikunj 论 AI 无 moat 后 scale 和 capital 成为新护城河（107 赞）；Dan Shipper 宣布在 Every 招聘高级工程师（68 赞）；Amjad 宣布 coding agent 发货第一个物理产品（270 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="nikunj+danshipper+amasad" data-author-name="Nikunj / Dan Shipper / Amjad Masad" data-author-tag="FPV Ventures / Every CEO / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Nikunj / Dan Shipper / Amjad Masad avatar"><span class="avatar-fallback">N/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj / Dan Shipper / Amjad Masad</div>
+            <div class="author-tag is-inline">FPV Ventures / Every CEO / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj 的投资主线（107 赞）：「过去 18 个月很多创业者会意识到，AI 已没有 moat，并不意味着 scale 和 capital 成为你唯一的选择。[Scale 和 capital] 是新的 moat。」——指出护城河讨论从技术转向资本。</p>
+              <p>Dan Shipper 招聘公告（68 赞）：「我们在 Every 招聘高级工程师帮助做 agent——必须爱 agent。感兴趣私信，现在优先熟人！」Every 继续加大 agent 基础设施投入。</p>
+              <p>Amjad Masad 的里程碑（270 赞）：「coding agent 发货第一个物理产品？」——展示 coding agent 的 tangible 影响。他早前的「Being cancelled is a choice」口号（155 赞）也获得关注。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj：过去 18 个月很多创业者会意识到，AI 已没有 moat，并不意味着 scale 和 capital 成为你唯一的选择。</p>
+              <p>Dan Shipper：我们在 Every 招聘高级工程师帮助做 agent……</p>
+              <p>Amjad Masad：coding agent 发货第一个物理产品？</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj&#39;s investment thesis (107 likes): &#39;Many founders in the last 18 months are going to realize that just because there are no “moats” in AI left anymore doesn&#39;t mean “scale and capital” become your only game. [Scaling and capital] are the new moats.&#39; — pointing out that the moat conversation has shifted from tech to capital.</p>
+              <p>Dan Shipper&#39;s hiring announcement (68 likes): &#39;we&#39;re hiring a senior engineer to help work on our agent @every — must love agents. dm if you&#39;re interested (for now preferencing for people I know on here!)&#39; Every continues to double down on agent infrastructure.</p>
+              <p>Amjad Masad&#39;s milestone (270 likes): &#39;First physical product shipped by a coding agent?&#39; — showing the tangible impact of coding agents. His earlier &#39;Being cancelled is a choice&#39; soundbite (155 likes) also got attention.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj: Many founders in the last 18 months are going to realize that just because there are no “moats” in AI left anymore doesn&#39;t mean “scale and capital” become your only game.</p>
+              <p>Dan Shipper: we&#39;re hiring a senior engineer to help work on our agent @every...</p>
+              <p>Amjad Masad: First physical product shipped by a coding agent?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj/status/2078350000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Product Sense &amp; Tokenomics / 产品感与 Tokenomics</h2>
+    <p class="section-desc">Madhu Guru 论产品感是最好的时代（100 赞）；AGI 之路（24 赞）；Tokenomics 争论（4 赞）；Swyx 的轨迹对比（62 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="realmadhuguru+swyx" data-author-name="Madhu Guru / Swyx" data-author-tag="AI 产品经理 / swyx" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Madhu Guru / Swyx avatar"><span class="avatar-fallback">MG</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Madhu Guru / Swyx</div>
+            <div class="author-tag is-inline">AI 产品经理 / swyx</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Madhu Guru 论产品感的黄金时代（100 赞）：「这真的是产品感最好的时代」——强调当模型变成 commodity 时，产品直觉比以往任何时候都更有价值。</p>
+              <p>她还指出 AGI 之路：「AGI 的道路由有经济价值的任务铺就。」enterprise AI 是这些任务的所在地。</p>
+              <p>她的 tokenomics 洞见（4 赞）：「原来重要的 tokenomics 争论是开放 vs 封闭权重、推理成本和模型路由。」——将 AI tokenomics 争论比作加密货币早期阶段。</p>
+              <p>Swyx 的 AI 研究参考（62 赞）：分享 RLM 论文中的 notable 轨迹对比文章。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Madhu Guru：这真的是产品感最好的时代。</p>
+              <p>Madhu Guru：AGI 的道路由有经济价值的任务铺就。</p>
+              <p>Madhu Guru：原来重要的 tokenomics 争论是开放 vs 封闭权重、推理成本和模型路由。</p>
+              <p>Swyx：RLM 论文里有值得注意的轨迹对比文章，埋在这。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Madhu Guru on the golden era of product sense (100 likes): &#39;it&#39;s literally the greatest time ever to have product sense&#39; — emphasizing that product intuition is more valuable than ever when models are commodity.</p>
+              <p>She also noted AGI之路: &#39;The road to AGI is paved with economically valuable tasks.&#39; — enterprise AI is where those tasks live.</p>
+              <p>Her tokenomics insight (4 likes): &#39;turns out the tokenomics debate that matters is open vs closed weight, inference costs and model routing.&#39; — comparing AI tokenomics debates to crypto&#39;s early phase.</p>
+              <p>Swyx&#39;s AI research reference (62 likes): sharing a notable trajectory comparison writeup from the RLM paper.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Madhu Guru: it&#39;s literally the greatest time ever to have product sense</p>
+              <p>Madhu Guru: The road to AGI is paved with economically valuable tasks.</p>
+              <p>Madhu Guru: turns out the tokenomics debate that matters is open vs closed weight, inference costs and model routing.</p>
+              <p>Swyx: very notable trajectory comparison writeup here buried in the RLM paper from @a1zhang and @lateinteraction.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/realmadhuguru/status/2078290000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Factory — Dark Factory Where Software Builds Itself / 播客：Factory——软件自我建造的「暗工厂」</h2>
+    <p class="section-desc">Factory 的 Matan Grinberg：软件自我建造的「暗工厂」。完整中文译文：代码写代码、函数写函数、工厂自我建造、概率可编程宇宙。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:factory-dark-factory" data-author-name="Training Data" data-author-tag="Matan Grinberg（Factory 首席产品官）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Matan Grinberg（Factory 首席产品官）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Factory 首席产品官 Matan Grinberg 在 Training Data 播客中谈论「暗工厂」——软件自我建造。核心主题：代码写代码、函数写函数、工厂自我建造、概率可编程宇宙。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【亚马逊的例子】</p>
+              <p>Bezos 在亚马逊：是客户痴迷。但在我们脑子里，这是输入指标。比如，你不想测量输入指标。</p>
+              <p>【长期唯一的赢法】</p>
+              <p>「唯一能长期赢的方式是不断创新，再不断创新。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Matan Grinberg (Factory CPO) on Training Data podcast about &#39;Dark Factory&#39; — software that writes itself. Key themes: code that writes code, functions that write functions, factory self-building, probability-programmable universe.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Speaker 1: Bezos at Amazon, it&#39;s customer obsession. But in our mind, that&#39;s an input metric. Like, you don&#39;t wanna measure input metrics.</p>
+              <p>Speaker 2: The only one to win long term is to constantly be innovating and innovating.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=ZesOukBjPmI" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-22 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-22 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
