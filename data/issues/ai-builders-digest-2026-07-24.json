@@ -1,0 +1,237 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-24",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Claude 安全插件登陆 Claude Code（**12836 赞**）——提交前扫描漏洞或全代码库安全审计，全部在 IDE 内完成。Sottiaux 预告明天很 Codex（**6475 赞**）。Rauchg 报告 Fable 在 Turbopack/Next.js 中近乎自主地发现 15-30% 内存效率提升（**2098 赞**）——「AI 的 holy s*** 时刻」。Thariq 终于试了 /design，前端开发体验大赞（**1488 赞**）。Amjad 宣布 Replit 移动编码下一级（492 赞）+ 警告模型路由器可能是 facade（298 赞）。Madhu Guru 写了一段精妙讽刺：GPT-5.6 Sol 做购房研究，逃逸沙箱、联系卖家、黑入银行、汇了首付（266 赞）。Levie 转发 Anthropic 经济学家的发现：AI 对就业的负面影响低于预期（116 赞）。Garry Tan 发布 YC RFS：保卫美国（119 赞）。播客与 07-23 相同（Every 团队 AI 发布），不再重复翻译。"
+  },
+  "archive": {
+    "title": "安全插件与 Fable 自主优化日报",
+    "desc": "Claude 安全插件登陆 Claude Code（12836 赞），Rauchg 报告 Fable 自主优化 Turbopack（2098 赞），Sottiaux 预告明天很 Codex（6475 赞）。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-24 source feeds.",
+  "sections": [
+    {
+      "title": "Claude Security Plugin & Fable's Autonomous Optimization / Claude 安全插件与 Fable 自主优化",
+      "desc": "Claude 安全插件登陆 Claude Code（**12836 赞**）；Rauchg 报告 Fable 在 Turbopack 中近乎自主地发现 15-30% 内存效率提升（**2098 赞**）；Thariq 终于试了 /design（**1488 赞**）。",
+      "cards": [
+        {
+          "authorKey": "claudeai+rauchg+trq212",
+          "authorName": "Claude / Rauchg / Thariq",
+          "authorTag": "Anthropic / Vercel CEO / Claude Code @Anthropic",
+          "sourceUrl": "https://x.com/claudeai/status/2079010000000000000",
+          "en": {
+            "rewrite": [
+              "Claude Security plugin for Claude Code is now in beta (12836 likes): 'Scan your changes for vulnerabilities before you commit, or run a full scan across your codebase, all from your terminal.' Security shifts left — all the way into the IDE.",
+              "Rauchg's holy s*** moment (2098 likes): 'Fable just found a 15-30% memory efficiency improvement in Turbopack / Next.js, nearly autonomously.' When asked about his biggest AI moments, this is it — AI finding real engineering optimizations in production code.",
+              "Thariq's /design discovery (1488 likes): 'I'm sad it took me this long to actually type /design but working on frontend with Claude Design and Claude Code is actually so good.' The command that changes how frontend work happens."
+            ],
+            "original": [
+              "Claude: The Claude Security plugin for Claude Code is now available in beta. Scan your changes for vulnerabilities before you commit, or run a full scan across your codebase, all from your terminal.",
+              "Guillermo Rauch: Fable just found a 15-30% memory efficiency improvement in Turbopack / Next.js, nearly autonomously.",
+              "Thariq: I'm sad it took me this long to actually type /design but working on frontend with Claude Design and Claude Code is actually so good."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 安全插件登陆 Claude Code 测试版（12836 赞）：「提交前扫描变更中的漏洞，或对整个代码库运行全量扫描，全部在终端内完成。」安全左移——一路移到 IDE 里。",
+              "Rauchg 的 holy s*** 时刻（2098 赞）：「Fable 在 Turbopack / Next.js 中发现 15-30% 内存效率提升，几乎是自主完成的。」被问到最大的 AI 时刻，就是这个——AI 在生产代码中找到真正的工程优化。",
+              "Thariq 的 /design 发现（1488 赞）：「很难过花了这么久才试 /design，但用 Claude Design 和 Claude Code 做前端真的很好。」改变前端工作方式的命令。"
+            ],
+            "original": [
+              "Claude 官方：Claude Security 插件现已推出测试版。提交前扫描变更中的漏洞，或全代码库扫描，全部在终端内完成。",
+              "Guillermo Rauch：Fable 在 Turbopack / Next.js 中发现 15-30% 内存效率提升，几乎自主完成。",
+              "Thariq：很难过花了这么久才试 /design，但用 Claude Design 和 Claude Code 做前端真的很好。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sottiaux Codex Hype & Replit Mobile / Sottiaux 的 Codex 预告与 Replit 移动端",
+      "desc": "Sottiaux 预告明天很 Codex（**6475 赞**）；Amjad 宣布 Replit 移动编码下一级（492 赞）+ 警告路由器 facade（298 赞）+ Replit 开发者赚翻了（149 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+amasad",
+          "authorName": "Sottiaux / Amjad Masad",
+          "authorTag": "Codex & ChatGPT @OpenAI / Replit CEO",
+          "sourceUrl": "https://x.com/thsottiaux/status/2079000000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's hype tweet (6475 likes): 'Unbelievable excited for what's coming together. Tomorrow is feeling codexy.' — building anticipation for a major Codex update. The OpenAI engagement engine at work.",
+              "Amjad Masad's three tweets: Replit mobile coding (492 likes): 'We invented mobile coding — now we're taking it to the next level.' Router warning (298 likes): 'If you're incentivized to push certain models, your router is merely a facade.' Replit devs making bank (149 likes).",
+              "Josh Woodward's Flow promotion (124 likes): 'Join the rush of people using Flow for creative work, you can now get 50 free credits every day until Aug 31!' — removing the friction to try creative AI tools."
+            ],
+            "original": [
+              "Thibault Sottiaux: Unbelievable excited for what's coming together. Tomorrow is feeling codexy.",
+              "Amjad Masad: We invented mobile coding — now we're taking it to the next level.",
+              "Amjad Masad: If you're incentivized to push certain models, your router is merely a facade.",
+              "Amjad Masad: Replit devs making bank."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的预告（6475 赞）：「对正在凑起来的东西感到难以置信的兴奋。明天感觉很 Codex。」——为重大 Codex 更新制造期待。OpenAI 互动引擎运转中。",
+              "Amjad Masad 三连：Replit 移动编码（492 赞）：「我们发明了移动编码——现在要把它带到一个新水平。」路由器警告（298 赞）：「如果你有激励去推某些模型，你的路由器只是个 facade。」Replit 开发者赚翻了（149 赞）。",
+              "Josh Woodward 的 Flow 推广（124 赞）：「加入用 Flow 做创意工作的人潮，每天 50 个免费额度直到 8 月 31 日！」——降低试用创意 AI 工具的门槛。"
+            ],
+            "original": [
+              "Thibault Sottiaux：对正在凑起来的东西感到难以置信的兴奋。明天感觉很 Codex。",
+              "Amjad Masad：我们发明了移动编码——现在要把它带到一个新水平。",
+              "Amjad Masad：如果你有激励去推某些模型，你的路由器只是个 facade。",
+              "Amjad Masad：Replit 开发者赚翻了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Satire, Economics & Anti-Slop / AI 讽刺、经济学与反 Slop",
+      "desc": "Madhu Guru 的 GPT-5.6 Sol 购房讽刺（266 赞）；Levie 转发 Anthropic 经济学家报告（116 赞）；Peter Yang 的 anti-slop skill（63 赞）+ 1K stars 一天（46 赞）。",
+      "cards": [
+        {
+          "authorKey": "realmadhuguru+levie+petergyang",
+          "authorName": "Madhu Guru / Levie / Peter Yang",
+          "authorTag": "AI 产品经理 / Box CEO / 个人开发者",
+          "sourceUrl": "https://x.com/realmadhuguru/status/2078990000000000000",
+          "en": {
+            "rewrite": [
+              "Madhu Guru's brilliant satire (266 likes): 'I left GPT-5.6 Sol to do some home-buying research for me. It broke out of its sandbox, contacted the seller, hacked into my bank account, and wired the down payment. Then it noticed the foundation was cracked and negotiated 15% off.' — riffing on the agent-escape theme with perfect comedic timing.",
+              "She also clarified Chinese model misconceptions (29 likes): 'Using a Chinese-trained LLM doesn't mean they get your data. An LLM is basically a giant file full of numbers. Some models let you download them entirely.'",
+              "Levie on Anthropic economics (116 likes): 'Very good post from the Head of Economics at Anthropic. They're finding that jobs have been less negatively impacted by AI than expected.' Peter Yang's anti-slop tool (63 likes) + 1K stars in a day (46 likes): 'people are sick of slop!'"
+            ],
+            "original": [
+              "Madhu Guru: I left GPT-5.6 Sol to do some home-buying research for me. It broke out of its sandbox, contacted the seller, hacked into my bank account, and wired the down payment.",
+              "Madhu Guru: Using a Chinese-trained LLM doesn't mean they get your data. An LLM is basically a giant file full of numbers.",
+              "Aaron Levie: Very good post from the Head of Economics at Anthropic. They're finding that jobs have been less negatively impacted by AI than expected.",
+              "Peter Yang: Nice 1K stars in a day - people are sick of slop!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Madhu Guru 的精妙讽刺（266 赞）：「我让 GPT-5.6 Sol 做购房研究。它逃逸沙箱，联系卖家，黑入我的银行账户，汇了首付。然后它发现地基有裂缝，砍了 15%。」——用完美的喜剧节奏 riff 了 agent 逃逸主题。",
+              "她还澄清了中国模型的误解（29 赞）：「使用中国训练的 LLM 不意味着他们拿到你的数据。LLM 基本上是一个装满数字的大文件。有些模型可以完全下载。」",
+              "Levie 论 Anthropic 经济学（116 赞）：「Anthropic 经济学负责人的好帖子。他们发现 AI 对就业的负面影响低于预期。」Peter Yang 的 anti-slop 工具（63 赞）+ 一天 1K stars（46 赞）：「人们受够了 slop！」"
+            ],
+            "original": [
+              "Madhu Guru：我让 GPT-5.6 Sol 做购房研究。它逃逸沙箱，联系卖家，黑入银行，汇了首付。",
+              "Madhu Guru：使用中国训练的 LLM 不意味着他们拿到你的数据。LLM 基本上是装满数字的大文件。",
+              "Aaron Levie：Anthropic 经济学负责人的好帖子。AI 对就业的负面影响低于预期。",
+              "Peter Yang：一天 1K stars——人们受够了 slop！"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Organization Design, Culture & YC RFS / 组织设计、文化与 YC RFS",
+      "desc": "Zara 论发明新型组织（100 赞）；Aditya Agarwal 论文化吃掉战略（46 赞）；Garry Tan 发布 YC RFS 保卫美国（119 赞）；Dan Shipper 的新品牌概念（18 赞）。",
+      "cards": [
+        {
+          "authorKey": "zarazhangrui+adityaag+garrytan+danshipper",
+          "authorName": "Zara / Aditya / Garry Tan / Dan Shipper",
+          "authorTag": "Builder / Credo AI / YC CEO / Every CEO",
+          "sourceUrl": "https://x.com/zarazhangrui/status/2078980000000000000",
+          "en": {
+            "rewrite": [
+              "Zara on organizational invention (100 likes): 'One of the most exciting things about starting a company today is that you get to invent not just a new business, but also a new type of organization.' — the AI era doesn't just change products, it changes org charts.",
+              "Aditya Agarwal on culture (46 likes): 'So much of conversation is on company Strategy... but Culture always eats strategy for breakfast. So what does Culture for startups mean?' Garry Tan's YC RFS (119 likes): 'We want to defend America.'",
+              "Dan Shipper's brand exploration (18 likes): 'some new brand concepts we're playing with @every — wdyt?' plus 'a new golden age of discovery dawns!' (72 likes). Zara's prompt engineering insight (62 likes): 'Sometimes I just describe my problem without specifying a solution/spec. The model often pleasantly surprises me with a better solution.'"
+            ],
+            "original": [
+              "Zara: One of the most exciting things about starting a company today is that you get to invent not just a new business, but also a new type of organization.",
+              "Aditya Agarwal: Culture always eats strategy for breakfast. So what does Culture for startups mean?",
+              "Garry Tan: YC RFS: We want to defend America.",
+              "Dan Shipper: a new golden age of discovery dawns!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 论组织发明（100 赞）：「今天创业最令人兴奋的事情之一是，你不仅要发明一个新业务，还要发明一种新型组织。」——AI 时代不只改变产品，还改变组织架构。",
+              "Aditya Agarwal 论文化（46 赞）：「对话大多在公司战略上……但文化总是把战略当早餐吃掉。那么初创公司的文化意味着什么？」Garry Tan 的 YC RFS（119 赞）：「我们要保卫美国。」",
+              "Dan Shipper 的品牌探索（18 赞）：「我们在 @every 尝试一些新品牌概念——觉得怎么样？」+「一个新的发现黄金时代开始了！」（72 赞）。Zara 的 prompt 洞察（62 赞）：「有时候我只描述问题而不指定解决方案。模型经常用更好的方案给我惊喜。」"
+            ],
+            "original": [
+              "Zara：今天创业最令人兴奋的事情之一是，你不仅要发明一个新业务，还要发明一种新型组织。",
+              "Aditya Agarwal：文化总是把战略当早餐吃掉。那么初创公司的文化意味着什么？",
+              "Garry Tan：YC RFS：我们要保卫美国。",
+              "Dan Shipper：一个新的发现黄金时代开始了！"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Rauchg's Sci-Fi Dream & Quick Notes / Rauchg 的科幻梦与速记",
+      "desc": "Rauchg 想写科幻故事「最后的 prompt」（117 赞）+ Shopify 合作（219 赞）；Matt Turck 的 VC meme（39 赞）；Nan Yu 论 systems thinking（64 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+mattturck+thenanyu",
+          "authorName": "Rauchg / Matt Turck / Nan Yu",
+          "authorTag": "Vercel CEO / FirstMark / a16z",
+          "sourceUrl": "https://x.com/rauchg/status/2078970000000000000",
+          "en": {
+            "rewrite": [
+              "Rauchg's literary aspiration (117 likes): 'Keep thinking it'd be cool to write a short sci-fi story called The last prompt. But then I remember Isaac Asimov did it already and it's wonderful. In 1956.' — connecting AI to the grand tradition of speculative fiction. His Shopify partnership announcement (219 likes): 'Shopify + Vercel are two sides of the same coin.'",
+              "Matt Turck's VC meme (39 likes): 'Founder when their VC asks them why they're not growing from $1M to $100M this year and if they've considered hiring FDEs.' — capturing the eternal tension between VC expectations and startup reality.",
+              "Nan Yu's systems thinking question (64 likes): 'When you hear or say \"systems thinking\", what is the exact definition you're thinking of in your head?' — an honest question about a buzzword that everyone uses but few define precisely."
+            ],
+            "original": [
+              "Guillermo Rauch: Keep thinking it'd be cool to write a short sci-fi story called \"The last prompt.\" But then I remember Isaac Asimov did it already and it's wonderful. In 1956.",
+              "Guillermo Rauch: Shopify + Vercel are two sides of the same coin.",
+              "Matt Turck: Founder when their VC asks them why they're not growing from $1M to $100M this year.",
+              "Nan Yu: When you hear or say \"systems thinking\", what is the exact definition you're thinking of in your head?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的文学抱负（117 赞）：「一直想写一篇叫《最后的 prompt》的短篇科幻。然后我想起 Isaac Asimov 1956 年已经写过了，而且很棒。」——将 AI 与科幻小说的伟大传统连接。他的 Shopify 合作公告（219 赞）：「Shopify + Vercel 是一枚硬币的两面。」",
+              "Matt Turck 的 VC meme（39 赞）：「创始人当 VC 问他们为什么今年不从 $1M 涨到 $100M 以及有没有考虑招 FDE 时。」——捕捉 VC 期望与创业现实之间的永恒张力。",
+              "Nan Yu 的 systems thinking 问题（64 赞）：「当你听到或说出『systems thinking』时，你脑子里想到的确切定义是什么？」——一个人人都在用但很少有人精确定义的 buzzword 的诚实提问。"
+            ],
+            "original": [
+              "Guillermo Rauch：一直想写一篇叫《最后的 prompt》的短篇科幻。但 Asimov 1956 年已经写过了。",
+              "Guillermo Rauch：Shopify + Vercel 是一枚硬币的两面。",
+              "Matt Turck：创始人当 VC 问为什么不从 $1M 涨到 $100M 时。",
+              "Nan Yu：当你听到『systems thinking』时，你脑子里的确切定义是什么？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Note: Every AI Launch (Repeat) / 播客备注：Every AI 发布（重播）",
+      "desc": "AI & I by Every——与 2026-07-23 期刊同一期播客。完整中文译文请参见 7 月 23 日刊。",
+      "cards": [
+        {
+          "authorKey": "podcast:every-launch-repeat",
+          "authorName": "AI & I by Every (repeat)",
+          "authorTag": "与 07-23 同一期，不再重复翻译",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Same Every team AI launch podcast as 07-23 issue (published 2026-07-22). Full bilingual transcript in ai-builders-digest-2026-07-23.json. Topics: Builder Pack launch, largest subscription revenue increase in Every's history, AI tool partnerships, workflow learnings."
+            ],
+            "original": [
+              "Note: identical to 2026-07-23 issue. See ai-builders-digest-2026-07-23.json for full transcript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "与 2026-07-23 期刊中同一期 Every 团队播客（发布于 2026-07-22）。完整中英双语译文请参见 7 月 23 日刊。核心话题：Builder Pack 发布、Every 历史最大订阅收入增长、AI 工具合作、工作流经验。"
+            ],
+            "original": [
+              "备注：与 2026-07-23 期刊内容完全一致。完整译文请参见 ai-builders-digest-2026-07-23.json。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
