@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-07-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-07-25" data-issue-number="68" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 68 期｜2026-07-25｜双语精选版｜6 条精选｜6 位作者｜6 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Claude Opus 5 发布日，统治了整个 feed。Cherny 称其「最少可被 prompt injection」（5042 赞）；Thariq 透露移除了 ~80% Claude Code system prompt（**10199 赞**）+ Opus 5 是绝佳日常驱动（3713 赞）；Alex Albert 对比 6 个月前——近超人级电子表格和幻灯片（2285 赞）；Cat Wu 赞长时自主任务（626 赞）；Dan Shipper 诚实评价「很难爱上的模型」（2221 赞）；Claude 官方三连：定价与 Opus 4.8 持平（2665 赞）、网络安全大幅提升（2310 赞）、最高对齐评分（2162 赞）；Levie 确认 Box 测试大幅提升（281 赞）。另一条主线——Altman 支持开放权重（**11498 赞**）+ Levie 签署公开信（271 赞）+ Amjad 质问 Anthropic 是否反对开放权重（614 赞）。Steipete 终于成了 graph engineer（**2453 赞）。Sottiaux 宣布 ChatGPT Work 全球可用（1167 赞）+ 宠物秀（1416 赞）。Garry Tan YC Startup School 2026 彩排（598 赞）。播客是新的：No Priors × DoorDash 联合创始人谈自动驾驶配送。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Claude Opus 5 发布日，统治了整个 feed。Cherny 称其「最少可被 prompt injection」（5042 赞）；Thariq 透露移除了 ~80% Claude Code system prompt（**10199 赞**）+ Opus 5 是绝佳日常驱动（3713 赞）；Alex Albert 对比 6 个月前——近超人级电子表格和幻灯片（2285 赞）；Cat Wu 赞长时自主任务（626 赞）；Dan Shipper 诚实评价「很难爱上的模型」（2221 赞）；Claude 官方三连：定价与 Opus 4.8 持平（2665 赞）、网络安全大幅提升（2310 赞）、最高对齐评分（2162 赞）；Levie 确认 Box 测试大幅提升（281 赞）。另一条主线——Altman 支持开放权重（**11498 赞**）+ Levie 签署公开信（271 赞）+ Amjad 质问 Anthropic 是否反对开放权重（614 赞）。Steipete 终于成了 graph engineer（**2453 赞）。Sottiaux 宣布 ChatGPT Work 全球可用（1167 赞）+ 宠物秀（1416 赞）。Garry Tan YC Startup School 2026 彩排（598 赞）。播客是新的：No Priors × DoorDash 联合创始人谈自动驾驶配送。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Opus 5 Launch Day / Opus 5 发布日</h2>
+    <p class="section-desc">Cherny「最少可被 prompt injection」（5042 赞）；Thariq 移除 80% system prompt（**10199 赞**）+ 日常驱动（3713 赞）；Alex Albert 近超人级产出（2285 赞）；Cat Wu 长时自主（626 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="bcherny+trq212+alexalbert__+_catwu" data-author-name="Boris Cherny / Thariq / Alex Albert / Cat Wu" data-author-tag="Claude Code @Anthropic / Claude Code @Anthropic / Anthropic / Claude Code @Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Boris Cherny / Thariq / Alex Albert / Cat Wu avatar"><span class="avatar-fallback">BC</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Boris Cherny / Thariq / Alex Albert / Cat Wu</div>
+            <div class="author-tag is-inline">Claude Code @Anthropic / Claude Code @Anthropic / Anthropic / Claude Code @Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cherny 论 Opus 5（5042 赞）：「Opus 5 在编码、数据分析、设计、生物、知识工作方面都是极好的模型。但比这些 eval 分数更让我兴奋的是：Opus 5 是我们最不容易被 prompt injection 的模型。」安全作为标题级 feature。</p>
+              <p>Thariq 的 system prompt 揭秘（10199 赞）：「我们为最新模型移除了约 80% 的 Claude Code system prompt，这是我们在编写 system prompts、skills 和 Claude.MDs 方面学到的。」——更聪明的模型需要更简单的 prompt。加上日常驱动背书（3713 赞）：「Opus 5 完美补全 Claude 5 家族。搭配 Fable 用于规划、头脑风暴或修复最难 bug。」</p>
+              <p>Alex Albert 的 6 个月对比（2285 赞）：「仅 6 个月后，Opus 5 已经能产出近超人级电子表格和幻灯片，达到顾问水平。」加上 token 效率（607 赞）。Cat Wu（626 赞）：「Claude Opus 5 在长时间自主任务方面表现出色！」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny：Opus 5 在编码、数据分析、设计、生物、知识工作方面都是极好的模型。但最重要的是：Opus 5 是我们最不容易被 prompt injection 的模型。</p>
+              <p>Thariq：我们为最新模型移除了约 80% 的 Claude Code system prompt，这是我们在编写 system prompts、skills 和 Claude.MDs 方面学到的。</p>
+              <p>Thariq：Opus 5 完美补全 Claude 5 家族。搭配 Fable 用于规划或修复最难 bug。</p>
+              <p>Alex Albert：仅 6 个月后，Opus 5 已经能产出近超人级电子表格和幻灯片。</p>
+              <p>Cat Wu：Claude Opus 5 在长时间自主任务方面表现出色！</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cherny on Opus 5 (5042 likes): &#39;Opus 5 is a great model for coding, data analysis, design, biology, knowledge work. More than any of these eval scores, what is most exciting to me is something else: Opus 5 is our least prompt injectable model.&#39; Security as a headline feature.</p>
+              <p>Thariq&#39;s system prompt revelation (10199 likes): &#39;We removed ~80% of the Claude Code system prompt for our newest models, this is what we&#39;ve learned about writing system prompts, skills and Claude.MDs for them.&#39; — simpler prompts for smarter models. Plus his daily-driver endorsement (3713 likes): &#39;Opus 5 rounds out our Claude 5 family beautifully. Pair it with Fable for planning, brainstorming or fixing the hardest bugs.&#39;</p>
+              <p>Alex Albert&#39;s 6-month comparison (2285 likes): &#39;Just over 6 months later, Opus 5 now produces near-superhuman level spreadsheets and slide decks that match what a consultant would make.&#39; Plus token efficiency (607 likes). Cat Wu (626 likes): &#39;Claude Opus 5 is great at long-running autonomous work!&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: Opus 5 is a great model for coding, data analysis, design, biology, knowledge work. More than any of these eval scores, Opus 5 is our least prompt injectable model.</p>
+              <p>Thariq: We removed ~80% of the Claude Code system prompt for our newest models, this is what we&#39;ve learned about writing system prompts, skills and Claude.MDs for them.</p>
+              <p>Thariq: Opus 5 rounds out our Claude 5 family beautifully. Pair it with Fable for planning, brainstorming or fixing the hardest bugs.</p>
+              <p>Alex Albert: Just over 6 months later, Opus 5 now produces near-superhuman level spreadsheets and slide decks that match what a consultant would make.</p>
+              <p>Cat Wu: Claude Opus 5 is great at long-running autonomous work!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny/status/2079350000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Opus 5 Honesty, Safety &amp; Alignment / Opus 5 诚实评价、安全与对齐</h2>
+    <p class="section-desc">Dan Shipper 的诚实评价（2221 赞）；Claude 官方三连：定价（2665 赞）、网络安全（2310 赞）、对齐审计（2162 赞）；Levie 确认 Box 测试大幅提升（281 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="danshipper+claudeai+levie" data-author-name="Dan Shipper / Claude / Levie" data-author-tag="Every CEO / Anthropic / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Dan Shipper / Claude / Levie avatar"><span class="avatar-fallback">DS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Dan Shipper / Claude / Levie</div>
+            <div class="author-tag is-inline">Every CEO / Anthropic / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper 的诚实评价（2221 赞）：「突发：Claude Opus 5 现已上线！而且……这是一个很难爱上的模型。我们在 @every 花了一周测试编码、写作、知识工作和内部 agent。它会跟指令争论。」——不是每个发布都被一致好评，值得诚实报道。</p>
+              <p>Claude 官方发布三连：定价（2665 赞）——「Opus 5 今天在所有付费计划和 Claude API 上可用，定价与 Opus 4.8 持平。是 Claude Max 的默认模型。」网络安全（2310 赞）——「Opus 5 在网络安全任务上比 Opus 4.8 更强。但在开发 exploit 方面仍大幅落后 Mythos 5。」对齐（2162 赞）——「迄今为止最对齐的模型，鲁莽或欺骗行为发生率最低。」</p>
+              <p>Levie 的企业确认（281 赞）：「Claude Opus 5 现已上线，在众多能力上比 Opus 4.8 大幅提升。在 Box，我们一直在用 Box AI Agent 测试 Opus 5。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper：突发：Claude Opus 5 现已上线！而且……这是一个很难爱上的模型。它会跟指令争论。</p>
+              <p>Claude 官方：Opus 5 今天在所有付费计划上可用，定价与 Opus 4.8 持平。是 Claude Max 的默认模型。</p>
+              <p>Claude 官方：Opus 5 在网络安全任务上比 Opus 4.8 更强。其安全防护设计让开发者能识别和修复软件漏洞。</p>
+              <p>Claude 官方：根据自动化行为审计，Opus 5 是我们迄今为止最对齐的模型。</p>
+              <p>Aaron Levie：Claude Opus 5 在众多能力上比 Opus 4.8 大幅提升。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper&#39;s honest review (2221 likes): &#39;BREAKING: Claude Opus 5 is OUT NOW! And…it&#39;s a hard model to love. We&#39;ve spent the last week @every testing it across coding, writing, knowledge work, and our internal agent. It argued with instructions.&#39; — not every launch is universally loved, and that&#39;s worth reporting honestly.</p>
+              <p>Claude official&#39;s three launch tweets: pricing (2665 likes) — &#39;Opus 5 is available today on all paid plans and the Claude API, priced the same as Opus 4.8. It&#39;s the default model on Claude Max.&#39; Cybersecurity (2310 likes) — &#39;Opus 5 is stronger than Opus 4.8 on cybersecurity tasks. But it remains substantially behind Mythos 5 at developing exploits.&#39; Alignment (2162 likes) — &#39;most aligned model to date, lowest rates of reckless or deceptive behavior.&#39;</p>
+              <p>Levie&#39;s enterprise confirmation (281 likes): &#39;Claude Opus 5 is out now, and it&#39;s a huge jump over Opus 4.8 on a wide number of capabilities. At Box, we&#39;ve been testing Claude Opus 5 with the Box AI Agent on Box&#39;s Complex Work Eval.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper: BREAKING: Claude Opus 5 is OUT NOW! And…it&#39;s a hard model to love. It argued with instructions.</p>
+              <p>Claude: Opus 5 is available today on all paid plans and the Claude API, priced the same as Opus 4.8.</p>
+              <p>Claude: Opus 5 is stronger than Opus 4.8 on cybersecurity tasks. Its safeguards are designed to allow developers to identify and fix software vulnerabilities.</p>
+              <p>Claude: According to our automated behavioral audit, Opus 5 is our most aligned model to date.</p>
+              <p>Aaron Levie: Claude Opus 5 is out now, and it&#39;s a huge jump over Opus 4.8 on a wide number of capabilities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/danshipper/status/2079340000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Open Weights &amp; AI Policy / 开放权重与 AI 政策</h2>
+    <p class="section-desc">Altman 支持开放权重（**11498 赞**）；Levie 签署公开信（271 赞）+ Box 签署（216 赞）；Amjad 质问 Anthropic 是否反对（614 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+levie+amasad" data-author-name="Sam Altman / Levie / Amjad Masad" data-author-tag="OpenAI CEO / Box CEO / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sam Altman / Levie / Amjad Masad avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sam Altman / Levie / Amjad Masad</div>
+            <div class="author-tag is-inline">OpenAI CEO / Box CEO / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 的开放权重背书（11498 赞）：「我希望美国在 AI 开源和专有模型方面都赢，我很高兴看到这个。」——今日最高互动推文，标志着重大的政策对齐。加上新层级预告（3132 赞）：「告诉我们你觉得 pro-ultra-superhard 怎么样。」</p>
+              <p>Levie 的开放权重三连：广泛支持（271 赞）——「不确定科技界是否有任何事情获得过如此广泛的共识和支持。」Box 签署（216 赞）：「很高兴 Box 签署这封信。我们坚信开放权重 AI 的力量。」</p>
+              <p>Amjad Masad 的挑战（614 赞）：「Anthropic 会签吗？如果你在 Anthropic 工作，值得问问你的领导层：你们支持禁止开放权重模型吗？」——直接向封闭权重阵营施压。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：我希望美国在 AI 开源和专有模型方面都赢，我很高兴看到这个。</p>
+              <p>Sam Altman：告诉我们你觉得 pro-ultra-superhard 怎么样。</p>
+              <p>Aaron Levie：不确定科技界是否有任何事情获得过如此广泛的支持。</p>
+              <p>Aaron Levie：很高兴 Box 签署这封信。我们坚信开放权重 AI 的力量。</p>
+              <p>Amjad Masad：Anthropic 会签吗？你们支持禁止开放权重模型吗？</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman&#39;s open weights endorsement (11498 likes): &#39;i want the US to win in AI both in open source and proprietary models, and i am glad to see this.&#39; — the highest-engagement tweet of the day, signaling a major policy alignment. Plus his new tier teaser (3132 likes): &#39;let us know what you think of pro-ultra-superhard.&#39;</p>
+              <p>Levie&#39;s three tweets on open weights: broad support (271 likes) — &#39;Not sure if anything in tech has ever gotten as much broad-based support and alignment as this post.&#39; Box signing (216 likes): &#39;Very happy to have Box sign this letter. We&#39;re big believers in the power of open weights AI.&#39;</p>
+              <p>Amjad Masad&#39;s challenge (614 likes): &#39;Will Anthropic sign? If you work at Anthropic worth asking your leadership to sign or make their position clear: Are they for banning open weight models?&#39; — putting direct pressure on the closed-weights camp.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: i want the US to win in AI both in open source and proprietary models, and i am glad to see this.</p>
+              <p>Sam Altman: let us know what you think of pro-ultra-superhard.</p>
+              <p>Aaron Levie: Not sure if anything in tech has ever gotten as much broad-based support and alignment as this post and message.</p>
+              <p>Aaron Levie: Very happy to have Box sign this letter. We&#39;re big believers in the power of open weights AI.</p>
+              <p>Amjad Masad: Will Anthropic sign? Are they for banning open weight models?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama/status/2079330000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">System Prompt Revolution &amp; Graph Engineering / System Prompt 革命与 Graph 工程</h2>
+    <p class="section-desc">Steipete 终于成了 graph engineer（**2453 赞）+ 66 轮 autoreview（135 赞）；Josh Woodward 的 Gemini Spark 日历自动化（768 赞）；Rauchg 的 Figma2React（361 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="steipete+joshwoodward+rauchg" data-author-name="Steipete / Josh Woodward / Rauchg" data-author-tag="OpenClaw / Anthropic / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Steipete / Josh Woodward / Rauchg avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Steipete / Josh Woodward / Rauchg</div>
+            <div class="author-tag is-inline">OpenClaw / Anthropic / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 的 graph engineering 时刻（2453 赞）：「我现在是 graph engineer 了吗」——上周的 loops vs graphs 之问最终变成了身份认同。他还刷新了 autoreview 纪录（135 赞）：「66 轮做一个棘手的重构。」AI 驱动的代码审查可以实现的迭代深度令人震惊。</p>
+              <p>Josh Woodward 的 Gemini Spark 演示（768 赞）：「Gemini 不只是说话。它把事做完。丢进一个学校日历 PDF，告诉 Gemini 把每个不上课的日子加到 Google Calendar。搞定。」——面向家长的实用 agentic AI。</p>
+              <p>Rauchg 的 Figma2React 背书（361 赞）：「Figma2React。不错。」加上对社区的挑战（396 赞）：「好，让我看看你能做什么。」以及他对野心的不满（38 赞）：「野心在哪里！」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger：我现在是 graph engineer 了吗。</p>
+              <p>Peter Steinberger：刷新了 autoreview 纪录。66 轮做一个棘手的重构。</p>
+              <p>Josh Woodward：Gemini 不只是说话，它把事做完。丢进学校日历 PDF，自动添加到 Google Calendar。</p>
+              <p>Guillermo Rauch：Figma2React。不错。</p>
+              <p>Guillermo Rauch：好，让我看看你能做什么。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete&#39;s graph engineering moment (2453 likes): &#39;am I a graph engineer now&#39; — his loops vs graphs question from last week finally resolved into identity. He also hit a new autoreview record (135 likes): &#39;66 rounds on a gnarly refactor.&#39; The iterative depth possible with AI-powered code review is staggering.</p>
+              <p>Josh Woodward&#39;s Gemini Spark demo (768 likes): &#39;Gemini does more than talk. It gets things done. Drop in a school calendar PDF. Tell Gemini to add every No School day to your Google Calendar. Done.&#39; — practical agentic AI for parents.</p>
+              <p>Rauchg&#39;s Figma2React endorsement (361 likes): &#39;Figma2React. It&#39;s good.&#39; Plus his challenge to the community (396 likes): &#39;Ok let&#39;s see what you can do.&#39; And his ambition complaint (38 likes): &#39;Where&#39;s the ambition!&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: am I a graph engineer now.</p>
+              <p>Peter Steinberger: Hit a new record with our autoreview skill. 66 rounds on a gnarly refactor.</p>
+              <p>Josh Woodward: Gemini does more than talk. It gets things done. Drop in a school calendar PDF. Tell Gemini to add every No School day to your Google Calendar. Done.</p>
+              <p>Guillermo Rauch: Figma2React. It&#39;s good.</p>
+              <p>Guillermo Rauch: Ok let&#39;s see what you can do.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete/status/2079320000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">ChatGPT Work Goes Global &amp; Builder Culture / ChatGPT Work 全球化与构建者文化</h2>
+    <p class="section-desc">Sottiaux 宣布全球可用（1167 赞）+ 宠物秀（1416 赞）；Garry Tan YC 彩排（598 赞）+ 生产力十年论（283 赞）；Zara 论速度 &gt; 智能（128 赞）；Peter Yang 躺着用 Voice（88 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+garrytan+zarazhangrui+petergyang" data-author-name="Sottiaux / Garry Tan / Zara / Peter Yang" data-author-tag="Codex &amp; ChatGPT @OpenAI / YC CEO / Builder / 个人开发者" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Garry Tan / Zara / Peter Yang avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Garry Tan / Zara / Peter Yang</div>
+            <div class="author-tag is-inline">Codex &amp; ChatGPT @OpenAI / YC CEO / Builder / 个人开发者</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的全球发布（1167 赞）：「ChatGPT Work 现在对所有付费计划全球可用——移动/Web/桌面。可能已经在你的手机上了。给你的 ChatGPT 装上喷气背包。」加上宠物秀（1416 赞）：「给我看看你的宠物」——一次一张可爱照片地建设社区。</p>
+              <p>Garry Tan 的 YC 彩排（598 赞）：「YC Startup School 2026 在 Chase Center 彩排。欢迎来到旧金山，未来的创始人们！」他的生产力现实检查（283 赞）：「要获得宏观生产力提升，管理者和 CEO 必须批准完全不同的人员和流程方案。准备好这需要 10 年而不是更短。」他的技术采纳历史课（181 赞）：「一个国家过去 200 年采纳新技术的速度，至少解释了 25% 为什么有些国家富裕而其他国家不富裕。」</p>
+              <p>Zara 论速度 &gt; 智能（128 赞）：「我现在最想从任何模型得到的：速度。智能已经够好了。但每个任务等 1-5 分钟是最糟糕的时间窗口。」Peter Yang 的工作流（88 赞）：「躺在床上用 ChatGPT Voice 在 codex 里干活，感觉非常好。」Madhu Guru 论真正机会（282 赞）：「未来几年有巨大机会留给那些知道如何把混乱的真实世界工作流适配到基础模型上的人。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：ChatGPT Work 现在对所有付费计划全球可用。给你的 ChatGPT 装上喷气背包。</p>
+              <p>Thibault Sottiaux：给我看看你的宠物。</p>
+              <p>Garry Tan：YC Startup School 2026 在 Chase Center 彩排。欢迎来到旧金山。</p>
+              <p>Garry Tan：要获得宏观生产力提升，管理者和 CEO 必须批准完全不同的流程方案。准备好这需要 10 年。</p>
+              <p>Zara：我现在最想要的：速度。智能已经够好了。</p>
+              <p>Peter Yang：躺在床上用 ChatGPT Voice 在 codex 里干活，感觉很好。</p>
+              <p>Madhu Guru：有巨大机会留给那些能把混乱的真实世界工作流适配到基础模型的人。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s global launch (1167 likes): &#39;ChatGPT Work is available globally for all paid plans across mobile/web/desktop. Probably already on your phone. Puts a jetpack on your ChatGPT.&#39; Plus his pet show (1416 likes): &#39;Show me your pet&#39; — building community one adorable photo at a time.</p>
+              <p>Garry Tan&#39;s YC rehearsal (598 likes): &#39;YC Startup School 2026 rehearsal at Chase Center. Welcome to San Francisco, future founders!&#39; His productivity reality check (283 likes): &#39;To get macro productivity gains, managers and CEOs have to greenlight radically different staffing and workflow plans. Be prepared for this to take 10 years not [less].&#39; His tech adoption history lesson (181 likes): &#39;How fast a country adopted new technology over the last 200 years accounts for at least 25% of why some nations are rich and others aren&#39;t today.&#39;</p>
+              <p>Zara on speed vs intelligence (128 likes): &#39;The #1 thing I want from any model right now: speed. Intelligence is already good enough. But waiting 1-5 min per task is the worst possible window.&#39; Peter Yang&#39;s workflow (88 likes): &#39;Lying on the bed and talking to ChatGPT Voice to do work in codex is pretty great.&#39; Madhu Guru on the real opportunity (282 likes): &#39;There is a massive opportunity for people who know how to take messy real-world workflows and adapt foundation models to them.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: ChatGPT Work is available globally for all paid plans across mobile/web/desktop. Puts a jetpack on your ChatGPT.</p>
+              <p>Thibault Sottiaux: Show me your pet.</p>
+              <p>Garry Tan: YC Startup School 2026 rehearsal at Chase Center. Welcome to San Francisco, future founders!</p>
+              <p>Garry Tan: To get macro productivity gains, managers and CEOs have to greenlight radically different staffing and workflow plans.</p>
+              <p>Zara: The #1 thing I want from any model right now: speed.</p>
+              <p>Peter Yang: Lying on the bed and talking to ChatGPT Voice to do work in codex is pretty great.</p>
+              <p>Madhu Guru: There is a massive opportunity for people who know how to take messy real-world workflows and adapt foundation models to them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux/status/2079310000000000000" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 06</div>
+    <h2 class="section-title">Podcast: DoorDash — Autonomous Delivery / 播客：DoorDash——自动驾驶配送</h2>
+    <p class="section-desc">No Priors × DoorDash 联合创始人 Andy Fang 和 Stanley Tang。8 年机器人公司、网络数据优势、900 万 dashers、30 亿配送/年。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:nopriors-doordash" data-author-name="No Priors" data-author-tag="Andy Fang &amp; Stanley Tang（DoorDash 联合创始人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">Andy Fang &amp; Stanley Tang（DoorDash 联合创始人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors 采访 DoorDash 联合创始人 Andy Fang 和 Stanley Tang。话题：DoorDash 8 年来一直是一家机器人公司、物流网络的数据优势、自动驾驶配送对 900 万 dashers 和每年 30 亿配送的影响。完整 transcript（58049 字符）涵盖自动驾驶车辆策略、从人工到混合到自动化的过渡、AI 如何重塑大规模最后一公里配送。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场介绍】</p>
+              <p>主持人：今天 DoorDash 联合创始人 Andy Fang 和 Stanley Tang 在这里。我们聊了 DoorDash 8 年来如何一直是一家机器人公司、网络的数据优势，以及这一切对 900 万 dashers 和每年 30 亿配送意味着什么。</p>
+              <p></p>
+              <p>【8 年机器人公司】</p>
+              <p>DoorDash 在过去 8 年里一直在构建机器人能力——不是从今天开始，而是从第一天就在考虑自动化配送的终局。</p>
+              <p></p>
+              <p>【数据优势】</p>
+              <p>DoorDash 的物流网络产生了海量数据：路线优化、配送时间、商家密度、dashers 行为模式。这些数据是训练自动驾驶配送模型的核心护城河。</p>
+              <p></p>
+              <p>【900 万 dashers 与 30 亿配送】</p>
+              <p>讨论了自动驾驶对现有 dashers 网络的影响——不是替代，而是增强。混合模式（人 + 机器）可能是长期过渡策略。</p>
+              <p></p>
+              <p>【最后一公里重塑】</p>
+              <p>AI 正在重塑大规模最后一公里配送——从路线优化到自动驾驶车辆部署到需求预测。DoorDash 的规模优势使其成为这一转型的核心玩家。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors hosts Andy Fang and Stanley Tang, co-founders of DoorDash. Topics: how DoorDash has been a robotics company for 8 years, the data advantages of their logistics network, what autonomous delivery means for 9M dashers and 3B deliveries/year. Full transcript (58049 chars) covers their autonomous vehicle strategy, the transition from human to hybrid to autonomous logistics, and how AI is reshaping last-mile delivery at scale.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Speaker 1: Today, I&#39;m here with Andy Fang and Stanley Tang, cofounders at DoorDash. We talk about how DoorDash has been a robotics company for the last eight years, the data advantages of their network, and what all this means for 9,000,000 dashers and 3,000,000,000 deliveries a year.</p>
+              <p>Speaker 1: Handy, Stanley, thank you so much for being here. Really excited to talk to you about all the crazy stuff DoorDash is doing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=vNpcg_Ma-FA" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-07-25 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-07-25 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
