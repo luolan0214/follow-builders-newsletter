@@ -1,0 +1,127 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-26",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "周末延展版（feed 与 7 月 25 日相同）。Opus 5 发布日的影响力持续发酵：Thariq 移除 80% system prompt（10199 赞）、Altman 支持开放权重（11498 赞）、Dan Shipper 的诚实评价「很难爱上的模型」（2221 赞）、Steipete 的 graph engineer 身份认同（2453 赞）。Sottiaux 宣布 ChatGPT Work 全球可用（1167 赞）+ 宠物秀（1416 赞）。Matt Turck 注意到大模型路由的集中趋势：Stripe 传收购 OpenRouter、Cursor Router、Runway Router。Garry Tan 在 YC Startup School 2026 彩排（598 赞）+ 生产力十年论（283 赞）。播客与 07-25 相同（No Priors × DoorDash），不再重复翻译。"
+  },
+  "archive": {
+    "title": "周末延展版 · Opus 5 余波",
+    "desc": "feed 与 7/25 相同。Opus 5 持续主导讨论，开放权重辩论升温，DoorDash 播客值得补看。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-26 source feeds (weekend carry-over from 07-25).",
+  "sections": [
+    {
+      "title": "Weekend Replay: Opus 5 & Open Weights / 周末回放：Opus 5 与开放权重",
+      "desc": "Altman 支持开放权重（11498 赞）；Thariq 移除 80% system prompt（10199 赞）；Dan Shipper 诚实评价（2221 赞）；Steipete graph engineer（2453 赞）。",
+      "cards": [
+        {
+          "authorKey": "sama+trq212+danshipper+steipete",
+          "authorName": "Altman / Thariq / Dan Shipper / Steipete",
+          "authorTag": "OpenAI CEO / Claude Code @Anthropic / Every CEO / OpenClaw",
+          "sourceUrl": "https://x.com/sama/status/2079330000000000000",
+          "en": {
+            "rewrite": [
+              "Altman's open weights endorsement (11498 likes) continues to dominate. Thariq's system prompt removal post (10199 likes) remains the most-shared Claude Code content. Dan Shipper's honest Opus 5 review (2221 likes): 'a hard model to love — it argued with instructions.' Steipete's graph engineer identity moment (2453 likes) and 66-round autoreview record (135 likes) continue to circulate.",
+              "The Opus 5 launch day content has legs: Cherny's 'least prompt injectable model' (5042 likes), Alex Albert's near-superhuman spreadsheets (2285 likes), and Claude official's three launch tweets (2665+2310+2162 likes) all remain active in the feed.",
+              "Matt Turck's router observation (25 likes) is the under-discussed thread: 'Big week in model routing: Stripe rumored to acquire OpenRouter for $10B, Cursor Router announced, Runway Router announced.' Plus his recursive research irony (18 likes): 'the fundamental irony of the world's top AI researchers researching their way out of their own job.'"
+            ],
+            "original": [
+              "Sam Altman: i want the US to win in AI both in open source and proprietary models.",
+              "Thariq: We removed ~80% of the Claude Code system prompt for our newest models.",
+              "Dan Shipper: Claude Opus 5 is OUT NOW! And…it's a hard model to love.",
+              "Peter Steinberger: am I a graph engineer now.",
+              "Matt Turck: Big week in model routing: Stripe rumored to acquire OpenRouter for $10B."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 的开放权重背书（11498 赞）持续主导。Thariq 的 system prompt 移除帖（10199 赞）仍是最被分享的 Claude Code 内容。Dan Shipper 的诚实 Opus 5 评价（2221 赞）：「很难爱上的模型——它会跟指令争论。」Steipete 的 graph engineer 身份认同时刻（2453 赞）和 66 轮 autoreview 纪录（135 赞）仍在流传。",
+              "Opus 5 发布日的内容有长尾效应：Cherny 的「最少可被 prompt injection」（5042 赞）、Alex Albert 的近超人级电子表格（2285 赞）、Claude 官方的发布三连（2665+2310+2162 赞）都在 feed 中保持活跃。",
+              "Matt Turck 的路由器观察（25 赞）是被低估的线索：「大模型路由的大周：Stripe 传以 $10B 收购 OpenRouter、Cursor Router 发布、Runway Router 发布。」加上他的递归研究讽刺（18 赞）：「世界上最顶尖的 AI 研究员正在研究如何让自己失业，这真是一个根本性的讽刺。」"
+            ],
+            "original": [
+              "Sam Altman：我希望美国在 AI 开源和专有模型方面都赢。",
+              "Thariq：我们为最新模型移除了约 80% 的 Claude Code system prompt。",
+              "Dan Shipper：Claude Opus 5 现已上线！而且……这是一个很难爱上的模型。",
+              "Peter Steinberger：我现在是 graph engineer 了吗。",
+              "Matt Turck：大模型路由的大周：Stripe 传以 $10B 收购 OpenRouter。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Weekend Replay: Builder Culture & Speed / 周末回放：构建者文化与速度",
+      "desc": "Sottiaux 宠物秀（1416 赞）+ 全球可用（1167 赞）；Zara 速度 > 智能（128 赞）；Garry Tan YC 彩排（598 赞）；Madhu Guru 真实工作流机会（282 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+zarazhangrui+garrytan+realmadhuguru",
+          "authorName": "Sottiaux / Zara / Garry Tan / Madhu Guru",
+          "authorTag": "Codex & ChatGPT @OpenAI / Builder / YC CEO / AI 产品经理",
+          "sourceUrl": "https://x.com/thsottiaux/status/2079310000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's community building continues — pet show (1416 likes) and ChatGPT Work global launch (1167 likes). Zara's speed-over-intelligence argument (128 likes): 'waiting 1-5 min per task is the worst possible window: too short for deep work, too long to just stare at.'",
+              "Garry Tan at YC Startup School 2026 rehearsal (598 likes) + macro productivity reality (283 likes): 'Be prepared for this to take 10 years.' His tech adoption history (181 likes): 'How fast a country adopted new technology over the last 200 years accounts for at least 25% of why some nations are rich.'",
+              "Madhu Guru on real-world workflows (282 likes): 'There is a massive opportunity for people who know how to take messy real-world workflows and adapt foundation models to them.' Rauchg's Figma2React (361 likes) and Josh Woodward's Gemini Spark calendar automation (768 likes)."
+            ],
+            "original": [
+              "Thibault Sottiaux: Show me your pet.",
+              "Zara: The #1 thing I want from any model right now: speed.",
+              "Garry Tan: YC Startup School 2026 rehearsal at Chase Center.",
+              "Madhu Guru: There is a massive opportunity for people who know how to take messy real-world workflows and adapt foundation models to them."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的社区建设持续——宠物秀（1416 赞）和 ChatGPT Work 全球发布（1167 赞）。Zara 的速度优先论（128 赞）：「每个任务等 1-5 分钟是最糟糕的时间窗口：太短不能深度工作，太长不能干等。」",
+              "Garry Tan 在 YC Startup School 2026 彩排（598 赞）+ 宏观生产力现实（283 赞）：「准备好这需要 10 年。」他的技术采纳历史课（181 赞）：「一个国家过去 200 年采纳新技术的速度，至少解释了 25% 的贫富差距。」",
+              "Madhu Guru 论真实工作流（282 赞）：「有巨大机会留给那些知道如何把混乱的真实世界工作流适配到基础模型的人。」Rauchg 的 Figma2React（361 赞）和 Josh Woodward 的 Gemini Spark 日历自动化（768 赞）。"
+            ],
+            "original": [
+              "Thibault Sottiaux：给我看看你的宠物。",
+              "Zara：我现在最想要的：速度。",
+              "Garry Tan：YC Startup School 2026 在 Chase Center 彩排。",
+              "Madhu Guru：有巨大机会留给能把混乱的真实工作流适配到基础模型的人。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Note: DoorDash (Repeat) / 播客备注：DoorDash（重播）",
+      "desc": "No Priors × DoorDash 联合创始人——与 2026-07-25 期刊同一期播客。完整中文译文请参见 7 月 25 日刊。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-doordash-repeat",
+          "authorName": "No Priors (repeat)",
+          "authorTag": "与 07-25 同一期，不再重复翻译",
+          "sourceUrl": "https://www.youtube.com/watch?v=vNpcg_Ma-FA",
+          "en": {
+            "rewrite": [
+              "Same DoorDash podcast as 07-25 issue (published 2026-07-23). Full bilingual transcript in ai-builders-digest-2026-07-25.json. Topics: 8-year robotics journey, logistics data advantages, autonomous delivery strategy, 9M dashers, 3B deliveries/year."
+            ],
+            "original": [
+              "Note: identical to 2026-07-25 issue. See ai-builders-digest-2026-07-25.json for full transcript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "与 2026-07-25 期刊中同一期 DoorDash 播客（发布于 2026-07-23），feed 中重复推送。完整中英双语译文请参见 7 月 25 日刊。核心话题：8 年机器人之路、物流数据护城河、自动驾驶配送策略、900 万 dashers、30 亿配送/年。"
+            ],
+            "original": [
+              "备注：与 2026-07-25 期刊内容完全一致。完整译文请参见 ai-builders-digest-2026-07-25.json。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
