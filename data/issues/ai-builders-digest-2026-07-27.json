@@ -1,0 +1,246 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-27",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 宣布 ChatGPT Work 活跃用户正式超越 Codex（**3485 赞**）+ 语音是 game changer（901 赞）。Rauchg 连发三条重磅：「软件工厂就是产品」（**1050 赞**）——你的产品只有你配置的自主维护 agent 那么好；「用 agent CLI + 文件系统做研究」（772 赞）——不用 fancy UI，一个 research/ 文件夹 + AGENTS.md 就够；「agent.md 比任何框架都根本」（604 赞）。Levie 确认 Google 加入开放权重公开信（**1351 赞**）——「行业的完全背书」。Steipete 全天跑 Codex 做大规模并行 QA（747 赞）+ OpenAI 签署公开信、Anthropic 沉默（1441 赞）。Garry Tan 的爸爸在看台上加油（562 赞）。Peter Yang 预告 OpenAI DevX 工程师 Jason 的 Codex 工作系统（146 赞）。Matt Turck 的芯片 101（14 赞）+ VC Anthropic SPV meme（67 赞）。Nikunj 论只有 CEO 完全控制权 + 极度野心才能做到某些事（115 赞）。播客是新的：Unsupervised Learning Ep 91——顶级 AI 分析师拆解今日 AI 炒作周期。"
+  },
+  "archive": {
+    "title": "软件工厂与开放权重日报",
+    "desc": "Sottiaux 宣布 ChatGPT Work 超越 Codex（3485 赞），Rauchg 论「软件工厂就是产品」（1050 赞），Google 加入开放权重公开信（1351 赞）。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-27 source feeds.",
+  "sections": [
+    {
+      "title": "ChatGPT Work Overtakes Codex / ChatGPT Work 超越 Codex",
+      "desc": "Sottiaux 宣布 ChatGPT Work 活跃用户超越 Codex（**3485 赞**）+ 语音 game changer（901 赞）+ 「我们修了那个 bug」（608 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux/status/2079670000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's milestone announcement (3485 likes): 'ChatGPT Work officially has overtaken Codex in number of active users. Way to go.' — a real inflection point for OpenAI's productivity suite.",
+              "His voice feature endorsement (901 likes): 'Game changer when used from mobile. Available in the ChatGPT app already.' The voice + mobile combination is clearly resonating with users.",
+              "His philosophical framing (608 likes): 'It was always possible to speak to your computer. It wouldn't do much in return. But we fixed that bug.' — reframing the AI revolution as a bug fix."
+            ],
+            "original": [
+              "Thibault Sottiaux: ChatGPT Work officially has overtaken Codex in number of active users. Way to go.",
+              "Thibault Sottiaux: Game changer when used from mobile. Available in the ChatGPT app already.",
+              "Thibault Sottiaux: It was always possible to speak to your computer. It wouldn't do much in return. But we fixed that bug."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的里程碑公告（3485 赞）：「ChatGPT Work 的活跃用户数量正式超越了 Codex。干得好。」——OpenAI 生产力套件的真实拐点。",
+              "他的语音功能背书（901 赞）：「在移动端使用是 game changer。已经在 ChatGPT app 里可用了。」语音 + 移动的组合正在引起用户共鸣。",
+              "他的哲学式表述（608 赞）：「一直以来你都可以跟电脑说话。只是它不会做什么回应。但我们修好了那个 bug。」——把 AI 革命重新定义为一次 bug 修复。"
+            ],
+            "original": [
+              "Thibault Sottiaux：ChatGPT Work 的活跃用户正式超越 Codex。干得好。",
+              "Thibault Sottiaux：在移动端使用是 game changer。已经在 ChatGPT app 里可用了。",
+              "Thibault Sottiaux：一直以来你都可以跟电脑说话。只是它不会做什么。但我们修好了那个 bug。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Software Factory Philosophy / 软件工厂哲学",
+      "desc": "Rauchg 连发三条：「软件工厂就是产品」（**1050 赞**）+ 用 agent CLI 做研究（772 赞）+ agent.md 比任何框架根本（604 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg",
+          "authorName": "Guillermo Rauch",
+          "authorTag": "Vercel CEO",
+          "sourceUrl": "https://x.com/rauchg/status/2079660000000000000",
+          "en": {
+            "rewrite": [
+              "Rauchg's factory thesis (1050 likes): 'The (software) factory is the product. Your product is only as good as the agents you set up to autonomously maintain it. This is what @elonmusk figured out about Tesla, and it's now true for the software world.' — the manufacturing-inspired framing of AI-native development.",
+              "His research workflow (772 likes): 'I started doing all my research with agent CLIs and the filesystem. A research/ folder, an AGENTS.md describing the format I like and best practices. Then launch my agent and ask a question. No fancy UI needed.' — pragmatic agent usage that anyone can adopt.",
+              "His manifesto on agent.md (604 likes): 'is more fundamental than any other framework we've built. It's the genesis of your company. When you have a new idea, don't think: I'll go to an agent and ad-hoc prompt. [Think: I'll update the agents.]'"
+            ],
+            "original": [
+              "Guillermo Rauch: The (software) factory is the product. Your product is only as good as the agents you set up to autonomously maintain it.",
+              "Guillermo Rauch: I started doing all my research with agent CLIs and the filesystem. A research/ folder, an AGENTS.md describing the format I like and best practices.",
+              "Guillermo Rauch: is more fundamental than any other framework we've built. It's the genesis of your company."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的工厂论（1050 赞）：「（软件）工厂就是产品。你的产品只有你配置的自主维护 agent 那么好。这就是 @elonmusk 在 Tesla 悟出的道理，现在对软件世界也成立了。」——制造业启发的 AI 原生开发框架。",
+              "他的研究工作流（772 赞）：「我开始用 agent CLI 和文件系统做所有研究。一个 research/ 文件夹，一个 AGENTS.md 描述我喜欢的格式和最佳实践。然后启动 agent 提问。不需要 fancy UI。」——任何人都能采用的实用 agent 用法。",
+              "他的 agent.md 宣言（604 赞）：「比我们构建过的任何框架都根本。它是你公司的起源。当你有新想法时，不要想：我去 agent 那里临时 prompt。[要想：我去更新 agents。]」"
+            ],
+            "original": [
+              "Guillermo Rauch：（软件）工厂就是产品。你的产品只有你配置的自主维护 agent 那么好。",
+              "Guillermo Rauch：我开始用 agent CLI 和文件系统做所有研究。一个 research/ 文件夹，一个 AGENTS.md。",
+              "Guillermo Rauch：比我们构建过的任何框架都根本。它是你公司的起源。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Open Weights: Google Joins + OpenAI Signs / 开放权重：Google 加入 + OpenAI 签署",
+      "desc": "Levie 确认 Google 加入（**1351 赞**）；Steipete 庆祝 OpenAI 签署、Anthropic 沉默（**1441 赞**）；Madhu Guru 论共识形成（33 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+steipete+realmadhuguru",
+          "authorName": "Levie / Steipete / Madhu Guru",
+          "authorTag": "Box CEO / OpenClaw / AI 产品经理",
+          "sourceUrl": "https://x.com/levie/status/2079650000000000000",
+          "en": {
+            "rewrite": [
+              "Levie on Google joining (1351 likes): 'Now with Google on board, this is a complete endorsement of open weights AI. Pretty big moment for the industry.' The open weights coalition now includes OpenAI, Google, Box, and many others.",
+              "Steipete's competitive analysis (1441 likes): '1) Competition is good for the ecosystem. 2) Serving models at scale is hard. Proud that @OpenAI signed the letter. Ant is silent on it.' — noting Anthropic's absence from the open weights movement.",
+              "Madhu Guru on consensus formation (33 likes): 'In uncharted territory, answers to hard questions only come from repeated contact with reality. Been thinking about how quickly the US AI community converged on support for open-weight models.'"
+            ],
+            "original": [
+              "Aaron Levie: Now with Google on board, this is a complete endorsement of open weights AI. Pretty big moment for the industry.",
+              "Peter Steinberger: 1) Competition is good for the ecosystem. 2) Serving models at scale is hard. Proud that @OpenAI signed the letter. Ant is silent on it.",
+              "Madhu Guru: In uncharted territory, answers to hard questions only come from repeated contact with reality."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 确认 Google 加入（1351 赞）：「现在 Google 也加入了，这是开放权重 AI 的完全背书。行业的重要时刻。」开放权重联盟现在包括 OpenAI、Google、Box 等等。",
+              "Steipete 的竞争分析（1441 赞）：「1）竞争对生态有益。2）大规模服务模型很难。为 @OpenAI 签署这封信感到骄傲。Ant（Anthropic）对此沉默。」——指出 Anthropic 在开放权重运动中的缺席。",
+              "Madhu Guru 论共识形成（33 赞）：「在未知领域，难题的答案只来自与现实的反复接触。一直在想美国 AI 社区多快就在支持开放权重模型上达成了共识。」"
+            ],
+            "original": [
+              "Aaron Levie：Google 也加入了，这是开放权重 AI 的完全背书。",
+              "Peter Steinberger：竞争对生态有益。为 OpenAI 签署感到骄傲。Anthropic 沉默。",
+              "Madhu Guru：未知领域中，答案只来自与现实的反复接触。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Parallel QA, Codex Systems & Builder Notes / 并行 QA、Codex 系统与构建者笔记",
+      "desc": "Steipete 全天 Codex 并行 QA（747 赞）+ 12 subagent QA（202 赞）；Peter Yang 预告 OpenAI DevX Jason 的 Codex 系统（146 赞）；Nikunj 论 CEO 控制权（115 赞）；Rauchg 的研究工作流（772 赞）。",
+      "cards": [
+        {
+          "authorKey": "steipete+petergyang+nikunj",
+          "authorName": "Steipete / Peter Yang / Nikunj",
+          "authorTag": "OpenClaw / 个人开发者 / FPV Ventures",
+          "sourceUrl": "https://x.com/steipete/status/2079640000000000000",
+          "en": {
+            "rewrite": [
+              "Steipete's parallel QA session (747 likes): 'Been running codex all day to do massive parallel QA in prep of the next release. Sol got insanely good at really understanding intent and is finding complex behavior issues.' Plus his 12-subagent QA prompt (202 likes): 'Do a full end-to-end QA test of OpenClaw with live API keys. Use 12 subagents to split up functionality.'",
+              "Peter Yang's episode preview (146 likes): 'Jason is a DevEx engineer at OpenAI who wrote the official guidebook on how to use Codex for work. In tomorrow's episode, he showed me his complete Codex work system, including how to: run a chief [of staff agent].' Plus model analysis from Kun (269 likes).",
+              "Nikunj on CEO power (115 likes): 'No one will admit this but you can only do this sort of thing if a) the CEO has complete control of the company and b) you are as ambitious and crazy as @D[harmesh].' Amjad's chess engine (168 likes): closing in on 1200 Elo with one small finetuned LLM."
+            ],
+            "original": [
+              "Peter Steinberger: Been running codex all day to do massive parallel QA in prep of the next release. Sol got insanely good at really understanding intent.",
+              "Peter Yang: Jason is a DevEx engineer at OpenAI who wrote the official guidebook on how to use Codex for work.",
+              "Nikunj: No one will admit this but you can only do this sort of thing if a) the CEO has complete control of the company and b) you are as ambitious and crazy.",
+              "Amjad Masad: Just deployed a new chess engine; we're closing in on an estimated 1200 Elo."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的并行 QA 会话（747 赞）：「全天跑 Codex 做大规模并行 QA，准备下一个版本。Sol 变得极其擅长理解意图，正在发现复杂的行为问题。」加上他的 12 subagent QA prompt（202 赞）：「对 OpenClaw 做完整端到端 QA 测试。用 12 个 subagent 拆分功能。」",
+              "Peter Yang 的节目预告（146 赞）：「Jason 是 OpenAI 的 DevX 工程师，写了官方的 Codex 工作指南。在明天的节目里，他展示了他完整的 Codex 工作系统，包括如何：运行一个 chief [of staff agent]。」加上 Kun 的模型分析（269 赞）。",
+              "Nikunj 论 CEO 权力（115 赞）：「没人会承认，但你只有做到 a) CEO 完全控制公司 且 b) 像 @D[harmesh] 一样野心勃勃和疯狂，才能做这种事。」Amjad 的国际象棋引擎（168 赞）：用一个小微调 LLM 接近 1200 Elo。"
+            ],
+            "original": [
+              "Peter Steinberger：全天跑 Codex 做大规模并行 QA。Sol 变得极其擅长理解意图。",
+              "Peter Yang：Jason 是 OpenAI DevX 工程师，写了官方 Codex 工作指南。",
+              "Nikunj：只有 CEO 完全控制公司 + 极度野心才能做到。",
+              "Amjad Masad：新部署了一个国际象棋引擎；接近 1200 Elo。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "SF Housing, Chip Landscape & Quick Hits / 旧金山住房、芯片格局与速记",
+      "desc": "Garry Tan 论住房优先于景观（184 赞）+ 父亲加油（562 赞）+ shitpost（35 赞）；Matt Turck 芯片 101（14 赞）+ VC Anthropic meme（67 赞）；Dan Shipper（233 赞）；Zara 论 AI-native 公司文化（31 赞）。",
+      "cards": [
+        {
+          "authorKey": "garrytan+mattturck+danshipper+zarazhangrui",
+          "authorName": "Garry Tan / Matt Turck / Dan Shipper / Zara",
+          "authorTag": "YC CEO / FirstMark / Every CEO / Builder",
+          "sourceUrl": "https://x.com/garrytan/status/2079630000000000000",
+          "en": {
+            "rewrite": [
+              "Garry Tan on SF housing (184 likes): 'We should prioritize people and a vibrant community and more housing far far far more than some guy's views.' Plus his dad moment (562 likes): 'My dad was cheering real loud from the stands. Dad stop you're embarrassing me.' And his shitpost disclaimer (35 likes).",
+              "Matt Turck's chip landscape overview (14 likes): 'Chip landscape 101 with @andrewdfeldman: CPU, GPU, NVIDIA, AMD, TPU, Trainium, Cerebras, etc.' Plus VC Anthropic meme (67 likes): 'VC trying to resist the temptation to buy three shares of Anthropic through an SPV before the IPO.'",
+              "Dan Shipper's reaction (233 likes): 'this is crazy.' Zara on AI-native culture (31 likes): 'AI-native companies have a culture akin to an open-source community.' Plus her workflow question (42 likes): 'What do you do when you're waiting for AI output?'"
+            ],
+            "original": [
+              "Garry Tan: We should prioritize people and a vibrant community and more housing far far far more than some guy's views.",
+              "Garry Tan: My dad was cheering real loud from the stands. Dad stop you're embarrassing me.",
+              "Matt Turck: Chip landscape 101: CPU, GPU, NVIDIA, AMD, TPU, Trainium, Cerebras, etc.",
+              "Matt Turck: VC trying to resist the temptation to buy three shares of Anthropic through an SPV before the IPO.",
+              "Zara: AI-native companies have a culture akin to an open-source community."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 论旧金山住房（184 赞）：「我们应该把人、活跃的社区和更多住房放在远远远远比某个人的景观更重要的位置。」加上他的爸爸时刻（562 赞）：「我爸爸在看台上大声加油。爸停下来好尴尬。」以及他的 shitpost 声明（35 赞）。",
+              "Matt Turck 的芯片格局概览（14 赞）：「芯片 101 with @andrewdfeldman：CPU、GPU、NVIDIA、AMD、TPU、Trainium、Cerebras 等。」加上 VC Anthropic meme（67 赞）：「VC 努力抵抗通过 SPV 在 IPO 前买三股 Anthropic 以便自称早期投资人的诱惑。」",
+              "Dan Shipper 的反应（233 赞）：「这太疯狂了。」Zara 论 AI-native 文化（31 赞）：「AI 原生公司的文化类似开源社区。」加上她的工作流提问（42 赞）：「等 AI 输出的时候你在做什么？」"
+            ],
+            "original": [
+              "Garry Tan：应该把人和社区放在比景观更重要的位置。",
+              "Garry Tan：爸爸在看台上大声加油。爸停下来好尴尬。",
+              "Matt Turck：芯片 101：CPU、GPU、NVIDIA、AMD、TPU、Trainium、Cerebras。",
+              "Matt Turck：VC 努力抵抗通过 SPV 买 Anthropic 股份的诱惑。",
+              "Zara：AI 原生公司的文化类似开源社区。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: AI Hype Cycle Unpacked / 播客：AI 炒作周期拆解",
+      "desc": "Unsupervised Learning Ep 91——顶级 AI 分析师拆解今日 AI 炒作周期。92435 字符 transcript，涵盖电力类比、Jeff Hinton、就业恐慌 vs 历史。",
+      "cards": [
+        {
+          "authorKey": "podcast:unsupervised-hype",
+          "authorName": "Unsupervised Learning",
+          "authorTag": "Ep 91: 顶级 AI 分析师",
+          "sourceUrl": "https://www.youtube.com/watch?v=vDY_ocrkQ5w",
+          "en": {
+            "rewrite": [
+              "Unsupervised Learning Ep 91: a top AI analyst unpacks today's AI hype cycle. Full transcript (92435 chars) covers the electricity analogy ('AI is like electricity — but what actually happened with electricity?'), Jeff Hinton's job loss warnings, and whether the current hype cycle mirrors previous technology adoption patterns. The conversation digs into logical fallacies around AI doom arguments and historical precedents."
+            ],
+            "original": [
+              "Speaker 1: You can wave your hands and say, no. This is like electricity. Okay. Fine. It's like electricity. Well, what happened with electricity?",
+              "Speaker 2: Do you think it's irrational that the heads of these labs are talking so much about job loss?",
+              "Speaker 1: We get deep into logical fallacies here. So we've got Jeff Hinton[effect]."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Unsupervised Learning 第 91 期：顶级 AI 分析师拆解今日 AI 炒作周期。完整 transcript（92435 字符）涵盖电力类比（「AI 就像电力——但电力实际发生了什么？」）、Jeff Hinton 的就业损失警告、以及当前炒作周期是否镜像之前的技术采纳模式。对话深入探讨了 AI 末日论证的逻辑谬误和历史先例。"
+            ],
+            "original": [
+              "【电力类比】",
+              "Speaker 1：你可以挥手说，不。这就像电力。好吧。这就像电力。那么，电力发生了什么？",
+              "「电力之前有一个时代，电力之前的人也不蠢。」",
+              "",
+              "【就业恐慌】",
+              "Speaker 2：你觉得这些实验室的负责人这么多地谈论就业损失是不理性的吗？",
+              "",
+              "【逻辑谬误】",
+              "Speaker 1：我们在这里深入到了逻辑谬误。所以我们有了 Jeff Hinton 效应。",
+              "「我们正处于一个人们在不完全理解技术的情况下对 AI 做出极端预测的阶段。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
