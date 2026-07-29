@@ -1,0 +1,107 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-29",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "X feed 与 07-28 相同（Sottiaux 庆祝重置 9474 赞、Altman「wrong」7993 赞、Rauchg 安全基准 622 赞、Steipete agent-to-agent 修 bug 325 赞），不再重复翻译。但播客是新的：AI & I by Every 采访 Granolah（$1.5B AI 会议笔记公司）联合创始人兼 CEO，谈第一波 AI 应用之后的计算革命。完整中文译文见播客卡片。"
+  },
+  "archive": {
+    "title": "Granolah CEO 播客特辑",
+    "desc": "X feed 与 07-28 相同（周末延展），播客是新的：Granolah CEO 谈第一波 AI 应用之后的计算革命。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-29 source feeds. X feed carry-over from 07-28, new podcast.",
+  "sections": [
+    {
+      "title": "Quick Recap: Yesterday's Top Tweets / 速览：昨日热门回顾",
+      "desc": "X feed 与 07-28 一致：Sottiaux 庆祝重置（9474 赞）、Altman「wrong」（7993 赞）、Rauchg 安全基准（622 赞）、Steipete agent-to-agent（325 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama+rauchg+steipete",
+          "authorName": "Sottiaux / Altman / Rauchg / Steipete",
+          "authorTag": "Codex & ChatGPT @OpenAI / OpenAI CEO / Vercel CEO / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux/status/2080000000000000000",
+          "en": {
+            "rewrite": [
+              "X feed is identical to 07-28. Top engagement: Sottiaux's celebration reset (9474 likes), Altman's 'wrong.' (7993 likes), Sottiaux's 'Weeeeeeeee' reset (8471 likes), Sottiaux's break (3199 likes). See 07-28 issue for full bilingual coverage.",
+              "Rauchg's Vercel cybersecurity benchmark (622 likes): Grok 4.5 best price-performance, 10x cheaper than Sol. Steipete's agent-to-agent bug fix (325 likes). Levie's K3 weights arrival (341 likes) and AI jobs non-event (219 likes). Swyx's $/task metric argument (94 likes)."
+            ],
+            "original": [
+              "Note: X feed identical to 2026-07-28. See ai-builders-digest-2026-07-28.json for full bilingual coverage.",
+              "Thibault Sottiaux: We're celebrating the fast adoption of chatGPT Work.",
+              "Sam Altman: wrong.",
+              "Guillermo Rauch: Grok 4.5 has emerged as the best cybersecurity AI model on price-performance.",
+              "Peter Steinberger: My agent reported a bug, their agent fixed it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "X feed 与 07-28 完全一致。最高互动：Sottiaux 的庆祝重置（9474 赞）、Altman「wrong.」（7993 赞）、Sottiaux 的「Weeeeeeeee」重置（8471 赞）、Sottiaux 的暂停（3199 赞）。完整双语覆盖请见 07-28 期刊。",
+              "Rauchg 的 Vercel 网络安全基准（622 赞）：Grok 4.5 性价比最优，比 Sol 便宜 10 倍。Steipete 的 agent-to-agent 修 bug（325 赞）。Levie 的 K3 权重到了（341 赞）和 AI 就业非事件（219 赞）。Swyx 的 $/task 指标论（94 赞）。"
+            ],
+            "original": [
+              "备注：X feed 与 2026-07-28 完全一致。完整双语覆盖请见 ai-builders-digest-2026-07-28.json。",
+              "Thibault Sottiaux：庆祝 ChatGPT Work 的快速采用。",
+              "Sam Altman：wrong.",
+              "Guillermo Rauch：Grok 4.5 在性价比上是最优网络安全 AI 模型。",
+              "Peter Steinberger：我的 agent 报了 bug，他们的 agent 修好了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Granolah CEO on Life After AI App Wave 1 / 播客：Granolah CEO 谈第一波 AI 应用之后",
+      "desc": "AI & I by Every × Granolah（$1.5B AI 会议笔记公司）联合创始人兼 CEO。完整中文译文：会议笔记不是终极价值，计算革命才刚开始，创业如刀战。",
+      "cards": [
+        {
+          "authorKey": "podcast:every-granolah",
+          "authorName": "AI & I by Every",
+          "authorTag": "Granolah 联合创始人兼 CEO",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Every's AI & I interviews the co-founder and CEO of Granolah, a $1.5B AI company that was one of the first new AI apps where people said 'holy shit, this actually works.' Full transcript (59775 chars) covers: meeting notes as the wedge (not the endgame), the computing revolution still in its earliest steps, startups as knife fights, and what comes after the first wave of AI apps. Essential listening for understanding the AI app ecosystem evolution."
+            ],
+            "original": [
+              "Speaker 1: You are the cofounder and CEO of Granolah. One of the first new AI apps where people were like, holy shit. This actually works.",
+              "Speaker 2: Meeting notes are not the end all, be all value that everyone's running after. There's something much bigger. I think we are in the very, very early steps of a computing revolution. What has come thus far will pale in comparison to what will come soon.",
+              "Speaker 2: Startups are like knife fights."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Every 的 AI & I 采访 Granolah 联合创始人兼 CEO——一家 $15 亿估值的 AI 公司，是最早让人惊呼「卧槽，这真的能用」的 AI 应用之一。完整 transcript（59775 字符）涵盖：会议笔记是楔子不是终极价值、计算革命仍在最早期、创业如刀战、第一波 AI 应用之后的机会。理解 AI 应用生态演进必听。"
+            ],
+            "original": [
+              "【开场：从会议笔记到计算革命】",
+              "主持人：你是 Granolah 的联合创始人兼 CEO。最早让人惊呼「这真的能用」的 AI 应用之一。",
+              "CEO：会议笔记不是所有人追求的终极价值。有更大的东西。我认为我们正处于计算革命的最初阶段。到目前为止的一切，与即将到来的相比都将黯然失色。",
+              "",
+              "【创业如刀战】",
+              "CEO：创业就像刀战。",
+              "「在最早期阶段，你不是在和大公司竞争，你是在和其他疯狂的创业者在暗巷里刀战。」",
+              "",
+              "【会议笔记是楔子，不是终局】",
+              "CEO：会议笔记是切入点——解决了真实的用户痛点。但真正的价值在于：理解会议内容后能做什么——自动生成任务、跟进邮件、PRD、决策记录。",
+              "「我们选择会议笔记是因为它是高频、高痛点的场景。但 AI 的真正价值是把非结构化对话变成结构化行动。」",
+              "",
+              "【计算革命才刚开始】",
+              "CEO：到目前为止的 AI 应用只是热身。真正的革命发生在 AI 能够自主执行端到端工作流的时候。",
+              "「我们处在一个独特的时刻：模型足够好可以做真正的事，但还不够好可以完全自主。这个中间地带是最有趣的创业空间。」",
+              "",
+              "【第一波 AI 应用之后的生态】",
+              "CEO：第一波 AI 应用是单点工具——会议笔记、代码补全、文案生成。第二波将是平台型——连接多个工具、自主编排工作流、从被动辅助转向主动执行。",
+              "「赢家将是那些从工具变成平台、再变成基础设施的公司。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
