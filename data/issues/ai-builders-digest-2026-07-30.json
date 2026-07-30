@@ -1,0 +1,171 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-30",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 的重置进化为产品更新公告（**11970 赞**）——附带 GPT-5.6 Sol 用量限制更新。Levie 一条神秘重磅推文（**8594 赞**）+ 转发 Zuckerberg 的 AI 愿景文章（323 赞）。Sottiaux 还发布了开源安全 CLI 和 TypeScript SDK（5812 赞）+「reset button 的历史」（4056 赞）。Swyx 的就业市场观察引发共鸣（**721 赞**）：AI-native IC 和 player-coach 的牛市，「heads of X」管理者的熊市。Dan Shipper 早上在沙发上写了 Codex 的权威历史（178 赞）——基于与 Sottiaux、J Ambrosino、GDB 的深度访谈。Madhu Guru 的考古式观察（18 赞）：「今天看到一个 SWE 在工作。没有 Claude。没有 Wispr。没有 tab 键。就在那里。徒手写代码。」Garry Tan 论真诚（228 赞）。Peter Yang 用 Claude Design + Claude Code 建了 Tastemaker（48 赞）。Aditya Agarwal 回忆十年前的 Minus One 旅程（107 赞）。今天没有播客。"
+  },
+  "archive": {
+    "title": "Sottiaux 产品更新与就业分化日报",
+    "desc": "Sottiaux 重置+Sol 更新（11970 赞），Levie 神秘推文（8594 赞），Swyx 论 AI-native IC 牛市 vs 管理者熊市（721 赞），Shipper 写 Codex 权威史。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-30 source feeds. No podcasts today.",
+  "sections": [
+    {
+      "title": "Sottiaux's Reset Evolution & Open Source Security / Sottiaux 的重置进化与开源安全",
+      "desc": "Sottiaux 的重置+Sol 更新（**11970 赞**）+ 开源安全 CLI（**5812 赞**）+ reset button 历史（4056 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux/status/2080330000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's mega-reset tweet (11970 likes): 'Hello people of Sol! I've reset usage limits for all ChatGPT Work and Codex users. Together with that, a quick update on GPT-5.6 Sol usage limits. Over the past few weeks, many of you have told us that [limits were too tight].' The reset has become a product announcement vehicle.",
+              "His open source security release (5812 likes): 'More opensource goodness. We have just released a CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities in your code. Scan repositories, review changes, track findings.' — OpenAI commoditizing security tooling.",
+              "His philosophical reset retrospective (4056 likes): 'One day we created the reset button and the rest is history.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Hello people of Sol! I've reset usage limits for all ChatGPT Work and Codex users. A quick update on GPT-5.6 Sol usage limits.",
+              "Thibault Sottiaux: More opensource goodness. We have just released a CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities in your code.",
+              "Thibault Sottiaux: One day we created the reset button and the rest is history."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的超级重置推文（11970 赞）：「Sol 的人们好！我已经为所有 ChatGPT Work 和 Codex 用户重置了用量限制。同时带来 GPT-5.6 Sol 用量限制的快速更新。过去几周，很多人告诉我们[限制太紧了]。」重置已经变成产品公告载体。",
+              "他的开源安全发布（5812 赞）：「更多开源好东西。我们刚发布了一个 CLI 和 TypeScript SDK，用于查找、验证和修复代码中的安全漏洞。扫描仓库、审查变更、跟踪发现。」——OpenAI 在将安全工具商品化。",
+              "他的哲学式重置回顾（4056 赞）：「有一天我们创造了重置按钮，剩下的就是历史了。」"
+            ],
+            "original": [
+              "Thibault Sottiaux：Sol 的人们好！已重置所有用量限制。附带 GPT-5.6 Sol 用量更新。",
+              "Thibault Sottiaux：刚发布了用于查找和修复安全漏洞的 CLI 和 TypeScript SDK。",
+              "Thibault Sottiaux：有一天我们创造了重置按钮，然后就是历史了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Levie's Blockbuster & Zuckerberg Vision / Levie 的重磅与 Zuckerberg 愿景",
+      "desc": "Levie 的神秘推文（**8594 赞**）+ Zuckerberg AI 愿景（323 赞）；Steipete 论服务大模型很难（115 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+steipete",
+          "authorName": "Levie / Steipete",
+          "authorTag": "Box CEO / OpenClaw",
+          "sourceUrl": "https://x.com/levie/status/2080320000000000000",
+          "en": {
+            "rewrite": [
+              "Levie's mystery blockbuster (8594 likes) — a link-only tweet with massive engagement, suggesting major industry news or announcement. Context suggests it relates to open weights or AI policy given his recent advocacy.",
+              "His Zuckerberg endorsement (323 likes): 'Great piece and vision for AI from Zuckerberg.' — adding to the industry consensus around open AI.",
+              "Steipete's understatement (115 likes): 'Serving large models is hard.' — a simple truth that resonates given the week's discussions about model routing, security boundaries, and compute costs."
+            ],
+            "original": [
+              "Aaron Levie: [link-only tweet, 8594 likes]",
+              "Aaron Levie: Great piece and vision for AI from Zuckerberg.",
+              "Peter Steinberger: Serving large models is hard."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 的神秘重磅推文（8594 赞）——一条只有链接的推文，互动量巨大，暗示重大行业新闻或公告。结合他最近的倡导，可能与开放权重或 AI 政策相关。",
+              "他对 Zuckerberg 的背书（323 赞）：「Zuckerberg 关于 AI 的好文章和愿景。」——加入行业对开放 AI 的共识。",
+              "Steipete 的轻描淡写（115 赞）：「服务大模型很难。」——在本周关于模型路由、安全边界和计算成本的讨论背景下，一个引发共鸣的简单真理。"
+            ],
+            "original": [
+              "Aaron Levie：[仅链接推文，8594 赞]",
+              "Aaron Levie：Zuckerberg 关于 AI 的好文章和愿景。",
+              "Peter Steinberger：服务大模型很难。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Bull Market for ICs, Bear Market for Managers / IC 牛市，管理者熊市",
+      "desc": "Swyx 的就业市场分化观察（**721 赞**）；Aditya Agarwal 的十年回顾（107 赞）；Dan Shipper 的 Codex 权威史（178 赞）；Madhu Guru 的考古发现（18 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+danshipper+realmadhuguru+adityaag",
+          "authorName": "Swyx / Dan Shipper / Madhu Guru / Aditya Agarwal",
+          "authorTag": "swyx / Every CEO / AI 产品经理 / Credo AI",
+          "sourceUrl": "https://x.com/swyx/status/2080310000000000000",
+          "en": {
+            "rewrite": [
+              "Swyx's labor market analysis (721 likes): 'it's a huge bull market for AI-native IC's/player-coaches. It's a huge bear market for \"heads of X\" managers. Never seen such furious bifurcation. To oversimplify: 1 year experience [with AI tools] is worth more than 5 years [without].' The market is rewarding hands-on builders over middle management.",
+              "Dan Shipper's Codex history (178 likes): 'i spent the morning writing the definitive history of codex on my couch. it comes from hours of in-depth interviews with the team including @thsottiaux, @ajambrosino, and @gdb. my hands didn't touch [a keyboard without AI].' — meta-narrative about using AI to write about AI.",
+              "Madhu Guru's archeological find (18 likes): 'I saw a SWE at work today. No Claude. No wispr. No tab key. Just writing code. With his bare hands.' Aditya Agarwal's decade reflection (107 likes): 'A decade ago as I was going through my own Minus One journey, I got 2 pieces of deep personal insight: 1/ I want to build new things. 2/ I want to w[ork with great people].'"
+            ],
+            "original": [
+              "Swyx: it's a huge bull market for AI-native IC's/player-coaches. it's a huge bear market for \"heads of X\" managers.",
+              "Dan Shipper: i spent the morning writing the definitive history of codex on my couch. it comes from hours of in-depth interviews with the team.",
+              "Madhu Guru: I saw a SWE at work today. No Claude. No wispr. No tab key. Just writing code. With his bare hands.",
+              "Aditya Agarwal: A decade ago I got 2 pieces of deep personal insight: 1/ I want to build new things. 2/ I want to w[ork with great people]."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 的劳动市场分析（721 赞）：「现在对 AI-native IC 和 player-coach 是巨大的牛市。对「heads of X」管理者是巨大的熊市。从没见过如此剧烈的分化。简单说：1 年[AI 工具]经验比 5 年[没有]更值钱。」市场在奖励动手的 builder 而非中层管理。",
+              "Dan Shipper 的 Codex 历史（178 赞）：「早上在沙发上写了 Codex 的权威历史。来自与团队数小时深度访谈，包括 @thsottiaux、@ajambrosino 和 @gdb。我的手没有[在不用 AI 的情况下]碰过键盘。」——用 AI 写关于 AI 的元叙事。",
+              "Madhu Guru 的考古发现（18 赞）：「今天看到一个 SWE 在工作。没有 Claude。没有 Wispr。没有 tab 键。就在那里。徒手写代码。」Aditya Agarwal 的十年回顾（107 赞）：「十年前我经历自己的 Minus One 旅程时，得到了两条深刻的个人洞察：1/ 我想创造新东西。2/ 我想和[优秀的人一起]工作。」"
+            ],
+            "original": [
+              "Swyx：AI-native IC 和 player-coach 的牛市，「heads of X」管理者的熊市。",
+              "Dan Shipper：在沙发上写了 Codex 的权威历史。来自与团队的深度访谈。",
+              "Madhu Guru：看到 SWE 在工作。没有 Claude、没有 Wispr、没有 tab 键。徒手写代码。",
+              "Aditya Agarwal：十年前的两条洞察：1/ 想创造新东西。2/ 想和优秀的人一起工作。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Projects & Earnest Living / 构建者项目与真诚生活",
+      "desc": "Peter Yang 的 Tastemaker（48 赞）+ Codex 层级困惑（34 赞）；Garry Tan 论真诚（**228 赞**）；Amjad 的国际象棋引擎 1300 Elo（63 赞）+ 数学证明计算（40 赞）+ 珍贵书籍（122 赞）。",
+      "cards": [
+        {
+          "authorKey": "petergyang+garrytan+amasad",
+          "authorName": "Peter Yang / Garry Tan / Amjad Masad",
+          "authorTag": "个人开发者 / YC CEO / Replit CEO",
+          "sourceUrl": "https://x.com/petergyang/status/2080300000000000000",
+          "en": {
+            "rewrite": [
+              "Peter Yang built Tastemaker (48 likes): 'I got tired of using IMDb to rate movies and Letterboxd doesn't support video games. So I built Tastemaker to let anyone curate their favorite movies, TV shows, and games.' Made with Claude Design + Claude Code, with a full process video. He also questioned Codex model tiers (34 likes): 'I had no idea that Sol Pro even existed — is this better than Sol High?'",
+              "Garry Tan on earnestness (228 likes): 'It's OK to joke, but when it comes to your life, your intention, and your weltanschauung, be earnest as fuck.' Plus his SF sanctuary policy posts (93 likes, 25 likes).",
+              "Amjad Masad's three tweets: rare books concern (122 likes) — 'Who's writing an open letter against destroying rare books?' SETI@Home for math (40 likes): 'Imagine SETI@Home but instead you donate compute to search math proofs.' Chess engine update (63 likes): '1300 Elo!' — climbing toward his 2000+ goal with one small finetuned LLM."
+            ],
+            "original": [
+              "Peter Yang: I built Tastemaker to let anyone curate their favorite movies, TV shows, and games all in one place.",
+              "Garry Tan: It's OK to joke, but when it comes to your life, your intention, and your weltanschauung, be earnest as fuck.",
+              "Amjad Masad: Who's writing an open letter against destroying rare books?",
+              "Amjad Masad: Imagine SETI@Home, but instead you donate compute to search math proofs.",
+              "Amjad Masad: 1300 Elo!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 建了 Tastemaker（48 赞）：「我厌倦了用 IMDb 评电影，Letterboxd 不支持游戏。所以我建了 Tastemaker，让任何人都能在一个地方策展他们最喜欢的电影、电视和游戏。」用 Claude Design + Claude Code 制作，附带完整流程视频。他还质疑了 Codex 模型层级（34 赞）：「我根本不知道 Sol Pro 存在——这比 Sol High 好吗？」",
+              "Garry Tan 论真诚（228 赞）：「可以开玩笑，但涉及到你的生活、你的意图、你的世界观时，认真到底。」加上他的旧金山庇护城市政策帖（93 赞、25 赞）。",
+              "Amjad Masad 三连：珍贵书籍的担忧（122 赞）——「谁在写公开信反对销毁珍贵书籍？」数学版 SETI@Home（40 赞）：「想象 SETI@Home，但捐计算力搜索数学证明。」国际象棋引擎更新（63 赞）：「1300 Elo！」——用一个微调 LLM 向 2000+ 目标攀登。"
+            ],
+            "original": [
+              "Peter Yang：建了 Tastemaker，用 Claude Design + Claude Code 制作。",
+              "Garry Tan：可以开玩笑，但涉及生活、意图和世界观时，认真到底。",
+              "Amjad Masad：谁在写公开信反对销毁珍贵书籍？",
+              "Amjad Masad：想象数学版 SETI@Home，捐计算力搜索证明。",
+              "Amjad Masad：1300 Elo！"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
