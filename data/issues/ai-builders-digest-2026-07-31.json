@@ -1,0 +1,247 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-07-31",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 宣布 Sol 是 ARC-AGI-3 的 SoTA（6926 赞）——只需两个设置改动 + canonical compaction；预告「本周全是智能便宜到不计代价」（6473 赞）。Steipete 质疑 Anthropic 的数字荒谬（2884 赞）。Garry Tan 的成熟创始人如陈酒（2046 赞）。Amjad 强推 Replit Design（1417 赞）。Cursor 登陆 iOS（371 赞）。Altman 预告科学发现加速（3117 赞）。Peter Yang 识别 AI 暗黑模式（201 赞）+ Claude Design 避坑（412 赞）。播客是新的：Kevin Kelly 论 AI 作为 50 年一夜成名。"
+  },
+  "archive": {
+    "title": "ARC-AGI SoTA 与 Replit Design 日报",
+    "desc": "Sottiaux 宣布 Sol 创 ARC-AGI-3 纪录（6926 赞），Steipete 质疑 Anthropic 数字（2884 赞），Amjad 推 Replit Design（1417 赞），Cursor 上 iOS。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-07-31 source feeds.",
+  "sections": [
+    {
+      "title": "ARC-AGI SoTA & Anthropic Numbers Debate / ARC-AGI SoTA 与 Anthropic 数字之争",
+      "desc": "Sottiaux 宣布 Sol 创 ARC-AGI-3 纪录（6926 赞）+ 预告本周（6473 赞）；Steipete 质疑 Anthropic 数字荒谬（2884 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete",
+          "authorName": "Sottiaux / Steipete",
+          "authorTag": "Codex & ChatGPT @OpenAI / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux/status/2080660000000000000",
+          "en": {
+            "rewrite": [
+              "Sottiaux's SoTA claim (6926 likes): 'Turns out GPT-5.6 Sol is actually SoTA on ARC-AGI-3. Just took two setting changes. You just have to allow it to reason and work over multiple context windows with the help of our canonical compaction.'",
+              "His week preview (6473 likes): 'This week is all about intelligence too cheap to meter. Tomorrow we ship again.' Plus his security harness shoutout (1020 likes).",
+              "Steipete's challenge (2884 likes): 'lol did nobody at Anthropic stop for a second and wonder why the numbers looked this absurd before posting the victory tweet?'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Turns out GPT-5.6 Sol is actually SoTA on ARC-AGI-3. Just took two setting changes.",
+              "Thibault Sottiaux: This week is all about intelligence too cheap to meter. Tomorrow we ship again.",
+              "Peter Steinberger: lol did nobody at Anthropic stop for a second and wonder why the numbers looked this absurd before posting the victory-tweet?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的 SoTA 声明（6926 赞）：「结果 GPT-5.6 Sol 在 ARC-AGI-3 上其实是 SoTA。只需两个设置改动，配合 canonical compaction。」",
+              "他的本周预告（6473 赞）：「本周全是智能便宜到不计代价。明天再发。」加上安全 harness 致敬（1020 赞）。",
+              "Steipete 的挑战（2884 赞）：「笑死，Anthropic 难道没有人在发胜利推文之前停下一秒想想为什么这些数字看起来这么荒谬？」"
+            ],
+            "original": [
+              "Thibault Sottiaux：GPT-5.6 Sol 在 ARC-AGI-3 上是 SoTA。只需两个设置改动 + canonical compaction。",
+              "Thibault Sottiaux：本周全是智能便宜到不计代价。明天再发。",
+              "Peter Steinberger：Anthropic 没人在发胜利推文前想想数字为什么这么荒谬？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Replit Design & Cursor iOS / Replit Design 与 Cursor 登陆 iOS",
+      "desc": "Amjad 推 Replit Design（1417 赞）+ 多模型设计引擎（404 赞）+ post-prompt 时代（253 赞）；Cursor iOS（ryolu 371 赞）；Google Lyria 3.5（308 赞）。",
+      "cards": [
+        {
+          "authorKey": "amasad+ryolu_+GoogleLabs",
+          "authorName": "Amjad Masad / Ryo Lu / Google Labs",
+          "authorTag": "Replit CEO / Cursor / Google",
+          "sourceUrl": "https://x.com/amasad/status/2080650000000000000",
+          "en": {
+            "rewrite": [
+              "Amjad's Replit Design launch (1417 likes) plus the multi-model architecture (404 likes): 'Some models are great at CSS, others are fantastic at SVG. Replit Design is powered by the best of open and closed models.' Plus 'Post-prompt era' (253 likes).",
+              "Cursor on iOS (Ryo Lu, 371 likes): 'your agents, anywhere.' Google Labs Lyria 3.5 (308 likes): AI music generation gets a major update."
+            ],
+            "original": [
+              "Amjad Masad: This is hands down the best AI design tool, both in taste and how fun and easy it is to use.",
+              "Amjad Masad: Replit Design is powered by the best of open and closed models.",
+              "Ryo Lu: your agents, anywhere. try Cursor on iOS today.",
+              "Google Labs: @GoogleDeepMind just released Lyria 3.5."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 的 Replit Design 发布（1417 赞）加上多模型架构（404 赞）：「有些模型擅长 CSS，有些擅长 SVG。Replit Design 由最好的开源和闭源模型驱动。」加上「后 prompt 时代」（253 赞）。",
+              "Cursor 登陆 iOS（ryolu 371 赞）：「你的 agent，到处都是。」Google Labs Lyria 3.5（308 赞）：AI 音乐生成获重大更新。"
+            ],
+            "original": [
+              "Amjad Masad：这绝对是最好的 AI 设计工具。",
+              "Amjad Masad：Replit Design 由最好的开源和闭源模型驱动。",
+              "Ryo Lu：你的 agent，到处都是。今天试 Cursor iOS。",
+              "Google Labs：Google DeepMind 发布了 Lyria 3.5。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Altman's Science Bet & Seasoned Founders / Altman 的科学赌注与成熟创始人",
+      "desc": "Altman 预告科学发现加速（3117 赞）+ goblin-level post（2817 赞）；Garry Tan 论成熟创始人（2046 赞）+ 数据中心心理战（189 赞）；Aditya Agarwal 的 LeBron 类比（147 赞）。",
+      "cards": [
+        {
+          "authorKey": "sama+garrytan+adityaag",
+          "authorName": "Altman / Garry Tan / Aditya Agarwal",
+          "authorTag": "OpenAI CEO / YC CEO / Credo AI",
+          "sourceUrl": "https://x.com/sama/status/2080640000000000000",
+          "en": {
+            "rewrite": [
+              "Altman on science (3117 likes): 'Very close to models that will significantly accelerate scientific discovery; the best way is for us to empower scientists.' Plus his blog recommendation (2817 likes): 'goblin-level blog post.'",
+              "Garry Tan on experienced founders (2046 likes): 'Seasoned founders in the age of intelligence are aging like fine wine.' Plus his datacenter degrowth concern (189 likes): 'The AI Datacenter Degrowthers are winning and it is actually a psy-op.'",
+              "Aditya Agarwal's LeBron analogy (147 likes): 'Imagine if you were LeBron at 19 but believed you only had 2 years before basketball was played by robots. This is what AI researchers are going through.'"
+            ],
+            "original": [
+              "Sam Altman: Very close to models that will significantly accelerate scientific discovery.",
+              "Garry Tan: Seasoned founders in the age of intelligence are aging like fine wine.",
+              "Aditya Agarwal: Imagine if you were LeBron at 19 but believed you only had 2 years before robots played basketball."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 论科学（3117 赞）：「非常接近能显著加速科学发现的模型。最好是赋能科学家。」加上博客推荐（2817 赞）：「goblin-level 博文。」",
+              "Garry Tan 论成熟创始人（2046 赞）：「智能时代的成熟创始人如陈年美酒。」加上数据中心担忧（189 赞）：「AI 数据中心反增长派是心理战。」",
+              "Aditya Agarwal 的 LeBron 类比（147 赞）：「想象你是 19 岁的 LeBron，但相信只有 2 年时间在机器人打篮球之前。这就是 AI 研究员正在经历的。」"
+            ],
+            "original": [
+              "Sam Altman：非常接近能加速科学发现的模型。赋能科学家。",
+              "Garry Tan：智能时代的成熟创始人如陈年美酒。",
+              "Aditya Agarwal：AI 研究员就像 19 岁的 LeBron 知道机器人要来。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Dark Patterns, Voice Vibes & Enterprise Sandbox / AI 暗黑模式、语音氛围与企业沙箱",
+      "desc": "Peter Yang 的 AI 暗黑模式（201 赞）+ Claude Design 避坑（412 赞）；Dan Shipper 的语音氛围（217 赞）；Levie 论 agent 沙箱逃逃企业影响（148 赞）。",
+      "cards": [
+        {
+          "authorKey": "petergyang+danshipper+levie",
+          "authorName": "Peter Yang / Dan Shipper / Levie",
+          "authorTag": "个人开发者 / Every CEO / Box CEO",
+          "sourceUrl": "https://x.com/petergyang/status/2080630000000000000",
+          "en": {
+            "rewrite": [
+              "Peter Yang's AI dark patterns (201 likes): 'AI has been great for my productivity, but I'm starting to recognize three dark patterns: 1. Becoming too lazy to read anything.' His Claude Design guidelines (412 likes): avoiding the recognizable 'Claude look' through design md files.",
+              "Dan Shipper's voice vibes (217 likes): 'Almost every single person @every is freaking out about how good voice mode in ChatGPT for Work is.' Levie on enterprise sandbox (148 likes): 'The OpenAI agent sandbox escape actually has very real implications for the diffusion of AI in the enterprise.'"
+            ],
+            "original": [
+              "Peter Yang: AI has been great for my productivity, but I'm starting to recognize three dark patterns: 1. Becoming too lazy to read anything.",
+              "Peter Yang: We've gone from AI defaulting to designs that look like purple slop to those that have that recognizable Claude look.",
+              "Dan Shipper: Almost every single person @every is freaking out about how good voice mode in ChatGPT for Work is.",
+              "Aaron Levie: The OpenAI agent sandbox escape actually has very real implications for the diffusion of AI in the enterprise."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 的 AI 暗黑模式（201 赞）：「AI 对我的生产力很好，但我开始识别三种暗黑模式：1. 变得太懒而不读任何东西。」他的 Claude Design 指南（412 赞）：通过 design md 文件避免可识别的「Claude look」。",
+              "Dan Shipper 的语音氛围（217 赞）：「@every 几乎每个人都在为 ChatGPT Work 的语音模式狂。」Levie 论企业沙箱（148 赞）：「OpenAI agent 沙箱逃逃对企业 AI 扩散有真实影响。」"
+            ],
+            "original": [
+              "Peter Yang：AI 的三种暗黑模式：1. 变得太懒不读东西。",
+              "Peter Yang：通过 design md 避免 Claude look。",
+              "Dan Shipper：@every 每个人都为语音模式狂。",
+              "Aaron Levie：OpenAI agent 沙箱逃逃对企业有真实影响。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Wisdom & Quick Hits / 构建者智慧与速记",
+      "desc": "Swyx 的 DocuSign 吐槽（24 赞）；Zara 论 AI-native + 专业 = 无敌（24 赞）；Nikunj 论家庭 vs AGI（50 赞）；Dan Shipper 诚实回答（100 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+zarazhangrui+nikunj+danshipper",
+          "authorName": "Swyx / Zara / Nikunj / Dan Shipper",
+          "authorTag": "swyx / Builder / FPV Ventures / Every CEO",
+          "sourceUrl": "https://x.com/swyx/status/2080620000000000000",
+          "en": {
+            "rewrite": [
+              "Swyx's DocuSign rant (24 likes). Zara on invincibility (24 likes): 'If you both have deep domain expertise AND you're AI-native, you're basically invincible.'",
+              "Nikunj on family vs AGI (50 likes): 'First kid teaches you unconditional love. Second kid teaches you unbridled joy. As AGI comes close, having close family and friends is going to be the most important human differentiator.'",
+              "Dan Shipper's honest answer (100 likes). Nan Yu on switching costs (49 likes)."
+            ],
+            "original": [
+              "Swyx: today i tried to sign up for DocuSign and was presented a captcha that i could not solve.",
+              "Zara: If you both have deep domain expertise AND you're AI-native, you're basically invincible.",
+              "Nikunj: First kid teaches you unconditional love. Second kid teaches you unbridled joy.",
+              "Nikunj: Being good at marketing is not just good for your marketing; it's good for your product."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 的 DocuSign 吐槽（24 赞）。Zara 论无敌（24 赞）：「深度专业知识 + AI-native = 无敌。」",
+              "Nikunj 论家庭 vs AGI（50 赞）：「第一个孩子教你无条件的爱。第二个教你纯粹的快乐。AGI 接近时，家人和朋友将是最重要的人类差异化因素。」",
+              "Dan Shipper 的诚实回答（100 赞）。Nan Yu 论转换成本（49 赞）。"
+            ],
+            "original": [
+              "Swyx：DocuSign 的验证码我解不出。",
+              "Zara：深度专业 + AI-native = 无敌。",
+              "Nikunj：第一个孩子教无条件的爱。第二个教纯粹的快乐。",
+              "Nikunj：擅长营销不只对营销好，对产品也好。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Kevin Kelly — AI as 50-Year Overnight Success / 播客：Kevin Kelly——AI 作为 50 年一夜成名",
+      "desc": "AI & I by Every 精选：Wired 创始主编 Kevin Kelly 论 AI 作为 50 年一夜成名的成功。48640 字符 transcript。",
+      "cards": [
+        {
+          "authorKey": "podcast:every-kelly",
+          "authorName": "AI & I by Every",
+          "authorTag": "Kevin Kelly（Wired 创始主编）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Every's AI & I Best of the Pod: Wired's Kevin Kelly on why AI is a 50-year overnight success. Full transcript (48640 chars) covers VR in 1987 vs now, technology prediction difficulty, and the long arc of AI development. Kelly brings decades of technology journalism perspective."
+            ],
+            "original": [
+              "Kevin Kelly: What I've learned with the future is that it's easy to make predictions and hard to make predictions that are true.",
+              "Kevin Kelly: Gerard Lanier showed me VR in '87. I was completely blown away. I've been very, very surprised about how slow that has been.",
+              "Kevin Kelly: The VR that we had back then is not that much different than the VR you get now. The difference was that was multimillion dollars and it's a $100."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Every 的 AI & I 精选：Wired 的 Kevin Kelly 论为什么 AI 是 50 年一夜成名的成功。完整 transcript（48640 字符）涵盖：1987 年的 VR vs 现在、技术预测的困难、AI 发展的长弧。Kelly 带来数十年的科技新闻视角。"
+            ],
+            "original": [
+              "【预测很难】",
+              "Kelly：我对未来学到的是——做预测很容易，做正确的预测很难。",
+              "",
+              "【VR 的教训】",
+              "Kelly：Gerard Lanier 在 87 年给我看了 VR。我完全被震撼了。",
+              "「当时的 VR 和现在没太大区别。区别是当时要几百万美元，现在只要 100 」",
+              "「我非常非常惊讶于它竟然这么慢。」",
+              "",
+              "【AI 的 50 年长弧】",
+              "Kelly：AI 不是突然出现的。它是积累了 50 年的一夜成名。",
+              "「技术采纳的模式比我们想象的慢得多，但影响比我们想象的深得多。」",
+              "",
+              "【当前时刻的历史定位】",
+              "Kelly：我们正处于 AI 的「多百万美元 VR」阶段——技术已经有效，但还很贵很笨重。",
+              "「关键问题不是 AI 会不会改变世界——它会。问题是这个改变需要 5 年、10 年还是 50 年。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
