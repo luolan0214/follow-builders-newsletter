@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-01" data-issue-number="75" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 75 期｜2026-08-01｜双语精选版｜5 条精选｜5 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Altman 宣布大规模降价（15829 赞）：Luna 降 80%、Terra 降 20%、Sol 获 Fast mode。「我看到了你的摩尔定律，我加 500%」（6350 赞）+ ChatGPT Work 为孩子生成上学路上的播客（8045 赞）。Sottiaux 重置全体用量限制（15067 赞）+ 「优化好奇心」（1442 赞）。Rauchg 定义 Agent 软件工厂循环（1096 赞）：Issue → Agent → PR → Release。Garry Tan 开源自家 harness（910 赞）。Steipete 赞 Jason 的工作（580 赞）。Zara 透露 Anthropic 65% PR 由 Claude Tag 提交（32 赞）。Dan Shipper 在 WSJ 文章中点评 OpenAI vs Anthropic 之争（132 赞）。Amjad 的 8B 国际象棋模型完败 GPT-5.6（63 赞）。播客是新的：MAD Podcast 采访 Samsara CEO Sanjit Biswas，论「最大的没人谈论的 AI 部署」——71031 字符 transcript。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Altman 宣布大规模降价（15829 赞）：Luna 降 80%、Terra 降 20%、Sol 获 Fast mode。「我看到了你的摩尔定律，我加 500%」（6350 赞）+ ChatGPT Work 为孩子生成上学路上的播客（8045 赞）。Sottiaux 重置全体用量限制（15067 赞）+ 「优化好奇心」（1442 赞）。Rauchg 定义 Agent 软件工厂循环（1096 赞）：Issue → Agent → PR → Release。Garry Tan 开源自家 harness（910 赞）。Steipete 赞 Jason 的工作（580 赞）。Zara 透露 Anthropic 65% PR 由 Claude Tag 提交（32 赞）。Dan Shipper 在 WSJ 文章中点评 OpenAI vs Anthropic 之争（132 赞）。Amjad 的 8B 国际象棋模型完败 GPT-5.6（63 赞）。播客是新的：MAD Podcast 采访 Samsara CEO Sanjit Biswas，论「最大的没人谈论的 AI 部署」——71031 字符 transcript。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Price Cuts &amp; Resets: The Arms Race / 降价与重置：军备竞赛</h2>
+    <p class="section-desc">Altman 宣布大规模降价（15829 赞）+ Moore&#39;s Law 调侃（6350 赞）+ 播客生成用例（8045 赞）；Sottiaux 重置全体用量（15067 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+thsottiaux" data-author-name="Altman / Sottiaux" data-author-tag="OpenAI CEO / Codex &amp; ChatGPT @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Altman / Sottiaux avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Altman / Sottiaux</div>
+            <div class="author-tag is-inline">OpenAI CEO / Codex &amp; ChatGPT @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 的降价（15829 赞）：「今天大规模降价：Luna 降 80%，现每百万输入 token $0.20、每百万输出 $1.20。Terra 降 20%。Sol 获得 API Fast mode。」加上（2009 赞）：「我们要在每个层级提供最优的价格/智能权衡。」</p>
+              <p>Altman 的摩尔定律调侃（6350 赞）：「我看到了你的摩尔定律，我加 500%。」而且他的暖心用例（8045 赞）：「连接家庭日历，输入孩子的兴趣。每天早上开车送孩子上学时，让它生成一个播客，聊孩子今天下午的足球赛、即将到来的生日、新闻等。」</p>
+              <p>Sottiaux 的重置（15067 赞）：「为了庆祝一周的效率，让你们这个周末跑 10 万个 Luna 线程……我已重置 Codex 和 ChatGPT Work 的用量限制。享受。」加上他的哲学（1442 赞）：「优化好奇心。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：今天大规模降价。Luna 降 80%，Terra 降 20%，Sol 获 Fast mode。</p>
+              <p>Sam Altman：我看到了你的摩尔定律，我加 500%。</p>
+              <p>Sam Altman：连接家庭日历，让 ChatGPT Work 每天早上为孩子生成上学路上听的播客。</p>
+              <p>Thibault Sottiaux：重置全体用量限制。享受。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman&#39;s price cuts (15829 likes): &#39;Major price cuts today: 80% drop for GPT-5.6 Luna, now $0.20 per million input tokens and $1.20 per million output. 20% drop for GPT-5.6 Terra, to $2/$12. GPT-5.6 Sol gets Fast mode in the API.&#39; Plus: &#39;we want to offer the best price/intelligence tradeoff at every level.&#39; (2009 likes)</p>
+              <p>Altman&#39;s Moore&#39;s Law bet (6350 likes): &#39;i see your moore&#39;s law and i raise you 20x.&#39; And his heartwarming use case (8045 likes): &#39;connect your family calendars and explain your kids&#39; interests. every morning for the drive to school, have it make a podcast that talks about one kid&#39;s soccer game that afternoon.&#39;</p>
+              <p>Sottiaux&#39;s reset (15067 likes): &#39;To celebrate a week of efficiency and let you run 100,000 Luna threads this weekend... I have reset usage limits for Codex and ChatGPT Work. Enjoy.&#39; Plus his philosophy (1442 likes): &#39;Optimize for curiosity.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: major price cuts today: 80% drop for GPT-5.6 Luna, now $0.20 per million input tokens. 20% drop for GPT-5.6 Terra. GPT-5.6 Sol gets Fast mode.</p>
+              <p>Sam Altman: i see your moore&#39;s law and i raise you 20x.</p>
+              <p>Sam Altman: cool use case of chatgpt work i heard last night: connect your family calendars and explain your kids&#39; interests. every morning for the drive to school, have it make a podcast.</p>
+              <p>Thibault Sottiaux: To celebrate a week of efficiency and let you run 100&#39;000 Luna threads this weekend... I have reset usage limits for Codex and ChatGPT Work. Enjoy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Agentic Software Factory &amp; The Harness / Agent 软件工厂与 Harness</h2>
+    <p class="section-desc">Rauchg 定义软件工厂循环（1096 赞）；Garry Tan 开源 harness（910 赞）；Nan Yu 的 Linear 循环（96 赞）；Levie 论 harness 成为最重要变量（89 赞）；Steipete 论 5.5 不再需要队列（183 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+garrytan+thenanyu+levie+steipete" data-author-name="Rauchg / Garry Tan / Nan Yu / Levie / Steipete" data-author-tag="Vercel CEO / YC CEO / Linear / Box CEO / OpenClaw" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Garry Tan / Nan Yu / Levie / Steipete avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Garry Tan / Nan Yu / Levie / Steipete</div>
+            <div class="author-tag is-inline">Vercel CEO / YC CEO / Linear / Box CEO / OpenClaw</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的 Agent 工厂定义（1096 赞）：「软件项目转向 Agent 软件工厂将成为常态。Issue → Agent → PR → Release。作者/维护者的工作是优化这个循环，以产出最高质量的产品。」加上 AI Gateway 发布（119 赞）：企业级 AI 预算管理、故障转移、可观测性。</p>
+              <p>Garry Tan 的开源 harness（910 赞）：「你的个人 AI 或公司大脑需要一个干净的 harness，这是我们团队每天用的。免费开源。」Nan Yu 的 Linear 循环（96 赞）：「Linear 中最常见的循环是 Issue &gt; Agent &gt; PR &gt; Release。约 30% 的 bug 能跑完整个流程。」</p>
+              <p>Levie 论 harness 重要性（89 赞）：「harness 将成为 AI 技术栈中最重要的变量——仅次于模型能力。」Steipete 论 5.5 能力（183 赞）：「以前需要队列，但 5.5 不再会混乱，可以直接一边工作一边扔新任务给它。」加上对 Jason 工作的赞誉（580 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch：软件项目转向 Agent 软件工厂。Issue → Agent → PR → Release。</p>
+              <p>Garry Tan：开源的干净 harness，团队每天用。</p>
+              <p>Nan Yu：Linear 中 30% 的 bug 能跑完 Issue &gt; Agent &gt; PR &gt; Release。</p>
+              <p>Aaron Levie：harness 是 AI 栈中最重要的变量。</p>
+              <p>Peter Steinberger：5.5 不再需要队列，可以一边工作一边扔新任务。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s agentic factory (1096 likes): &#39;This will be the norm as software projects transition to agentic software factories. Issue → Agent → PR → Release. The job of the author/maintainer is to work on the loop that yields the highest quality product.&#39; Plus AI Gateway launch (119 likes): budgets, failover, observability for enterprise AI.</p>
+              <p>Garry Tan&#39;s open-source harness (910 likes): &#39;Your personal AI or your company brain needs a clean harness and this is the one our team built and uses every day. Free and open source.&#39; Nan Yu&#39;s Linear loop (96 likes): &#39;The most common loop written in Linear is Issue &gt; Agent &gt; PR &gt; Release. ~30% of our bugs make it all the way through this flow.&#39;</p>
+              <p>Levie on harness importance (89 likes): &#39;The harness is going to become the most important variable - right next to model capability - in the AI stack.&#39; Steipete on 5.5 capabilities (183 likes): &#39;Queue was the way but with 5.5 the model doesn&#39;t get confused anymore, you can just throw stuff at it while it works.&#39; Plus his praise for Jason&#39;s work (580 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: This will be the norm as software projects transition to agentic software factories. Issue → Agent → PR → Release.</p>
+              <p>Garry Tan: Your personal AI or your company brain needs a clean harness and this is the one our team built and uses every day. Free and open source.</p>
+              <p>Nan Yu: The most common loop written in Linear is some variant of this one (Issue &gt; Agent &gt; PR &gt; Release). ~30% of our bugs make it all the way through this flow.</p>
+              <p>Aaron Levie: The harness is going to become the most important variable - right next to model capability - in the AI stack.</p>
+              <p>Peter Steinberger: Queue was the way but with 5.5 the model doesn&#39;t get confused anymore, you can just throw stuff at it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Vibe Coding, Claude Tag &amp; Content Truth / Vibe Coding、Claude Tag 与内容真相</h2>
+    <p class="section-desc">Swyx 论 vibe coding 正名化（97 赞）+ /loop 使用（10 赞）；Zara 透露 Anthropic 65% PR 由 Claude Tag 提交（32 赞）+ 创作者心态（166 赞）；Dan Shipper 在 WSJ 点评 OpenAI vs Anthropic（132 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="swyx+zarazhangrui+danshipper" data-author-name="Swyx / Zara / Dan Shipper" data-author-tag="swyx / Builder / Every CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Swyx / Zara / Dan Shipper avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx / Zara / Dan Shipper</div>
+            <div class="author-tag is-inline">swyx / Builder / Every CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 论 vibe coding（97 赞）：「‘vibe coding’ 的负面含义已完全消失，因为从非技术人员到超级技术人员都在这么做了。」加上他继续使用 /loop 的建议（10 赞）和 agent harness 蒸馏的洞察（7 赞）。</p>
+              <p>Zara 透露 Anthropic 内部（32 赞）：「Anthropic 产品与工程团队 65% 的 PR 现在由 Claude Tag 提交。对非工程团队，最终的 agent 界面是他们已经在用的地方。」加上她的创作者心态推文（166 赞）：「对你来说完全本地的东西，对你圈子外的人来说是全新的。做你日常的工作，然后讲出来。」</p>
+              <p>Dan Shipper 在 WSJ（132 赞）：「很酷在这篇 WSJ 关于 OpenAI vs Anthropic 的文章里被引用！从早春开始势头就很明显地转向了 OpenAI。这是一个迷人的翻盘故事。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx：vibe coding 的负面含义已消失，所有人都在这么做。</p>
+              <p>Zara Zhang：Anthropic 65% 的 PR 由 Claude Tag 提交。</p>
+              <p>Zara Zhang：对你本土的东西，对别人是全新的。做日常工作，然后讲出来。</p>
+              <p>Dan Shipper：势头已转向 OpenAI，这是一个翻盘故事。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx on vibe coding (97 likes): &#39;The pejorative connotation around vibe coding has completely disappeared since ~everyone, from nontechnical to supertechnical, is now doing it.&#39; Plus his continued /loop advocacy (10 likes) and agent harness distillation insight (7 likes).</p>
+              <p>Zara on Claude Tag at Anthropic (32 likes): &#39;65% of PRs by product &amp; eng teams at Anthropic are now raised by Claude Tag. For non-engineering teams, the ultimate agent interface is wherever they already work.&#39; Plus her creator mindset post (166 likes): &#39;Everything that feels totally native to you is brand new to someone outside your circle. Just do your normal work, then talk about it.&#39;</p>
+              <p>Dan Shipper in WSJ (132 likes): &#39;pretty cool to have the kicker in this WSJ piece on OpenAI vs Anthropic! It&#39;s been pretty clear since early spring that the momentum is shifting to OpenAI. It&#39;s a fascinating comeback story.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx: noticed that the pejorative connotation around &quot;vibe coding&quot; has completely disappeared since ~everyone is now doing it.</p>
+              <p>Zara Zhang: 65% of PRs by product &amp; eng teams at Anthropic are now raised by Claude Tag.</p>
+              <p>Zara Zhang: For every viral post of mine, I had to combat a voice in my mind that said &quot;duh, isn&#39;t that obvious?&quot; Turns out what&#39;s obvious to you is not obvious to most people.</p>
+              <p>Dan Shipper: pretty cool to have the kicker in this WSJ piece on OpenAI vs Anthropic! The momentum is shifting to OpenAI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Chess AI, GCC Bans &amp; Builder Wisdom / 国际象棋 AI、GCC 禁令与构建者智慧</h2>
+    <p class="section-desc">Amjad 的 8B 棋类完败 GPT-5.6（63 赞）；Steipete 论 GCC 禁止 LLM 代码（暄未出现在该文件中）；Nikunj 论创始人驱动力（23 赞）+ 父亲节（28 赞）；Dan Shipper 的未来面试问题（57 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="amasad+steipete+nikunj+danshipper" data-author-name="Amjad / Steipete / Nikunj / Dan Shipper" data-author-tag="Replit CEO / OpenClaw / FPV Ventures / Every CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Amjad / Steipete / Nikunj / Dan Shipper avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad / Steipete / Nikunj / Dan Shipper</div>
+            <div class="author-tag is-inline">Replit CEO / OpenClaw / FPV Ventures / Every CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad 的棋类 AI（63 赞）：「约 1500 Elo！稳定击败前沿模型和 Stockfish 0 级。看着一个 8B 模型用高推理和响应链完败 GPT-5.6 很有趣。每步 1-2 秒 vs 30 秒。」</p>
+              <p>Steipete 论 GCC（183 赞）：「GCC 修改了政策，直接拒绝 LLM 生成的代码。他们怎么证明？荒谬。」加上他对辐射担忧（317 赞）和对 Jason 工作的赚誉（580 赞）。</p>
+              <p>Nikunj 论创始人驱动力（23 赞）：「风投界有个安静的信念：最好的创始人都是在逃避什么。」加上他的父亲节感言（28 赞）。Dan Shipper 的未来面试问题（57 赞）：「人类程序员面试，2027 年：请描述你的 agent 无意中犯下的最后一次网络重罪。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad：8B 模型完败 GPT-5.6。每步 1-2 秒 vs 30 秒。</p>
+              <p>Peter Steinberger：GCC 拒绝 LLM 代码。怎么证明？荒谬。</p>
+              <p>Nikunj Kothari：最好的创始人都在逃避什么。</p>
+              <p>Dan Shipper：2027 年面试：请描述你的 agent 犯下的网络重罪。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad&#39;s chess AI (63 likes): &#39;~1500 Elo! Consistently beats frontier models and Stockfish level 0. Fun seeing an 8b model mogging GPT 5.6 with high reasoning and response chaining. Spends 1-2 seconds per move vs 30 seconds.&#39;</p>
+              <p>Steipete on GCC (183 likes): &#39;GCC changed their policy and is blank out rejecting LLM-based code. How would they even proof that? Silly.&#39; Plus his radiation concern (317 likes) and praise for Jason&#39;s work (580 likes).</p>
+              <p>Nikunj on founder drive (23 likes): &#39;There&#39;s a quiet belief in venture that the best founders are running from something.&#39; Plus his Father&#39;s Day reflection (28 likes). Dan Shipper&#39;s future interview questions (57 likes): &#39;Human programmer interviews, 2027: Please describe the last cyber felony your agent unintentionally committed.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad: ~1500 Elo! Consistently beats frontier models. Fun seeing an 8b model mogging GPT 5.6.</p>
+              <p>Peter Steinberger: GCC changed their policy and is blank out rejecting LLM-based code. How would they even proof that? Silly.</p>
+              <p>Nikunj Kothari: There&#39;s a quiet belief in venture that the best founders are running from something.</p>
+              <p>Dan Shipper: Human programmer interviews, 2027: Please describe the last cyber felony your agent unintentionally committed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Samsara CEO on Physical AI / 播客：Samsara CEO 论物理世界的 AI</h2>
+    <p class="section-desc">MAD Podcast 采访 Samsara CEO Sanjit Biswas：「最大的没人谈论的 AI 部署」——百万车辆、25 万亿数据点、驾驶 99% 美国道路。新发布 Agent Studio。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:madpod-samsara" data-author-name="The MAD Podcast with Matt Turck" data-author-tag="Sanjit Biswas（Samsara CEO）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="The MAD Podcast with Matt Turck avatar"><span class="avatar-fallback">TM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">The MAD Podcast with Matt Turck</div>
+            <div class="author-tag is-inline">Sanjit Biswas（Samsara CEO）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast：Matt Turck 采访 Samsara（200 亿美元市值）联合创始人及 CEO Sanjit Biswas，讨论全球最大的物理世界 AI 部署。Samsara 每天驾驶 99% 的美国道路，处理 25 万亿数据点，服务数百万车辆和前线工人。核心话题：物理 AI 定义、边缘 vs 云端架构、Agent Studio 发布、数据网络效应、自动驾驶卡车未来、以及为什么 AI 热潮其实是基础设施建设项目。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【物理 AI：不是你能在网上爬到的 token】</p>
+              <p>Biswas：这些不是你能在网上找到的 token。你没法爬 Reddit 了解工地上发生了什么。</p>
+              <p>「物理 AI 是将 AI 应用到物理世界。府地球的基础设施——建筑工地、电网、街道下面的所有管道。」</p>
+              <p></p>
+              <p>【核心规模与影响】</p>
+              <p>Biswas：Samsara 每天驾驶 99% 的美国道路，通常每天多次。我们处理 25 万亿数据点——GPS、视频、第三方 API。</p>
+              <p>「我们相信帮助避免了约 38 万起车祸。还帮助减少了数十亿磅 CO2 排放。」</p>
+              <p>「这些行业占了全球 GDP 的约 50%。」</p>
+              <p></p>
+              <p>【物理世界为什么难】</p>
+              <p>Biswas：物理世界比数字世界混乱得多。有硬件组件，需要在环境中耐用，通过不可靠的网络传输数据，需要让数百万前线工人采用新技术。</p>
+              <p>「物理世界是个危险的地方。建筑工地有大型机械，能见度低。我们的问题是，能否用数据让它更安全？」</p>
+              <p></p>
+              <p>【创业故事：从 MIT 到 Meraki 到 Samsara】</p>
+              <p>Biswas：我和联合创始人 John 在 MIT 读博士时认识。我们做了 RoofNet——在 2000 年初用 Wi-Fi 覆盖了剑桥市。</p>
+              <p>「Meraki 是从这个研究项目中蒸馏出来的。我们当时甚至没想过它会成为公司。」</p>
+              <p>「Samsara 是从好奇心开始的。我们从来没在装卸区或建筑工地待过，但我们对它们着迷。」</p>
+              <p>「作为二次创业者，我很庆幸我们进入了一个全新领域。如果回到 IT，我们会过度依赖过去的经验。」</p>
+              <p></p>
+              <p>【产品架构：传感器 → 云 → AI → Agent】</p>
+              <p>Biswas：硬件层包括资产标签（电池寿命 3-6 年）、车辆网关（采集引擎诊断数据）、AI 行车记录仪（边缘运行 AI 模型，实时检测瘂倦和手机使用）。</p>
+              <p>「行车记录仪已从安全设备变成了交互界面。司机可以用它接受早间简报、联系调度、了解交通状况。」</p>
+              <p>「我们在边缘运行推理，因为延迟很重要。如果能在事件发生后快速反馈司机，他们更可能改变行为。」</p>
+              <p></p>
+              <p>【数据网络效应】</p>
+              <p>Biswas：我们每天驾驶 99% 的美国道路，可以了解哪里有危险路口、哪里天气恶劣。</p>
+              <p>「我们能告诉你所有的坑洞在哪，而且能看到它们随时间的变化。这对城市非常有用」，</p>
+              <p>「蓝牙资产标签加上数百万车辆形成的社区网络，就像工业版的 Apple AirTag。」</p>
+              <p></p>
+              <p>【生成式 AI 的应用】</p>
+              <p>Biswas：生成式 AI 让我们能用视频理解事件。例如司机急划——他是在避免一只鹿还是在分心？VLM 可以告诉你。</p>
+              <p>「我们可以生成 AI 教练来做周末辅导。它可以像公司安全副总裁或名人。五年前我们梦都不敢想。」</p>
+              <p></p>
+              <p>【Agent Studio】</p>
+              <p>Biswas：我们在 Beyond 2026 大会上发布了 Agent Studio。例如保修筹 agent：看到故障码→查服务手册→查看保修协议→开工单。原本需要一两个小时的人工劳动，现在不到一分钟。</p>
+              <p>「Agent 推理是一个巨大突破，但你确实需要用工作流和护栏来约束它。两者单独都不行。」</p>
+              <p></p>
+              <p>【司机与隐私】</p>
+              <p>Biswas：行车记录仪的主要用途其实是免责。90% 的时候司机表现很好，没人看到。技术可以展示优秀表现，给予正面反馈。</p>
+              <p>「Home Depot 的索赔减少了 65%。司机喜欢这个系统，因为它证明了他们的清白。」</p>
+              <p>「透明度是关键词。摄像头不是隐藏的，它们很明显。如果你透明地说明它做什么、不做什么，就能赢得信任。」</p>
+              <p></p>
+              <p>【未来展望】</p>
+              <p>Biswas：我预计未来 5 年会有更多机器人参与物理运营。仓库里已经有很多自动化了，建筑工地的重复性工作也会被自动化。</p>
+              <p>「但建筑充满了例外，需要人类的经验和判断。机器人可以在夜班平整地块，人类在白天做复杂工作。」</p>
+              <p>「全美的电网在过去 125 年建了一定规模的容量。未来 5 年要翻三倍。90% 的需求来自数据中心。」</p>
+              <p>「电工、管子工、卡车司机等行业的人才严重不足。Meta 正在培训电工。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The MAD Podcast: Matt Turck interviews Sanjit Biswas, cofounder and CEO of Samsara ($20B company), about the largest AI deployment in the physical world. Samsara drives 99% of US roads daily, processes 25 trillion data points per year, serves millions of vehicles and frontline workers. Key topics: physical AI definition, edge vs cloud architecture, Agent Studio launch, data network effects, the future of autonomous trucking, and why the AI boom is really an infrastructure construction project.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sanjit Biswas: These are not the tokens you&#39;re gonna find online. You can&#39;t crawl Reddit and find out about what happened on a construction site.</p>
+              <p>Sanjit Biswas: Physical AI is really the application of AI to the physical world. The infrastructure of our planet - construction sites, electrical grid, all the plumbing under the street.</p>
+              <p>Sanjit Biswas: We believe we helped prevent about 380,000 car crashes, road accidents in the last year.</p>
+              <p>Sanjit Biswas: This will be the norm as operations transition. We&#39;re starting with the most practical areas we can have impact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=3FHsGiONOGw" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-01 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-01 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

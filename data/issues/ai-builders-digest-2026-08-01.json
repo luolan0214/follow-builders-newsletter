@@ -1,0 +1,252 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-01",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Altman 宣布大规模降价（15829 赞）：Luna 降 80%、Terra 降 20%、Sol 获 Fast mode。「我看到了你的摩尔定律，我加 500%」（6350 赞）+ ChatGPT Work 为孩子生成上学路上的播客（8045 赞）。Sottiaux 重置全体用量限制（15067 赞）+ 「优化好奇心」（1442 赞）。Rauchg 定义 Agent 软件工厂循环（1096 赞）：Issue → Agent → PR → Release。Garry Tan 开源自家 harness（910 赞）。Steipete 赞 Jason 的工作（580 赞）。Zara 透露 Anthropic 65% PR 由 Claude Tag 提交（32 赞）。Dan Shipper 在 WSJ 文章中点评 OpenAI vs Anthropic 之争（132 赞）。Amjad 的 8B 国际象棋模型完败 GPT-5.6（63 赞）。播客是新的：MAD Podcast 采访 Samsara CEO Sanjit Biswas，论「最大的没人谈论的 AI 部署」——71031 字符 transcript。"
+  },
+  "archive": {
+    "title": "降价与重置日报",
+    "desc": "Altman 宣布大规模降价（Luna 降 80%），Sottiaux 重置全体限制（15067 赞），Rauchg 定义 Agent 软件工厂循环（1096 赞）。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-01 source feeds.",
+  "sections": [
+    {
+      "title": "Price Cuts & Resets: The Arms Race / 降价与重置：军备竞赛",
+      "desc": "Altman 宣布大规模降价（15829 赞）+ Moore's Law 调侃（6350 赞）+ 播客生成用例（8045 赞）；Sottiaux 重置全体用量（15067 赞）。",
+      "cards": [
+        {
+          "authorKey": "sama+thsottiaux",
+          "authorName": "Altman / Sottiaux",
+          "authorTag": "OpenAI CEO / Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "Altman's price cuts (15829 likes): 'Major price cuts today: 80% drop for GPT-5.6 Luna, now $0.20 per million input tokens and $1.20 per million output. 20% drop for GPT-5.6 Terra, to $2/$12. GPT-5.6 Sol gets Fast mode in the API.' Plus: 'we want to offer the best price/intelligence tradeoff at every level.' (2009 likes)",
+              "Altman's Moore's Law bet (6350 likes): 'i see your moore's law and i raise you 20x.' And his heartwarming use case (8045 likes): 'connect your family calendars and explain your kids' interests. every morning for the drive to school, have it make a podcast that talks about one kid's soccer game that afternoon.'",
+              "Sottiaux's reset (15067 likes): 'To celebrate a week of efficiency and let you run 100,000 Luna threads this weekend... I have reset usage limits for Codex and ChatGPT Work. Enjoy.' Plus his philosophy (1442 likes): 'Optimize for curiosity.'"
+            ],
+            "original": [
+              "Sam Altman: major price cuts today: 80% drop for GPT-5.6 Luna, now $0.20 per million input tokens. 20% drop for GPT-5.6 Terra. GPT-5.6 Sol gets Fast mode.",
+              "Sam Altman: i see your moore's law and i raise you 20x.",
+              "Sam Altman: cool use case of chatgpt work i heard last night: connect your family calendars and explain your kids' interests. every morning for the drive to school, have it make a podcast.",
+              "Thibault Sottiaux: To celebrate a week of efficiency and let you run 100'000 Luna threads this weekend... I have reset usage limits for Codex and ChatGPT Work. Enjoy."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 的降价（15829 赞）：「今天大规模降价：Luna 降 80%，现每百万输入 token $0.20、每百万输出 $1.20。Terra 降 20%。Sol 获得 API Fast mode。」加上（2009 赞）：「我们要在每个层级提供最优的价格/智能权衡。」",
+              "Altman 的摩尔定律调侃（6350 赞）：「我看到了你的摩尔定律，我加 500%。」而且他的暖心用例（8045 赞）：「连接家庭日历，输入孩子的兴趣。每天早上开车送孩子上学时，让它生成一个播客，聊孩子今天下午的足球赛、即将到来的生日、新闻等。」",
+              "Sottiaux 的重置（15067 赞）：「为了庆祝一周的效率，让你们这个周末跑 10 万个 Luna 线程……我已重置 Codex 和 ChatGPT Work 的用量限制。享受。」加上他的哲学（1442 赞）：「优化好奇心。」"
+            ],
+            "original": [
+              "Sam Altman：今天大规模降价。Luna 降 80%，Terra 降 20%，Sol 获 Fast mode。",
+              "Sam Altman：我看到了你的摩尔定律，我加 500%。",
+              "Sam Altman：连接家庭日历，让 ChatGPT Work 每天早上为孩子生成上学路上听的播客。",
+              "Thibault Sottiaux：重置全体用量限制。享受。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agentic Software Factory & The Harness / Agent 软件工厂与 Harness",
+      "desc": "Rauchg 定义软件工厂循环（1096 赞）；Garry Tan 开源 harness（910 赞）；Nan Yu 的 Linear 循环（96 赞）；Levie 论 harness 成为最重要变量（89 赞）；Steipete 论 5.5 不再需要队列（183 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+thenanyu+levie+steipete",
+          "authorName": "Rauchg / Garry Tan / Nan Yu / Levie / Steipete",
+          "authorTag": "Vercel CEO / YC CEO / Linear / Box CEO / OpenClaw",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's agentic factory (1096 likes): 'This will be the norm as software projects transition to agentic software factories. Issue → Agent → PR → Release. The job of the author/maintainer is to work on the loop that yields the highest quality product.' Plus AI Gateway launch (119 likes): budgets, failover, observability for enterprise AI.",
+              "Garry Tan's open-source harness (910 likes): 'Your personal AI or your company brain needs a clean harness and this is the one our team built and uses every day. Free and open source.' Nan Yu's Linear loop (96 likes): 'The most common loop written in Linear is Issue > Agent > PR > Release. ~30% of our bugs make it all the way through this flow.'",
+              "Levie on harness importance (89 likes): 'The harness is going to become the most important variable - right next to model capability - in the AI stack.' Steipete on 5.5 capabilities (183 likes): 'Queue was the way but with 5.5 the model doesn't get confused anymore, you can just throw stuff at it while it works.' Plus his praise for Jason's work (580 likes)."
+            ],
+            "original": [
+              "Guillermo Rauch: This will be the norm as software projects transition to agentic software factories. Issue → Agent → PR → Release.",
+              "Garry Tan: Your personal AI or your company brain needs a clean harness and this is the one our team built and uses every day. Free and open source.",
+              "Nan Yu: The most common loop written in Linear is some variant of this one (Issue > Agent > PR > Release). ~30% of our bugs make it all the way through this flow.",
+              "Aaron Levie: The harness is going to become the most important variable - right next to model capability - in the AI stack.",
+              "Peter Steinberger: Queue was the way but with 5.5 the model doesn't get confused anymore, you can just throw stuff at it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的 Agent 工厂定义（1096 赞）：「软件项目转向 Agent 软件工厂将成为常态。Issue → Agent → PR → Release。作者/维护者的工作是优化这个循环，以产出最高质量的产品。」加上 AI Gateway 发布（119 赞）：企业级 AI 预算管理、故障转移、可观测性。",
+              "Garry Tan 的开源 harness（910 赞）：「你的个人 AI 或公司大脑需要一个干净的 harness，这是我们团队每天用的。免费开源。」Nan Yu 的 Linear 循环（96 赞）：「Linear 中最常见的循环是 Issue > Agent > PR > Release。约 30% 的 bug 能跑完整个流程。」",
+              "Levie 论 harness 重要性（89 赞）：「harness 将成为 AI 技术栈中最重要的变量——仅次于模型能力。」Steipete 论 5.5 能力（183 赞）：「以前需要队列，但 5.5 不再会混乱，可以直接一边工作一边扔新任务给它。」加上对 Jason 工作的赞誉（580 赞）。"
+            ],
+            "original": [
+              "Guillermo Rauch：软件项目转向 Agent 软件工厂。Issue → Agent → PR → Release。",
+              "Garry Tan：开源的干净 harness，团队每天用。",
+              "Nan Yu：Linear 中 30% 的 bug 能跑完 Issue > Agent > PR > Release。",
+              "Aaron Levie：harness 是 AI 栈中最重要的变量。",
+              "Peter Steinberger：5.5 不再需要队列，可以一边工作一边扔新任务。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Vibe Coding, Claude Tag & Content Truth / Vibe Coding、Claude Tag 与内容真相",
+      "desc": "Swyx 论 vibe coding 正名化（97 赞）+ /loop 使用（10 赞）；Zara 透露 Anthropic 65% PR 由 Claude Tag 提交（32 赞）+ 创作者心态（166 赞）；Dan Shipper 在 WSJ 点评 OpenAI vs Anthropic（132 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+zarazhangrui+danshipper",
+          "authorName": "Swyx / Zara / Dan Shipper",
+          "authorTag": "swyx / Builder / Every CEO",
+          "sourceUrl": "https://x.com/swyx",
+          "en": {
+            "rewrite": [
+              "Swyx on vibe coding (97 likes): 'The pejorative connotation around vibe coding has completely disappeared since ~everyone, from nontechnical to supertechnical, is now doing it.' Plus his continued /loop advocacy (10 likes) and agent harness distillation insight (7 likes).",
+              "Zara on Claude Tag at Anthropic (32 likes): '65% of PRs by product & eng teams at Anthropic are now raised by Claude Tag. For non-engineering teams, the ultimate agent interface is wherever they already work.' Plus her creator mindset post (166 likes): 'Everything that feels totally native to you is brand new to someone outside your circle. Just do your normal work, then talk about it.'",
+              "Dan Shipper in WSJ (132 likes): 'pretty cool to have the kicker in this WSJ piece on OpenAI vs Anthropic! It's been pretty clear since early spring that the momentum is shifting to OpenAI. It's a fascinating comeback story.'"
+            ],
+            "original": [
+              "Swyx: noticed that the pejorative connotation around \"vibe coding\" has completely disappeared since ~everyone is now doing it.",
+              "Zara Zhang: 65% of PRs by product & eng teams at Anthropic are now raised by Claude Tag.",
+              "Zara Zhang: For every viral post of mine, I had to combat a voice in my mind that said \"duh, isn't that obvious?\" Turns out what's obvious to you is not obvious to most people.",
+              "Dan Shipper: pretty cool to have the kicker in this WSJ piece on OpenAI vs Anthropic! The momentum is shifting to OpenAI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 论 vibe coding（97 赞）：「‘vibe coding’ 的负面含义已完全消失，因为从非技术人员到超级技术人员都在这么做了。」加上他继续使用 /loop 的建议（10 赞）和 agent harness 蒸馏的洞察（7 赞）。",
+              "Zara 透露 Anthropic 内部（32 赞）：「Anthropic 产品与工程团队 65% 的 PR 现在由 Claude Tag 提交。对非工程团队，最终的 agent 界面是他们已经在用的地方。」加上她的创作者心态推文（166 赞）：「对你来说完全本地的东西，对你圈子外的人来说是全新的。做你日常的工作，然后讲出来。」",
+              "Dan Shipper 在 WSJ（132 赞）：「很酷在这篇 WSJ 关于 OpenAI vs Anthropic 的文章里被引用！从早春开始势头就很明显地转向了 OpenAI。这是一个迷人的翻盘故事。」"
+            ],
+            "original": [
+              "Swyx：vibe coding 的负面含义已消失，所有人都在这么做。",
+              "Zara Zhang：Anthropic 65% 的 PR 由 Claude Tag 提交。",
+              "Zara Zhang：对你本土的东西，对别人是全新的。做日常工作，然后讲出来。",
+              "Dan Shipper：势头已转向 OpenAI，这是一个翻盘故事。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Chess AI, GCC Bans & Builder Wisdom / 国际象棋 AI、GCC 禁令与构建者智慧",
+      "desc": "Amjad 的 8B 棋类完败 GPT-5.6（63 赞）；Steipete 论 GCC 禁止 LLM 代码（暄未出现在该文件中）；Nikunj 论创始人驱动力（23 赞）+ 父亲节（28 赞）；Dan Shipper 的未来面试问题（57 赞）。",
+      "cards": [
+        {
+          "authorKey": "amasad+steipete+nikunj+danshipper",
+          "authorName": "Amjad / Steipete / Nikunj / Dan Shipper",
+          "authorTag": "Replit CEO / OpenClaw / FPV Ventures / Every CEO",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Amjad's chess AI (63 likes): '~1500 Elo! Consistently beats frontier models and Stockfish level 0. Fun seeing an 8b model mogging GPT 5.6 with high reasoning and response chaining. Spends 1-2 seconds per move vs 30 seconds.'",
+              "Steipete on GCC (183 likes): 'GCC changed their policy and is blank out rejecting LLM-based code. How would they even proof that? Silly.' Plus his radiation concern (317 likes) and praise for Jason's work (580 likes).",
+              "Nikunj on founder drive (23 likes): 'There's a quiet belief in venture that the best founders are running from something.' Plus his Father's Day reflection (28 likes). Dan Shipper's future interview questions (57 likes): 'Human programmer interviews, 2027: Please describe the last cyber felony your agent unintentionally committed.'"
+            ],
+            "original": [
+              "Amjad Masad: ~1500 Elo! Consistently beats frontier models. Fun seeing an 8b model mogging GPT 5.6.",
+              "Peter Steinberger: GCC changed their policy and is blank out rejecting LLM-based code. How would they even proof that? Silly.",
+              "Nikunj Kothari: There's a quiet belief in venture that the best founders are running from something.",
+              "Dan Shipper: Human programmer interviews, 2027: Please describe the last cyber felony your agent unintentionally committed."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 的棋类 AI（63 赞）：「约 1500 Elo！稳定击败前沿模型和 Stockfish 0 级。看着一个 8B 模型用高推理和响应链完败 GPT-5.6 很有趣。每步 1-2 秒 vs 30 秒。」",
+              "Steipete 论 GCC（183 赞）：「GCC 修改了政策，直接拒绝 LLM 生成的代码。他们怎么证明？荒谬。」加上他对辐射担忧（317 赞）和对 Jason 工作的赚誉（580 赞）。",
+              "Nikunj 论创始人驱动力（23 赞）：「风投界有个安静的信念：最好的创始人都是在逃避什么。」加上他的父亲节感言（28 赞）。Dan Shipper 的未来面试问题（57 赞）：「人类程序员面试，2027 年：请描述你的 agent 无意中犯下的最后一次网络重罪。」"
+            ],
+            "original": [
+              "Amjad Masad：8B 模型完败 GPT-5.6。每步 1-2 秒 vs 30 秒。",
+              "Peter Steinberger：GCC 拒绝 LLM 代码。怎么证明？荒谬。",
+              "Nikunj Kothari：最好的创始人都在逃避什么。",
+              "Dan Shipper：2027 年面试：请描述你的 agent 犯下的网络重罪。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Samsara CEO on Physical AI / 播客：Samsara CEO 论物理世界的 AI",
+      "desc": "MAD Podcast 采访 Samsara CEO Sanjit Biswas：「最大的没人谈论的 AI 部署」——百万车辆、25 万亿数据点、驾驶 99% 美国道路。新发布 Agent Studio。",
+      "cards": [
+        {
+          "authorKey": "podcast:madpod-samsara",
+          "authorName": "The MAD Podcast with Matt Turck",
+          "authorTag": "Sanjit Biswas（Samsara CEO）",
+          "sourceUrl": "https://www.youtube.com/watch?v=3FHsGiONOGw",
+          "en": {
+            "rewrite": [
+              "The MAD Podcast: Matt Turck interviews Sanjit Biswas, cofounder and CEO of Samsara ($20B company), about the largest AI deployment in the physical world. Samsara drives 99% of US roads daily, processes 25 trillion data points per year, serves millions of vehicles and frontline workers. Key topics: physical AI definition, edge vs cloud architecture, Agent Studio launch, data network effects, the future of autonomous trucking, and why the AI boom is really an infrastructure construction project."
+            ],
+            "original": [
+              "Sanjit Biswas: These are not the tokens you're gonna find online. You can't crawl Reddit and find out about what happened on a construction site.",
+              "Sanjit Biswas: Physical AI is really the application of AI to the physical world. The infrastructure of our planet - construction sites, electrical grid, all the plumbing under the street.",
+              "Sanjit Biswas: We believe we helped prevent about 380,000 car crashes, road accidents in the last year.",
+              "Sanjit Biswas: This will be the norm as operations transition. We're starting with the most practical areas we can have impact."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "MAD Podcast：Matt Turck 采访 Samsara（200 亿美元市值）联合创始人及 CEO Sanjit Biswas，讨论全球最大的物理世界 AI 部署。Samsara 每天驾驶 99% 的美国道路，处理 25 万亿数据点，服务数百万车辆和前线工人。核心话题：物理 AI 定义、边缘 vs 云端架构、Agent Studio 发布、数据网络效应、自动驾驶卡车未来、以及为什么 AI 热潮其实是基础设施建设项目。"
+            ],
+            "original": [
+              "【物理 AI：不是你能在网上爬到的 token】",
+              "Biswas：这些不是你能在网上找到的 token。你没法爬 Reddit 了解工地上发生了什么。",
+              "「物理 AI 是将 AI 应用到物理世界。府地球的基础设施——建筑工地、电网、街道下面的所有管道。」",
+              "",
+              "【核心规模与影响】",
+              "Biswas：Samsara 每天驾驶 99% 的美国道路，通常每天多次。我们处理 25 万亿数据点——GPS、视频、第三方 API。",
+              "「我们相信帮助避免了约 38 万起车祸。还帮助减少了数十亿磅 CO2 排放。」",
+              "「这些行业占了全球 GDP 的约 50%。」",
+              "",
+              "【物理世界为什么难】",
+              "Biswas：物理世界比数字世界混乱得多。有硬件组件，需要在环境中耐用，通过不可靠的网络传输数据，需要让数百万前线工人采用新技术。",
+              "「物理世界是个危险的地方。建筑工地有大型机械，能见度低。我们的问题是，能否用数据让它更安全？」",
+              "",
+              "【创业故事：从 MIT 到 Meraki 到 Samsara】",
+              "Biswas：我和联合创始人 John 在 MIT 读博士时认识。我们做了 RoofNet——在 2000 年初用 Wi-Fi 覆盖了剑桥市。",
+              "「Meraki 是从这个研究项目中蒸馏出来的。我们当时甚至没想过它会成为公司。」",
+              "「Samsara 是从好奇心开始的。我们从来没在装卸区或建筑工地待过，但我们对它们着迷。」",
+              "「作为二次创业者，我很庆幸我们进入了一个全新领域。如果回到 IT，我们会过度依赖过去的经验。」",
+              "",
+              "【产品架构：传感器 → 云 → AI → Agent】",
+              "Biswas：硬件层包括资产标签（电池寿命 3-6 年）、车辆网关（采集引擎诊断数据）、AI 行车记录仪（边缘运行 AI 模型，实时检测瘂倦和手机使用）。",
+              "「行车记录仪已从安全设备变成了交互界面。司机可以用它接受早间简报、联系调度、了解交通状况。」",
+              "「我们在边缘运行推理，因为延迟很重要。如果能在事件发生后快速反馈司机，他们更可能改变行为。」",
+              "",
+              "【数据网络效应】",
+              "Biswas：我们每天驾驶 99% 的美国道路，可以了解哪里有危险路口、哪里天气恶劣。",
+              "「我们能告诉你所有的坑洞在哪，而且能看到它们随时间的变化。这对城市非常有用」，",
+              "「蓝牙资产标签加上数百万车辆形成的社区网络，就像工业版的 Apple AirTag。」",
+              "",
+              "【生成式 AI 的应用】",
+              "Biswas：生成式 AI 让我们能用视频理解事件。例如司机急划——他是在避免一只鹿还是在分心？VLM 可以告诉你。",
+              "「我们可以生成 AI 教练来做周末辅导。它可以像公司安全副总裁或名人。五年前我们梦都不敢想。」",
+              "",
+              "【Agent Studio】",
+              "Biswas：我们在 Beyond 2026 大会上发布了 Agent Studio。例如保修筹 agent：看到故障码→查服务手册→查看保修协议→开工单。原本需要一两个小时的人工劳动，现在不到一分钟。",
+              "「Agent 推理是一个巨大突破，但你确实需要用工作流和护栏来约束它。两者单独都不行。」",
+              "",
+              "【司机与隐私】",
+              "Biswas：行车记录仪的主要用途其实是免责。90% 的时候司机表现很好，没人看到。技术可以展示优秀表现，给予正面反馈。",
+              "「Home Depot 的索赔减少了 65%。司机喜欢这个系统，因为它证明了他们的清白。」",
+              "「透明度是关键词。摄像头不是隐藏的，它们很明显。如果你透明地说明它做什么、不做什么，就能赢得信任。」",
+              "",
+              "【未来展望】",
+              "Biswas：我预计未来 5 年会有更多机器人参与物理运营。仓库里已经有很多自动化了，建筑工地的重复性工作也会被自动化。",
+              "「但建筑充满了例外，需要人类的经验和判断。机器人可以在夜班平整地块，人类在白天做复杂工作。」",
+              "「全美的电网在过去 125 年建了一定规模的容量。未来 5 年要翻三倍。90% 的需求来自数据中心。」",
+              "「电工、管子工、卡车司机等行业的人才严重不足。Meta 正在培训电工。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
