@@ -1,0 +1,116 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-02",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "今日 X feed 与昨日（08-01）完全一致——Altman 降价宣布（15829 赞）、Sottiaux 重置用量（15067 赞）、Rauchg 软件工厂定义（1096 赞）等热门推文均已在昨日刊中完整覆盖。本期为轻量版，重点推送今日新播客：Unsupervised Learning Ep 92，Redpoint 的 Jacob Efron 采访 xAI 联合创始人 Igor Babushkin。他曾在 DeepMind 领导 StarCraft 和 AlphaCode，在 OpenAI 参与早期推理研究，又帮助创建 xAI 并在不到两年内达到前沿。如今他离开 xAI 创建 River AI，专注个人 AI、本地硬件和开源模型分发。完整 transcript（74448 字符）已翻译。"
+  },
+  "archive": {
+    "title": "xAI 联合创始人新创业特辑",
+    "desc": "Igor Babushkin 谈离开 xAI 创建 River AI、个人 AI 愿景、闭源模型困境与 Colossus 帘幕。X feed 与 08-01 一致。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-02 source feeds.",
+  "sections": [
+    {
+      "title": "Quick Recap: Yesterday's Top Tweets / 速览：昨日热门推文回顾",
+      "desc": "X feed 与 08-01 完全一致，引用 08-01 期刊的完整双语覆盖。",
+      "cards": [
+        {
+          "authorKey": "recap",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "X feed is identical to 2026-08-01. Top tweets: Altman's price cuts (15829 likes) + Moore's Law bet (6350 likes) + podcast-for-kids use case (8045 likes); Sottiaux's usage reset (15067 likes) + 'Optimize for curiosity' (1442 likes); Rauchg's agentic software factory loop (1096 likes); Garry Tan's open-source harness (910 likes); Steipete praising Jason's work (580 likes). See the 2026-08-01 issue for full bilingual coverage."
+            ],
+            "original": [
+              "X feed identical to 2026-08-01. Full coverage in ai-builders-digest-2026-08-01.json."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "X feed 与 2026-08-01 完全一致。热门推文：Altman 降价宣布（15829 赞）+ 摩尔定律调倍（6350 赞）+ 为孩子生成播客（8045 赞）；Sottiaux 重置用量（15067 赞）+ 「优化好奇心」（1442 赞）；Rauchg 软件工厂定义（1096 赞）；Garry Tan 开源 harness（910 赞）；Steipete 赚誉 Jason（580 赞）。完整双语覆盖请参见 2026-08-01 期刊。"
+            ],
+            "original": [
+              "X feed 与 08-01 一致。完整覆盖见 ai-builders-digest-2026-08-01.json。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: xAI Co-Founder Igor Babushkin on Personal AI & River / 播客：xAI 联合创始人 Igor Babushkin 论个人 AI 与 River",
+      "desc": "Unsupervised Learning Ep 92：Redpoint 的 Jacob Efron 采访 xAI 联合创始人 Igor Babushkin。从 DeepMind 到 OpenAI 到 xAI 到 River AI——完整 transcript（74448 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:ul-igor",
+          "authorName": "Unsupervised Learning (Redpoint)",
+          "authorTag": "Igor Babushkin（xAI 联合创始人 / River AI 创始人）",
+          "sourceUrl": "https://www.youtube.com/@RedpointAI",
+          "en": {
+            "rewrite": [
+              "Unsupervised Learning Ep 92: Jacob Efron (Redpoint) interviews Igor Babushkin, xAI co-founder who has left to start River AI. Igor was at DeepMind (StarCraft, AlphaCode), OpenAI (early reasoning research), and xAI (Colossus, Grok). Key topics: River AI's three bets (River API for RL/fine-tuning, personal AI personalization, local hardware for frontier inference), why closed-source model providers are in a hard place (open models catching up + models getting too dangerous to release), the Colossus data center story (Elon as general contractor, first-principles construction), xAI's acquisition of Cursor (coding data + RL environments), why personal AI needs end-to-end training on individual happiness as reward, and why AI safety means distributing control of AI to individuals."
+            ],
+            "original": [
+              "Igor Babushkin: We're all becoming the Sorcerer's Apprentices now. It's LLMs and agents becoming more and more capable.",
+              "Igor Babushkin: All of computing really is up for grabs when it comes to agents.",
+              "Igor Babushkin: The fact that AI models are starting to get so capable, you might not want to release them anymore. At the same time, open models are getting stronger. So as a proprietary model builder you're getting squeezed.",
+              "Igor Babushkin: Philosophically, pre-training happens on all of humanity's knowledge. It's a commons. It makes sense for those pre-trained checkpoints to be free.",
+              "Igor Babushkin: We should train the models to maximize human flourishing.",
+              "Igor Babushkin: The biggest unlock would be new ideas around how to set up training such that it can handle much longer time horizons and non-verifiable rewards."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Unsupervised Learning Ep 92：Jacob Efron（Redpoint）采访 xAI 联合创始人 Igor Babushkin。他曾在 DeepMind（领导 StarCraft 和 AlphaCode）、OpenAI（早期推理研究）、xAI（Colossus、Grok）工作，现创建 River AI。核心话题：River AI 的三大赌注（River API、个人 AI 个性化、本地硬件运行前沿模型）、闭源模型提供方为什么处境艰难（开源追赶 + 模型太强不敢发布）、Colossus 数据中心故事（Elon 作为总承包商、第一性原理建设）、xAI 收购 Cursor 的意义、为什么个人 AI 需要端到端训练，以及为什么 AI 安全意味着将 AI 控制权分发给个人。"
+            ],
+            "original": [
+              "【第子的学徒与 AI 变革】",
+              "Babushkin：2024 年 11-12 月，编码 agent 突然变得非常强大，你无法忽视它。这是对所有软件工程师的一次真实转型。",
+              "「我们都在成为第子的学徒。LLM 和 agent 越来越强大，就像魔法一样跑出去。」",
+              "「整个计算机领域都是 agent 的潜在目标。深度理解你的生活、工作、世界，然后采取行动——这适用于任何问题。」",
+              "",
+              "【River AI 的三大赌注】",
+              "Babushkin：第一，River API——强化学习和微调服务，帮助企业控制自己的 AI。我们的工程能力是核心优势——训练尽可能便宜、可靠、可扩展。",
+              "「第二，个人 AI 和个性化。今天模型被训练为平均用户服务。我们的想法是——让模型为每个人表现不同。你的 agent 和我的 agent 说话方式不同，有不同的偏好和行为。」",
+              "「第三，本地硬件。能不能在你家里跑前沿模型？你的数据完全受你控制，隐私得到保护，延迟更低，可以用语音和视频交互。」",
+              "",
+              "【闭源模型提供方的困境】",
+              "Babushkin：闭源模型厂商正被挤压。模型越来越强，你可能不敢发布。同时开源模型每个月都在追赶。",
+              "「预训练发生在全人类的知识上。它本质是公有财产。从哲学上讲，预训练权重应该免费给人们使用。」",
+              "「企业面临选择：把数据交给 Anthropic/OpenAI，还是自己训练模型？如果你独特的知识都在网上，那是最危险的位置。」",
+              "",
+              "【Colossus 数据中心与 Elon 】",
+              "Babushkin：Elon 是世界上最好的数据中心建设者。他从第一性原理出发，质疑所有传统做法。",
+              "「他尊重工程师。他直接和做实际工作的人交谈，深入每个细节。你能感受到他对工程师和问题本身的尊重。」",
+              "「使用分包商的分包商的分包商——很多效率在流程中丢失。Elon 的方法是自己做总承包商，在每个环节找到『矩阵中的 bug』。」",
+              "",
+              "【xAI 收购 Cursor 】",
+              "Babushkin：这是非常聪明的举动。Cursor 有优秀的团队、广泛使用的产品、和大量真实编码数据。",
+              "「编码数据的数量级很重要。但同样重要的是构建正确的 RL 环境——让 agent 修 bug，然后验证是否正确完成。」",
+              "「我确信我们还没看到最大的跳跃。还有更多模型即将出来。」",
+              "",
+              "【模型进展的瓶颈】",
+              "Babushkin：最大的解锁是新的训练方法——能处理更长时间跨度和不可验证奖励。",
+              "「如果你的 agent 训练需要 24 小时跑一轮，那训练就很难。每个训练步都会很慢。」",
+              "「有一个陷阱是继续改进编码，但人们真正需要的是进入更长期的领域。」",
+              "「LLM 评判现在变得可行了——模型足够强，能可靠地判断事情是否成功。未来 12 个月我们可能会看到突破。」",
+              "",
+              "【人机共生与 AI 安全】",
+              "Babushkin：未来人类要保持相关性，需要找到与机器的正确共生关系。",
+              "「今天有共生——agent 处理低层细节，人做架构和规划。但随着 agent 越来越强，诱惑是让它们接管更多。一旦你让 agent 做所有决定，你就不再控制自己的生活了。」",
+              "「我们应该训练模型来最大化人类繁荣。」",
+              "「AI 安全意味着将 AI 的控制权分发给个人。不是只有几千人在大公司思考这些问题，应该让尽可能多的人参与。」",
+              "「开源模型对于安全研究非常重要——它们足够强，展示了一些危险特性，但还不至于造成真正的伤害。这让任何人都可以尝试自己的对齐想法。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
