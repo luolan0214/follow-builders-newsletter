@@ -1,0 +1,229 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-03",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Karpathy 用 Opus 5 + 100 万 token 预算渲染《指环王》开场的三维 JS 场景（9895 赞，今日最高）。Sottiaux 预告周末的 10 个重大突破（4939 赞）+ /fast 周末使用减少（4263 赞）。Peter Yang 火辣点评 Opus 5 不如 Opus 4.6（1160 赞）+ 治愈癌症的愿望（751 赞）。Amanda Askell 罕见地发了一条深座（1306 赞）：不要对说深度学习碰壁的人不友善。我们都需要一点希望。Altman 只发了一个词（2253 赞）：team humanity。Rauchg 推开源 agentic CRM（861 赞）+ 习惯与子女（831 赞）。Levie 论 AI 能力分化（347 赞）。Garry Tan 论 OpenAI 成为开放平台（278 赞）。Steipete 让 agent 装邮箱插件（239 赞）+ ESP32 语音唤醒（257 赞）。播客是新的：No Priors 采访 Netic 创始人 Melisa Tokmak，论为真实世界服务构建自主企业。"
+  },
+  "archive": {
+    "title": "Karpathy 三维渲染与深度学习争论日报",
+    "desc": "Karpathy 用 Opus 5 渲染《指环王》（9895 赞），Amanda Askell 谈深度学习壁垒（1306 赞），Sottiaux 预告 10 个突破（4939 赞），Peter Yang 点评 Opus 5。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-03 source feeds.",
+  "sections": [
+    {
+      "title": "Karpathy's 3D Render & The Deep Learning Debate / Karpathy 三维渲染与深度学习争论",
+      "desc": "Karpathy 用 Opus 5 + $10 渲染《指环王》开场（9895 赞）；Amanda Askell 谈壁垒论者的善意（1306 赞）；Levie 论能力分化（347 赞）；Altman team humanity（2253 赞）。",
+      "cards": [
+        {
+          "authorKey": "karpathy+AmandaAskell+levie+sama",
+          "authorName": "Karpathy / Askell / Levie / Altman",
+          "authorTag": "OpenAI co-founder / Anthropic / Box CEO / OpenAI CEO",
+          "sourceUrl": "https://x.com/karpathy",
+          "en": {
+            "rewrite": [
+              "Karpathy's 3D render (9895 likes): 'We're starting to leave the territory where you'd test an LLM by creating an SVG of a pelican on a bicycle. I gave Opus 5 the first paragraph of Lord of the Rings, a 1M token budget (~$10), and asked for a three.js render of it.' Pushing the boundaries of what constitutes an LLM benchmark.",
+              "Amanda Askell's rare personal post (1306 likes): 'Do not be unkind to those who say deep learning is hitting a wall. We all need a little hope in our lives.' Plus her Padme moment on permanent underclass (821 likes) and altered carbon meme (213 likes).",
+              "Levie on capability divergence (347 likes): 'We're going to see an increasing divergence between what AI does in personal lives vs. deep domains like math, science, legal, coding.' Altman's one-word post (2253 likes): 'team humanity.'"
+            ],
+            "original": [
+              "Andrej Karpathy: We're starting to leave the territory where you'd test an LLM by e.g. \"create an svg of pelican on a bicycle\". I gave Opus 5 the first paragraph of Lord of the Rings, a 1M token budget (~$10) and asked for three.js render of it.",
+              "Amanda Askell: Do not be unkind to those who say deep learning is hitting a wall. We all need a little hope in our lives.",
+              "Aaron Levie: We're going to see an increasing divergence between what AI does in our personal lives and in daily productivity vs. what it can do in very deep domains.",
+              "Sam Altman: team humanity."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Karpathy 的三维渲染（9895 赞）：我们正在离开用 SVG 鹝鸟骑自行车测试 LLM 的时代。给了 Opus 5《指环王》第一段 + 100 万 token 预算（约 $10），让它用 three.js 渲染。推动了 LLM 基准测试的边界。",
+              "Amanda Askell 罕见的个人发文（1306 赞）：不要对说深度学习碰壁的人不友善。我们都需要一点希望。加上她对永久底层阶级的 Padme 时刻（821 赞）和凗热师归来的 meme（213 赞）。",
+              "Levie 论能力分化（347 赞）：AI 在个人生活中的作用将与在深度领域产生越来越大的分化。Altman 只发了一个词（2253 赞）：team humanity。"
+            ],
+            "original": [
+              "Andrej Karpathy：我们正在离开用 SVG 鹝鸟骑自行车测试 LLM 的时代。给 Opus 5《指环王》开场 + 100 万 token。",
+              "Amanda Askell：不要对说深度学习碰壁的人不友善。我们都需要一点希望。",
+              "Aaron Levie：AI 能力将在个人生活和深度领域产生分化。",
+              "Sam Altman：team humanity。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sottiaux's Weekend Teaser & Peter Yang's Opus 5 Critique / Sottiaux 周末预告与 Peter Yang 点评 Opus 5",
+      "desc": "Sottiaux 预告 10 个突破（4939 赞）+ /fast 周末减少（4263 赞）；Peter Yang 火辣点评 Opus 5（1160 赞）+ 癌症愿望（751 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+petergyang",
+          "authorName": "Sottiaux / Peter Yang",
+          "authorTag": "Codex & ChatGPT @OpenAI / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's weekend teaser (4939 likes): 'The week was for efficiency. The weekend is for 10 major breakthroughs in science. There will be signs.' Plus his observation (4263 likes): 'Fun fact, users use /fast less during the weekend. The weekend is for relaxation, even for the model.'",
+              "Peter Yang's spicy take (1160 likes): 'Opus 4.6 was the Opus model with the best personality and writing style. Something's off with Opus 5 - overly long replies, too much Claude-speak, too judgemental.' Plus his heartfelt wish (751 likes): 'The number one thing I want AI to fix is to cure cancer once and for all.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: The week was for efficiency. The weekend is for 10 major breakthroughs in science. There will be signs.",
+              "Thibault Sottiaux: Fun fact, users use /fast less during the weekend. The weekend is for relaxation, even for the model.",
+              "Peter Yang: I think Opus 4.6 was the Opus model with the best personality and writing style. Something's off with Opus 5.",
+              "Peter Yang: The number one thing I want AI to fix is to cure cancer once and for all."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的周末预告（4939 赞）：工作日是为了效率。周末是为了科学的 10 个重大突破。将会有迹象。加上他的观察（4263 赞）：有趣的发现，用户周末更少使用 /fast。周末是用来放松的，即使对模型也是。",
+              "Peter Yang 火辣点评（1160 赞）：我认为 Opus 4.6 个性和写作风格最好。Opus 5 有些不对——回复太长、Claude 腐语太多、太爱下判断。加上他的心愿（751 赞）：我最想 AI 解决的第一件事是彻底治愈癌症。"
+            ],
+            "original": [
+              "Thibault Sottiaux：周末是为了 10 个重大突破。将会有迹象。",
+              "Thibault Sottiaux：周末用户更少用 /fast。周末是放松时间。",
+              "Peter Yang：Opus 4.6 个性更好。Opus 5 有些不对。",
+              "Peter Yang：我最想 AI 解决的是癌症。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Open Source CRM, Vibe Shifts & Builder Life / 开源 CRM、风向转变与构建者生活",
+      "desc": "Rauchg 推开源 agentic CRM（861 赞）+ 习惯与子女（831 赞）；Garry Tan 论 OpenAI 开放平台（278 赞）；Steipete 装邮箱插件（239 赞）+ ESP32（257 赞）；Zara 论主动性（68 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+steipete+zarazhangrui+danshipper",
+          "authorName": "Rauchg / Garry Tan / Steipete / Zara / Dan Shipper",
+          "authorTag": "Vercel CEO / YC CEO / OpenClaw / Builder / Every CEO",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's open-source CRM (861 likes): 'Open source agentic CRM built on Vercel and Next.js. Model-agnostic, self-hostable, multi-channel, and headless. This is the way.' Plus his parenting observation (831 likes): 'Asked my 3-year-old what does your daddy do for work? He answered: he exercises. It's not just you who's a byproduct of your habits, it's your children and grandchildren too.'",
+              "Garry Tan on OpenAI (278 likes): 'Most interesting 2026 vibe shift is OpenAI actually looking to be the open platform. Intelligence on tap as a utility vs signaling it is optimal to integrate all the way up full stack.' Steipete's agent adventures: Gmail plugin install (239 likes) + ESP32 voice wake word stalking (257 likes).",
+              "Zara on agency (68 likes): 'Agency is the most important human quality. The world will try to box you, label you, define you. Resist that.' Dan Shipper on AI creating more expert work (34 likes)."
+            ],
+            "original": [
+              "Guillermo Rauch: Open source agentic CRM built on Vercel and Next.js. Model-agnostic, self-hostable. This is the way.",
+              "Guillermo Rauch: They asked my 3-year-old what does your daddy do for work? He answered: he exercises.",
+              "Garry Tan: Most interesting 2026 vibe shift is OpenAI actually looking to be the open platform.",
+              "Peter Steinberger: After accepting for years that GMail is blinding me I finally asked my agent and it installed [plugin] for me.",
+              "Peter Steinberger: I'm building a claw node on an ESP32 chip. Now I feel it's stalking me.",
+              "Zara Zhang: Agency is the most important human quality. Resist that."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的开源 CRM（861 赞）：基于 Vercel + Next.js 的开源 agentic CRM。模型无关、可自托管、多渠道、无头。就是这样。加上他的育儿观察（831 赞）：问 3 岁儿子爸爸做什么。回答：他做运动。不只是你是习惯的副产品，你的孩子和孙子也是。",
+              "Garry Tan 论 OpenAI（278 赞）：2026 年最有趣的风向转变是 OpenAI 看起来真的在做开放平台。Steipete 的 agent 冒险：装邮箱插件（239 赞）+ ESP32 语音唤醒在跟踪他（257 赞）。",
+              "Zara 论主动性（68 赞）：主动性是最重要的人类品质。世界会试图打装你、标签你、定义你。抵制它。Dan Shipper 论 AI 创造更多专家工作（34 赞）。"
+            ],
+            "original": [
+              "Guillermo Rauch：开源 agentic CRM，基于 Vercel + Next.js。就是这样。",
+              "Guillermo Rauch：问 3 岁儿子爸爸做什么。回答：他做运动。",
+              "Garry Tan：OpenAI 成为开放平台是 2026 最有趣的风向转变。",
+              "Peter Steinberger：让 agent 装了邮箱插件。ESP32 语音唤醒在跟踪我。",
+              "Zara Zhang：主动性最重要。抵制世界的定义。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Swyx, Nikunj & Nan Yu: Loops, Tokens & ROI / Swyx、Nikunj 与 Nan Yu：循环、代币与 ROI",
+      "desc": "Swyx 的会议回顾（53 赞）；Nan Yu 的 GitHub 代币折标想法（28 赞）；Nikunj 论模型扩散与 ROI 的荒谬世界（3 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+thenanyu+nikunj",
+          "authorName": "Swyx / Nan Yu / Nikunj",
+          "authorTag": "swyx / Linear / FPV Ventures",
+          "sourceUrl": "https://x.com/swyx",
+          "en": {
+            "rewrite": [
+              "Swyx on conference talks (53 likes): reviewing talks 24/7 after the show, highlighting 'fighting slop with slop' and BTaylor's ask for an AI-native programming language. Plus clanker blog decisions and 5.6 one-shotting tasks.",
+              "Nan Yu's GitHub token pledge idea (28 likes): 'You should be able to pledge tokens for issues in open source repos. Write a spec with a pledge. If maintainer accepts, GitHub passes the issue to a cloud coding agent at requester's expense. No more slop PRs.'",
+              "Nikunj on the dichotomous world (3 likes): 'Models solving NP hard problems while traditional enterprises still complaining about their ROI on token spend. Diffusion of models is all we'll be doing for the next few decades.'"
+            ],
+            "original": [
+              "Swyx: one of my curses as organizer is i rarely get to attend the conference i run.",
+              "Nan Yu: You should be able to pledge tokens for issues that you open in open source repos. No more slop PRs.",
+              "Nikunj Kothari: Models solving NP hard problems while traditional enterprises still complaining about their ROI on token spend."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 的会议回顾（53 赞）：作为组织者很少能参加自己的会议，24/7 回看演讲。推荐「用垃圾打败垃圾」和 BTaylor 对 AI-native 编程语言的期待。",
+              "Nan Yu 的 GitHub 代币折标想法（28 赞）：你应该能够为开源 issue 押代币。写规格 + 押金。如果维护者接受，GitHub 把 issue 传给云编码 agent，费用由请求者承担。不再有垃圾 PR。",
+              "Nikunj 论荒谬世界（3 赞）：模型在解 NP-hard 问题，而企业还在抱怨 token 花费的 ROI。未来几十年就是模型扩散。"
+            ],
+            "original": [
+              "Swyx：组织者很少能参加自己的会议。24/7 回看演讲。",
+              "Nan Yu：为开源 issue 押代币。写规格 + 押金。不再有垃圾 PR。",
+              "Nikunj Kothari：模型解 NP-hard，企业抱怨 ROI。未来就是模型扩散。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Netic CEO on Autonomous Enterprise for Real-World Services / 播客：Netic CEO 论为真实世界服务构建自主企业",
+      "desc": "No Priors 采访 Netic 创始人 Melisa Tokmak：为 HVAC、宠物护理、屋顶等真实世界服务构建自主企业。完整 transcript（38477 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-netic",
+          "authorName": "No Priors (Elad Gil)",
+          "authorTag": "Melisa Tokmak（Netic CEO）",
+          "sourceUrl": "https://www.youtube.com/watch?v=wWbX3NL6_Uo",
+          "en": {
+            "rewrite": [
+              "No Priors: Elad Gil interviews Melisa Tokmak, founder and CEO of Netic. Netic builds AI to run millions of real-world businesses (HVAC, pet care, roofing, hospitality). 70%+ of customers' first interaction is with Netic AI. Key topics: why essential services are neither 'old school' nor easily replaced by robotics, how PE's playbook is changing from cost-cutting to revenue generation, screening for agency in hiring, her journey from a small Turkish town to Stanford to Scale AI to founding Netic. Over $600M generated for customers from AI-handled interactions."
+            ],
+            "original": [
+              "Melisa Tokmak: Netic builds AI to run millions of real world businesses that keep the world running.",
+              "Melisa Tokmak: Over 70% of our customers are AI first. All of their customers' first interaction is with Netic agents.",
+              "Melisa Tokmak: Being a founder, I actually think was a more honorable thing before. You knew you're dedicating your life to it.",
+              "Melisa Tokmak: We have made so far over $600,000,000 for our customers from AI handled interactions.",
+              "Melisa Tokmak: The Christian shoemaker doesn't honor God by putting little crosses on the shoes, but by building the best shoe."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors：Elad Gil 采访 Netic 创始人 Melisa Tokmak。Netic 为 HVAC、宠物护理、屋顶、客房服务等真实世界行业构建 AI。70%+ 的客户第一接触是与 Netic AI 交互。核心话题：机器人在这些领域还很遥远、PE 的 AI 转型、如何筛选主动性、从土耳其小镇到斯坦福到 Scale AI 再到创业。Netic 已为客户从 AI 交互中创造超 6 亿美元收入。"
+            ],
+            "original": [
+              "【Netic 是什么】",
+              "Tokmak：Netic 为运转世界的数百万真实世界企业构建 AI。涵盖 HVAC、管道、电工、宠物护理、屋顶、客房服务。",
+              "「70%+ 的客户第一次互动是与 Netic agent 交互。」",
+              "「我们在企业和它的客户之间。理解客户需求、匹配服务、部署劳动力都在 Netic 上完成。」",
+              "",
+              "【为什么不做滚动收购】",
+              "Tokmak：三个原因。一，我想建设的东西。二，我是工程师和产品人，不是 M&A 人。三，规模——滚动收购只能服务买来的公司，而 Netic 希望每个真实世界企业都能跑在我们的平台上。",
+              "",
+              "【机器人还很遥远】",
+              "Tokmak：看看窗外的每一栋建筑。如果机器人要做我们今天做的事，每栋建筑都需要 3D 打印或完全标准化。",
+              "「在这些行业里，很多时候是客户人生中最糟糕的一天。家里洗浡了，或者想去湾俱乐部放压力。人性化的元素很重要。」",
+              "",
+              "【私募基金的变化】",
+              "Tokmak：以前是找到被低估的宝石，换团队，卖掉。现在这种宝石不存在了。",
+              "「他们的第一反应总是削减成本。但我不是来削减成本的。我是来创造新收入的。」",
+              "「如果我们只用 AI 削减成本，那将非常悲哀。」",
+              "",
+              "【招人哲学：筛选主动性】",
+              "Tokmak：我的经典面试问题是“你做过最难的事是什么？”不限于工作，可以是任何事。",
+              "「不是只看一个主动性例子，而是你活了多久，就一直在展示主动性。你是否坚持了？」",
+              "「基督徒不是在鞋子上画十字来荣耀上帝，而是做最好的鞋子。上帝在乎的是工匠精神。」",
+              "",
+              "【个人故事与愿景】",
+              "Tokmak：我在土耳其的小镇长大，家里没什么钱。来美国只是因为斯坦福的全额奖学金。之前从没拥有过电脑。",
+              "「我最兴奋的是教育。它将改变很多人的生命，那些否则不会知道这个世界存在的人。」",
+              "「每个人口袋里都有一切。但即使如此，保证你，大多数人仍然不会做出那个选择。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
