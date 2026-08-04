@@ -1,0 +1,188 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-04",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Rauchg 透露 Vercel 内部 agent @v 的指数级增长（**3662 赞**）——「每个 Vercel 的日常工作都涉及 @v。可以外推 AI agent 将运营整个公司。」Thariq 的 Jevons 悖论（**1191 赞**）：「数学中已经可见 Jevons 悖论——对思考和懂数学的人的需求会上升。」Amjad 的 LLM 国际象棋引擎登陆 Lichess（**215 赞**）。Levie 论「最难」的工作反而最容易被自动化（**318 赞**）。Dan Shipper 论 agent 引发的「主体断裂」（**192 赞**）。Nikunj 论 VC 已成为「感觉资本」（**372 赞**）。Garry Tan 的白药丸（**302 赞**）+ 惊奇感消失（173 赞）。Ryo Lu 论软件的未来（**390 赞**）。Peter Yang 的社区中心对比（96 赞）+ Hermes 技术（90 赞）+ 个性重要（186 赞）。播客是新的：Training Data 采访 Core Automation 联合创始人 Jerry Tworek（前 OpenAI VP）和 Rohan Anil（前 Gemini 预训练负责人）——论「替代 Transformer」。"
+  },
+  "archive": {
+    "title": "Vercel Agent 与 Transformer 换代日报",
+    "desc": "Rauchg 透露 Vercel 内部 agent 指数级增长（3662 赞），Thariq 的 Jevons 悖论（1191 赞），Core Automation 论替代 Transformer。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-04 source feeds.",
+  "sections": [
+    {
+      "title": "Vercel's Agent @v & The Internal AI Company / Vercel 的 Agent @v 与内部 AI 公司",
+      "desc": "Rauchg 透露 @v 的指数级增长（**3662 赞**）+ 精通+AI 的力量（**3662 赞**）；Dan Shipper 论主体断裂（**192 赞**）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+danshipper",
+          "authorName": "Rauchg / Dan Shipper",
+          "authorTag": "Vercel CEO / Every CEO",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg reveals Vercel's internal agent (1233 likes): 'We built an agent that powers our company's internal operations called @v. Every day-to-day job at Vercel now involves @v. It's growing exponentially in daily interactions and token use. One can extrapolate to the day AI agents run entire companies.' Plus his follow-up (66 likes): teams had dozens of agents, each with its own domain name - @v unified them. Plus his mastery insight (3662 likes): 'AI alone is cool. But mastery + creativity + AI hits on a whole different level. Don't let anyone discourage you from pursuing excellence and craft. Keep studying the blade.'",
+              "Dan Shipper on agency rupture (192 likes): 'When you experience a language model doing a task that used to require you at every step and now doesn't, it's a gigantic agency rupture. We equate ourselves with our tasks, our outputs, and a rupture of this kind is akin to the loss of your identity and sense of self.' Plus his philosophical note (18 likes): 'If ought implies can, and technology reshapes the field of human abilities, then technology reshapes oughts.'"
+            ],
+            "original": [
+              "Guillermo Rauch: We built an agent that powers our company's internal operations called @v. Every day-to-day job at Vercel now involves @v.",
+              "Guillermo Rauch: AI alone is cool. But mastery + creativity + AI hits on a whole different level. Keep studying the blade.",
+              "Dan Shipper: when you experience a language model doing a task that used to require you at every step and now doesn't, it's a gigantic agency rupture."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 透露 Vercel 内部 agent（1233 赞）：我们构建了一个驱动公司内部运营的 agent 叫 @v。Vercel 的每个日常工作现在都涉及 @v。它在日常交互和 token 使用上指数级增长。可以外推 AI agent 将运营整个公司。加上他的精通洞察（3662 赞）：AI 单独很酷。但精通 + 创造力 + AI 是完全不同的层次。不要让任何人打消你追求卓越和工匠精神。继续研究刀术。",
+              "Dan Shipper 论主体断裂（192 赞）：当你体验到语言模型做了以前需要你每一步参与的任务，而现在不需要了，这是一个巨大的主体断裂。我们把自己等同于任务和输出，这种断裂类似于身份和自我感的丢失。"
+            ],
+            "original": [
+              "Guillermo Rauch：构建了内部 agent @v。Vercel 每个日常工作都涉及它。指数级增长。",
+              "Guillermo Rauch：精通 + 创造力 + AI = 完全不同的层次。继续研究刀术。",
+              "Dan Shipper：语言模型接管你的任务是主体断裂。类似于身份丢失。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Jevons Paradox, Hard Work & Chess AI / Jevons 悖论、最难的工作与国际象棋 AI",
+      "desc": "Thariq 的 Jevons 悖论（**1191 赞**）；Levie 论可验证工作先被自动化（**318 赞**）；Amjad 的 LLM 棋类登陆 Lichess（**215 赞**）；Karpathy 的 GTA Hobbiton（392 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+levie+amasad+karpathy",
+          "authorName": "Thariq / Levie / Amjad / Karpathy",
+          "authorTag": "OpenAI / Box CEO / Replit CEO / OpenAI co-founder",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's Jevons paradox (1191 likes): 'You can already see Jevons paradox at work in mathematics. There is more happening, it is easier to understand and mathematicians have more time to discuss it with us at higher abstraction levels. Demand for people who think and know about math will go up.' Plus his chess parallel (73 likes).",
+              "Levie on automation targets (318 likes): 'Some of the hardest work in the world is actually prone to automation first, particularly due to its verifiability. Math, cyber, and code - while being insanely hard and high value fields - have the benefit of being able to be tested.' Amjad's LLM chess on Lichess (215 likes): 'My LLM chess engine is now on Lichess autonomously playing real games against people and bots. 1253 Elo.' Karpathy's GTA Hobbiton (392 likes): sharing the pelican-on-bicycle source, playable in browser. 'Look out for GTA Hobbiton dropping before GTA VI.'"
+            ],
+            "original": [
+              "Thariq: you can already see Jevons paradox at work in mathematics. Demand for people who think and know about math will go up.",
+              "Aaron Levie: We're going to be in for a strange dynamic which is that some of the \"hardest\" work in the world is actually prone to automation first.",
+              "Amjad Masad: My LLM chess engine is now on LiChess autonomously playing real games against people and bots. 1253 Elo.",
+              "Andrej Karpathy: Look out for GTA Hobbiton dropping before GTA VI :)"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 的 Jevons 悖论（1191 赞）：数学中已经可见 Jevons 悖论在起作用。有更多的事情在发生，更容易理解，数学家有更多时间在更高抽象层面与我们讨论。对思考和懂数学的人的需求会上升。加上他的国际象棋类比（73 赞）。",
+              "Levie 论自动化目标（318 赞）：一些世界上「最难」的工作反而最容易被自动化，因为它们可以被验证。数学、网络安全、编码——虽然是极其困难和高价值的领域，但有可被测试的优势。Amjad 的 LLM 棋类引擎登陆 Lichess（215 赞）：我的 LLM 国际象棋引擎现在在 Lichess 上自主对局，1253 Elo。Karpathy 的 GTA Hobbiton（392 赞）：分享了鹝鸟骑自行车源代码，可在浏览器中运行。期待 GTA Hobbiton 在 GTA VI 之前发布。"
+            ],
+            "original": [
+              "Thariq：数学中已可见 Jevons 悖论。对数学家的需求会上升。",
+              "Aaron Levie：最难的工作反而最容易被自动化，因为可以验证。",
+              "Amjad Masad：LLM 棋类引擎登陆 Lichess，1253 Elo。",
+              "Andrej Karpathy：期待 GTA Hobbiton 在 GTA VI 之前发布。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "VC Vibes Capital, White Pills & Software Futures / VC 感觉资本、白药丸与软件未来",
+      "desc": "Nikunj 论 VC 感觉资本（**372 赞**）；Garry Tan 的白药丸（**302 赞**）+ 惊奇感消失（173 赞）+ 领域 vs 地图（195 赞）；Ryo Lu 论软件未来（**390 赞**）；Steipete 的新型垃圾（271 赞）。",
+      "cards": [
+        {
+          "authorKey": "nikunj+garrytan+ryolu_+steipete",
+          "authorName": "Nikunj / Garry Tan / Ryo Lu / Steipete",
+          "authorTag": "FPV Ventures / YC CEO / Cursor / OpenClaw",
+          "sourceUrl": "https://x.com/nikunj",
+          "en": {
+            "rewrite": [
+              "Nikunj on VC reality (372 likes): 'VC has effectively fully become vibes capital. The market reality at the early-mid stage is completely divorced from fundamentals.' Plus his warm NYC nights photo (416 likes). Garry Tan's white pill (302 likes): 'AI will create unimaginable economic growth and that is the best white pill.' Plus wonder disappearing (173 likes): 'The sense of wonder disappeared right at the moment the amount of wonder is going parabolic.' Plus map vs territory (195 likes).",
+              "Ryo Lu on software's future (390 likes): 'My early mentors were these apps, especially Rdio, Mailbox, and Apple. They made new patterns that made software feel simpler and intuitive. As we leave the world of apps behind, what parts of software will remain visible, and how could it feel?' Steipete on new spam patterns (271 likes)."
+            ],
+            "original": [
+              "Nikunj Kothari: VC has effectively fully become vibes capital. The market reality at the early-mid stage is completely divorced from fundamentals.",
+              "Garry Tan: AI will create unimaginable economic growth and that is the best white pill.",
+              "Garry Tan: The sense of wonder disappeared right at the moment the amount of wonder is going parabolic.",
+              "Ryo Lu: My early mentors were these apps, especially Rdio, Mailbox, and Apple. As we leave the world of apps behind, what parts of software will remain visible?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 论 VC 现实（372 赞）：VC 已经完全成为感觉资本。早中期市场现实完全背离了基本面。加上他的 NYC 夜晚照片（416 赞）。Garry Tan 的白药丸（302 赞）：AI 将创造不可想象的经济增长，这是最好的白药丸。加上惊奇感消失（173 赞）：惊奇感消失的那一刻，惊奇的数量正在指数级增长。加上领域 vs 地图（195 赞）。",
+              "Ryo Lu 论软件未来（390 赞）：我早期的导师是这些 app，尤其是 Rdio、Mailbox 和 Apple。它们创造了让软件更简单直觉的新模式。随着我们告别 app 时代，软件的哪些部分会保留可见，它会是什么感觉？Steipete 发现新型垃圾（271 赞）。"
+            ],
+            "original": [
+              "Nikunj Kothari：VC 已成为感觉资本。市场与基本面背离。",
+              "Garry Tan：AI 将创造不可想象的经济增长。最好的白药丸。",
+              "Garry Tan：惊奇感消失的那一刻，惊奇的数量正在指数级增长。",
+              "Ryo Lu：随着我们告别 app 时代，软件的哪些部分会保留？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Core Automation — Replacing the Transformer / 播客：Core Automation——替代 Transformer",
+      "desc": "Training Data 采访 Core Automation 联合创始人 Jerry Tworek（前 OpenAI VP）和 Rohan Anil（前 Gemini 预训练负责人）。完整 transcript（52327 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:trainingdata-coreauto",
+          "authorName": "Training Data (Sonya Huang)",
+          "authorTag": "Jerry Tworek & Rohan Anil（Core Automation 联合创始人）",
+          "sourceUrl": "https://www.youtube.com/watch?v=2RJiaf0SY8s",
+          "en": {
+            "rewrite": [
+              "Training Data: Sonya Huang interviews Jerry Tworek (ex-OpenAI VP, ran Strawberry/reasoning) and Rohan Anil (ex-Gemini pre-training lead, also Google Brain and Anthropic). They founded Core Automation to build the 'most automated lab in the world' and replace the transformer architecture. Key thesis: transformers can't do continual learning, RL alone isn't sufficient, and the architecture itself is the bottleneck to smarter systems. They need models that learn at test time, on user data, on real-world distribution. Six-month roadmap: kernel generation automation, new architecture experiments at scale, combining pre-training and RL end-to-end."
+            ],
+            "original": [
+              "Jerry Tworek: The first step to replacing transformers is appreciating deeply how far they were able to carry us.",
+              "Jerry Tworek: We need models that learn at test time. We need models that learn with users on their data, on their real world task.",
+              "Jerry Tworek: AGI is a model that can improve itself without human in the loop in any way.",
+              "Rohan Anil: The computational depth is poor. Most transformers are quite shallow. It's at most like 100 layers deep.",
+              "Rohan Anil: We should be looking at the end to end. What are we training these models for?",
+              "Jerry Tworek: Core Automation is a lab created to build models that continuously learn and learn from deployment."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Training Data：Sonya Huang 采访 Core Automation 联合创始人 Jerry Tworek（前 OpenAI VP，负责 Strawberry/推理）和 Rohan Anil（前 Gemini 预训练负责人，也在 Google Brain 和 Anthropic 工作过）。他们创建 Core Automation 来构建「全球最自动化的实验室」并替代 Transformer 架构。核心论点：Transformer 无法做持续学习，RL 本身不够，架构本身是更聪能系统的瓶颈。需要能在测试时、在用户数据上、在真实世界分布上学习的模型。六个月路线图：内核生成自动化、新架构大规模实验、预训练与 RL 端到端结合。"
+            ],
+            "original": [
+              "【替代 Transformer 的第一步：深入理解它】",
+              "Jerry Tworek：替代 Transformer 的第一步是深入理解它带我们走了多远。",
+              "「理解 Transformer 意味着了解它擅长什么，这样你就不去解决它已经解决得很好的问题。你必须专注于它的弱点。」",
+              "「我们现在面临的瓶颈是架构本身。这是重新审视我们过去六年一直乘坐的列车的时候了。」",
+              "",
+              "【RL 极端主义者的失望】",
+              "Tworek：我一直是 RL 极端主义者。我相信缩放 RL 是通向 AGI 的必经之路。",
+              "「2024 年的我会说 2025 年将是 AGI 年。我们开始缩放 RL，基准分数不断上升。但我们解决了所有现实世界任务吗？遵惭没有。」",
+              "「训练数据无法复现真实世界用例。我们的评估和训练任务是同一枚硬币的两面，但真实世界分布更复杂、更混乱。」",
+              "「我的结论是我们需要能在测试时学习的模型。需要在用户数据上、真实世界任务上学习的模型。」",
+              "",
+              "【Transformer 的深度问题】",
+              "Rohan Anil：Transformer 的计算深度很差。我们训练的 Transformer 非常浅，最多只有 100 层。",
+              "「思考链和 RL 是增加计算深度的一种方式。但每次只生成一个 token 非常低效。我们需要能够更高效地花费计算的架构。」",
+              "「预训练和 RL 应该端到端优化。现在它们是分开优化的，这是错误的。」",
+              "",
+              "【为什么离开大实验室创业】",
+              "Tworek：现在最成功的实验室正在最竞争激烈的市场战中，不愿尝试替代 Transformer 的路径。",
+              "「如果 Transformer 有利可图，各家实验室会把资源投入缩放 Transformer 来赢下个季度，而不是探索可能需要一两年才能看到结果的新路径。」",
+              "",
+              "【内核生成是关键瓶颈】",
+              "Anil：我们举办了 QR 内核竞赛。用库函数得到一些性能，人 + 编码 agent 可以获得 7 倍提升，但世界上只有约 3 个人能用 $10 万的 agent 在 4 周内获得 60 倍提升。",
+              "「现有模型连近都不到。解决内核生成是我们的内循环。」",
+              "「内核生成和架构探索是两面同一枚硬币。你需要更强的优化器才能训练更难的模型。」",
+              "",
+              "【自动化实验室与 AGI 定义】",
+              "Tworek：Core Automation 的自动化不是要把人赶出去，而是给每个人最大的主动性。如果每天能做一个实验，那就是很好的迭代速度。",
+              "「AGI 是能够不需要人类介入就能自我改进的模型。我们现在还很远。」",
+              "「有一天我们可以全团去度假，看看实验室那一周能不能自己产出更好的东西。然后延长度假两倍、四倍，直到永久度假。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
