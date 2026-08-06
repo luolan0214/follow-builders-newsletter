@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-06" data-issue-number="80" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 80 期｜2026-08-06｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Altman 的乐观主义宣言（**10148 赞，今日最高**）：「宁可做乐观者努力工作，也不做悲观者发文说为什么不行。社会需要尝试的人。」Sottiaux 的开放式问题（**1464 赞**）+ 招纳网安专家 Halvar Flake（467 赞）。Garry Tan 怒批加州 Prop 40 资产征收税（**1140 赞**）。Rauchg 宣布 Vercel 流量里程碑（**398 赞**）+ DeepSeek v4 Gateway 省 90%（**238 赞**）。Josh Woodward 的 Notebook 统一提示框（**341 赞**）。Zara 论技术采纳心理学（90 赞）+ agent 入群聊天比培训有效（44 赞）+ 会议即工作（74 赞）。Dan Shipper 论 agency rupture 愈后的英雄效应（70 赞）。Nikunj 的隐私咖啡店（**221 赞**）。Matt Turck 的 SaaS 出口心声（117 赞）。Madhu Guru 的原型到开源工具流（**40 赞**）。播客是新的：Training Data 采访 Chai Discovery 联合创始人——论「药物设计是另一个规模问题」。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Altman 的乐观主义宣言（**10148 赞，今日最高**）：「宁可做乐观者努力工作，也不做悲观者发文说为什么不行。社会需要尝试的人。」Sottiaux 的开放式问题（**1464 赞**）+ 招纳网安专家 Halvar Flake（467 赞）。Garry Tan 怒批加州 Prop 40 资产征收税（**1140 赞**）。Rauchg 宣布 Vercel 流量里程碑（**398 赞**）+ DeepSeek v4 Gateway 省 90%（**238 赞**）。Josh Woodward 的 Notebook 统一提示框（**341 赞**）。Zara 论技术采纳心理学（90 赞）+ agent 入群聊天比培训有效（44 赞）+ 会议即工作（74 赞）。Dan Shipper 论 agency rupture 愈后的英雄效应（70 赞）。Nikunj 的隐私咖啡店（**221 赞**）。Matt Turck 的 SaaS 出口心声（117 赞）。Madhu Guru 的原型到开源工具流（**40 赞**）。播客是新的：Training Data 采访 Chai Discovery 联合创始人——论「药物设计是另一个规模问题」。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Altman&#39;s Optimism &amp; Sottiaux&#39;s Cyber Hire / Altman 的乐观主义与 Sottiaux 的网安招招</h2>
+    <p class="section-desc">Altman 乐观主义宣言（**10148 赞**）；Sottiaux 招纳 Halvar Flake（467 赞）+ 开放式问题（**1464 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+thsottiaux" data-author-name="Altman / Sottiaux" data-author-tag="OpenAI CEO / Codex &amp; ChatGPT @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Altman / Sottiaux avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Altman / Sottiaux</div>
+            <div class="author-tag is-inline">OpenAI CEO / Codex &amp; ChatGPT @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 的乐观主义宣言（10148 赞）：宁可做乐观者努力工作，也不做悲观者发文说为什么不行。这更难，最可能的结果是失败，但如果没人尝试，社会就会失败。再多「这永远不会成功」的文章也无法推动社会前进。Sottiaux 的网安招拟（467 赞）：更强的网络安全。很高兴迎接 Halvar Flake 即将加入团队。加上他的开放式问题（1464 赞）：我在 OpenAI 的职位是什么？——引发大量互动。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：宁可做乐观者努力工作，也不做悲观者发文。社会需要尝试的人。</p>
+              <p>Thibault Sottiaux：更强的网络安全。迎接 Halvar Flake 加入。</p>
+              <p>Thibault Sottiaux：我在 OpenAI 的职位是什么？</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman&#39;s optimism manifesto (10148 likes): &#39;I would rather be an optimist and work hard than a pessimist posting about why things won&#39;t work. It&#39;s much more difficult and the most likely path is failure, but society fails if people don&#39;t try. No amount of &quot;it will never work&quot; essays will drive society forward.&#39; Sottiaux&#39;s cyber hire (467 likes): &#39;Better Cyber. Excited to welcome Halvar Flake to the team soon.&#39; Plus his open-ended question post (1464 likes): &#39;What is my title at OpenAI&#39; — driving massive engagement.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: i would rather be an optimist and work hard than a pessimist posting about why things won&#39;t work. No amount of &quot;it will never work&quot; essays will drive society forward.</p>
+              <p>Thibault Sottiaux: Better Cyber. Excited to welcome Halvar Flake to the team soon.</p>
+              <p>Thibault Sottiaux: What is my title at OpenAI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Vercel Milestone, DeepSeek Savings &amp; Notebook&#39;s Unified Prompt / Vercel 里程碑、DeepSeek 节省与 Notebook 统一提示</h2>
+    <p class="section-desc">Rauchg 宣布 Vercel 流量里程碑（**398 赞**）+ DeepSeek v4 省 90%（**238 赞**）+ Vercel for backends（188 赞）；Josh Woodward 的 Notebook（**341 赞**）；Levie 论企业 AI 部署多样性（145 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+joshwoodward+levie" data-author-name="Rauchg / Josh Woodward / Levie" data-author-tag="Vercel CEO / Notebook / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Josh Woodward / Levie avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Josh Woodward / Levie</div>
+            <div class="author-tag is-inline">Vercel CEO / Notebook / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的 Vercel 里程碑（398 赞）：一个展示巨大数字的帖子。加上 DeepSeek v4 节省（238 赞）：在 @aisdk 中一行代码就能省 90% 以上的 DeepSeek v4 Flash AI Gateway token 消耗。加上（188 赞）：Vercel 就是后端的 Vercel。Josh Woodward 的 Notebook 发布（341 赞）：Notebook 为思考而生，不是为切换而生。其他人在加更多模式，Notebook 保持一切在一个统一的提示框中，只做你想做的事。</p>
+              <p>Levie 论企业 AI 部署多样性（145 赞）：与云计算早期只有几种部署模式不同，AI 有更广泛的实施策略。每家公司都在做有意义上不同的事。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch：一行代码省 90% DeepSeek v4 token。</p>
+              <p>Guillermo Rauch：Vercel 就是后端的 Vercel。</p>
+              <p>Josh Woodward：Notebook 为思考而生。统一提示框。</p>
+              <p>Aaron Levie：AI 部署策略多样。每家公司都不同。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s Vercel milestone (398 likes): a cryptic post showing massive numbers. Plus DeepSeek v4 savings (238 likes): &#39;1 line of code in @aisdk saves you 90% or more in DeepSeek v4 Flash AI Gateway tokens.&#39; Plus (188 likes): &#39;Vercel is the Vercel for backends.&#39; Josh Woodward&#39;s Notebook launch (341 likes): &#39;Notebook is built for thinking, not toggling. While others add more modes, Notebook keeps everything in a single, unified prompt bar and just does the things you want.&#39;</p>
+              <p>Levie on enterprise AI diversity (145 likes): &#39;Unlike the early innings of cloud where there were really only a couple deployment patterns available, AI has a much wider array of implementation strategies. Every company is doing something meaningfully different.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: 1 line of code in @aisdk saves you 90% or more in DeepSeek v4 Flash AI Gateway tokens.</p>
+              <p>Guillermo Rauch: Vercel is the Vercel for backends.</p>
+              <p>Josh Woodward: Notebook is built for thinking, not toggling. Single, unified prompt bar.</p>
+              <p>Aaron Levie: AI has a much wider array of implementation strategies. Every company is doing something meaningfully different.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Tech Adoption Psychology, Builder Wisdom &amp; SF Vibes / 技术采纳心理、构建者智慧与旧金山风貌</h2>
+    <p class="section-desc">Zara 论采纳心理（90 赞）+ agent 入群聊天（44 赞）+ 会议即工作（74 赞）；Dan Shipper 论 agency rupture 愈后（70 赞）；Nikunj 隐私咖啡店（**221 赞**）；Matt Turck 的 SaaS 出口心声（117 赞）；Garry Tan 怒批 Prop 40（**1140 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="zarazhangrui+danshipper+nikunj+mattturck+garrytan" data-author-name="Zara / Dan Shipper / Nikunj / Matt Turck / Garry Tan" data-author-tag="Builder / Every CEO / FPV Ventures / FirstMark / YC CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara / Dan Shipper / Nikunj / Matt Turck / Garry Tan avatar"><span class="avatar-fallback">Z/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara / Dan Shipper / Nikunj / Matt Turck / Garry Tan</div>
+            <div class="author-tag is-inline">Builder / Every CEO / FPV Ventures / FirstMark / YC CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 论技术采纳心理（90 赞）：大多数人不会仅仅因为效率提升就采纳新技术。他们采纳是因为跟他们类似的人采纳了，而且获得了正面结果。加上她的 AI 培训技巧（44 赞）：最好的 AI 培训不是课程。是把 agent 拉进团队群聊，让大家看它工作。加上会议效率（74 赞）：高效的会议不留待办列表，因为所有行动都在会议期间完成了。</p>
+              <p>Dan Shipper 论 agency rupture 愈后（70 赞）：一旦主体断裂愈合，AI 回到不可见的状态，我们只会想到人类和他们做了什么。AI 的使用将成为默认和不重要的。Nikunj 的隐私咖啡店（221 赞）。Matt Turck 的 SaaS 出口心声（117 赞）：所有人在 X 上：Airtable 卖得太低了！很多 SaaS 创始人秘密地：我随时可以接受这个结果，至少他们有个出口。Garry Tan 怒批 Prop 40（1140 赞）：加州民主党背书 Prop 40 资产征收税简直疯了。这将摧毁加州税基。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang：人们因为别人采纳而采纳，不是因为效率。</p>
+              <p>Zara Zhang：最好的 AI 培训是把 agent 拉进群聊。</p>
+              <p>Dan Shipper：agency rupture 愈合后，我们只关注人类。AI 使用成为默认。</p>
+              <p>Matt Turck：很多 SaaS 创始人秘密想要那个出口。</p>
+              <p>Garry Tan：Prop 40 将摧毁加州税基。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara on tech adoption psychology (90 likes): &#39;Most people will not adopt a new technology just because it makes them more efficient. They&#39;ll adopt because someone similar to them adopted it and got positive results.&#39; Plus her AI training tip (44 likes): &#39;The best AI training isn&#39;t a course. It&#39;s pulling an agent into your team&#39;s group chat and letting people watch it work.&#39; Plus her meeting efficiency post (74 likes): &#39;An efficient meeting has no to-do list left behind, because all actions are done DURING the meeting.&#39;</p>
+              <p>Dan Shipper on agency rupture aftermath (70 likes): &#39;Once the agency rupture heals and the AI goes back to being invisible, we&#39;ll think only about the humans and what they&#39;ve done. AI use will be assumed and unimportant.&#39; Nikunj&#39;s discrete meetup spot (221 likes). Matt Turck&#39;s SaaS exit reality (117 likes): &#39;Everyone on X: damn, Airtable sold for so low! Many SaaS founders, secretly: damn, I&#39;d take that any day.&#39; Garry Tan on Prop 40 (1140 likes): &#39;It&#39;s insane that the CA Dem Party is endorsing Prop 40, the asset seizure tax that will destroy the California tax base.&#39; Plus his housing post (241 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang: Most people will not adopt a new technology just because it makes them more efficient.</p>
+              <p>Zara Zhang: The best AI training isn&#39;t a course. It&#39;s pulling an agent into your team&#39;s group chat.</p>
+              <p>Dan Shipper: once the agency rupture heals and the AI goes back to being invisible, we&#39;ll think only about the humans.</p>
+              <p>Matt Turck: Everyone on X: damn, Airtable sold for so low! Many SaaS founders, secretly: damn, I&#39;d take that any day.</p>
+              <p>Garry Tan: It&#39;s insane that the CA Dem Party is endorsing Prop 40, the asset seizure tax.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Chai Discovery — Drug Design as Scaling Problem / 播客：Chai Discovery——药物设计作为规模问题</h2>
+    <p class="section-desc">Training Data 采访 Chai Discovery 联合创始人 Josh Alman 和 Matt Cagle。完整 transcript（62853 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:td-chai" data-author-name="Training Data (Sonya Huang)" data-author-tag="Josh Alman &amp; Matt Cagle（Chai Discovery 联合创始人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data (Sonya Huang) avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data (Sonya Huang)</div>
+            <div class="author-tag is-inline">Josh Alman &amp; Matt Cagle（Chai Discovery 联合创始人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Training Data：Sonya Huang 采访 Chai Discovery 联合创始人 Josh Alman（前 OpenAI 早期团队）和 Matt Cagle（数学/计算机背景转蛋白质结构研究）。Chai 用 AI 工程化药物分子，将生物学视为规模问题。核心话题：从 0.1% 的抗体结合率到 Chai-2 的 15%、苦涩教训应用于生物学（简单 + 规模 &gt; 定制模块）、扩散模型如何解锁蛋白质生成、从头构建模型（非微调 LLM）、Chai-1 的 23 个子模块问题以及简化如何驱动规模定律、为什么药物发现应该变成药物设计。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【从发现到设计】</p>
+              <p>Josh Alman：我们希望将药物发现过程看起来更像工程。从筛选数百万分子寻找针，变为输入梦想分子的参数，让模型生成它。</p>
+              <p>「这不是减少实验室测试。可能反而会做更多实验室测试，因为 ROI 增加了——就像软件工程师更高效后需求更大。」</p>
+              <p></p>
+              <p>【成功率跳跃】</p>
+              <p>Alman：创业时抗体设计的最先进水平是 0.1%——千分之一的分子会结合。</p>
+              <p>「我们原本预算 1% 的命中率需要 3-4 年。但 Chai-2 达到了 15%——筛选 1000 个分子能拿回 150 个。」</p>
+              <p></p>
+              <p>【苦涩教训与简单性】</p>
+              <p>Matt Cagle：我们是一家苦涩教训型公司。我们坚信规模化数据、模型和计算。</p>
+              <p>「Chai-1 有 23 个不同的子模块。当你尝试迭代时，很难理解每个子模块的独立行为。这不能很好地规模化。」</p>
+              <p>「所以我们问：如何简化？如何识别什么才是真正重要的？一旦有了这个，整个研究过程和识别规模化方向就变得简单得多。」</p>
+              <p></p>
+              <p>【扩散模型的突破】</p>
+              <p>Cagle：生成合理蛋白质的第一次突破是扩散模型的出现。</p>
+              <p>「扩散给了模型更多的时间去思考。你可以把蛋白质一点点弄乱，然后教模型快捷的小技巧来修复。这种渐进改善的方式在生物学中效果极佳。」</p>
+              <p></p>
+              <p>【从头构建而非微调】</p>
+              <p>Alman：我们的模型完全从头构建。我们不是在微调 GLM 或其他什么。</p>
+              <p>「生物学看起来很复杂，但本质上就是氨基酸序列。抗体、小蛋白、迷你蛋白——这些都只是模型的不同提示词。」</p>
+              <p></p>
+              <p>【规模定律与未来展望】</p>
+              <p>Cagle：如果你真正相信规模定律，就相信模型会学会那些隐藏特征。损失下降得足够低，模型就必须理解目标的某些内在属性。</p>
+              <p>「更好的模型应该能解锁很多现在无法药物化的目标。」</p>
+              <p>Alman：我们惊讶于这个进展有多快。原本预算 3-4 年才能达到的水平，结果很快就实现了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Training Data: Sonya Huang interviews Chai Discovery co-founders Josh Alman (ex-OpenAI early team) and Matt Cagle (math/CS background turned protein structure researcher). Chai is engineering drug molecules with AI, treating biology as a scaling problem. Key topics: from 0.1% antibody binding rate to 15% with Chai-2 model, the bitter lesson applied to biology (simplicity + scale &gt; bespoke modules), why diffusion models unlocked protein generation, building models from scratch (not fine-tuning LLMs), the 23-submodule problem in Chai-1 and how simplification drives scaling laws, and why drug discovery should become drug design.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Josh Alman: We really focused in on how do we just make this process more accurate? We got to about a fifteen percent success rate.</p>
+              <p>Matt Cagle: We&#39;re a very bitter lesson built company. We really believe in scaling data, scaling models, scaling compute.</p>
+              <p>Josh Alman: Biology is much simpler and the problems are much more interconnected than one might think. These are all just sequences of amino acids.</p>
+              <p>Matt Cagle: In order to drive loss down further, the model should just have to learn these hidden features. With better models, we should be able to unlock a lot of these targets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=wv53mDmY-k0" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-06 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-06 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

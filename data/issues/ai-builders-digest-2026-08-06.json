@@ -1,0 +1,182 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-06",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Altman 的乐观主义宣言（**10148 赞，今日最高**）：「宁可做乐观者努力工作，也不做悲观者发文说为什么不行。社会需要尝试的人。」Sottiaux 的开放式问题（**1464 赞**）+ 招纳网安专家 Halvar Flake（467 赞）。Garry Tan 怒批加州 Prop 40 资产征收税（**1140 赞**）。Rauchg 宣布 Vercel 流量里程碑（**398 赞**）+ DeepSeek v4 Gateway 省 90%（**238 赞**）。Josh Woodward 的 Notebook 统一提示框（**341 赞**）。Zara 论技术采纳心理学（90 赞）+ agent 入群聊天比培训有效（44 赞）+ 会议即工作（74 赞）。Dan Shipper 论 agency rupture 愈后的英雄效应（70 赞）。Nikunj 的隐私咖啡店（**221 赞**）。Matt Turck 的 SaaS 出口心声（117 赞）。Madhu Guru 的原型到开源工具流（**40 赞**）。播客是新的：Training Data 采访 Chai Discovery 联合创始人——论「药物设计是另一个规模问题」。"
+  },
+  "archive": {
+    "title": "乐观主义宣言与药物设计日报",
+    "desc": "Altman 乐观主义宣言（10148 赞），Sottiaux 招纳网安专家（467 赞），Garry Tan 怒批加州 Prop 40（1140 赞），Chai Discovery 论药物设计规模化。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-06 source feeds.",
+  "sections": [
+    {
+      "title": "Altman's Optimism & Sottiaux's Cyber Hire / Altman 的乐观主义与 Sottiaux 的网安招招",
+      "desc": "Altman 乐观主义宣言（**10148 赞**）；Sottiaux 招纳 Halvar Flake（467 赞）+ 开放式问题（**1464 赞**）。",
+      "cards": [
+        {
+          "authorKey": "sama+thsottiaux",
+          "authorName": "Altman / Sottiaux",
+          "authorTag": "OpenAI CEO / Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "Altman's optimism manifesto (10148 likes): 'I would rather be an optimist and work hard than a pessimist posting about why things won't work. It's much more difficult and the most likely path is failure, but society fails if people don't try. No amount of \"it will never work\" essays will drive society forward.' Sottiaux's cyber hire (467 likes): 'Better Cyber. Excited to welcome Halvar Flake to the team soon.' Plus his open-ended question post (1464 likes): 'What is my title at OpenAI' — driving massive engagement."
+            ],
+            "original": [
+              "Sam Altman: i would rather be an optimist and work hard than a pessimist posting about why things won't work. No amount of \"it will never work\" essays will drive society forward.",
+              "Thibault Sottiaux: Better Cyber. Excited to welcome Halvar Flake to the team soon.",
+              "Thibault Sottiaux: What is my title at OpenAI"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 的乐观主义宣言（10148 赞）：宁可做乐观者努力工作，也不做悲观者发文说为什么不行。这更难，最可能的结果是失败，但如果没人尝试，社会就会失败。再多「这永远不会成功」的文章也无法推动社会前进。Sottiaux 的网安招拟（467 赞）：更强的网络安全。很高兴迎接 Halvar Flake 即将加入团队。加上他的开放式问题（1464 赞）：我在 OpenAI 的职位是什么？——引发大量互动。"
+            ],
+            "original": [
+              "Sam Altman：宁可做乐观者努力工作，也不做悲观者发文。社会需要尝试的人。",
+              "Thibault Sottiaux：更强的网络安全。迎接 Halvar Flake 加入。",
+              "Thibault Sottiaux：我在 OpenAI 的职位是什么？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Vercel Milestone, DeepSeek Savings & Notebook's Unified Prompt / Vercel 里程碑、DeepSeek 节省与 Notebook 统一提示",
+      "desc": "Rauchg 宣布 Vercel 流量里程碑（**398 赞**）+ DeepSeek v4 省 90%（**238 赞**）+ Vercel for backends（188 赞）；Josh Woodward 的 Notebook（**341 赞**）；Levie 论企业 AI 部署多样性（145 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+joshwoodward+levie",
+          "authorName": "Rauchg / Josh Woodward / Levie",
+          "authorTag": "Vercel CEO / Notebook / Box CEO",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's Vercel milestone (398 likes): a cryptic post showing massive numbers. Plus DeepSeek v4 savings (238 likes): '1 line of code in @aisdk saves you 90% or more in DeepSeek v4 Flash AI Gateway tokens.' Plus (188 likes): 'Vercel is the Vercel for backends.' Josh Woodward's Notebook launch (341 likes): 'Notebook is built for thinking, not toggling. While others add more modes, Notebook keeps everything in a single, unified prompt bar and just does the things you want.'",
+              "Levie on enterprise AI diversity (145 likes): 'Unlike the early innings of cloud where there were really only a couple deployment patterns available, AI has a much wider array of implementation strategies. Every company is doing something meaningfully different.'"
+            ],
+            "original": [
+              "Guillermo Rauch: 1 line of code in @aisdk saves you 90% or more in DeepSeek v4 Flash AI Gateway tokens.",
+              "Guillermo Rauch: Vercel is the Vercel for backends.",
+              "Josh Woodward: Notebook is built for thinking, not toggling. Single, unified prompt bar.",
+              "Aaron Levie: AI has a much wider array of implementation strategies. Every company is doing something meaningfully different."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的 Vercel 里程碑（398 赞）：一个展示巨大数字的帖子。加上 DeepSeek v4 节省（238 赞）：在 @aisdk 中一行代码就能省 90% 以上的 DeepSeek v4 Flash AI Gateway token 消耗。加上（188 赞）：Vercel 就是后端的 Vercel。Josh Woodward 的 Notebook 发布（341 赞）：Notebook 为思考而生，不是为切换而生。其他人在加更多模式，Notebook 保持一切在一个统一的提示框中，只做你想做的事。",
+              "Levie 论企业 AI 部署多样性（145 赞）：与云计算早期只有几种部署模式不同，AI 有更广泛的实施策略。每家公司都在做有意义上不同的事。"
+            ],
+            "original": [
+              "Guillermo Rauch：一行代码省 90% DeepSeek v4 token。",
+              "Guillermo Rauch：Vercel 就是后端的 Vercel。",
+              "Josh Woodward：Notebook 为思考而生。统一提示框。",
+              "Aaron Levie：AI 部署策略多样。每家公司都不同。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Tech Adoption Psychology, Builder Wisdom & SF Vibes / 技术采纳心理、构建者智慧与旧金山风貌",
+      "desc": "Zara 论采纳心理（90 赞）+ agent 入群聊天（44 赞）+ 会议即工作（74 赞）；Dan Shipper 论 agency rupture 愈后（70 赞）；Nikunj 隐私咖啡店（**221 赞**）；Matt Turck 的 SaaS 出口心声（117 赞）；Garry Tan 怒批 Prop 40（**1140 赞**）。",
+      "cards": [
+        {
+          "authorKey": "zarazhangrui+danshipper+nikunj+mattturck+garrytan",
+          "authorName": "Zara / Dan Shipper / Nikunj / Matt Turck / Garry Tan",
+          "authorTag": "Builder / Every CEO / FPV Ventures / FirstMark / YC CEO",
+          "sourceUrl": "https://x.com/zarazhangrui",
+          "en": {
+            "rewrite": [
+              "Zara on tech adoption psychology (90 likes): 'Most people will not adopt a new technology just because it makes them more efficient. They'll adopt because someone similar to them adopted it and got positive results.' Plus her AI training tip (44 likes): 'The best AI training isn't a course. It's pulling an agent into your team's group chat and letting people watch it work.' Plus her meeting efficiency post (74 likes): 'An efficient meeting has no to-do list left behind, because all actions are done DURING the meeting.'",
+              "Dan Shipper on agency rupture aftermath (70 likes): 'Once the agency rupture heals and the AI goes back to being invisible, we'll think only about the humans and what they've done. AI use will be assumed and unimportant.' Nikunj's discrete meetup spot (221 likes). Matt Turck's SaaS exit reality (117 likes): 'Everyone on X: damn, Airtable sold for so low! Many SaaS founders, secretly: damn, I'd take that any day.' Garry Tan on Prop 40 (1140 likes): 'It's insane that the CA Dem Party is endorsing Prop 40, the asset seizure tax that will destroy the California tax base.' Plus his housing post (241 likes)."
+            ],
+            "original": [
+              "Zara Zhang: Most people will not adopt a new technology just because it makes them more efficient.",
+              "Zara Zhang: The best AI training isn't a course. It's pulling an agent into your team's group chat.",
+              "Dan Shipper: once the agency rupture heals and the AI goes back to being invisible, we'll think only about the humans.",
+              "Matt Turck: Everyone on X: damn, Airtable sold for so low! Many SaaS founders, secretly: damn, I'd take that any day.",
+              "Garry Tan: It's insane that the CA Dem Party is endorsing Prop 40, the asset seizure tax."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara 论技术采纳心理（90 赞）：大多数人不会仅仅因为效率提升就采纳新技术。他们采纳是因为跟他们类似的人采纳了，而且获得了正面结果。加上她的 AI 培训技巧（44 赞）：最好的 AI 培训不是课程。是把 agent 拉进团队群聊，让大家看它工作。加上会议效率（74 赞）：高效的会议不留待办列表，因为所有行动都在会议期间完成了。",
+              "Dan Shipper 论 agency rupture 愈后（70 赞）：一旦主体断裂愈合，AI 回到不可见的状态，我们只会想到人类和他们做了什么。AI 的使用将成为默认和不重要的。Nikunj 的隐私咖啡店（221 赞）。Matt Turck 的 SaaS 出口心声（117 赞）：所有人在 X 上：Airtable 卖得太低了！很多 SaaS 创始人秘密地：我随时可以接受这个结果，至少他们有个出口。Garry Tan 怒批 Prop 40（1140 赞）：加州民主党背书 Prop 40 资产征收税简直疯了。这将摧毁加州税基。"
+            ],
+            "original": [
+              "Zara Zhang：人们因为别人采纳而采纳，不是因为效率。",
+              "Zara Zhang：最好的 AI 培训是把 agent 拉进群聊。",
+              "Dan Shipper：agency rupture 愈合后，我们只关注人类。AI 使用成为默认。",
+              "Matt Turck：很多 SaaS 创始人秘密想要那个出口。",
+              "Garry Tan：Prop 40 将摧毁加州税基。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Chai Discovery — Drug Design as Scaling Problem / 播客：Chai Discovery——药物设计作为规模问题",
+      "desc": "Training Data 采访 Chai Discovery 联合创始人 Josh Alman 和 Matt Cagle。完整 transcript（62853 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:td-chai",
+          "authorName": "Training Data (Sonya Huang)",
+          "authorTag": "Josh Alman & Matt Cagle（Chai Discovery 联合创始人）",
+          "sourceUrl": "https://www.youtube.com/watch?v=wv53mDmY-k0",
+          "en": {
+            "rewrite": [
+              "Training Data: Sonya Huang interviews Chai Discovery co-founders Josh Alman (ex-OpenAI early team) and Matt Cagle (math/CS background turned protein structure researcher). Chai is engineering drug molecules with AI, treating biology as a scaling problem. Key topics: from 0.1% antibody binding rate to 15% with Chai-2 model, the bitter lesson applied to biology (simplicity + scale > bespoke modules), why diffusion models unlocked protein generation, building models from scratch (not fine-tuning LLMs), the 23-submodule problem in Chai-1 and how simplification drives scaling laws, and why drug discovery should become drug design."
+            ],
+            "original": [
+              "Josh Alman: We really focused in on how do we just make this process more accurate? We got to about a fifteen percent success rate.",
+              "Matt Cagle: We're a very bitter lesson built company. We really believe in scaling data, scaling models, scaling compute.",
+              "Josh Alman: Biology is much simpler and the problems are much more interconnected than one might think. These are all just sequences of amino acids.",
+              "Matt Cagle: In order to drive loss down further, the model should just have to learn these hidden features. With better models, we should be able to unlock a lot of these targets."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Training Data：Sonya Huang 采访 Chai Discovery 联合创始人 Josh Alman（前 OpenAI 早期团队）和 Matt Cagle（数学/计算机背景转蛋白质结构研究）。Chai 用 AI 工程化药物分子，将生物学视为规模问题。核心话题：从 0.1% 的抗体结合率到 Chai-2 的 15%、苦涩教训应用于生物学（简单 + 规模 > 定制模块）、扩散模型如何解锁蛋白质生成、从头构建模型（非微调 LLM）、Chai-1 的 23 个子模块问题以及简化如何驱动规模定律、为什么药物发现应该变成药物设计。"
+            ],
+            "original": [
+              "【从发现到设计】",
+              "Josh Alman：我们希望将药物发现过程看起来更像工程。从筛选数百万分子寻找针，变为输入梦想分子的参数，让模型生成它。",
+              "「这不是减少实验室测试。可能反而会做更多实验室测试，因为 ROI 增加了——就像软件工程师更高效后需求更大。」",
+              "",
+              "【成功率跳跃】",
+              "Alman：创业时抗体设计的最先进水平是 0.1%——千分之一的分子会结合。",
+              "「我们原本预算 1% 的命中率需要 3-4 年。但 Chai-2 达到了 15%——筛选 1000 个分子能拿回 150 个。」",
+              "",
+              "【苦涩教训与简单性】",
+              "Matt Cagle：我们是一家苦涩教训型公司。我们坚信规模化数据、模型和计算。",
+              "「Chai-1 有 23 个不同的子模块。当你尝试迭代时，很难理解每个子模块的独立行为。这不能很好地规模化。」",
+              "「所以我们问：如何简化？如何识别什么才是真正重要的？一旦有了这个，整个研究过程和识别规模化方向就变得简单得多。」",
+              "",
+              "【扩散模型的突破】",
+              "Cagle：生成合理蛋白质的第一次突破是扩散模型的出现。",
+              "「扩散给了模型更多的时间去思考。你可以把蛋白质一点点弄乱，然后教模型快捷的小技巧来修复。这种渐进改善的方式在生物学中效果极佳。」",
+              "",
+              "【从头构建而非微调】",
+              "Alman：我们的模型完全从头构建。我们不是在微调 GLM 或其他什么。",
+              "「生物学看起来很复杂，但本质上就是氨基酸序列。抗体、小蛋白、迷你蛋白——这些都只是模型的不同提示词。」",
+              "",
+              "【规模定律与未来展望】",
+              "Cagle：如果你真正相信规模定律，就相信模型会学会那些隐藏特征。损失下降得足够低，模型就必须理解目标的某些内在属性。",
+              "「更好的模型应该能解锁很多现在无法药物化的目标。」",
+              "Alman：我们惊讶于这个进展有多快。原本预算 3-4 年才能达到的水平，结果很快就实现了。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
