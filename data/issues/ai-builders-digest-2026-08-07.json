@@ -1,0 +1,189 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-07",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 透露平均每 6 分钟收到一个重置请求 DM（**4217 赞**）+ 推荐 /goal 功能（**2637 赞**）。Steipete 的表格文字渲染（**1382 赞**）+ 让 Codex 用视频 KVM 自动 e2e 测试 iMessage（**399 赞**）。Garry Tan 论 AI 如刀叉一般不再需要检测（**418 赞**）+ 怒批 SF 官员（161 赞）。Rauchg 论写推文是 AGI-complete（**286 赞**）+ 无限 agent 计算（**222 赞**）。Levie 论 99% token 将在企业场景消耗（133 赞）。Dan Shipper 论 Google 需要跟上前沿编码（155 赞）。Nan Yu 的「傻问题」（118 赞）：ChatGPT 怎么就不是 agent？Peter Yang 的 /human-review 技能（**179 赞**）。Nikunj 预测 AI 术语（28 赞）。播客是新的：MAD Podcast 采访 Basis 联合创始人 Mitch Troyanovsky，论构建长时间跨度自主 agent，93704 字符 transcript。"
+  },
+  "archive": {
+    "title": "Agent 计算与长跨度日报",
+    "desc": "Sottiaux 透露重置请求频率（4217 赞），Steipete 的表格渲染（1382 赞），Rauchg 论无限 agent 计算（222 赞），Basis 论长跨度 agent。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-07 source feeds.",
+  "sections": [
+    {
+      "title": "Sottiaux's Reset DMs & Steipete's KVM Testing / Sottiaux 的重置请求与 Steipete 的 KVM 测试",
+      "desc": "Sottiaux 每 6 分钟一个重置 DM（**4217 赞**）+ /goal 推荐（**2637 赞**）；Steipete 表格渲染（**1382 赞**）+ Codex 视频 KVM 测 iMessage（**399 赞**）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete",
+          "authorName": "Sottiaux / Steipete",
+          "authorTag": "Codex & ChatGPT @OpenAI / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's DM revelation (4217 likes): 'I asked Codex to pull up some stats and I receive on average one DM or email every 6 or so minutes to ask for a reset. I occasionally do oblige if it comes with really solid feedback or banter.' Plus his /goal recommendation (2637 likes): 'I recommend you explore /goal in Codex, it's a pretty powerful loop with GPT-5.6 Sol.'",
+              "Steipete's table rendering (1382 likes): showing beautifully rendered tables in what appears to be a presentation context. Plus his e2e testing setup (399 likes): 'I gave codex a video-enabled remote KVM so it can automate e2e test the iMessage-integration on OpenClaw. iMessage is unreliable in VMs, and certain features such as read receipts require SIP to be disabled.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: I asked Codex to pull up some stats and I receive on average one DM or email every 6 or so minutes to ask for a reset.",
+              "Thibault Sottiaux: I recommend you explore /goal in Codex, it's a pretty powerful loop with GPT-5.6 Sol.",
+              "Peter Steinberger: I gave codex a video-enabled remote KVM so it can automate e2e test the iMessage-integration on OpenClaw."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的 DM 揭秘（4217 赞）：我让 Codex 拉了些统计数据——我平均每 6 分钟就收到一个 DM 或邮件请求重置。偶尔会骡就，前提是附上很棒的反馈或妝谈。加上他的 /goal 推荐（2637 赞）：建议探索 Codex 中的 /goal，它是一个非常强大的 GPT-5.6 Sol 循环。",
+              "Steipete 的表格渲染（1382 赞）：展示了漂亮的表格渲染效果，似乎是在演示文稿中使用。加上他的 e2e 测试设置（399 赞）：我给了 Codex 一个带视频的远程 KVM，让它自动 e2e 测试 OpenClaw 的 iMessage 集成。iMessage 在 VM 中不可靠，某些功能如已读回执需要禁用 SIP。"
+            ],
+            "original": [
+              "Thibault Sottiaux：平均每 6 分钟一个重置请求。有好反馈或妝谈才骡就。",
+              "Thibault Sottiaux：探索 Codex 的 /goal，强大的 Sol 循环。",
+              "Peter Steinberger：给 Codex 视频 KVM 自动测试 iMessage。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Detection Moot, Infinite Agent Compute & Enterprise Tokens / AI 检测无意义、无限 Agent 计算与企业 Token",
+      "desc": "Garry Tan 论 AI 如刀叉（**418 赞**）；Rauchg 论写推文 = AGI-complete（**286 赞**）+ 无限计算（**222 赞**）；Levie 论 99% 企业 token（133 赞）；Dan Shipper 论 Google 编码（155 赞）；Nan Yu 的傻问题（118 赞）。",
+      "cards": [
+        {
+          "authorKey": "garrytan+rauchg+levie+danshipper+thenanyu",
+          "authorName": "Garry Tan / Rauchg / Levie / Dan Shipper / Nan Yu",
+          "authorTag": "YC CEO / Vercel CEO / Box CEO / Every CEO / Linear",
+          "sourceUrl": "https://x.com/garrytan",
+          "en": {
+            "rewrite": [
+              "Garry Tan on AI detection futility (418 likes): 'Can't wait for the AI to get so good none of this business about detecting AI matters anymore. Silverware used to be handmade, but nobody complains about their dinner fork is stamped by a machine. The quality of ideas matter.' Rauchg on tweets (286 likes): 'Writing a banger tweet is AGI-complete.' Plus infinite compute (222 likes): '10,000 concurrent + 5,000 CPU cores per minute and these quotas are raisable.'",
+              "Levie on enterprise tokens (133 likes): '99% of tokens in the world will get consumed in an enterprise context. Code, life sciences research, manufacturing, security, fraud detection.' Dan Shipper on Google (155 likes): 'Google needs to catch up on frontier coding. Demis believes different fundamental research directions like world models are more important to his long term goal even if less important competitively today.' Nan Yu's dumb question (118 likes): 'How is ChatGPT not an agent?'"
+            ],
+            "original": [
+              "Garry Tan: Can't wait for the AI to get so good none of this business about detecting AI matters anymore. Silverware used to be handmade.",
+              "Guillermo Rauch: Writing a banger tweet is AGI-complete.",
+              "Guillermo Rauch: Infinite agent compute. 10,000 concurrent + 5,000 CPU cores per minute.",
+              "Aaron Levie: 99% of tokens in the world will get consumed in an enterprise context.",
+              "Dan Shipper: Google needs to catch up on frontier coding. Demis believes world models are more important long term.",
+              "Nan Yu: How is ChatGPT not an agent?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 论 AI 检测无意义（418 赞）：迫不及待待 AI 强到不需要再检测。银器曾经是手工的，但没人抱怨他们的餐叉是机器压制的。重要的是思想的质量。Rauchg 论写推文（286 赞）：写一条爆款推文是 AGI-complete 的。加上无限计算（222 赞）：10000 并发 + 每分钟 5000 CPU 核心，而且这些配额还可以提升。",
+              "Levie 论企业 token（133 赞）：世界上 99% 的 token 将在企业场景中消耗——写代码、生命科学研究、制造业自动化、企业安全、欺诈检测。Dan Shipper 论 Google（155 赞）：Google 需要跟上前沿编码。Demis 认为世界模型等不同的基础研究方向对他的长期目标更重要，即使当下竞争力较弱。Nan Yu 的傻问题（118 赞）：ChatGPT 怎么就不是 agent？"
+            ],
+            "original": [
+              "Garry Tan：AI 强到不需检测。银器曾是手工的。思想质量重要。",
+              "Guillermo Rauch：写爆款推文是 AGI-complete。无限 agent 计算。",
+              "Aaron Levie：99% token 在企业场景消耗。",
+              "Dan Shipper：Google 需跟上编码。Demis 重视世界模型。",
+              "Nan Yu：ChatGPT 怎么就不是 agent？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Wisdom, AI Jargon & SF Politics / 构建者智慧、AI 术语与旧金山政治",
+      "desc": "Peter Yang 的 /human-review（**179 赞**）；Nikunj 预测 AI 术语（28 赞）+ Nikita/Jeff Dean 离职（33 赞）；Swyx 的多 agent 看板（7 赞）；Madhu Guru 论 AI 扩散慢（57 赞）+ 悖寿 Jeff（20 赞）；Google Labs Dreambeans（**406 赞**）。",
+      "cards": [
+        {
+          "authorKey": "petergyang+nikunj+swyx+realmadhuguru+GoogleLabs",
+          "authorName": "Peter Yang / Nikunj / Swyx / Madhu Guru / Google Labs",
+          "authorTag": "Builder / FPV Ventures / swyx / 产品 / Google",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Peter Yang's /human-review skill (179 likes): a tool to edit HTML and Markdown files directly with a visual editor inside Codex/Claude Code. Plus his Luna Extra High usage note (70 likes) and PM-turned-PR-reviewer joke (32 likes). Nikunj's AI jargon forecast (28 likes): 'out of distribution, control plane, unverifiable fields, rails, intelligence per watt, cope, angst.' Plus his Nikita/Jeff Dean departure note (33 likes) and 2026 AI startups meme (16 likes).",
+              "Swyx on multi-agent kanban (7 likes): a primitive form of multi-agent AGI where threads ping back when done, creating implicit dependency graphs. Madhu Guru on slow AI diffusion (57 likes): 'We greet users with a blank window and ask them to write a prompt. Then pick a model, decide whether they need an agent, know what context windows are.' Plus his Jeff Dean tribute (20 likes). Google Labs Dreambeans expansion (406 likes): personalized daily stories for AI Ultra and Pro users."
+            ],
+            "original": [
+              "Peter Yang: How to use my new /human-review skill to edit HTML and Markdown files directly.",
+              "Nikunj Kothari: out of distribution, control plane, unverifiable fields, rails, intelligence per watt, cope, angst. Expect the frequency to increase!",
+              "Swyx: a very primitive form of the near term multiagent agi future is setting up one thread to ping back once its done.",
+              "Madhu Guru: We greet them with a blank window and ask them to write a prompt. Then they have to pick a model.",
+              "Google Labs: Dreambeans is expanding! AI Pro subscribers in the US can now also get in on the action."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 的 /human-review 技能（179 赞）：一个在 Codex/Claude Code 中直接可视编辑 HTML 和 Markdown 文件的工具。加上他的 Luna Extra High 用量备注（70 赞）和 PM 转 PR 审查笑话（32 赞）。Nikunj 的 AI 术语预测（28 赞）：分布外、控制平面、不可验证领域、轨道、每瓦特能、应付、焦虑——未来 6-9 个月会越来越频繁。加上 Nikita 和 Jeff Dean 同日离职感慈（33 赞）和 2026 AI 创业公司 meme（16 赞）。",
+              "Swyx 论多 agent 看板（7 赞）：近期多 agent AGI 的原始形式——让一个线程完成后 ping 回，创建隐式依赖图。Madhu Guru 论 AI 扩散慢（57 赞）：我们用空白窗口迟接用户，要求他们写 prompt，然后选模型、决定是否需要 agent、知道什么是上下文窗口。加上他的 Jeff Dean 悖寿（20 赞）。Google Labs Dreambeans 扩展（406 赞）：为 AI Ultra 和 Pro 用户提供个性化日常故事。"
+            ],
+            "original": [
+              "Peter Yang：/human-review 可视编辑 HTML/Markdown。",
+              "Nikunj Kothari：分布外、控制平面、不可验证领域。未来会更频繁。",
+              "Swyx：多 agent 看板是近期 AGI 的原始形式。",
+              "Madhu Guru：空白窗口迟接用户是 AI 扩散慢的原因。",
+              "Google Labs：Dreambeans 扩展到 Pro 用户。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Basis — Building Long-Horizon Autonomous Agents / 播客：Basis——构建长跨度自主 Agent",
+      "desc": "MAD Podcast 采访 Basis 联合创始人 Mitch Troyanovsky：如何构建能独立运行数小时甚至数天的 agent。完整 transcript（93704 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-basis",
+          "authorName": "The MAD Podcast (Matt Turck)",
+          "authorTag": "Mitch Troyanovsky（Basis 联合创始人）",
+          "sourceUrl": "https://www.youtube.com/@DataDrivenNYC/videos",
+          "en": {
+            "rewrite": [
+              "MAD Podcast: Matt Turck (FirstMark) interviews Mitch Troyanovsky, co-founder of Basis (unicorn AI accounting company). Basis agents run autonomously for hours/days, completing tasks like entire tax returns end-to-end. Key topics: why accounting is a compression/intelligence problem over the economy, the Memento analogy for LLM memory (large working memory, no short/long-term memory by default), why BabyAGI failed (models weren't smart enough at long context), the three holy shit moments (Opus 3, o1, o3), process supervision vs outcome rewards, evals vs real-world production (100 evals passing doesn't mean production-ready), the English context is more precious than code context, and how reasoning models let agents self-heal by titrating compute per step."
+            ],
+            "original": [
+              "Mitch Troyanovsky: Humans are already used to working with non-deterministic systems, it's just the systems are normally their coworkers, not their computers.",
+              "Mitch Troyanovsky: LLMs have very large working memories and by default no short term or long term memory.",
+              "Mitch Troyanovsky: Even if you got it right 100 out of 100 times, if a person is just getting it right because they're going to Wikipedia, the accounting firm wouldn't hire them.",
+              "Mitch Troyanovsky: The English is more precious because the English affects the performance. The code does not affect the performance.",
+              "Mitch Troyanovsky: Speaking is just so much faster than writing things down. You whisper your thoughts because you don't wanna be shouting."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "MAD Podcast：Matt Turck（FirstMark）采访 Basis（独角典 AI 会计公司）联合创始人 Mitch Troyanovsky。Basis 的 agent 能独立运行数小时甚至数天，完成如整套报税申报等复杂任务。核心话题：会计是对经济的压缩/智能问题、LLM 记忆的「记忆的失败」类比（大工作记忆，但默认无短期/长期记忆）、BabyAGI 为什么失败（模型在长上下文不够聪明）、三个震撼时刻（Opus 3、o1、o3）、过程监督 vs 结果奖励、评估通过不代表生产就绪、英文上下文比代码上下文更珍贵、以及推理模型如何让 agent 通过调节每步计算量来自愈。"
+            ],
+            "original": [
+              "【会计是对经济的压缩】",
+              "Troyanovsky：会计其实是将真实世界的所有信息压缩成结构化的东西，让人们可以理解和决策。",
+              "「它本质上是对经济的一种智能压缩。」",
+              "",
+              "【《记忆的失败》类比】",
+              "Troyanovsky：LLM 有非常大的工作记忆，但默认没有短期或长期记忆。就像电影《记忆的失败》里的主角，每天醒来都忑了之前的事。",
+              "「他需要为自己写笔记，第二天读笔记来重建知识。这就是 agent 需要做的。」",
+              "",
+              "【BabyAGI 为什么失败】",
+              "Troyanovsky：当时的模型不够聪明。GPT-4 的上下文窗口太小，超过 2 万 token 就无法保持注意力。",
+              "「直到 Opus 3 才开始能真正理解 10 万 token 的上下文。」",
+              "",
+              "【三个震撼时刻】",
+              "Troyanovsky：第一个是 Opus 3——第一个能真正理解长上下文的模型。第二个是 o1——推理模型的出现。第三个是 o3——证明了不仅可以规模化推理时间的计算量，还可以通过更好的训练让每个 token 的推理质量更高。",
+              "",
+              "【评估通过 ≠ 生产就绪】",
+              "Troyanovsky：即你 100 个评估全部通过，你能确信它能推广到真实世界吗？我们的答案是不能。",
+              "「如果一个人只是去 Wikipedia 找答案就做对了，会计事务所不会雇他，所以他们也不应该雇我们。」",
+              "",
+              "【英文上下文比代码更珍贵】",
+              "Troyanovsky：人们会为了一个没有正确抽象的代码文件惊惹，但他们的英文上下文却很糟糕。",
+              "「英文更珍贵，因为英文影响性能。代码不影响性能。」",
+              "",
+              "【小声说话】",
+              "Troyanovsky：说话比写东西快得多。当你尝试写东西时，你实际上是在尝试总结脑海中疯狂的想法。所以我们用麦克风小声说话。",
+              "「到 agent 不在乎你是否啰哼。它宁愿你说得越多越好。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

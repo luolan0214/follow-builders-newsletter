@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-07" data-issue-number="81" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 81 期｜2026-08-07｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Sottiaux 透露平均每 6 分钟收到一个重置请求 DM（**4217 赞**）+ 推荐 /goal 功能（**2637 赞**）。Steipete 的表格文字渲染（**1382 赞**）+ 让 Codex 用视频 KVM 自动 e2e 测试 iMessage（**399 赞**）。Garry Tan 论 AI 如刀叉一般不再需要检测（**418 赞**）+ 怒批 SF 官员（161 赞）。Rauchg 论写推文是 AGI-complete（**286 赞**）+ 无限 agent 计算（**222 赞**）。Levie 论 99% token 将在企业场景消耗（133 赞）。Dan Shipper 论 Google 需要跟上前沿编码（155 赞）。Nan Yu 的「傻问题」（118 赞）：ChatGPT 怎么就不是 agent？Peter Yang 的 /human-review 技能（**179 赞**）。Nikunj 预测 AI 术语（28 赞）。播客是新的：MAD Podcast 采访 Basis 联合创始人 Mitch Troyanovsky，论构建长时间跨度自主 agent，93704 字符 transcript。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 透露平均每 6 分钟收到一个重置请求 DM（**4217 赞**）+ 推荐 /goal 功能（**2637 赞**）。Steipete 的表格文字渲染（**1382 赞**）+ 让 Codex 用视频 KVM 自动 e2e 测试 iMessage（**399 赞**）。Garry Tan 论 AI 如刀叉一般不再需要检测（**418 赞**）+ 怒批 SF 官员（161 赞）。Rauchg 论写推文是 AGI-complete（**286 赞**）+ 无限 agent 计算（**222 赞**）。Levie 论 99% token 将在企业场景消耗（133 赞）。Dan Shipper 论 Google 需要跟上前沿编码（155 赞）。Nan Yu 的「傻问题」（118 赞）：ChatGPT 怎么就不是 agent？Peter Yang 的 /human-review 技能（**179 赞**）。Nikunj 预测 AI 术语（28 赞）。播客是新的：MAD Podcast 采访 Basis 联合创始人 Mitch Troyanovsky，论构建长时间跨度自主 agent，93704 字符 transcript。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Sottiaux&#39;s Reset DMs &amp; Steipete&#39;s KVM Testing / Sottiaux 的重置请求与 Steipete 的 KVM 测试</h2>
+    <p class="section-desc">Sottiaux 每 6 分钟一个重置 DM（**4217 赞**）+ /goal 推荐（**2637 赞**）；Steipete 表格渲染（**1382 赞**）+ Codex 视频 KVM 测 iMessage（**399 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+steipete" data-author-name="Sottiaux / Steipete" data-author-tag="Codex &amp; ChatGPT @OpenAI / OpenClaw" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Steipete avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Steipete</div>
+            <div class="author-tag is-inline">Codex &amp; ChatGPT @OpenAI / OpenClaw</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的 DM 揭秘（4217 赞）：我让 Codex 拉了些统计数据——我平均每 6 分钟就收到一个 DM 或邮件请求重置。偶尔会骡就，前提是附上很棒的反馈或妝谈。加上他的 /goal 推荐（2637 赞）：建议探索 Codex 中的 /goal，它是一个非常强大的 GPT-5.6 Sol 循环。</p>
+              <p>Steipete 的表格渲染（1382 赞）：展示了漂亮的表格渲染效果，似乎是在演示文稿中使用。加上他的 e2e 测试设置（399 赞）：我给了 Codex 一个带视频的远程 KVM，让它自动 e2e 测试 OpenClaw 的 iMessage 集成。iMessage 在 VM 中不可靠，某些功能如已读回执需要禁用 SIP。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：平均每 6 分钟一个重置请求。有好反馈或妝谈才骡就。</p>
+              <p>Thibault Sottiaux：探索 Codex 的 /goal，强大的 Sol 循环。</p>
+              <p>Peter Steinberger：给 Codex 视频 KVM 自动测试 iMessage。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s DM revelation (4217 likes): &#39;I asked Codex to pull up some stats and I receive on average one DM or email every 6 or so minutes to ask for a reset. I occasionally do oblige if it comes with really solid feedback or banter.&#39; Plus his /goal recommendation (2637 likes): &#39;I recommend you explore /goal in Codex, it&#39;s a pretty powerful loop with GPT-5.6 Sol.&#39;</p>
+              <p>Steipete&#39;s table rendering (1382 likes): showing beautifully rendered tables in what appears to be a presentation context. Plus his e2e testing setup (399 likes): &#39;I gave codex a video-enabled remote KVM so it can automate e2e test the iMessage-integration on OpenClaw. iMessage is unreliable in VMs, and certain features such as read receipts require SIP to be disabled.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: I asked Codex to pull up some stats and I receive on average one DM or email every 6 or so minutes to ask for a reset.</p>
+              <p>Thibault Sottiaux: I recommend you explore /goal in Codex, it&#39;s a pretty powerful loop with GPT-5.6 Sol.</p>
+              <p>Peter Steinberger: I gave codex a video-enabled remote KVM so it can automate e2e test the iMessage-integration on OpenClaw.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">AI Detection Moot, Infinite Agent Compute &amp; Enterprise Tokens / AI 检测无意义、无限 Agent 计算与企业 Token</h2>
+    <p class="section-desc">Garry Tan 论 AI 如刀叉（**418 赞**）；Rauchg 论写推文 = AGI-complete（**286 赞**）+ 无限计算（**222 赞**）；Levie 论 99% 企业 token（133 赞）；Dan Shipper 论 Google 编码（155 赞）；Nan Yu 的傻问题（118 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+rauchg+levie+danshipper+thenanyu" data-author-name="Garry Tan / Rauchg / Levie / Dan Shipper / Nan Yu" data-author-tag="YC CEO / Vercel CEO / Box CEO / Every CEO / Linear" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Rauchg / Levie / Dan Shipper / Nan Yu avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Rauchg / Levie / Dan Shipper / Nan Yu</div>
+            <div class="author-tag is-inline">YC CEO / Vercel CEO / Box CEO / Every CEO / Linear</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 论 AI 检测无意义（418 赞）：迫不及待待 AI 强到不需要再检测。银器曾经是手工的，但没人抱怨他们的餐叉是机器压制的。重要的是思想的质量。Rauchg 论写推文（286 赞）：写一条爆款推文是 AGI-complete 的。加上无限计算（222 赞）：10000 并发 + 每分钟 5000 CPU 核心，而且这些配额还可以提升。</p>
+              <p>Levie 论企业 token（133 赞）：世界上 99% 的 token 将在企业场景中消耗——写代码、生命科学研究、制造业自动化、企业安全、欺诈检测。Dan Shipper 论 Google（155 赞）：Google 需要跟上前沿编码。Demis 认为世界模型等不同的基础研究方向对他的长期目标更重要，即使当下竞争力较弱。Nan Yu 的傻问题（118 赞）：ChatGPT 怎么就不是 agent？</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：AI 强到不需检测。银器曾是手工的。思想质量重要。</p>
+              <p>Guillermo Rauch：写爆款推文是 AGI-complete。无限 agent 计算。</p>
+              <p>Aaron Levie：99% token 在企业场景消耗。</p>
+              <p>Dan Shipper：Google 需跟上编码。Demis 重视世界模型。</p>
+              <p>Nan Yu：ChatGPT 怎么就不是 agent？</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan on AI detection futility (418 likes): &#39;Can&#39;t wait for the AI to get so good none of this business about detecting AI matters anymore. Silverware used to be handmade, but nobody complains about their dinner fork is stamped by a machine. The quality of ideas matter.&#39; Rauchg on tweets (286 likes): &#39;Writing a banger tweet is AGI-complete.&#39; Plus infinite compute (222 likes): &#39;10,000 concurrent + 5,000 CPU cores per minute and these quotas are raisable.&#39;</p>
+              <p>Levie on enterprise tokens (133 likes): &#39;99% of tokens in the world will get consumed in an enterprise context. Code, life sciences research, manufacturing, security, fraud detection.&#39; Dan Shipper on Google (155 likes): &#39;Google needs to catch up on frontier coding. Demis believes different fundamental research directions like world models are more important to his long term goal even if less important competitively today.&#39; Nan Yu&#39;s dumb question (118 likes): &#39;How is ChatGPT not an agent?&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: Can&#39;t wait for the AI to get so good none of this business about detecting AI matters anymore. Silverware used to be handmade.</p>
+              <p>Guillermo Rauch: Writing a banger tweet is AGI-complete.</p>
+              <p>Guillermo Rauch: Infinite agent compute. 10,000 concurrent + 5,000 CPU cores per minute.</p>
+              <p>Aaron Levie: 99% of tokens in the world will get consumed in an enterprise context.</p>
+              <p>Dan Shipper: Google needs to catch up on frontier coding. Demis believes world models are more important long term.</p>
+              <p>Nan Yu: How is ChatGPT not an agent?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Builder Wisdom, AI Jargon &amp; SF Politics / 构建者智慧、AI 术语与旧金山政治</h2>
+    <p class="section-desc">Peter Yang 的 /human-review（**179 赞**）；Nikunj 预测 AI 术语（28 赞）+ Nikita/Jeff Dean 离职（33 赞）；Swyx 的多 agent 看板（7 赞）；Madhu Guru 论 AI 扩散慢（57 赞）+ 悖寿 Jeff（20 赞）；Google Labs Dreambeans（**406 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="petergyang+nikunj+swyx+realmadhuguru+GoogleLabs" data-author-name="Peter Yang / Nikunj / Swyx / Madhu Guru / Google Labs" data-author-tag="Builder / FPV Ventures / swyx / 产品 / Google" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Peter Yang / Nikunj / Swyx / Madhu Guru / Google Labs avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang / Nikunj / Swyx / Madhu Guru / Google Labs</div>
+            <div class="author-tag is-inline">Builder / FPV Ventures / swyx / 产品 / Google</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 的 /human-review 技能（179 赞）：一个在 Codex/Claude Code 中直接可视编辑 HTML 和 Markdown 文件的工具。加上他的 Luna Extra High 用量备注（70 赞）和 PM 转 PR 审查笑话（32 赞）。Nikunj 的 AI 术语预测（28 赞）：分布外、控制平面、不可验证领域、轨道、每瓦特能、应付、焦虑——未来 6-9 个月会越来越频繁。加上 Nikita 和 Jeff Dean 同日离职感慈（33 赞）和 2026 AI 创业公司 meme（16 赞）。</p>
+              <p>Swyx 论多 agent 看板（7 赞）：近期多 agent AGI 的原始形式——让一个线程完成后 ping 回，创建隐式依赖图。Madhu Guru 论 AI 扩散慢（57 赞）：我们用空白窗口迟接用户，要求他们写 prompt，然后选模型、决定是否需要 agent、知道什么是上下文窗口。加上他的 Jeff Dean 悖寿（20 赞）。Google Labs Dreambeans 扩展（406 赞）：为 AI Ultra 和 Pro 用户提供个性化日常故事。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：/human-review 可视编辑 HTML/Markdown。</p>
+              <p>Nikunj Kothari：分布外、控制平面、不可验证领域。未来会更频繁。</p>
+              <p>Swyx：多 agent 看板是近期 AGI 的原始形式。</p>
+              <p>Madhu Guru：空白窗口迟接用户是 AI 扩散慢的原因。</p>
+              <p>Google Labs：Dreambeans 扩展到 Pro 用户。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang&#39;s /human-review skill (179 likes): a tool to edit HTML and Markdown files directly with a visual editor inside Codex/Claude Code. Plus his Luna Extra High usage note (70 likes) and PM-turned-PR-reviewer joke (32 likes). Nikunj&#39;s AI jargon forecast (28 likes): &#39;out of distribution, control plane, unverifiable fields, rails, intelligence per watt, cope, angst.&#39; Plus his Nikita/Jeff Dean departure note (33 likes) and 2026 AI startups meme (16 likes).</p>
+              <p>Swyx on multi-agent kanban (7 likes): a primitive form of multi-agent AGI where threads ping back when done, creating implicit dependency graphs. Madhu Guru on slow AI diffusion (57 likes): &#39;We greet users with a blank window and ask them to write a prompt. Then pick a model, decide whether they need an agent, know what context windows are.&#39; Plus his Jeff Dean tribute (20 likes). Google Labs Dreambeans expansion (406 likes): personalized daily stories for AI Ultra and Pro users.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang: How to use my new /human-review skill to edit HTML and Markdown files directly.</p>
+              <p>Nikunj Kothari: out of distribution, control plane, unverifiable fields, rails, intelligence per watt, cope, angst. Expect the frequency to increase!</p>
+              <p>Swyx: a very primitive form of the near term multiagent agi future is setting up one thread to ping back once its done.</p>
+              <p>Madhu Guru: We greet them with a blank window and ask them to write a prompt. Then they have to pick a model.</p>
+              <p>Google Labs: Dreambeans is expanding! AI Pro subscribers in the US can now also get in on the action.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Basis — Building Long-Horizon Autonomous Agents / 播客：Basis——构建长跨度自主 Agent</h2>
+    <p class="section-desc">MAD Podcast 采访 Basis 联合创始人 Mitch Troyanovsky：如何构建能独立运行数小时甚至数天的 agent。完整 transcript（93704 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad-basis" data-author-name="The MAD Podcast (Matt Turck)" data-author-tag="Mitch Troyanovsky（Basis 联合创始人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="The MAD Podcast (Matt Turck) avatar"><span class="avatar-fallback">TM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">The MAD Podcast (Matt Turck)</div>
+            <div class="author-tag is-inline">Mitch Troyanovsky（Basis 联合创始人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast：Matt Turck（FirstMark）采访 Basis（独角典 AI 会计公司）联合创始人 Mitch Troyanovsky。Basis 的 agent 能独立运行数小时甚至数天，完成如整套报税申报等复杂任务。核心话题：会计是对经济的压缩/智能问题、LLM 记忆的「记忆的失败」类比（大工作记忆，但默认无短期/长期记忆）、BabyAGI 为什么失败（模型在长上下文不够聪明）、三个震撼时刻（Opus 3、o1、o3）、过程监督 vs 结果奖励、评估通过不代表生产就绪、英文上下文比代码上下文更珍贵、以及推理模型如何让 agent 通过调节每步计算量来自愈。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【会计是对经济的压缩】</p>
+              <p>Troyanovsky：会计其实是将真实世界的所有信息压缩成结构化的东西，让人们可以理解和决策。</p>
+              <p>「它本质上是对经济的一种智能压缩。」</p>
+              <p></p>
+              <p>【《记忆的失败》类比】</p>
+              <p>Troyanovsky：LLM 有非常大的工作记忆，但默认没有短期或长期记忆。就像电影《记忆的失败》里的主角，每天醒来都忑了之前的事。</p>
+              <p>「他需要为自己写笔记，第二天读笔记来重建知识。这就是 agent 需要做的。」</p>
+              <p></p>
+              <p>【BabyAGI 为什么失败】</p>
+              <p>Troyanovsky：当时的模型不够聪明。GPT-4 的上下文窗口太小，超过 2 万 token 就无法保持注意力。</p>
+              <p>「直到 Opus 3 才开始能真正理解 10 万 token 的上下文。」</p>
+              <p></p>
+              <p>【三个震撼时刻】</p>
+              <p>Troyanovsky：第一个是 Opus 3——第一个能真正理解长上下文的模型。第二个是 o1——推理模型的出现。第三个是 o3——证明了不仅可以规模化推理时间的计算量，还可以通过更好的训练让每个 token 的推理质量更高。</p>
+              <p></p>
+              <p>【评估通过 ≠ 生产就绪】</p>
+              <p>Troyanovsky：即你 100 个评估全部通过，你能确信它能推广到真实世界吗？我们的答案是不能。</p>
+              <p>「如果一个人只是去 Wikipedia 找答案就做对了，会计事务所不会雇他，所以他们也不应该雇我们。」</p>
+              <p></p>
+              <p>【英文上下文比代码更珍贵】</p>
+              <p>Troyanovsky：人们会为了一个没有正确抽象的代码文件惊惹，但他们的英文上下文却很糟糕。</p>
+              <p>「英文更珍贵，因为英文影响性能。代码不影响性能。」</p>
+              <p></p>
+              <p>【小声说话】</p>
+              <p>Troyanovsky：说话比写东西快得多。当你尝试写东西时，你实际上是在尝试总结脑海中疯狂的想法。所以我们用麦克风小声说话。</p>
+              <p>「到 agent 不在乎你是否啰哼。它宁愿你说得越多越好。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast: Matt Turck (FirstMark) interviews Mitch Troyanovsky, co-founder of Basis (unicorn AI accounting company). Basis agents run autonomously for hours/days, completing tasks like entire tax returns end-to-end. Key topics: why accounting is a compression/intelligence problem over the economy, the Memento analogy for LLM memory (large working memory, no short/long-term memory by default), why BabyAGI failed (models weren&#39;t smart enough at long context), the three holy shit moments (Opus 3, o1, o3), process supervision vs outcome rewards, evals vs real-world production (100 evals passing doesn&#39;t mean production-ready), the English context is more precious than code context, and how reasoning models let agents self-heal by titrating compute per step.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Mitch Troyanovsky: Humans are already used to working with non-deterministic systems, it&#39;s just the systems are normally their coworkers, not their computers.</p>
+              <p>Mitch Troyanovsky: LLMs have very large working memories and by default no short term or long term memory.</p>
+              <p>Mitch Troyanovsky: Even if you got it right 100 out of 100 times, if a person is just getting it right because they&#39;re going to Wikipedia, the accounting firm wouldn&#39;t hire them.</p>
+              <p>Mitch Troyanovsky: The English is more precious because the English affects the performance. The code does not affect the performance.</p>
+              <p>Mitch Troyanovsky: Speaking is just so much faster than writing things down. You whisper your thoughts because you don&#39;t wanna be shouting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@DataDrivenNYC/videos" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-07 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-07 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
