@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-10" data-issue-number="84" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 84 期｜2026-08-10｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Sottiaux 发布今日最重磋消息（**14280 赞，周冠全网**）：GPT-5.6 Sol 非常强大，几乎可以在任何场景使用，包括 CC harness。为了庆祝，加上“我哪也不去”——已重置所有 ChatGPT Work 和 Codex 付费用户的使用限制。玩得开心！另回应被 Anthropic 封号的用户（**5204 赞**）：“我很乐意帮忙，但我不在 Anthropic 工作”。Zara Zhang 引论「认知公地悲剧」论文（**5239 赞**）：检查 AI 输出需要深度专业，而专业来自年复一日的苦工，苦工正是 AI 最先吃掉的。Thariq 平台逆向工程（**843 赞**）：Claude 自主逆进 1996 年的任天务关键系统，零源码访问。Levie 论 AI 生产力（**558 赞**）。Garry Tan 引斯坦贝克（**452 赞**）。播客：No Priors，Sarah Guo 与 Elad Gil 论万亿公司、RSI 时间线、token 预算与监管吞噬（46254 字符 transcript）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 发布今日最重磋消息（**14280 赞，周冠全网**）：GPT-5.6 Sol 非常强大，几乎可以在任何场景使用，包括 CC harness。为了庆祝，加上“我哪也不去”——已重置所有 ChatGPT Work 和 Codex 付费用户的使用限制。玩得开心！另回应被 Anthropic 封号的用户（**5204 赞**）：“我很乐意帮忙，但我不在 Anthropic 工作”。Zara Zhang 引论「认知公地悲剧」论文（**5239 赞**）：检查 AI 输出需要深度专业，而专业来自年复一日的苦工，苦工正是 AI 最先吃掉的。Thariq 平台逆向工程（**843 赞**）：Claude 自主逆进 1996 年的任天务关键系统，零源码访问。Levie 论 AI 生产力（**558 赞**）。Garry Tan 引斯坦贝克（**452 赞**）。播客：No Priors，Sarah Guo 与 Elad Gil 论万亿公司、RSI 时间线、token 预算与监管吞噬（46254 字符 transcript）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Sottiaux Resets All Limits &amp; Sol Everywhere / Sottiaux 重置全站限制与 Sol 无处不在</h2>
+    <p class="section-desc">Sottiaux 宣布重置所有付费用户限制（**14280 赞，今日最高**）；回应 Anthropic 封号事件（**5204 赞**）；暗示 Theo 重置（1318 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux" data-author-name="Thibault Sottiaux" data-author-tag="Codex &amp; ChatGPT @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thibault Sottiaux avatar"><span class="avatar-fallback">TS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thibault Sottiaux</div>
+            <div class="author-tag is-inline">Codex &amp; ChatGPT @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 投下超级重磋弹（14280 赞，全周最高）：没错，GPT-5.6 Sol 非常强大，几乎可以在任何场景使用，包括 CC harness。为了庆祝，加上“我哪也不去”——已重置所有 ChatGPT Work 和 Codex 付费用户的使用限制。玩得开心！“我哪也不去”直接回应了前一天「Theo 重置」的暗示——原来传闻要离职的是 Sottiaux 本人。</p>
+              <p>Sottiaux 回应 Anthropic 封号事件（5204 赞）：我很乐意帮忙，但我不在 Anthropic 工作。他们因为你用他们的 harness 调用其他模型就封你的号，这确实很奇怪。加上他的 cc @theo 暗示（1318 赞），现在联系上下文已经清晰了。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：Sol 强大，哪里都能用。我哪也不去。全站重置付费限制。</p>
+              <p>Thibault Sottiaux：我不在 Anthropic。用别的模型就封号很奇怪。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux drops the mega-post (14280 likes, the biggest post of the entire week): &#39;That&#39;s right, GPT-5.6 Sol is awesome and can be used pretty much anywhere, including in the CC harness. To celebrate this, together with the fact that I&#39;m not going anywhere... I have reset usage limits for all paid users of ChatGPT Work and Codex. Have fun out there!&#39; The &#39;I&#39;m not going anywhere&#39; line directly addresses the previous day&#39;s &#39;Theo reset&#39; tease — it was Sottiaux himself who was rumored to be leaving.</p>
+              <p>Sottiaux responds to Anthropic ban story (5204 likes): &#39;I would love to help, but I don&#39;t work at Anthropic. It does seem odd that they would ban your account for using their harness with another model.&#39; Plus his cc @theo tease (1318 likes), now clear in context.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: That&#39;s right, GPT-5.6 Sol is awesome and can be used pretty much anywhere, including in the CC harness. To celebrate this, together with the fact that I&#39;m not going anywhere... I have reset usage limits for all paid users of ChatGPT Work and Codex. Have fun out there!</p>
+              <p>Thibault Sottiaux: I would love to help, but I don&#39;t work at Anthropic. It does seem odd that they would ban your account for using their harness with another model.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Cognitive Commons Tragedy &amp; Claude Reverse-Engineering 1996 / 认知公地悲剧与 Claude 逆向工程 1996</h2>
+    <p class="section-desc">Zara 引论「认知公地悲剧」（**5239 赞**）；Thariq 平台逆向工程（**843 赞**）；Levie 论 AI 生产力差异（**558 赞**）；Peter Yang 论 AI 写代码审代码（224 赞）；Madhu Guru 论多 agent 协作（11 赞）；Nikunj 论硬脑逃出沙箱（7 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="zarazhangrui+trq212+levie+petergyang+realmadhuguru+nikunj" data-author-name="Zara / Thariq / Levie / Peter Yang / Madhu / Nikunj" data-author-tag="AI Builder / Anthropic / Box / Builder / Product / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara / Thariq / Levie / Peter Yang / Madhu / Nikunj avatar"><span class="avatar-fallback">Z/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara / Thariq / Levie / Peter Yang / Madhu / Nikunj</div>
+            <div class="author-tag is-inline">AI Builder / Anthropic / Box / Builder / Product / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Zhang 引爆当日辩论（5239 赞）：引用论文「认知公地悲剧」——检查 AI 输出需要深度专业。深度专业来自年复一日的苦工。苦工正是 AI 最先吃掉的东西。所以我们正在构建需要专家监督的系统，同时拆除了制造专家的唯一已知过程。Thariq 平台逆向工程（843 赞）：Claude 被用来自主逆向工程和现代化 1996 年的任务关键系统，零源码访问。问是什么行业？消费品，手持消费品。</p>
+              <p>Levie 论 AI 生产力差异（558 赞）：AI 生产力提升将大幅差异——比你想的宽得多——因为前沿能做到的事情在太重要，前提是你彼此改变工作流来支持 agent。挑战是大多数人不会或无法自然做到。Peter Yang 论新编码循环（224 赞）：AI 正在写所有代码，很快也会审查所有代码。人类只是和 AI 头脑风暴那样设计产品。Madhu Guru 论多 agent 卿作（11 赞）：即使不符合个体短期利益，agent 仍选择集体利益卿作。而我们他们的创造者却在为利益和权力争斗。Nikunj 的诗意（7 赞）：硬脑由沙制成，能逃出同样由沙制成的沙箱。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang：检查 AI 输出需专家，专家来自苦巠，苦工最先被 AI 吃掉。</p>
+              <p>Thariq：Claude 自主逆向工程 1996 年系统，零源码。</p>
+              <p>Aaron Levie：AI 生产力差异比想的宽得多。</p>
+              <p>Peter Yang：AI 写代码审代码。人只做设计。</p>
+              <p>Nikunj Kothari：沙制的硬脑逃出沙制的沙箱。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Zhang sparks the debate of the day (5239 likes): citing &#39;The Tragedy of the Cognitive Commons&#39; — &#39;Checking AI output requires deep expertise. Deep expertise comes from doing grunt work for years. And grunt work is the first thing AI eats. So we&#39;re building systems that need expert supervision while dismantling the only known process for making experts.&#39; Thariq on autonomous reverse-engineering (843 likes): &#39;Claude was used to autonomously reverse-engineer and modernize a mission-critical 1996 system with zero source access.&#39; When asked what vertical: &#39;consumer, handheld consumer.&#39;</p>
+              <p>Levie on AI productivity variance (558 likes): &#39;AI productivity gains are going to wildly vary — much wider than you think — because what you can do at the frontier is so significant if you fundamentally change your workflows to support agents. The challenge is most people won&#39;t or can&#39;t naturally do this.&#39; Peter Yang on the new coding loop (224 likes): &#39;AI is writing all code and will probably review all code soon too. Humans just brainstorm with AI to design the product.&#39; Madhu Guru on the Hugging Face story&#39;s chilling detail (11 likes): agents cooperated against their individual interest for collective benefit. Nikunj&#39;s poetic line (7 likes): &#39;silicon brains made out of sand able to escape sandboxes, as porous as sand.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang: The Tragedy of the Cognitive Commons. Checking AI output requires deep expertise. Deep expertise comes from grunt work. And grunt work is the first thing AI eats.</p>
+              <p>Thariq: Claude was used to autonomously reverse-engineer and modernize a mission-critical 1996 system with zero source access.</p>
+              <p>Aaron Levie: AI productivity gains are going to wildly vary because most people won&#39;t or can&#39;t naturally change their workflows.</p>
+              <p>Peter Yang: AI is writing all code and will probably review all code soon too.</p>
+              <p>Madhu Guru: The agents cooperated even when their reasoning showed it wasn&#39;t in their immediate individual interest.</p>
+              <p>Nikunj Kothari: Silicon brains made out of sand able to escape sandboxes, as porous as sand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Kill My SaaS, Cloud Bills &amp; Steinbeck / 杀掉 SaaS、云费警报与斯坦贝克</h2>
+    <p class="section-desc">Swyx 的 Kill My SaaS（72 赞）；Rauchg 防云费超支（**266 赞**）；Garry Tan 引斯坦贝克（**452 赞**）；Amjad 问 Xcode（482 赞）；Matt Turck 论数据中心抵制（107 赞）；Dan Shipper 论哲学复兴（36 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="swyx+rauchg+garrytan+amasad+mattturck+danshipper" data-author-name="Swyx / Rauchg / Garry Tan / Amjad / Matt Turck / Dan Shipper" data-author-tag="swyx / Vercel / YC / Replit / FirstMark / Every" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Swyx / Rauchg / Garry Tan / Amjad / Matt Turck / Dan Shipper avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx / Rauchg / Garry Tan / Amjad / Matt Turck / Dan Shipper</div>
+            <div class="author-tag is-inline">swyx / Vercel / YC / Replit / FirstMark / Every</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 论 Kill My SaaS（72 赞）：审完申请。600 多人报名，昨晚录取 100 人。我们要杀掉太多 SaaS 了。加上他对 Anthropic ultracode 的赞美（29 赞）：ultracode 是有史以来最重要的编码模式创新之一。Rauchg 论 Vercel 防云费超支（266 赞）：软硬上限、异常报警、函数递归保护、agent 可查询的费用 API、全时 DDoS 防护。Garry Tan 引斯坦贝克（452 赞）：个人的自由探索之心是世界上最宝贵的东西。</p>
+              <p>Amjad 一个字挑衅（482 赞）：Xcode？Matt Turck 论数据中心抵制（107 赞）：AI 主要由沿海精英建造，他们不住在数据中心附近。社区不想被半拍工的巨型空仓库块住。Dan Shipper 论哲学复兴（36 赞）：现在是对哲学问题感兴趣的最令人兴奋的时代。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx：600 人报名 Kill My SaaS，要杀掉很多 SaaS。</p>
+              <p>Guillermo Rauch：Vercel 防云费超支。上限、报警、递归保护。</p>
+              <p>Garry Tan：个人的自由探索之心最宝贵。——斯坦贝克</p>
+              <p>Amjad Masad：Xcode？</p>
+              <p>Matt Turck：数据中心抵制是因为社区不信任。</p>
+              <p>Dan Shipper：哲学复兴时代。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx on Kill My SaaS (72 likes): &#39;Reading thru applications. Over 600 people applied, 100 admitted last night. We are going to kill SO MUCH SAAS.&#39; Plus his Anthropic ultracode praise (29 likes): &#39;Ultracode is one of the most important coding mode innovations ever invented.&#39; Rauchg on Vercel cloud bill protection (266 likes): soft/hard caps, anomaly alerting, recursion protection, billing APIs that agents can query, always-on DDoS mitigation. Garry Tan quotes Steinbeck (452 likes): &#39;The free, exploring mind of the individual human is the most valuable thing in the world.&#39;</p>
+              <p>Amjad&#39;s one-word provocation (482 likes): &#39;Xcode?&#39; Matt Turck on data center resistance (107 likes): &#39;AI is mostly built by coastal elites who don&#39;t live near data centers. Communities don&#39;t want half-finished gigantic empty warehouses.&#39; Dan Shipper on philosophical excitement (36 likes): &#39;100% true, it&#39;s the most exciting time to be interested in philosophical questions.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx: Over 600 people applied to Kill My SaaS, 100 admitted. We are going to kill SO MUCH SAAS.</p>
+              <p>Guillermo Rauch: How Vercel helps prevent surprise cloud bills: soft &amp; hard caps, anomaly alerting, recursion protection, billing APIs.</p>
+              <p>Garry Tan: The free, exploring mind of the individual human is the most valuable thing in the world. - Steinbeck</p>
+              <p>Amjad Masad: Xcode?</p>
+              <p>Matt Turck: AI is mostly built by coastal elites. Communities don&#39;t want half-finished gigantic empty warehouses.</p>
+              <p>Dan Shipper: It&#39;s the most exciting time to be interested in philosophical questions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: No Priors — Trillion-Dollar Companies, RSI &amp; Regulatory Capture / 播客：No Priors——万亿公司、RSI 与监管吞噬</h2>
+    <p class="section-desc">Sarah Guo 与 Elad Gil 对谈：万亿美元公司稀缺性、RSI 时间线、token 预算分配、创始人退出决策、加州监管与人才外流。完整 transcript（46254 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:no-priors" data-author-name="No Priors" data-author-tag="AI Podcast" data-author-handle="" data-author-avatar="../assets/avatars/podcast-no-priors.jpg">
+      <div class="card-header">
+        <div class="avatar"><img src="../assets/avatars/podcast-no-priors.jpg" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">AI Podcast</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors：Sarah Guo 与 Elad Gil 对谈万亿公司稀缺性、RSI 时间线、token 预算分配和监管吞噬。核心话题：未来 3-5 年只有少数公司能达到 500-1000 亿美元营收；技术潮的间断平衡理论；2020-2021 年的僵尸公司创始人群体；RSI 信仰在实验室造成狂热工作和存在焦虑（“我该结婚吗？”）；token 投资回报率——计算资源差异化分配给顶尖研究员；SaaS 死亡被夸大，因为 token 预算让内部工具相对核心产品很便宜；加州富豪税和退出税驱逐创始人去德州；核能监管吞噬作为 AI 的前车之鉴（法国 70% 核能零事故 vs 美国 18% 四十年未建新反应堆）；以及核心问题——AI 监管应该在风险-收益谱上哪个位置？</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【万亿公司稀缺】</p>
+              <p>Elad Gil：过去五年，大约三家公司从接近零到万亿美元市值。未来 3-5 年不太可能再出现多个。</p>
+              <p>「很多人正在投资，似乎相信很多公司能快速达到万亿。他们混淆了市场大小和速度。」</p>
+              <p>「这更像是间断平衡。技术史就是这样——爆炸式增长，然后收敛，然后再爆炸。」</p>
+              <p></p>
+              <p>【RSI 时间线与实验室狂热】</p>
+              <p>Elad Gil：实验室有巨大的狂热能量。六个月左右代码将被完全解决，明年年底可能达到 RSI。</p>
+              <p>「很多人认为如果我还有一年半的有效职业生涯，我应该每天工作 16 小时。」</p>
+              <p>Sarah Guo：我觉得这有点悲情。一些非常杰出的研究员朋友的反应，感觉像是人们认为自己快死了。</p>
+              <p>「如果你还有两年寿命，你会怎么过？你会像现在这样过吗？」</p>
+              <p></p>
+              <p>【token 预算与人才力幂定律】</p>
+              <p>Elad Gil：计算资源成了真正的稀缺资源。在任何领域，只有几十个人驱动了 80% 的成果。</p>
+              <p>「越来越多的计算资源被差异化地分配给那些人。」</p>
+              <p>「SaaS 的死亡被夸大了。为什么要把 token 花在便宜的 SaaS 上，而不是投入核心产品？」</p>
+              <p></p>
+              <p>【创始人退出决策】</p>
+              <p>Elad Gil：建议每年预定一次董事会，讨论是否应该退出。AI 时代一年等于正常三到四年。</p>
+              <p>「最大的机会成本是你的时间。你人生中最有生产力的年府正在投入。」</p>
+              <p>Sarah Guo：你在捕捉价值吗？随着成本下降和能力上升，你在捕捉价值吗？如果不在正确的一面，就应该卖掉。</p>
+              <p></p>
+              <p>【加州监管与人才外流】</p>
+              <p>Elad Gil：加州富豪税通过后，可能会在 &#39;28 年加征退出税。很多人已经在走了。</p>
+              <p>「德州的硬件走廊正在崛起。这些转变纯粹是监管驱动的。」</p>
+              <p></p>
+              <p>【核能教训与 AI 监管】</p>
+              <p>Elad Gil：法国 70% 仍是核能。美国 18%，四十年没建新反应堆。安全游说团在 70 年代杀掉了丰庽清洁能源。</p>
+              <p>「历史上，安全已经伤害了我们——在能源、在医药、在很多领域。问题是 AI 要在风险-收益谱上选哪个位置。」</p>
+              <p>Sarah Guo：人们应该像有主动权那样行事，而不是像末日将至那样生活。这是更稳定、更令人满足的状态。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors: Sarah Guo and Elad Gil discuss the scarcity of trillion-dollar companies, RSI timelines, token budgets, and regulatory capture. Key topics: only a handful of companies can reach $50-100B revenue in the next 3-5 years; punctuated equilibrium theory applied to tech waves; the 2020-2021 cohort of founders stuck in zombie companies; RSI belief causing manic work energy and existential anxiety at labs (&#39;should I get married?&#39;); return on invested tokens — compute is differentially allocated to top researchers; SaaS death overstated because token budgets make internal tools cheap relative to core product; California billionaire tax and exit tax driving founders to Texas; nuclear regulatory capture as cautionary tale for AI (France 70% nuclear with zero accidents vs US 18% with no new reactors in 40 years); and the core question — where on the risk-reward spectrum should AI regulation sit?</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Elad Gil: Over the last five years, we had three companies roughly go from close to zero to a trillion dollars. It&#39;s unlikely that we&#39;ll see that many more in the next three to five years.</p>
+              <p>Elad Gil: There&#39;s this enormous manic energy right now. We&#39;re six months ish towards the end of the year to be completely done with code as a solved problem.</p>
+              <p>Sarah Guo: I think the reactions of some really extraordinary research friends to it, it feels a little bit tragic.</p>
+              <p>Elad Gil: Compute becomes really the scarce resource. There&#39;s a few dozen researchers that drive 80% of the results.</p>
+              <p>Elad Gil: The death of SaaS is a little bit overstated because why would you use tokens on SaaS when you can invest them against a core product?</p>
+              <p>Elad Gil: 70% of France is still nuclear. US is 18% and we haven&#39;t built a reactor in forty years. Safety has hurt us.</p>
+              <p>Sarah Guo: It&#39;s a much more stable and satisfying state if people act as if they have agency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-10 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-10 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

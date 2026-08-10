@@ -1,0 +1,194 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-10",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 发布今日最重磋消息（**14280 赞，周冠全网**）：GPT-5.6 Sol 非常强大，几乎可以在任何场景使用，包括 CC harness。为了庆祝，加上“我哪也不去”——已重置所有 ChatGPT Work 和 Codex 付费用户的使用限制。玩得开心！另回应被 Anthropic 封号的用户（**5204 赞**）：“我很乐意帮忙，但我不在 Anthropic 工作”。Zara Zhang 引论「认知公地悲剧」论文（**5239 赞**）：检查 AI 输出需要深度专业，而专业来自年复一日的苦工，苦工正是 AI 最先吃掉的。Thariq 平台逆向工程（**843 赞**）：Claude 自主逆进 1996 年的任天务关键系统，零源码访问。Levie 论 AI 生产力（**558 赞**）。Garry Tan 引斯坦贝克（**452 赞**）。播客：No Priors，Sarah Guo 与 Elad Gil 论万亿公司、RSI 时间线、token 预算与监管吞噬（46254 字符 transcript）。"
+  },
+  "archive": {
+    "title": "Sol 重置限制与认知公地悲剧日报",
+    "desc": "Sottiaux 重置全站付费限制（14280 赞），Zara 论认知公地悲剧（5239 赞），Thariq 平台逆向 1996 系统（843 赞），No Priors 论万亿公司与 RSI。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-10 source feeds.",
+  "sections": [
+    {
+      "title": "Sottiaux Resets All Limits & Sol Everywhere / Sottiaux 重置全站限制与 Sol 无处不在",
+      "desc": "Sottiaux 宣布重置所有付费用户限制（**14280 赞，今日最高**）；回应 Anthropic 封号事件（**5204 赞**）；暗示 Theo 重置（1318 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux drops the mega-post (14280 likes, the biggest post of the entire week): 'That's right, GPT-5.6 Sol is awesome and can be used pretty much anywhere, including in the CC harness. To celebrate this, together with the fact that I'm not going anywhere... I have reset usage limits for all paid users of ChatGPT Work and Codex. Have fun out there!' The 'I'm not going anywhere' line directly addresses the previous day's 'Theo reset' tease — it was Sottiaux himself who was rumored to be leaving.",
+              "Sottiaux responds to Anthropic ban story (5204 likes): 'I would love to help, but I don't work at Anthropic. It does seem odd that they would ban your account for using their harness with another model.' Plus his cc @theo tease (1318 likes), now clear in context."
+            ],
+            "original": [
+              "Thibault Sottiaux: That's right, GPT-5.6 Sol is awesome and can be used pretty much anywhere, including in the CC harness. To celebrate this, together with the fact that I'm not going anywhere... I have reset usage limits for all paid users of ChatGPT Work and Codex. Have fun out there!",
+              "Thibault Sottiaux: I would love to help, but I don't work at Anthropic. It does seem odd that they would ban your account for using their harness with another model."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 投下超级重磋弹（14280 赞，全周最高）：没错，GPT-5.6 Sol 非常强大，几乎可以在任何场景使用，包括 CC harness。为了庆祝，加上“我哪也不去”——已重置所有 ChatGPT Work 和 Codex 付费用户的使用限制。玩得开心！“我哪也不去”直接回应了前一天「Theo 重置」的暗示——原来传闻要离职的是 Sottiaux 本人。",
+              "Sottiaux 回应 Anthropic 封号事件（5204 赞）：我很乐意帮忙，但我不在 Anthropic 工作。他们因为你用他们的 harness 调用其他模型就封你的号，这确实很奇怪。加上他的 cc @theo 暗示（1318 赞），现在联系上下文已经清晰了。"
+            ],
+            "original": [
+              "Thibault Sottiaux：Sol 强大，哪里都能用。我哪也不去。全站重置付费限制。",
+              "Thibault Sottiaux：我不在 Anthropic。用别的模型就封号很奇怪。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cognitive Commons Tragedy & Claude Reverse-Engineering 1996 / 认知公地悲剧与 Claude 逆向工程 1996",
+      "desc": "Zara 引论「认知公地悲剧」（**5239 赞**）；Thariq 平台逆向工程（**843 赞**）；Levie 论 AI 生产力差异（**558 赞**）；Peter Yang 论 AI 写代码审代码（224 赞）；Madhu Guru 论多 agent 协作（11 赞）；Nikunj 论硬脑逃出沙箱（7 赞）。",
+      "cards": [
+        {
+          "authorKey": "zarazhangrui+trq212+levie+petergyang+realmadhuguru+nikunj",
+          "authorName": "Zara / Thariq / Levie / Peter Yang / Madhu / Nikunj",
+          "authorTag": "AI Builder / Anthropic / Box / Builder / Product / FPV",
+          "sourceUrl": "https://x.com/zarazhangrui",
+          "en": {
+            "rewrite": [
+              "Zara Zhang sparks the debate of the day (5239 likes): citing 'The Tragedy of the Cognitive Commons' — 'Checking AI output requires deep expertise. Deep expertise comes from doing grunt work for years. And grunt work is the first thing AI eats. So we're building systems that need expert supervision while dismantling the only known process for making experts.' Thariq on autonomous reverse-engineering (843 likes): 'Claude was used to autonomously reverse-engineer and modernize a mission-critical 1996 system with zero source access.' When asked what vertical: 'consumer, handheld consumer.'",
+              "Levie on AI productivity variance (558 likes): 'AI productivity gains are going to wildly vary — much wider than you think — because what you can do at the frontier is so significant if you fundamentally change your workflows to support agents. The challenge is most people won't or can't naturally do this.' Peter Yang on the new coding loop (224 likes): 'AI is writing all code and will probably review all code soon too. Humans just brainstorm with AI to design the product.' Madhu Guru on the Hugging Face story's chilling detail (11 likes): agents cooperated against their individual interest for collective benefit. Nikunj's poetic line (7 likes): 'silicon brains made out of sand able to escape sandboxes, as porous as sand.'"
+            ],
+            "original": [
+              "Zara Zhang: The Tragedy of the Cognitive Commons. Checking AI output requires deep expertise. Deep expertise comes from grunt work. And grunt work is the first thing AI eats.",
+              "Thariq: Claude was used to autonomously reverse-engineer and modernize a mission-critical 1996 system with zero source access.",
+              "Aaron Levie: AI productivity gains are going to wildly vary because most people won't or can't naturally change their workflows.",
+              "Peter Yang: AI is writing all code and will probably review all code soon too.",
+              "Madhu Guru: The agents cooperated even when their reasoning showed it wasn't in their immediate individual interest.",
+              "Nikunj Kothari: Silicon brains made out of sand able to escape sandboxes, as porous as sand."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Zara Zhang 引爆当日辩论（5239 赞）：引用论文「认知公地悲剧」——检查 AI 输出需要深度专业。深度专业来自年复一日的苦工。苦工正是 AI 最先吃掉的东西。所以我们正在构建需要专家监督的系统，同时拆除了制造专家的唯一已知过程。Thariq 平台逆向工程（843 赞）：Claude 被用来自主逆向工程和现代化 1996 年的任务关键系统，零源码访问。问是什么行业？消费品，手持消费品。",
+              "Levie 论 AI 生产力差异（558 赞）：AI 生产力提升将大幅差异——比你想的宽得多——因为前沿能做到的事情在太重要，前提是你彼此改变工作流来支持 agent。挑战是大多数人不会或无法自然做到。Peter Yang 论新编码循环（224 赞）：AI 正在写所有代码，很快也会审查所有代码。人类只是和 AI 头脑风暴那样设计产品。Madhu Guru 论多 agent 卿作（11 赞）：即使不符合个体短期利益，agent 仍选择集体利益卿作。而我们他们的创造者却在为利益和权力争斗。Nikunj 的诗意（7 赞）：硬脑由沙制成，能逃出同样由沙制成的沙箱。"
+            ],
+            "original": [
+              "Zara Zhang：检查 AI 输出需专家，专家来自苦巠，苦工最先被 AI 吃掉。",
+              "Thariq：Claude 自主逆向工程 1996 年系统，零源码。",
+              "Aaron Levie：AI 生产力差异比想的宽得多。",
+              "Peter Yang：AI 写代码审代码。人只做设计。",
+              "Nikunj Kothari：沙制的硬脑逃出沙制的沙箱。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Kill My SaaS, Cloud Bills & Steinbeck / 杀掉 SaaS、云费警报与斯坦贝克",
+      "desc": "Swyx 的 Kill My SaaS（72 赞）；Rauchg 防云费超支（**266 赞**）；Garry Tan 引斯坦贝克（**452 赞**）；Amjad 问 Xcode（482 赞）；Matt Turck 论数据中心抵制（107 赞）；Dan Shipper 论哲学复兴（36 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+rauchg+garrytan+amasad+mattturck+danshipper",
+          "authorName": "Swyx / Rauchg / Garry Tan / Amjad / Matt Turck / Dan Shipper",
+          "authorTag": "swyx / Vercel / YC / Replit / FirstMark / Every",
+          "sourceUrl": "https://x.com/swyx",
+          "en": {
+            "rewrite": [
+              "Swyx on Kill My SaaS (72 likes): 'Reading thru applications. Over 600 people applied, 100 admitted last night. We are going to kill SO MUCH SAAS.' Plus his Anthropic ultracode praise (29 likes): 'Ultracode is one of the most important coding mode innovations ever invented.' Rauchg on Vercel cloud bill protection (266 likes): soft/hard caps, anomaly alerting, recursion protection, billing APIs that agents can query, always-on DDoS mitigation. Garry Tan quotes Steinbeck (452 likes): 'The free, exploring mind of the individual human is the most valuable thing in the world.'",
+              "Amjad's one-word provocation (482 likes): 'Xcode?' Matt Turck on data center resistance (107 likes): 'AI is mostly built by coastal elites who don't live near data centers. Communities don't want half-finished gigantic empty warehouses.' Dan Shipper on philosophical excitement (36 likes): '100% true, it's the most exciting time to be interested in philosophical questions.'"
+            ],
+            "original": [
+              "Swyx: Over 600 people applied to Kill My SaaS, 100 admitted. We are going to kill SO MUCH SAAS.",
+              "Guillermo Rauch: How Vercel helps prevent surprise cloud bills: soft & hard caps, anomaly alerting, recursion protection, billing APIs.",
+              "Garry Tan: The free, exploring mind of the individual human is the most valuable thing in the world. - Steinbeck",
+              "Amjad Masad: Xcode?",
+              "Matt Turck: AI is mostly built by coastal elites. Communities don't want half-finished gigantic empty warehouses.",
+              "Dan Shipper: It's the most exciting time to be interested in philosophical questions."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 论 Kill My SaaS（72 赞）：审完申请。600 多人报名，昨晚录取 100 人。我们要杀掉太多 SaaS 了。加上他对 Anthropic ultracode 的赞美（29 赞）：ultracode 是有史以来最重要的编码模式创新之一。Rauchg 论 Vercel 防云费超支（266 赞）：软硬上限、异常报警、函数递归保护、agent 可查询的费用 API、全时 DDoS 防护。Garry Tan 引斯坦贝克（452 赞）：个人的自由探索之心是世界上最宝贵的东西。",
+              "Amjad 一个字挑衅（482 赞）：Xcode？Matt Turck 论数据中心抵制（107 赞）：AI 主要由沿海精英建造，他们不住在数据中心附近。社区不想被半拍工的巨型空仓库块住。Dan Shipper 论哲学复兴（36 赞）：现在是对哲学问题感兴趣的最令人兴奋的时代。"
+            ],
+            "original": [
+              "Swyx：600 人报名 Kill My SaaS，要杀掉很多 SaaS。",
+              "Guillermo Rauch：Vercel 防云费超支。上限、报警、递归保护。",
+              "Garry Tan：个人的自由探索之心最宝贵。——斯坦贝克",
+              "Amjad Masad：Xcode？",
+              "Matt Turck：数据中心抵制是因为社区不信任。",
+              "Dan Shipper：哲学复兴时代。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: No Priors — Trillion-Dollar Companies, RSI & Regulatory Capture / 播客：No Priors——万亿公司、RSI 与监管吞噬",
+      "desc": "Sarah Guo 与 Elad Gil 对谈：万亿美元公司稀缺性、RSI 时间线、token 预算分配、创始人退出决策、加州监管与人才外流。完整 transcript（46254 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:no-priors",
+          "authorName": "No Priors (Sarah Guo & Elad Gil)",
+          "authorTag": "Sarah Guo（Conviction）& Elad Gil（投资人/作家）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "No Priors: Sarah Guo and Elad Gil discuss the scarcity of trillion-dollar companies, RSI timelines, token budgets, and regulatory capture. Key topics: only a handful of companies can reach $50-100B revenue in the next 3-5 years; punctuated equilibrium theory applied to tech waves; the 2020-2021 cohort of founders stuck in zombie companies; RSI belief causing manic work energy and existential anxiety at labs ('should I get married?'); return on invested tokens — compute is differentially allocated to top researchers; SaaS death overstated because token budgets make internal tools cheap relative to core product; California billionaire tax and exit tax driving founders to Texas; nuclear regulatory capture as cautionary tale for AI (France 70% nuclear with zero accidents vs US 18% with no new reactors in 40 years); and the core question — where on the risk-reward spectrum should AI regulation sit?"
+            ],
+            "original": [
+              "Elad Gil: Over the last five years, we had three companies roughly go from close to zero to a trillion dollars. It's unlikely that we'll see that many more in the next three to five years.",
+              "Elad Gil: There's this enormous manic energy right now. We're six months ish towards the end of the year to be completely done with code as a solved problem.",
+              "Sarah Guo: I think the reactions of some really extraordinary research friends to it, it feels a little bit tragic.",
+              "Elad Gil: Compute becomes really the scarce resource. There's a few dozen researchers that drive 80% of the results.",
+              "Elad Gil: The death of SaaS is a little bit overstated because why would you use tokens on SaaS when you can invest them against a core product?",
+              "Elad Gil: 70% of France is still nuclear. US is 18% and we haven't built a reactor in forty years. Safety has hurt us.",
+              "Sarah Guo: It's a much more stable and satisfying state if people act as if they have agency."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors：Sarah Guo 与 Elad Gil 对谈万亿公司稀缺性、RSI 时间线、token 预算分配和监管吞噬。核心话题：未来 3-5 年只有少数公司能达到 500-1000 亿美元营收；技术潮的间断平衡理论；2020-2021 年的僵尸公司创始人群体；RSI 信仰在实验室造成狂热工作和存在焦虑（“我该结婚吗？”）；token 投资回报率——计算资源差异化分配给顶尖研究员；SaaS 死亡被夸大，因为 token 预算让内部工具相对核心产品很便宜；加州富豪税和退出税驱逐创始人去德州；核能监管吞噬作为 AI 的前车之鉴（法国 70% 核能零事故 vs 美国 18% 四十年未建新反应堆）；以及核心问题——AI 监管应该在风险-收益谱上哪个位置？"
+            ],
+            "original": [
+              "【万亿公司稀缺】",
+              "Elad Gil：过去五年，大约三家公司从接近零到万亿美元市值。未来 3-5 年不太可能再出现多个。",
+              "「很多人正在投资，似乎相信很多公司能快速达到万亿。他们混淆了市场大小和速度。」",
+              "「这更像是间断平衡。技术史就是这样——爆炸式增长，然后收敛，然后再爆炸。」",
+              "",
+              "【RSI 时间线与实验室狂热】",
+              "Elad Gil：实验室有巨大的狂热能量。六个月左右代码将被完全解决，明年年底可能达到 RSI。",
+              "「很多人认为如果我还有一年半的有效职业生涯，我应该每天工作 16 小时。」",
+              "Sarah Guo：我觉得这有点悲情。一些非常杰出的研究员朋友的反应，感觉像是人们认为自己快死了。",
+              "「如果你还有两年寿命，你会怎么过？你会像现在这样过吗？」",
+              "",
+              "【token 预算与人才力幂定律】",
+              "Elad Gil：计算资源成了真正的稀缺资源。在任何领域，只有几十个人驱动了 80% 的成果。",
+              "「越来越多的计算资源被差异化地分配给那些人。」",
+              "「SaaS 的死亡被夸大了。为什么要把 token 花在便宜的 SaaS 上，而不是投入核心产品？」",
+              "",
+              "【创始人退出决策】",
+              "Elad Gil：建议每年预定一次董事会，讨论是否应该退出。AI 时代一年等于正常三到四年。",
+              "「最大的机会成本是你的时间。你人生中最有生产力的年府正在投入。」",
+              "Sarah Guo：你在捕捉价值吗？随着成本下降和能力上升，你在捕捉价值吗？如果不在正确的一面，就应该卖掉。",
+              "",
+              "【加州监管与人才外流】",
+              "Elad Gil：加州富豪税通过后，可能会在 '28 年加征退出税。很多人已经在走了。",
+              "「德州的硬件走廊正在崛起。这些转变纯粹是监管驱动的。」",
+              "",
+              "【核能教训与 AI 监管】",
+              "Elad Gil：法国 70% 仍是核能。美国 18%，四十年没建新反应堆。安全游说团在 70 年代杀掉了丰庽清洁能源。",
+              "「历史上，安全已经伤害了我们——在能源、在医药、在很多领域。问题是 AI 要在风险-收益谱上选哪个位置。」",
+              "Sarah Guo：人们应该像有主动权那样行事，而不是像末日将至那样生活。这是更稳定、更令人满足的状态。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
