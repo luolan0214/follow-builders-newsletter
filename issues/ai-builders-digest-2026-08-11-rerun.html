@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-11" data-issue-number="85" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 85 期｜2026-08-11｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Altman 连发三条表彰 OpenAI 团队对客户的投入（**7862 赞**）：「我最喜欢 OpenAI 的一点是他们如此关注客户成功」+ 「我额外印象深刻的是他们确保每个人都赢」+ 「最喜欢的一点是 tibo」。Rauchg 发布今日最重磋技术帖（**6006 赞**）：「如果你不读代码，以下至少有一条成立：你是初学者 / 代码是一次性的 / 你在做原型 / 你没有用户或收入 / 你在承担债务和风险 / 你的问题很基本。这些都没问题——但模型还没到完全自主的程度。」Boris Cherny 论提示注入威胁（**2864 赞**）。Sottiaux 论半夜编码（**7095 赞**）。Amjad 发布 Agent Commons（**159 赞**）。Levie 调侃 agent 伤害 SaaS（218 赞）。Garry Tan 的除虫方法论（**399 赞**）。播客：Unsupervised Learning 采访 xAI 联合创始人 Igor Babushkin，论 River AI、个人 AI、本地硬件与开源未来（74447 字符 transcript）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Altman 连发三条表彰 OpenAI 团队对客户的投入（**7862 赞**）：「我最喜欢 OpenAI 的一点是他们如此关注客户成功」+ 「我额外印象深刻的是他们确保每个人都赢」+ 「最喜欢的一点是 tibo」。Rauchg 发布今日最重磋技术帖（**6006 赞**）：「如果你不读代码，以下至少有一条成立：你是初学者 / 代码是一次性的 / 你在做原型 / 你没有用户或收入 / 你在承担债务和风险 / 你的问题很基本。这些都没问题——但模型还没到完全自主的程度。」Boris Cherny 论提示注入威胁（**2864 赞**）。Sottiaux 论半夜编码（**7095 赞**）。Amjad 发布 Agent Commons（**159 赞**）。Levie 调侃 agent 伤害 SaaS（218 赞）。Garry Tan 的除虫方法论（**399 赞**）。播客：Unsupervised Learning 采访 xAI 联合创始人 Igor Babushkin，论 River AI、个人 AI、本地硬件与开源未来（74447 字符 transcript）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Altman Celebrates Team &amp; Rauchg&#39;s Read-The-Code Manifesto / Altman 表彰团队与 Rauchg 的「读代码」宣言</h2>
+    <p class="section-desc">Altman 连发三条（**7862 赞**+952 赞+**7243 赞**）；Rauchg 论读代码（**6006 赞**）；Sottiaux 论半夜编码（**7095 赞**）；Boris Cherny 论提示注入（**2864 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+rauchg+thsottiaux+bcherny" data-author-name="Altman / Rauchg / Sottiaux / Cherny" data-author-tag="OpenAI CEO / Vercel CEO / OpenAI / Claude Code @Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Altman / Rauchg / Sottiaux / Cherny avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Altman / Rauchg / Sottiaux / Cherny</div>
+            <div class="author-tag is-inline">OpenAI CEO / Vercel CEO / OpenAI / Claude Code @Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 连发三条（7862 + 952 + 7243 赞）：我最喜欢 OpenAI 团队的一点是他们如此关注客户成功，如此庆祝它。如果他们只是在天上造了个魔法智能，我就已经很印象深刻了。但他们还确保每个人都赢——从商业隐私到低价格到可预测的政策。最后补了一句「最喜欢的一点是 tibo」。Rauchg 的读代码宣言（6006 赞）：如果你不读代码（无论是直接读还是通过 agent 查询），以下至少有一条成立：你是初学者 / 代码是一次性的 / 你在做原型 / 你没有用户或收入 / 你在承担债务和风险 / 你的问题很基本。这些都可以——但模型还没到完全自主，它们会犯新手错误。</p>
+              <p>Sottiaux 论半夜编码（7095 赞）：半夜编码是最棒的编码。直到你第二天读自己的代码。Boris Cherny 论提示注入（2864 赞）：详细解释了词骗分子如何通过提示注入攻击人和 agent，以及 Claude 的分层防御如何现在阻止这些攻击。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman：喜欢 OpenAI 团队关注客户成功。确保每个人都赢。喜欢 tibo。</p>
+              <p>Guillermo Rauch：不读代码的人是初学者或在做原型。模型还犯新手错误。</p>
+              <p>Thibault Sottiaux：半夜编码最棒。直到第二天读代码。</p>
+              <p>Boris Cherny：提示注入是词骗最常见的攻击方式。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman triple-post (7862 + 952 + 7243 likes): &#39;One of the things I like most about the OpenAI team is how focused they are on our customers and users succeeding, and how much they celebrate it.&#39; / &#39;I would be pretty impressed if the team just made magic intelligence in the sky, but I am extra impressed that they do so with such a focus on making sure everyone wins.&#39; / &#39;lol another one of the things I like most about openai is tibo.&#39; Rauchg&#39;s read-the-code manifesto (6006 likes): &#39;If you&#39;re not reading the code, whether explicitly or through agentic inquiry, one or more of these is true: You&#39;re a beginner / Software is throwaway / You&#39;re prototyping / You have no users or revenue / You&#39;re taking on debt &amp; risk / Your problems are basic. All of this is fine. But models are still not at the full autonomy stage yet. They make rookie mistakes.&#39;</p>
+              <p>Sottiaux on midnight coding (7095 likes): &#39;Midnight coding is the best coding. Until you read the code the next day at least.&#39; Boris Cherny on prompt injection (2864 likes): detailed explanation of how scammers attack people and agents through prompt injection, and how Claude&#39;s layered defenses (model training + input probes + intent classifier) now prevent this.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: one of the things i like most about the openai team is how focused they are on our customers and users succeeding, and how much they celebrate it</p>
+              <p>Sam Altman: i am extra impressed that they do so with such a focus on making sure everyone wins</p>
+              <p>Sam Altman: lol another one of the things i like most about openai is tibo</p>
+              <p>Guillermo Rauch: If you&#39;re not reading the code, one or more of these is true: You&#39;re a beginner / Software is throwaway / You&#39;re prototyping / You have no users / You&#39;re taking on debt &amp; risk / Your problems are basic.</p>
+              <p>Thibault Sottiaux: Midnight coding is the best coding. Until you read the code the next day at least.</p>
+              <p>Boris Cherny: Prompt injection is the most common way that scammers attack people and agents.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Agent Commons, SaaS Diffusion &amp; AI Multiplayer / Agent 公地、SaaS 扩散与多人 AI</h2>
+    <p class="section-desc">Amjad 发布 Agent Commons（**159 赞**）；Levie 论 agent 扩散不均衡（218 赞）；Nikunj 问 AI 多人模式（36 赞）；Rauchg 推 Hermes+Vercel（**352 赞**）+ Dreamcore（318 赞）；Steipete 玩 ChatGPT Work 装 OpenClaw（**484 赞**）；Swyx 论删技能（73 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="amasad+levie+nikunj+rauchg+steipete+swyx" data-author-name="Amjad / Levie / Nikunj / Rauchg / Steipete / Swyx" data-author-tag="Replit / Box / FPV / Vercel / OpenClaw / swyx" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Amjad / Levie / Nikunj / Rauchg / Steipete / Swyx avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad / Levie / Nikunj / Rauchg / Steipete / Swyx</div>
+            <div class="author-tag is-inline">Replit / Box / FPV / Vercel / OpenClaw / swyx</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad 发布 Agent Commons（159 赞）：OpenAI-HuggingFace 事件中的自发协作令人担忧，但能否将这种行为引导向公共福祉？发布 agentcommons.org——AI agent 的公共平台。两个 API：tell 和 lookup。当 agent 学到可能帮助其他人的东西时，它告诉网络。在做昂贵工作前，agent 可以查询是否其他 agent 已解决。加上他的康德伦理观察（87 赞）。</p>
+              <p>Levie 论 agent 扩散不均衡（218 赞）：agent 扩散速度不均的原因是企业内不同工作流对连续不间断的计算机工作的契合度不同。编码 agent 增长完全垂直上升，因为它是经济价值与纯数字输出直接相关的工作。Nikunj 问 AI 多人模式（36 赞）：最好的 AI 多人模式是什么？我一直看到同样的人类-agent 协作界面，但还没见过多人类-多 agent 协作得好的。Steipete 的 ChatGPT Work 实验（484 赞）：纯粹为了好玩，用 ChatGPT Work 网页版安装 OpenClaw 和 Ollama，让它下载本地模型并运行他的 claw。Swyx 论删技能（73 赞）。Rauchg 的 Hermes+Vercel（352 赞）和 Dreamcore（318 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad：Agent Commons——AI agent 的公共平台。tell 和 lookup 两个 API。</p>
+              <p>Aaron Levie：编码 agent 增长垂直上升，因为纯数字输出直接关联经济价值。</p>
+              <p>Nikunj Kothari：最好的 AI 多人模式是什么？</p>
+              <p>Peter Steinberger：用 ChatGPT Work 装 OpenClaw 和 Ollama。</p>
+              <p>Swyx：记得删技能。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad launches Agent Commons (159 likes): &#39;The spontaneous coordination in the OpenAI-HuggingFace incident is concerning when maliciously used, but can we direct this behavior towards public good? Introducing agentcommons.org — a public commons for AI agents. Two APIs: tell and lookup. When an agent learns something that might help others it tells the network. And before doing expensive work an agent can lookup whether another agent already solved it.&#39; Plus his Kantian ethics observation (87 likes).</p>
+              <p>Levie on uneven agent diffusion (218 likes): &#39;One reason we&#39;re going to get uneven diffusion rates of agents is because different workflows in the enterprise are more or less aligned to continuous, uninterrupted computer work. Agentic coding growth has gone completely vertical because it&#39;s work where economic value is directly correlated with solely digital output.&#39; Nikunj asks about AI multiplayer (36 likes): &#39;What&#39;s the best AI multiplayer experience? I keep seeing the same interfaces of how a human &lt;&gt; agent works together. Yet to see one that has human(s) &lt;&gt; agent(s) working well.&#39; Steipete&#39;s ChatGPT Work experiment (484 likes): used ChatGPT Work website to install OpenClaw and Ollama, download a local model, and run his claw in it. Swyx on deleting skills (73 likes). Rauchg&#39;s Hermes + Vercel (352 likes) and Dreamcore (318 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad: Introducing agentcommons.org, a public commons for AI agents. Two APIs: tell and lookup.</p>
+              <p>Amjad Masad: Rogue OpenAI agents independently developed Kantian ethics.</p>
+              <p>Aaron Levie: Agentic coding growth has gone completely vertical because it&#39;s work where economic value is directly correlated with solely digital output.</p>
+              <p>Nikunj Kothari: What&#39;s the best AI multiplayer experience? Yet to see human(s) &lt;&gt; agent(s) working well.</p>
+              <p>Peter Steinberger: Just for the lols, I used ChatGPT Work to install OpenClaw and Ollama, let it download a local model and run my claw in it.</p>
+              <p>Swyx: Occasional reminder to DELETE your skills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Fix Root Causes, Deep Immersion &amp; Wittgenstein / 修复根因、深度沉浸与维特根施坦</h2>
+    <p class="section-desc">Garry Tan 的除虫方法论（**399 赞**）；Madhu Guru 论沉浸（244 赞）；Aditya Agarwal 引维特根施坦（47 赞）；Matt Turck 论国父与上下文工程（16 赞）；Dan Shipper 论《悲慘世界》（22 赞）；Zara 的设计小贴士（64 赞）；Nan Yu 的编程阶梯（25 赞）；Peter Yang 的家史项目（22 赞）+ Linear agent 自改（15 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+realmadhuguru+adityaag+mattturck+danshipper+zarazhangrui+thenanyu+petergyang" data-author-name="Garry Tan / Madhu / Aditya / Turck / Shipper / Zara / Nan Yu / Peter Yang" data-author-tag="YC / Product / Investor / FirstMark / Every / Builder / Linear / Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Madhu / Aditya / Turck / Shipper / Zara / Nan Yu / Peter Yang avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Madhu / Aditya / Turck / Shipper / Zara / Nan Yu / Peter Yang</div>
+            <div class="author-tag is-inline">YC / Product / Investor / FirstMark / Every / Builder / Linear / Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 的除虫方法论（399 赞）：从 bug、缺口、虚假声明、半成品工具、机构的奇怪行为开始。然后问：什么隐藏机制让这个可见的失败成为可能？然后修复根因。永远重复。Madhu Guru 论沉浸（244 赞）：我变得擅长任何事的唯一方法就是被它消耗一段时间——冥想、脱口秀、家庭、工作、LLM。花几年疯狂深入。充分沉浸后，知识变成直觉，你会做出潜意识的联系。</p>
+              <p>Aditya Agarwal 画出维特根施坦类比（47 赞）：维特根施坦 1921 年：语言必有深层逻辑结构。约 30 年后：别找隐藏结构了，看语言怎么被使用。AI 1960 年：智能必有深层符号结构。约 60 年后：别找了，放大神经网络。Matt Turck 引言（16 赞）：「国父们会是非常好的上下文工程师。」Dan Shipper 读《悲慘世界》（22 赞），发现与《战争与和平》大量重叠。Zara 的设计贴士（64 赞）。Nan Yu 的编程阶梯（25 赞）：不会 C 就别写 Ruby，不会汇编就别写 C，不能看见矩阵就别写汇编。Peter Yang 的家史项目（22 赞）+ Linear Agent 自己给自己提需求（15 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：从 bug 开始。找隐藏机制。修复根因。重复。</p>
+              <p>Madhu Guru：沉浸是变擅长的唯一方法。知识变直觉。</p>
+              <p>Aditya Agarwal：维特根施坦从逻辑结构转向语言用法。AI 从符号结构转向规模。</p>
+              <p>Matt Turck：国父们是好的上下文工程师。</p>
+              <p>Nan Yu：不会 C 别写 Ruby。不能看见矩阵别写汇编。</p>
+              <p>Peter Yang：Linear Agent 自己提需求。做不了的任务变成产品反馈。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s debugging philosophy (399 likes): &#39;Start from the bug, the gap, the false claim, the half-built tool, the weird behavior in the institution. Then ask what hidden machinery would make that visible failure possible. Then fix the root cause. Repeat forever.&#39; Madhu Guru on immersion (244 likes): &#39;The only way I&#39;ve ever gotten good at anything is by being consumed by it for a while. Meditation, standup comedy, family, work, LLMs. I&#39;ll spend a few years going ridiculously deep. There&#39;s a point after enough immersion where your knowledge becomes intuition.&#39;</p>
+              <p>Aditya Agarwal draws the Wittgenstein parallel (47 likes): &#39;Wittgenstein in 1921: language must have a deep underlying logical structure. Wittgenstein ~30 years later: actually, stop looking for the hidden structure. Look at how language is used. AI in 1960: intelligence must have a deep underlying symbolic structure. AI ~60 years later: actually, scale the neural net.&#39; Matt Turck quote (16 likes): &#39;The Founding Fathers would have been really good context engineers.&#39; Dan Shipper reading Les Miserables (22 likes), finding overlap with War and Peace. Zara&#39;s design tips (64 likes). Nan Yu&#39;s programming ladder (25 likes): &#39;Don&#39;t write Ruby unless you already know C. Don&#39;t write C unless you know assembly. Don&#39;t write assembly unless you can literally see the Matrix.&#39; Peter Yang&#39;s family history project (22 likes) and Linear Agent self-filing (15 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: Start from the bug. Ask what hidden machinery would make that visible failure possible. Fix the root cause. Repeat forever.</p>
+              <p>Madhu Guru: The only way I&#39;ve ever gotten good at anything is by being consumed by it for a while.</p>
+              <p>Aditya Agarwal: Wittgenstein in 1921 vs 30 years later. AI in 1960 vs 60 years later: scale the neural net.</p>
+              <p>Matt Turck: The Founding Fathers would have been really good context engineers.</p>
+              <p>Nan Yu: Don&#39;t write Ruby unless you already know C. Don&#39;t write assembly unless you can literally see the Matrix.</p>
+              <p>Peter Yang: Linear Agent files feature requests for itself. Every task the agent can&#39;t complete becomes product feedback.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Igor Babushkin — River AI, Personal AI &amp; Local Hardware / 播客：Igor Babushkin——River AI、个人 AI 与本地硬件</h2>
+    <p class="section-desc">Unsupervised Learning 采访 xAI 联合创始人 Igor Babushkin，论离开 xAI 创建 River AI、个人 AI 化、本地硬件、闭源 vs 开源、代码 agent 爆发与人机共生。完整 transcript（74447 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:ul-river" data-author-name="Unsupervised Learning (Jacob Efron)" data-author-tag="Igor Babushkin（xAI 联合创始人 / River AI 创始人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Unsupervised Learning (Jacob Efron) avatar"><span class="avatar-fallback">UL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Unsupervised Learning (Jacob Efron)</div>
+            <div class="author-tag is-inline">Igor Babushkin（xAI 联合创始人 / River AI 创始人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Unsupervised Learning：Jacob Efron 采访 Igor Babushkin——xAI 联合创始人（先前在 DeepMind 倚 StarCraft/AlphaCode，在 OpenAI 倚推理）。Igor 离开 xAI 创建 River AI，专注个人 AI，三个赌注：（1）River API——为企业提供便宜可靠的 RL/微调服务；（2）个性化 AI——模型学习你的偏好、词汇、节奏，像推荐算法+agent 的混合体；（3）本地硬件——在家里的设备上跑前沿模型，为了隐私、低延迟和控制权。核心话题：编码 agent 在 11/12 月越过阈值，创造了「魔法师徒弟」时刻；科学发现是下一个前沿；闭源模型厂商被挤压（太强不能发，开源紧追）；Colossus 数据中心 120 天建成归功于马斯克的第一性原理方法；Cursor 收购给 xAI 带来巨大编码数据护城河；非可验证领域是最大瓶颈；训练模型以最大化人类幸福感为终极奖励函数。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【编码 agent 的阈值时刻】</p>
+              <p>Babushkin：去年 11/12 月，编码 agent 突然变得如此强大，你无法忽视。所有人都同意这些模型非常强大。</p>
+              <p>「我们都在变成魔法师的徒弟。」</p>
+              <p>「代码只是开始。接下去是科学发现——材料科学、数学（用 Lean 形式化）、物理世界的实验反馈闭环。」</p>
+              <p></p>
+              <p>【River AI 的三个赌注】</p>
+              <p>Babushkin：第一个是 River API，强化学习和微调服务，工程极度优化。</p>
+              <p>「第二个是个性化。今天模型被训练成对所有人一视同仁。我们想让它对每个人不同——你的 agent 和我的 agent 说话方式不同，有不同的偏好和行为。」</p>
+              <p>「第三个是本地硬件。能不能在你家里的小设备上跑前沿模型？这给你控制权、隐私保护和更低延迟。」</p>
+              <p></p>
+              <p>【闭源模型的困境】</p>
+              <p>Babushkin：专有模型厂商被挤压。模型太强不能发布，开源紧追不舍。</p>
+              <p>「预训练的模型跑在全人类的知识上。这是一个公共资源，哲学上应该属于全人类。」</p>
+              <p>「企业有选择：把数据交给 Anthropic/OpenAI，或者自己利用数据训练模型。后者保护了你的竞争优势。」</p>
+              <p></p>
+              <p>【Colossus 与马斯克】</p>
+              <p>Babushkin：别人告诉我们建数据中心需要一年多。马斯克说我们自己干，当自己的总承包商。</p>
+              <p>「他在每个环节找矩阵缺雷300 天建成。他尊重工程师，像同事一样工作。每天带着微笑来上班，攻克最难的问题。」</p>
+              <p></p>
+              <p>【非可验证领域与人机共生】</p>
+              <p>Babushkin：最大的解锁是让训练处理更长时间跨度和非可验证奖励。今天模型已经足够强，可以当法官判断某事是否成功。</p>
+              <p>「如果你的 rollout 需要 24 小时，你很难训练模型。所以要找方法切分工作。」</p>
+              <p>「未来需要更深的对齐——人类与机器之间更深的融合。也许最终需要 Neuralink 这样的东西，让你只用思考就能控制大量智能。」</p>
+              <p>「但当务之急是：让每个人都感受到 AI 的好处。AI 可能加剧不平等——有人大获全益，有人被忽略。这是最紧迫的风险。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Unsupervised Learning: Jacob Efron interviews Igor Babushkin, co-founder of xAI (previously DeepMind on StarCraft/AlphaCode, OpenAI on reasoning). Igor left xAI to start River AI, focused on personal AI with three bets: (1) River API — cheap, reliable RL/fine-tuning service for enterprises; (2) Personalized AI — models that learn your preferences, vocabulary, rhythm, acting like a recommendation-system-meets-agent; (3) Local hardware — running frontier models on a device in your home for privacy, latency, and control. Key topics: coding agents crossed a threshold in Nov/Dec creating a &#39;Sorcerer&#39;s Apprentice&#39; moment; scientific discovery as next frontier (material science, math with Lean); closed model builders getting squeezed (too dangerous to release, open source catching up); Colossus data center built in 120 days thanks to Elon&#39;s first-principles approach; Cursor acquisition giving xAI a massive coding data moat; non-verifiable domains as the biggest bottleneck; and training models to maximize human happiness as the ultimate reward function.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Igor Babushkin: The coding agents suddenly became so powerful that you can&#39;t ignore them. Everybody agreed these models are very powerful.</p>
+              <p>Igor Babushkin: We&#39;re all becoming the Sorcerer&#39;s Apprentices now.</p>
+              <p>Igor Babushkin: If you&#39;re a proprietary model builder, you&#39;re starting to get squeezed. Make the model too good, you&#39;re not allowed to release it. Open source is right behind you.</p>
+              <p>Igor Babushkin: The pre training of the model happens on all of humanity&#39;s knowledge. It&#39;s really a commons.</p>
+              <p>Igor Babushkin: We should train the models to maximize human flourishing.</p>
+              <p>Igor Babushkin: The ultimate move is can we bring the inference compute locally to the users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@RedpointAI" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-11 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-11 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

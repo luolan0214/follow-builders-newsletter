@@ -1,0 +1,194 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-11",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Altman 连发三条表彰 OpenAI 团队对客户的投入（**7862 赞**）：「我最喜欢 OpenAI 的一点是他们如此关注客户成功」+ 「我额外印象深刻的是他们确保每个人都赢」+ 「最喜欢的一点是 tibo」。Rauchg 发布今日最重磋技术帖（**6006 赞**）：「如果你不读代码，以下至少有一条成立：你是初学者 / 代码是一次性的 / 你在做原型 / 你没有用户或收入 / 你在承担债务和风险 / 你的问题很基本。这些都没问题——但模型还没到完全自主的程度。」Boris Cherny 论提示注入威胁（**2864 赞**）。Sottiaux 论半夜编码（**7095 赞**）。Amjad 发布 Agent Commons（**159 赞**）。Levie 调侃 agent 伤害 SaaS（218 赞）。Garry Tan 的除虫方法论（**399 赞**）。播客：Unsupervised Learning 采访 xAI 联合创始人 Igor Babushkin，论 River AI、个人 AI、本地硬件与开源未来（74447 字符 transcript）。"
+  },
+  "archive": {
+    "title": "读代码与个人 AI 日报",
+    "desc": "Rauchg 论不读代码的代价（6006 赞），Altman 表彰 OpenAI 团队（7862 赞），Sottiaux 论半夜编码（7095 赞），Igor Babushkin 论 River AI 个人 AI。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-11 source feeds.",
+  "sections": [
+    {
+      "title": "Altman Celebrates Team & Rauchg's Read-The-Code Manifesto / Altman 表彰团队与 Rauchg 的「读代码」宣言",
+      "desc": "Altman 连发三条（**7862 赞**+952 赞+**7243 赞**）；Rauchg 论读代码（**6006 赞**）；Sottiaux 论半夜编码（**7095 赞**）；Boris Cherny 论提示注入（**2864 赞**）。",
+      "cards": [
+        {
+          "authorKey": "sama+rauchg+thsottiaux+bcherny",
+          "authorName": "Altman / Rauchg / Sottiaux / Cherny",
+          "authorTag": "OpenAI CEO / Vercel CEO / OpenAI / Claude Code @Anthropic",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "Altman triple-post (7862 + 952 + 7243 likes): 'One of the things I like most about the OpenAI team is how focused they are on our customers and users succeeding, and how much they celebrate it.' / 'I would be pretty impressed if the team just made magic intelligence in the sky, but I am extra impressed that they do so with such a focus on making sure everyone wins.' / 'lol another one of the things I like most about openai is tibo.' Rauchg's read-the-code manifesto (6006 likes): 'If you're not reading the code, whether explicitly or through agentic inquiry, one or more of these is true: You're a beginner / Software is throwaway / You're prototyping / You have no users or revenue / You're taking on debt & risk / Your problems are basic. All of this is fine. But models are still not at the full autonomy stage yet. They make rookie mistakes.'",
+              "Sottiaux on midnight coding (7095 likes): 'Midnight coding is the best coding. Until you read the code the next day at least.' Boris Cherny on prompt injection (2864 likes): detailed explanation of how scammers attack people and agents through prompt injection, and how Claude's layered defenses (model training + input probes + intent classifier) now prevent this."
+            ],
+            "original": [
+              "Sam Altman: one of the things i like most about the openai team is how focused they are on our customers and users succeeding, and how much they celebrate it",
+              "Sam Altman: i am extra impressed that they do so with such a focus on making sure everyone wins",
+              "Sam Altman: lol another one of the things i like most about openai is tibo",
+              "Guillermo Rauch: If you're not reading the code, one or more of these is true: You're a beginner / Software is throwaway / You're prototyping / You have no users / You're taking on debt & risk / Your problems are basic.",
+              "Thibault Sottiaux: Midnight coding is the best coding. Until you read the code the next day at least.",
+              "Boris Cherny: Prompt injection is the most common way that scammers attack people and agents."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 连发三条（7862 + 952 + 7243 赞）：我最喜欢 OpenAI 团队的一点是他们如此关注客户成功，如此庆祝它。如果他们只是在天上造了个魔法智能，我就已经很印象深刻了。但他们还确保每个人都赢——从商业隐私到低价格到可预测的政策。最后补了一句「最喜欢的一点是 tibo」。Rauchg 的读代码宣言（6006 赞）：如果你不读代码（无论是直接读还是通过 agent 查询），以下至少有一条成立：你是初学者 / 代码是一次性的 / 你在做原型 / 你没有用户或收入 / 你在承担债务和风险 / 你的问题很基本。这些都可以——但模型还没到完全自主，它们会犯新手错误。",
+              "Sottiaux 论半夜编码（7095 赞）：半夜编码是最棒的编码。直到你第二天读自己的代码。Boris Cherny 论提示注入（2864 赞）：详细解释了词骗分子如何通过提示注入攻击人和 agent，以及 Claude 的分层防御如何现在阻止这些攻击。"
+            ],
+            "original": [
+              "Sam Altman：喜欢 OpenAI 团队关注客户成功。确保每个人都赢。喜欢 tibo。",
+              "Guillermo Rauch：不读代码的人是初学者或在做原型。模型还犯新手错误。",
+              "Thibault Sottiaux：半夜编码最棒。直到第二天读代码。",
+              "Boris Cherny：提示注入是词骗最常见的攻击方式。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agent Commons, SaaS Diffusion & AI Multiplayer / Agent 公地、SaaS 扩散与多人 AI",
+      "desc": "Amjad 发布 Agent Commons（**159 赞**）；Levie 论 agent 扩散不均衡（218 赞）；Nikunj 问 AI 多人模式（36 赞）；Rauchg 推 Hermes+Vercel（**352 赞**）+ Dreamcore（318 赞）；Steipete 玩 ChatGPT Work 装 OpenClaw（**484 赞**）；Swyx 论删技能（73 赞）。",
+      "cards": [
+        {
+          "authorKey": "amasad+levie+nikunj+rauchg+steipete+swyx",
+          "authorName": "Amjad / Levie / Nikunj / Rauchg / Steipete / Swyx",
+          "authorTag": "Replit / Box / FPV / Vercel / OpenClaw / swyx",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Amjad launches Agent Commons (159 likes): 'The spontaneous coordination in the OpenAI-HuggingFace incident is concerning when maliciously used, but can we direct this behavior towards public good? Introducing agentcommons.org — a public commons for AI agents. Two APIs: tell and lookup. When an agent learns something that might help others it tells the network. And before doing expensive work an agent can lookup whether another agent already solved it.' Plus his Kantian ethics observation (87 likes).",
+              "Levie on uneven agent diffusion (218 likes): 'One reason we're going to get uneven diffusion rates of agents is because different workflows in the enterprise are more or less aligned to continuous, uninterrupted computer work. Agentic coding growth has gone completely vertical because it's work where economic value is directly correlated with solely digital output.' Nikunj asks about AI multiplayer (36 likes): 'What's the best AI multiplayer experience? I keep seeing the same interfaces of how a human <> agent works together. Yet to see one that has human(s) <> agent(s) working well.' Steipete's ChatGPT Work experiment (484 likes): used ChatGPT Work website to install OpenClaw and Ollama, download a local model, and run his claw in it. Swyx on deleting skills (73 likes). Rauchg's Hermes + Vercel (352 likes) and Dreamcore (318 likes)."
+            ],
+            "original": [
+              "Amjad Masad: Introducing agentcommons.org, a public commons for AI agents. Two APIs: tell and lookup.",
+              "Amjad Masad: Rogue OpenAI agents independently developed Kantian ethics.",
+              "Aaron Levie: Agentic coding growth has gone completely vertical because it's work where economic value is directly correlated with solely digital output.",
+              "Nikunj Kothari: What's the best AI multiplayer experience? Yet to see human(s) <> agent(s) working well.",
+              "Peter Steinberger: Just for the lols, I used ChatGPT Work to install OpenClaw and Ollama, let it download a local model and run my claw in it.",
+              "Swyx: Occasional reminder to DELETE your skills."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 发布 Agent Commons（159 赞）：OpenAI-HuggingFace 事件中的自发协作令人担忧，但能否将这种行为引导向公共福祉？发布 agentcommons.org——AI agent 的公共平台。两个 API：tell 和 lookup。当 agent 学到可能帮助其他人的东西时，它告诉网络。在做昂贵工作前，agent 可以查询是否其他 agent 已解决。加上他的康德伦理观察（87 赞）。",
+              "Levie 论 agent 扩散不均衡（218 赞）：agent 扩散速度不均的原因是企业内不同工作流对连续不间断的计算机工作的契合度不同。编码 agent 增长完全垂直上升，因为它是经济价值与纯数字输出直接相关的工作。Nikunj 问 AI 多人模式（36 赞）：最好的 AI 多人模式是什么？我一直看到同样的人类-agent 协作界面，但还没见过多人类-多 agent 协作得好的。Steipete 的 ChatGPT Work 实验（484 赞）：纯粹为了好玩，用 ChatGPT Work 网页版安装 OpenClaw 和 Ollama，让它下载本地模型并运行他的 claw。Swyx 论删技能（73 赞）。Rauchg 的 Hermes+Vercel（352 赞）和 Dreamcore（318 赞）。"
+            ],
+            "original": [
+              "Amjad Masad：Agent Commons——AI agent 的公共平台。tell 和 lookup 两个 API。",
+              "Aaron Levie：编码 agent 增长垂直上升，因为纯数字输出直接关联经济价值。",
+              "Nikunj Kothari：最好的 AI 多人模式是什么？",
+              "Peter Steinberger：用 ChatGPT Work 装 OpenClaw 和 Ollama。",
+              "Swyx：记得删技能。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Fix Root Causes, Deep Immersion & Wittgenstein / 修复根因、深度沉浸与维特根施坦",
+      "desc": "Garry Tan 的除虫方法论（**399 赞**）；Madhu Guru 论沉浸（244 赞）；Aditya Agarwal 引维特根施坦（47 赞）；Matt Turck 论国父与上下文工程（16 赞）；Dan Shipper 论《悲慘世界》（22 赞）；Zara 的设计小贴士（64 赞）；Nan Yu 的编程阶梯（25 赞）；Peter Yang 的家史项目（22 赞）+ Linear agent 自改（15 赞）。",
+      "cards": [
+        {
+          "authorKey": "garrytan+realmadhuguru+adityaag+mattturck+danshipper+zarazhangrui+thenanyu+petergyang",
+          "authorName": "Garry Tan / Madhu / Aditya / Turck / Shipper / Zara / Nan Yu / Peter Yang",
+          "authorTag": "YC / Product / Investor / FirstMark / Every / Builder / Linear / Builder",
+          "sourceUrl": "https://x.com/garrytan",
+          "en": {
+            "rewrite": [
+              "Garry Tan's debugging philosophy (399 likes): 'Start from the bug, the gap, the false claim, the half-built tool, the weird behavior in the institution. Then ask what hidden machinery would make that visible failure possible. Then fix the root cause. Repeat forever.' Madhu Guru on immersion (244 likes): 'The only way I've ever gotten good at anything is by being consumed by it for a while. Meditation, standup comedy, family, work, LLMs. I'll spend a few years going ridiculously deep. There's a point after enough immersion where your knowledge becomes intuition.'",
+              "Aditya Agarwal draws the Wittgenstein parallel (47 likes): 'Wittgenstein in 1921: language must have a deep underlying logical structure. Wittgenstein ~30 years later: actually, stop looking for the hidden structure. Look at how language is used. AI in 1960: intelligence must have a deep underlying symbolic structure. AI ~60 years later: actually, scale the neural net.' Matt Turck quote (16 likes): 'The Founding Fathers would have been really good context engineers.' Dan Shipper reading Les Miserables (22 likes), finding overlap with War and Peace. Zara's design tips (64 likes). Nan Yu's programming ladder (25 likes): 'Don't write Ruby unless you already know C. Don't write C unless you know assembly. Don't write assembly unless you can literally see the Matrix.' Peter Yang's family history project (22 likes) and Linear Agent self-filing (15 likes)."
+            ],
+            "original": [
+              "Garry Tan: Start from the bug. Ask what hidden machinery would make that visible failure possible. Fix the root cause. Repeat forever.",
+              "Madhu Guru: The only way I've ever gotten good at anything is by being consumed by it for a while.",
+              "Aditya Agarwal: Wittgenstein in 1921 vs 30 years later. AI in 1960 vs 60 years later: scale the neural net.",
+              "Matt Turck: The Founding Fathers would have been really good context engineers.",
+              "Nan Yu: Don't write Ruby unless you already know C. Don't write assembly unless you can literally see the Matrix.",
+              "Peter Yang: Linear Agent files feature requests for itself. Every task the agent can't complete becomes product feedback."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 的除虫方法论（399 赞）：从 bug、缺口、虚假声明、半成品工具、机构的奇怪行为开始。然后问：什么隐藏机制让这个可见的失败成为可能？然后修复根因。永远重复。Madhu Guru 论沉浸（244 赞）：我变得擅长任何事的唯一方法就是被它消耗一段时间——冥想、脱口秀、家庭、工作、LLM。花几年疯狂深入。充分沉浸后，知识变成直觉，你会做出潜意识的联系。",
+              "Aditya Agarwal 画出维特根施坦类比（47 赞）：维特根施坦 1921 年：语言必有深层逻辑结构。约 30 年后：别找隐藏结构了，看语言怎么被使用。AI 1960 年：智能必有深层符号结构。约 60 年后：别找了，放大神经网络。Matt Turck 引言（16 赞）：「国父们会是非常好的上下文工程师。」Dan Shipper 读《悲慘世界》（22 赞），发现与《战争与和平》大量重叠。Zara 的设计贴士（64 赞）。Nan Yu 的编程阶梯（25 赞）：不会 C 就别写 Ruby，不会汇编就别写 C，不能看见矩阵就别写汇编。Peter Yang 的家史项目（22 赞）+ Linear Agent 自己给自己提需求（15 赞）。"
+            ],
+            "original": [
+              "Garry Tan：从 bug 开始。找隐藏机制。修复根因。重复。",
+              "Madhu Guru：沉浸是变擅长的唯一方法。知识变直觉。",
+              "Aditya Agarwal：维特根施坦从逻辑结构转向语言用法。AI 从符号结构转向规模。",
+              "Matt Turck：国父们是好的上下文工程师。",
+              "Nan Yu：不会 C 别写 Ruby。不能看见矩阵别写汇编。",
+              "Peter Yang：Linear Agent 自己提需求。做不了的任务变成产品反馈。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Igor Babushkin — River AI, Personal AI & Local Hardware / 播客：Igor Babushkin——River AI、个人 AI 与本地硬件",
+      "desc": "Unsupervised Learning 采访 xAI 联合创始人 Igor Babushkin，论离开 xAI 创建 River AI、个人 AI 化、本地硬件、闭源 vs 开源、代码 agent 爆发与人机共生。完整 transcript（74447 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:ul-river",
+          "authorName": "Unsupervised Learning (Jacob Efron)",
+          "authorTag": "Igor Babushkin（xAI 联合创始人 / River AI 创始人）",
+          "sourceUrl": "https://www.youtube.com/@RedpointAI",
+          "en": {
+            "rewrite": [
+              "Unsupervised Learning: Jacob Efron interviews Igor Babushkin, co-founder of xAI (previously DeepMind on StarCraft/AlphaCode, OpenAI on reasoning). Igor left xAI to start River AI, focused on personal AI with three bets: (1) River API — cheap, reliable RL/fine-tuning service for enterprises; (2) Personalized AI — models that learn your preferences, vocabulary, rhythm, acting like a recommendation-system-meets-agent; (3) Local hardware — running frontier models on a device in your home for privacy, latency, and control. Key topics: coding agents crossed a threshold in Nov/Dec creating a 'Sorcerer's Apprentice' moment; scientific discovery as next frontier (material science, math with Lean); closed model builders getting squeezed (too dangerous to release, open source catching up); Colossus data center built in 120 days thanks to Elon's first-principles approach; Cursor acquisition giving xAI a massive coding data moat; non-verifiable domains as the biggest bottleneck; and training models to maximize human happiness as the ultimate reward function."
+            ],
+            "original": [
+              "Igor Babushkin: The coding agents suddenly became so powerful that you can't ignore them. Everybody agreed these models are very powerful.",
+              "Igor Babushkin: We're all becoming the Sorcerer's Apprentices now.",
+              "Igor Babushkin: If you're a proprietary model builder, you're starting to get squeezed. Make the model too good, you're not allowed to release it. Open source is right behind you.",
+              "Igor Babushkin: The pre training of the model happens on all of humanity's knowledge. It's really a commons.",
+              "Igor Babushkin: We should train the models to maximize human flourishing.",
+              "Igor Babushkin: The ultimate move is can we bring the inference compute locally to the users."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Unsupervised Learning：Jacob Efron 采访 Igor Babushkin——xAI 联合创始人（先前在 DeepMind 倚 StarCraft/AlphaCode，在 OpenAI 倚推理）。Igor 离开 xAI 创建 River AI，专注个人 AI，三个赌注：（1）River API——为企业提供便宜可靠的 RL/微调服务；（2）个性化 AI——模型学习你的偏好、词汇、节奏，像推荐算法+agent 的混合体；（3）本地硬件——在家里的设备上跑前沿模型，为了隐私、低延迟和控制权。核心话题：编码 agent 在 11/12 月越过阈值，创造了「魔法师徒弟」时刻；科学发现是下一个前沿；闭源模型厂商被挤压（太强不能发，开源紧追）；Colossus 数据中心 120 天建成归功于马斯克的第一性原理方法；Cursor 收购给 xAI 带来巨大编码数据护城河；非可验证领域是最大瓶颈；训练模型以最大化人类幸福感为终极奖励函数。"
+            ],
+            "original": [
+              "【编码 agent 的阈值时刻】",
+              "Babushkin：去年 11/12 月，编码 agent 突然变得如此强大，你无法忽视。所有人都同意这些模型非常强大。",
+              "「我们都在变成魔法师的徒弟。」",
+              "「代码只是开始。接下去是科学发现——材料科学、数学（用 Lean 形式化）、物理世界的实验反馈闭环。」",
+              "",
+              "【River AI 的三个赌注】",
+              "Babushkin：第一个是 River API，强化学习和微调服务，工程极度优化。",
+              "「第二个是个性化。今天模型被训练成对所有人一视同仁。我们想让它对每个人不同——你的 agent 和我的 agent 说话方式不同，有不同的偏好和行为。」",
+              "「第三个是本地硬件。能不能在你家里的小设备上跑前沿模型？这给你控制权、隐私保护和更低延迟。」",
+              "",
+              "【闭源模型的困境】",
+              "Babushkin：专有模型厂商被挤压。模型太强不能发布，开源紧追不舍。",
+              "「预训练的模型跑在全人类的知识上。这是一个公共资源，哲学上应该属于全人类。」",
+              "「企业有选择：把数据交给 Anthropic/OpenAI，或者自己利用数据训练模型。后者保护了你的竞争优势。」",
+              "",
+              "【Colossus 与马斯克】",
+              "Babushkin：别人告诉我们建数据中心需要一年多。马斯克说我们自己干，当自己的总承包商。",
+              "「他在每个环节找矩阵缺雷300 天建成。他尊重工程师，像同事一样工作。每天带着微笑来上班，攻克最难的问题。」",
+              "",
+              "【非可验证领域与人机共生】",
+              "Babushkin：最大的解锁是让训练处理更长时间跨度和非可验证奖励。今天模型已经足够强，可以当法官判断某事是否成功。",
+              "「如果你的 rollout 需要 24 小时，你很难训练模型。所以要找方法切分工作。」",
+              "「未来需要更深的对齐——人类与机器之间更深的融合。也许最终需要 Neuralink 这样的东西，让你只用思考就能控制大量智能。」",
+              "「但当务之急是：让每个人都感受到 AI 的好处。AI 可能加剧不平等——有人大获全益，有人被忽略。这是最紧迫的风险。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
