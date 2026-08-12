@@ -1,0 +1,185 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-12",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 连发两条重磋消息（**9781 赞 + 6699 赞**）：「Hi. It is done.」+ 全站重置付费限制。发布 Daybreak Blue & Red 网安访问层级 + GPT-5.6-Cyber 模型（**2564 赞**）。Altman 呼吁用模型加强防御（**6384 赞**）。Claude 宣布 Sonnet 5 价格永久化（**8642 赞，今日最高**）。Levie 论 Meta Muse Spark 1.2 开放权重（**887 赞**）：「美国终于有了开放权重 AI 竞赛的回应。」Ryo Lu 宣布离开 Cursor（**12341 赞，全周最高**）：离开旧金山去亚洲寻找不同节奏。Rauchg 论 deepsec 成动词（**348 赞**）+ Vercel Sandbox 隔离计算与网络（**160 赞**）。Steipete 论 OpenClaw 头条（**589 赞**）。Zara 报道北京 AGI Bar（**227 赞**）+用 Codex 学设计（**1087 赞**）。Swyx 宣判 worktrees 死刑（**1252 赞**）。播客：No Priors 采访 Netic 创始人 Melisa Tokmak，论为真实世界服务构建自主企业（38474 字符 transcript）。"
+  },
+  "archive": {
+    "title": "重置完成与开放权重日日报",
+    "desc": "Sottiaux 完成重置（9781 赞），Claude 价格永久化（8642 赞），Levie 论 Muse Spark 开放权重（887 赞），Ryo Lu 离开 Cursor（12341 赞）。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-12 source feeds.",
+  "sections": [
+    {
+      "title": "Sottiaux's \"It Is Done\" & Cyber Model Launch / Sottiaux 「完成」与网安模型发布",
+      "desc": "Sottiaux 完成重置（**9781 赞**）+ 周一重置（**6699 赞**）+ GPT-5.6-Cyber（**2564 赞**）；Altman 呼吁防御（**6384 赞**）；Claude Sonnet 5 价格永久化（**8642 赞，今日最高**）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama+claudeai",
+          "authorName": "Sottiaux / Altman / Claude",
+          "authorTag": "OpenAI / OpenAI CEO / Anthropic",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux drops the two-word bomb (9781 likes): 'Hi. It is done.' Plus his Monday reset announcement (6699 likes): 'Usage limits have been reset for all paid ChatGPT Work and Codex users. Happy Monday you all.' And the cybersecurity launch (2564 likes): 'Cybersecurity is changing rapidly. We are broadening access to frontier cyber capabilities through the new Daybreak Blue & Red access tiers and are introducing GPT-5.6-Cyber.' Altman co-signs (6384 likes): 'please consider using our models to help defend your systems.'",
+              "Claude makes Sonnet 5 pricing permanent (8642 likes, the highest of the day): 'We are making Claude Sonnet 5's introductory pricing permanent. We launched Sonnet 5 in June at $2 per million input tokens and $10 per million output tokens through August 31, and that price will remain unchanged.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Hi. It is done.",
+              "Thibault Sottiaux: Usage limits have been reset for all paid ChatGPT Work and Codex users. Happy Monday.",
+              "Thibault Sottiaux: We are broadening access to frontier cyber capabilities through the new Daybreak Blue & Red access tiers and are introducing GPT-5.6-Cyber.",
+              "Sam Altman: please consider using our models to help defend your systems",
+              "Claude: We're making Claude Sonnet 5's introductory pricing permanent. $2/M input, $10/M output."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 丢出两词炸弹（9781 赞）：Hi. It is done. 加上他的周一重置宣布（6699 赞）：所有 ChatGPT Work 和 Codex 付费用户的使用限制已重置。周一快乐。以及网安模型发布（2564 赞）：网络安全正在快速变化。我们通过新的 Daybreak Blue & Red 访问层级拓宽前沿网安能力的获取，并引入 GPT-5.6-Cyber 模型。Altman 联动（6384 赞）：请考虑用我们的模型来帮助防御你们的系统。",
+              "Claude 宣布 Sonnet 5 价格永久化（8642 赞，今日最高）：我们将 Claude Sonnet 5 的上市介绍价永久化。6 月以每百万输入 token $2、每百万输出 token $10 的价格将保持不变。"
+            ],
+            "original": [
+              "Thibault Sottiaux：完成了。付费限制已重置。GPT-5.6-Cyber 发布。",
+              "Sam Altman：用模型加强防御。",
+              "Claude：Sonnet 5 价格永久化。$2/M 输入，$10/M 输出。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Muse Spark Open Weights, Ryo Lu Leaves Cursor & DeepSec / Muse Spark 开放、Ryo Lu 离开 Cursor 与 DeepSec",
+      "desc": "Levie 论 Muse Spark 1.2 开放权重（**887 赞**+204 赞）；Ryo Lu 离开 Cursor（**12341 赞，全周最高**）；Rauchg 论 deepsec（**348 赞**）+ Sandbox 隔离（**160 赞**）；Steipete 论 OpenClaw 头条（**589 赞**+**1317 赞**）。",
+      "cards": [
+        {
+          "authorKey": "levie+ryolu_+rauchg+steipete",
+          "authorName": "Levie / Ryo Lu / Rauchg / Steipete",
+          "authorTag": "Box CEO / Cursor / Vercel CEO / OpenClaw",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie on Muse Spark 1.2 open weights (887 likes): 'Meta releasing Muse Spark 1.2 as open weights is a very big deal. America now finally has its response to the open weights AI race. This will continue to help drive down the cost of intelligence, allows companies to run models as they see fit, and post train their own models.' Plus his follow-up (204 likes) about frontier-class capability from a US company available as open weights. Ryo Lu announces departure from Cursor (12341 likes, the biggest post of the entire week): 'I left Cursor. After 10 years inside the tech bubble in San Francisco, Cursor felt like the sharpest version of that world. I'm leaving with gratitude, but also with the feeling that I need a different rhythm. Slower time. Different weather. More culture, aliveness, and humans in the everyday. Asia feels like the right place for that.'",
+              "Rauchg on deepsec as a verb (348 likes): 'This tool has become so valuable for cybersecurity defensive work, that it's become a verb within Vercel. Did you deepsec it?' Plus Vercel Sandbox isolation (160 likes): 'Vercel Sandbox isolates both compute and network. Kimi's paper shows container-based isolation is not enough for frontier models. Our egress firewall is now free.' Steipete on OpenClaw headline (589 likes) and his 'Must be load-bearing' post (1317 likes)."
+            ],
+            "original": [
+              "Aaron Levie: Meta releasing Muse Spark 1.2 as open weights is a very big deal. America now finally has its response to the open weights AI race.",
+              "Ryo Lu: I left Cursor. I need a different rhythm. Slower time. Different weather. More culture, aliveness, and humans in the everyday. Asia feels like the right place.",
+              "Guillermo Rauch: Did you deepsec it? It's become a verb within Vercel.",
+              "Guillermo Rauch: Vercel Sandbox isolates both compute and network. Our egress firewall is now free.",
+              "Peter Steinberger: Funny how that headline is about OpenClaw and not Claude. As if the harness could meaningfully prevent a determined user."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 论 Muse Spark 1.2 开放权重（887 赞）：Meta 开放 Muse Spark 1.2 权重是一件大事。美国终于有了开放权重 AI 竞赛的回应。这将继续压低智能成本，允许公司自主运行模型，并针对特定场景后训练。加上补充（204 赞）：三个月前告诉别人美国公司会发布前沿级开放权重模型，没人会信。Ryo Lu 宣布离开 Cursor（12341 赞，全周最高）：我离开了 Cursor。在旧金山科技泡沫里呆了 10 年，Cursor 是那个世界最锋利的缩影。我带着感恩离开，但也需要不同的节奏——更慢的时间、不同的天气、更多文化、活力和日常中的人。亚洲感觉是对的地方。",
+              "Rauchg 论 deepsec 成动词（348 赞）：这个工具在 Vercel 内部已经变成了动词。「你 deepsec 了吗？」加上 Vercel Sandbox 隔离（160 赞）：Vercel Sandbox 同时隔离计算和网络。Kimi 的论文表明容器级隔离对前沿模型不够。我们的出口防火墙现在免费。Steipete 论 OpenClaw 头条（589 赞）：有趣这条头条是关于 OpenClaw 而不是 Claude。好像 harness 能有意义地阻止一个坚定的用户似的。以及他的「必须是承重型」帖（1317 赞）。"
+            ],
+            "original": [
+              "Aaron Levie：Muse Spark 1.2 开放权重是大事。美国终于有了回应。",
+              "Ryo Lu：离开 Cursor。需要不同的节奏。亚洲是对的地方。",
+              "Guillermo Rauch：deepsec 成了动词。Vercel Sandbox 隔离计算和网络。",
+              "Peter Steinberger：harness 阻止不了坚定的用户。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Worktrees Must Die, AGI Bar & Design Learning / Worktrees 死刑、AGI Bar 与设计学习",
+      "desc": "Swyx 宣判 worktrees 死刑（**1252 赞**）；Zara 报道北京 AGI Bar（**227 赞**）+ Codex 学设计（**1087 赞**）；Thariq 论 AI 技能（**292 赞**）；Garry Tan 论 YC 硬科技（**341 赞**）+ 向中国发（**720 赞**）；Madhu Guru 论消费者信号（50 赞）+ Wispr 麦克风（21 赞）；Peter Yang 的 agent 五要点（43 赞）；Matt Turck 的数据经典句（33 赞）。",
+      "cards": [
+        {
+          "authorKey": "swyx+zarazhangrui+trq212+garrytan+realmadhuguru+petergyang+mattturck",
+          "authorName": "Swyx / Zara / Thariq / Garry Tan / Madhu / Peter Yang / Matt Turck",
+          "authorTag": "swyx / Builder / Anthropic / YC / Product / Builder / FirstMark",
+          "sourceUrl": "https://x.com/swyx",
+          "en": {
+            "rewrite": [
+              "Swyx declares war on worktrees (1252 likes): 'worktrees must die. this is 20GB of repeated node_modules lol.' Plus his Luna vs Fable comparison (35 likes) and pdb envs AFS clone (11 likes). Zara reports from Beijing (227 likes): 'At the AGI Bar in Beijing, you can get free, unlimited DeepSeek tokens. Customers vibe code while sipping on beers with names like AGI bubble. You can also buy a Drinking Plan which gives you free beer for the whole year.' Plus her Codex design learning tip (1087 likes): 'Give Codex a well-designed website, ask it to analyze what makes the design great, then ask it to take a screenshot and add annotations breaking down why the design works.'",
+              "Thariq on AI skills (292 likes): 'This shows 2 key skills: (1) compute allocation - for most jobs you have to decide what problems are worth it (2) thought partnership - you have to really dig into and understand the proof to know it was real.' Garry Tan on YC for hard tech (341 likes) and China export question (720 likes). Madhu Guru on consumer reasoning (50 likes): 'How do you develop a theory of why someone did something, rather than just a history of what they did?' Plus Wispr mic team purchase (21 likes). Peter Yang's 5 agent takeaways (43 likes). Matt Turck's data classic (33 likes): 'Big Data era: the problem is the underlying data. Modern data stack: the problem is the underlying data. Gen AI: the problem is the underlying data. Agentic AI: the problem is the underlying data.'"
+            ],
+            "original": [
+              "Swyx: worktrees must die. this is 20GB of repeated node_modules lol",
+              "Zara Zhang: At the AGI Bar in Beijing, you can get free, unlimited DeepSeek tokens. Customers vibe code while sipping on beers with names like AGI bubble.",
+              "Zara Zhang: Give Codex a well-designed website, ask it to analyze what makes the design great, then add annotations.",
+              "Thariq: 2 key skills w/ AI: compute allocation and thought partnership.",
+              "Garry Tan: YC is the YC for hard tech",
+              "Madhu Guru: How do you develop a theory of why someone did something, rather than just a history of what they did?",
+              "Matt Turck: Agentic AI era: our agents work great, the problem is the underlying data"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 宣判 worktrees 死刑（1252 赞）：worktrees 必须死。这是 20GB 重复的 node_modules。加上他的 Luna vs Fable 对比（35 赞）和 pdb envs AFS clone（11 赞）。Zara 从北京发回报道（227 赞）：在北京的 AGI Bar，你可以获得免费无限 DeepSeek token。顾客一边喝着叫「AGI 泡沫」的啤酒一边 vibe code。还可以买「喝酒计划」全年免费啤酒。加上她的 Codex 学设计技巧（1087 赞）：给 Codex 一个设计精良的网站，让它分析设计为什么棒，然后让它截图并加标注。从例子学总是比从理论学好！",
+              "Thariq 论 AI 技能（292 赞）：这展示了两个关键技能：（1）计算分配——你得决定哪些问题值得花计算资源；（2）思维伴侣——你得真正深入理解证明过程才能知道它是真的。Garry Tan 论 YC 是硬科技的 YC（341 赞）和向中国出口的问题（720 赞）。Madhu Guru 论消费者推理（50 赞）：如何发展一个关于「为什么」的理论，而不仅仅是「做了什么」的历史？加上团队 Wispr 麦克风（21 赞）。Peter Yang 的 agent 五要点（43 赞）。Matt Turck 的数据经典句（33 赞）：大数据时代、现代数据栈、生成 AI、Agent AI——问题总是在基层数据。"
+            ],
+            "original": [
+              "Swyx：worktrees 必须死。20GB 重复 node_modules。",
+              "Zara Zhang：北京 AGI Bar。免费 DeepSeek token。AGI 泡沫啤酒。",
+              "Zara Zhang：用 Codex 学设计。给网站加标注分析。",
+              "Thariq：两个关键技能：计算分配和思维伴侣。",
+              "Garry Tan：YC 是硬科技的 YC。",
+              "Matt Turck：问题总是在基层数据。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Netic — Autonomous Enterprise for Real-World Services / 播客：Netic——为真实世界服务构建自主企业",
+      "desc": "No Priors 采访 Netic 创始人 Melisa Tokmak，论为 HVAC、宠物护理、居家服务等真实世界行业构建自主 AI 企业。完整 transcript（38474 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:np-netic",
+          "authorName": "No Priors (Elad Gil)",
+          "authorTag": "Melisa Tokmak（Netic 创始人 / CEO，前 Scale AI）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "No Priors: Elad Gil interviews Melisa Tokmak, founder/CEO of Netic, which builds AI to run millions of real-world businesses (HVAC, plumbing, pet care, hospitality, automotive). Netic agents handle the entire customer interaction layer: voice calls, scheduling, dispatching, lifetime value optimization. Key topics: 70%+ of customers' first interaction is now with Netic agents; why she chose SaaS over roll-up (skill set, scale, product focus); robotics is far future (every building would need to be 3D-printed or standardized); labs can't compete because they lack industry focus and last-mile orchestration; hiring philosophy screens for agency and commitment (\"What's the hardest thing you've ever done?\"); founders today too focused on short-term exits; and the Martin Luther quote: 'The Christian shoemaker doesn't honor God by putting little crosses on the shoes, but by making the best shoes.'"
+            ],
+            "original": [
+              "Melisa Tokmak: Netic builds AI to run millions of real world businesses that keep the world running.",
+              "Melisa Tokmak: Over 70% of our customers are AI first. All of their customers' first interaction with the company is with Netic agents.",
+              "Melisa Tokmak: If robotics is going to do what we're doing, every single building needs to be either 3D printed or completely standardized. I don't see that happening.",
+              "Melisa Tokmak: Being a founder is a very difficult thing that you have to dedicate your whole life for decades. It is not something to be taken lightly.",
+              "Melisa Tokmak: The Christian shoemaker doesn't honor God by putting little crosses on the shoes. It does so by building the best shoe."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors：Elad Gil 采访 Netic 创始人 Melisa Tokmak（前 Scale AI 工程总监）。Netic 为 HVAC、水管、电工、宠物护理、居家、汽车等真实世界行业构建 AI。Netic agent 处理整个客户交互层：语音电话、排程、调度、客户终身价值优化。核心话题：70%+ 客户的首次交互已由 Netic agent 完成；为什么选 SaaS 而不是收购滚雪球（技能、规模、产品焦点）；机器人是遥远的未来（每栋楼都需 3D 打印或标准化）；实验室无法竞争，因为缺乏行业焦点和最后一公里编排；招人哲学筛选主动性和承诺（「你人生中做过最难的事是什么？」）；当今创始人太关注短期退出；以及马丁路德引言：「基督徒的鞋匠不是在鞋子上划十字来荣耀上帝，而是做最好的鞋子。」"
+            ],
+            "original": [
+              "【真实世界的 AI 企业】",
+              "Tokmak：Netic 构建 AI 来运营数百万个保持世界转动的真实世界企业。",
+              "「我们与大型企业合作，从家庭服务、消费者健康到宠物服务。我们为他们的客户提供语音、排程、调度等全套服务。」",
+              "「70% 以上的客户，他们的客户与公司的第一次交互是与 Netic agent 完成的。」",
+              "",
+              "【为什么不做收购滚雪球】",
+              "Tokmak：三个原因。我想建的东西、技能、规模。",
+              "「我是工程师和产品人，不是并购专家。收购滚雪球的产品只能服务于自己买的公司，无法推广到其他公司。」",
+              "",
+              "【机器人与实验室的局限】",
+              "Tokmak：机器人要做我们今天做的事，每栋楼都需 3D 打印或完全标准化。我不认为这会发生。",
+              "「而且这些行业有很多人性化元素——当客户的家被淹或者他们正经历人生中最坚难的时刻。」",
+              "「实验室关心的是解决问题的最通用方法。但真实世界服务需要的是最后一公里的编排和产品。」",
+              "",
+              "【招人哲学与创始精神】",
+              "Tokmak：我会问「你人生中做过最难的事是什么？」，然后深挖。",
+              "「做出真正好的东西需要很长时间。我们避免只求新奇的人。」",
+              "「当创始人是一件非常困难的事，你得为此奉献数十年的生命。这不是可以轻率的事。」",
+              "「基督徒鞋匠不是在鞋子上划十字，而是做最好的鞋子。——马丁路德」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
