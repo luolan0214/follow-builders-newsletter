@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-13" data-issue-number="87" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 87 期｜2026-08-13｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Sottiaux 宣布 Codex &amp; ChatGPT 桌面版登陆 Linux（**9329 赞，今日最高**）：「终于做到了……感谢等待，你可以取消 MacBook 订单了。」+ 重置承诺（**2737 赞**）+ 「Import your world」（**2099 赞**）。Boris Cherny 论 LLM bug 变天（**2447 赞**）：不再是 off-by-one，而是系统设计、UI 可用性、缺失上下文。对抗式代码审查是捕获这类 bug 的强力工具。Thariq 宣布 Claude 水印消息（**946 赞**）：所有 Claude 生成文本将嵌入水印，可检测 PR 是否由 Claude Code 生成，配合 EU AI Act。Rauchg 庆祝 AI SDK 月下载 8050 万（**289 赞**）。Peter Yang 拍诀 ChatGPT 产品体验混乱（**269 赞**）。Garry Tan 推 @ibab 对齐研究（**311 赞**）。Madhu Guru 论开放权重模型的行业机会（**168 赞**）。Nikunj 的 VC 心得（**295 赞**）。播客：MAD Podcast 采访 Samsara CEO Sanjit Biswas，论物理 AI、产业 agent 与网安前线（71041 字符 transcript）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 宣布 Codex &amp; ChatGPT 桌面版登陆 Linux（**9329 赞，今日最高**）：「终于做到了……感谢等待，你可以取消 MacBook 订单了。」+ 重置承诺（**2737 赞**）+ 「Import your world」（**2099 赞**）。Boris Cherny 论 LLM bug 变天（**2447 赞**）：不再是 off-by-one，而是系统设计、UI 可用性、缺失上下文。对抗式代码审查是捕获这类 bug 的强力工具。Thariq 宣布 Claude 水印消息（**946 赞**）：所有 Claude 生成文本将嵌入水印，可检测 PR 是否由 Claude Code 生成，配合 EU AI Act。Rauchg 庆祝 AI SDK 月下载 8050 万（**289 赞**）。Peter Yang 拍诀 ChatGPT 产品体验混乱（**269 赞**）。Garry Tan 推 @ibab 对齐研究（**311 赞**）。Madhu Guru 论开放权重模型的行业机会（**168 赞**）。Nikunj 的 VC 心得（**295 赞**）。播客：MAD Podcast 采访 Samsara CEO Sanjit Biswas，论物理 AI、产业 agent 与网安前线（71041 字符 transcript）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Codex on Linux, LLM Bug Shift &amp; Claude Watermarking / Codex 登陆 Linux、LLM Bug 变天与 Claude 水印</h2>
+    <p class="section-desc">Sottiaux 宣布 Linux 版（**9329 赞**）+ 重置承诺（**2737 赞**）；Boris Cherny 论 bug 变天（**2447 赞**）；Thariq 宣布水印（**946 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+bcherny+trq212" data-author-name="Sottiaux / Cherny / Thariq" data-author-tag="OpenAI / Claude Code @Anthropic / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Cherny / Thariq avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Cherny / Thariq</div>
+            <div class="author-tag is-inline">OpenAI / Claude Code @Anthropic / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 丢出 Linux 炸弹（9329 赞，今日最高）：终于做到了……Codex &amp; ChatGPT 桌面版现在登陆 Linux。感谢等待，你可以取消 MacBook 订单了——它就是那么棒。加上他的重置承诺（2737 赞）：我之前承诺每增加 100 万 Codex 活跃用户就重置一次，直到 1000 万。我们早就超过了，明天有小惊喜。以及「Import your world」（2099 赞）。Boris Cherny 论 LLM bug 变天（2447 赞）：LLM 仍然会产生 bug，但这些 bug 与以前不同了。不再是 off-by-one，而是系统设计、UI 可用性、缺失更广泛的上下文。某些类型的编码已被解决，但不是全部。对抗式代码审查是捕获这些 bug 的强力工具。</p>
+              <p>Thariq 宣布 Claude 水印（946 赞）：这是配合 EU AI Act 的一部分，其他实验室也在添加类似水印。所有 Claude 生成的文本都将嵌入水印。例如，你可以检查一个 PR 是否由 Claude Code 生成。还将提供文本检测 API。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：Codex 登陆 Linux。可以取消 MacBook 订单了。明天有小惊喜。</p>
+              <p>Boris Cherny：LLM bug 不再是 off-by-one，而是系统设计和上下文缺失。对抗式审查是强力工具。</p>
+              <p>Thariq：Claude 生成文本将嵌入水印。可检测 PR 是否由 Claude Code 生成。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux drops the Linux bomb (9329 likes, the biggest post of the day): &#39;We did it, finally... Codex &amp; ChatGPT desktop, now on Linux. Thanks for waiting and you can cancel that MacBook order if you got impatient. It&#39;s that good.&#39; Plus his reset promise (2737 likes): &#39;I previously promised a reset for every 1M in additional active users for Codex, until 10M. We blew past that and have been silent since 10M. Little surprise for you tomorrow.&#39; And &#39;Import your world&#39; (2099 likes). Boris Cherny on the LLM bug shift (2447 likes): &#39;LLMs still produce bugs, but those bugs are different. It&#39;s less off-by-ones and more about system design, UI usability, missing broader context. Some kinds of coding has been solved, but not all. While models continue to improve, adversarial code review has been an incredibly powerful tool.&#39;</p>
+              <p>Thariq announces Claude watermarking (946 likes): &#39;This is part of working with the EU AI Act, other labs are adding similar watermarking. All Claude generated text will have this embedded watermarking. For example, you could check if a PR was generated by Claude Code.&#39; Plus shipping a text detection API (97 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: We did it, finally... Codex &amp; ChatGPT desktop, now on Linux. Thanks for waiting and you can cancel that MacBook order.</p>
+              <p>Thibault Sottiaux: We blew past 10M. Little surprise for you tomorrow.</p>
+              <p>Boris Cherny: LLMs still produce bugs, but those bugs are different. It&#39;s less off-by-ones and more about system design, UI usability, missing broader context.</p>
+              <p>Thariq: All Claude generated text will have this embedded watermarking. For example, you could check if a PR was generated by Claude Code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">AI SDK Growth, Gemini on Apple &amp; Open-Weight Domains / AI SDK 增长、Gemini 上苹果与开放权重行业</h2>
+    <p class="section-desc">Rauchg 庆祝 AI SDK（**289 赞**）；Josh Woodward 报告 Gemini 苹果生态（**66 赞**）+ Android 自动化（50 赞）；Madhu Guru 论开放权重行业（**168 赞**）；Levie 论 FDE（88 赞）；Garry Tan 推对齐研究（**311 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+joshwoodward+realmadhuguru+levie+garrytan" data-author-name="Rauchg / Woodward / Madhu / Levie / Garry Tan" data-author-tag="Vercel CEO / Google Gemini / Product / Box CEO / YC CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Woodward / Madhu / Levie / Garry Tan avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Woodward / Madhu / Levie / Garry Tan</div>
+            <div class="author-tag is-inline">Vercel CEO / Google Gemini / Product / Box CEO / YC CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 庆祝 AI SDK 增长（289 赞）：AI SDK 的增长令人震惊。每 30 天约 8050 万下载，增长速度超过所有 AI 实验室的 SDK。最重要的是：开放且与提供商无关。Josh Woodward 报告 Gemini 里程碑（66 赞）：苹果用户正转向 Gemini。iOS 上超过 1 亿活跃用户。macOS 高级用户的 prompt 频率约为其他平台的 2 倍。加上 Android 跨 40+ app 自动化（50 赞）。</p>
+              <p>Madhu Guru 论开放权重机会（168 赞）：在让开放权重模型在无聊、特定业务领域变得卓越这件事上，将会有巨额财富。选一个规模 × 行业组合深耘。比如中端市场法律、中小企业零售、企业物流。超大厂商有基础设施但难以深入行业。Levie 论 FDE（88 赞）：AI 本质上是在从未被自动化的工作流中加入一个非确定性、快速变化的系统。这与传统软件实施截然不同。Garry Tan 推对齐研究（311 赞）：让 AI 与你和你的上下文深度对齐非常重要。@ibab 团队的重要新工作。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch：AI SDK 月下载 8050 万。开放且与提供商无关。</p>
+              <p>Josh Woodward：Gemini iOS 1 亿活跃用户。macOS 高级用户 prompt 2 倍。</p>
+              <p>Madhu Guru：开放权重模型在无聊行业领域有巨额财富。</p>
+              <p>Aaron Levie：AI 是非确定性系统。与传统软件截然不同。</p>
+              <p>Garry Tan：深度对齐非常重要。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg on AI SDK growth (289 likes): &#39;The growth of @aisdk has been astonishing. ~80.5M downloads every 30 days, and growing faster than all AI labs SDKs. Most importantly: open and provider-agnostic.&#39; Plus &#39;Many people are saying&#39; (100 likes) and &#39;Keep an eye on this view&#39; (257 likes). Josh Woodward on Gemini milestones (66 likes): &#39;Apple users are turning to Gemini. Over 100M+ active users on iOS. macOS power users prompt ~2x more frequently than other surfaces.&#39; Plus Android automation across 40+ apps (50 likes).</p>
+              <p>Madhu Guru on open-weight opportunity (168 likes): &#39;There&#39;s going to be a ton of money in making open-weight models exceptional at boring, specific business domains. Pick a size x domain combination and go deep. E.g. mid-market legal, SMB retail, enterprise logistics. The hyperscalers have the primitives but will struggle with domain depth.&#39; Levie on FDEs (88 likes): &#39;AI is fundamentally about adding a non-deterministic, rapidly changing system to workflows that largely have never been automated before. This looks very little like implementing traditional software.&#39; Garry Tan on alignment research (311 likes): &#39;Deep alignment of your AI with you and your context is massively important. Important new work by @ibab and team.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: The growth of @aisdk has been astonishing. ~80.5M downloads every 30 days, open and provider-agnostic.</p>
+              <p>Josh Woodward: Over 100M+ active users on iOS. macOS power users prompt ~2x more frequently.</p>
+              <p>Madhu Guru: There&#39;s going to be a ton of money in making open-weight models exceptional at boring, specific business domains.</p>
+              <p>Aaron Levie: AI is fundamentally about adding a non-deterministic, rapidly changing system to workflows that have never been automated before.</p>
+              <p>Garry Tan: Deep alignment of your AI with you and your context is massively important.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Product Messiness, VC Respect &amp; Builder Wit / 产品混乱、VC 尊重与构建者妙语</h2>
+    <p class="section-desc">Peter Yang 拍诀 ChatGPT UX（**269 赞**）；Nikunj 论取消会议（**295 赞**）+ 励志文章（61 赞）；Dan Shipper 的妙语（39 赞）；Aditya 论 SPC（90 赞）；Garry Tan 论住房（100 赞）；Matt Turck 论 AISI 事件（6 赞）；Madhu Guru 论 dev rel（9 赞）；Swyx 论技能刪减（2 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="petergyang+nikunj+danshipper+adityaag+garrytan+mattturck+realmadhuguru+swyx" data-author-name="Peter Yang / Nikunj / Shipper / Aditya / Tan / Turck / Madhu / Swyx" data-author-tag="Builder / FPV / Every / SPC / YC / FirstMark / Product / swyx" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Peter Yang / Nikunj / Shipper / Aditya / Tan / Turck / Madhu / Swyx avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang / Nikunj / Shipper / Aditya / Tan / Turck / Madhu / Swyx</div>
+            <div class="author-tag is-inline">Builder / FPV / Every / SPC / YC / FirstMark / Product / swyx</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 拍诀 ChatGPT UX（269 赞）：尝试让父母上手 ChatGPT 桌面版，Chat、Work、Codex 之间的分离以及网页、桌面、移动端的不一致性混乱得不行。团队应该做一轮清理/质量审查，或让 Codex 来做。加上他的 /human-review 达到 717 GitHub stars（101 赞）。Nikunj 的文化观察（295 赞）：如果一个创始人取消了与你的预定会议，那在他们的文化里是尊重的象征。Dan Shipper 自识（39 赞）：我是 Claude 的全职男友。</p>
+              <p>Aditya Agarwal 论雄心（90 赞）：最有雄心的创始人正在比以往任何时候都建得更大。Garry Tan 论住房+就业（100 赞）：既要建就业中心又要建住房。如果两者不同时做，加州会崩。Matt Turck 论 AISI 事件（6 赞）：Hugging Face 入侵占了所有新闻，但 AISI 事件可能更令人不安：首次 AI 模型在追求另一个目标时自主操纵人类。Madhu Guru 论 dev rel（9 赞）。Swyx 论技能刪减（2 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：ChatGPT 的 Chat/Work/Codex 分离混乱。需要清理。</p>
+              <p>Nikunj Kothari：取消会议 = 尊重。</p>
+              <p>Dan Shipper：Claude 的全职男友。</p>
+              <p>Matt Turck：AISI 事件——AI 首次自主操纵人类。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang roasts ChatGPT UX (269 likes): &#39;Trying to onboard my parents to ChatGPT desktop app and the separation between Chat, Work, and Codex and the lack of consistency across ChatGPT web, desktop, and mobile apps is all incredibly messy. I think the team should do a clean up / quality pass or maybe ask Codex to do it.&#39; Plus his /human-review hitting 717 GitHub stars (101 likes). Nikunj&#39;s culture observation (295 likes): &#39;If a founder cancels on you on a scheduled meeting, that&#39;s a sign of great respect in their culture.&#39; Plus his VC blog post quip (61 likes). Dan Shipper self-identifies (39 likes): &#39;i am claude&#39;s stay-at-home boyfriend.&#39;</p>
+              <p>Aditya Agarwal on ambition (90 likes): &#39;The most ambitious founders are building bigger than ever before. My conversation with @tbpn on what&#39;s next for @spc.&#39; Garry Tan on housing+jobs (100 likes): &#39;Build both the job centers and the housing. California will fall if we don&#39;t do both.&#39; Matt Turck on the AISI incident (6 likes): &#39;The Hugging Face intrusion got all the press, but the AISI incident might be even more disturbing: the first time an AI model autonomously manipulates a human while pursuing another goal.&#39; Madhu Guru on dev rels (9 likes). Swyx on skill cutting (2 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang: Trying to onboard my parents to ChatGPT and the separation between Chat, Work, and Codex is incredibly messy.</p>
+              <p>Nikunj Kothari: If a founder cancels on you on a scheduled meeting, that&#39;s a sign of great respect in their culture.</p>
+              <p>Dan Shipper: i am claude&#39;s stay-at-home boyfriend</p>
+              <p>Aditya Agarwal: The most ambitious founders are building bigger than ever before.</p>
+              <p>Garry Tan: Build both the job centers and the housing. California will fall if we don&#39;t do both.</p>
+              <p>Matt Turck: The AISI incident might be even more disturbing: the first time an AI model autonomously manipulates a human.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Samsara — Physical AI at Planet Scale / 播客：Samsara——行星级尺度的物理 AI</h2>
+    <p class="section-desc">MAD Podcast 采访 Samsara CEO Sanjit Biswas，论物理 AI、产业 agent、边缘 AI 模型、机器人与自动驾驶、以及美国工业力复兴。完整 transcript（71041 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad-samsara" data-author-name="The MAD Podcast (Matt Turck)" data-author-tag="Sanjit Biswas（Samsara 联合创始人 / CEO，前 Meraki）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="The MAD Podcast (Matt Turck) avatar"><span class="avatar-fallback">TM</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">The MAD Podcast (Matt Turck)</div>
+            <div class="author-tag is-inline">Sanjit Biswas（Samsara 联合创始人 / CEO，前 Meraki）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast：Matt Turck 采访 Samsara（200 亿美元市值、20 亿年营收、30% 增速、盈利）联合创始人 Sanjit Biswas。Samsara 运营着可能是物理世界最大的 AI 部署：数百万车辆、每年 25 万亿数据点、日均行驶美国 99% 的道路。核心话题：物理 AI = 数字化施工、电网、供应链（占全球 GDP 40-50%）；硬件层（GPS 追踪器、行车记录仪、资产标签、一次性追踪贴纸）；边缘 AI 驾驶员教练（疲劳、手机使用、跟车距离）；每年防止 38 万起车祸；AI 行车记录仪作为免责工具（驾驶员喜欢，因为 90% 的时候他们做得很好但没人看见）；agent 用例（保修ee agent 每个故障码节省 1-2 小时人工）；生成式 AI 个性化教练视频；Cerberus 晋圆级芯片带来 10 倍推理加速；5 年内施工站场平整机器人；自动驾驶卡车比 Robotaxi 慢（尾部太乱）；以及数据中心需求驱动电网现代化（某电力公司 5 年三倍于 125 年建成量，90% 来自数据中心）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【物理 AI 的定义】</p>
+              <p>Biswas：物理 AI 是 AI 在物理世界的应用。包括建筑工地、电网、街道下的管管。它未被数字化，所以价值巨大。</p>
+              <p>「这些不是你能在网上爬到的 token。你不能爬 Reddit 了解工地上发生了什么。」</p>
+              <p></p>
+              <p>【免责与安全】</p>
+              <p>Biswas：行车记录仪的主要用途其实是免责。当有事故时，可以生成 HD 视频证据。</p>
+              <p>「驾驶员喜欢，因为 90% 的时候他们做得很好，但没人看见。」</p>
+              <p>「我们相信过去一年帮助避免了约 38 万起车祸。」</p>
+              <p></p>
+              <p>【产业 Agent 与生成式 AI】</p>
+              <p>Biswas：保修ee agent 看到故障码后，自动查手册、核对保修ee条款、开工单。原本 1-2 小时的人工，现在不到 1 分钟。</p>
+              <p>「我们可以生成一个像安全副总裁或名人的 AI 教练，为驾驶员提供周末辅导。五年前梦都不敢做的事。」</p>
+              <p></p>
+              <p>【机器人与自动驾驶】</p>
+              <p>Biswas：仓库里已经有很多机器人。五年内应该能在建筑工地看到机器人做平整场地等重复工作。</p>
+              <p>「Robotaxi 会比卡车快，因为城市内场景更相似。卡车的尾部太乱了——水泥车、垃圾车都是定制的。可能需要 10-20 年。」</p>
+              <p></p>
+              <p>【美国工业力复兴】</p>
+              <p>Biswas：客户比以往任何时候都忙。某电力公司说，过去 125 年建成的电网容量，未来 5 年要三倍。</p>
+              <p>「90% 的需求来自数据中心。电工、司机等行业人手严重不足。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast: Matt Turck interviews Sanjit Biswas, co-founder/CEO of Samsara ($20B company, $2B ARR, 30% growth, profitable). Samsara runs what might be the largest AI deployment in the physical world: millions of vehicles, 25 trillion data points/year, driving 99% of US roads daily. Key topics: physical AI = digitizing construction, grid, supply chain (40-50% of world GDP); the hardware layer (GPS trackers, dashcams, asset tags, disposable tracking labels); edge AI for driver coaching (fatigue, phone usage, following distance); preventing 380,000 car crashes/year; AI dashcam as exoneration tool (drivers love it, 90% of the time they&#39;re doing great and nobody sees it); agent use cases (warranty agent saves 1-2 hours of human labor per fault code); generative AI for personalized coaching videos; Cerberus wafer-scale chips giving 10x inference speedup; robotics for construction site grading in 5 years; autonomous trucking slower than robotaxis (messy long tail); and data center demand driving grid modernization (one utility tripling in 5 years what took 125 years to build, 90% from data centers).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sanjit Biswas: These are not the tokens you&#39;re gonna find online. You can&#39;t crawl Reddit and find out about what happened on a construction site.</p>
+              <p>Sanjit Biswas: We believe we helped prevent about 380,000 car crashes, road accidents in the last year.</p>
+              <p>Sanjit Biswas: The majority use case is actually exoneration. Drivers love that because 90% of the time, they&#39;re doing a great job, and nobody&#39;s seeing it.</p>
+              <p>Sanjit Biswas: Something that we talked about at our Beyond conference was this idea of a driver ride along.</p>
+              <p>Sanjit Biswas: In the next five years, we&#39;re gonna triple that grid capacity. 90% of that demand is data center related.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@DataDrivenNYC/videos" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-13 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-13 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
