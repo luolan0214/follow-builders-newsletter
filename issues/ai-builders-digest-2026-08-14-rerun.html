@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-14" data-issue-number="88" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 88 期｜2026-08-14｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Sottiaux 宣布 15M 里程碑 + 全站重置（**10790 赞，今日最高**）：「突破 1500 万了。享受重置吧。一小时内落地，去 /fast。」Claude 宣布浏览器会话跨端同步（**8533 赞**）：Chrome 会话可继续到桌面、网页和移动端。Amanda Askell 的 Skyrim 慈善会「挑战性奇幻慰善游戏」（**968 赞**）。Steipete 的形态演化（**1190 赞**）：「CLI 是一年前。apps 也许六个月。现在是服务、web、云会话。」Zara 推 Stanford 讲座系列（**601 赞**）。Swyx 的 Perplexity 收购神谈（**1223 赞**）+年度重要论文（**316 赞**）。Levie 论 Jevons 悖论应验（**212 赞**）：DeepSeek 与 Grok 双发布，能力大跌价。Rauchg 的无尽机会（**1091 赞**）+ Sandbox 升级（185 赞）。Garry Tan 的 GBrain v0.45.6.0（**616 赞**）。Madhu Guru 论应用层 alpha（**178 赞**）。播客：AI &amp; I 采访 Microsoft CTO Kevin Scott，论为 agent 而建的互联网（29372 字符 transcript）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 宣布 15M 里程碑 + 全站重置（**10790 赞，今日最高**）：「突破 1500 万了。享受重置吧。一小时内落地，去 /fast。」Claude 宣布浏览器会话跨端同步（**8533 赞**）：Chrome 会话可继续到桌面、网页和移动端。Amanda Askell 的 Skyrim 慈善会「挑战性奇幻慰善游戏」（**968 赞**）。Steipete 的形态演化（**1190 赞**）：「CLI 是一年前。apps 也许六个月。现在是服务、web、云会话。」Zara 推 Stanford 讲座系列（**601 赞**）。Swyx 的 Perplexity 收购神谈（**1223 赞**）+年度重要论文（**316 赞**）。Levie 论 Jevons 悖论应验（**212 赞**）：DeepSeek 与 Grok 双发布，能力大跌价。Rauchg 的无尽机会（**1091 赞**）+ Sandbox 升级（185 赞）。Garry Tan 的 GBrain v0.45.6.0（**616 赞**）。Madhu Guru 论应用层 alpha（**178 赞**）。播客：AI &amp; I 采访 Microsoft CTO Kevin Scott，论为 agent 而建的互联网（29372 字符 transcript）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">15M Reset, Claude Cross-Device &amp; Evolution of Agents / 15M 重置、Claude 跨端与 Agent 形态演化</h2>
+    <p class="section-desc">Sottiaux 宣布 15M 重置（**10790 赞，今日最高**）+ 核心对齐（**2480 赞**）+ Linux 禁谈（**2173 赞**）；Claude 跨端同步（**8533 赞**）+ 侧边栏（388 赞）+ 浏览器安全（245 赞）；Steipete 的形态演化（**1190 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+claudeai+steipete" data-author-name="Sottiaux / Claude / Steipete" data-author-tag="OpenAI / Anthropic / OpenClaw" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Claude / Steipete avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Claude / Steipete</div>
+            <div class="author-tag is-inline">OpenAI / Anthropic / OpenClaw</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的里程碑帖（10790 赞，今日最高）：其实是几天前的旧闻了，但突破 1500 万了。享受重置吧。一小时内落地，去 /fast。加上他与 @ajambrosino 的对齐妙语（2480 赞）：A：核心对齐已达成。T：你说核心对齐？A：我说。T：再说多点。A：更多。——但我从未对他和团队正在构建的东西如此兴奋。以及「别说 Linux 了，我们刚发布」（2173 赞）。</p>
+              <p>Claude 跨端同步（8533 赞）：你的 Chrome Claude 会话现在可以继续到桌面、网页和移动端。对话已保存，你的技能和连接器在浏览器中也能用。今天起 Max 和 Team 可用，近周推 Pro。加上侧边栏统一（388 赞）和浏览器 agent 安全习惯（245 赞）。Steipete 的 agent 形态演化史（1190 赞）：CLI 是一年前。apps 也许六个月。现在是服务、web、云会话。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：突破 1500 万。全站重置。去 /fast。</p>
+              <p>Claude：Chrome 会话跨桌面、网页、移动端同步。</p>
+              <p>Peter Steinberger：CLI 一年前，apps 六个月，现在是服务、web、云会话。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s milestone post (10790 likes, the biggest of the day): &#39;Old news actually from a bunch of days ago, but crossed that 15M. Enjoy a nice reset everyone. Landing in the next hour or so, go /fast.&#39; Plus his alignment banter with @ajambrosino (2480 likes): &#39;A: core alignment has been reached. T: core alignment you say. A: i say. T: say more. A: more. And yet I&#39;ve never been more excited about what him and the team are building.&#39; And &#39;Also don&#39;t say Linux, we just shipped that&#39; (2173 likes).</p>
+              <p>Claude cross-device sync (8533 likes): &#39;Your Claude in Chrome sessions now carry over to desktop, web, and mobile. Conversations are saved, and your skills and connectors work in the browser. Available on Max and Team today, rolling out to Pro in the coming weeks.&#39; Plus the side panel unification (388 likes) and browser agent security habits (245 likes). Steipete on agent form factors (1190 likes): &#39;cli was a year ago. apps maybe 6 months. now it&#39;s services, web, cloud sessions.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: crossed that 15M. Enjoy a nice reset everyone. Landing in the next hour or so, go /fast.</p>
+              <p>Thibault Sottiaux: A: core alignment has been reached. T: core alignment you say. A: i say. T: say more. A: more.</p>
+              <p>Claude: Your Claude in Chrome sessions now carry over to desktop, web, and mobile. Available on Max and Team today.</p>
+              <p>Peter Steinberger: cli was a year ago. apps maybe 6 months. now it&#39;s services, web, cloud sessions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Jevons Verified, App-Layer Alpha &amp; Open Integrations / Jevons 应验、应用层 Alpha 与开放集成</h2>
+    <p class="section-desc">Levie 论 Jevons 悖论应验（**212 赞**）；Madhu Guru 论应用层 alpha（**178 赞**）；Josh Woodward 宣布 14 个新集成（**241 赞**）；Rauchg 的无尽机会（**1091 赞**）+ Sandbox 升级（185 赞）+ Seedance 2.5（238 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+realmadhuguru+joshwoodward+rauchg" data-author-name="Levie / Madhu / Woodward / Rauchg" data-author-tag="Box CEO / Product / Google Gemini / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Madhu / Woodward / Rauchg avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Madhu / Woodward / Rauchg</div>
+            <div class="author-tag is-inline">Box CEO / Product / Google Gemini / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 论 Jevons 时刻（212 赞）：DeepSeek 和 Grok 双发布，都是能力大跳价格狂低。AI 的 Jevons 悖论真的在应验。降低 AI 成本，需求持续加速。Madhu Guru 论应用层 alpha（178 赞）：未来几年 AI 产品最大的 alpha 在应用层。模型会越来越便宜、越好、越本地化。差异化来自深度理解特定用户工作流和重新设计体验的想象力。Josh Woodward 宣布 14 个新 Gemini 集成（241 赞）：Angi、Fever、GetYourGuide、Granola、iHeartRadio、OpenTable、Otter、Pandora、Thumbtack、Ticketmaster、Wix、Zocdoc、Zoho 等。</p>
+              <p>Rauchg 的无尽机会（1091 赞）：到处都是无尽的机会。加上 Sandbox 升级（185 赞）：试试 npx sandbox@latest sh——令人震惊。感觉比你的本地机器还快。Sandbox 现自带合理的预装工具集，也可完全自定义。以及 Seedance 2.5 登陆 Vercel AI Gateway（238 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie：DeepSeek 与 Grok 大跌价。Jevons 悖论在应验。</p>
+              <p>Madhu Guru：应用层是最大的 alpha。理解工作流、重设体验。</p>
+              <p>Josh Woodward：Gemini 新增 14 个集成。</p>
+              <p>Guillermo Rauch：npx sandbox 令人震惊。比本地还快。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie on the Jevons moment (212 likes): &#39;Awesome day for new model releases from both Deepseek and Grok. Both represent huge jumps in capability at insanely low costs. This is truly Jevons paradox for AI playing out. By bringing down the cost of AI, demand will continue to accelerate.&#39; Madhu Guru on app-layer alpha (178 likes): &#39;The biggest alpha in AI products over the next few years is in the application layer. Models will keep getting cheaper, better and more local. The differentiation will come from deeply understanding specific user workflows and having the imagination to redesign the experience around them.&#39; Josh Woodward announces 14 new Gemini integrations (241 likes): Angi, Fever, GetYourGuide, Granola, iHeartRadio, OpenTable, Otter, Pandora, Thumbtack, Ticketmaster, Wix, Zocdoc, Zoho and more.</p>
+              <p>Rauchg&#39;s endless opportunity (1091 likes): &#39;Endless opportunity everywhere you look.&#39; Plus the Sandbox upgrade (185 likes): &#39;Try npx sandbox@latest sh - it&#39;s mind-blowing. It feels faster than your local machine. Sandbox now comes with a reasonable default set of pre-installed tools, and you can fully customize them.&#39; And Seedance 2.5 on Vercel AI Gateway (238 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: Both new model updates represent huge jumps in capability at insanely low costs. This is truly Jevons paradox for AI playing out.</p>
+              <p>Madhu Guru: The biggest alpha in AI products over the next few years is in the application layer.</p>
+              <p>Josh Woodward: Gemini gets things done across the apps you use every day. Starting today, another wave of integrations are rolling out.</p>
+              <p>Guillermo Rauch: Try npx sandbox@latest sh. It&#39;s mind-blowing. It feels faster than your local machine.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">GBrain Release, One-Word Meta &amp; Whiteboard Nostalgia / GBrain 发布、单词 Meta 与白板怀旧</h2>
+    <p class="section-desc">Garry Tan 的 GBrain v0.45.6.0（**616 赞**）+ markdown skill-maxxing（337 赞）；Dan Shipper 的 One Word 代理回敆（40 赞）；Madhu Guru 论白板（30 赞）；Peter Yang 论语音 agent 时代（90 赞）；Aditya 论印度牛市（**319 赞**）；Nikunj 的天才认证（85 赞）；Zara 的 Stanford 金矿（**601 赞**）；Matt Turck 的工程师衰变史（34 赞）；Swyx 的收购神谈（**1223 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+danshipper+realmadhuguru+petergyang+adityaag+nikunj+zarazhangrui+mattturck+swyx" data-author-name="Garry Tan / Shipper / Madhu / Peter Yang / Aditya / Nikunj / Zara / Turck / Swyx" data-author-tag="YC / Every / Product / Builder / SPC / FPV / Builder / FirstMark / swyx" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Shipper / Madhu / Peter Yang / Aditya / Nikunj / Zara / Turck / Swyx avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Shipper / Madhu / Peter Yang / Aditya / Nikunj / Zara / Turck / Swyx</div>
+            <div class="author-tag is-inline">YC / Every / Product / Builder / SPC / FPV / Builder / FirstMark / swyx</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 发布 GBrain v0.45.6.0（616 赞）：新增 17 个大脑技能，通过我自己的 OpenClaw agent 和数十万 markdown 文件压实。个人 AGI 是为你工作的那种。GBrain 现在支持 Codex 和 Claude Code。加上 markdown skill-maxxing（337 赞）和独立 agent 架构说明（20 赞）。Dan Shipper 的戏仿（40 赞）：我要开一家叫「One Word」的内容代理公司，灵感来自 @ajambrosino 帮 AI 实验室在 X 上每天发一个单词。这是新 meta。不要只做直销——一次一个单词地做。加上 Word 改名笑话（8 赞）和「明天发一些模拟的东西」（38 赞）。</p>
+              <p>Madhu Guru 论白板（30 赞）：我怀念团队真正用白板的日子。围着板站、画半成品想法、互相打断有种玩乐感。多年 Zoom 似乎磨掉了这种本能。Peter Yang 新文（90 赞）：我们正从用键盘、鼠标和笔记本手动工作，转向用声音在云端指挥 agent。语音正成为编排层。个人计算机将迁往云端。信任是关键差异化。Aditya 论印度（319 赞）：我们看多印度。SPC India 是我们美国以外的第一注。本十年最有雄心的项目将在那里诞生。Zara 的 Stanford 金矿（601 赞）。Matt Turck 的工程师衰变史（34 赞）：图工程师是新的循环工程师，也是新的 harness 工程师，也是新的上下文工程师。Swyx 的收购神谈（1223 赞）：一年前的今天，Perplexity 提议收购 Google Chrome。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：个人 AGI 为你工作。GBrain 支持 Codex 和 Claude Code。</p>
+              <p>Dan Shipper：One Word 内容代理公司。一次一个单词。</p>
+              <p>Madhu Guru：怀念白板时代。Zoom 磨掉了协作本能。</p>
+              <p>Peter Yang：语音成编排层。个人计算机迁云。信任是关键。</p>
+              <p>Aditya Agarwal：看多印度。本十年最雄心项目在那里。</p>
+              <p>Matt Turck：图工程师是新的上下文工程师。</p>
+              <p>Swyx：一年前 Perplexity 提议收购 Chrome。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan ships GBrain v0.45.6.0 (616 likes): &#39;which added 17 new brain skills hardened through my own personal OpenClaw agent with hundreds of thousands of markdown files. A personal AGI is one that works for you. GBrain now works with Codex and Claude Code.&#39; Plus markdown skill-maxxing (337 likes) and the separate-agent architecture note (20 likes). Dan Shipper&#39;s parody (40 likes): &#39;im starting a new content agency One Word, inspired by @ajambrosino help AI labs grow on X by posting one word a day. this is the new meta. don&#39;t just go direct. go one word at a time.&#39; Plus the Word rebrand joke (8 likes) and &#39;something analog dropping tomorrow&#39; (38 likes).</p>
+              <p>Madhu Guru on whiteboards (30 likes): &#39;I miss when teams actually whiteboarded. There was something playful about standing around a board, drawing half-baked ideas. Years of Zoom seem to have beaten that instinct out of people.&#39; Peter Yang&#39;s new essay (90 likes): &#39;We&#39;re moving from doing work manually with a keyboard, mouse, and laptop to directing agents in the cloud using our voices. Voice is becoming the orchestration layer. Personal computers will move to the cloud. Trust will be the key differentiator.&#39; Aditya on India (319 likes): &#39;We&#39;re bullish on India. @spc_india was our first bet outside the US. Some of the most ambitious projects of the decade will be built there.&#39; Nikunj&#39;s genius endorsement (85 likes). Zara&#39;s Stanford gold (601 likes). Matt Turck&#39;s decay history (34 likes): &#39;Graph engineering is the new loop engineering which is the new harness engineering which is the new context engineering which is the new prompt engineering.&#39; Swyx&#39;s Perplexity flashback (1223 likes): &#39;Perplexity offered to buy @googlechrome one year ago today&#39; plus his paper of the year note (316 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: A personal AGI is one that works for you. GBrain now works with Codex and Claude Code.</p>
+              <p>Dan Shipper: im starting a new content agency One Word. this is the new meta. don&#39;t just go direct. go one word at a time.</p>
+              <p>Madhu Guru: I miss when teams actually whiteboarded. There was something playful about standing around a board, drawing half-baked ideas.</p>
+              <p>Peter Yang: We&#39;re moving from doing work manually to directing agents in the cloud using our voices.</p>
+              <p>Aditya Agarwal: We&#39;re bullish on India. Some of the most ambitious projects of the decade will be built there.</p>
+              <p>Matt Turck: Graph engineering is the new loop engineering which is the new harness engineering which is the new context engineering.</p>
+              <p>Swyx: Perplexity offered to buy @googlechrome one year ago today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Microsoft CTO Kevin Scott — An Internet Made for Agents / 播客：Microsoft CTO Kevin Scott——为 Agent 而建的互联网</h2>
+    <p class="section-desc">AI &amp; I 采访 Microsoft CTO Kevin Scott，论 agentic web、MCP 协议、capability overhang、agent 身份与安全模型、工匠精神与异步 agent 未来。完整 transcript（29372 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aii-kevinscott" data-author-name="AI &amp; I by Every (Dan Shipper)" data-author-tag="Kevin Scott（Microsoft CTO）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI &amp; I by Every (Dan Shipper) avatar"><span class="avatar-fallback">A&amp;</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI &amp; I by Every (Dan Shipper)</div>
+            <div class="author-tag is-inline">Kevin Scott（Microsoft CTO）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI &amp; I：Dan Shipper 采访 Microsoft CTO Kevin Scott。核心话题：agentic web 是今年的大故事（agent 需要一个像互联网的生态——MCP 扮演 HTTP 的角色，NL Web 扮演 HTML 的角色）；capability overhang（模型推理能力已领先于产品交付——全行业需要共同缩小差距）；agentic memory（如今的 agent 是事务性的，任务后记忆消失，阻碍委派复杂工作）；康威定律风险（你发布的是你的组织架构图——Microsoft 推动内部所有系统对 agent 说标准协议）；MCP 安全模型（agent 需要身份和权限——「这个 agent 代表这个人行动，有权访问这些资源」）；无许可创新 vs 看门人（不为创造者和用户创造价值的中间层）；AI 辅助个人安全（监控你的通信渠道并三角验证可疑活动的 agent，如他妻子的 2FA 事件）；工匠精神与选择（木工辩论手工 vs 电动 vs CNC = 程序员辩论编辑器和 agent——「保持好奇，去尝试」）；以及异步 agent 未来（「去把这事搞定」——agent 长时间迭代后再交还控制权）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【agentic web 与协议层】</p>
+              <p>Scott：如果 agent 要有用，它们必须能代表你行动。需要一个像互联网的生态系统。</p>
+              <p>「MCP 在 agentic web 中扮演 HTTP 在互联网中的角色。NL Web 则是 HTML 的精神等价物。」</p>
+              <p>「模型的推理能力已经领先于产品中使用它们的方式。我们全行业需要缩小这个差距。」</p>
+              <p></p>
+              <p>【记忆与康威定律】</p>
+              <p>Scott：我们的 agent 现在有点事务性——完成一个任务后记忆可能就消失了。下次从头开始。这阻碍委派复杂任务。</p>
+              <p>「康威定律说你发布的是你的组织架构图。我推动 Microsoft 内部所有系统对我们的 agent 说标准协议，避免这种悲剧。」</p>
+              <p></p>
+              <p>【安全模型与无许可创新】</p>
+              <p>Scott：agent 需要身份，才能建权限系统。这个 agent 代表谁行动、有权看哪些资源。</p>
+              <p>「开放系统的无许可创新是最令我兴奋的。不需要向看门人申请就能创建和分发。」</p>
+              <p>「一些中间层对创造者和用户都没有创造价值。不会长久的。」</p>
+              <p></p>
+              <p>【工匠精神与选择】</p>
+              <p>Scott：我做木工的时间和写程序一样久。当年的辩论是用电动工具的算不算真木工——现在是用 CNC 算不算。</p>
+              <p>「我仍然用 vi。我知道这不是最优选择，但我有得选。重要的是保持好奇，去尝试。适合就用，不适合就不用。」</p>
+              <p></p>
+              <p>【异步 agent 未来】</p>
+              <p>Scott：现在大家是同步模式——发 prompt、等结果。明年会转向异步：「去把这事搞定」。</p>
+              <p>「Agent 会花很长时间，调用很多系统，迭代多次，然后在某个时刻说：我到这里了，轮到你了。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI &amp; I: Dan Shipper interviews Kevin Scott, CTO of Microsoft. Key topics: the agentic web as this year&#39;s big story (agents need an ecosystem like the internet — MCP plays the role of HTTP, NL Web the role of HTML); capability overhang (model reasoning has gotten ahead of what products deliver — the industry must close the gap); agentic memory (today&#39;s agents are transactional, memory goes away after the task, which inhibits delegation of complex work); Conway&#39;s Law danger (you ship your org chart — Microsoft pushes all internal systems to speak a standard protocol to agents); MCP security model (agents need identities and entitlements — &#39;this agent acts on behalf of this person and is entitled to these resources&#39;); permissionless innovation vs gatekeepers (middle layers that don&#39;t add value to creators and users); AI-assisted personal security (an agent that monitors your communication modalities and triangulates suspicious activity, like his wife&#39;s 2FA incident); craft and choice (woodworkers debating hand tools vs power tools vs CNC = programmers debating editors and agents — &#39;be curious, try stuff&#39;); and the async agent future (&#39;go sort this out&#39; — agents iterating for long periods before returning control).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Kevin Scott: I&#39;ve been talking a lot lately about this thing called the capability overhang. We have some work to do collectively to close the gap between what the models are capable of and what we&#39;re delivering to users.</p>
+              <p>Kevin Scott: MCP is serving the same purpose in this agentic web as HTTP does on the internet. NL Web is the moral equivalent of HTML.</p>
+              <p>Kevin Scott: We&#39;re not exposing the entire world to Conway&#39;s law. You ship your org chart.</p>
+              <p>Kevin Scott: We need agents to have identities, so that you can build entitlement systems.</p>
+              <p>Kevin Scott: I&#39;ve been a woodworker for almost as long as I&#39;ve been a programmer. Are you a real woodworker if you use CNC tools?</p>
+              <p>Kevin Scott: You&#39;re going to start getting to the point where you&#39;re able to go from this synchronous mode of interaction with agents to asynchronous.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-14 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-14 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

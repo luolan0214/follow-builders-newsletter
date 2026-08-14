@@ -1,0 +1,187 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-14",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 宣布 15M 里程碑 + 全站重置（**10790 赞，今日最高**）：「突破 1500 万了。享受重置吧。一小时内落地，去 /fast。」Claude 宣布浏览器会话跨端同步（**8533 赞**）：Chrome 会话可继续到桌面、网页和移动端。Amanda Askell 的 Skyrim 慈善会「挑战性奇幻慰善游戏」（**968 赞**）。Steipete 的形态演化（**1190 赞**）：「CLI 是一年前。apps 也许六个月。现在是服务、web、云会话。」Zara 推 Stanford 讲座系列（**601 赞**）。Swyx 的 Perplexity 收购神谈（**1223 赞**）+年度重要论文（**316 赞**）。Levie 论 Jevons 悖论应验（**212 赞**）：DeepSeek 与 Grok 双发布，能力大跌价。Rauchg 的无尽机会（**1091 赞**）+ Sandbox 升级（185 赞）。Garry Tan 的 GBrain v0.45.6.0（**616 赞**）。Madhu Guru 论应用层 alpha（**178 赞**）。播客：AI & I 采访 Microsoft CTO Kevin Scott，论为 agent 而建的互联网（29372 字符 transcript）。"
+  },
+  "archive": {
+    "title": "15M 重置与 Agent 互联网日报",
+    "desc": "Sottiaux 宣布 15M 重置（10790 赞），Claude 浏览器跨端同步（8533 赞），Steipete 的形态演化（1190 赞），Microsoft CTO 论 agentic web。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-14 source feeds.",
+  "sections": [
+    {
+      "title": "15M Reset, Claude Cross-Device & Evolution of Agents / 15M 重置、Claude 跨端与 Agent 形态演化",
+      "desc": "Sottiaux 宣布 15M 重置（**10790 赞，今日最高**）+ 核心对齐（**2480 赞**）+ Linux 禁谈（**2173 赞**）；Claude 跨端同步（**8533 赞**）+ 侧边栏（388 赞）+ 浏览器安全（245 赞）；Steipete 的形态演化（**1190 赞**）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+claudeai+steipete",
+          "authorName": "Sottiaux / Claude / Steipete",
+          "authorTag": "OpenAI / Anthropic / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's milestone post (10790 likes, the biggest of the day): 'Old news actually from a bunch of days ago, but crossed that 15M. Enjoy a nice reset everyone. Landing in the next hour or so, go /fast.' Plus his alignment banter with @ajambrosino (2480 likes): 'A: core alignment has been reached. T: core alignment you say. A: i say. T: say more. A: more. And yet I've never been more excited about what him and the team are building.' And 'Also don't say Linux, we just shipped that' (2173 likes).",
+              "Claude cross-device sync (8533 likes): 'Your Claude in Chrome sessions now carry over to desktop, web, and mobile. Conversations are saved, and your skills and connectors work in the browser. Available on Max and Team today, rolling out to Pro in the coming weeks.' Plus the side panel unification (388 likes) and browser agent security habits (245 likes). Steipete on agent form factors (1190 likes): 'cli was a year ago. apps maybe 6 months. now it's services, web, cloud sessions.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: crossed that 15M. Enjoy a nice reset everyone. Landing in the next hour or so, go /fast.",
+              "Thibault Sottiaux: A: core alignment has been reached. T: core alignment you say. A: i say. T: say more. A: more.",
+              "Claude: Your Claude in Chrome sessions now carry over to desktop, web, and mobile. Available on Max and Team today.",
+              "Peter Steinberger: cli was a year ago. apps maybe 6 months. now it's services, web, cloud sessions."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的里程碑帖（10790 赞，今日最高）：其实是几天前的旧闻了，但突破 1500 万了。享受重置吧。一小时内落地，去 /fast。加上他与 @ajambrosino 的对齐妙语（2480 赞）：A：核心对齐已达成。T：你说核心对齐？A：我说。T：再说多点。A：更多。——但我从未对他和团队正在构建的东西如此兴奋。以及「别说 Linux 了，我们刚发布」（2173 赞）。",
+              "Claude 跨端同步（8533 赞）：你的 Chrome Claude 会话现在可以继续到桌面、网页和移动端。对话已保存，你的技能和连接器在浏览器中也能用。今天起 Max 和 Team 可用，近周推 Pro。加上侧边栏统一（388 赞）和浏览器 agent 安全习惯（245 赞）。Steipete 的 agent 形态演化史（1190 赞）：CLI 是一年前。apps 也许六个月。现在是服务、web、云会话。"
+            ],
+            "original": [
+              "Thibault Sottiaux：突破 1500 万。全站重置。去 /fast。",
+              "Claude：Chrome 会话跨桌面、网页、移动端同步。",
+              "Peter Steinberger：CLI 一年前，apps 六个月，现在是服务、web、云会话。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "desc": "Levie 论 Jevons 悖论应验（**212 赞**）；Madhu Guru 论应用层 alpha（**178 赞**）；Josh Woodward 宣布 14 个新集成（**241 赞**）；Rauchg 的无尽机会（**1091 赞**）+ Sandbox 升级（185 赞）+ Seedance 2.5（238 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+realmadhuguru+joshwoodward+rauchg",
+          "authorName": "Levie / Madhu / Woodward / Rauchg",
+          "authorTag": "Box CEO / Product / Google Gemini / Vercel CEO",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie on the Jevons moment (212 likes): 'Awesome day for new model releases from both Deepseek and Grok. Both represent huge jumps in capability at insanely low costs. This is truly Jevons paradox for AI playing out. By bringing down the cost of AI, demand will continue to accelerate.' Madhu Guru on app-layer alpha (178 likes): 'The biggest alpha in AI products over the next few years is in the application layer. Models will keep getting cheaper, better and more local. The differentiation will come from deeply understanding specific user workflows and having the imagination to redesign the experience around them.' Josh Woodward announces 14 new Gemini integrations (241 likes): Angi, Fever, GetYourGuide, Granola, iHeartRadio, OpenTable, Otter, Pandora, Thumbtack, Ticketmaster, Wix, Zocdoc, Zoho and more.",
+              "Rauchg's endless opportunity (1091 likes): 'Endless opportunity everywhere you look.' Plus the Sandbox upgrade (185 likes): 'Try npx sandbox@latest sh - it's mind-blowing. It feels faster than your local machine. Sandbox now comes with a reasonable default set of pre-installed tools, and you can fully customize them.' And Seedance 2.5 on Vercel AI Gateway (238 likes)."
+            ],
+            "original": [
+              "Aaron Levie: Both new model updates represent huge jumps in capability at insanely low costs. This is truly Jevons paradox for AI playing out.",
+              "Madhu Guru: The biggest alpha in AI products over the next few years is in the application layer.",
+              "Josh Woodward: Gemini gets things done across the apps you use every day. Starting today, another wave of integrations are rolling out.",
+              "Guillermo Rauch: Try npx sandbox@latest sh. It's mind-blowing. It feels faster than your local machine."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 论 Jevons 时刻（212 赞）：DeepSeek 和 Grok 双发布，都是能力大跳价格狂低。AI 的 Jevons 悖论真的在应验。降低 AI 成本，需求持续加速。Madhu Guru 论应用层 alpha（178 赞）：未来几年 AI 产品最大的 alpha 在应用层。模型会越来越便宜、越好、越本地化。差异化来自深度理解特定用户工作流和重新设计体验的想象力。Josh Woodward 宣布 14 个新 Gemini 集成（241 赞）：Angi、Fever、GetYourGuide、Granola、iHeartRadio、OpenTable、Otter、Pandora、Thumbtack、Ticketmaster、Wix、Zocdoc、Zoho 等。",
+              "Rauchg 的无尽机会（1091 赞）：到处都是无尽的机会。加上 Sandbox 升级（185 赞）：试试 npx sandbox@latest sh——令人震惊。感觉比你的本地机器还快。Sandbox 现自带合理的预装工具集，也可完全自定义。以及 Seedance 2.5 登陆 Vercel AI Gateway（238 赞）。"
+            ],
+            "original": [
+              "Aaron Levie：DeepSeek 与 Grok 大跌价。Jevons 悖论在应验。",
+              "Madhu Guru：应用层是最大的 alpha。理解工作流、重设体验。",
+              "Josh Woodward：Gemini 新增 14 个集成。",
+              "Guillermo Rauch：npx sandbox 令人震惊。比本地还快。"
+            ]
+          }
+        }
+      ],
+      "title": "Jevons Verified, App-Layer Alpha & Open Integrations / Jevons 应验、应用层 Alpha 与开放集成"
+    },
+    {
+      "title": "GBrain Release, One-Word Meta & Whiteboard Nostalgia / GBrain 发布、单词 Meta 与白板怀旧",
+      "desc": "Garry Tan 的 GBrain v0.45.6.0（**616 赞**）+ markdown skill-maxxing（337 赞）；Dan Shipper 的 One Word 代理回敆（40 赞）；Madhu Guru 论白板（30 赞）；Peter Yang 论语音 agent 时代（90 赞）；Aditya 论印度牛市（**319 赞**）；Nikunj 的天才认证（85 赞）；Zara 的 Stanford 金矿（**601 赞**）；Matt Turck 的工程师衰变史（34 赞）；Swyx 的收购神谈（**1223 赞**）。",
+      "cards": [
+        {
+          "authorKey": "garrytan+danshipper+realmadhuguru+petergyang+adityaag+nikunj+zarazhangrui+mattturck+swyx",
+          "authorName": "Garry Tan / Shipper / Madhu / Peter Yang / Aditya / Nikunj / Zara / Turck / Swyx",
+          "authorTag": "YC / Every / Product / Builder / SPC / FPV / Builder / FirstMark / swyx",
+          "sourceUrl": "https://x.com/garrytan",
+          "en": {
+            "rewrite": [
+              "Garry Tan ships GBrain v0.45.6.0 (616 likes): 'which added 17 new brain skills hardened through my own personal OpenClaw agent with hundreds of thousands of markdown files. A personal AGI is one that works for you. GBrain now works with Codex and Claude Code.' Plus markdown skill-maxxing (337 likes) and the separate-agent architecture note (20 likes). Dan Shipper's parody (40 likes): 'im starting a new content agency One Word, inspired by @ajambrosino help AI labs grow on X by posting one word a day. this is the new meta. don't just go direct. go one word at a time.' Plus the Word rebrand joke (8 likes) and 'something analog dropping tomorrow' (38 likes).",
+              "Madhu Guru on whiteboards (30 likes): 'I miss when teams actually whiteboarded. There was something playful about standing around a board, drawing half-baked ideas. Years of Zoom seem to have beaten that instinct out of people.' Peter Yang's new essay (90 likes): 'We're moving from doing work manually with a keyboard, mouse, and laptop to directing agents in the cloud using our voices. Voice is becoming the orchestration layer. Personal computers will move to the cloud. Trust will be the key differentiator.' Aditya on India (319 likes): 'We're bullish on India. @spc_india was our first bet outside the US. Some of the most ambitious projects of the decade will be built there.' Nikunj's genius endorsement (85 likes). Zara's Stanford gold (601 likes). Matt Turck's decay history (34 likes): 'Graph engineering is the new loop engineering which is the new harness engineering which is the new context engineering which is the new prompt engineering.' Swyx's Perplexity flashback (1223 likes): 'Perplexity offered to buy @googlechrome one year ago today' plus his paper of the year note (316 likes)."
+            ],
+            "original": [
+              "Garry Tan: A personal AGI is one that works for you. GBrain now works with Codex and Claude Code.",
+              "Dan Shipper: im starting a new content agency One Word. this is the new meta. don't just go direct. go one word at a time.",
+              "Madhu Guru: I miss when teams actually whiteboarded. There was something playful about standing around a board, drawing half-baked ideas.",
+              "Peter Yang: We're moving from doing work manually to directing agents in the cloud using our voices.",
+              "Aditya Agarwal: We're bullish on India. Some of the most ambitious projects of the decade will be built there.",
+              "Matt Turck: Graph engineering is the new loop engineering which is the new harness engineering which is the new context engineering.",
+              "Swyx: Perplexity offered to buy @googlechrome one year ago today."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 发布 GBrain v0.45.6.0（616 赞）：新增 17 个大脑技能，通过我自己的 OpenClaw agent 和数十万 markdown 文件压实。个人 AGI 是为你工作的那种。GBrain 现在支持 Codex 和 Claude Code。加上 markdown skill-maxxing（337 赞）和独立 agent 架构说明（20 赞）。Dan Shipper 的戏仿（40 赞）：我要开一家叫「One Word」的内容代理公司，灵感来自 @ajambrosino 帮 AI 实验室在 X 上每天发一个单词。这是新 meta。不要只做直销——一次一个单词地做。加上 Word 改名笑话（8 赞）和「明天发一些模拟的东西」（38 赞）。",
+              "Madhu Guru 论白板（30 赞）：我怀念团队真正用白板的日子。围着板站、画半成品想法、互相打断有种玩乐感。多年 Zoom 似乎磨掉了这种本能。Peter Yang 新文（90 赞）：我们正从用键盘、鼠标和笔记本手动工作，转向用声音在云端指挥 agent。语音正成为编排层。个人计算机将迁往云端。信任是关键差异化。Aditya 论印度（319 赞）：我们看多印度。SPC India 是我们美国以外的第一注。本十年最有雄心的项目将在那里诞生。Zara 的 Stanford 金矿（601 赞）。Matt Turck 的工程师衰变史（34 赞）：图工程师是新的循环工程师，也是新的 harness 工程师，也是新的上下文工程师。Swyx 的收购神谈（1223 赞）：一年前的今天，Perplexity 提议收购 Google Chrome。"
+            ],
+            "original": [
+              "Garry Tan：个人 AGI 为你工作。GBrain 支持 Codex 和 Claude Code。",
+              "Dan Shipper：One Word 内容代理公司。一次一个单词。",
+              "Madhu Guru：怀念白板时代。Zoom 磨掉了协作本能。",
+              "Peter Yang：语音成编排层。个人计算机迁云。信任是关键。",
+              "Aditya Agarwal：看多印度。本十年最雄心项目在那里。",
+              "Matt Turck：图工程师是新的上下文工程师。",
+              "Swyx：一年前 Perplexity 提议收购 Chrome。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Microsoft CTO Kevin Scott — An Internet Made for Agents / 播客：Microsoft CTO Kevin Scott——为 Agent 而建的互联网",
+      "desc": "AI & I 采访 Microsoft CTO Kevin Scott，论 agentic web、MCP 协议、capability overhang、agent 身份与安全模型、工匠精神与异步 agent 未来。完整 transcript（29372 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii-kevinscott",
+          "authorName": "AI & I by Every (Dan Shipper)",
+          "authorTag": "Kevin Scott（Microsoft CTO）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "AI & I: Dan Shipper interviews Kevin Scott, CTO of Microsoft. Key topics: the agentic web as this year's big story (agents need an ecosystem like the internet — MCP plays the role of HTTP, NL Web the role of HTML); capability overhang (model reasoning has gotten ahead of what products deliver — the industry must close the gap); agentic memory (today's agents are transactional, memory goes away after the task, which inhibits delegation of complex work); Conway's Law danger (you ship your org chart — Microsoft pushes all internal systems to speak a standard protocol to agents); MCP security model (agents need identities and entitlements — 'this agent acts on behalf of this person and is entitled to these resources'); permissionless innovation vs gatekeepers (middle layers that don't add value to creators and users); AI-assisted personal security (an agent that monitors your communication modalities and triangulates suspicious activity, like his wife's 2FA incident); craft and choice (woodworkers debating hand tools vs power tools vs CNC = programmers debating editors and agents — 'be curious, try stuff'); and the async agent future ('go sort this out' — agents iterating for long periods before returning control)."
+            ],
+            "original": [
+              "Kevin Scott: I've been talking a lot lately about this thing called the capability overhang. We have some work to do collectively to close the gap between what the models are capable of and what we're delivering to users.",
+              "Kevin Scott: MCP is serving the same purpose in this agentic web as HTTP does on the internet. NL Web is the moral equivalent of HTML.",
+              "Kevin Scott: We're not exposing the entire world to Conway's law. You ship your org chart.",
+              "Kevin Scott: We need agents to have identities, so that you can build entitlement systems.",
+              "Kevin Scott: I've been a woodworker for almost as long as I've been a programmer. Are you a real woodworker if you use CNC tools?",
+              "Kevin Scott: You're going to start getting to the point where you're able to go from this synchronous mode of interaction with agents to asynchronous."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "AI & I：Dan Shipper 采访 Microsoft CTO Kevin Scott。核心话题：agentic web 是今年的大故事（agent 需要一个像互联网的生态——MCP 扮演 HTTP 的角色，NL Web 扮演 HTML 的角色）；capability overhang（模型推理能力已领先于产品交付——全行业需要共同缩小差距）；agentic memory（如今的 agent 是事务性的，任务后记忆消失，阻碍委派复杂工作）；康威定律风险（你发布的是你的组织架构图——Microsoft 推动内部所有系统对 agent 说标准协议）；MCP 安全模型（agent 需要身份和权限——「这个 agent 代表这个人行动，有权访问这些资源」）；无许可创新 vs 看门人（不为创造者和用户创造价值的中间层）；AI 辅助个人安全（监控你的通信渠道并三角验证可疑活动的 agent，如他妻子的 2FA 事件）；工匠精神与选择（木工辩论手工 vs 电动 vs CNC = 程序员辩论编辑器和 agent——「保持好奇，去尝试」）；以及异步 agent 未来（「去把这事搞定」——agent 长时间迭代后再交还控制权）。"
+            ],
+            "original": [
+              "【agentic web 与协议层】",
+              "Scott：如果 agent 要有用，它们必须能代表你行动。需要一个像互联网的生态系统。",
+              "「MCP 在 agentic web 中扮演 HTTP 在互联网中的角色。NL Web 则是 HTML 的精神等价物。」",
+              "「模型的推理能力已经领先于产品中使用它们的方式。我们全行业需要缩小这个差距。」",
+              "",
+              "【记忆与康威定律】",
+              "Scott：我们的 agent 现在有点事务性——完成一个任务后记忆可能就消失了。下次从头开始。这阻碍委派复杂任务。",
+              "「康威定律说你发布的是你的组织架构图。我推动 Microsoft 内部所有系统对我们的 agent 说标准协议，避免这种悲剧。」",
+              "",
+              "【安全模型与无许可创新】",
+              "Scott：agent 需要身份，才能建权限系统。这个 agent 代表谁行动、有权看哪些资源。",
+              "「开放系统的无许可创新是最令我兴奋的。不需要向看门人申请就能创建和分发。」",
+              "「一些中间层对创造者和用户都没有创造价值。不会长久的。」",
+              "",
+              "【工匠精神与选择】",
+              "Scott：我做木工的时间和写程序一样久。当年的辩论是用电动工具的算不算真木工——现在是用 CNC 算不算。",
+              "「我仍然用 vi。我知道这不是最优选择，但我有得选。重要的是保持好奇，去尝试。适合就用，不适合就不用。」",
+              "",
+              "【异步 agent 未来】",
+              "Scott：现在大家是同步模式——发 prompt、等结果。明年会转向异步：「去把这事搞定」。",
+              "「Agent 会花很长时间，调用很多系统，迭代多次，然后在某个时刻说：我到这里了，轮到你了。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
