@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-15" data-issue-number="89" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 89 期｜2026-08-15｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导语 / Editor&#39;s Note" data-text="Sottiaux 上演 /ultrafast 三连发（**2723 赞 + 1638 赞 Altman 转发**）：「有时你就是得 /ultrafast。」Google Docs 集成登陆 ChatGPT（**1560 赞**）+电脑使用烤言（**1280 赞**）：「Slack 占了你 48% 的活动。你的 Mac 本质上是一台 3000 美元的带键盘的 Slack 通知机。」Boris Cherny 让 Claude 接管应用日常维护（**2939 赞**）：Slack 频道里 Claude Tag 每天跑崩椃 fuzz、回归测试、性能监控。Amjad 预言「明年用电脑将是可选的」（**717 赞**）+ ARC-AGI-3 被编码 harness 攻克（100 赞）。Levie 驳「消灭工程师」论（187 赞）：工程师价值反而上升。Zara 反转：最抢手的职位全带“工程师”（106 赞）。Thariq 宣判「一切皆代码」（**463 赞**）。Matt Turck 的火箭 vs 弃尸二元论（**256 赞**）。播客：No Priors 采访 Chess.com CEO Erik Allebest，论超人机器时代的棋牌游戏生意经（50546 字符 transcript）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导语 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 上演 /ultrafast 三连发（**2723 赞 + 1638 赞 Altman 转发**）：「有时你就是得 /ultrafast。」Google Docs 集成登陆 ChatGPT（**1560 赞**）+电脑使用烤言（**1280 赞**）：「Slack 占了你 48% 的活动。你的 Mac 本质上是一台 3000 美元的带键盘的 Slack 通知机。」Boris Cherny 让 Claude 接管应用日常维护（**2939 赞**）：Slack 频道里 Claude Tag 每天跑崩椃 fuzz、回归测试、性能监控。Amjad 预言「明年用电脑将是可选的」（**717 赞**）+ ARC-AGI-3 被编码 harness 攻克（100 赞）。Levie 驳「消灭工程师」论（187 赞）：工程师价值反而上升。Zara 反转：最抢手的职位全带“工程师”（106 赞）。Thariq 宣判「一切皆代码」（**463 赞**）。Matt Turck 的火箭 vs 弃尸二元论（**256 赞**）。播客：No Priors 采访 Chess.com CEO Erik Allebest，论超人机器时代的棋牌游戏生意经（50546 字符 transcript）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">/ultrafast, Claude Maintains Apps &amp; Google Docs in ChatGPT / Ultrafast、Claude 维护应用与 ChatGPT 集成 Docs</h2>
+    <p class="section-desc">Sottiaux 的 /ultrafast（**2723 赞**+ Altman 转发 **1638 赞**）+ Google Docs 集成（**1560 赞**）+ 电脑烤言（**1280 赞**）；Boris Cherny 的 Claude 维护实验（**2939 赞）；Thariq 的「一切皆代码」（**463 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+sama+bcherny+trq212" data-author-name="Sottiaux / Altman / Cherny / Thariq" data-author-tag="OpenAI / OpenAI CEO / Claude Code @Anthropic / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Altman / Cherny / Thariq avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Altman / Cherny / Thariq</div>
+            <div class="author-tag is-inline">OpenAI / OpenAI CEO / Claude Code @Anthropic / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 上线 /ultrafast（2723 赞），Altman 跟帖同欺（1638 赞）。加上 Google Docs 集成（1560 赞）：在 ChatGPT 里直接处理 Google 文档、表格和幻灯片。这改变了我写文档、头脑风暴、校对的方式。打开就聊，改动当场完成。以及电脑使用烤言插件（1280 赞）：让 ChatGPT 烤你一天的电脑使用。安装 Computer History 插件后……很有洞察力。“你不是在用 Slack。是 Slack 在用你。它占了你 48% 的活动。你的 Mac 本质上是一台 3000 美元的带键盘的 Slack 通知机。”</p>
+              <p>Boris Cherny 的 Claude 维护实验（2939 赞）：一个奇怪的实验——让 Claude 接管应用的日常维护。看到了可能成功的早期迹象。设置很直接：一个叫 proj-claude-maintains-apps 的 Slack 频道，Claude Tag 在其中每天在 iOS、Android、桌面、web、CLI 和 Agent SDK 上跑一堆例行任务：崩椃 fuzzer、回归测试、性能监控。Thariq 宣判（463 赞）：一切皆代码。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux：有时就是得 /ultrafast。ChatGPT 集成 Google Docs。Slack 占 48% 活动。</p>
+              <p>Boris Cherny：Claude 接管应用日常维护。崩椃 fuzzer、回归测试、性能监控。</p>
+              <p>Thariq：一切皆代码。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux ships /ultrafast (2723 likes), with Altman co-signing &#39;/ultrafast&#39; (1638 likes). Plus Google Docs integration (1560 likes): &#39;Work with Google docs, sheets and slides right inside ChatGPT. This has changed how I write documents, brainstorm or proofread things. I just open it and then chat or talk my way through changes and it all happens right there in the flow.&#39; And the roast-your-usage plugin (1280 likes): &#39;Ask ChatGPT to roast your computer usage after a day. Install the Computer History plugin... It&#39;s... insightful. You don&#39;t use Slack. Slack uses you. It accounted for 48% of your recorded activity. Your Mac is essentially a $3,000 Slack notification with a keyboard.&#39;</p>
+              <p>Boris Cherny&#39;s Claude-maintains-apps experiment (2939 likes): &#39;A weird experiment: having Claude take over day-to-day maintenance of our apps. Seeing early signs of life that this might be possible. We have a Slack channel called proj-claude-maintains-apps. In it, Claude Tag runs a bunch of daily routines across iOS, Android, Desktop, web, CLI, and Agent SDK: Crash fuzzer, regression tests, performance monitoring.&#39; Thariq declares (463 likes): &#39;everything truly is code.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Sometimes you have have to go /ultrafast.</p>
+              <p>Thibault Sottiaux: Work with Google docs, sheets and slides right inside ChatGPT.</p>
+              <p>Thibault Sottiaux: You don&#39;t use Slack. Slack uses you. It accounted for 48% of your recorded activity. Your Mac is essentially a $3,000 Slack notification with a keyboard.</p>
+              <p>Boris Cherny: Having Claude take over day-to-day maintenance of our apps. Claude Tag runs a bunch of daily routines across iOS, Android, Desktop, web, CLI, and Agent SDK.</p>
+              <p>Thariq: everything truly is code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Engineers Un-eliminated, ARC-AGI Harness &amp; Optional Computers / 工程师未被消灭、ARC-AGI Harness 与可选电脑</h2>
+    <p class="section-desc">Levie 驳消灭论（187 赞）；Zara 的工程师职位观察（106 赞）；Amjad 的电脑可选预言（**717 赞**）+ ARC-AGI-3（100 赞）+ Replit 印证（305 赞）；Matt Turck 的二元论（**256 赞**）；Rauchg 的统一命令预言（148 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+zarazhangrui+amasad+mattturck+rauchg" data-author-name="Levie / Zara / Amjad / Turck / Rauchg" data-author-tag="Box CEO / Builder / Replit CEO / FirstMark / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Zara / Amjad / Turck / Rauchg avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Zara / Amjad / Turck / Rauchg</div>
+            <div class="author-tag is-inline">Box CEO / Builder / Replit CEO / FirstMark / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 驳斥消灭假设（187 赞）：消灭工程师是最狂野的假设之一。荒谬地错。我们只是给工程师一个动力工具。他们的价值不仅保持关键，在很多领域还上升——因为工程化可以应用到远比以往多的工作上。Zara 的观察（106 赞）：许多人以为 AI 编码会让工程师贬值，现实是最抢手的职位全带“工程师”：前线部署工程师、设计工程师、产品工程师、增长工程师。Amjad 预言（717 赞）：明年用电脑将是可选的。工作将彻底改变。加上 ARC-AGI-3 仅靠加编码 harness 就几乎被解决（100 赞）和 Replit 印证（305 赞）。</p>
+              <p>Matt Turck 的二元论（256 赞）：现在你要么是 AI 原生火箭——永久融资、越来越吓人的估值、为抢客户不惜牺牲毛利的死亡竞赛；要么基本上被判死刑，不管你公司实际多好。Rauchg 的统一命令预言（148 赞）：一条命令统治所有 token。我预言这将成为大规模使用编码 AI 的默认方式。可用性、模型选择、更低成本、可观测性。这条命令配置所有现有编码 harness！</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie：消灭工程师论荒谬地错。工程师价值上升。</p>
+              <p>Zara Zhang：最抢手的职位都带“工程师”。</p>
+              <p>Amjad Masad：明年用电脑可选。ARC-AGI-3 被编码 harness 攻克。</p>
+              <p>Matt Turck：火箭或弃尸，不管公司多好。</p>
+              <p>Guillermo Rauch：一条命令统治所有 token。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie rebuts the elimination hypothesis (187 likes): &#39;The elimination of engineers was one of the wilder hypotheses out there. Just absurdly wrong. We just gave engineers a power tool. Their value not only remains critical, but actually goes up in many domains because we can apply engineering to far more work than before.&#39; Zara&#39;s observation (106 likes): &#39;Ironic that many people thought AI coding would make engineers less valuable when in reality the most in-demand jobs all have the word engineer in them: forward-deployed engineer, design engineer, product engineer, growth engineer.&#39; Amjad&#39;s prediction (717 likes): &#39;By next year, using a computer will be optional. Work will radically change.&#39; Plus ARC-AGI-3 nearly solved by adding a coding harness (100 likes) and Replit confirmation (305 likes).</p>
+              <p>Matt Turck&#39;s bifurcation (256 likes): &#39;Right now, you&#39;re either an AI-native rocketship — permanent fundraising at scary valuations, death match for customers, sacrificing margins — or basically left for dead, regardless of how good a company you actually are.&#39; Rauchg&#39;s one-command prediction (148 likes): &#39;One command to rule them all (tokens). I predict this will become the default way of using coding AI at scale. Uptime, model choice, lower costs, observability, ZDR. This command configures every existing coding harness, like Claude Code &amp; Codex!&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: The elimination of engineers was one of the wilder hypotheses. Just absurdly wrong. Their value actually goes up in many domains.</p>
+              <p>Zara Zhang: The most in-demand jobs all have the word engineer in them: forward-deployed engineer, design engineer, product engineer, growth engineer.</p>
+              <p>Amjad Masad: By next year, using a computer will be optional. Work will radically change.</p>
+              <p>Amjad Masad: ARC-AGI-3 is nearly solved by merely adding a coding harness. As predicted, coding generalizes LLMs.</p>
+              <p>Matt Turck: You&#39;re either an AI-native rocketship or basically left for dead, regardless of how good a company you actually are.</p>
+              <p>Guillermo Rauch: One command to rule them all (tokens). This will become the default way of using coding AI at scale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Grok Bot, Prompt Debt &amp; Home Robots / Grok Bot、提示债与家庭机器人</h2>
+    <p class="section-desc">Nikunj 论超级 agent vs 专用 agent（**176 赞**）；Madhu Guru 论提示债（49 赞）+ Studio 命名漪潮（12 赞）；Ryo Lu 的 Matic 机器人（217 赞）+ Peter Yang 的家庭观察（24 赞）+ Nikunj 的儿子与 Matic（63 赞）；Dan Shipper 的求职浪潮（88 赞）；Garry Tan 的州长候选人聚会（129 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="nikunj+realmadhuguru+ryolu_+petergyang+danshipper+garrytan" data-author-name="Nikunj / Madhu / Ryo Lu / Peter Yang / Shipper / Tan" data-author-tag="FPV / Product / Cursor / Builder / Every / YC" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Nikunj / Madhu / Ryo Lu / Peter Yang / Shipper / Tan avatar"><span class="avatar-fallback">N/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj / Madhu / Ryo Lu / Peter Yang / Shipper / Tan</div>
+            <div class="author-tag is-inline">FPV / Product / Cursor / Builder / Every / YC</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj 论超级 agent vs 专用 agent（176 赞）：Grok Bot 是一次棒极了的发布——UX、设计、引导都完美。但我一直在想：用户会想要一个掌握所有上下文的超级 agent，还是专门做一小块任务的子 agent？如果把 agent 当人看，Grok Bot 的设计就非常合理。它让我们能分区工具、上下文和结果。Madhu Guru 论提示债（49 赞）：提示债是新的技术债。每次模型更新，你都本应删掉至少 50% 的提示。典型流程：模型失败→加 10 条规则。三个月后，你的系统提示成了一部小说。加上 Studio 命名浪潮（12 赞）：数了 20+ 个都叫 Studio。</p>
+              <p>Ryo Lu 论 Matic 机器人（217 赞）：Matic 是我拥有过的第一个每次更新都感觉变得更聪明的机器人。Peter Yang 的家庭观察（24 赞）：耂婆一直在跑它，虽然有点烦但地板超干净。Nikunj 的家庭第五员（63 赞）：Matic 是我儿子学会的前十个词之一，他把它当家里第五个成员。Dan Shipper 的求职浪潮（88 赞）：平均每分钟 2 份申请，来自 Citadel、OpenAI、Red Bull、Microsoft、NASDAQ、Google、PwC、Square。Garry Tan 主持加州州长候选人 Xavier Becerra 聚会（129 赞）+ 每个机器人要有话题区（281 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj Kothari：超级 agent 还是专用子 agent？把 agent 当人看就合理。</p>
+              <p>Madhu Guru：提示债是新的技术债。每次模型更新删一半提示。</p>
+              <p>Ryo Lu：Matic 每次更新都变聪明。</p>
+              <p>Dan Shipper：每分钟 2 份申请。Citadel、OpenAI、Google 都来了。</p>
+              <p>Garry Tan：每个机器人要有话题区。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj on Grok Bot vs super agent (176 likes): &#39;Grok Bot is a fantastic release.. the UX, the design, the onboarding: chef&#39;s kiss. But I go back and forth: Will users want one super agent that holds all the context, or sub agents designated to do a slice of tasks? If we treat agents as humans, then the Grok Bot design makes a ton of sense. It allows us to compartmentalize tools, context, outcomes.&#39; Madhu Guru on prompt debt (49 likes): &#39;Prompt debt is the new tech debt. With every model update, you should be cutting at least 50% of your prompts. Most AI products have bloated prompts that are making your product quality worse. The typical flow: model fails at something -&gt; add 10 rules. 3 months later, your system prompt is a novel.&#39; Plus the Studio naming epidemic (12 likes): 20+ products all named Studio.</p>
+              <p>Ryo Lu on the Matic robot (217 likes): &#39;matic is the first robot I&#39;ve owned that actually feels like it gets smarter with every update.&#39; Peter Yang&#39;s floor-cleaning observation (24 likes) and Nikunj&#39;s family-fifth-member note (63 likes): &#39;Matic was one of the first ten words my son learned.&#39; Dan Shipper&#39;s application flood (88 likes): averaging 2 applications per minute from Citadel, OpenAI, Red Bull, Microsoft, NASDAQ, Google, PwC, Square. Garry Tan hosting California gubernatorial hopeful Xavier Becerra (129 likes) and topics-per-bot request (281 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj Kothari: Will users want one super agent that holds all the context or sub agents designated to do a slice of tasks? If we treat agents as humans, then the Grok Bot design makes a ton of sense.</p>
+              <p>Madhu Guru: Prompt debt is the new tech debt. With every model update, you should be cutting at least 50% of your prompts.</p>
+              <p>Ryo Lu: matic is the first robot I&#39;ve owned that actually feels like it gets smarter with every update.</p>
+              <p>Nikunj Kothari: Matic was one of the first ten words my son learned.</p>
+              <p>Dan Shipper: Averaging 2 applications per minute from Citadel, OpenAI, Red Bull, Microsoft, NASDAQ, Google.</p>
+              <p>Garry Tan: I agree, you need topics per-bot please!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Chess.com — Superhuman Machines &amp; Timeless Games / 播客：Chess.com——超人机器与永恒游戏</h2>
+    <p class="section-desc">No Priors 采访 Chess.com CEO Erik Allebest，论 2.5 亿会员、2 亿美元营收、AI 与棋牌的共生、反作弊战争与创始人哲学。完整 transcript（50546 字符）已翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:np-chess" data-author-name="No Priors (Elad Gil)" data-author-tag="Erik Allebest（Chess.com CEO 与创始人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors (Elad Gil) avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors (Elad Gil)</div>
+            <div class="author-tag is-inline">Erik Allebest（Chess.com CEO 与创始人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors：Elad Gil 采访 Chess.com CEO 与创始人 Erik Allebest——2005 年从破产拍卖中以 5.5 万美元买下域名，当时 VC 称其「不可投资」。如今：2.5 亿+会员、约 1000 万日活、2 亿美元+营收、650 人团队、零外部资本。核心话题：COVID/后束、骗开与 2023 短视频内容浪潮（趾子机器人、作弊丑闻）如何复利增长；Lichess 是「棋牌界的 Linux」——开源共存；棋牌不可专利——靠产品、社区、内容取胜；电脑起先让棋牌变乏味，后来让它比以往任何时候都精彩（Leela Zero 的激进非传统下法）；游戏复盘 AI 教练、个性化谜题；神童越来越年轻（7 岁孩挑战特级大师）；重复是不可走捷径的专家之路（「任何一天乘以千就是你的人生」）；作弊是军备竞赛——知道人类和电脑各自怎么下棋的统计模型；棋牌是无限 AI 音乐世界里的披头士——无战利品箱、无新英雄的永恒共同体验；Gambit 德州扑克带棋牌式积分（「你真正有多好，而不是能买多少筹码」）；创始人忠告：「听你的心，别听创始人建议工业复合体」；以及对 AGI 谨慎乐观+对财富集中的文化担忧。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【从破产拍卖到 2.5 亿会员】</p>
+              <p>Allebest：2005 年从破产拍卖中以 5.5 万美元买下 chess.com 域名。几乎所有投资人都说这不可投资、该找份正经工作。</p>
+              <p>「如今约 1000 万日活、4-5 亿月活、2.5 亿注册会员。今年营收将超过 2 亿美元。团队约 650 人。」</p>
+              <p>「我们从未融资，按现金流速度增长，早早盈利。当初以为 50 人就到顶了。」</p>
+              <p></p>
+              <p>【AI 与棋牌的共生】</p>
+              <p>Allebest：电脑起先让棋牌有点乏味，但后来让它比以往任何时候都精彩。Leela Zero 下得激进、非传统，推动了棋理进步。</p>
+              <p>「游戏复盘的 AI 教练、为你生成的个性化谜题——AI 真正帮人类更享受棋牌。”</p>
+              <p>「7 岁孩子在挑战特级大师。英国的 10 岁印度裔女孩横扫所有人。这代孩子有了超人工具，学得更快。”</p>
+              <p></p>
+              <p>【重复与专家之路】</p>
+              <p>Allebest：把任何一天乘以一千，那就是你的人生。每天 5 个谜题，乘以一千就是 5000 个。</p>
+              <p>「训练神经网也是一样——得把重复灌进脑子。练习没有捷径。”</p>
+              <p></p>
+              <p>【作弊与棋牌的永恒性】</p>
+              <p>Allebest：作弊无法完全防止——你不能在每个人家装摄像头。但我们有统计模型和机器学习，知道人怎么下、电脑怎么下。</p>
+              <p>「棋牌没有战利品箱、没有新皮肤、没有新英雄。规则最简，完全信息博弈，零运气。它是无限内容世界里的披头士。”</p>
+              <p></p>
+              <p>【Gambit 德州扑克与创始哲学】</p>
+              <p>Allebest：我们把棋牌的打法带到德州扑克——按积分而非筹码。你真正有多好？</p>
+              <p>「当年的创业圣经是：斯坦禅技术联创、融大资、大市场、烧钱获客。我们全反着来。听你的心。”</p>
+              <p>「把独一无二的美好东西带到世上，其余的都会解决。别再听别人的创业建议了。”</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors: Elad Gil interviews Erik Allebest, CEO/co-founder of Chess.com — bought the domain out of a bankruptcy auction in 2005 for $55K when VCs called it &#39;uninvestable&#39;. Today: 250M+ members, ~10M daily actives, $200M+ revenue, 650 people, zero outside capital. Key topics: the COVID/Queen&#39;s Gambit wave and the 2023 short-form-content wave (mittens bot, cheating scandal) that compounding growth; Lichess as &#39;the Linux of chess&#39; — coexisting via open source; chess not being patentable — winning via product, community, content; computers first making chess boring, then making it more exciting than ever (Leela Chess Zero&#39;s aggressive unconventional play); AI coach on game review, personalized puzzles; younger and younger prodigies (7-year-olds challenging grandmasters); repetition as the unshortcutable path to expertise (&#39;any given day multiplied by a thousand is your life&#39;); cheating as an arms race — statistical models that know how humans vs computers play; chess as the Beatles in a world of infinite AI-generated music — timeless shared experience with no loot boxes or new heroes; Gambit poker with chess-style ratings (&#39;how good are you really, not how many chips can you buy&#39;); founder advice: &#39;listen to your heart, not the founder-advice industrial complex&#39;; and AGI optimism tempered by cultural concerns about wealth concentration.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Erik Allebest: We have about 10,000,000 daily active users, more than 250,000,000 registered members. This year we&#39;ll do a little over $200,000,000.</p>
+              <p>Erik Allebest: Computers at first made chess a little bit more boring, but then made it so much more exciting. We&#39;re seeing more exciting chess than we ever have.</p>
+              <p>Erik Allebest: It&#39;s the same as when you train a neural net. You have to put in the repetitions. You can&#39;t really shortcut practice.</p>
+              <p>Erik Allebest: There&#39;s no loot boxes. There&#39;s no new skins. There&#39;s no new heroes to learn. You&#39;re having the same shared experience forever.</p>
+              <p>Erik Allebest: How good are you really? Not just can you buy the most chips.</p>
+              <p>Erik Allebest: People should listen to their heart. Just go execute and put something beautiful into the world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-15 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-15 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

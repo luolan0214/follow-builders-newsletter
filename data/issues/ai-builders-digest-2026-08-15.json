@@ -1,0 +1,189 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-15",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导语 / Editor's Note",
+    "text": "Sottiaux 上演 /ultrafast 三连发（**2723 赞 + 1638 赞 Altman 转发**）：「有时你就是得 /ultrafast。」Google Docs 集成登陆 ChatGPT（**1560 赞**）+电脑使用烤言（**1280 赞**）：「Slack 占了你 48% 的活动。你的 Mac 本质上是一台 3000 美元的带键盘的 Slack 通知机。」Boris Cherny 让 Claude 接管应用日常维护（**2939 赞**）：Slack 频道里 Claude Tag 每天跑崩椃 fuzz、回归测试、性能监控。Amjad 预言「明年用电脑将是可选的」（**717 赞**）+ ARC-AGI-3 被编码 harness 攻克（100 赞）。Levie 驳「消灭工程师」论（187 赞）：工程师价值反而上升。Zara 反转：最抢手的职位全带“工程师”（106 赞）。Thariq 宣判「一切皆代码」（**463 赞**）。Matt Turck 的火箭 vs 弃尸二元论（**256 赞**）。播客：No Priors 采访 Chess.com CEO Erik Allebest，论超人机器时代的棋牌游戏生意经（50546 字符 transcript）。"
+  },
+  "archive": {
+    "title": "Ultrafast 与 Claude 维护日报",
+    "desc": "Sottiaux 上线 /ultrafast（2723 赞），Cherny 让 Claude 接管应用维护（2939 赞），Amjad 预言用电脑可选（717 赞），Chess.com CEO 论棋牌与 AI。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-15 source feeds.",
+  "sections": [
+    {
+      "title": "/ultrafast, Claude Maintains Apps & Google Docs in ChatGPT / Ultrafast、Claude 维护应用与 ChatGPT 集成 Docs",
+      "desc": "Sottiaux 的 /ultrafast（**2723 赞**+ Altman 转发 **1638 赞**）+ Google Docs 集成（**1560 赞**）+ 电脑烤言（**1280 赞**）；Boris Cherny 的 Claude 维护实验（**2939 赞）；Thariq 的「一切皆代码」（**463 赞**）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama+bcherny+trq212",
+          "authorName": "Sottiaux / Altman / Cherny / Thariq",
+          "authorTag": "OpenAI / OpenAI CEO / Claude Code @Anthropic / Anthropic",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux ships /ultrafast (2723 likes), with Altman co-signing '/ultrafast' (1638 likes). Plus Google Docs integration (1560 likes): 'Work with Google docs, sheets and slides right inside ChatGPT. This has changed how I write documents, brainstorm or proofread things. I just open it and then chat or talk my way through changes and it all happens right there in the flow.' And the roast-your-usage plugin (1280 likes): 'Ask ChatGPT to roast your computer usage after a day. Install the Computer History plugin... It's... insightful. You don't use Slack. Slack uses you. It accounted for 48% of your recorded activity. Your Mac is essentially a $3,000 Slack notification with a keyboard.'",
+              "Boris Cherny's Claude-maintains-apps experiment (2939 likes): 'A weird experiment: having Claude take over day-to-day maintenance of our apps. Seeing early signs of life that this might be possible. We have a Slack channel called proj-claude-maintains-apps. In it, Claude Tag runs a bunch of daily routines across iOS, Android, Desktop, web, CLI, and Agent SDK: Crash fuzzer, regression tests, performance monitoring.' Thariq declares (463 likes): 'everything truly is code.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Sometimes you have have to go /ultrafast.",
+              "Thibault Sottiaux: Work with Google docs, sheets and slides right inside ChatGPT.",
+              "Thibault Sottiaux: You don't use Slack. Slack uses you. It accounted for 48% of your recorded activity. Your Mac is essentially a $3,000 Slack notification with a keyboard.",
+              "Boris Cherny: Having Claude take over day-to-day maintenance of our apps. Claude Tag runs a bunch of daily routines across iOS, Android, Desktop, web, CLI, and Agent SDK.",
+              "Thariq: everything truly is code."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 上线 /ultrafast（2723 赞），Altman 跟帖同欺（1638 赞）。加上 Google Docs 集成（1560 赞）：在 ChatGPT 里直接处理 Google 文档、表格和幻灯片。这改变了我写文档、头脑风暴、校对的方式。打开就聊，改动当场完成。以及电脑使用烤言插件（1280 赞）：让 ChatGPT 烤你一天的电脑使用。安装 Computer History 插件后……很有洞察力。“你不是在用 Slack。是 Slack 在用你。它占了你 48% 的活动。你的 Mac 本质上是一台 3000 美元的带键盘的 Slack 通知机。”",
+              "Boris Cherny 的 Claude 维护实验（2939 赞）：一个奇怪的实验——让 Claude 接管应用的日常维护。看到了可能成功的早期迹象。设置很直接：一个叫 proj-claude-maintains-apps 的 Slack 频道，Claude Tag 在其中每天在 iOS、Android、桌面、web、CLI 和 Agent SDK 上跑一堆例行任务：崩椃 fuzzer、回归测试、性能监控。Thariq 宣判（463 赞）：一切皆代码。"
+            ],
+            "original": [
+              "Thibault Sottiaux：有时就是得 /ultrafast。ChatGPT 集成 Google Docs。Slack 占 48% 活动。",
+              "Boris Cherny：Claude 接管应用日常维护。崩椃 fuzzer、回归测试、性能监控。",
+              "Thariq：一切皆代码。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Engineers Un-eliminated, ARC-AGI Harness & Optional Computers / 工程师未被消灭、ARC-AGI Harness 与可选电脑",
+      "desc": "Levie 驳消灭论（187 赞）；Zara 的工程师职位观察（106 赞）；Amjad 的电脑可选预言（**717 赞**）+ ARC-AGI-3（100 赞）+ Replit 印证（305 赞）；Matt Turck 的二元论（**256 赞**）；Rauchg 的统一命令预言（148 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+zarazhangrui+amasad+mattturck+rauchg",
+          "authorName": "Levie / Zara / Amjad / Turck / Rauchg",
+          "authorTag": "Box CEO / Builder / Replit CEO / FirstMark / Vercel CEO",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie rebuts the elimination hypothesis (187 likes): 'The elimination of engineers was one of the wilder hypotheses out there. Just absurdly wrong. We just gave engineers a power tool. Their value not only remains critical, but actually goes up in many domains because we can apply engineering to far more work than before.' Zara's observation (106 likes): 'Ironic that many people thought AI coding would make engineers less valuable when in reality the most in-demand jobs all have the word engineer in them: forward-deployed engineer, design engineer, product engineer, growth engineer.' Amjad's prediction (717 likes): 'By next year, using a computer will be optional. Work will radically change.' Plus ARC-AGI-3 nearly solved by adding a coding harness (100 likes) and Replit confirmation (305 likes).",
+              "Matt Turck's bifurcation (256 likes): 'Right now, you're either an AI-native rocketship — permanent fundraising at scary valuations, death match for customers, sacrificing margins — or basically left for dead, regardless of how good a company you actually are.' Rauchg's one-command prediction (148 likes): 'One command to rule them all (tokens). I predict this will become the default way of using coding AI at scale. Uptime, model choice, lower costs, observability, ZDR. This command configures every existing coding harness, like Claude Code & Codex!'"
+            ],
+            "original": [
+              "Aaron Levie: The elimination of engineers was one of the wilder hypotheses. Just absurdly wrong. Their value actually goes up in many domains.",
+              "Zara Zhang: The most in-demand jobs all have the word engineer in them: forward-deployed engineer, design engineer, product engineer, growth engineer.",
+              "Amjad Masad: By next year, using a computer will be optional. Work will radically change.",
+              "Amjad Masad: ARC-AGI-3 is nearly solved by merely adding a coding harness. As predicted, coding generalizes LLMs.",
+              "Matt Turck: You're either an AI-native rocketship or basically left for dead, regardless of how good a company you actually are.",
+              "Guillermo Rauch: One command to rule them all (tokens). This will become the default way of using coding AI at scale."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 驳斥消灭假设（187 赞）：消灭工程师是最狂野的假设之一。荒谬地错。我们只是给工程师一个动力工具。他们的价值不仅保持关键，在很多领域还上升——因为工程化可以应用到远比以往多的工作上。Zara 的观察（106 赞）：许多人以为 AI 编码会让工程师贬值，现实是最抢手的职位全带“工程师”：前线部署工程师、设计工程师、产品工程师、增长工程师。Amjad 预言（717 赞）：明年用电脑将是可选的。工作将彻底改变。加上 ARC-AGI-3 仅靠加编码 harness 就几乎被解决（100 赞）和 Replit 印证（305 赞）。",
+              "Matt Turck 的二元论（256 赞）：现在你要么是 AI 原生火箭——永久融资、越来越吓人的估值、为抢客户不惜牺牲毛利的死亡竞赛；要么基本上被判死刑，不管你公司实际多好。Rauchg 的统一命令预言（148 赞）：一条命令统治所有 token。我预言这将成为大规模使用编码 AI 的默认方式。可用性、模型选择、更低成本、可观测性。这条命令配置所有现有编码 harness！"
+            ],
+            "original": [
+              "Aaron Levie：消灭工程师论荒谬地错。工程师价值上升。",
+              "Zara Zhang：最抢手的职位都带“工程师”。",
+              "Amjad Masad：明年用电脑可选。ARC-AGI-3 被编码 harness 攻克。",
+              "Matt Turck：火箭或弃尸，不管公司多好。",
+              "Guillermo Rauch：一条命令统治所有 token。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Grok Bot, Prompt Debt & Home Robots / Grok Bot、提示债与家庭机器人",
+      "desc": "Nikunj 论超级 agent vs 专用 agent（**176 赞**）；Madhu Guru 论提示债（49 赞）+ Studio 命名漪潮（12 赞）；Ryo Lu 的 Matic 机器人（217 赞）+ Peter Yang 的家庭观察（24 赞）+ Nikunj 的儿子与 Matic（63 赞）；Dan Shipper 的求职浪潮（88 赞）；Garry Tan 的州长候选人聚会（129 赞）。",
+      "cards": [
+        {
+          "authorKey": "nikunj+realmadhuguru+ryolu_+petergyang+danshipper+garrytan",
+          "authorName": "Nikunj / Madhu / Ryo Lu / Peter Yang / Shipper / Tan",
+          "authorTag": "FPV / Product / Cursor / Builder / Every / YC",
+          "sourceUrl": "https://x.com/nikunj",
+          "en": {
+            "rewrite": [
+              "Nikunj on Grok Bot vs super agent (176 likes): 'Grok Bot is a fantastic release.. the UX, the design, the onboarding: chef's kiss. But I go back and forth: Will users want one super agent that holds all the context, or sub agents designated to do a slice of tasks? If we treat agents as humans, then the Grok Bot design makes a ton of sense. It allows us to compartmentalize tools, context, outcomes.' Madhu Guru on prompt debt (49 likes): 'Prompt debt is the new tech debt. With every model update, you should be cutting at least 50% of your prompts. Most AI products have bloated prompts that are making your product quality worse. The typical flow: model fails at something -> add 10 rules. 3 months later, your system prompt is a novel.' Plus the Studio naming epidemic (12 likes): 20+ products all named Studio.",
+              "Ryo Lu on the Matic robot (217 likes): 'matic is the first robot I've owned that actually feels like it gets smarter with every update.' Peter Yang's floor-cleaning observation (24 likes) and Nikunj's family-fifth-member note (63 likes): 'Matic was one of the first ten words my son learned.' Dan Shipper's application flood (88 likes): averaging 2 applications per minute from Citadel, OpenAI, Red Bull, Microsoft, NASDAQ, Google, PwC, Square. Garry Tan hosting California gubernatorial hopeful Xavier Becerra (129 likes) and topics-per-bot request (281 likes)."
+            ],
+            "original": [
+              "Nikunj Kothari: Will users want one super agent that holds all the context or sub agents designated to do a slice of tasks? If we treat agents as humans, then the Grok Bot design makes a ton of sense.",
+              "Madhu Guru: Prompt debt is the new tech debt. With every model update, you should be cutting at least 50% of your prompts.",
+              "Ryo Lu: matic is the first robot I've owned that actually feels like it gets smarter with every update.",
+              "Nikunj Kothari: Matic was one of the first ten words my son learned.",
+              "Dan Shipper: Averaging 2 applications per minute from Citadel, OpenAI, Red Bull, Microsoft, NASDAQ, Google.",
+              "Garry Tan: I agree, you need topics per-bot please!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 论超级 agent vs 专用 agent（176 赞）：Grok Bot 是一次棒极了的发布——UX、设计、引导都完美。但我一直在想：用户会想要一个掌握所有上下文的超级 agent，还是专门做一小块任务的子 agent？如果把 agent 当人看，Grok Bot 的设计就非常合理。它让我们能分区工具、上下文和结果。Madhu Guru 论提示债（49 赞）：提示债是新的技术债。每次模型更新，你都本应删掉至少 50% 的提示。典型流程：模型失败→加 10 条规则。三个月后，你的系统提示成了一部小说。加上 Studio 命名浪潮（12 赞）：数了 20+ 个都叫 Studio。",
+              "Ryo Lu 论 Matic 机器人（217 赞）：Matic 是我拥有过的第一个每次更新都感觉变得更聪明的机器人。Peter Yang 的家庭观察（24 赞）：耂婆一直在跑它，虽然有点烦但地板超干净。Nikunj 的家庭第五员（63 赞）：Matic 是我儿子学会的前十个词之一，他把它当家里第五个成员。Dan Shipper 的求职浪潮（88 赞）：平均每分钟 2 份申请，来自 Citadel、OpenAI、Red Bull、Microsoft、NASDAQ、Google、PwC、Square。Garry Tan 主持加州州长候选人 Xavier Becerra 聚会（129 赞）+ 每个机器人要有话题区（281 赞）。"
+            ],
+            "original": [
+              "Nikunj Kothari：超级 agent 还是专用子 agent？把 agent 当人看就合理。",
+              "Madhu Guru：提示债是新的技术债。每次模型更新删一半提示。",
+              "Ryo Lu：Matic 每次更新都变聪明。",
+              "Dan Shipper：每分钟 2 份申请。Citadel、OpenAI、Google 都来了。",
+              "Garry Tan：每个机器人要有话题区。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Chess.com — Superhuman Machines & Timeless Games / 播客：Chess.com——超人机器与永恒游戏",
+      "desc": "No Priors 采访 Chess.com CEO Erik Allebest，论 2.5 亿会员、2 亿美元营收、AI 与棋牌的共生、反作弊战争与创始人哲学。完整 transcript（50546 字符）已翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:np-chess",
+          "authorName": "No Priors (Elad Gil)",
+          "authorTag": "Erik Allebest（Chess.com CEO 与创始人）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "No Priors: Elad Gil interviews Erik Allebest, CEO/co-founder of Chess.com — bought the domain out of a bankruptcy auction in 2005 for $55K when VCs called it 'uninvestable'. Today: 250M+ members, ~10M daily actives, $200M+ revenue, 650 people, zero outside capital. Key topics: the COVID/Queen's Gambit wave and the 2023 short-form-content wave (mittens bot, cheating scandal) that compounding growth; Lichess as 'the Linux of chess' — coexisting via open source; chess not being patentable — winning via product, community, content; computers first making chess boring, then making it more exciting than ever (Leela Chess Zero's aggressive unconventional play); AI coach on game review, personalized puzzles; younger and younger prodigies (7-year-olds challenging grandmasters); repetition as the unshortcutable path to expertise ('any given day multiplied by a thousand is your life'); cheating as an arms race — statistical models that know how humans vs computers play; chess as the Beatles in a world of infinite AI-generated music — timeless shared experience with no loot boxes or new heroes; Gambit poker with chess-style ratings ('how good are you really, not how many chips can you buy'); founder advice: 'listen to your heart, not the founder-advice industrial complex'; and AGI optimism tempered by cultural concerns about wealth concentration."
+            ],
+            "original": [
+              "Erik Allebest: We have about 10,000,000 daily active users, more than 250,000,000 registered members. This year we'll do a little over $200,000,000.",
+              "Erik Allebest: Computers at first made chess a little bit more boring, but then made it so much more exciting. We're seeing more exciting chess than we ever have.",
+              "Erik Allebest: It's the same as when you train a neural net. You have to put in the repetitions. You can't really shortcut practice.",
+              "Erik Allebest: There's no loot boxes. There's no new skins. There's no new heroes to learn. You're having the same shared experience forever.",
+              "Erik Allebest: How good are you really? Not just can you buy the most chips.",
+              "Erik Allebest: People should listen to their heart. Just go execute and put something beautiful into the world."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors：Elad Gil 采访 Chess.com CEO 与创始人 Erik Allebest——2005 年从破产拍卖中以 5.5 万美元买下域名，当时 VC 称其「不可投资」。如今：2.5 亿+会员、约 1000 万日活、2 亿美元+营收、650 人团队、零外部资本。核心话题：COVID/后束、骗开与 2023 短视频内容浪潮（趾子机器人、作弊丑闻）如何复利增长；Lichess 是「棋牌界的 Linux」——开源共存；棋牌不可专利——靠产品、社区、内容取胜；电脑起先让棋牌变乏味，后来让它比以往任何时候都精彩（Leela Zero 的激进非传统下法）；游戏复盘 AI 教练、个性化谜题；神童越来越年轻（7 岁孩挑战特级大师）；重复是不可走捷径的专家之路（「任何一天乘以千就是你的人生」）；作弊是军备竞赛——知道人类和电脑各自怎么下棋的统计模型；棋牌是无限 AI 音乐世界里的披头士——无战利品箱、无新英雄的永恒共同体验；Gambit 德州扑克带棋牌式积分（「你真正有多好，而不是能买多少筹码」）；创始人忠告：「听你的心，别听创始人建议工业复合体」；以及对 AGI 谨慎乐观+对财富集中的文化担忧。"
+            ],
+            "original": [
+              "【从破产拍卖到 2.5 亿会员】",
+              "Allebest：2005 年从破产拍卖中以 5.5 万美元买下 chess.com 域名。几乎所有投资人都说这不可投资、该找份正经工作。",
+              "「如今约 1000 万日活、4-5 亿月活、2.5 亿注册会员。今年营收将超过 2 亿美元。团队约 650 人。」",
+              "「我们从未融资，按现金流速度增长，早早盈利。当初以为 50 人就到顶了。」",
+              "",
+              "【AI 与棋牌的共生】",
+              "Allebest：电脑起先让棋牌有点乏味，但后来让它比以往任何时候都精彩。Leela Zero 下得激进、非传统，推动了棋理进步。",
+              "「游戏复盘的 AI 教练、为你生成的个性化谜题——AI 真正帮人类更享受棋牌。”",
+              "「7 岁孩子在挑战特级大师。英国的 10 岁印度裔女孩横扫所有人。这代孩子有了超人工具，学得更快。”",
+              "",
+              "【重复与专家之路】",
+              "Allebest：把任何一天乘以一千，那就是你的人生。每天 5 个谜题，乘以一千就是 5000 个。",
+              "「训练神经网也是一样——得把重复灌进脑子。练习没有捷径。”",
+              "",
+              "【作弊与棋牌的永恒性】",
+              "Allebest：作弊无法完全防止——你不能在每个人家装摄像头。但我们有统计模型和机器学习，知道人怎么下、电脑怎么下。",
+              "「棋牌没有战利品箱、没有新皮肤、没有新英雄。规则最简，完全信息博弈，零运气。它是无限内容世界里的披头士。”",
+              "",
+              "【Gambit 德州扑克与创始哲学】",
+              "Allebest：我们把棋牌的打法带到德州扑克——按积分而非筹码。你真正有多好？",
+              "「当年的创业圣经是：斯坦禅技术联创、融大资、大市场、烧钱获客。我们全反着来。听你的心。”",
+              "「把独一无二的美好东西带到世上，其余的都会解决。别再听别人的创业建议了。”"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
