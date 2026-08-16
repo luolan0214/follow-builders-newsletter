@@ -1,0 +1,218 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-16",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Cursor 时刻：Levie 盛赞 Cursor 把应用 AI 战略执行得天衣无缝，历史级 devtool 退出（165 赞）；Madhu Guru 论「Cursor for X」如何定义了一代产品模式（19 赞）+ 当人人都能用 AI 构建时差异化只剩产品直觉、领域知识与分发（84 赞）。Josh Woodward 宣布 3.7 Flash 登陆 Gemini App（**735 赞，今日最高**）+ Pomelli 图变视频（182 赞）；Sottiaux 上线 ChatGPT 餐厅订位（**583 赞**）+ 向社区求解 Codex 难题（**666 赞**）；Rauchg 宣布 Vercel 是全球最快 AI Gateway（305 赞）。Steipete 的两个工作流：AGENTS.md 加一行让每个 UI PR 附视频（111 赞）+ 用 openclaw 构建 openclaw、agent 会话分享成 URL（160 赞）。Dan Shipper 与 Turck 的「火箭 or 死」论战（55 赞）。播客：MAD 专访 Basis 联创 Mitch Troyanovsky——长程自主 agent 的完整方法论（93678 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "Cursor 时刻与长程 Agent 日报",
+    "desc": "Levie 盛赞 Cursor 历史级退出、3.7 Flash 登陆 Gemini（735 赞）、ChatGPT 订餐厅，Basis 联创详解长程自主 agent 方法论。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-16 source feeds.",
+  "sections": [
+    {
+      "title": "Cursor's Moment, Product Meta & Rocketship Debate / Cursor 时刻、产品范式与火箭论战",
+      "desc": "Levie 盛赞 Cursor 战略（165 赞）；Madhu Guru 论 Cursor for X 产品范式（19 赞）+ 差异化四要素（84 赞）+ Jevons 类比（39 赞）；Swyx 的 Databricks Series M 梗（91 赞）；Dan Shipper 回击 Turck 火箭论（55 赞）；Nan Yu 论 PM 晋升包（59 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+realmadhuguru+swyx+danshipper+thenanyu",
+          "authorName": "Levie / Madhu Guru / Swyx / Shipper / Nan Yu",
+          "authorTag": "Box CEO / Product / AI Ecosystem / Every / Builder",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie celebrates the Cursor outcome (165 likes): 'Amazing outcome. Cursor executed the applied AI strategy flawlessly. Most people completely underestimated the market size in AI coding. The biggest developer tool exits in history were on the order of low billions. And it was already assumed to be a heavily competitive space when they really got going.' Madhu Guru on Cursor's underrated cultural impact (19 likes): 'AI products were stuck in the chatbot phase searching for a product meta. Then cursor for x came along and inspired a whole new product pattern.' Plus his differentiators framework (84 likes): 'When everyone can build with AI, your differentiators are product sense, domain knowledge, distribution, execution.' And the Jevons analogy (39 likes): cheaper tasks → more economically viable use cases.",
+              "Swyx on Databricks' Series M (91 likes): 'The M in their $188B series M stands for we are going to kill so many meetings.' Dan Shipper pushes back on Turck's rocketship-or-death framing (55 likes): 'You can be an AI-native rocketship without being in a permanent fundraising situation and sacrificing gross margin — but the rules for building a company like that are very different.' Nan Yu (59 likes): 'There's no force in tech as destructive as the PM promo packet.'"
+            ],
+            "original": [
+              "Aaron Levie: Amazing outcome. Cursor executed the applied AI strategy flawlessly. Most people completely underestimated the market size in AI coding. The biggest developer tool exits in history were on the order of low billions of dollars.",
+              "Madhu Guru: Cursor's impact on AI product culture is underrated. It was then that 'cursor for x' came along and inspired a whole new product pattern.",
+              "Madhu Guru: When everyone can build with ai, your differentiators are product sense, domain knowledge, distribution, execution.",
+              "Madhu Guru: When the cost and complexity of a task falls, new use cases become economically viable.",
+              "Swyx: the M in their $188B series M stands for 'we are going to kill so many meetings'.",
+              "Dan Shipper: you can be an AI-native rocketship without being in a permanent fundraising situation and in a constant death match with other rocketships to capture customers, sacrificing gross margin.",
+              "Nan Yu: There's no force in tech as destructive as the PM promo packet."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 盛赞 Cursor 结局（165 赞）：惊人的结果。Cursor 把应用 AI 战略执行得天衣无缝。大多数人完全低估了 AI 编码的市场规模——历史上最大的 devtool 退出也就几十亿美元量级，而且他们起步时这已被认为是竞争激烈、接近饱和的赛道。Madhu Guru 论 Cursor 被低估的产品文化影响（19 赞）：AI 产品一度困在 chatbot 阶段，找不到可依附的产品范式。然后「Cursor for X」出现了，启发了一整代产品模式。他的差异化框架（84 赞）：当人人都能用 AI 构建，你的差异化只剩产品直觉、领域知识、分发与执行。加上 Jevons 类比（39 赞）：蒸汽机效率提升增加了煤炭需求，任务成本与复杂度下降会让新用例变得经济可行。",
+              "Swyx 的 Databricks 梗（91 赞）：1880 亿美元 Series M 轮里的 M，意思是「我们要干掉一大堆会议」。Dan Shipper 回击 Turck 的火箭 or 死论（55 赞）：不搞永久融资、不搞牺牲毛利的死亡竞赛，也能做 AI 原生火箭——只是那样公司的构建规则很不一样。Nan Yu（59 赞）：科技界没有比 PM 晋升材料更破坏性的力量了。"
+            ],
+            "original": [
+              "Aaron Levie：惊人的结果。Cursor 完美执行了应用 AI 战略。大多数人完全低估了 AI 编码的市场规模。",
+              "Madhu Guru：Cursor 对 AI 产品文化的影响被低估。「Cursor for X」启发了一整代产品模式。",
+              "Madhu Guru：当人人都能用 AI 构建，差异化只剩产品直觉、领域知识、分发与执行。",
+              "Swyx：1880 亿美元 Series M 的 M 意思是「我们要干掉一大堆会议」。",
+              "Dan Shipper：不做永久融资和死亡竞赛也能当 AI 原生火箭，只是规则不同。",
+              "Nan Yu：科技界没有比 PM 晋升包更破坏性的力量。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "3.7 Flash in Gemini, ChatGPT Reservations & Gateway Speed / 3.7 Flash 登陆、ChatGPT 订位与网关速度",
+      "desc": "Josh Woodward 的 3.7 Flash（**735 赞，今日最高**）+ Pomelli 视频（182 赞）；Google Labs 全家桶（110 赞）；Sottiaux 的餐厅订位（**583 赞**）+ Codex 难题征集（**666 赞**）；Rauchg 的最快 Gateway（305 赞）；Garry Tan 的 GStack 全采纳（103 赞）+ 乔布斯字体故事（138 赞）；Nikunj 的 /goal 14 小时 spec（11 赞）。",
+      "cards": [
+        {
+          "authorKey": "joshwoodward+GoogleLabs+thsottiaux+rauchg+garrytan+nikunj",
+          "authorName": "Woodward / Labs / Sottiaux / Rauchg / Tan / Nikunj",
+          "authorTag": "Gemini / Google Labs / OpenAI / Vercel / YC / FPV",
+          "sourceUrl": "https://x.com/joshwoodward",
+          "en": {
+            "rewrite": [
+              "Josh Woodward ships 3.7 Flash into the Gemini App (735 likes, top of the day) and upgrades Pomelli (182 likes): 'turn those amazing photoshoots into short videos or gifs with that same ease' — popular with small businesses. Google Labs rounds up its experiment family (110 likes): Pomelli for marketing campaigns, Flow for visual storytelling. Sottiaux ships restaurant reservations in ChatGPT (583 likes): 'Looking for a quick restaurant reservation is now super easy.' And asks the community (666 likes): 'What's a hard problem codex solved for you this week?' Rauchg claims (305 likes): 'Vercel is the fastest [AI Gateway] infrastructure in the world.'",
+              "Garry Tan on GStack (103 likes): 'The most surprising thing about using GStack pre-Fable 5 and after is now for many one-way-door questions you might get back in Claude Code, you can actually just say Take all recommendations and be happy.' His Steve Jobs story (138 likes): font city names weren't bad, but 'at least call them world-class cities' — that's how Paoli and Wynwood became New York and Geneva. Nikunj's /goal one-shot (11 likes): 'may not be the MOST token efficient thing, but it's a thing of beauty to see it one-shot an extremely detailed spec (with generous CLI tools) in 14h.'"
+            ],
+            "original": [
+              "Josh Woodward: 3.7 Flash is in the @GeminiApp.",
+              "Josh Woodward: Pomelli is our Google Labs experiment popular with a growing number of small businesses. Turn those amazing photoshoots into short videos or gifs with that same ease!",
+              "Thibault Sottiaux: Looking for a quick restaurant reservation is now super easy in ChatGPT.",
+              "Thibault Sottiaux: What's a hard problem codex solved for you this week?",
+              "Guillermo Rauch: Vercel is the fastest [AI Gateway] infrastructure in the world.",
+              "Garry Tan: now for many one-way-door questions you might get back in Claude Code, you can actually just say 'Take all recommendations' and be happy.",
+              "Garry Tan: Steve Jobs walked by and said the font city names weren't bad, but 'at least call them world-class cities.' That's how Paoli and Wynwood became New York and Geneva.",
+              "Nikunj Kothari: /goal may not be the MOST token efficient thing, but it's a thing of beauty to see it one-shot an extremely detailed spec in 14h."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Josh Woodward 宣布 3.7 Flash 登陆 Gemini App（735 赞，今日最高），并升级 Pomelli（182 赞）：把照片拍成的营销图直接变成短视频或 GIF——在小商家中越来越流行。Google Labs 盘点实验全家桶（110 赞）：Pomelli 做品牌营销物料，Flow 做视觉叙事。Sottiaux 也没闲着：ChatGPT 里快速订餐厅现在超简单（583 赞），同时向社区征集「这周 Codex 帮你解决了什么难题」（666 赞）。Rauchg 宣称（305 赞）：Vercel 是全世界最快的 AI Gateway 基础设施。",
+              "Garry Tan 论 GStack（103 赞）：Fable 5 之后最惊讶的是，很多以前要在 Claude Code 里反复确认的单向门问题，现在直接说「全部采纳建议」就能开心收工。他的乔布斯故事（138 赞）：乔布斯路过说字体城市名不错，但「至少叫它们世界级城市吧」——Paoli 和 Wynwood 就这么变成了纽约和日内瓦。Nikunj 的 /goal 单发（11 赞）：可能不是最省 token 的方案，但看它 14 小时一次性生成一份极详细的 spec（还自带 CLI 工具），真是赏心悦目。"
+            ],
+            "original": [
+              "Josh Woodward：3.7 Flash 已登陆 Gemini App。Pomelli 照片直接变视频。",
+              "Sottiaux：ChatGPT 里快速订餐厅现在超简单。这周 Codex 帮你解决了什么难题？",
+              "Rauchg：Vercel 是全世界最快的 AI Gateway。",
+              "Garry Tan：很多单向门问题现在说「全部采纳」就行。乔布斯说至少叫世界级城市。",
+              "Nikunj：/goal 14 小时单发一份极详细的 spec。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "PR Videos, Sessions as URLs & the AI Workday / PR 视频、会话即 URL 与 AI 工作日",
+      "desc": "Steipete 的 AGENTS.md 视频指令（111 赞）+ 用 openclaw 构建 openclaw（160 赞）；Matt Turck 的工作日演化（166 赞）；Peter Yang 拆解 X 反 slop 模型（35 赞）；Amjad 的 TestFlight 私人应用（82 赞）；Aditya 的印度独立日与 SPC（22/78 赞）；Nan Yu 的「AI 形状论」（5 赞）。",
+      "cards": [
+        {
+          "authorKey": "steipete+mattturck+petergyang+amasad+adityaag+thenanyu",
+          "authorName": "Steipete / Turck / Yang / Amjad / Aditya / Nan Yu",
+          "authorTag": "Builder / FirstMark / Builder / Replit / SPC / Builder",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "Steipete's two workflow upgrades: (111 likes) 'Added a short instruction to our shared AGENTS MD file to upload videos to each PR that changes UI state.' And (160 likes) 'We moved the team over to build openclaw with openclaw. Being able to share agent sessions as URLs is a superpower.' Matt Turck's workday evolution (166 likes): 'Before AI: [decision][process][process]... 10pm: still going. With AI: [decision][decision][decision][decision] 3pm: [brain empty][need coffee][staring at wall].' Peter Yang digs into X's open-source anti-slop algorithm (35 likes): a behavioral model called TweetSpamBot analyzing up to 512 recent account actions — posting bursts, quote-post behavior, timing, dwell patterns.",
+              "Amjad on personal apps (82 likes): 'Even if you don't plan on publishing to the App Store, building personal apps via TestFlight is really great.' Aditya celebrates India (22 likes) and praises his SPC partner (78 likes): 'as investors we must deeply embody the traits we look for in founders.' Nan Yu's AI-shape take (5 likes): 'AI is not jagged, it is just AI-shaped. That's like saying dogs are jagged because they are similar, superior, or inferior compared to humans on specific tasks.'"
+            ],
+            "original": [
+              "Peter Steinberger: Added a short instruction to our shared AGENTS MD file to upload videos to each PR that changes UI state.",
+              "Peter Steinberger: We moved the team over to build openclaw with openclaw. Being able to share agent sessions as URLs is a superpower.",
+              "Matt Turck: Before AI: [decision] [process] [process] [decision]... 10pm: still going. With AI: [decision] [decision] [decision] [decision] 3pm: [brain empty] [need coffee] [staring at wall].",
+              "Peter Yang: It has a behavioral model called TweetSpamBot that analyzes up to 512 recent account actions, looking at signals like posting bursts, quote-post behavior, timing, and normal browsing or dwell between actions.",
+              "Amjad Masad: Even if you don't plan on publishing to the App Store, building personal apps via TestFlight is really great.",
+              "Nan Yu: AI is not 'jagged' it is just AI-shaped."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的两个工作流升级：其一（111 赞），在共享 AGENTS.md 里加了一行指令——凡是改变 UI 状态的 PR 都要附上视频。其二（160 赞），团队已经全面用 openclaw 来构建 openclaw，能把 agent 会话分享成 URL 是一种超能力。Matt Turck 的工作日演化（166 赞）：AI 之前是「决策-流程-流程-决策-流程…」到晚上十点还在跑；有 AI 之后是「决策-决策-决策-决策」下午三点就「大脑放空、需要咖啡、盯着墙发呆」。Peter Yang 拆解 X 的开源反 slop 算法（35 赞）：一个叫 TweetSpamBot 的行为模型，分析最多 512 条近期账户动作——发帖突发、引用行为、时间间隔与停留模式。",
+              "Amjad 论私人应用（82 赞）：就算不打算上架 App Store，用 TestFlight 构建个人应用也极好。Aditya 庆祝印度独立日（22 赞），并赞美 SPC 搭档（78 赞）：作为投资人必须亲身践行我们在创始人身上寻找的特质。Nan Yu 的「AI 形状论」（5 赞）：AI 不是「参差不齐」，它就是 AI 形状的。这就像说狗和人比在某些任务上时好时坏，所以狗是「参差不齐」的。"
+            ],
+            "original": [
+              "Steipete：AGENTS.md 加一行——改 UI 的 PR 附视频。用 openclaw 构建 openclaw，会话即 URL。",
+              "Matt Turck：AI 之前流程堆到深夜；AI 之后全是决策，下午三点大脑放空。",
+              "Peter Yang：TweetSpamBot 行为模型分析 512 条近期动作反 slop。",
+              "Amjad：不上架也值得用 TestFlight 构建个人应用。",
+              "Nan Yu：AI 不是参差不齐，它就是 AI 形状的。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Basis — Building Long-Horizon Autonomous Agents / 播客：Basis——构建长程自主 Agent",
+      "desc": "MAD Podcast 专访 Basis 联创 Mitch Troyanovsky：agent 端到端做税务申报、行为 spec 开源标准、本体论与公司正典、信任与授权、bitter lesson 与护城河。完整 transcript（93678 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-basis",
+          "authorName": "The MAD Podcast (Matt Turck)",
+          "authorTag": "Mitch Troyanovsky（Basis 联合创始人）",
+          "sourceUrl": "https://www.youtube.com/@DataDrivenNYC/videos",
+          "en": {
+            "rewrite": [
+              "Matt Turck interviews Mitch Troyanovsky, cofounder of Basis — the unicorn whose agents run autonomously for hours or days and complete entire tax returns end to end. A reference episode on long-horizon agent building: whispering context into microphones (speech beats writing for context transfer); accounting as 'intelligence over the economy' — a compression of real-world events into structured decisions; agents defined as a spectrum of agency, with long-horizon meaning coherence past the LLM's working memory; autonomy meaning 'I'm done' as a first-pass deliverable with decisions and assumptions for review; verification borrowed from how human firms already work (trial balances summing to zero, Excel without errors, independent review, judge-based rubrics); data scarcity and long feedback loops (a 1065 takes a human 20+ hours, thousands of inference steps, 500-1000 documents); process over outcomes — 100 passing evals don't generalize, and citing primary sources matters even when the answer is right ('if a person gets it right by going to Wikipedia, the accounting firm wouldn't hire them'); behavior specs — markdown files that are both spec and rubric, written by accountants + ML researchers, deliberately NOT shown to the agent; the magic-box mental model; LLM intuition built by automating your own work ('nothing paradigm-shifting has changed since o3'); an open-source specs standard with Braintrust; ontologies as the agent's world (coding agents don't own their runtime training data — non-coding agents do); canonical docs vs Gong history; hiring language architects and agent managers (systems thinking, law as practice); the DI (deployed intelligence) team; closing the self-improvement loop by year-end; English being more precious than code ('context affects performance, code does not'); assuming the harness gets swallowed by models in under five years; and why technical moats aren't real moats — business moats are."
+            ],
+            "original": [
+              "Mitch Troyanovsky: Humans are already used to working with non deterministic systems, it's just the systems are normally their co workers, not their computers.",
+              "Mitch: If a person is just getting it right because they're going to Wikipedia, the accounting firm wouldn't hire them, and so they shouldn't hire us either.",
+              "Mitch: LLMs have very large working memories and by default no short term or long term memory.",
+              "Mitch: The English is more precious because the English affects the performance. The code does not affect the performance.",
+              "Mitch: You don't need the Move 37s. You need that maybe at the Olympiad, but not doing work in the real economy.",
+              "Mitch: Nothing paradigm shifting has changed since o3.",
+              "Mitch: Technical moats are not real moats. Most of the moats that will exist will be business moats.",
+              "Mitch: Things are changing, but it's not like the paradigm is changing."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "MAD Podcast：Matt Turck 专访 Basis 联合创始人 Mitch Troyanovsky——那家 agent 能自主运行数小时甚至数天、端到端完成整套税务申报的独角兽。本期是长程 agent 构建的参考级教程：对着麦克风低语交代上下文（语音传递上下文远快于写作）；会计是「对经济的智能」——把现实世界事件压缩成结构化决策；agent 是能动性的光谱，长程意味着超越 LLM 工作记忆后仍保持连贯；自主意味着「我做完了」是一份附决策与假设供复核的初稿；验证借鉴人类事务所的既有做法（试算平衡表加总为零、Excel 无错误、独立复核、裁判式评分）；数据稀缺与反馈回路漫长（一份 1065 申报表要人类 20+ 小时、数千推理步、500-1000 份文档）；过程重于结果——100 个 eval 全过也不能推广，答案对还得引用一手来源（「如果一个人靠查维基百科做对，会计师事务所不会雇他，也不该雇我们」）；行为 spec——既是规格也是评分标准的 markdown 文件，由会计师与 ML 研究员共同撰写、刻意不给 agent 看；魔法盒子心智模型；靠自动化自己的工作来建立 LLM 直觉（「o3 之后没有任何范式级变化」）；与 Braintrust 合作开源 specs 标准；本体论即 agent 的世界（编码 agent 不拥有运行时训练数据——非编码 agent 拥有）；正典文档 vs Gong 历史；招聘语言架构师与 agent 管理者（系统思维，法律是很好的训练）；DI（部署智能）团队；年底前后接近闭合自我改进回路；英文比代码更珍贵（「上下文影响性能，代码不影响」）；默认 harness 会在五年内被模型吞掉；以及为什么技术护城河不是真护城河——商业护城河才是。"
+            ],
+            "original": [
+              "【开场：非确定性系统与上下文】",
+              "Turck：欢迎 Mitch。先说说那个视频——走进 Basis 办公室，看到一群人对着麦克风低声说话。",
+              "Troyanovsky：关于用 AI 最好的建议是：给它尽可能多的上下文，因为它天然总是缺上下文。说话比写下来快得多——写的时候你其实在总结脑子里那些乱七八糟的想法，所以很慢。对同事这样发 Slack 是失礼，但 agent 不在乎，它们更喜欢这样。所以才有这些麦克风：能极小声地说话还能全保真地录下来。新员工刚来觉得怪，一个月后就回不去了。",
+              "Troyanovsky：人们早已习惯与非确定性系统协作——只是那些系统通常是同事，不是电脑。公司与流程的本质，就是如何设计一个让非确定性实体协调解决问题的系统。意识到这点，它其实就很像 agent 设计了。",
+              "",
+              "【Basis 与会计这件事】",
+              "Troyanovsky：Basis 构建端到端做会计工作的 agent。会计不是纯文本进文本出，它要求 AI 能长时间执行大量动作并保持连贯。会计是全美最大的知识工作职业之一，从业者超过 300 万。",
+              "Troyanovsky：现实世界里发生着海量经济活动——签合同、发货、付钱。现代资本主义依赖所有这些参与者基于事件做决策：CEO、IRS、银行、投资人。但他们无法直接理解庞大而杂乱的现实。会计就是把这一切压缩成结构化信息的艺术——从元层面说，它是对经济的智能。",
+              "",
+              "【什么是长程 agent】",
+              "Troyanovsky：agent 是一个能动性光谱：你有权在所处环境里做决策。查天气的 agent 有权决定搜什么，但不需要长时间保持连贯。而要它实现一个功能或做一整套 Excel 工作簿，就要运行十分钟、三十分钟乃至更久——这时你会撞上 LLM 的根本限制：LLM 有很大的工作记忆，但默认没有短期和长期记忆。你得用 harness 和各种手段去弥补。当你要开始琢磨如何让它超越工作记忆保持连贯时，就进入了我所说的长程。",
+              "Troyanovsky：做端到端报税意味着：你有大量文档——K-1、W-2、999、试算平衡表——agent 要自己规划怎么干。自主不是中途反复问用户，而是从接活到做完。但「做完」不等于没人看——恰恰相反，它更像一个初级准备员的初稿：这是我做的大决策、我的假设、需要你重点看的地方，来复核吧。",
+              "",
+              "【验证、数据稀缺与反馈回路】",
+              "Troyanovsky：报税怎么「编译」？好消息是有些东西能编译。你得看人类怎么组织：人类做报税有验证步骤、独立复核、确定性检查——试算平衡表加总是不是零、Excel 有没有报错，这些要正确编码；还有些不是确定性的，但会计师一眼就能看出错——删了某个 tab、没引用来源。你可以从这些构建验证器、裁判，在 eval 和运行时都拿到信号。",
+              "Troyanovsky：数据稀缺是大问题。就算你有全国每一份真实报税表（隐私上不可能），比起合成数学题的量级也小得可怜，无法规模化。合成生成也很难——你合成的不是文本，而是必须真实且多样的工件。反馈回路也长：一份 1065 要人类净干 20 多个小时，文档 500 到 1000 份，推理步骤轻松数千步。如果展开子 agent——比如一道极难的税务问题让五个 agent 投票——步数还会更多。",
+              "",
+              "【过程重于结果与行为 spec】",
+              "Troyanovsky：只看结果的问题：几千步的轨迹，100 个 eval 全过，你敢说它推广到生产吗？我们的答案是不敢。就像工程师说所有测试都过——不代表数据库架构是对的。有一种错误是拿 bitter lesson 说事，扔掉人类几百年沉淀的正确流程，让 agent 运行时自己发明一套新做法。也许终有一天成立，但不会很快。",
+              "Troyanovsky：比如税务研究：agent 靠预训练知识或读博客也能答对，但真正的会计师不会信——他们要你引用一手来源。如果一个人靠查维基百科做对，会计师事务所不会雇他，也不该雇我们。所以我们的 agent 必须去查真正的法条原文、用一手来源验证。",
+              "Troyanovsky：这就是行为 spec 的由来——我联合创始人 Matt 两年前就叫它「元行为」。它是一个 markdown 文件，写下你希望 agent 怎么表现，粒度可粗可细：从「研究要查一手来源」到「必须去 IRS 官网」；或者「交付 PowerPoint 前必须渲染成图片检查排版」。它既是 spec 也是评分标准——因为它不只用来打分，还用来让人类对齐：agent 该怎么表现本质是主观问题，既是产品问题也是智能问题。裁判可以看轨迹问：触发条件出现了吗？行为表现了吗？然后打分。",
+              "Troyanovsky：谁写？会计师和 ML 研究员共同写。我们有专门的「会计产品运营」团队。关键细节：行为 spec 并不给 agent 看。它说该去 IRS 网站，不代表 agent 被告知去 IRS 网站。好的 agent 工程师知道，边际上更好的做法是给原则、给理由、给上下文，而不是生硬规则。",
+              "",
+              "【魔法盒子与 LLM 直觉】",
+              "Troyanovsky：别对模型内部一惊一乍。你应该有一个世界模型，变化来了就更新——但你不能只靠更新，你总得对一些。把它当成一个魔法盒子或外星人：你能往里灌海量数据，它能在推理时学习思考，再把结果还给你，还能接上工具调用。想透了这一点，很多推论自然涌出：它能决定调用另一个盒子吗？能串起一排盒子吗？它的激活状态天然偏向当前轨迹——所以复核时也许要一个不相关的新轨迹？把这些 LLM 直觉和组织设计的基本原则结合，大概就是 agent 构建的前沿。",
+              "Troyanovsky：直觉怎么练？不是刷 Twitter。很多人没有对底层原理的把握，就容易觉得一切都在剧变，其实没有——o3 之后没有任何范式级的变化，一切都在同一范式内。最好的办法是大量在自己的工作里用，尤其是写代码：agent 没做好我要的功能，为什么？真正的限制因素是什么？大概率不是不够聪明——它们早就很聪明了。我面试见过直觉最好的人，很多并非 ML 背景，而是特别擅长自动化自己工作的人。",
+              "",
+              "【开源 specs 标准与本体论】",
+              "Troyanovsky：我和 Braintrust 的 CEO 喝咖啡讲这个概念，他很兴奋，于是有了开源项目：里面有示例、一个可用的裁判、可直接借用或改写的行为范例。我们刻意让标准像 skills 一样灵活——就是 markdown，没有必须写死的字眼，只要自洽到裁判能判断「条件是否出现、行为是否发生」。更重要的其实是心态：别把一个运行十小时的 agent 当黑盒。它不是黑盒，它有海量数据，你不去理解它是怎么干活的，是对客户不负责。",
+              "Troyanovsky：本体论超级重要。编码 agent 有 harness、有工具、有行为，但不拥有自己的运行时训练数据——它的上下文就是它所在的代码库。同一个 Codex 在一个库表现平平、在另一个库大放异彩，因为后者是更好的运行时训练数据。非编码 agent 不一样：agent 看到的数据归 Basis 所有，我们得保证它好用。agent 每次从零开始，把本体设计得对 agent 符合人体工学是长程运行的关键。运行几小时的 agent 给自己留几张便条就行；跑几个月的 agent 需要文件夹——大量描述其「经历」的知识与上下文，新的紧凑上下文得能把 agent 拉回它全部经历的心态。",
+              "Troyanovsky：本体论不只是文件夹结构，还包括语言——有哪些对象与概念。因为你在运行时被「训练」，必须保证不混淆概念。随着推理越来越便宜，越来越多的事可以直接用推理而非图数据库或嵌入来完成。",
+              "",
+              "【正典、新角色与部署智能】",
+              "Troyanovsky：内部使用 agent 的关键是分清什么 是正典、什么不是。就像新入职的人可以翻遍两年前的 Gong 录音，但今天的销售策略是什么，必须有唯一一份正典文档。你不会想要 agent 从 A 那里听一套、从 B 那里听一套。对真正的 agent 原生公司来说，明确公司的正典、用合理的本体组织它、像维护代码一样保持它最新，会成为公司里人类最重要的工作之一。删掉关键的一段话就会弄坏 agent，就像删一行代码。",
+              "Troyanovsky：我们在招两年前根本不存在的职位：语言架构师、agent 管理者。最核心的技能是系统思维——设计一个能在无数情境下表现的抽象。最难的工程是这样，法律其实也是：建国先贤大概会是很好的上下文工程师，因为他们写的英文要在运行时被律师和法官解读上百万次。就像机场安检可以列 30 条「不许带枪、不许带刀」，也可以写出恰到好处的一条抽象。管理过世界上最复杂 Excel 模型的人也差不多。",
+              "Troyanovsky：我们的 DI（部署智能）团队不是 FDE，也不是拿 agent builder 搭东西的「agent PM」。他们深度理解会计这个职业：当你突然能把一部分工作交给 agent，好流程长什么样、事务所怎么变。我们交付的是魔法，但不教怎么用魔法对他们不公平。",
+              "",
+              "【自我改进、RL 与护城河】",
+              "Troyanovsky：自我改进就是「闭合回路」：从 agent 犯错到系统被改进。我认为这个回路今年年底会相当接近闭合。当 agent 对自己和其他 agent 有了更好的心智理论，它们运行时更会编排子 agent、为自己调节环境，也意味着它们成为更好的上下文工程师、harness 工程师——现在它们做 agent 系统工程远差于做普通软件，因为这类新工作在训练数据里很少。很多人犯的错是觉得上下文里的 slop 比代码里的 slop 更可容忍——太可笑了，上下文影响运行时性能，代码组织不影响。英文比代码更珍贵。",
+              "Troyanovsky：RL 的难点是奖励函数以及如何分配奖励。行为 spec 正是信号的来源。今天我们不直接进权重——因为模型自我编排的进步带来的收益，远大于微调权重；但要在经济里做真正的工作，最终可能绕不开。我不相信光靠堆预训练算力加完美可验证的奖励，就能产出可靠做报税的模型——做得好不等于做到被委托时应有的质量、可靠性与可扩展性。",
+              "Troyanovsky：bitter lesson 会吞掉 harness 吗？会，我毫不担心，这就是未来。行为 spec 现在不给 agent 看，正因为真正 bitter-lesson 化的未来里，你只需要说「我要这些行为」，它就能做到。时间上我猜不到五年、但不止两年。我们也等不了——现在是超规模扩张期。护城河呢？技术护城河不是真护城河。Basis 的长期终值没有任何一部分来自某个别人不知道的秘密 RL 技巧。Salesforce 写的 SQL 不见得比我好——它的护城河在业务位置、工作流、嵌入深度。技术只是像我们这样三年半前还不存在的公司得以入场的暂时性错位。大多数护城河是商业护城河，AGI 时代如此，前 AGI 时代也如此。",
+              "Troyanovsky：给 AI 构建者的建议：别被 Twitter 上的 ADHD 式剧变吓住。把它当成像云计算那样的底层范式转移，去做推演——如果智能变好 X 倍会怎样、不变又会怎样——你会构建出连贯得多的系统，在技术和业务层面都下更好的注。事情在变，但范式没有变。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
