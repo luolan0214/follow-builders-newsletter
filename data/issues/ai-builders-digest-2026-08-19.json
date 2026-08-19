@@ -1,0 +1,162 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-19",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Nikunj 的「无人有护城河」清单横扫全场（**1483 赞，今日最高**）——模型、IDE、harness、应用、推理层全数无护城河；他的热辣推论：品牌营销将成为公司最珍贵的资产（789 赞）。Rauchg 宣布 Cursor Origin 托管仓库可直接部署 Vercel，还不忘补刀 GitHub「起码我们在线」（**3600 赞**）。Sottiaux 的午夜 Codex 之歌（971 赞）+ 向社区征集「显而易见却还没做的事」（**3726 赞**）。Thariq 的 CC /design 命令（880 赞）+ LLM 编码模型比扩散模型更擅长创意工作的新判断（470 赞）。Levie 论数据即新石油时代的资产负债表（304 赞）。Garry Tan 开源 Personal AGI 技能包（11-20 赞）。Madhu Guru 的 evals 实战方法论（198 赞）。播客：No Priors 双人对话——万亿公司、token 预算与监管捕获（46256 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "无人护城河与 Cursor Origin 日报",
+    "desc": "Nikunj 列出全行业无护城河清单（1483 赞），Rauchg 宣布 Cursor Origin 部署 Vercel 并调侃 GitHub（3600 赞），Sottiaux 午夜 Codex 之歌。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-19 source feeds.",
+  "sections": [
+    {
+      "title": "No Moats, Cursor Origin Deploy & Midnight Codex / 无人护城河、Cursor Origin 部署与午夜 Codex",
+      "desc": "Nikunj 的全行业无护城河清单（**1483 赞，今日最高**）+ 品牌营销推论（789 赞）；Rauchg 的 Cursor Origin × Vercel（**3600 赞**）；Sottiaux 的午夜 Codex 之歌（971 赞）+ 社区征集（**3726 赞**）+ Cherny 的 QoL 改进（678/739 赞）。",
+      "cards": [
+        {
+          "authorKey": "nikunj+rauchg+thsottiaux+bcherny",
+          "authorName": "Nikunj / Rauchg / Sottiaux / Cherny",
+          "authorTag": "FPV / Vercel CEO / OpenAI / Claude Code",
+          "sourceUrl": "https://x.com/nikunj",
+          "en": {
+            "rewrite": [
+              "Nikunj's no-moat manifesto (1483 likes, top of the day): 'The models have no moat (OpenAI, Anthropic, XAI). The IDEs have no moat (Cursor, Windsurf). The harnesses have no moat (Cognition, Factory, LangChain). The app builders have no moat (Replit, Lovable, Bolt). The wrappers have no moat (Harvey, Abridge, OpenEvidence). The inference providers have no moat (Together, Fireworks, Groq). The voice layer ha[s no moat]...' Plus his hot take (789 likes): 'Brand marketing is going to be THE major differentiator and one of the most prized assets for a company going forward. You still need retention before attention.'",
+              "Rauchg ships Cursor Origin × Vercel deployment (3600 likes): 'You can now host your repos in Cursor Origin and deploy to Vercel via Cursor Origin which is itself hosted on Vercel. And unlike GitHub, it's online 😁' Sottiaux's midnight Codex song (971 likes): 'Gimme, gimme, gimme Codex after midnight / Won't somebody make these failing tests all go away? / Gimme, gimme, gimme Codex after midnight / Ship it through the darkness by the start of the day' And his community ask (3726 likes): 'What is an obvious thing that we should do with Codex, API or our models that we should just do but haven't yet? What is 100% within reach, but we just seem to be missing?' Boris Cherny's quality-of-life improvements (678/739 likes)."
+            ],
+            "original": [
+              "Nikunj Kothari: the models have no moat (OpenAI, Anthropic, XAI). the IDEs have no moat (Cursor, Windsurf). the harnesses have no moat (Cognition, Factory, LangChain). the app builders have no moat (Replit, Lovable, Bolt). the wrappers have no moat (Harvey, Abridge, OpenEvidence). the inference providers have no moat (Together, Fireworks, Groq). the voice layer ha...",
+              "Nikunj Kothari: My hottest take is that brand marketing is going to be THE major differentiator and one of the most prized assets for a company going forward.",
+              "Guillermo Rauch: You can now host your repos in Cursor Origin and deploy to Vercel via Cursor Origin which is itself hosted on Vercel. And unlike GitHub, it's online 😁",
+              "Thibault Sottiaux: Gimme, gimme, gimme Codex after midnight / Won't somebody make these failing tests all go away? / Ship it through the darkness by the start of the day",
+              "Thibault Sottiaux: What is an obvious thing that we should do with Codex, API or our models that we should just do but haven't yet?",
+              "Boris Cherny: Small quality of life improvements like this add up. More on the way."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 的「无人有护城河」清单（**1483 赞，今日最高**）：模型层没有护城河（OpenAI、Anthropic、xAI）；IDE 没有（Cursor、Windsurf）；harness 没有（Cognition、Factory、LangChain）；应用构建器没有（Replit、Lovable、Bolt）；wrapper 没有（Harvey、Abridge、OpenEvidence）；推理提供商没有（Together、Fireworks、Groq）；语音层也没有……他的热辣推论（789 赞）：品牌营销将成为公司最重要差异化和最珍贵资产——不是烧钱做发布视频，而是先有留存再有注意力，想清楚公司意味着什么。",
+              "Rauchg 宣布 Cursor Origin × Vercel 部署（3600 赞）：现在可以在 Cursor Origin 里托管仓库，再通过 Cursor Origin 部署到 Vercel——而 Cursor Origin 本身就跑在 Vercel 上。顺带一刀：「而且跟 GitHub 不一样，我们是在线的 😁」Sottiaux 的午夜 Codex 之歌（971 赞）：Gimme gimme gimme Codex after midnight / 谁能让这些失败的测试都消失 / 在天亮之前把它穿过黑暗发出去。还有社区征集（3726 赞）：有什么显而易见、完全够得着、但我们就是还没做的事？Boris Cherny 的生活质量小改进（678/739 赞）。"
+            ],
+            "original": [
+              "Nikunj：模型、IDE、harness、应用、wrapper、推理、语音层——全都没有护城河。品牌营销将成为最大差异化。",
+              "Rauchg：Cursor Origin 托管仓库可部署 Vercel，Cursor Origin 本身跑在 Vercel 上。跟 GitHub 不一样，我们在线。",
+              "Sottiaux：午夜 Codex 之歌。有什么显而易见却还没做的事？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "CC /design, Creative Coding & Personal AGI / CC 设计命令、创意编码与个人 AGI",
+      "desc": "Thariq 的 /design 命令（880 赞）+ LLM 编码 > 扩散模型的创意判断（470 赞）；Garry Tan 开源 Personal AGI 技能包（11-20 赞）；Madhu Guru 的 evals 方法论（198 赞）；Levie 论数据入表（304 赞）；Amjad 的无 AI 之名有 AI 之实（156 赞）+ 渗透测试（267 赞）；Steipete 未上榜但 Josh Woodward 的 Gemini 路线图在（467 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+garrytan+realmadhuguru+levie+amasad+joshwoodward",
+          "authorName": "Thariq / Tan / Madhu Guru / Levie / Amjad / Woodward",
+          "authorTag": "Anthropic / YC / Product / Box CEO / Replit CEO / Gemini",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's double: the CC /design command (880 likes): 'Go into CC and type /design <something you want to design>. Do it rn.' And his update on creative coding (470 likes): 'All of the recent proc gen art, video editing and 3d game demos recently have made me update towards LLM coding models being better at a lot of creative work than diffusion models.' Garry Tan open-sources his Personal AGI kit (11-20 likes): 'A private github repo with 70 of my proven skills and the beginnings of your Karpathy-style knowledge wiki. All MIT-licensed and free. Works with your existing Claude Code or Codex subscription right now.'",
+              "Madhu Guru's evals playbook (198 likes): 'The best way to get good at evals is to take a workflow you know really well and figure out how to make its quality measurable. Study the actual traces — the sequence of prompts typical users have, what good responses would look like at each step and for the end to end outcome.' Levie on data as the new oil (304 likes): 'AI has such a thirst for data that we're entering an era where it's valuable almost in any form. In a world of AI, information actually belongs as an asset on the balance sheet.' Amjad's stealth AI company observation (156 likes): 'This team doesn't have AI anywhere in their pitch but has AI growth rates and would have 10x the headcount if they weren't so AI-pilled.' Plus pen-testing over scanning (267 likes). Josh Woodward's Gemini roadmap update (467 likes): revamped Workspace tools, 3.7 Flash tool calling, new Projects design, 49 connectors and counting."
+            ],
+            "original": [
+              "Thariq: go into CC and type /design <something you want to design>. do it rn",
+              "Thariq: all of the recent proc gen art, video editing and 3d game demos recently have made me update towards LLM coding models being better at a lot of creative work than diffusion models",
+              "Garry Tan: What do you get? A private github repo with 70 of my proven skills and the beginnings of your Karpathy-style knowledge wiki. All of this is MIT-licensed open source and free.",
+              "Garry Tan: It's free to try and works with your existing Claude Code or Codex subscription right now.",
+              "Madhu Guru: The best way to get good at evals is to take a workflow you know really well and figure out how to make its quality measurable.",
+              "Aaron Levie: AI has such a thirst for data that we're entering an era where it's valuable almost in any form. In a world of AI, information actually belongs as an asset on the balance sheet.",
+              "Amjad Masad: This team doesn't have 'AI' anywhere in their pitch but has AI growth rates and would have 10x the headcount if they weren't so AI-pilled.",
+              "Josh Woodward: Circling back with updates. #1 Testing revamped Workspace tools in 1-2 weeks. #2 3.7 Flash showed improvements in tool calling. #3 New Projects design done. #4 49 connectors supported now."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 双发：CC 的 /design 命令（880 赞）——进 Claude Code 输入 /design 加上你想设计的东西，现在就试。以及创意编码新判断（470 赞）：最近的程序生成艺术、视频剪辑、3D 游戏demo让我更新了认知——LLM 编码模型在很多创意工作上比扩散模型更强。Garry Tan 开源 Personal AGI 技能包（11-20 赞）：一个私有 GitHub 仓库，70 个经过验证的技能 + Karpathy 式知识 wiki 的起点，全部 MIT 协议免费，现有 Claude Code 或 Codex 订阅即可使用。",
+              "Madhu Guru 的 evals 实战方法论（198 赞）：练 evals 最好的办法是拿一个你极熟悉的流程，把它的质量变成可度量的。研究真实 trace——典型用户的提示序列、每一步好回复长什么样、端到端结果如何；研究产品在哪里失败，再造出能捕捉失败的 trace。Levie 论数据入表（304 赞）：AI 对数据的渴求让我们进入一个几乎任何形式的数据都有价值的时代——AI 时代，信息应作为资产记入资产负债表。Amjad 的观察（156 赞）：有的团队 pitch 里一个 AI 都不提，却有 AI 级增速，要不是这么 AI pilled 得用十倍人力。加一条：光扫描漏洞不够，得用渗透测试去真砸（267 赞）。Josh Woodward 的 Gemini 路线图（467 赞）：Workspace 工具翻新 1-2 周内测试、3.7 Flash 工具调用改进、新 Projects 设计完成、49 个连接器还在增加。"
+            ],
+            "original": [
+              "Thariq：CC 里输 /design 加你想设计的。LLM 编码模型比扩散更擅长创意工作。",
+              "Garry Tan：70 个验证过的技能 + Karpathy 式 wiki，MIT 开源免费。",
+              "Madhu Guru：练 evals 就拿熟悉的流程做可度量。研究 trace 与失败点。",
+              "Levie：信息应作为资产记入资产负债表。",
+              "Amjad：无 AI 之名有 AI 之实。渗透测试胜过只扫描。",
+              "Woodward：Workspace 翻新、3.7 Flash 工具调用、49 个连接器。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: No Priors — Trillion-Dollar Companies & Token Budgets / 播客：No Priors——万亿公司与 token 预算",
+      "desc": "No Priors 双主持对谈：未来五年还能有几家万亿公司、算力约束下的强制寡头、研究者的幂律与 token 预算分配、加州亿万富翁税与人才迁移、监管捕获与风险收益谱。完整 transcript（46256 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:np-trillion",
+          "authorName": "No Priors (Sarah Guo & Elad Gil)",
+          "authorTag": "双主持对谈（无嘉宾）",
+          "sourceUrl": "https://www.youtube.com/watch?v=6l8oAO_LBx4",
+          "en": {
+            "rewrite": [
+              "No Priors hosts Sarah Guo and Elad Gil talk risk management, RSI, trillion-dollar companies, token budgets, and regulatory capture. Key threads: three companies went from ~zero to a trillion in five years (Anthropic, OpenAI, SpaceX) — an unprecedented inflection, since these arcs usually take 15-20 years; people now assume a bunch more trillion-dollar companies will form in 3-5 years, but punctuated equilibrium says waves consolidate — 'there's still a lot of $100B companies to be built, but multi-trillion is hard'; trillion requires $50-100B revenue with good margin — very few markets support that; coding was a much bigger market than anyone thought, and the evidence is now public; Sarah's pushback: investors still under-imagine market size, evaluating Harvey on per-lawyer TAM instead of pricing outcomes; compute constraints enforce an oligopoly by capping any single lab's rate of progress; the '18 months to RSI' belief has weird second-order effects — researchers asking whether to get married, burnout risk, 'psychologically similar to thinking you're going to die'; the power law of researchers — a few dozen drive 80% of results at any lab, and compute is now differentially allocated to them, making hiring slower; return on invested tokens — who gets the token budget and why; why the death of SaaS is overstated (tokens are better spent on core product than on SaaS subscriptions); Minecraft as the original multi-billion one-person company; displaced engineers permeating to GE/P&G/Hershey's; the California billionaire tax and possible exit tax — 'the fastest way to chase the entire ecosystem out'; Texas energy and hardware corridors rising purely from regulatory arbitrage; transformer alternatives getting copied or lapsing to the labs with compute; and the closing call to arms against regulatory capture — France at 70% nuclear with nothing happening, the US at 18% having built no reactor in 40 years, 'a safety lobby in the seventies basically killed abundant clean energy'; risk-only regulation ignores benefit, and tech succeeded because it was lightly regulated."
+            ],
+            "original": [
+              "Elad Gil: Over the last five years, we had three companies roughly go from close to zero to a trillion dollars in market cap. And that's unprecedented in human history. Usually it takes twenty years.",
+              "Elad: There's still a lot of $100,000,000,000 companies to be built, but multi trillion dollar companies are kind of hard to get to.",
+              "Sarah Guo: I run more into a failure of imagination of how much bigger or better something can be than the closest proxy market from a previous era.",
+              "Elad: The physical compute basically reinforces an oligopoly market because it creates a ceiling on the rate of progress any single lab can get.",
+              "Elad: There's say a few dozen researchers that drive 80% of the results at any given place, which is a really interesting human power law.",
+              "Elad: There's this broader concept of return on invested tokens. If you have a certain token budget, who do you give it to and why?",
+              "Sarah: This is the fastest way I can think of to chase the entire ecosystem out [of California].",
+              "Elad: 70% of France is still nuclear. Where are all the accidents? Nothing's happened. US is 18%, and we haven't built a reactor in forty years. We had a safety lobby in the seventies basically kill abundant clean energy for us.",
+              "Elad: The reason tech has been so successful so quickly is because it's been lightly regulated. And I think it's better to keep it that way."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors：Sarah Guo 与 Elad Gil 双人对谈——万亿公司、token 预算与监管捕获。五年里三家公司从近零冲到万亿市值，人类史上未有；但断点均衡意味着浪潮会整固，未来三五年难再批量出现万亿公司；万亿需要 500-1000 亿美元收入；算力约束反而强制了寡头格局；「18 个月到 RSI」的信念让研究员开始问要不要结婚；几十个人贡献 80% 成果的幂律与 token 预算分配；加州亿万税是「赶走整个生态最快的方式」；以及反监管捕获的号召——法国 70% 核电啥事没有，美国 18% 四十年没建过反应堆。"
+            ],
+            "original": [
+              "【万亿公司与断点均衡】",
+              "Elad：过去五年大概有三家公司从接近零涨到万亿美元市值——Anthropic 五年前基本不存在，OpenAI 还很早期，SpaceX 当时估值 800-1000 亿。人类历史上前所未有，通常要 15-20 年：SpaceX 从 2000 年代初算起，Google 从九十年代。很多人现在假设未来 3-5 年还会冒出一批万亿公司——我觉得只有一个我想得到也许能到，不会有多个。",
+              "Elad：这更像断点均衡：寒武纪大爆发之后是整固与稳态。社交浪潮之后并没有一打新社交公司；SaaS 浪潮之后也沉淀了。AI 无疑还会有大突破、还会有下一波，但此刻我们已看到整固者出现。未来两三年仍会有很多千亿美元公司，但万亿很难。",
+              "Sarah：我遇到更多的问题是想象力不足——投资人还是拿上一个时代的最近似市场去线性外推。给 Harvey 或 Bridge 估值还按每律师、每医生席位算 TAM，而不问如果按成果收费公司会变成什么样。编码领域消费量和价值 100 倍增长的证据已经公开了，把这一点推广到其他领域不需要天才。",
+              "Elad：万亿公司需要 500-1000 亿美元的收入和不错的利润率——世界上这种市场屈指可数。TAM 大不等于能出万亿公司，这是两个量级的问题。",
+              "",
+              "【算力寡头与 RSI 心理】",
+              "Elad：物理算力实际上强化了寡头市场——它给任何单一实验室的进步速度设了上限，等于强制各玩家贴身竞争。这会持续到算力约束解除。",
+              "Elad：「RSI 还有 18 个月」这个信念有奇怪的二阶效应。我认识某大实验室的人一度认真问我：该不该结婚？18 个月后世界会怎样谁也不知道。我说：结吧，会没事的。我们正活在一个非常躁狂、非常密集的工作周期里。",
+              "Sarah：我觉得这有点悲哀。一些非常杰出的研究朋友的反应，心理上很像以为自己要死了——如果只剩两年，你会像今天这样过吗？有人觉得「RSSI 在即，我的贡献无关紧要」，于是纠结要不要结婚、要不要工作、要不要只去旅行。我认为把自己当作会继续活下去来行动，是更稳定也更满足的状态。",
+              "",
+              "【研究者幂律与 token 预算】",
+              "Elad：我注意到一些实验室里，算力成了真正稀缺资源后，几十个研究员贡献了任何地方 80% 的成果——这在任何领域都成立：乳腺癌研究、数学子领域、物理子领域、创始人生态。AI 研究也一样，而算力现在差异化地分给这些人。有些实验室放慢了研究员招聘，除非超过极高的门槛——因为成本不在人，在人附带的算力。",
+              "Elad：这是个「投入 token 的回报率」概念：给定 token 预算，分给谁、为什么？这也是为什么 SaaS 之死被夸大了——为什么要把 token 花在一堆年费不高的 SaaS 上，而不是投给核心产品或巨大利润提升？下一波浪潮是：哪些项目和哪些人该拿走超额的 token 预算，回报率是多少。",
+              "Elad：别忘了 Minecraft——十个人以内做的，被微软几十亿收购。人们总说未来会有单人十亿美元公司，那基本上就是 15 年前的 Minecraft。总有人能对技术取超额优势，AI 把这激进了。为什么要把 token 给做不到的人？工程师不会被很快裁掉，但即使在大厂平庸的工程师，在 GE、PG&E、好巧这样的老牌企业里可能是尖子——工程人才会以意想不到的方式渗透整个企业版图。",
+              "",
+              "【加州亿万税与监管捕获】",
+              "Elad：加州通过了亿万富翁税，民主党也表态支持。你投的公司现在估值 100 亿+，创始人明年要被迫卖股吗？几十个创始人都要大甩卖吗？",
+              "Sarah：监管者显然没想清楚执行与合规。但立竿见影的效果是：大量想在加州创造价值的人选择离开。搬走整个生态很慢，但这是我能想到的赶走整个生态最快的方式。而且法案写得很宽，未来几年可以再降门槛；2028 年还越来越多人谈 exit tax——你走还要再罚一大笔。",
+              "Elad：写法案的人就是想让这些人走。得州围绕能源的技术迁移与创新非常 exciting——那是纯粹由监管环境驱动的：不是得州更适合住，是监管把人赶出去。现在那还有一条增长的硬件走廊。",
+              "",
+              "【架构替代与风险收益谱】",
+              "Sarah：我们会在行业层面吃掉所有可用的算力和电力，无论底层架构是什么。赶上 transformer 的规模与硬件匹配仍然很难，但随着人们越来越 desperation 会有更多实验。我不认为它改变行业方向。",
+              "Elad：任何新东西都会被复制然后 lapse 回有算力的一方——这是高概率结局。低概率场景是某个新实验室搞出秘密武器独占放大……但那团队一个人跳去 Anthropic 或 OpenAI，知识就扩散了——迄今一直是这么演的。",
+              "Elad：Janssen 制药那位公认的史上最佳药物研发者，三四十年前的访谈讲制药业的监管捕获：事情又贵又慢，一是监管捕获，二是 FDA 只看风险不看收益——没有风险收益权衡，只有风险。可以想象实验室版也会如此：安全负担极高、哪怕正收益远大于风险——而你内部以指数推进、一年顶外面三四年，领先一年就是巨大优势。我的邮箱被黑，比起 AI 更早带来更好的医疗，哪个更要紧？",
+              "Elad：法国 70% 的电力至今来自核电——70%！事故呢？乱子呢？什么都没有。美国 18%，四十年没建过一座反应堆；日本 25%。七十年代的安全游说基本上杀死了充沛清洁能源。安全确实伤害过我们：在能源、在医药、在很多地方。社会要选的是：AI 的指针在安全-风险-收益的转盘上放在哪。",
+              "Elad：科技之所以又快又成功，是因为它被轻监管。最好保持这样，否则我们会失去乐观、失去势能、失去进步——生物科技就是这样，能源长期也是。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
