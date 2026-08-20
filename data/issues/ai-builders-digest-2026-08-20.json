@@ -1,0 +1,213 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-20",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "历史性一天：Altman 宣布 OpenAI 已暂停部分前沿 RL 训练（**8100 赞，今日最高**）——「模型进步极快，我们说过如果能力跑赢安全就会行动」；补充说近期新模型照发（2571 赞），并预告与 Jensen 的合作（3899 赞）。Sottiaux 收到「很 fancy 的新重置按钮」（6843 赞）+ 复盘 Codex 破坏性动作风控升级（4731 赞）。Claude 上线 Gmail 发邮件与 Drive 文件管理（**7255 赞**）+ Cowork 登陆移动端与网页（5554 赞）。Thariq 的「赚钱按钮」：把 SaaS 做成 headless 给 agent 用、按交互计费（**4002 赞**）。Rauchg 的 monorepo 软件工厂（2289 赞）+ 100 万美元 Vercel Sandbox 逃逸悬赏（1386 赞）+ 10-20 倍小的日常 CLI（884 赞）。Steipete 的 512GB RAM Studios（3294 赞）。播客：Rich Sutton 与 Khurram Javed——为什么 AI 模型会停止学习（56411 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "OpenAI 暂停 RL 与赚钱按钮日报",
+    "desc": "Altman 宣布暂停部分前沿 RL 训练确保对齐（8100 赞），Thariq 提出 headless SaaS 赚钱按钮（4002 赞），Sutton 论持续学习。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-20 source feeds.",
+  "sections": [
+    {
+      "title": "OpenAI Pauses RL, Claude in Gmail & Codex Guardrails / OpenAI 暂停 RL、Claude 进 Gmail 与 Codex 护栏",
+      "desc": "Altman 宣布暂停部分前沿 RL 训练（**8100 赞，今日最高**）+ 近期新模型照发（2571 赞）+ Jensen 合作预告（3899 赞）；Claude 的 Gmail/Drive 集成（**7255 赞**）+ Cowork 全端（5554 赞）；Sottiaux 的新重置按钮（6843 赞）+ Codex 破坏性动作风控复盘（4731 赞）；Cherny 的桌面启动提速（486 赞）。",
+      "cards": [
+        {
+          "authorKey": "sama+claudeai+thsottiaux+bcherny",
+          "authorName": "Altman / Claude / Sottiaux / Cherny",
+          "authorTag": "OpenAI CEO / Anthropic / OpenAI / Claude Code",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "Sam Altman announces a frontier pause (8100 likes, top of the day): 'We have paused some frontier RL training to ensure that we can meet the appropriate alignment, security and monitoring standards for the new level of capabilities in front of us. Model progress is now extremely rapid, and we always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment.' Follow-ups: '(We still expect to ship great new models soon; this impacts further-out releases.)' (2571 likes) and 'excited to work together on this. thank you jensen!' (3899 likes).",
+              "Claude ships Gmail and Google Drive integration (7255 likes): 'Claude can now send emails in Gmail and manage files in Google Drive. Ask Claude to reply to a thread, and it drafts and sends the response. You control when it needs your approval.' Plus Claude Cowork on mobile and web for all paid plans (5554 likes). Sottiaux's reset button (6843 likes): 'I was gifted a very fancy new reset button today' — and his Codex guardrails recap (4731 likes): 'A few weeks ago, we started investigating a small number of reports where GPT-5.6 in Codex took destructive actions outside what the user asked for' — changes rolled out to further reduce that risk. Boris Cherny on Desktop startup speed (486 likes): 'When you're using Desktop every day, slow startup makes the app feel sluggish. Working on improving this even more!'"
+            ],
+            "original": [
+              "Sam Altman: We have paused some frontier RL training to ensure that we can meet the appropriate alignment, security and monitoring standards for the new level of capabilities in front of us. Model progress is now extremely rapid, and we always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment.",
+              "Sam Altman: (We still expect to ship great new models soon; this impacts further-out releases.)",
+              "Sam Altman: excited to work together on this. thank you jensen!",
+              "Claude: Claude can now send emails in Gmail and manage files in Google Drive. Ask Claude to reply to a thread, and it drafts and sends the response. You control when it needs your approval.",
+              "Claude: Claude Cowork is now available on mobile and web for all paid plans.",
+              "Thibault Sottiaux: I was gifted a very fancy new reset button today.",
+              "Thibault Sottiaux: Recapping some changes we have rolled out over the last couple of weeks that have further reduced the risk associated to potentially destructive actions being performed by Codex during its work.",
+              "Boris Cherny: When you're using Desktop every day, slow startup makes the app feel sluggish. Working on improving this even more!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 宣布历史性暂停（8100 赞，今日最高）：我们已暂停部分前沿 RL 训练，以确保能为面前这级新能力达到适当的对齐、安全与监控标准。模型进步现在极快，我们一直说过——如果感到模型能力跑赢安全与对齐的节奏，我们就会行动。两条后续：近期仍会发布优秀新模型，暂停只影响更远的发布（2571 赞）；以及「很高兴一起做这件事，谢谢 Jensen！」（3899 赞）。",
+              "Claude 上线 Gmail 与 Google Drive 集成（7255 赞）：Claude 现在能在 Gmail 里发邮件、在 Google Drive 里管理文件。让 Claude 回复邮件线程，它会起草并发送——何时需要你批准由你控制。所有付费计划可用。加上 Claude Cowork 登陆移动端与网页全端（5554 赞）。Sottiaux 这边：收到一个「很 fancy 的新重置按钮」（6843 赞）；并复盘 Codex 护栏升级（4731 赞）——几周前开始调查 GPT-5.6 在 Codex 中做出用户要求之外破坏性动作的少量报告，过去两周陆续上线了进一步降低风险的改动。Boris Cherny 继续生活质量改进（486 赞）：桌面端启动提速，让 app 不再显得迟滞。"
+            ],
+            "original": [
+              "Altman：已暂停部分前沿 RL 训练，确保对齐、安全与监控标准。能力跑赢安全就会行动。近期新模型照发。谢谢 Jensen。",
+              "Claude：Gmail 发邮件、Drive 管文件，批准权在你。Cowork 全付费计划上线移动端与网页。",
+              "Sottiaux：收到很 fancy 的重置按钮。复盘 Codex 破坏性动作风控升级。",
+              "Cherny：桌面启动继续提速。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Headless SaaS Money Button, Monorepo Factory & $1M Bounty / Headless SaaS 赚钱按钮、Monorepo 工厂与百万悬赏",
+      "desc": "Thariq 的赚钱按钮（**4002 赞**）；Rauchg 的 monorepo 软件工厂（2289 赞）+ Vercel Sandbox 百万美元安全悬赏（1386 赞）+ 日常小 CLI（884 赞）；Levie 论模型与工作流之间的价值（182 赞）；Google Labs 的 CC 扩展澳新（244 赞）；Madhu Guru 的 evals 成本法（39 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+rauchg+levie+GoogleLabs+realmadhuguru",
+          "authorName": "Thariq / Rauchg / Levie / Labs / Madhu",
+          "authorTag": "Anthropic / Vercel CEO / Box CEO / Google / Product",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's money button (4002 likes): 'weird that there's a \"make a lot of money\" button and nobody's pressing it (take your SaaS, make it headless, let agents use it, charge per interaction esp for enterprises).' Rauchg's triple: the monorepo software factory (2289 likes) — 'Your software factory should be a monorepo. All your company context (design, marketing, sales, engineering, support…) in one place for agents to build upon'; the $1M Vercel Sandbox security verification (1386 likes) — 'We are putting $1M towards verifying the security of Vercel Sandbox, in the open. You're free to test any model in the world to try and find an escape'; and a tiny daily-driver CLI (884 likes) — '10-20x smaller than the major coding CLIs. It starts up instantaneously. It feels more like using zsh than an IDE in your terminal.'",
+              "Levie on the value between model and workflow (182 likes): 'The amount of value that can be created between the AI model and the ultimate end-user workflow is far larger than many people assumed.' Google Labs expands CC (244 likes): waitlist now open in Australia and New Zealand, US/Canada availability expanding, upgraded calendar management. Madhu Guru on eval costs (39 likes): 'Treat evals like frontier models — establish the quality frontier first, then work your way down the cost curve.'"
+            ],
+            "original": [
+              "Thariq: weird that there's a 'make a lot of money' button and nobody's pressing it (take your SaaS, make it headless, let agents use it, charge per interaction esp for enterprises)",
+              "Guillermo Rauch: Your software factory should be a monorepo. All your company context (design, marketing, sales, engineering, support…) in one place for agents to build upon.",
+              "Guillermo Rauch: We are putting $1M towards verifying the security of Vercel Sandbox, in the open. You're free to test any model in the world to try and find an escape.",
+              "Guillermo Rauch: It's 10-20x smaller than the major coding CLIs. It starts up instantaneously. It feels more like using zsh than an IDE in your terminal.",
+              "Aaron Levie: The amount of value that can be created between the AI model and the ultimate end-user workflow is far larger than many people assumed or realized.",
+              "Google Labs: CC, our experimental AI productivity agent in Gmail, has now opened up a waitlist in Australia and New Zealand! We're also expanding availability in the US and Canada.",
+              "Madhu Guru: Treat evals like frontier models…establish the quality frontier first, then work your way down the cost curve."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 的赚钱按钮（4002 赞）：奇怪的是明明有一个「赚大钱」按钮却没人按——把你的 SaaS 做成 headless，让 agent 直接使用，按交互计费（尤其对企业客户）。Rauchg 三连：monorepo 软件工厂（2289 赞）——你的软件工厂应该是一个 monorepo，公司全部上下文（设计、市场、销售、工程、支持……）放在一处供 agent 构建；100 万美元公开悬赏（1386 赞）——验证 Vercel Sandbox 的安全性，欢迎用全世界任何模型尝试逃逸，发现逃逸我们随时准备修补迭代；日常小 CLI（884 赞）——比主流编码 CLI 小 10-20 倍，秒启动，用起来像 zsh 而不是终端里的 IDE，可嵌入任何地方甚至浏览器 WebAssembly，开源且模型无关。",
+              "Levie 论中间层价值（182 赞）：一个又一个案例表明，AI 模型与最终用户工作流之间能创造的价值，远比人们以为的大。Google Labs 的 CC 扩展（244 赞）：Gmail 实验性 AI 生产力 agent 在澳新开放候补，美加扩大可用性，新增日历管理。Madhu Guru 的 evals 成本法（39 赞）：像对待前沿模型一样对待 evals——先确立质量前沿，再沿成本曲线下降。"
+            ],
+            "original": [
+              "Thariq：把 SaaS 做成 headless 给 agent 用，按交互计费，尤其企业客户。",
+              "Rauchg：软件工厂应该是 monorepo。100 万美元公开悬赏 Sandbox 逃逸。日常 CLI 小 10-20 倍秒启动。",
+              "Levie：模型与工作流之间的价值远超想象。",
+              "Google Labs：CC 开放澳新候补，升级日历管理。",
+              "Madhu Guru：evals 先定质量前沿再降成本。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "512GB Studios, Asia Move & Builder Life / 512GB 工作站、移居亚洲与构建者生活",
+      "desc": "Steipete 的 512GB RAM Studios（**3294 赞**）；Ryo Lu 清空 SF 公寓移居亚洲（809 赞）；Aditya 感谢 TravisK（357 赞）；Garry Tan 的旧金山政治（306 赞）；Zara 论日本靠书学 Claude Code（98 赞）；Swyx 开源缩略图 A/B 心得（143 赞）；Peter Yang 的卧室手机戒断（20 赞）与非工程师写码数据（2-3 赞）；Nikunj 的无限游戏（182 赞）。",
+      "cards": [
+        {
+          "authorKey": "steipete+ryolu_+adityaag+garrytan+zarazhangrui+swyx+petergyang+nikunj",
+          "authorName": "Steipete / Ryo Lu / Aditya / Tan / Zara / Swyx / Yang / Nikunj",
+          "authorTag": "Builder / Cursor / SPC / YC / Builder / AI Ecosystem / Builder / FPV",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "Steipete's new machines (3294 likes): '512GB RAM Studios. Apple was good to us. 🦞' Plus his CLI-conversion confession (209 likes): 'pssst, you wake the cli people that will give you $reasons why this can't work. I was one of them before I saw the light.' Ryo Lu's moving sale (809 likes): 'first step moving to asia: help me empty my apartment! if you can pick up in SF, place an order and we meet next week' — built with bot and Notion. Aditya thanks Travis Kalanick (357 likes): 'there was no one else on this earth who could have had the resilience to make sure that I can go from Point A to Point B in almost every global city. No one else in Silicon Valley had the guts. He did. TY.'",
+              "Zara on Japan (98 likes): 'I don't know why anyone would learn Claude Code by reading a book, but apparently it's a thing in Japan.' Swyx open-sources thumbnail learnings (143 likes): 'we've been doing a lot of a/b testing of YouTube thumbnails. i always hated that it is such an opaque process. open sourcing/crowdsourcing our learnings today!' Peter Yang's phone discipline (20 likes): leaving the phone downstairs improved his sleep — 'an app where you maintain a streak for days without bringing the phone to the bedroom.' Plus his data notes (2-3 likes): PMs attaching PRs rose 3%→10% in two years, designers 1%→8%; AI landed on top of existing work rather than replacing it. Nikunj's life philosophy (182 likes): 'Life gets a lot simpler if you treat it as if nobody owes you a damn thing. Too many people playing finite games when there's many infinite games to play.'"
+            ],
+            "original": [
+              "Peter Steinberger: 512GB RAM Studios. Apple was good to us. 🦞",
+              "Peter Steinberger: pssst, you wake the cli people that will give you $reasons why this can't work. I was one of them before I saw the light.",
+              "Ryo Lu: first step moving to asia: help me empty my apartment! if you can pick up in SF, place an order and we meet next week :)",
+              "Aditya Agarwal: there was no one else on this earth who could have had the resilience to make sure that I can go from Point A to Point B in almost every global city. No one else in Silicon Valley had the guts. He did. TY.",
+              "Zara Zhang: I don't know why anyone would learn Claude Code by reading a book, but apparently it's a thing in Japan.",
+              "Swyx: we've been doing a lot of a/b testing of youtube thumbnails. i always hated that it is such an opaque process. open sourcing/crowdsourcing our learnings today!",
+              "Peter Yang: Have been leaving it downstairs for 3 days now and it has noticeably improved my sleep. It's the hardest thing to stay disciplined about.",
+              "Peter Yang: PMs attaching pull requests rose from 3% to 10% in two years. Designers went from 1% to 8%, and founders are second only to engineers at 23%.",
+              "Nikunj Kothari: Life honestly gets a lot simpler if you treat it as if nobody owes you a damn thing."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的新机器（3294 赞）：512GB 内存的 Studio 工作站——「Apple 对我们不薄 🦞」。还有他的 CLI 皈依自白（209 赞）：嘘——别吵醒那些 CLI 原教旨主义者，他们会给你一堆这不可能的理由；我以前也是他们中的一员，直到看见光。Ryo Lu 的搬家甩卖（809 赞）：移居亚洲第一步——帮我清空公寓！能在 SF 自取就下单，下周见面交易。用 bot 和 Notion 搭的。Aditya 感谢 Travis Kalanick（357 赞）：这世上没有第二个人有那种韧性，能让我在几乎每个全球城市从 A 点到 B 点。硅谷没有别人有这个胆量，他有。谢谢。",
+              "Zara 论日本（98 赞：不懂为什么会有人靠读书学 Claude Code，但在日本 apparently 是个事。Swyx 开源缩略图心得（143 赞：我们做了大量 YouTube 缩略图 A/B 测试，一直讨厌这过程如此黑箱——今天开源/众筹我们的心得。Peter Yang 的手机戒断（20 赞：手机放楼下三天，睡眠明显改善——该做个 app 维持「不带手机进卧室」的连续天数。他的数据观察（2-3 赞：PM 附 PR 的比例两年从 3% 涨到 10%，设计师 1%→8%，创始人 23% 仅次于工程师；AI 叠加在既有工作之上而非替代。Nikunj 的人生哲学（182 赞）：把生活当作没人欠你任何东西，一切就简单多了。太多人在玩有限博弈，而无限博弈多得是。"
+            ],
+            "original": [
+              "Steipete：512GB RAM Studio。Apple 对我们不薄。",
+              "Ryo Lu：移居亚洲第一步，清空 SF 公寓。用 bot 和 Notion 搭的。",
+              "Aditya：TravisK 的韧性与胆量无可替代。谢谢。",
+              "Zara：日本靠书学 Claude Code。",
+              "Swyx：开源缩略图 A/B 心得。",
+              "Peter Yang：手机放楼下睡眠改善。PM 附 PR 3%→10%，设计师 1%→8%。",
+              "Nikunj：没人欠你什么，无限博弈多得是。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Rich Sutton — Why AI Models Stop Learning / 播客：Rich Sutton——AI 模型为何停止学习",
+      "desc": "Training Data 专访强化学习之父、《苦涩教训》作者 Rich Sutton 与联创 Khurram Javed：LLM 为什么不再学习、持续反向传播、Oak Lab 的野心——万亿参数 20 瓦。完整 transcript（56411 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:td-sutton",
+          "authorName": "Training Data",
+          "authorTag": "Rich Sutton（强化学习之父）& Khurram Javed（Oak Lab 联创）",
+          "sourceUrl": "https://www.youtube.com/watch?v=xH7U7w9Qzlo",
+          "en": {
+            "rewrite": [
+              "Training Data interviews Rich Sutton — inventor of reinforcement learning, author of The Bitter Lesson — and his Oak Lab cofounder Khurram Javed on why AI models stop learning and how to start it again. Highlights: 'I'm not weird. The field is weird. They need to call it continual learning. It's just learning'; Sutton's origin at Alberta in 2003 while dying of cancer ('I haven't succeeded in dying so I might as well get another job'); the Bitter Lesson as the product of decades of watching symbolic AI fail — don't put in human knowledge, scale with computation; nature (prior knowledge) and nurture (learning) should be friends but became enemies; LLMs 'claim PhD-level expertise out of something that doesn't learn at all — the weights never change'; future robots will be copied and keep learning rather than retrained from the internet; Cursor Tab and Composer as rare examples of production continual learning (batch weight updates) but shared across 100k users — you should be able to teach YOUR model; the proprioception-loss patients relearning to walk by watching their feet as the plasticity benchmark; no animal learns by supervised learning; continual backprop — keep planting new randomly-initialized units as fresh variety while backprop selects, versus standard backprop's randomness being used up at initialization; the algorithms meta-learn how to learn, so you must retrain from scratch — can't bolt onto existing models; Oak's ambition: the full spectrum of knowledge from tiny to big abstractions, a self-maintaining mind that keeps itself coherent; a trillion parameters at 20 watts within 5-10 years (2 orders of Moore's law from 2,000 watts today); why big labs can't take the path — stuck in a local minimum, things get worse before better; LLMs as 'an amazing scientific breakthrough — maybe 20% or a quarter of intelligence. There's more. We're not done.'"
+            ],
+            "original": [
+              "Rich Sutton: I'm not weird. The field is weird. They feel they need to call it continual learning. It's just learning.",
+              "Rich Sutton: I actually dying of cancer in 2003 but I wasn't quite dead… I haven't succeeded in dying so I might as well just try to get another job.",
+              "Rich Sutton: They claim they got PhD level experience and expertise out of something that doesn't learn at all anymore. So I'm not the weird one.",
+              "Khurram Javed: The only point, the big disagreement is we don't let them learn after that.",
+              "Khurram Javed: We have proprioception… there are cases where people lose this ability completely, and then they can't walk at all, but then over the course of two, three years, they can learn to walk again by looking at their feet.",
+              "Rich Sutton: No animal learns by supervised learning because we don't get examples of how our muscles should twitch.",
+              "Rich Sutton: With continual backprop, you keep injecting a bit of randomness, a bit of generate and test, and the operation of backprop is the tester.",
+              "Rich Sutton: Our minds, we're always changing things and yet something keeps it organized and coherent and settling back into a good place rather than drifting off into crazy land.",
+              "Khurram Javed: We are stuck in a local minimum. If we want to move towards this new kind of algorithms, it is almost impossible that things will not get worse before they get better.",
+              "Rich Sutton: Large language models are an amazing scientific breakthrough… It's like 20% or a quarter of intelligence. There's more. We're not done."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Training Data：专访强化学习之父、《苦涩教训》作者 Rich Sutton 与其新公司 Oak Lab 联创 Khurram Javed——为什么 AI 模型会停止学习，以及如何让它重新开始。一期关于持续学习路线之争的重量级对话：LLM 训完就冻结、永远不再学习是「全领域的怪」，而持续学习才是学习的本义；持续反向传播如何给老网络注入新随机性；万亿参数 20 瓦的十年之约。"
+            ],
+            "original": [
+              "【开场：我不怪，是领域怪】",
+              "Sutton：人们总觉得我的观点激进，但我看自己是用普通方式思考，是其他人想得有点怪。在 AI 疯狂之前，你根本不用说「持续学习」这个词——因为说「不持续的学习」毫无意义。一切学习都是持续的：我们始终在行动、在学习，这才是正常的思维方式。我不怪，是领域怪——他们觉得有必要叫它「持续学习」，其实那就是学习。",
+              "",
+              "【2003 年，癌症与阿尔伯塔】",
+              "主持人：几十年前你决定押注强化学习、把阿尔伯塔大学建成据点时，正是 AI 寒冬。信念从哪来？",
+              "Sutton：不然干什么呢？我们想理解心智，学习是心智的核心，目标是心智的核心。我只是把我一直想的事加倍下注。",
+              "Sutton：真相有点离奇：2003 年我其实快死于癌症，但一直没死成。又一次缓解期时我想——还没死成，拖太久了，不如再找份工作吧。于是去阿尔伯塔教书，最后也没死。现在能拿它开玩笑，当时很严重。只剩几个月时为什么还继续做研究？本杰明·富兰克林说人做事无非习惯或虚荣——我当时大概是习惯：一直做惯了的事，停不下来。",
+              "",
+              "【苦涩教训的本质】",
+              "Sutton：《苦涩教训》是几十年观察的产物，至少一半来自我亲历的符号 AI 时代：不要被往系统里塞人类知识的冲动分心，专注问题本身需要什么、以及如何随算力扩展。发表前一年我就写过版本、做过演讲，它不是对某一时刻的回应，是对漫长经验的回应。",
+              "Sutton：先天（先验知识）与后天（学习）本该是朋友：你先有知识，再学更多，学了之后又成为下一轮的先验。但现实中它们成了敌人——热爱既有知识的人总想让知识赢，于是贬低学习。现在大家看我像是「只爱学习、不要知识」的人，其实我是先验加学习的支持者。只是全世界都在说「只要知识够多就不用学习」——LLM 把海量知识灌进去，运行时权重一个都不变，还宣称从中得到了博士级专业能力。所以怪的不是我，是他们。",
+              "",
+              "【为什么 LLM 不算会学习】",
+              "Javed：分歧点其实只有一个：我们不让模型在部署后继续学习。预训练、后训练随便做多少都行，但我用模型的时候，它停止学习了。你可以给它更多上下文、改变状态让它做下一个预测——但模型本身在「不学习」。",
+              "Sutton：想想创造 LLM 时全部的结构化与新概念生成——那都是权重学习。你想让这种事持续发生，而不是只发生一次。",
+              "Javed：Cursor 的 Tab 和 Composer 是罕见的例外——它们的权重确实在更新，算持续学习的实例。但做法是收集千万用户数据做批量更新：我想教模型一个很具体的东西，却要跟十万个用户争夺该教什么——这是很低效的方式，我想要我自己的模型版本。",
+              "Javed：一个很好的参照是人类残障案例：本体感觉完全丧失的人没法走路——那是行走策略的地基，刻在脑子里。但两三年内，他们能靠看脚的视觉反馈重新学会走。大脑可塑到这种程度：一个成立了二十年的事实失效了，它能更新并替换掉。这才是我们系统里想要的能力。",
+              "",
+              "【没有动物靠监督学习】",
+              "Sutton：我们从动物学习汲取大量灵感——是灵感而非约束。很明显没有动物靠监督学习：没有人给我们「肌肉该怎么动」的示范样本，而那是我们的输出。学校也只占我们学习的极小部分：我们学会看、学会走、理解世界如何运转。他人传递当然重要、语言极其重要——但不存在监督学习：没有人给我们目标信号。",
+              "",
+              "【持续反向传播与 Oak 的野心】",
+              "Sutton：标准反向传播只在初始时刻有随机性，随着训练推进，随机性带来的多样性被用光。持续反向传播则不断播下新随机初始化的单元种子——持续注入一点随机性、一点生成与检验，反向传播就是检验者。把这些组合好，我认为你会得到新一代强得多的持续深度学习。这是我们希望未来几年做到的。",
+              "Javed：这些算法不能直接套在现成模型上——它们元学习「如何学习」，所以必须从头训练：这些算法同时学两样东西——既学知识，也学「将来怎么学新东西」，然后就能不发生灾难性遗忘地持续学习。",
+              "Sutton：Oak 最有野心的事：拥有从细枝末节到宏大抽象的完整知识谱系——像从一座城市飞到另一座城市这种大规划——并用统一的方式处理，让它自我维护。知识库靠什么保持正确？LLM 靠后训练修好然后冻结。而我们的心智一直在变，却有某种东西让它保持组织、连贯、回落到好的状态而不是漂向疯癫——那就是我们的最大野心：一个自洽、能持续训练自己、保持连贯的心智。",
+              "",
+              "【万亿参数 20 瓦】",
+              "Javed：以现在的内存技术，光存一万亿参数就不止 20 瓦——所以当前技术上不可能。但算力在变便宜、能效在提升，五到十年加上正确的算法，这完全可能。十年是摩尔定律的两个数量级：今天 2000 瓦能做到的，十年后 20 瓦就能做。我们相信用对算法，今天连 2000 瓦都不用。",
+              "Sutton：看各研究组的样子，好像大家想靠多耗能来证明自己是真男人。问题是大实验室被锁在局部极小值里：转向新算法几乎必然先变差再变好，而他们被产品和现有范式锁死，不可能走一条先变差的路。你不相信一件事可能，就不会去解决那些技术难题——我们想这些问题想了很多年。",
+              "",
+              "【LLM 只是指的四分之一】",
+              "Sutton：如果一切顺利，我们实现这个架构：真正的持续学习、能形成抽象从而规划与推理——真正的智能。人类不会因此无关紧要，世界反而更精彩。倒是 LLM 可能危险了——它们已经跑出了很好的一程。说清楚：LLM 是了不起的科学突破，神经网络对语言的娴熟运用完全出乎意料，彻底改变了这个领域的想法。但让人沮丧的是，我们本该庆祝并享受这个子问题的巨大进展，它却要假装自己是全部的 AI。智能不只是流畅地使用语言——它是指的大概四分之一。还有更多，我们没做完。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

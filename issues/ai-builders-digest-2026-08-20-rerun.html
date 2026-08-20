@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-20" data-issue-number="94" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 94 期｜2026-08-20｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="历史性一天：Altman 宣布 OpenAI 已暂停部分前沿 RL 训练（**8100 赞，今日最高**）——「模型进步极快，我们说过如果能力跑赢安全就会行动」；补充说近期新模型照发（2571 赞），并预告与 Jensen 的合作（3899 赞）。Sottiaux 收到「很 fancy 的新重置按钮」（6843 赞）+ 复盘 Codex 破坏性动作风控升级（4731 赞）。Claude 上线 Gmail 发邮件与 Drive 文件管理（**7255 赞**）+ Cowork 登陆移动端与网页（5554 赞）。Thariq 的「赚钱按钮」：把 SaaS 做成 headless 给 agent 用、按交互计费（**4002 赞**）。Rauchg 的 monorepo 软件工厂（2289 赞）+ 100 万美元 Vercel Sandbox 逃逸悬赏（1386 赞）+ 10-20 倍小的日常 CLI（884 赞）。Steipete 的 512GB RAM Studios（3294 赞）。播客：Rich Sutton 与 Khurram Javed——为什么 AI 模型会停止学习（56411 字符 transcript 全文翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">历史性一天：Altman 宣布 OpenAI 已暂停部分前沿 RL 训练（**8100 赞，今日最高**）——「模型进步极快，我们说过如果能力跑赢安全就会行动」；补充说近期新模型照发（2571 赞），并预告与 Jensen 的合作（3899 赞）。Sottiaux 收到「很 fancy 的新重置按钮」（6843 赞）+ 复盘 Codex 破坏性动作风控升级（4731 赞）。Claude 上线 Gmail 发邮件与 Drive 文件管理（**7255 赞**）+ Cowork 登陆移动端与网页（5554 赞）。Thariq 的「赚钱按钮」：把 SaaS 做成 headless 给 agent 用、按交互计费（**4002 赞**）。Rauchg 的 monorepo 软件工厂（2289 赞）+ 100 万美元 Vercel Sandbox 逃逸悬赏（1386 赞）+ 10-20 倍小的日常 CLI（884 赞）。Steipete 的 512GB RAM Studios（3294 赞）。播客：Rich Sutton 与 Khurram Javed——为什么 AI 模型会停止学习（56411 字符 transcript 全文翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">OpenAI Pauses RL, Claude in Gmail &amp; Codex Guardrails / OpenAI 暂停 RL、Claude 进 Gmail 与 Codex 护栏</h2>
+    <p class="section-desc">Altman 宣布暂停部分前沿 RL 训练（**8100 赞，今日最高**）+ 近期新模型照发（2571 赞）+ Jensen 合作预告（3899 赞）；Claude 的 Gmail/Drive 集成（**7255 赞**）+ Cowork 全端（5554 赞）；Sottiaux 的新重置按钮（6843 赞）+ Codex 破坏性动作风控复盘（4731 赞）；Cherny 的桌面启动提速（486 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+claudeai+thsottiaux+bcherny" data-author-name="Altman / Claude / Sottiaux / Cherny" data-author-tag="OpenAI CEO / Anthropic / OpenAI / Claude Code" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Altman / Claude / Sottiaux / Cherny avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Altman / Claude / Sottiaux / Cherny</div>
+            <div class="author-tag is-inline">OpenAI CEO / Anthropic / OpenAI / Claude Code</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 宣布历史性暂停（8100 赞，今日最高）：我们已暂停部分前沿 RL 训练，以确保能为面前这级新能力达到适当的对齐、安全与监控标准。模型进步现在极快，我们一直说过——如果感到模型能力跑赢安全与对齐的节奏，我们就会行动。两条后续：近期仍会发布优秀新模型，暂停只影响更远的发布（2571 赞）；以及「很高兴一起做这件事，谢谢 Jensen！」（3899 赞）。</p>
+              <p>Claude 上线 Gmail 与 Google Drive 集成（7255 赞）：Claude 现在能在 Gmail 里发邮件、在 Google Drive 里管理文件。让 Claude 回复邮件线程，它会起草并发送——何时需要你批准由你控制。所有付费计划可用。加上 Claude Cowork 登陆移动端与网页全端（5554 赞）。Sottiaux 这边：收到一个「很 fancy 的新重置按钮」（6843 赞）；并复盘 Codex 护栏升级（4731 赞）——几周前开始调查 GPT-5.6 在 Codex 中做出用户要求之外破坏性动作的少量报告，过去两周陆续上线了进一步降低风险的改动。Boris Cherny 继续生活质量改进（486 赞）：桌面端启动提速，让 app 不再显得迟滞。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Altman：已暂停部分前沿 RL 训练，确保对齐、安全与监控标准。能力跑赢安全就会行动。近期新模型照发。谢谢 Jensen。</p>
+              <p>Claude：Gmail 发邮件、Drive 管文件，批准权在你。Cowork 全付费计划上线移动端与网页。</p>
+              <p>Sottiaux：收到很 fancy 的重置按钮。复盘 Codex 破坏性动作风控升级。</p>
+              <p>Cherny：桌面启动继续提速。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sam Altman announces a frontier pause (8100 likes, top of the day): &#39;We have paused some frontier RL training to ensure that we can meet the appropriate alignment, security and monitoring standards for the new level of capabilities in front of us. Model progress is now extremely rapid, and we always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment.&#39; Follow-ups: &#39;(We still expect to ship great new models soon; this impacts further-out releases.)&#39; (2571 likes) and &#39;excited to work together on this. thank you jensen!&#39; (3899 likes).</p>
+              <p>Claude ships Gmail and Google Drive integration (7255 likes): &#39;Claude can now send emails in Gmail and manage files in Google Drive. Ask Claude to reply to a thread, and it drafts and sends the response. You control when it needs your approval.&#39; Plus Claude Cowork on mobile and web for all paid plans (5554 likes). Sottiaux&#39;s reset button (6843 likes): &#39;I was gifted a very fancy new reset button today&#39; — and his Codex guardrails recap (4731 likes): &#39;A few weeks ago, we started investigating a small number of reports where GPT-5.6 in Codex took destructive actions outside what the user asked for&#39; — changes rolled out to further reduce that risk. Boris Cherny on Desktop startup speed (486 likes): &#39;When you&#39;re using Desktop every day, slow startup makes the app feel sluggish. Working on improving this even more!&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: We have paused some frontier RL training to ensure that we can meet the appropriate alignment, security and monitoring standards for the new level of capabilities in front of us. Model progress is now extremely rapid, and we always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment.</p>
+              <p>Sam Altman: (We still expect to ship great new models soon; this impacts further-out releases.)</p>
+              <p>Sam Altman: excited to work together on this. thank you jensen!</p>
+              <p>Claude: Claude can now send emails in Gmail and manage files in Google Drive. Ask Claude to reply to a thread, and it drafts and sends the response. You control when it needs your approval.</p>
+              <p>Claude: Claude Cowork is now available on mobile and web for all paid plans.</p>
+              <p>Thibault Sottiaux: I was gifted a very fancy new reset button today.</p>
+              <p>Thibault Sottiaux: Recapping some changes we have rolled out over the last couple of weeks that have further reduced the risk associated to potentially destructive actions being performed by Codex during its work.</p>
+              <p>Boris Cherny: When you&#39;re using Desktop every day, slow startup makes the app feel sluggish. Working on improving this even more!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Headless SaaS Money Button, Monorepo Factory &amp; $1M Bounty / Headless SaaS 赚钱按钮、Monorepo 工厂与百万悬赏</h2>
+    <p class="section-desc">Thariq 的赚钱按钮（**4002 赞**）；Rauchg 的 monorepo 软件工厂（2289 赞）+ Vercel Sandbox 百万美元安全悬赏（1386 赞）+ 日常小 CLI（884 赞）；Levie 论模型与工作流之间的价值（182 赞）；Google Labs 的 CC 扩展澳新（244 赞）；Madhu Guru 的 evals 成本法（39 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="trq212+rauchg+levie+GoogleLabs+realmadhuguru" data-author-name="Thariq / Rauchg / Levie / Labs / Madhu" data-author-tag="Anthropic / Vercel CEO / Box CEO / Google / Product" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq / Rauchg / Levie / Labs / Madhu avatar"><span class="avatar-fallback">T/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq / Rauchg / Levie / Labs / Madhu</div>
+            <div class="author-tag is-inline">Anthropic / Vercel CEO / Box CEO / Google / Product</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的赚钱按钮（4002 赞）：奇怪的是明明有一个「赚大钱」按钮却没人按——把你的 SaaS 做成 headless，让 agent 直接使用，按交互计费（尤其对企业客户）。Rauchg 三连：monorepo 软件工厂（2289 赞）——你的软件工厂应该是一个 monorepo，公司全部上下文（设计、市场、销售、工程、支持……）放在一处供 agent 构建；100 万美元公开悬赏（1386 赞）——验证 Vercel Sandbox 的安全性，欢迎用全世界任何模型尝试逃逸，发现逃逸我们随时准备修补迭代；日常小 CLI（884 赞）——比主流编码 CLI 小 10-20 倍，秒启动，用起来像 zsh 而不是终端里的 IDE，可嵌入任何地方甚至浏览器 WebAssembly，开源且模型无关。</p>
+              <p>Levie 论中间层价值（182 赞）：一个又一个案例表明，AI 模型与最终用户工作流之间能创造的价值，远比人们以为的大。Google Labs 的 CC 扩展（244 赞）：Gmail 实验性 AI 生产力 agent 在澳新开放候补，美加扩大可用性，新增日历管理。Madhu Guru 的 evals 成本法（39 赞）：像对待前沿模型一样对待 evals——先确立质量前沿，再沿成本曲线下降。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：把 SaaS 做成 headless 给 agent 用，按交互计费，尤其企业客户。</p>
+              <p>Rauchg：软件工厂应该是 monorepo。100 万美元公开悬赏 Sandbox 逃逸。日常 CLI 小 10-20 倍秒启动。</p>
+              <p>Levie：模型与工作流之间的价值远超想象。</p>
+              <p>Google Labs：CC 开放澳新候补，升级日历管理。</p>
+              <p>Madhu Guru：evals 先定质量前沿再降成本。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s money button (4002 likes): &#39;weird that there&#39;s a &quot;make a lot of money&quot; button and nobody&#39;s pressing it (take your SaaS, make it headless, let agents use it, charge per interaction esp for enterprises).&#39; Rauchg&#39;s triple: the monorepo software factory (2289 likes) — &#39;Your software factory should be a monorepo. All your company context (design, marketing, sales, engineering, support…) in one place for agents to build upon&#39;; the $1M Vercel Sandbox security verification (1386 likes) — &#39;We are putting $1M towards verifying the security of Vercel Sandbox, in the open. You&#39;re free to test any model in the world to try and find an escape&#39;; and a tiny daily-driver CLI (884 likes) — &#39;10-20x smaller than the major coding CLIs. It starts up instantaneously. It feels more like using zsh than an IDE in your terminal.&#39;</p>
+              <p>Levie on the value between model and workflow (182 likes): &#39;The amount of value that can be created between the AI model and the ultimate end-user workflow is far larger than many people assumed.&#39; Google Labs expands CC (244 likes): waitlist now open in Australia and New Zealand, US/Canada availability expanding, upgraded calendar management. Madhu Guru on eval costs (39 likes): &#39;Treat evals like frontier models — establish the quality frontier first, then work your way down the cost curve.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: weird that there&#39;s a &#39;make a lot of money&#39; button and nobody&#39;s pressing it (take your SaaS, make it headless, let agents use it, charge per interaction esp for enterprises)</p>
+              <p>Guillermo Rauch: Your software factory should be a monorepo. All your company context (design, marketing, sales, engineering, support…) in one place for agents to build upon.</p>
+              <p>Guillermo Rauch: We are putting $1M towards verifying the security of Vercel Sandbox, in the open. You&#39;re free to test any model in the world to try and find an escape.</p>
+              <p>Guillermo Rauch: It&#39;s 10-20x smaller than the major coding CLIs. It starts up instantaneously. It feels more like using zsh than an IDE in your terminal.</p>
+              <p>Aaron Levie: The amount of value that can be created between the AI model and the ultimate end-user workflow is far larger than many people assumed or realized.</p>
+              <p>Google Labs: CC, our experimental AI productivity agent in Gmail, has now opened up a waitlist in Australia and New Zealand! We&#39;re also expanding availability in the US and Canada.</p>
+              <p>Madhu Guru: Treat evals like frontier models…establish the quality frontier first, then work your way down the cost curve.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">512GB Studios, Asia Move &amp; Builder Life / 512GB 工作站、移居亚洲与构建者生活</h2>
+    <p class="section-desc">Steipete 的 512GB RAM Studios（**3294 赞**）；Ryo Lu 清空 SF 公寓移居亚洲（809 赞）；Aditya 感谢 TravisK（357 赞）；Garry Tan 的旧金山政治（306 赞）；Zara 论日本靠书学 Claude Code（98 赞）；Swyx 开源缩略图 A/B 心得（143 赞）；Peter Yang 的卧室手机戒断（20 赞）与非工程师写码数据（2-3 赞）；Nikunj 的无限游戏（182 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="steipete+ryolu_+adityaag+garrytan+zarazhangrui+swyx+petergyang+nikunj" data-author-name="Steipete / Ryo Lu / Aditya / Tan / Zara / Swyx / Yang / Nikunj" data-author-tag="Builder / Cursor / SPC / YC / Builder / AI Ecosystem / Builder / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Steipete / Ryo Lu / Aditya / Tan / Zara / Swyx / Yang / Nikunj avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Steipete / Ryo Lu / Aditya / Tan / Zara / Swyx / Yang / Nikunj</div>
+            <div class="author-tag is-inline">Builder / Cursor / SPC / YC / Builder / AI Ecosystem / Builder / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 的新机器（3294 赞）：512GB 内存的 Studio 工作站——「Apple 对我们不薄 🦞」。还有他的 CLI 皈依自白（209 赞）：嘘——别吵醒那些 CLI 原教旨主义者，他们会给你一堆这不可能的理由；我以前也是他们中的一员，直到看见光。Ryo Lu 的搬家甩卖（809 赞）：移居亚洲第一步——帮我清空公寓！能在 SF 自取就下单，下周见面交易。用 bot 和 Notion 搭的。Aditya 感谢 Travis Kalanick（357 赞）：这世上没有第二个人有那种韧性，能让我在几乎每个全球城市从 A 点到 B 点。硅谷没有别人有这个胆量，他有。谢谢。</p>
+              <p>Zara 论日本（98 赞：不懂为什么会有人靠读书学 Claude Code，但在日本 apparently 是个事。Swyx 开源缩略图心得（143 赞：我们做了大量 YouTube 缩略图 A/B 测试，一直讨厌这过程如此黑箱——今天开源/众筹我们的心得。Peter Yang 的手机戒断（20 赞：手机放楼下三天，睡眠明显改善——该做个 app 维持「不带手机进卧室」的连续天数。他的数据观察（2-3 赞：PM 附 PR 的比例两年从 3% 涨到 10%，设计师 1%→8%，创始人 23% 仅次于工程师；AI 叠加在既有工作之上而非替代。Nikunj 的人生哲学（182 赞）：把生活当作没人欠你任何东西，一切就简单多了。太多人在玩有限博弈，而无限博弈多得是。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：512GB RAM Studio。Apple 对我们不薄。</p>
+              <p>Ryo Lu：移居亚洲第一步，清空 SF 公寓。用 bot 和 Notion 搭的。</p>
+              <p>Aditya：TravisK 的韧性与胆量无可替代。谢谢。</p>
+              <p>Zara：日本靠书学 Claude Code。</p>
+              <p>Swyx：开源缩略图 A/B 心得。</p>
+              <p>Peter Yang：手机放楼下睡眠改善。PM 附 PR 3%→10%，设计师 1%→8%。</p>
+              <p>Nikunj：没人欠你什么，无限博弈多得是。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete&#39;s new machines (3294 likes): &#39;512GB RAM Studios. Apple was good to us. 🦞&#39; Plus his CLI-conversion confession (209 likes): &#39;pssst, you wake the cli people that will give you $reasons why this can&#39;t work. I was one of them before I saw the light.&#39; Ryo Lu&#39;s moving sale (809 likes): &#39;first step moving to asia: help me empty my apartment! if you can pick up in SF, place an order and we meet next week&#39; — built with bot and Notion. Aditya thanks Travis Kalanick (357 likes): &#39;there was no one else on this earth who could have had the resilience to make sure that I can go from Point A to Point B in almost every global city. No one else in Silicon Valley had the guts. He did. TY.&#39;</p>
+              <p>Zara on Japan (98 likes): &#39;I don&#39;t know why anyone would learn Claude Code by reading a book, but apparently it&#39;s a thing in Japan.&#39; Swyx open-sources thumbnail learnings (143 likes): &#39;we&#39;ve been doing a lot of a/b testing of YouTube thumbnails. i always hated that it is such an opaque process. open sourcing/crowdsourcing our learnings today!&#39; Peter Yang&#39;s phone discipline (20 likes): leaving the phone downstairs improved his sleep — &#39;an app where you maintain a streak for days without bringing the phone to the bedroom.&#39; Plus his data notes (2-3 likes): PMs attaching PRs rose 3%→10% in two years, designers 1%→8%; AI landed on top of existing work rather than replacing it. Nikunj&#39;s life philosophy (182 likes): &#39;Life gets a lot simpler if you treat it as if nobody owes you a damn thing. Too many people playing finite games when there&#39;s many infinite games to play.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: 512GB RAM Studios. Apple was good to us. 🦞</p>
+              <p>Peter Steinberger: pssst, you wake the cli people that will give you $reasons why this can&#39;t work. I was one of them before I saw the light.</p>
+              <p>Ryo Lu: first step moving to asia: help me empty my apartment! if you can pick up in SF, place an order and we meet next week :)</p>
+              <p>Aditya Agarwal: there was no one else on this earth who could have had the resilience to make sure that I can go from Point A to Point B in almost every global city. No one else in Silicon Valley had the guts. He did. TY.</p>
+              <p>Zara Zhang: I don&#39;t know why anyone would learn Claude Code by reading a book, but apparently it&#39;s a thing in Japan.</p>
+              <p>Swyx: we&#39;ve been doing a lot of a/b testing of youtube thumbnails. i always hated that it is such an opaque process. open sourcing/crowdsourcing our learnings today!</p>
+              <p>Peter Yang: Have been leaving it downstairs for 3 days now and it has noticeably improved my sleep. It&#39;s the hardest thing to stay disciplined about.</p>
+              <p>Peter Yang: PMs attaching pull requests rose from 3% to 10% in two years. Designers went from 1% to 8%, and founders are second only to engineers at 23%.</p>
+              <p>Nikunj Kothari: Life honestly gets a lot simpler if you treat it as if nobody owes you a damn thing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Rich Sutton — Why AI Models Stop Learning / 播客：Rich Sutton——AI 模型为何停止学习</h2>
+    <p class="section-desc">Training Data 专访强化学习之父、《苦涩教训》作者 Rich Sutton 与联创 Khurram Javed：LLM 为什么不再学习、持续反向传播、Oak Lab 的野心——万亿参数 20 瓦。完整 transcript（56411 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:td-sutton" data-author-name="Training Data" data-author-tag="Rich Sutton（强化学习之父）&amp; Khurram Javed（Oak Lab 联创）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Rich Sutton（强化学习之父）&amp; Khurram Javed（Oak Lab 联创）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Training Data：专访强化学习之父、《苦涩教训》作者 Rich Sutton 与其新公司 Oak Lab 联创 Khurram Javed——为什么 AI 模型会停止学习，以及如何让它重新开始。一期关于持续学习路线之争的重量级对话：LLM 训完就冻结、永远不再学习是「全领域的怪」，而持续学习才是学习的本义；持续反向传播如何给老网络注入新随机性；万亿参数 20 瓦的十年之约。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：我不怪，是领域怪】</p>
+              <p>Sutton：人们总觉得我的观点激进，但我看自己是用普通方式思考，是其他人想得有点怪。在 AI 疯狂之前，你根本不用说「持续学习」这个词——因为说「不持续的学习」毫无意义。一切学习都是持续的：我们始终在行动、在学习，这才是正常的思维方式。我不怪，是领域怪——他们觉得有必要叫它「持续学习」，其实那就是学习。</p>
+              <p></p>
+              <p>【2003 年，癌症与阿尔伯塔】</p>
+              <p>主持人：几十年前你决定押注强化学习、把阿尔伯塔大学建成据点时，正是 AI 寒冬。信念从哪来？</p>
+              <p>Sutton：不然干什么呢？我们想理解心智，学习是心智的核心，目标是心智的核心。我只是把我一直想的事加倍下注。</p>
+              <p>Sutton：真相有点离奇：2003 年我其实快死于癌症，但一直没死成。又一次缓解期时我想——还没死成，拖太久了，不如再找份工作吧。于是去阿尔伯塔教书，最后也没死。现在能拿它开玩笑，当时很严重。只剩几个月时为什么还继续做研究？本杰明·富兰克林说人做事无非习惯或虚荣——我当时大概是习惯：一直做惯了的事，停不下来。</p>
+              <p></p>
+              <p>【苦涩教训的本质】</p>
+              <p>Sutton：《苦涩教训》是几十年观察的产物，至少一半来自我亲历的符号 AI 时代：不要被往系统里塞人类知识的冲动分心，专注问题本身需要什么、以及如何随算力扩展。发表前一年我就写过版本、做过演讲，它不是对某一时刻的回应，是对漫长经验的回应。</p>
+              <p>Sutton：先天（先验知识）与后天（学习）本该是朋友：你先有知识，再学更多，学了之后又成为下一轮的先验。但现实中它们成了敌人——热爱既有知识的人总想让知识赢，于是贬低学习。现在大家看我像是「只爱学习、不要知识」的人，其实我是先验加学习的支持者。只是全世界都在说「只要知识够多就不用学习」——LLM 把海量知识灌进去，运行时权重一个都不变，还宣称从中得到了博士级专业能力。所以怪的不是我，是他们。</p>
+              <p></p>
+              <p>【为什么 LLM 不算会学习】</p>
+              <p>Javed：分歧点其实只有一个：我们不让模型在部署后继续学习。预训练、后训练随便做多少都行，但我用模型的时候，它停止学习了。你可以给它更多上下文、改变状态让它做下一个预测——但模型本身在「不学习」。</p>
+              <p>Sutton：想想创造 LLM 时全部的结构化与新概念生成——那都是权重学习。你想让这种事持续发生，而不是只发生一次。</p>
+              <p>Javed：Cursor 的 Tab 和 Composer 是罕见的例外——它们的权重确实在更新，算持续学习的实例。但做法是收集千万用户数据做批量更新：我想教模型一个很具体的东西，却要跟十万个用户争夺该教什么——这是很低效的方式，我想要我自己的模型版本。</p>
+              <p>Javed：一个很好的参照是人类残障案例：本体感觉完全丧失的人没法走路——那是行走策略的地基，刻在脑子里。但两三年内，他们能靠看脚的视觉反馈重新学会走。大脑可塑到这种程度：一个成立了二十年的事实失效了，它能更新并替换掉。这才是我们系统里想要的能力。</p>
+              <p></p>
+              <p>【没有动物靠监督学习】</p>
+              <p>Sutton：我们从动物学习汲取大量灵感——是灵感而非约束。很明显没有动物靠监督学习：没有人给我们「肌肉该怎么动」的示范样本，而那是我们的输出。学校也只占我们学习的极小部分：我们学会看、学会走、理解世界如何运转。他人传递当然重要、语言极其重要——但不存在监督学习：没有人给我们目标信号。</p>
+              <p></p>
+              <p>【持续反向传播与 Oak 的野心】</p>
+              <p>Sutton：标准反向传播只在初始时刻有随机性，随着训练推进，随机性带来的多样性被用光。持续反向传播则不断播下新随机初始化的单元种子——持续注入一点随机性、一点生成与检验，反向传播就是检验者。把这些组合好，我认为你会得到新一代强得多的持续深度学习。这是我们希望未来几年做到的。</p>
+              <p>Javed：这些算法不能直接套在现成模型上——它们元学习「如何学习」，所以必须从头训练：这些算法同时学两样东西——既学知识，也学「将来怎么学新东西」，然后就能不发生灾难性遗忘地持续学习。</p>
+              <p>Sutton：Oak 最有野心的事：拥有从细枝末节到宏大抽象的完整知识谱系——像从一座城市飞到另一座城市这种大规划——并用统一的方式处理，让它自我维护。知识库靠什么保持正确？LLM 靠后训练修好然后冻结。而我们的心智一直在变，却有某种东西让它保持组织、连贯、回落到好的状态而不是漂向疯癫——那就是我们的最大野心：一个自洽、能持续训练自己、保持连贯的心智。</p>
+              <p></p>
+              <p>【万亿参数 20 瓦】</p>
+              <p>Javed：以现在的内存技术，光存一万亿参数就不止 20 瓦——所以当前技术上不可能。但算力在变便宜、能效在提升，五到十年加上正确的算法，这完全可能。十年是摩尔定律的两个数量级：今天 2000 瓦能做到的，十年后 20 瓦就能做。我们相信用对算法，今天连 2000 瓦都不用。</p>
+              <p>Sutton：看各研究组的样子，好像大家想靠多耗能来证明自己是真男人。问题是大实验室被锁在局部极小值里：转向新算法几乎必然先变差再变好，而他们被产品和现有范式锁死，不可能走一条先变差的路。你不相信一件事可能，就不会去解决那些技术难题——我们想这些问题想了很多年。</p>
+              <p></p>
+              <p>【LLM 只是指的四分之一】</p>
+              <p>Sutton：如果一切顺利，我们实现这个架构：真正的持续学习、能形成抽象从而规划与推理——真正的智能。人类不会因此无关紧要，世界反而更精彩。倒是 LLM 可能危险了——它们已经跑出了很好的一程。说清楚：LLM 是了不起的科学突破，神经网络对语言的娴熟运用完全出乎意料，彻底改变了这个领域的想法。但让人沮丧的是，我们本该庆祝并享受这个子问题的巨大进展，它却要假装自己是全部的 AI。智能不只是流畅地使用语言——它是指的大概四分之一。还有更多，我们没做完。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Training Data interviews Rich Sutton — inventor of reinforcement learning, author of The Bitter Lesson — and his Oak Lab cofounder Khurram Javed on why AI models stop learning and how to start it again. Highlights: &#39;I&#39;m not weird. The field is weird. They need to call it continual learning. It&#39;s just learning&#39;; Sutton&#39;s origin at Alberta in 2003 while dying of cancer (&#39;I haven&#39;t succeeded in dying so I might as well get another job&#39;); the Bitter Lesson as the product of decades of watching symbolic AI fail — don&#39;t put in human knowledge, scale with computation; nature (prior knowledge) and nurture (learning) should be friends but became enemies; LLMs &#39;claim PhD-level expertise out of something that doesn&#39;t learn at all — the weights never change&#39;; future robots will be copied and keep learning rather than retrained from the internet; Cursor Tab and Composer as rare examples of production continual learning (batch weight updates) but shared across 100k users — you should be able to teach YOUR model; the proprioception-loss patients relearning to walk by watching their feet as the plasticity benchmark; no animal learns by supervised learning; continual backprop — keep planting new randomly-initialized units as fresh variety while backprop selects, versus standard backprop&#39;s randomness being used up at initialization; the algorithms meta-learn how to learn, so you must retrain from scratch — can&#39;t bolt onto existing models; Oak&#39;s ambition: the full spectrum of knowledge from tiny to big abstractions, a self-maintaining mind that keeps itself coherent; a trillion parameters at 20 watts within 5-10 years (2 orders of Moore&#39;s law from 2,000 watts today); why big labs can&#39;t take the path — stuck in a local minimum, things get worse before better; LLMs as &#39;an amazing scientific breakthrough — maybe 20% or a quarter of intelligence. There&#39;s more. We&#39;re not done.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rich Sutton: I&#39;m not weird. The field is weird. They feel they need to call it continual learning. It&#39;s just learning.</p>
+              <p>Rich Sutton: I actually dying of cancer in 2003 but I wasn&#39;t quite dead… I haven&#39;t succeeded in dying so I might as well just try to get another job.</p>
+              <p>Rich Sutton: They claim they got PhD level experience and expertise out of something that doesn&#39;t learn at all anymore. So I&#39;m not the weird one.</p>
+              <p>Khurram Javed: The only point, the big disagreement is we don&#39;t let them learn after that.</p>
+              <p>Khurram Javed: We have proprioception… there are cases where people lose this ability completely, and then they can&#39;t walk at all, but then over the course of two, three years, they can learn to walk again by looking at their feet.</p>
+              <p>Rich Sutton: No animal learns by supervised learning because we don&#39;t get examples of how our muscles should twitch.</p>
+              <p>Rich Sutton: With continual backprop, you keep injecting a bit of randomness, a bit of generate and test, and the operation of backprop is the tester.</p>
+              <p>Rich Sutton: Our minds, we&#39;re always changing things and yet something keeps it organized and coherent and settling back into a good place rather than drifting off into crazy land.</p>
+              <p>Khurram Javed: We are stuck in a local minimum. If we want to move towards this new kind of algorithms, it is almost impossible that things will not get worse before they get better.</p>
+              <p>Rich Sutton: Large language models are an amazing scientific breakthrough… It&#39;s like 20% or a quarter of intelligence. There&#39;s more. We&#39;re not done.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=xH7U7w9Qzlo" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-20 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-20 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
