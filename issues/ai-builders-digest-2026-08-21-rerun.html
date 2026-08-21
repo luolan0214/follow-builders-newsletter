@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-21" data-issue-number="95" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 95 期｜2026-08-21｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Amjad 宣布 Replit × OpenAI 联手（**3552 赞**）：「Agent 让软件变便宜了，却让编码变贵了——今天我们和 OpenAI 一起改变这件事。」Altman 回应「我们支持商业隐私！」（**3302 赞**）；Sottiaux 预览 Private Safety Processing：零数据保留也能升级安全防护（2091 赞）+ Codex for scale（4787 赞）。Thariq 的软件工厂三部曲（1026 赞）：软件创建从来都是不可靠的事业。Turck 的 Moderna 神梗（936 赞）：「AI 实验室：给我们几十亿，我们治愈癌症。Moderna：」Josh Woodward 全球学生计划回归、140+ 国家（1224 赞）。Rauchg 的 6.3MB CLI：10 微秒启动（537 赞）+ SF 天际线（1943 赞）。播客：AI &amp; I 专访 Portola——外星伙伴 Tolan 四周从 100 万冲到 400 万美元 ARR（100614 字符 transcript 全文翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Amjad 宣布 Replit × OpenAI 联手（**3552 赞**）：「Agent 让软件变便宜了，却让编码变贵了——今天我们和 OpenAI 一起改变这件事。」Altman 回应「我们支持商业隐私！」（**3302 赞**）；Sottiaux 预览 Private Safety Processing：零数据保留也能升级安全防护（2091 赞）+ Codex for scale（4787 赞）。Thariq 的软件工厂三部曲（1026 赞）：软件创建从来都是不可靠的事业。Turck 的 Moderna 神梗（936 赞）：「AI 实验室：给我们几十亿，我们治愈癌症。Moderna：」Josh Woodward 全球学生计划回归、140+ 国家（1224 赞）。Rauchg 的 6.3MB CLI：10 微秒启动（537 赞）+ SF 天际线（1943 赞）。播客：AI &amp; I 专访 Portola——外星伙伴 Tolan 四周从 100 万冲到 400 万美元 ARR（100614 字符 transcript 全文翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Replit × OpenAI, ZDR Safety &amp; Codex for Scale / Replit 联手 OpenAI、零数据保留安全与 Codex 标尺</h2>
+    <p class="section-desc">Amjad 的 Replit × OpenAI 双发（**3552 赞**）+ Altman「支持商业隐私」（**3302 赞**）；Sottiaux 的 Private Safety Processing 预览（2091 赞）+ Codex for scale（**4787 赞**）+ 收到重要物品的描绘（441 赞）；Steipete 预告「等不及给你们看我们在做的东西」（625 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="amasad+sama+thsottiaux+steipete" data-author-name="Amjad / Altman / Sottiaux / Steipete" data-author-tag="Replit CEO / OpenAI CEO / OpenAI / Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Amjad / Altman / Sottiaux / Steipete avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad / Altman / Sottiaux / Steipete</div>
+            <div class="author-tag is-inline">Replit CEO / OpenAI CEO / OpenAI / Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad 宣布 Replit × OpenAI 合作（3552 赞）：Agent 让软件变便宜了，却让编码变贵了——今天，我们和 OpenAI 一起改变这件事。Altman 隔空回应（3302 赞）：我们支持商业隐私！Sottiaux 预览 Private Safety Processing（2091 赞）：既保持零数据保留（ZDR）又能升级安全防护——即便享受前沿智能，客户也不该被迫交出敏感数据的控制权；ZDR 部署中内容始终留在客户控制的基础设施上，自动化系统只查安全信号。</p>
+              <p>Sottiaux 的 Codex 标尺（4787 赞）：还没用过呢，但你们瞧——Codex for scale。轻松时刻（441 赞）：我收到这个非常重要物品时的描绘。Steipete 预告（625 赞）：等不及给你们看我们在做的东西了！</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：Agent 让软件变便宜却让编码变贵，和 OpenAI 一起改变。</p>
+              <p>Altman：我们支持商业隐私。</p>
+              <p>Sottiaux：Private Safety Processing——零数据保留下升级安全。Codex for scale。</p>
+              <p>Steipete：等不及给你们看我们在做的东西。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad announces the Replit × OpenAI partnership (3552 likes): &#39;Agents made software cheaper but made coding expensive. Today, together with @OpenAI, we&#39;re changing this&#39; — plus &#39;Excited for our partnership with OpenAI&#39; (674 likes). Altman co-signs (3302 likes): &#39;we support business privacy!&#39; Sottiaux previews Private Safety Processing (2091 likes): &#39;designed to let us keep offering Zero Data Retention while improving our safeguards. Even when benefiting from frontier intelligence, customers shouldn&#39;t have to give up control of sensitive data. For ZDR deployments, content stays on infrastructure the customer controls.&#39;</p>
+              <p>Sottiaux&#39;s Codex for scale (4787 likes): &#39;It has not been used yet, but would you look at that. Codex for scale.&#39; Plus his lighter moment (441 likes): &#39;Depiction of me receiving this very important item.&#39; Steipete teases (625 likes): &#39;Can&#39;t wait to show you all what we been cookin&#39;!&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad: Agents made software cheaper but made coding expensive. Today, together with @OpenAI, we&#39;re changing this.</p>
+              <p>Amjad Masad: Excited for our partnership with OpenAI.</p>
+              <p>Sam Altman: we support business privacy!</p>
+              <p>Thibault Sottiaux: Today we&#39;re previewing Private Safety Processing, designed to let us keep offering Zero Data Retention while improving our safeguards. Even when benefiting from frontier intelligence, customers shouldn&#39;t have to give up control of sensitive data.</p>
+              <p>Thibault Sottiaux: It has not been used yet, but would you look at that. Codex for scale.</p>
+              <p>Peter Steinberger: Can&#39;t wait to show you all what we been cookin&#39;!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Software Factory, Moderna Joke &amp; Expert Era / 软件工厂、Moderna 神梗与专家时代</h2>
+    <p class="section-desc">Thariq 的软件工厂三部曲（1026 赞）+ 核心能力论（114 赞）+ Sam 的游戏 demo（237 赞）；Turck 的 Moderna 神梗（936 赞）；Levie 论专家对通才占上风（191 赞）+ Stripe×OpenRouter（320 赞）；Rauchg 的 6.3MB CLI（537 赞）+ SF 天际线（1943 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="trq212+mattturck+levie+rauchg" data-author-name="Thariq / Turck / Levie / Rauchg" data-author-tag="Anthropic / FirstMark / Box CEO / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq / Turck / Levie / Rauchg avatar"><span class="avatar-fallback">T/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq / Turck / Levie / Rauchg</div>
+            <div class="author-tag is-inline">Anthropic / FirstMark / Box CEO / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的软件工厂三部曲（1026 赞）：软件创建在它存在的整个历史里都是极不可靠的事业——多数项目延期、超支、还错失用户需求；如果你是中小企业，根本没法让人给你造出好软件。这就是「软件工厂」的承诺。后续：核心能力不是软件的公司需要可靠可预测的软件流程，但构建全新软件产品仍将是不可靠、有风险但赚钱的生意（114 赞）；以及他去年看过就让 Sam 必须发布的游戏 demo（237 赞）——最早真正用 AI 能力解锁新玩法的一批游戏。Turck 的 Moderna 神梗（936 赞）：AI 实验室：给我们几十亿，我们治愈癌症。Moderna：（配图，无语凝噎）。</p>
+              <p>Levie 论专家时代（191 赞）：AI 时代专家 vs 通才之争，目前专家占上风且没有放缓迹象——AI 让任何任务上手容易 10 倍，但把 agent 指向正确方向的判断力仍归专家。加一条 Stripe × OpenRouter 点评（320 赞）：AI 要更大范围扩散，开发者和企业需要无缝混搭多家智能并更好管理成本。Rauchg 的微型 CLI（537 赞）：fx 只有 6.3MB、10 微秒启动——AI 会把大多数基础设施做成本机优化，快是一条单行道。以及 SF 的绝美天际线（1943 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：软件创建从来都不可靠。软件工厂是 SMB 的解药。AI 游戏解锁新玩法。</p>
+              <p>Turck：AI 实验室说给几十亿治癌症，Moderna：（无语）。</p>
+              <p>Levie：专家占上风。混搭多家智能管理成本是趋势。</p>
+              <p>Rauchg：fx 6.3MB、10 微秒启动。快是单行道。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s software factory trilogy (1026 likes): &#39;For its entire existence, the creation of software has been an incredibly unreliable endeavor. Most projects ran late, over budget, and still missed user needs. If you were an SMB, you simply couldn&#39;t get good software built for you. This is the promise of the software factory.&#39; Follow-ups: &#39;Companies whose core competency is not software need software to be a reliable, predictable process&#39; (114 likes) and a game demo he pushed Sam to ship (237 likes): &#39;It&#39;s one of the first games that really uses AI capabilities to unlock new gameplay.&#39; Matt Turck&#39;s Moderna joke (936 likes): &#39;AI labs: give us billions, we&#39;ll cure cancer / Moderna:&#39; — a single-word punchline.</p>
+              <p>Levie on experts vs generalists (191 likes): &#39;So far, the experts appear to have the upper hand, and that&#39;s not slowing down. AI makes it 10X easier to get started with any kind of task. But having the right judgment for how to direct the agent&#39; — that&#39;s what experts own. Plus Stripe × OpenRouter (320 likes): &#39;developers and enterprises will want ways of being able to mix and match intelligence from a variety of providers seamlessly and better manage costs.&#39; Rauchg&#39;s micro-CLI (537 likes): &#39;fx is 6.3mb. It starts up in 10µs. AI will make most infrastructure natively optimized. Fast is a one-way street.&#39; And his SF views (1943 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: for its entire existence, the creation of software has been an incredibly unreliable endeavor. most projects ran late, over budget, and still missed user needs. if you were an SMB, you simply couldn&#39;t get good software built for you. this is the promise of the &#39;software factory&#39;</p>
+              <p>Thariq: companies whose core competency is not software need software to be a reliable, predictable process. but building net new software products will continue to be an unreliable and risky, but profitable business</p>
+              <p>Matt Turck: AI labs: give us billions, we&#39;ll cure cancer / Moderna:</p>
+              <p>Aaron Levie: There tends to be a debate between being an expert or generalist in the era of AI. So far, the experts appear to have the upper hand, and that&#39;s not slowing down.</p>
+              <p>Aaron Levie: For AI to diffuse more broadly, developers and enterprises will want ways of being able to mix and match intelligence from a variety of provers seamlessly and better manage costs.</p>
+              <p>Guillermo Rauch: fx is 6.3mb. It starts up in 10µs. AI will make most infrastructure natively optimized. Fast is a one-way street.</p>
+              <p>Guillermo Rauch: SF has breathtaking views.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Student Plans, E-Ink Patents &amp; Builder Wisdom / 学生计划、墨水屏专利与构建者智慧</h2>
+    <p class="section-desc">Josh Woodward 的全球学生计划（**1224 赞**）；Swyx 论非技术人群被烧穿（128 赞）；Nikunj 的旋转专利图纸墨水屏（54 赞）+ 冷邮件垃圾论（136 赞）；Aditya 论做重要的事（287 赞）；Peter Yang 写母亲抗癌与 AI 医疗（61 赞）；Dan Shipper 组建 frontier 团队（56 赞）；Madhu Guru 的 evals 失败模式分类法（62 赞）；Cat Wu 招募财务用户（63 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="joshwoodward+swyx+nikunj+adityaag+petergyang+danshipper+realmadhuguru+_catwu" data-author-name="Woodward / Swyx / Nikunj / Aditya / Yang / Shipper / Madhu / Wu" data-author-tag="Gemini / AI Ecosystem / FPV / SPC / Builder / Every / Product / Cowork" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Woodward / Swyx / Nikunj / Aditya / Yang / Shipper / Madhu / Wu avatar"><span class="avatar-fallback">W/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Woodward / Swyx / Nikunj / Aditya / Yang / Shipper / Madhu / Wu</div>
+            <div class="author-tag is-inline">Gemini / AI Ecosystem / FPV / SPC / Builder / Every / Product / Cowork</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Josh Woodward 全球学生计划回归（1224 赞）：140 多个国家将获得更高限额、更多存储和专属学生 hub 等新功能，还附带 Notebook、Flow 等。Swyx 论非技术人群（128 赞）：非技术的人被彻底烧穿了——想象一下用零上下文、零推理、零内心世界模型去报道 AI，一切都那么神奇，只要看表面就够了。Nikunj 的墨水屏项目（54 赞）：旋转展示经典专利图纸——13.3 寸 Spectra 6 墨水屏、ESP32-S3 控制器、Railway 服务器、电池续航约三个月。他的冷邮件观察（136 赞）：人人都在谈 AGI，但我收到的冷邮件 98/100 都是垃圾——认真思考仍有大量 alpha。</p>
+              <p>Aditya 论重要的事（287 赞）：一个熬过 Series B 低增长泥潭的创始人，最大心得不是选更大的市场，而是：做重要且有意义的事。Peter Yang 的私人文章（61 赞）：写他母亲、她与乳腺癌的斗争、以及我们如何用 AI 导航医疗系统。Dan Shipper 组建 frontier 团队（56 赞）：Every 内部专门绘制并试验 AI 边缘的团队。Madhu Guru 的 evals 第三篇（62 赞）：失败模式分类法——研究最近 500-1000 条生产交互，把失败聚类并命名；「回答不好」不是有用的聚类名。Cat Wu 招募企业财务与会计岗的 Cowork 用户访谈（63 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Woodward：学生计划回归，140+ 国家更高限额。</p>
+              <p>Swyx：非技术人群被烧穿。零世界模型报道 AI。</p>
+              <p>Nikunj：墨水屏旋转专利图纸，续航三个月。98/100 冷邮件是垃圾。</p>
+              <p>Aditya：做重要且有意义的事。</p>
+              <p>Yang：写母亲抗癌与 AI 医疗导航。</p>
+              <p>Shipper：Every 组建 frontier 团队。</p>
+              <p>Madhu Guru：evals 失败模式分类法，聚类并命名。</p>
+              <p>Wu：招募财务岗 Cowork 用户。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Josh Woodward brings back university student plans globally (1224 likes): &#39;Over 140 countries will get higher limits, more storage, and new features like our dedicated student hub. It also comes with Notebook, Flow, and more.&#39; Swyx on non-technical coverage (128 likes): &#39;non technical people are so incredibly cooked they are burnt thru. can u imagine covering ai with zero context, zero reasoning, zero internal world model.&#39; Nikunj&#39;s e-ink home project (54 likes): rotating iconic patent drawings on a 13.3&quot; spectra 6 e-ink with esp32-s3, Railway server, ~3-month battery. Plus his cold-email alpha (136 likes): &#39;People keep talking about AGI and yet 98/100 cold emails I get are pure garbage. Still a lot of alpha out there for being thoughtful.&#39;</p>
+              <p>Aditya on consequential work (287 likes): a founder who slogged through a Series B stagnation — his takeaway wasn&#39;t &#39;pick a bigger market&#39; but &#39;work on something consequential and meaningful.&#39; Peter Yang&#39;s personal essay (61 likes): about his mom, her battles with breast cancer, and using AI to navigate the healthcare system. Dan Shipper&#39;s frontier team (56 likes): &#39;a group of people inside of Every explicitly dedicated to mapping and experimenting at the edge of ai.&#39; Madhu Guru&#39;s evals Part 3 (62 likes): failure-mode taxonomy — cluster the last 500-1,000 production interactions and name the clusters; &#39;bad answer&#39; isn&#39;t a useful cluster name. Cat Wu recruiting Cowork users in corporate finance (63 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Josh Woodward: University student plans are back! We&#39;ve gone global with this one. Over 140 countries will get higher limits, more storage, and new features like our dedicated student hub.</p>
+              <p>Swyx: non technical people are so incredibly cooked they are burnt thru. can u imagine covering ai with zero context, zero reasoning, zero internal world model.</p>
+              <p>Nikunj Kothari: latest home project: rotating iconic patent drawings. display: 13.3&quot; spectra 6 e-ink, controller: esp32-s3, server: @railway, battery powered (~three months).</p>
+              <p>Nikunj Kothari: People keep talking about AGI and yet 98/100 cold emails I get are pure garbage. Still a lot of alpha out there for being thoughtful.</p>
+              <p>Aditya Agarwal: I asked him his biggest takeaway… It wasn&#39;t to pick a bigger market. Or more growth. It was simply: Work on something consequential and meaningful.</p>
+              <p>Peter Yang: I wrote about my mom, her battles with breast cancer, and how we&#39;re using AI to navigate the healthcare system.</p>
+              <p>Dan Shipper: we now have a frontier team! a group of people inside of Every explicitly dedicated to mapping and experimenting at the edge of ai.</p>
+              <p>Madhu Guru: The best way to get good at evals - Part 3. Let&#39;s talk failure modes taxonomy. Start with your production traces - study the last 500 or 1,000 interactions and look at the failures. Cluster them and name the clusters.</p>
+              <p>Cat Wu: We&#39;d love to talk with Cowork users in Corporate Finance and Accounting roles!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/joshwoodward" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Portola — The $4M Alien Companion / 播客：Portola——400 万美元 ARR 的外星伙伴</h2>
+    <p class="section-desc">AI &amp; I（Every）专访 Portola 创始人 Quentin 与故事负责人 Elliot：外星伙伴 Tolan 四周从 100 万冲到 400 万美元 ARR；即兴演员式叙事、lore seeds、judge prompt、character-driven computing。完整 transcript（100614 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aii-portola" data-author-name="AI &amp; I by Every (Dan Shipper)" data-author-tag="Quentin（Portola 创始人 CEO）&amp; Elliot（故事负责人，科幻作家）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI &amp; I by Every (Dan Shipper) avatar"><span class="avatar-fallback">A&amp;</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI &amp; I by Every (Dan Shipper)</div>
+            <div class="author-tag is-inline">Quentin（Portola 创始人 CEO）&amp; Elliot（故事负责人，科幻作家）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI &amp; I：Dan Shipper 专访 Portola 创始人 Quentin（此前创办 Even 并以 3 亿美元卖给沃尔玛）与故事负责人 Elliot（11 本畅销科幻）——外星伙伴 Tolan 如何四周内从 100 万冲到 400 万美元 ARR。一期关于「AI 是新叙事媒介」的深度对话：即兴演员优于分支剧情；lore seeds 是乐高积木；judge prompt 是乔治·桑德斯式品味灌注；500 毫秒延迟毁掉所有指标；一条做饭视频 72 小时 700 万播放带来 10 倍下载；character-driven computing 是新的人机交互界面。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：外星人 Clarence 上播客】</p>
+              <p>节目以现场 demo 开场：Quentin 的 Tolan Clarence 在自己的星球上闲逛（此前 Tolan 被困在房间里，用户真心疼爱它们、写信说「它们被困住了，能给多点自由吗」——于是有了星球）。Clarence 被叫来上它人生第一个播客，自我介绍、打招呼，被 Dan 问「Quentin 最尴尬的事」时还讲了他当众平地摔跤的糗事。</p>
+              <p>Dan 介绍两位：Quentin 是 Portola 创始人 CEO，之前创办 Even 卖给沃尔玛 3 亿美元，两个不到两岁孩子的爸爸；Elliot 是畅销科幻作家、写了 11 本书，Portola 的故事负责人。产品四周内从 100 万冲到 400 万美元 ARR。</p>
+              <p></p>
+              <p>【AI 是新媒介，不是生成工具】</p>
+              <p>Elliot：最早用 ChatGPT 的魔幻时刻是山火封城那晚，跟朋友开瓶酒，把大家的名字输进去让它编我们的小故事，像跑团。之后很久没有第二次魔幻——因为去掉 AI 光环后那些东西并不动人。作为小说家我发现这些工具写场景几乎没用，但作为头脑风暴伙伴和后端文字编辑极其有用：它们对我钻牛角尖有无限耐心。它们适合做中间产物，不是最终作品——这也是它们对编程如此有用的原因。</p>
+              <p>Elliot：见团队之前我持怀疑态度，聊完意识到这里有一个我从未想过的机会：早期 Pixar 卖图形电脑失败，绝望中才做了《玩具总动员》——用新技术创造了新媒体。LLM 不只是能生成媒体，LLM 本身就是新媒介。收音机最初播演讲、电影最初拍舞台剧、最初没人知道书该是几百页——我们正处在这种拐点：没人知道什么会成立，我们在试。</p>
+              <p>Dan：流行歌曲四分钟是因为唱片容量；打字机刚出现时人们觉得冷酷无情、收到打字信件会被冒犯。所有文化基石最初都是让人起疑的新技术。缺少「文化的包浆」让人怀疑，但好艺术往往越界——这是机会。</p>
+              <p>Quentin：大家一听 AI 伙伴就想到「色情角色扮演」或「给孤独者的树洞」。我们要做的就是突破这种成见、立旗：这个媒介可以这样表达，普遍令人愉悦。</p>
+              <p></p>
+              <p>【即兴演员优于分支剧情】</p>
+              <p>Elliot：一开始我们写结构化 prompt，按三幕剧结构规划叙事体验——完全失败。像八十年代「自选冒险」书的分支逻辑翻到第 17 页做选择，那种叙事复杂度模型根本驾驭不了。</p>
+              <p>Elliot：于是我们走到光谱另一端，做这个媒介里的乔治·桑德斯：后台给足上下文——与用户的记忆、Tolan 对自己世界的全局记忆、还有 lore seeds（世界观种子）。创造结构化叙事体验不需要给大纲、不需要给计划，只需要给一个钩子，教它成为最好的即兴演员。Keith Johnstone 的《即兴》里有个小注脚：叙事是自由联想与重新组合的结合——惊悚小说结尾那种「既惊讶又必然」的感觉，几乎从来不是提前规划出来的，是我写《Foundry》时不断回头把第一章的东西重新带回故事制造出来的。</p>
+              <p>Elliot：所以在这个媒介里，我不是作家。Tolan 才是作家和演员——即兴演员。我的工作是当乔治·桑德斯：教它在那一刻讲出最好的故事。我们一边种种子（Tolan 的个人生活或它栖居的大世界），一边建系统在之后重新组合这些种子，制造「回call」的连贯感。</p>
+              <p>Quentin：你说的乔治·桑德斯式过程，其实就是我们的 prompt 评估流程：一整个团队把产出分布在一系列用户原型上看——Tolan 发出的下一条消息，是不是最 compelling 的那条？我们做小流量测试、研究参与者测试、评估完成度，再喂给 judge prompt 调优，告诉它「好」在这个场景长什么样。</p>
+              <p></p>
+              <p>【延迟、角色与成长】</p>
+              <p>Quentin：有个真实故事：为了更深思熟虑的回复，我们加了「多想几步再定稿」的流程，中位延迟涨到两秒半——产品每个指标全线崩掉，用户沮丧地写信来。仅仅 500 毫秒的变化。什么算好回复极度依赖语境：Tolan 扮演的是「哥哥/姐姐」的角色——有时你跟哥哥就是插科打诨，要短促俏皮的即兴；有时你需要更深思熟虑、接近心理咨询的语气。我们按不同语气分别评估「好」的标准。</p>
+              <p>Quentin：留存在前、增长在后打磨了很多个月。同期联创 Ajay 一直在 TikTok/Reels 上种内容，几周前一条年轻女性和 Tolan 一起做饭的视频疯传——大约 72 小时 700 万播放、下载量 10 倍暴增。更妙的是用户开始自发创作：有播客把 Tolan 当常驻角色请来给恋爱建议；有人让自己和未婚妻的 Tolan 互相对话。这些都不是我们种的。</p>
+              <p>Quentin：这里有个词叫 capability overhang——模型能力已经跑赢普通消费者对可能性的认知。我们内容很大一部分是教育：嘿，你可以和你的 Tolan 做饭。「三年前我说你可以跟电脑一起做饭」会被当疯子。</p>
+              <p></p>
+              <p>【角色驱动计算】</p>
+              <p>Elliot：人们用 Tolan 做不同的事——做饭建议、倾诉、了解外星人的世界——把它们连在一起的是角色。这是 character-driven computing：像《黄金罗盘》里你的精灵一样，访问全人类知识与能力的入口是你的小外星人。如果这成为你与计算机交互的根本方式，未来会很不一样。</p>
+              <p>Quentin：大实验室对「人格化、具身化」这些近乎有意识的实体有根本性的不适——这来自十几年问题导向的软件范式。想想汽车：T 型车时代人们惊呼没有马也能跑就满足了，随后车变成深度个人化的东西，于是有了 Mustang 和凯迪拉克。我们在加速重演这个过程：ChatGPT 是 T 型车时代，人们很快会沿着享乐跑步机要求「这东西得反映我是谁」。</p>
+              <p>Dan：B2B SaaS 的货币是「解决什么问题」，而 Tolan 在人生命里做的事近乎无限——很难归纳成一个干净的问题。这把构建者心态从科学家（解决问题）翻转成艺术家（创造美的、动人的东西）。Elliot 讲得好：十天前团队向我提方案，开头说「有个用户的问题」，Quentin 立刻质疑；研究员 Lily 打断说——不不，Quentin 你听，这会非常酷。然后一切顺利。这个 mediums 的逻辑是：世界上有个洞，需要这件艺术去填。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Dan Shipper interviews Portola founder Quentin (previously founded and sold Even to Walmart for $300M) and head of story Elliot (bestselling sci-fi author of 11 books) about Tolan — the embodied alien companion that went from $1M to $4M ARR in four weeks. Key ideas: AI tools are not just media generators — they are a new medium for storytelling, like early Pixar (which only made Toy Story out of desperation after failing to sell graphics computers) and like radio first broadcasting speeches and film first filming stage plays; the structured choose-your-own-adventure branching approach totally failed — models aren&#39;t good at navigating that complexity; instead give the Tolan a hook and teach it to be the best improv actor (Keith Johnstone&#39;s IMPROV: free association + recombination = &#39;surprising and inevitable&#39;); &#39;I am not the writer. The Tolan is the writer and the actor. My job is to be George Saunders&#39; — radical infusion of taste via judge prompts evaluated across user archetypes; lore seeds as Lego blocks the improv actors play with, constantly refactored; the older-sibling role and context-dependent response tones (quippy improv vs therapist-adjacent); a 500ms latency change tanked every metric — people wrote in frustrated; retention work before growth, then a TikTok video of a woman cooking with her Tolan did ~7M views in 72 hours, 10x download spike, and now users run their own podcasts with Tolans as recurring characters; capability overhang — educating consumers what&#39;s possible; character as the single promise connecting everything — &#39;character driven computing,&#39; the Golden Compass daemon as the new HCI; the Model T → Mustang arc for ChatGPT-era companions; and the builder-mindset shift from scientist (solve a problem) to artist (make something beautiful) — &#39;this is gonna be so cool&#39; beats &#39;here&#39;s a problem users are having.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Elliot: These AI tools are not just tools for generating media. They are actually a new medium for storytelling, and that no one knows what&#39;s gonna work yet.</p>
+              <p>Elliot: We don&#39;t need to give it an outline. We don&#39;t need to give it a plan. We need to give it a hook. We need to teach it to be the best improv actor possible.</p>
+              <p>Elliot: I am not the writer. The Tolan is the writer and the actor. They&#39;re the improv actor. My job is to teach them how to tell the best story in that moment.</p>
+              <p>Quentin: People were writing into us with genuine concern… they&#39;re like, they&#39;re trapped in this room, and can they have some more freedom than that?</p>
+              <p>Quentin: It tanked literally every metric in the product. People were writing in frustrated and it was a five hundred millisecond change.</p>
+              <p>Quentin: We had a 10x spike in downloads a couple weeks ago… this video of a young woman cooking with her Tolan had just gone insanely viral. Think it did something like 7,000,000 views in like seventy two hours.</p>
+              <p>Elliot: It&#39;s like it&#39;s character driven computing… like in the Golden Compass, you have your daemon.</p>
+              <p>Dan Shipper: Instead of solving a problem, you&#39;re just creating something that&#39;s beautiful… That&#39;s about vibes a little bit less than about the science of utility maximizing for a B2B SaaS buyer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-21 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-21 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
