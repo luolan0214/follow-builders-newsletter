@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-22" data-issue-number="96" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 96 期｜2026-08-22｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="私有化部署双雄会：Boris Cherny 宣布 Anthropic 将在秋季推出企业自有基础设施版（**1671 赞**）——Mythos 级模型需要额外安全措施，客户拥有并控制自己的数据，Anthropic 分文不留；Thariq 同步宣布 Fable 企业安全版（543 赞）——约 100 家公司共同开发。Sottiaux 调查 Codex 限额异常：发现 sub2api 把订阅转 API 流量再共享（**2797 赞**）+ GPT-Image-2 透明图生成（2503 赞）+ ChatGPT Site 协作共创（1605 赞）。Rauchg 宣布「我们在造 agent 的 AWS」（387 赞）+ fx 0.0.5 两张软盘装下（512 赞）+ 欢迎 Bun 加入 Vercel（463 赞）。Amjad 讲述 PG 让 Sam 招募 Replit 的往事（938 赞）。Zara 的 Claude 金句（295 赞）：「动机会跟着行动而来，而非走在行动之前」。Peter Yang 的 manager agent 唠叨法（484 赞）。播客：No Priors 专访 Max Hodak——Science 公司让盲人重见光明（37894 字符 transcript 全文翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">私有化部署双雄会：Boris Cherny 宣布 Anthropic 将在秋季推出企业自有基础设施版（**1671 赞**）——Mythos 级模型需要额外安全措施，客户拥有并控制自己的数据，Anthropic 分文不留；Thariq 同步宣布 Fable 企业安全版（543 赞）——约 100 家公司共同开发。Sottiaux 调查 Codex 限额异常：发现 sub2api 把订阅转 API 流量再共享（**2797 赞**）+ GPT-Image-2 透明图生成（2503 赞）+ ChatGPT Site 协作共创（1605 赞）。Rauchg 宣布「我们在造 agent 的 AWS」（387 赞）+ fx 0.0.5 两张软盘装下（512 赞）+ 欢迎 Bun 加入 Vercel（463 赞）。Amjad 讲述 PG 让 Sam 招募 Replit 的往事（938 赞）。Zara 的 Claude 金句（295 赞）：「动机会跟着行动而来，而非走在行动之前」。Peter Yang 的 manager agent 唠叨法（484 赞）。播客：No Priors 专访 Max Hodak——Science 公司让盲人重见光明（37894 字符 transcript 全文翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">On-Prem Fable &amp; Anthropic, Codex Limits &amp; Sub2api / 私有化 Fable 与 Anthropic、Codex 限额与 sub2api</h2>
+    <p class="section-desc">Boris Cherny 的 Anthropic 秋季企业版预告（**1671 赞**）；Thariq 的 Fable 企业安全版（543 赞）；Sottiaux 的 sub2api 调查（**2797 赞**）+ GPT-Image-2 透明图（2503 赞）+ ChatGPT Site（1605 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="bcherny+trq212+thsottiaux" data-author-name="Cherny / Thariq / Sottiaux" data-author-tag="Claude Code / Anthropic / OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Cherny / Thariq / Sottiaux avatar"><span class="avatar-fallback">C/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Cherny / Thariq / Sottiaux</div>
+            <div class="author-tag is-inline">Claude Code / Anthropic / OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny 预告 Anthropic 企业私有化部署（1671 赞）：我们和客户做了很久了。Mythos 级模型需要额外的安全措施，企业也需要满足自己的隐私与合规规则——客户拥有并控制自己的数据，Anthropic 一分不留。今秋推出。Thariq 同步宣布 Fable 企业安全版（543 赞）：运行在你自己的基础设施上，数据在哪、谁能访问都由你控制；与约 100 家公司共同开发了一阵子，秋季有望更广泛推出。</p>
+              <p>Sottiaux 三连：sub2api 调查（2797 赞）——我们调查了几条关于 Codex 用量限额不同的消息。这种事我们不会在不与社区沟通、保持透明的情况下擅改。但确实发现：受影响用户中很多在用 sub2api——把订阅转成 API 流量再转发或共享给多用户，这不是我们支持的方式。GPT-Image-2 透明图（2503 赞）：现在可以在 ChatGPT 和 API 里生成透明背景图片了，附赠一棵仙人掌贴纸要贴笔记本。ChatGPT Site 协作（1605 赞）：创建站点、分享链接、一起创造——我和别人一起搭小游戏和小网站，太好玩了。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cherny：Mythos 级模型企业自有部署今秋推出。Anthropic 分文不留。</p>
+              <p>Thariq：Fable 企业安全版跑在你自己的基础设施上，约 100 家公司共研。</p>
+              <p>Sottiaux：sub2api 把订阅转 API 再共享不受支持。GPT-Image-2 透明图。ChatGPT Site 一起创造。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny previews Anthropic&#39;s enterprise on-prem (1671 likes): &#39;We&#39;ve been working on this with customers for a while. Mythos-class models require additional safety measures and enterprises need to meet their own privacy and compliance rules. Customers can own and control their own data and Anthropic retains none. It&#39;s coming this fall.&#39; Thariq announces Fable safeguards for enterprises (543 likes): &#39;that work on your infrastructure so you have control over where your data lives &amp; who has access to it. We&#39;ve been developing it alongside ~100 companies for a bit and hoping to roll it out more broadly in the fall.&#39;</p>
+              <p>Sottiaux&#39;s triple: the sub2api investigation (2797 likes): &#39;We&#39;ve investigated a few messages about codex usage limits being different. What we did see is that when talking to affected users many were using sub2api. Converting a subscription into api traffic to then re-serve or share across many users is not something we support.&#39; GPT-Image-2 transparency (2503 likes): &#39;Yay, you can now make transparent images in ChatGPT and through the API with GPT-Image-2. Here is a cactus cactus I am about to print and put on my laptop.&#39; And ChatGPT Sites (1605 likes): &#39;Create a ChatGPT Site, share it and create something together. I&#39;ve been building little games and sites with others and it is so much fun.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: We&#39;ve been working on this with customers for a while. Mythos-class models require additional safety measures and enterprises need to meet their own privacy and compliance rules. Customers can own and control their own data and Anthropic retains none. It&#39;s coming this fall.</p>
+              <p>Thariq: we&#39;re launching new Fable safeguards for enterprises that work on your infrastructure so you have control over where your data lives &amp; who has access to it. We&#39;ve been developing it alongside ~100 companies for a bit and hoping to roll it out more broadly in the fall.</p>
+              <p>Thibault Sottiaux: We&#39;ve investigated a few messages about codex usage limits being different. What we did see is that when talking to affected users many were using sub2api.</p>
+              <p>Thibault Sottiaux: Yay, you can now make transparent images in ChatGPT and through the API with GPT-Image-2.</p>
+              <p>Thibault Sottiaux: Create a ChatGPT Site, share it and create something together. I&#39;ve been building little games and sites with others and it is so much fun.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">AWS for Agents, Floppy CLI &amp; PG&#39;s Ask / Agent 的 AWS、软盘 CLI 与 PG 的嘱托</h2>
+    <p class="section-desc">Rauchg 的 agent AWS（387 赞）+ fx 0.0.5（512 赞）+ 迎接 Bun（463 赞）；Amjad 的 PG 往事（938 赞）+ Free Mode 速度（145/146 赞）；Levie 论后训练降本（57 赞）；Madhu Guru 的 evals 第四篇（137 赞）；Nikunj 论野心数学（112 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+amasad+levie+realmadhuguru+nikunj" data-author-name="Rauchg / Amjad / Levie / Madhu / Nikunj" data-author-tag="Vercel CEO / Replit CEO / Box CEO / Product / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Amjad / Levie / Madhu / Nikunj avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Amjad / Levie / Madhu / Nikunj</div>
+            <div class="author-tag is-inline">Vercel CEO / Replit CEO / Box CEO / Product / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 三连：我们在造 agent 的 AWS（387 赞）；fx 0.0.5 更小了（512 赞）——xz 压缩后两张软盘就装得下💾💾，明天带着呼声最高的功能发布；欢迎 Bun 加入 Vercel（463 赞）——Bun 对简单、快速、开放的追求与 Vercel 的世界观完美契合，恭喜 Jarred 发布。Amjad 的往事（938 赞）：与 OpenAI 的合作早该发生了——Replit 进 YC 之前，PG 就让 Sam 来招募我们；附 Sam 亲述我们初遇的故事。加上 Free Mode 速度观察（145/146 赞）：新 Free Mode 最被低估的一面是它有多快——让编码重新变回交互式的！</p>
+              <p>Levie 论后训练（57 赞）：对应用型 AI 用例做后训练来降本提准，将是贴近企业底层工作流的公司越来越多采取的路径——当你足够理解一个领域、在一组任务上有足够量。Madhu Guru 的 evals 第四篇（137 赞）：企业做不好 AI 的原因是缺 eval 策略——需要阶梯式策略，爬山式长 eval 推生产前沿，加上成本/真实性光谱上的多种 eval。Nikunj 的野心数学（112 赞）：Anthropic 成为史上最快从零到万亿估值的公司，破了所有收入纪录——为什么野心对投资人如此重要，让我算给你看。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：造 agent 的 AWS。fx 两张软盘装下。欢迎 Bun 加入 Vercel。</p>
+              <p>Amjad：PG 让 Sam 招募 Replit 的往事。Free Mode 让编码重新交互。</p>
+              <p>Levie：贴近工作流的公司会用后训练降本提准。</p>
+              <p>Madhu Guru：阶梯式 eval 策略。</p>
+              <p>Nikunj：Anthropic 最快到万亿。野心的数学。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s triple: &#39;We&#39;re building AWS for agents&#39; (387 likes); fx 0.0.5 gets even smaller (512 likes): &#39;fits in 2 floppy disks 💾💾 (xz-compressed). shipping tomorrow with our most-asked feature!&#39;; and welcoming Bun to Vercel (463 likes): &#39;Bun&#39;s pursuit of simple, fast &amp; open is the perfect match for Vercel and how we think about the world. Congrats @jarredsumner on shipping!&#39; Amjad&#39;s origin story (938 likes): &#39;This partnership with @OpenAI is long overdue. Before Replit was in YC, PG asked Sam to recruit us. Here&#39;s Sam telling the story of how we first met.&#39; Plus Free Mode speed notes (145/146 likes): &#39;One of the more underrated aspects of the new Free Mode is how fast it is. Making coding interactive again!&#39;</p>
+              <p>Levie on post-training for applied AI (57 likes): companies closer to the underlying enterprise workflow will increasingly use post-training to bring down costs and improve accuracy — once you understand a domain well enough and have volume on a set of tasks. Madhu Guru&#39;s evals Part 4 (137 likes): a laddered eval strategy — hill-climb long evals pushing the production frontier plus multiple evals across the cost/realism spectrum. Nikunj&#39;s ambition math (112 likes): &#39;Anthropic became the fastest company to go from zero to a trillion dollars in valuation, beating every revenue record&#39; — why ambition matters to investors.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: We&#39;re building AWS for agents.</p>
+              <p>Guillermo Rauch: fx 0.0.5 gets even smaller. Fits in 2 floppy disks (xz-compressed). Shipping tomorrow with our most-asked feature!</p>
+              <p>Guillermo Rauch: Bun&#39;s pursuit of simple, fast &amp; open is the perfect match for Vercel and how we think about the world. Congrats @jarredsumner on shipping!</p>
+              <p>Amjad Masad: This partnership with @OpenAI is long overdue. Before Replit was in YC, PG asked Sam to recruit us. Here&#39;s Sam telling the story of how we first met.</p>
+              <p>Amjad Masad: One of the more underrated aspects of the new Free Mode is how fast it is. Making coding interactive again!</p>
+              <p>Aaron Levie: This will increasingly be an approach that companies that can get closer to the underlying workflow in an enterprise will take.</p>
+              <p>Madhu Guru: How to build great evals - part 4. You need a laddered eval strategy, for your unique use cases, with multiple evals on the cost/realism spectrum.</p>
+              <p>Nikunj Kothari: Anthropic became the fastest company to go from zero to a trillion dollars in valuation, beating every revenue record you can think of.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Motivation Boom, Manager Agent &amp; YC Memes / 动机金句、Manager Agent 与 YC 梗</h2>
+    <p class="section-desc">Zara 的 Claude 动机金句（295 赞）；Peter Yang 的 manager agent 唠叨法（484 赞）+ YouTube 10 万订阅（265 赞）；Garry Tan 的 YC 梗三连（210/400/537 赞）；Swyx 的 NVIDIA 60 亿播客（60 赞）+ Matt Pocock 的 /wayfinder（87 赞）；Aditya 的 SPC 清晰度（44 赞）+ 减法创始人（33 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="zarazhangrui+petergyang+garrytan+swyx+adityaag" data-author-name="Zara / Yang / Tan / Swyx / Aditya" data-author-tag="Builder / Builder / YC / AI Ecosystem / SPC" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara / Yang / Tan / Swyx / Aditya avatar"><span class="avatar-fallback">Z/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara / Yang / Tan / Swyx / Aditya</div>
+            <div class="author-tag is-inline">Builder / Builder / YC / AI Ecosystem / SPC</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 的 Claude 金句（295 赞）：前几天我没什么干劲，跟 Claude 聊了聊。Claude 说了一句彻底改变我对动机认知的话——「动机会跟着行动而来，而非走在行动之前。」Boom。Peter Yang 的 manager agent 唠叨法（484 赞）：我的直觉是很多 AI 产出只要建一个循环就能改进——让 manager agent 打压 worker agent：「你确定这是你的最佳水平？」「我觉得你能做得更好，重来」「仔细看看，给我 11/10 的输出」。外加 YouTube 破 10 万订阅（265 赞），他正在回温哥华陪母亲。</p>
+              <p>Garry Tan 的 YC 梗三连（210/400/537 赞）：YC 是 AI 研究员的 YC；YC 是消费硬件的 YC；以及一个「你不该吃自家狗粮吗」的有趣违例。Swyx 的 NVIDIA 播客（60 赞）：骄傲地和 Vibhu 录了最新一期——为什么 NVIDIA 花 60 亿买下那家正在产出击败 Thinky 的模型的神奇模型工厂（真不夸张，看数字）。以及 Matt Pocock 的 /wayfinder（87 赞）：当你还在战争迷雾里航行、还不知道自己不知道什么的时候，用它。Aditya 论 SPC 清晰度（44 赞）：我们在 SPC 最看重的特质之一是清晰——诚实的能力、穿透战争迷雾、在浑水里画出航道。以及「最好的创始人是减法主义者」（33 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：动机跟着行动而来，而非走在行动之前。</p>
+              <p>Yang：manager agent 打压 worker agent 能大幅改进输出。YouTube 破 10 万。</p>
+              <p>Tan：YC 是 AI 研究员/消费硬件的 YC。</p>
+              <p>Swyx：NVIDIA 60 亿买模型工厂。/wayfinder 给迷雾中的人。</p>
+              <p>Aditya：SPC 最看重清晰。最好的创始人是减法主义者。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara&#39;s Claude moment (295 likes): &#39;The other day I was feeling unmotivated and talked to Claude about it. Claude said something that completely changed how I see motivation: Motivation follows action more than it precedes it. Boom.&#39; Peter Yang&#39;s manager-agent trick (484 likes): &#39;My gut is that a lot of AI output can be improved just by building a loop where a manager agent negs the other worker agent with prompts like: Are you sure this is the best you can do? I think you can do better, try again. Take a closer look, give me 11/10 output.&#39; Plus his 100K YouTube subs (265 likes) while heading back to Vancouver to be with his mom.</p>
+              <p>Garry Tan&#39;s YC meme trilogy (210/400/537 likes): &#39;YC is the YC for AI Researchers&#39;, &#39;YC is the YC for consumer hardware&#39;, and an &#39;Interesting violation of you should dogfood your own product.&#39; Swyx on the NVIDIA episode (60 likes): &#39;proud that Vibhu and I did the most recent pod on why NVIDIA just paid him $6B to buy the incredible model factory that is pumping out Thinky-beating models (actually not exaggeration, look at the numbers)&#39; — plus Matt Pocock&#39;s /wayfinder (87 likes): &#39;when you are just navigating the fog of war and don&#39;t yet know what you don&#39;t know.&#39; Aditya on SPC clarity (44 likes): &#39;One of the attributes we look for the most @spc is Clarity. The ability to be honest. To cut through the fog of war.&#39; Plus &#39;The best founders are reductionists&#39; (33 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang: The other day I was feeling unmotivated and talked to Claude about it. Claude said something that completely changed how I see motivation: &#39;Motivation follows action more than it precedes it.&#39; Boom.</p>
+              <p>Peter Yang: My gut is that a lot of AI output can be improved just by building a loop where a manager agent negs the other worker agent with prompts like: &#39;Are you sure this is the best you can do?&#39; &#39;I think you can do better, try again&#39; &#39;Take a closer look, give me 11/10 output&#39;.</p>
+              <p>Garry Tan: YC is the YC for AI Researchers. / YC is the YC for consumer hardware. / Interesting violation of &#39;you should dogfood your own product&#39;.</p>
+              <p>Swyx: proud that @vibhuuuus and i did the most recent pod with @eisokant on why NVIDIA just paid him $6B to buy the incredible model factory that is pumping out Thinky-beating models.</p>
+              <p>Swyx: /wayfinder is @mattpocockuk&#39;s /grill-me for /grill-me, when you are just navigating the fog of war and don&#39;t yet know what you don&#39;t know.</p>
+              <p>Aditya Agarwal: One of the attributes that we look for the most @spc is Clarity. The ability to be honest. To cut through the fog of war. To chart a path through murky waters.</p>
+              <p>Aditya Agarwal: The best founders are reductionists.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Max Hodak — Restoring Sight, Substrate Independence / 播客：Max Hodak——重见光明与基座独立</h2>
+    <p class="section-desc">No Priors 专访 Science 公司创始人 CEO Max Hodak（前 Neuralink）：Prima 视网膜假体获欧洲上市批准、大脑是计算机、柏拉图表征假设、基座独立与太空适应。完整 transcript（37894 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:np-hodak" data-author-name="No Priors" data-author-tag="Max Hodak（Science 创始人 CEO，前 Neuralink）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">Max Hodak（Science 创始人 CEO，前 Neuralink）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors：专访 Science 公司创始人 CEO Max Hodak（前 Neuralink）——Prima 视网膜假体刚获欧洲上市批准，让因黄斑变性等致盲的患者重见光明。一期把「大脑是计算机」讲得淋漓尽致的对话：头骨就是缸中之脑的缸；视网膜假体是眼睛的人工耳蜗；药物研发是翻牌赌命而工程是确定性迭代；AI 模型内部与神经科学数据惊人相似（柏拉图表征假设）；如果最终死于胰腺我会相当失望；10 bit/秒的认知瓶颈；以及基座独立与适应太空真空的终极愿景。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：大脑就是计算机】</p>
+              <p>Hodak：大脑非常字面、非常清楚、非常明白地就是一台计算机。我们谈论「缸中之脑」——头骨就是那个缸。大脑通过少量导线与外界相连：颅神经和脊神经，这些小电缆承载着你与世界的一切交互。如果你能把视觉、听觉、平衡、运动信号的进出打通，这本身就是目的本身，就是核心对象。</p>
+              <p></p>
+              <p>【Prima：眼睛的人工耳蜗】</p>
+              <p>Hodak：根本上我们是一家医疗器械公司。小写 science 的使命是用对宇宙的差异化理解改善人类处境，大写 Science 就是我们在做的事——具体说是用「如何与大脑打交道」的理解，拿到医学里罕见的巨大效应量。我们的主打产品是视网膜假体：可以把它想成眼睛的人工耳蜗。人工耳蜗是医学史上影响最大的发明之一——新生儿第一次开机那个视频，震撼。</p>
+              <p>Hodak：Prima 是一枚植入视网膜后方的小芯片，面向因感光细胞死亡而致盲的患者——黄斑变性等。患者佩戴带激光投影仪的眼镜，把图像投到植入体上，绕过死去的视杆视锥细胞直接刺激视网膜，把视觉信号送回大脑。为什么选视网膜而不是丘脑或 V1？有视神经就该待在视网膜里——科学技术原因都指向这里。我们早期探索了所有变体：自研基因疗法（预计明年进人体）、电刺激调查、超声，最后收购了当时拥有全球最先进电刺激视网膜技术的法国公司 Pyxium——那笔交易至今超值。</p>
+              <p>Hodak：7 月我们拿到欧洲上市批准，几周内开始首批销售。临床试验里，患者在做数独、填字游戏、读书——以前从来没有人能以这种方式在盲人患者的「心眼」里恢复形视觉。现在的视野还小得像透过吸管看，只有黑白；我们要加灰度深度，红绿已见路径，蓝更难。但有一条清晰的工程路径让产品越来越好。</p>
+              <p></p>
+              <p>【登月计划成功了】</p>
+              <p>Hodak：大家把 BCI 当成十年后才可能成的登月项目。可人们忘了登月计划成功了——我们在月球上留了鞋印。硅谷把 moonshot 当成「赔率极长、多半不成、所以烧投资人的钱也无所谓」的代名词，但历史上登月计划的成功率比人们以为的高。最重要的是这里有真生意，欧洲批准就是开始。</p>
+              <p>Hodak：为什么这比制药强？人类花了海量时间金钱找恢复视觉、恢复听觉、治帕金森、让瘫痪者重新行动的药——分子层面的理解太难了，说实话人类不擅长。而大脑是计算机：人工耳蜗开机、深脑刺激器开机、四肢瘫痪者植入运动皮层一小时后打游戏——药物里你看不到这种事。药物研发十年、临床试验翻一张牌，答案可能是不，然后大家回家。而这里我们对怎么变好有清晰的判断。</p>
+              <p></p>
+              <p>【大脑是计算机（会惹怒互联网）】</p>
+              <p>Hodak：想让互联网上火，就跟他们说大脑是计算机。我说的不是比喻——我字面地、清楚地把大脑当计算机。我还把整个宇宙看作计算机：用特定方式排列物质然后撒手按下开始，让它随时间展开解决计算问题。晶体管没什么特别的，图灵机只是抽象理想。这个观点曾相当异端，它把 BCI 的外延从运动解码扩展到大量医学领域。我们更多是一家科技公司而非传统生物科技——主要从科技投资人那里融资，A 轮我主动找的生技投资人只有 Bob Nelson 一位。</p>
+              <p></p>
+              <p>【BCI 光谱与大脑边界】</p>
+              <p>Hodak：BCI 是个像制药一样的类目——你对 VC 说「我们有个 BCI 押注」，就像说「我们押了药物」一样粗糙。光谱一端是无声语音设备（手部的替代品）：手很好用，两只手都在，你不太需要想「不用打开 Uber 应用直接叫车」——而且你多半希望跟 Uber 应用毫无歧义地沟通，不想开会时它觉得你在想 Uber 就自己叫了两辆。但如果拿到视觉、听觉、平衡和每秒千比特的运动控制，你已经半只脚踏进黑客帝国——这把我们带进对医学的真正迷幻的重新诠释，那才是我们在做的。</p>
+              <p>Hodak：某处有一条界线，从「与一个东西通信」跨越到「重画你大脑的边界」。你两个半脑作为一个整合绑定之物使用的方式，与你跟另一个人说话的方式不同——不只是相关性：一切沟通都是在制造大脑间的相关，但半脑整合是新增了结构性能力。找到那个跃迁点是我们最着迷的研究方向。什么是「你」是核心问题：如果我无创扫描你的大脑做一份软件复制体，你还能跟它说话，然后说「我去临终关怀了，这东西继续做我的风投工作」——这会让你对死于癌症感觉好些吗？全身麻醉产生的那种断裂感为什么不同？这些都得解释。</p>
+              <p></p>
+              <p>【柏拉图表征假设】</p>
+              <p>Hodak：AI 模型的进展让 BCI 领域的投资人和工程师激增，因为表征确实是共享的——这叫柏拉图表征假设，社区里有争议，但在我看来明显有真实的东西在发生。观察大模型内部，那些数学对象与神经科学里看到的非常相似：AI 模型表征概念的方式与大脑表征概念的部分呈现非常相似的几何。我们不只是说说——我们在 Science 拿动物脑神经记录与 AI 模型内部表征做对齐，这是可操作的。这让我确信 AI 在正确的轨道上，不是噱头也没撞墙：宇宙有某种事实，让这些学习中的系统抓住了真实的底层数据流形。感觉像物理定律：给物质施加足够算力，你就得到看起来像智能的东西。最讽刺的是，今天做神经科学最肥沃的方式大概就是做 AI——我在 OpenAI、Anthropic 有神经科学朋友，我们开玩笑说「你离开神经科学了」——不不不，在模型上做神经科学容易多了。</p>
+              <p></p>
+              <p>【生意、定价与 TAM】</p>
+              <p>Hodak：能永久做下去、能盈利是最高优先级。给盲人恢复视力是相当好的生意——AMD 到 80 岁两人中有一人有早期症状、85 岁十分之一确诊。定价还没定死：十年前 Second Sight 的视网膜假体没拿到形视觉、只有光斑，每位患者收约 15 万美元；基因疗法只覆盖一个窄适应症 5% 的患者、只能改善 0.1 行视力，每只眼报销近 50 万美元。当前版 Prima 的 TAM 是美欧几十万患者；下一版已进动物实验、希望明年进人体，会扩到数百万。</p>
+              <p></p>
+              <p>【胰腺、基座独立与群星】</p>
+              <p>Hodak：构成「你」的器官里唯一原则上无法移植的是大脑。心脏、胰腺、肝、肺在我看来都是配角——它们的存在是为了让大脑的活动保持有趣。如果我们终将被生物谋杀，我会相当失望自己死于胰腺。包围我们的这套外星纳米技术我们依赖至深却理解甚少——与其解决它，不如用人类更先进的工具箱达到同样的根本目标。两大死因——心血管疾病和脑转移癌——我认为都能通过这类工作真正攻克。</p>
+              <p>Hodak：说到「戴个帽子用独白问 AI」：我认为说话和写作就是思考——那种「脑中已有成品只待提取」的感觉是误导，真坐下来写才发现并不成立。有著名的 10 bit/秒认知瓶颈：让人坐直升机飞越曼哈顿再画出来，一两个小时内处理速度就在 10 bit/秒上下，多条独立证据都指向这个深度演化的瓶颈。所以那是另一种产品，不是我们要做的。</p>
+              <p>Hodak：如果二十年年后我们成功了，人类处境的改变是：我们一直生活在人类条件固有的那种脆弱与风险感之下——那种 jeopardy 会消退。我们将能升级和更换自己的部件。神经退行还很难，需要真投资；但如果认真探索宇宙、走向群星，我们终究要让自己适应那种环境——我们不会到处exporting地球。这些身体很棒，但它们是为这颗星球设计的。适应硬真空太空，长期看正是我们要做的。说到底，那是同一个项目：可更换的部件，与基座独立。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors interviews Max Hodak, founder/CEO of Science (formerly of Neuralink), on Prima — the retinal prosthesis that just got European marketing approval and helps blind patients see again. Key threads: the brain very literally is a computer — the skull IS the brain-in-a-vat, connected through a small number of cables (cranial/spinal nerves); if you can get visual, auditory, balance, and motor signals in and out of the brain, that is an end in itself; the cochlear-implant-for-the-eye framing; why restoring vision beats drug discovery — &#39;you can do drug discovery for a decade, run a clinical trial, turn over a card, and the answer might be no&#39;; the Prima chip under the retina with laser-projector glasses bypassing dead rods/cones; patients doing sudoku, crossword puzzles, reading books; the Pyxium acquisition nobody else saw value in; &#39;people forget that the moonshot worked — we left boot prints on the moon&#39;; the platonic representation hypothesis — AI model internals look like neuroscience data, alignments between animal recordings and model representations; &#39;it feels like a law of physics: apply enough compute to matter and you get something that looks like intelligence&#39;; the easiest way to do neuroscience today is ironically working on AI; BCI as a category like pharma (not one bet); silent-speech devices as hand substitutes — if you get vision, hearing, balance and a kilobit/sec of motor control, you&#39;re halfway to the Matrix; the border-redrawing question — communicating with a thing vs. integrating it as brain tissue; scan-copy thought experiments and why general anesthesia feels different; the brain as the only untransplantable organ — &#39;I&#39;m going to be ultimately fairly disappointed if I&#39;m murdered by my pancreas&#39;; two leading causes of death (cardiovascular, brain-metastasized cancer) both attackable via this work; the 10-bits-per-second cognitive bottleneck — &#39;talking or writing IS thinking&#39;; TAM: hundreds of thousands of patients now, millions with the next version in humans next year; $150K-per-patient (Second Sight) and ~$500K-per-eye (gene therapy) pricing precedents; and the long game — substrate independence, upgrading parts, fading the sense of jeopardy, and adapting ourselves to hard vacuum for the stars.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Max Hodak: The brain very literally, very clearly, plainly is a computer… We talk about being a brain in a vat. That&#39;s what the skull is.</p>
+              <p>Max Hodak: If you can get the visual signal, auditory signal, balance, motor, in and out of the brain, that is an end in itself. That is the central object.</p>
+              <p>Max Hodak: You can do drug discovery for a decade or run a clinical trial. You&#39;re going to turn over a card. The answer might be no.</p>
+              <p>Max Hodak: People forget that the moonshot worked. Like, we left boot prints on the moon.</p>
+              <p>Max Hodak: When you look inside these big AI models, the mathematical objects that you see look a lot like the things that you see in neuroscience.</p>
+              <p>Max Hodak: It feels like a law of physics. Like, if you apply enough compute to matter, you get this thing that looks like intelligence.</p>
+              <p>Max Hodak: I think that talking or writing is thinking… that feeling is misleading.</p>
+              <p>Max Hodak: I&#39;m gonna be ultimately fairly disappointed if I&#39;m murdered by my pancreas.</p>
+              <p>Max Hodak: There&#39;s this observation that the brain seems to process information at about 10 bits per second.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=7HXqMepjvy8" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-22 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-22 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
