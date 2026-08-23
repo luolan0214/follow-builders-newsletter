@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-23" data-issue-number="97" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 97 期｜2026-08-23｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="周日轻量版：9 位 builders，19 条推文。Sottiaux 更新 Codex 限额排查（**1382 赞，今日最高**）：长会话图片低效、Computer History 高 p95+ 用量、对话标题功能漏电——tiger team 正逐项排查修复。Peter Yang 的隐私三连：用 Codex/Claude Code 直连 Chrome 隐私页批量断开 Google 授权应用（**447 赞**）+ 新技能 /fuck-cancer 帮患者家庭导航癌症（188 赞）+ Instinct 上线外部数据删除（13 赞）。Rauchg 的地理多头宣言（735 赞）+ SF 天堂论（**1084 赞**）。Amjad：「很快」原来是 3 个月（**643 赞**）。Zara 的 10x 单干论（147 赞）与「领先的每个人都觉得自己落后」（336 赞）。Nikunj 怒斥 ragebait 投资人（370 赞）。播客位为 No Priors Chess.com 一期重播（同 08-15 期，完整译文随卡附上）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">周日轻量版：9 位 builders，19 条推文。Sottiaux 更新 Codex 限额排查（**1382 赞，今日最高**）：长会话图片低效、Computer History 高 p95+ 用量、对话标题功能漏电——tiger team 正逐项排查修复。Peter Yang 的隐私三连：用 Codex/Claude Code 直连 Chrome 隐私页批量断开 Google 授权应用（**447 赞**）+ 新技能 /fuck-cancer 帮患者家庭导航癌症（188 赞）+ Instinct 上线外部数据删除（13 赞）。Rauchg 的地理多头宣言（735 赞）+ SF 天堂论（**1084 赞**）。Amjad：「很快」原来是 3 个月（**643 赞**）。Zara 的 10x 单干论（147 赞）与「领先的每个人都觉得自己落后」（336 赞）。Nikunj 怒斥 ragebait 投资人（370 赞）。播客位为 No Priors Chess.com 一期重播（同 08-15 期，完整译文随卡附上）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Codex Rate Limit Fixes &amp; AI Privacy Cleanup / Codex 限额修复与 AI 隐私清理</h2>
+    <p class="section-desc">Sottiaux 的限额三项排查（**1382 赞，今日最高**）；Peter Yang 的 Chrome 隐私清理法（**447 赞**）+ /fuck-cancer 技能（188 赞）+ Instinct 数据删除上线（13 赞）；Levie 论 evals 才是 AI 扩散的限速器（138 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+petergyang+levie" data-author-name="Sottiaux / Peter Yang / Levie" data-author-tag="OpenAI / Builder / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Peter Yang / Levie avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Peter Yang / Levie</div>
+            <div class="author-tag is-inline">OpenAI / Builder / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的 Codex 限额更新（1382 赞，今日最高）：我们找到了三处问题—— 长会话多次压缩时图片使用的低效；（二）Computer History 的高 p95+ 用量；（三）一个本用于生成对话标题的功能，漏掉的用量比预期多。tiger team 正逐项排查并持续发修复。Peter Yang 的隐私清理法（447 赞）：在乎隐私的话——在 Chrome 打开 myaccount.google.com，在 Codex 或 Claude Code 里跑这条提示并告诉它浏览器有个打开的标签页，然后挑出想移除的应用让 AI 动手。刚刚断开了半打不再该持有我 Google 信息的应用。</p>
+              <p>Peter Yang 的新技能（188 赞）：我在做一个新 AI 技能，叫 /fuck-cancer——目标是帮患者和家人导航整个流程、保持知情。该放什么进去？加上 Instinct 快速跟进上线外部数据删除（13 赞）：现在可以删外部数据了（比如我的 36 条 Gmail 记录）——为倾听与快速上线点赞，涉及隐私与信任我永远实话实说。Levie 论 evals 限速器（138 赞）：AI 扩散被「好的 evals」限速的程度远超多数人认识——每次模型发布那种 eval 只告诉你通用进展的形状；更大的空间是企业所有主要工作流逐步的 eval。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：三处限额低效——图片压缩、Computer History、标题生成；tiger team 在修。</p>
+              <p>Yang：Codex/Claude Code 直连 Chrome 隐私页批量断授权。/fuck-cancer 技能帮患者导航。Instinct 上线数据删除。</p>
+              <p>Levie：好的 evals 才是 AI 扩散的限速器。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s rate limit update (1382 likes, top of the day): &#39;We&#39;ve found (a) some inefficiencies when using images in long sessions with multiple compactions (b) high p95+ usage for Computer History (c) a feature that was meant to generate conversation titles that was draining a bit more usage than intended. And we have a tiger team combing through everything and shipping fixes.&#39; Peter Yang&#39;s privacy cleanup (447 likes): &#39;If you care about your privacy: 1. Go to myaccount.google.com in Chrome 2. Run this prompt in Codex or Claude Code and tell it there&#39;s an open tab in your browser 3. Then pick the ones you want to remove and tell AI to do it. Just disconnected half the apps that should no longer have my Google info.&#39;</p>
+              <p>Peter Yang&#39;s new skill (188 likes): &#39;I&#39;m working on a new AI skill. It&#39;s called /fuck-cancer. Goal is to help patients and their family navigate this whole process and stay informed.&#39; Plus Instinct shipping external data deletion (13 likes): &#39;you can now delete external data (like my 36 Gmail records)… Kudos to the Instinct team for listening and shipping this quickly.&#39; Levie on evals as the rate limiter (138 likes): &#39;AI diffusion is far more rate limited by having good evals than most realize. The far bigger space over time are evals on all the major workflows that enterprises do.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Update on rate limits in Codex. We&#39;ve found (a) some inefficiencies when using images in long sessions with multiple compactions (b) high p95+ usage for Computer History (c) a feature that was meant to generate conversation titles that was draining a bit more usage than intended.</p>
+              <p>Peter Yang: If you care about your privacy: 1. Go to myaccount.google.com in Chrome 2. Run this prompt in Codex or Claude Code and tell it there&#39;s an open tab in your browser 3. Then pick the ones you want to remove and tell AI to do it.</p>
+              <p>Peter Yang: I&#39;m working on a new AI skill. It&#39;s called /fuck-cancer. Goal is to help patients and their family navigate this whole process and stay informed.</p>
+              <p>Peter Yang: Looks like you can now delete external data (like my 36 Gmail records) if you go to settings and scroll down to Data Privacy. Kudos to the Instinct team for listening and shipping this quickly.</p>
+              <p>Aaron Levie: AI diffusion is far more rate limited by having good evals than most realize. The far bigger space over time are evals on all the major workflows that enterprises do, down to each step.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">SF Paradise, 3-Month Ships &amp; Solo 10x / SF 天堂、三个月之约与单干十倍</h2>
+    <p class="section-desc">Rauchg 的 SF 天堂论（**1084 赞**）+ 地理多头宣言（735 赞）；Amjad 的「很快=3 个月」（**643 赞**）+ 一周七发（70 赞）；Zara 的单干 10x vs 大厂 20%（147 赞）+「领先者都觉得自己落后」（336 赞）；Dan Shipper 的 Every 招聘（131 赞）+ agent native（149 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+amasad+zarazhangrui+danshipper" data-author-name="Rauchg / Amjad / Zara / Shipper" data-author-tag="Vercel CEO / Replit CEO / Builder / Every" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Amjad / Zara / Shipper avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Amjad / Zara / Shipper</div>
+            <div class="author-tag is-inline">Vercel CEO / Replit CEO / Builder / Every</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的地理多头宣言（735 赞）：AI 能做许多奇妙的事、实现许多愿望，但我们只有一个地球、一个加州、一个巴塔哥尼亚、一个门多萨。美国和阿根廷是两个最自由的国家，又恰好坐拥最壮丽的土地与地理——我重仓 🇺🇸🇦🇷。外加 SF 天堂论（1084 赞）。Amjad 的节奏宣言：「很快」原来是 3 个月（643 赞）；一周有 7 天，那就意味着 7 次发布（70 赞）。</p>
+              <p>Zara 的单干十倍论（147 赞）：有个现象——有才华的个人做自己的事时能靠 AI 达成十倍潜力；但同一个人放进大组织，潜力最多提升 20%（有时甚至下降）。这就是为什么我看见越来越多有才华的人离开大公司。外加金句（336 赞）：每一个在 AI 使用上领先的人，都觉得自己落后。Dan Shipper 的 Every 招聘（131 赞）与「agent 原生万岁」（149 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：只有一个地球、一个加州、一个巴塔哥尼亚。重仓美阿。SF 是人间天堂。</p>
+              <p>Amjad：「很快」= 3 个月。一周七发。</p>
+              <p>Zara：单干十倍，大厂最多 20%。领先者都觉得自己落后。</p>
+              <p>Shipper：Every 招聘。agent 原生万岁。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s geography long (735 likes): &#39;AI can do many wonderful things and grant many wishes, but we have only one earth, one California, one Patagonia, one Mendoza. USA and Argentina are two of the freest countries that also happen to have the most glorious land and geography. I&#39;m very long 🇺🇸🇦🇷.&#39; And SF paradise (1084 likes). Amjad&#39;s shipping cadence (643 likes): &#39;&quot;Pretty soon&quot; turned out to be 3 months.&#39; Plus &#39;A week has 7 days. That means 7 ships&#39; (70 likes).</p>
+              <p>Zara&#39;s solo-vs-org observation (147 likes): &#39;There&#39;s a phenomenon where talented individuals can achieve 10x their potential thanks to AI when working on their own thing. But when the same individual is put into a large organization, they at most increase their potential by 20% (and sometimes it&#39;s even decreased). This is why I&#39;m seeing more and more talented people leave large companies.&#39; Plus her one-liner (336 likes): &#39;Everyone who&#39;s ahead in using AI thinks they&#39;re behind.&#39; Dan Shipper&#39;s Every hiring (131 likes) and &#39;agent native ftw&#39; (149 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: AI can do many wonderful things and grant many wishes, but we have only one earth, one California, one Patagonia, one Mendoza. USA and Argentina are two of the freest countries that also happen to have the most glorious land and geography. I&#39;m very long 🇺🇸🇦🇷.</p>
+              <p>Guillermo Rauch: San Francisco is a paradise on Earth.</p>
+              <p>Amjad Masad: &#39;Pretty soon&#39; turned out to be 3 months.</p>
+              <p>Amjad Masad: A week has 7 days. That means 7 ships.</p>
+              <p>Zara Zhang: There&#39;s a phenomenon where talented individuals can achieve 10x their potential thanks to AI when working on their own thing. But when the same individual is put into a large organization, they at most increase their potential by 20%.</p>
+              <p>Zara Zhang: Everyone who&#39;s ahead in using AI thinks they&#39;re behind.</p>
+              <p>Dan Shipper: we&#39;re hiring @every!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Ragebait SAFE, Evals Hill-Climb &amp; Slop Wars / 怒怼式 SAFE、evals 爬山与 slop 之战</h2>
+    <p class="section-desc">Nikunj 的 ragebait 投资人怒斥（**370 赞**）+ doxxing 回应（23 赞）+ LinkedIn slop（40 赞）；Madhu Guru 的 evals 第六篇：爬山式优化（143 赞）+ 系列全链（2 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="nikunj+realmadhuguru" data-author-name="Nikunj / Madhu Guru" data-author-tag="FPV / Product" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Nikunj / Madhu Guru avatar"><span class="avatar-fallback">N/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj / Madhu Guru</div>
+            <div class="author-tag is-inline">FPV / Product</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj 的怒斥（370 赞）：孩子们，不知道你们听的是什么建议，但先 ragebait 激怒投资人、然后给他们发 SAFE 文件就指望直接打款——投资不是这么运作的。后续澄清（23 赞）：这些是 Twitter DM；我尽量帮助每条冷私信，这条不该过线；挂人不是我的风格；找对听建议的人有多重要，怎么强调都不过分——看到许多有才华的年轻人被误导，我血压都上来了。外加（40 赞）：我们抱怨 X 上的 slop，但 LinkedIn 已经堕落到了难以想象的 slop 层级 🤮</p>
+              <p>Madhu Guru 的 evals 第六篇（143 赞）：在 evals 上「爬山」说白了就是——选一个重要的维度并为之优化：基于最新生产数据在高价值用户旅程上改进既有功能质量、扩展相邻用例、或者降低成本与延迟。系列 1-5 篇全链放送（2 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj：ragebait 投资人再发 SAFE 不是投资。挂人不是我的风格。LinkedIn 的 slop 更甚。</p>
+              <p>Madhu Guru：evals 爬山=选一个重要维度优化。系列六篇全链。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj&#39;s ragebait story (370 likes): &#39;Kids, I don&#39;t know what advice you are getting, but ragebaiting investors and then sending them SAFE docs to just wire you money is NOT how investing works.&#39; Follow-up (23 likes): &#39;These are Twitter DMs. I try to be helpful to as many cold DMs as I can. This one shouldn&#39;t have passed the bar. Doxxing someone is not my style. I can&#39;t stress enough how important it is to find the right people to take advice from.&#39; Plus his LinkedIn observation (40 likes): &#39;We complain about slop at X, but LinkedIn has stooped to unimaginable levels of slop 🤮.&#39;</p>
+              <p>Madhu Guru&#39;s evals Part 6 (143 likes): &#39;Hill climbing on evals is just a fancy way of saying: pick a dimension that matters and optimize for it. This could be improving the quality of existing features based on your latest production data on high value user journeys, expanding to adjacent use cases, lowering cost or latency.&#39; With the full series linked (Part 1-5, 2 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj Kothari: Kids, I don&#39;t know what advice you are getting, but ragebaiting investors and then sending them SAFE docs to just wire you money is NOT how investing works.</p>
+              <p>Nikunj Kothari: 1) These are Twitter DMs. I try to be helpful to as many cold DMs as I can. 2) Doxxing someone is not my style. 3) I can&#39;t stress enough how important it is to find the right people to take advice from.</p>
+              <p>Nikunj Kothari: We complain about slop at X, but LinkedIn has stooped to unimaginable levels of slop 🤮</p>
+              <p>Madhu Guru: How to build great evals - part 6. Hill climbing on evals is just a fancy way of saying: pick a dimension that matters and optimize for it. This could be improving the quality of existing features based on your latest production data on high value user journeys, expanding to adjacent use cases, lowering cost or latency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast (Re-run): Chess.com — Superhuman Machines &amp; Timeless Games / 播客（重播）：Chess.com——超人与永不过时的游戏</h2>
+    <p class="section-desc">No Priors 的 Chess.com CEO Erik Allebest 一期在 feed 中重播（与 2026-08-15 期相同，2026-08-13 发布）。完整 transcript（50546 字符）译文随卡附上。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:np-chess" data-author-name="No Priors (Elad Gil)" data-author-tag="Erik Allebest（Chess.com CEO 与创始人）· 重播" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors (Elad Gil) avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors (Elad Gil)</div>
+            <div class="author-tag is-inline">Erik Allebest（Chess.com CEO 与创始人）· 重播</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>今日 feed 播客位为重播：No Priors 与 Chess.com CEO Erik Allebest 的对话（本刊 2026-08-15 期已完整收录，2026-08-13 发布）。核心看点：2005 年 5.5 万美元从破产拍卖买下域名，如今 2.5 亿会员、约 1000 万日活、2 亿美元+营收、零外部融资；两波增长浪潮的复利；Lichess 是棋界的 Linux；电脑先让棋乏味后让它更精彩；重复是不可捷径的专家之路；棋是无限 AI 内容世界里的披头士；「听你的心，别听创业建议工业复合体」。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【从破产拍卖到 2.5 亿会员】</p>
+              <p>Allebest：2005 年从破产拍卖中以 5.5 万美元买下 chess.com 域名。几乎所有投资人都说这不可投资、该找份正经工作。</p>
+              <p>「如今约 1000 万日活、4-5 亿月活、2.5 亿注册会员。今年营收将超过 2 亿美元。团队约 650 人。」</p>
+              <p>「我们从未融资，按现金流速度增长，早早盈利。当初以为 50 人就到顶了。」</p>
+              <p></p>
+              <p>【AI 与棋的共生】</p>
+              <p>Allebest：电脑起初让棋有点乏味，但后来让它比以往任何时候都精彩。Leela Zero 下得激进、非传统，推动了棋理进步。</p>
+              <p>「游戏复盘的 AI 教练、为你生成的个性化谜题——AI 真正帮人类更享受棋。」</p>
+              <p>「7 岁孩子在挑战特级大师。英国的 10 岁印度裔女孩横扫所有人。这代孩子有了超人工具，学得更快。」</p>
+              <p></p>
+              <p>【重复与专家之路】</p>
+              <p>Allebest：把任何一天乘以一千，那就是你的人生。每天 5 个谜题，乘以一千就是 5000 个。</p>
+              <p>「训练神经网络也是一样——得把重复灌进脑子。练习没有捷径。」</p>
+              <p></p>
+              <p>【作弊与棋的永恒性】</p>
+              <p>Allebest：作弊无法完全防止——你不能在每个人家装摄像头。但我们有统计模型和机器学习，知道人怎么下、电脑怎么下。</p>
+              <p>「棋没有战利品箱、没有新皮肤、没有新英雄。规则最简，完全信息博弈，零运气。它是无限内容世界里的披头士。」</p>
+              <p></p>
+              <p>【Gambit 德州扑克与创始哲学】</p>
+              <p>Allebest：我们把棋的打法带到德州扑克——按积分而非筹码。你真正有多好？</p>
+              <p>「当年的创业圣经是：斯坦福技术联创、融大资、大市场、烧钱获客。我们全反着来。听你的心。」</p>
+              <p>「把独一无二的美好东西带到世上，其余的都会解决。别再听别人的创业建议了。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A re-run in today&#39;s feed: No Priors&#39; conversation with Chess.com CEO Erik Allebest (originally covered in our 2026-08-15 issue) — bought the domain out of a bankruptcy auction in 2005 for $55K when VCs called it &#39;uninvestable&#39;; today 250M+ members, ~10M daily actives, $200M+ revenue, 650 people, zero outside capital. Key topics: the COVID/Queen&#39;s Gambit wave and the 2023 short-form-content wave (mittens bot, cheating scandal) compounding growth; Lichess as &#39;the Linux of chess&#39;; chess not being patentable — winning via product, community, content; computers first making chess boring, then making it more exciting than ever; AI coaches on game review and personalized puzzles; younger and younger prodigies; repetition as the unshortcutable path to expertise; cheating as an arms race of statistical models; chess as the Beatles in a world of infinite AI-generated content; Gambit poker with chess-style ratings; &#39;listen to your heart, not the founder-advice industrial complex.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Erik Allebest: We have about 10,000,000 daily active users, more than 250,000,000 registered members. This year we&#39;ll do a little over $200,000,000.</p>
+              <p>Erik Allebest: Computers at first made chess a little bit more boring, but then made it so much more exciting.</p>
+              <p>Erik Allebest: There&#39;s no loot boxes. There&#39;s no new skins. There&#39;s no new heroes to learn. You&#39;re having the same shared experience forever.</p>
+              <p>Erik Allebest: People should listen to their heart. Just go execute and put something beautiful into the world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-23 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-23 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
