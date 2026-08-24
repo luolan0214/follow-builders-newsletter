@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-08-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-08-24" data-issue-number="98" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 98 期｜2026-08-24｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Sottiaux 的周日三连：重置已下发、昨日排查的问题已修复（**7425 赞，今日最高**）+「2026 是企业开始认真对待模型效率与可靠性的一年」（**5442 赞**）+ 卖萌更正（2474 赞）。Levie 的「我现在可以退休了」（**1985 赞**）。Rauchg 的 fx 开放协议哲学：MCP、Skills、Plugins，最好的还是 Unix（**703 赞**）+ Sol 降价后成为 Vercel 上增长最快的前沿模型、智能的需求高度弹性（325 赞）。Ryo Lu 的告别长诗《leaving》（808 赞）。Steipete：CLI 好，但 UI 可视化与团队协作更好（**1067 赞**）+ 给 claw 加旋转 USB 协议玩 360 摄像头（208 赞）。Garry Tan 预言：记录系统必须变成 AI harness，否则被 agent 取代（567 赞）。播客位为 Kevin Scott 一期重播（本刊 08-14 期已完整收录）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 的周日三连：重置已下发、昨日排查的问题已修复（**7425 赞，今日最高**）+「2026 是企业开始认真对待模型效率与可靠性的一年」（**5442 赞**）+ 卖萌更正（2474 赞）。Levie 的「我现在可以退休了」（**1985 赞**）。Rauchg 的 fx 开放协议哲学：MCP、Skills、Plugins，最好的还是 Unix（**703 赞**）+ Sol 降价后成为 Vercel 上增长最快的前沿模型、智能的需求高度弹性（325 赞）。Ryo Lu 的告别长诗《leaving》（808 赞）。Steipete：CLI 好，但 UI 可视化与团队协作更好（**1067 赞**）+ 给 claw 加旋转 USB 协议玩 360 摄像头（208 赞）。Garry Tan 预言：记录系统必须变成 AI harness，否则被 agent 取代（567 赞）。播客位为 Kevin Scott 一期重播（本刊 08-14 期已完整收录）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Sunday Reset, Model Efficiency Year &amp; Retire Meme / 周日重置、模型效率之年与退休梗</h2>
+    <p class="section-desc">Sottiaux 的周日三连（**7425 赞，今日最高** + **5442 赞** + 2474 赞）；Levie 的「可以退休了」（**1985 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+levie" data-author-name="Sottiaux / Levie" data-author-tag="OpenAI / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Levie avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Levie</div>
+            <div class="author-tag is-inline">OpenAI / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的周日三连（7425 赞，今日最高）：周日好。重置已经下发到各账户，昨天提到的那几处用量问题也随修复落地——你们应该能感到正向变化。明天还有更多，我们会持续沟通。加一条论断（5442 赞）：2026 是企业开始认真对待模型效率与可靠性的一年——因为它正在成为关键基础设施。以及卖萌更正（2474 赞）：显然我指的是下午两点。</p>
+              <p>Levie 的退休梗（1985 赞）：我现在就可以退休了。（配图时刻，大概完美到无以复加。）</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：重置已下发、限额修复落地，明天更多。2026 是模型效率与可靠性之年。</p>
+              <p>Levie：我现在就可以退休了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s Sunday triple (7425 likes, top of the day): &#39;Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating.&#39; Plus his thesis (5442 likes): &#39;2026 is the year companies start seriously caring about model efficiency and reliability as it becomes critical infrastructure.&#39; And the charming correction (2474 likes): &#39;Meant 2pm obviously.&#39;</p>
+              <p>Levie&#39;s retirement meme (1985 likes): &#39;I&#39;m good to retire now&#39; — captioning a moment presumably too perfect to top.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating.</p>
+              <p>Thibault Sottiaux: 2026 is the year companies start seriously caring about model efficiency and reliability as it becomes critical infrastructure.</p>
+              <p>Thibault Sottiaux: Meant 2pm obviously.</p>
+              <p>Aaron Levie: I&#39;m good to retire now.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Open Protocols, Elastic Intelligence &amp; AI Harness Future / 开放协议、弹性智能与 AI Harness 未来</h2>
+    <p class="section-desc">Rauchg 的 fx 开放协议哲学（**703 赞**）+ Sol 弹性需求（325 赞）；Garry Tan 的记录系统预言（567 赞）；Nan Yu 的万物皆软件（5 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+garrytan+thenanyu" data-author-name="Rauchg / Garry Tan / Nan Yu" data-author-tag="Vercel CEO / YC / Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Garry Tan / Nan Yu avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Garry Tan / Nan Yu</div>
+            <div class="author-tag is-inline">Vercel CEO / YC / Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 论扩展 fx 的哲学（703 赞）：开放协议——MCP（modelcontextprotocol.io）、Skills（agentskills.io）、Plugins（agent-plugins.org）。而最好的协议还是 Unix：其一，小程序做好一件事、通过调用其他程序组合；其二，libfx 让自身可嵌入更复杂的程序——你应该能构建自己的 CLI、后台 agent、软件工厂，本地或云端皆可。另一条（325 赞）：智能正在变便宜。OpenAI Sol 降价叠加 Vercel AI Gateway 折扣，让 Sol 成为我们增长最快的前沿模型——智能的需求高度弹性：推理成本下降，用量随之快速增长；不用网关你就错过了这波价格波动红利。</p>
+              <p>Garry Tan 的预言（567 赞）：记录系统将需要变成 AI harness，否则会被 agent 取代。Nan Yu 的冷面补刀（5 赞）：其他所有软件品类也一样。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：fx 扩展靠开放协议：MCP、Skills、Plugins，最好的还是 Unix。智能需求高度弹性。</p>
+              <p>Garry Tan：记录系统要么变 AI harness 要么被 agent 取代。</p>
+              <p>Nan Yu：其他软件品类也一样。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg on extending fx with open protocols (703 likes): &#39;MCP (modelcontextprotocol.io), Skills (agentskills.io), Plugins (agent-plugins.org). And the best one, Unix: ① Small programs that do one thing well and compose by calling other programs. ② libfx that enables embeddability into more complex programs. You should be able to build your own CLI, background agent, software factory. Local or cloud.&#39; Plus his elasticity observation (325 likes): &#39;Intelligence is getting cheaper. OpenAI Sol&#39;s price reductions &amp; discounts on Vercel AI Gateway have made Sol our fastest-growing frontier model. The demand for intelligence is highly elastic: as inference costs fall, usage grows rapidly.&#39;</p>
+              <p>Garry Tan&#39;s prediction (567 likes): &#39;systems of record will need to become AI harnesss or face replacement by agents.&#39; Nan Yu&#39;s deadpan (5 likes): &#39;Also every other category of software.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Our philosophy on extending fx: open protocols. ∙ MCP ∙ Skills ∙ Plugins. And the best one, Unix: ① Small programs that do one thing well and compose by calling other programs. ② libfx that enables embeddability into more complex programs.</p>
+              <p>Guillermo Rauch: Intelligence is getting cheaper. Sol&#39;s price reductions &amp; discounts on Vercel AI Gateway have made Sol our fastest-growing frontier model. The demand for intelligence is highly elastic.</p>
+              <p>Garry Tan: Prediction: systems of record will need to become AI harnesses or face replacement by agents.</p>
+              <p>Nan Yu: Also every other category of software.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Leaving Poem, 360 Webcam &amp; AI-Fluent Assistants / 告别诗、360 摄像头与 AI 流利助手</h2>
+    <p class="section-desc">Ryo Lu 的告别长诗《leaving》（808 赞）；Steipete 的 UI 可视化论（**1067 赞**）+ claw 玩 360 摄像头（208 赞）；Nikunj 的岳母 eSIM 三分钟（170 赞）；Peter Yang 的 AI 流利人类助手 Char（21 赞）+ 自上而下/自下而上 evals（43 赞）；Madhu Guru 的 evals 第七篇：金发姑娘原则（110 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="ryolu_+steipete+nikunj+petergyang+realmadhuguru" data-author-name="Ryo Lu / Steipete / Nikunj / Yang / Madhu" data-author-tag="Cursor / Builder / FPV / Builder / Product" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Ryo Lu / Steipete / Nikunj / Yang / Madhu avatar"><span class="avatar-fallback">RL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Ryo Lu / Steipete / Nikunj / Yang / Madhu</div>
+            <div class="author-tag is-inline">Cursor / Builder / FPV / Builder / Product</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Ryo Lu 的告别长诗《leaving》（808 赞）：离开，是从满到空的过程——从熟悉的生活圈、散掉的日常、烂熟于心的街道、反复遇见的人、聚在皮肤上的名字与标签，走向全然未知之地，那里有等待书写的新生活。临行前，把藏在心里的一切掏出来，一件一件道别。记忆升起。这是他移居亚洲的诗意终章。Steipete 双发：CLI 不错，但 UI 可视化加上团队就在你工作的地方，更好（1067 赞）；给 claw 加了旋转 USB 协议让它四处张望——现在它正和我的 360 摄像头玩得开心（208 赞）。</p>
+              <p>Nikunj 的 eSIM 小确幸（170 赞）：岳母从印度来探望，想和孙女来场偶遇式约会之夜，才发现没开通漫游——三分钟办好数据 eSIM 她就连上了。我们活在多美好的世界 🤗（懂的人知道，搁以前得跑一趟营业厅或打客服电话）。Peter Yang 论 AI 流利的人类助手（21 赞）：和来自 Oceans 的（人类！）助手 Char 合作六个月——今天最好的助手必须会与 AI agent 协作：Char 用 Claude Code 和 Codex 跑播客后期、起草节目笔记、做剪辑，还把我的 AI 技能复制改造成他自己的工作流。加一条 Shreya 的 evals 二分法（43 赞）：自上而下=真空里只给任务描述你会怎么评；自下而上=看大量样本输出后把直觉外化成标准。Madhu Guru 的 evals 第七篇（110 赞）：金发姑娘原则——evals 应在「待完成工作的层面」度量，而非只看最终答案；别给金融分析 agent 建一套「正确股票」黄金答案集。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Ryo Lu：《leaving》——从满到空，向未知而去，一件一件道别。</p>
+              <p>Steipete：UI 可视化 + 团队协作 &gt; CLI。claw 玩 360 摄像头。</p>
+              <p>Nikunj：三分钟 eSIM 连通岳母。</p>
+              <p>Yang：最好的助手要会与 AI agent 协作。自上而下与自下而上的 evals。</p>
+              <p>Madhu Guru：evals 在工作层面度量，别只看最终答案。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Ryo Lu&#39;s farewell poem (808 likes): &#39;leaving / leaving is the process from fullness into emptiness / from the familiar circle of life / the routines undone / the streets i knew by heart / the people i kept meeting / the names and labels that had gathered on my skin / toward a place entirely unknown / where a new life waits to be written / before i go / i take out everything i had hidden in my heart / and say goodbye to it / piece by piece / memory rises&#39; — the poetic capstone to his move to Asia. Steipete&#39;s double: &#39;cli is nice, having UI visualizations and your team where you work is nicer&#39; (1067 likes) and &#39;I added the rotation USB protocol and told my claw to look around — now it&#39;s having fun with my 360 webcam&#39; (208 likes).</p>
+              <p>Nikunj&#39;s eSIM joy (170 likes): &#39;Mother in law is visiting from India… Wants to do serendipitous date night with her grand daughter. Realized she didn&#39;t sign up for roaming… I get a data eSIM in under three minutes and she&#39;s connected. What a wonderful world we live in 🤗 (real ones know this would historically be a trip to the store or calling the carrier).&#39; Peter Yang on AI-fluent human assistants (21 likes): &#39;I&#39;ve been working with Char, my (human!) assistant from @oceanstalent for 6 months. The best assistants today need to know how to work with AI agents. Char uses Claude Code and Codex to help me run podcast post-production, draft show notes, and make clips.&#39; Plus top-down vs bottom-up evals from Shreya (43 likes). Madhu Guru&#39;s evals Part 7 (110 likes): the Goldilocks principle — evals should measure at the level of the jobs to be done, not just the final answer; don&#39;t build a golden set of &#39;right&#39; stock picks.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Ryo Lu: leaving is the process from fullness into emptiness / from the familiar circle of life / the routines undone / the streets i knew by heart / the people i kept meeting / toward a place entirely unknown / where a new life waits to be written.</p>
+              <p>Peter Steinberger: cli is nice, having UI visualizations and your team where you work is nicer.</p>
+              <p>Peter Steinberger: I added the rotation USB protocol and told my claw to look around — now it&#39;s having fun with my 360 webcam.</p>
+              <p>Nikunj Kothari: I get a data eSIM in under three minutes and she&#39;s connected. What a wonderful world we live in 🤗</p>
+              <p>Peter Yang: The best assistants today need to know how to work with AI agents. Char uses Claude Code and Codex to help me run podcast post-production, draft show notes, and make clips.</p>
+              <p>Peter Yang: Think of top-down as: If you&#39;re in a vacuum, just given the task description, what would you come up with? Bottom-up evals are the other half. When you look at lots and lots of sample outputs, what is your gut feedback that you want externalized.</p>
+              <p>Madhu Guru: Your evals should measure at the level of the various jobs to be done, not just the final answer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/ryolu_" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast (Re-run): Kevin Scott — An Internet Made for Agents / 播客（重播）：Kevin Scott——为 Agent 而建的互联网</h2>
+    <p class="section-desc">AI &amp; I 的 Microsoft CTO Kevin Scott 一期在 feed 中重播（与 2026-08-14 期相同，2026-08-12 发布）。完整 transcript（29372 字符）译文随卡附上。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aii-kevinscott" data-author-name="AI &amp; I by Every" data-author-tag="Kevin Scott（Microsoft CTO）· 重播" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI &amp; I by Every avatar"><span class="avatar-fallback">A&amp;</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI &amp; I by Every</div>
+            <div class="author-tag is-inline">Kevin Scott（Microsoft CTO）· 重播</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>今日 feed 播客位为重播：AI &amp; I 与 Microsoft CTO Kevin Scott 的对话（本刊 2026-08-14 期已完整收录，2026-08-12 发布）。核心看点：agentic web 是今年的大故事——MCP 扮演 HTTP、NL Web 扮演 HTML；capability overhang 需要全行业缩小差距；agent 记忆的事务性阻碍复杂委派；康威定律风险（你发布的是你的组织架构图）；agent 需要身份与权限系统；无许可创新击败看门人中间层；木工 CNC 之辩映射程序员 agent 之辩；异步 agent 未来（「去把这事搞定」）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【工匠精神与选择】</p>
+              <p>Scott：我很高兴我的员工——广义的制造者，软件工程师、机械工程师、木匠、陶艺师——如果你真心热爱你所做的事，你会有非常强烈的观点，并不断打磨它。我最喜欢的木工 YouTuber 之一 Stout，他的口头禅是「买好工具，哭着也要买」。工具和手艺的关系从来不是非此即彼。</p>
+              <p>Scott：每次工具革命（CNC 数控机床进入木工房），都会有人哀叹手艺之死。但事实是：工具把重复的部分自动化，人把判断力放在选择上——选什么木料、什么榫卯、为谁而做。程序员的 agent 化也是同一件事。</p>
+              <p></p>
+              <p>【agentic web 与协议层】</p>
+              <p>Scott：今年的大故事是 agentic web。MCP 扮演当年 HTTP 的角色——一个让所有 agent 互相发现的协议；NL Web 扮演 HTML 的角色——让 agent 可读的网页。当年 web 之所以爆发，是因为协议简单、开放、无许可。agent 生态要重演这一点。</p>
+              <p>Scott：agent 需要身份与权限系统。今天的互联网是为人类设计的：登录、验证码、订阅条款。agent 需要原生的身份层，否则一切代理行为都会退化成「冒充人类」。</p>
+              <p></p>
+              <p>【capability overhang 与缩小差距】</p>
+              <p>Scott：现在的模型能力与实际部署之间存在巨大落差——capability overhang。缩小这个差距不需要新科学，需要全行业的工程努力：更好的工具、更好的记忆、更好的权限、更好的评测。这会是未来几年最大的生产力来源。</p>
+              <p></p>
+              <p>【记忆与康威定律】</p>
+              <p>Scott：agent 记忆目前是事务性的——会话结束即消失，这阻碍了复杂委派。你不能把一个为期数周的项目交给一个每隔几小时就失忆的员工。记忆、上下文管理、任务分解，是 agent 走向异步自主的三块基石。</p>
+              <p>Scott：还有组织风险：康威定律说你的系统结构就是你组织的沟通结构。如果你不主动设计 agent 与人的协作架构，你发布的就会是你现有的组织架构图——连同它的全部瓶颈。</p>
+              <p></p>
+              <p>【安全模型与无许可创新】</p>
+              <p>Scott：安全模型也要重想。今天的安全假设「用户是人类」。当 agent 代表你行动时，需要的是可撤销的、细粒度的、可审计的授权链。HTTP 时代的无许可创新击败了看门人中间层——agentic web 时代也该如此。</p>
+              <p></p>
+              <p>【异步 agent 未来】</p>
+              <p>Scott：终极愿景是异步 agent：你对它说「去把这事搞定」，然后它规划、执行、汇报。像雇用一位真正可靠的下属。我们离这个未来不远——前提是把记忆、身份、权限、评测这些无聊但关键的底座打好。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A re-run in today&#39;s feed: AI &amp; I&#39;s conversation with Microsoft CTO Kevin Scott (originally covered in our 2026-08-14 issue) — the agentic web as this year&#39;s big story: MCP playing HTTP, NL Web playing HTML; the capability overhang requiring the whole industry to close the gap; agent memory being transactional and blocking complex delegation; Conway&#39;s Law risk (you ship your org chart); agents needing identity and permission systems; permissionless innovation beating gatekeeper middlemen; the woodworking CNC debate as a mirror for programmer-agents; and the async agent future (&#39;go get this thing done&#39;).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Kevin Scott: The agentic web is the big story of this year — MCP plays the role of HTTP, NL Web plays HTML.</p>
+              <p>Kevin Scott: The capability overhang requires the whole industry to close the gap.</p>
+              <p>Kevin Scott: Agent memory is transactional, which blocks complex delegation.</p>
+              <p>Kevin Scott: You ship your org chart — Conway&#39;s Law risk for agent systems.</p>
+              <p>Kevin Scott: Permissionless innovation beats gatekeeper middlemen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-08-24 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-08-24 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>

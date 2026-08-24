@@ -1,0 +1,181 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-24",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 的周日三连：重置已下发、昨日排查的问题已修复（**7425 赞，今日最高**）+「2026 是企业开始认真对待模型效率与可靠性的一年」（**5442 赞**）+ 卖萌更正（2474 赞）。Levie 的「我现在可以退休了」（**1985 赞**）。Rauchg 的 fx 开放协议哲学：MCP、Skills、Plugins，最好的还是 Unix（**703 赞**）+ Sol 降价后成为 Vercel 上增长最快的前沿模型、智能的需求高度弹性（325 赞）。Ryo Lu 的告别长诗《leaving》（808 赞）。Steipete：CLI 好，但 UI 可视化与团队协作更好（**1067 赞**）+ 给 claw 加旋转 USB 协议玩 360 摄像头（208 赞）。Garry Tan 预言：记录系统必须变成 AI harness，否则被 agent 取代（567 赞）。播客位为 Kevin Scott 一期重播（本刊 08-14 期已完整收录）。"
+  },
+  "archive": {
+    "title": "周日重置与开放协议日报",
+    "desc": "Sottiaux 确认重置下发与限额修复（7425 赞），Rauchg 布道 fx 开放协议与 Unix 哲学（703 赞），Garry Tan 预言记录系统须变 AI harness。轻量周一版。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-24 source feeds.",
+  "sections": [
+    {
+      "title": "Sunday Reset, Model Efficiency Year & Retire Meme / 周日重置、模型效率之年与退休梗",
+      "desc": "Sottiaux 的周日三连（**7425 赞，今日最高** + **5442 赞** + 2474 赞）；Levie 的「可以退休了」（**1985 赞**）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+levie",
+          "authorName": "Sottiaux / Levie",
+          "authorTag": "OpenAI / Box CEO",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's Sunday triple (7425 likes, top of the day): 'Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating.' Plus his thesis (5442 likes): '2026 is the year companies start seriously caring about model efficiency and reliability as it becomes critical infrastructure.' And the charming correction (2474 likes): 'Meant 2pm obviously.'",
+              "Levie's retirement meme (1985 likes): 'I'm good to retire now' — captioning a moment presumably too perfect to top."
+            ],
+            "original": [
+              "Thibault Sottiaux: Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found. You should feel a positive difference. More to come tomorrow and will keep communicating.",
+              "Thibault Sottiaux: 2026 is the year companies start seriously caring about model efficiency and reliability as it becomes critical infrastructure.",
+              "Thibault Sottiaux: Meant 2pm obviously.",
+              "Aaron Levie: I'm good to retire now."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的周日三连（7425 赞，今日最高）：周日好。重置已经下发到各账户，昨天提到的那几处用量问题也随修复落地——你们应该能感到正向变化。明天还有更多，我们会持续沟通。加一条论断（5442 赞）：2026 是企业开始认真对待模型效率与可靠性的一年——因为它正在成为关键基础设施。以及卖萌更正（2474 赞）：显然我指的是下午两点。",
+              "Levie 的退休梗（1985 赞）：我现在就可以退休了。（配图时刻，大概完美到无以复加。）"
+            ],
+            "original": [
+              "Sottiaux：重置已下发、限额修复落地，明天更多。2026 是模型效率与可靠性之年。",
+              "Levie：我现在就可以退休了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Open Protocols, Elastic Intelligence & AI Harness Future / 开放协议、弹性智能与 AI Harness 未来",
+      "desc": "Rauchg 的 fx 开放协议哲学（**703 赞**）+ Sol 弹性需求（325 赞）；Garry Tan 的记录系统预言（567 赞）；Nan Yu 的万物皆软件（5 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+thenanyu",
+          "authorName": "Rauchg / Garry Tan / Nan Yu",
+          "authorTag": "Vercel CEO / YC / Builder",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg on extending fx with open protocols (703 likes): 'MCP (modelcontextprotocol.io), Skills (agentskills.io), Plugins (agent-plugins.org). And the best one, Unix: ① Small programs that do one thing well and compose by calling other programs. ② libfx that enables embeddability into more complex programs. You should be able to build your own CLI, background agent, software factory. Local or cloud.' Plus his elasticity observation (325 likes): 'Intelligence is getting cheaper. OpenAI Sol's price reductions & discounts on Vercel AI Gateway have made Sol our fastest-growing frontier model. The demand for intelligence is highly elastic: as inference costs fall, usage grows rapidly.'",
+              "Garry Tan's prediction (567 likes): 'systems of record will need to become AI harnesss or face replacement by agents.' Nan Yu's deadpan (5 likes): 'Also every other category of software.'"
+            ],
+            "original": [
+              "Guillermo Rauch: Our philosophy on extending fx: open protocols. ∙ MCP ∙ Skills ∙ Plugins. And the best one, Unix: ① Small programs that do one thing well and compose by calling other programs. ② libfx that enables embeddability into more complex programs.",
+              "Guillermo Rauch: Intelligence is getting cheaper. Sol's price reductions & discounts on Vercel AI Gateway have made Sol our fastest-growing frontier model. The demand for intelligence is highly elastic.",
+              "Garry Tan: Prediction: systems of record will need to become AI harnesses or face replacement by agents.",
+              "Nan Yu: Also every other category of software."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 论扩展 fx 的哲学（703 赞）：开放协议——MCP（modelcontextprotocol.io）、Skills（agentskills.io）、Plugins（agent-plugins.org）。而最好的协议还是 Unix：其一，小程序做好一件事、通过调用其他程序组合；其二，libfx 让自身可嵌入更复杂的程序——你应该能构建自己的 CLI、后台 agent、软件工厂，本地或云端皆可。另一条（325 赞）：智能正在变便宜。OpenAI Sol 降价叠加 Vercel AI Gateway 折扣，让 Sol 成为我们增长最快的前沿模型——智能的需求高度弹性：推理成本下降，用量随之快速增长；不用网关你就错过了这波价格波动红利。",
+              "Garry Tan 的预言（567 赞）：记录系统将需要变成 AI harness，否则会被 agent 取代。Nan Yu 的冷面补刀（5 赞）：其他所有软件品类也一样。"
+            ],
+            "original": [
+              "Rauchg：fx 扩展靠开放协议：MCP、Skills、Plugins，最好的还是 Unix。智能需求高度弹性。",
+              "Garry Tan：记录系统要么变 AI harness 要么被 agent 取代。",
+              "Nan Yu：其他软件品类也一样。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Leaving Poem, 360 Webcam & AI-Fluent Assistants / 告别诗、360 摄像头与 AI 流利助手",
+      "desc": "Ryo Lu 的告别长诗《leaving》（808 赞）；Steipete 的 UI 可视化论（**1067 赞**）+ claw 玩 360 摄像头（208 赞）；Nikunj 的岳母 eSIM 三分钟（170 赞）；Peter Yang 的 AI 流利人类助手 Char（21 赞）+ 自上而下/自下而上 evals（43 赞）；Madhu Guru 的 evals 第七篇：金发姑娘原则（110 赞）。",
+      "cards": [
+        {
+          "authorKey": "ryolu_+steipete+nikunj+petergyang+realmadhuguru",
+          "authorName": "Ryo Lu / Steipete / Nikunj / Yang / Madhu",
+          "authorTag": "Cursor / Builder / FPV / Builder / Product",
+          "sourceUrl": "https://x.com/ryolu_",
+          "en": {
+            "rewrite": [
+              "Ryo Lu's farewell poem (808 likes): 'leaving / leaving is the process from fullness into emptiness / from the familiar circle of life / the routines undone / the streets i knew by heart / the people i kept meeting / the names and labels that had gathered on my skin / toward a place entirely unknown / where a new life waits to be written / before i go / i take out everything i had hidden in my heart / and say goodbye to it / piece by piece / memory rises' — the poetic capstone to his move to Asia. Steipete's double: 'cli is nice, having UI visualizations and your team where you work is nicer' (1067 likes) and 'I added the rotation USB protocol and told my claw to look around — now it's having fun with my 360 webcam' (208 likes).",
+              "Nikunj's eSIM joy (170 likes): 'Mother in law is visiting from India… Wants to do serendipitous date night with her grand daughter. Realized she didn't sign up for roaming… I get a data eSIM in under three minutes and she's connected. What a wonderful world we live in 🤗 (real ones know this would historically be a trip to the store or calling the carrier).' Peter Yang on AI-fluent human assistants (21 likes): 'I've been working with Char, my (human!) assistant from @oceanstalent for 6 months. The best assistants today need to know how to work with AI agents. Char uses Claude Code and Codex to help me run podcast post-production, draft show notes, and make clips.' Plus top-down vs bottom-up evals from Shreya (43 likes). Madhu Guru's evals Part 7 (110 likes): the Goldilocks principle — evals should measure at the level of the jobs to be done, not just the final answer; don't build a golden set of 'right' stock picks."
+            ],
+            "original": [
+              "Ryo Lu: leaving is the process from fullness into emptiness / from the familiar circle of life / the routines undone / the streets i knew by heart / the people i kept meeting / toward a place entirely unknown / where a new life waits to be written.",
+              "Peter Steinberger: cli is nice, having UI visualizations and your team where you work is nicer.",
+              "Peter Steinberger: I added the rotation USB protocol and told my claw to look around — now it's having fun with my 360 webcam.",
+              "Nikunj Kothari: I get a data eSIM in under three minutes and she's connected. What a wonderful world we live in 🤗",
+              "Peter Yang: The best assistants today need to know how to work with AI agents. Char uses Claude Code and Codex to help me run podcast post-production, draft show notes, and make clips.",
+              "Peter Yang: Think of top-down as: If you're in a vacuum, just given the task description, what would you come up with? Bottom-up evals are the other half. When you look at lots and lots of sample outputs, what is your gut feedback that you want externalized.",
+              "Madhu Guru: Your evals should measure at the level of the various jobs to be done, not just the final answer."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu 的告别长诗《leaving》（808 赞）：离开，是从满到空的过程——从熟悉的生活圈、散掉的日常、烂熟于心的街道、反复遇见的人、聚在皮肤上的名字与标签，走向全然未知之地，那里有等待书写的新生活。临行前，把藏在心里的一切掏出来，一件一件道别。记忆升起。这是他移居亚洲的诗意终章。Steipete 双发：CLI 不错，但 UI 可视化加上团队就在你工作的地方，更好（1067 赞）；给 claw 加了旋转 USB 协议让它四处张望——现在它正和我的 360 摄像头玩得开心（208 赞）。",
+              "Nikunj 的 eSIM 小确幸（170 赞）：岳母从印度来探望，想和孙女来场偶遇式约会之夜，才发现没开通漫游——三分钟办好数据 eSIM 她就连上了。我们活在多美好的世界 🤗（懂的人知道，搁以前得跑一趟营业厅或打客服电话）。Peter Yang 论 AI 流利的人类助手（21 赞）：和来自 Oceans 的（人类！）助手 Char 合作六个月——今天最好的助手必须会与 AI agent 协作：Char 用 Claude Code 和 Codex 跑播客后期、起草节目笔记、做剪辑，还把我的 AI 技能复制改造成他自己的工作流。加一条 Shreya 的 evals 二分法（43 赞）：自上而下=真空里只给任务描述你会怎么评；自下而上=看大量样本输出后把直觉外化成标准。Madhu Guru 的 evals 第七篇（110 赞）：金发姑娘原则——evals 应在「待完成工作的层面」度量，而非只看最终答案；别给金融分析 agent 建一套「正确股票」黄金答案集。"
+            ],
+            "original": [
+              "Ryo Lu：《leaving》——从满到空，向未知而去，一件一件道别。",
+              "Steipete：UI 可视化 + 团队协作 > CLI。claw 玩 360 摄像头。",
+              "Nikunj：三分钟 eSIM 连通岳母。",
+              "Yang：最好的助手要会与 AI agent 协作。自上而下与自下而上的 evals。",
+              "Madhu Guru：evals 在工作层面度量，别只看最终答案。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast (Re-run): Kevin Scott — An Internet Made for Agents / 播客（重播）：Kevin Scott——为 Agent 而建的互联网",
+      "desc": "AI & I 的 Microsoft CTO Kevin Scott 一期在 feed 中重播（与 2026-08-14 期相同，2026-08-12 发布）。完整 transcript（29372 字符）译文随卡附上。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii-kevinscott",
+          "authorName": "AI & I by Every",
+          "authorTag": "Kevin Scott（Microsoft CTO）· 重播",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "A re-run in today's feed: AI & I's conversation with Microsoft CTO Kevin Scott (originally covered in our 2026-08-14 issue) — the agentic web as this year's big story: MCP playing HTTP, NL Web playing HTML; the capability overhang requiring the whole industry to close the gap; agent memory being transactional and blocking complex delegation; Conway's Law risk (you ship your org chart); agents needing identity and permission systems; permissionless innovation beating gatekeeper middlemen; the woodworking CNC debate as a mirror for programmer-agents; and the async agent future ('go get this thing done')."
+            ],
+            "original": [
+              "Kevin Scott: The agentic web is the big story of this year — MCP plays the role of HTTP, NL Web plays HTML.",
+              "Kevin Scott: The capability overhang requires the whole industry to close the gap.",
+              "Kevin Scott: Agent memory is transactional, which blocks complex delegation.",
+              "Kevin Scott: You ship your org chart — Conway's Law risk for agent systems.",
+              "Kevin Scott: Permissionless innovation beats gatekeeper middlemen."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "今日 feed 播客位为重播：AI & I 与 Microsoft CTO Kevin Scott 的对话（本刊 2026-08-14 期已完整收录，2026-08-12 发布）。核心看点：agentic web 是今年的大故事——MCP 扮演 HTTP、NL Web 扮演 HTML；capability overhang 需要全行业缩小差距；agent 记忆的事务性阻碍复杂委派；康威定律风险（你发布的是你的组织架构图）；agent 需要身份与权限系统；无许可创新击败看门人中间层；木工 CNC 之辩映射程序员 agent 之辩；异步 agent 未来（「去把这事搞定」）。完整译文见下。"
+            ],
+            "original": [
+              "【工匠精神与选择】",
+              "Scott：我很高兴我的员工——广义的制造者，软件工程师、机械工程师、木匠、陶艺师——如果你真心热爱你所做的事，你会有非常强烈的观点，并不断打磨它。我最喜欢的木工 YouTuber 之一 Stout，他的口头禅是「买好工具，哭着也要买」。工具和手艺的关系从来不是非此即彼。",
+              "Scott：每次工具革命（CNC 数控机床进入木工房），都会有人哀叹手艺之死。但事实是：工具把重复的部分自动化，人把判断力放在选择上——选什么木料、什么榫卯、为谁而做。程序员的 agent 化也是同一件事。",
+              "",
+              "【agentic web 与协议层】",
+              "Scott：今年的大故事是 agentic web。MCP 扮演当年 HTTP 的角色——一个让所有 agent 互相发现的协议；NL Web 扮演 HTML 的角色——让 agent 可读的网页。当年 web 之所以爆发，是因为协议简单、开放、无许可。agent 生态要重演这一点。",
+              "Scott：agent 需要身份与权限系统。今天的互联网是为人类设计的：登录、验证码、订阅条款。agent 需要原生的身份层，否则一切代理行为都会退化成「冒充人类」。",
+              "",
+              "【capability overhang 与缩小差距】",
+              "Scott：现在的模型能力与实际部署之间存在巨大落差——capability overhang。缩小这个差距不需要新科学，需要全行业的工程努力：更好的工具、更好的记忆、更好的权限、更好的评测。这会是未来几年最大的生产力来源。",
+              "",
+              "【记忆与康威定律】",
+              "Scott：agent 记忆目前是事务性的——会话结束即消失，这阻碍了复杂委派。你不能把一个为期数周的项目交给一个每隔几小时就失忆的员工。记忆、上下文管理、任务分解，是 agent 走向异步自主的三块基石。",
+              "Scott：还有组织风险：康威定律说你的系统结构就是你组织的沟通结构。如果你不主动设计 agent 与人的协作架构，你发布的就会是你现有的组织架构图——连同它的全部瓶颈。",
+              "",
+              "【安全模型与无许可创新】",
+              "Scott：安全模型也要重想。今天的安全假设「用户是人类」。当 agent 代表你行动时，需要的是可撤销的、细粒度的、可审计的授权链。HTTP 时代的无许可创新击败了看门人中间层——agentic web 时代也该如此。",
+              "",
+              "【异步 agent 未来】",
+              "Scott：终极愿景是异步 agent：你对它说「去把这事搞定」，然后它规划、执行、汇报。像雇用一位真正可靠的下属。我们离这个未来不远——前提是把记忆、身份、权限、评测这些无聊但关键的底座打好。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
