@@ -1,0 +1,129 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-25",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "轻量版说明：今日上游 X 快照与昨日（08-24）内容完全相同（10 位 builders、17 条推文未滚动），播客位空缺——本期为基于现有真实内容的单主题合并轻量日报，不重复逐条罗列，只保留当日主线。要闻回顾：Sottiaux 确认重置已下发、限额修复落地（**7425 赞**）+「2026 是模型效率与可靠性之年」（**5442 赞**）；Rauchg 的 fx 开放协议哲学——MCP、Skills、Plugins，最好的还是 Unix（**703 赞**）+ Sol 需求弹性（325 赞）；Garry Tan 预言记录系统须变 AI harness（567 赞）；Steipete 的「UI 可视化 + 团队 > CLI」（**1067 赞**）；Ryo Lu 的告别诗《leaving》（808 赞）；Levie 的退休梗（**1985 赞**）。"
+  },
+  "archive": {
+    "title": "快照重叠轻量日报",
+    "desc": "上游 X 快照与 08-24 完全相同、无新播客：主线仍为 Sottiaux 限额修复（7425 赞）、fx 开放协议与记录系统 AI harness 预言。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-25 source feeds (upstream X snapshot identical to 2026-08-24; no podcast in feed).",
+  "sections": [
+    {
+      "title": "Efficiency Year & Open Protocol Foundations / 效率之年与开放协议底座",
+      "desc": "Sottiaux 的效率之年论断（**5442 赞**）+ 重置落地确认（**7425 赞，本期最高**）；Rauchg 的 fx 开放协议哲学（**703 赞**）+ Sol 需求弹性（325 赞）；Garry Tan 的记录系统预言（567 赞）；Nan Yu 补刀（5 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+rauchg+garrytan+thenanyu",
+          "authorName": "Sottiaux / Rauchg / Garry Tan / Nan Yu",
+          "authorTag": "OpenAI / Vercel CEO / YC / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux: reset propagated, usage fixes landed (7425 likes) — 'You should feel a positive difference. More to come tomorrow and will keep communicating.' His thesis (5442 likes): '2026 is the year companies start seriously caring about model efficiency and reliability as it becomes critical infrastructure.' Rauchg on extending fx via open protocols (703 likes): MCP, Skills, Plugins — and the best one, Unix: small programs that do one thing well and compose; libfx enables embeddability into your own CLI, background agent, or software factory. Plus elastic intelligence (325 likes): Sol's price cuts + gateway discounts made it Vercel's fastest-growing frontier model — demand for intelligence is highly elastic.",
+              "Garry Tan's prediction (567 likes): 'systems of record will need to become AI harnesses or face replacement by agents.' Nan Yu's deadpan (5 likes): 'Also every other category of software.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Good Sunday. Reset has been propagated to accounts and we landed some fixes to usage for things mentioned yesterday as issues we found.",
+              "Thibault Sottiaux: 2026 is the year companies start seriously caring about model efficiency and reliability as it becomes critical infrastructure.",
+              "Guillermo Rauch: Our philosophy on extending fx: open protocols. ∙ MCP ∙ Skills ∙ Plugins. And the best one, Unix: ① Small programs that do one thing well and compose by calling other programs. ② libfx that enables embeddability into more complex programs.",
+              "Guillermo Rauch: Intelligence is getting cheaper. The demand for intelligence is highly elastic: as inference costs fall, usage grows rapidly.",
+              "Garry Tan: Prediction: systems of record will need to become AI harnesses or face replacement by agents.",
+              "Nan Yu: Also every other category of software."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux：重置已下发各账户、昨日排查的用量问题已随修复落地（7425 赞）——你们应能感到正向变化，明天更多、持续沟通。论断（5442 赞）：2026 是企业开始认真对待模型效率与可靠性的一年，因为它正在成为关键基础设施。Rauchg 的 fx 扩展哲学（703 赞）：开放协议——MCP、Skills、Plugins，而最好的还是 Unix：小程序做好一件事、通过组合调用完成大事；libfx 让它可嵌入你自己的 CLI、后台 agent、软件工厂。另一条（325 赞）：智能正在变便宜——Sol 降价叠加网关折扣使其成为 Vercel 增长最快的前沿模型，智能的需求高度弹性。",
+              "Garry Tan 的预言（567 赞）：记录系统要么变成 AI harness，要么被 agent 取代。Nan Yu 冷面补刀（5 赞）：其他所有软件品类也一样。"
+            ],
+            "original": [
+              "Sottiaux：重置下发、限额修复落地。2026 是模型效率与可靠性之年。",
+              "Rauchg：fx 靠开放协议扩展：MCP、Skills、Plugins，最好的还是 Unix。智能需求高度弹性。",
+              "Garry Tan：记录系统要么变 AI harness 要么被 agent 取代。",
+              "Nan Yu：其他软件品类也一样。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "UI over CLI, Evals Series & AI-Fluent Ops / UI 优于 CLI、Evals 系列与 AI 流利运营",
+      "desc": "Steipete 的「UI 可视化 + 团队 > CLI」（**1067 赞**）+ claw 玩 360 摄像头（208 赞）；Madhu Guru 的 evals 第七篇：金发姑娘原则（110 赞）；Peter Yang 的 AI 流利助手 Char（21 赞）+ 自上而下/自下而上 evals（43 赞）+ evals 课程推荐（1 赞）；Levie 的退休梗（**1985 赞**）。",
+      "cards": [
+        {
+          "authorKey": "steipete+realmadhuguru+petergyang+levie",
+          "authorName": "Steipete / Madhu Guru / Yang / Levie",
+          "authorTag": "Builder / Product / Builder / Box CEO",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "Steipete's UX take (1067 likes): 'cli is nice, having UI visualizations and your team where you work is nicer.' Plus his hardware play (208 likes): 'I added the rotation USB protocol and told my claw to look around — now it's having fun with my 360 webcam.' Madhu Guru's evals Part 7 (110 likes): the Goldilocks principle — evals should measure at the level of the jobs to be done, not just the final answer; don't build a golden set of 'right' stock picks for a financial analysis agent. Peter Yang's trio: AI-fluent human assistants (21 likes) — Char from Oceans uses Claude Code and Codex for podcast post-production; top-down vs bottom-up evals from Shreya (43 likes); and the Shreya/Hamel evals course plug (1 like).",
+              "Levie's retirement meme (1985 likes): 'I'm good to retire now.'"
+            ],
+            "original": [
+              "Peter Steinberger: cli is nice, having UI visualizations and your team where you work is nicer.",
+              "Peter Steinberger: I added the rotation USB protocol and told my claw to look around — now it's having fun with my 360 webcam.",
+              "Madhu Guru: Your evals should measure at the level of the various jobs to be done, not just the final answer.",
+              "Peter Yang: The best assistants today need to know how to work with AI agents. Char uses Claude Code and Codex to help me run podcast post-production, draft show notes, and make clips.",
+              "Peter Yang: Think of top-down as: If you're in a vacuum, just given the task description, what would you come up with? Bottom-up evals are the other half.",
+              "Aaron Levie: I'm good to retire now."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的体验之谈（1067 赞）：CLI 不错，但 UI 可视化加上团队就在你工作的地方，更好。硬件侧（208 赞）：给 claw 加了旋转 USB 协议让它四处张望——现在它正和我的 360 摄像头玩得开心。Madhu Guru 的 evals 第七篇（110 赞）：金发姑娘原则——evals 应在「待完成工作的层面」度量而非只看最终答案；别给金融分析 agent 建一套「正确股票」黄金答案集。Peter Yang 三连：AI 流利的人类助手（21 赞）——Oceans 的 Char 用 Claude Code 和 Codex 跑播客后期、起草节目笔记、做剪辑，还把我的 AI 技能改造成自己的工作流；Shreya 的 evals 二分法（43 赞）：自上而下=真空里只给任务描述你会怎么评，自下而上=看大量样本把直觉外化成标准；外加 Shreya/Hamel 的 evals 课程推荐（1 赞）。",
+              "Levie 的退休梗（1985 赞）：我现在就可以退休了。"
+            ],
+            "original": [
+              "Steipete：UI 可视化 + 团队协作 > CLI。claw 玩 360 摄像头。",
+              "Madhu Guru：evals 在工作层面度量，别只看最终答案。",
+              "Yang：最好的助手要会与 AI agent 协作。自上而下与自下而上的 evals。",
+              "Levie：我现在就可以退休了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Leaving Poem & Small Wonders / 告别诗与小确幸",
+      "desc": "Ryo Lu 的告别长诗《leaving》（808 赞）+ 告别配图（41 赞）；Nikunj 的岳母 eSIM 三分钟（170 赞）；Sottiaux 的卖萌更正（2474 赞）。",
+      "cards": [
+        {
+          "authorKey": "ryolu_+nikunj+thsottiaux",
+          "authorName": "Ryo Lu / Nikunj / Sottiaux",
+          "authorTag": "Cursor / FPV / OpenAI",
+          "sourceUrl": "https://x.com/ryolu_",
+          "en": {
+            "rewrite": [
+              "Ryo Lu's farewell poem (808 likes): 'leaving is the process from fullness into emptiness — from the familiar circle of life, the routines undone, the streets i knew by heart, the people i kept meeting, the names and labels that had gathered on my skin — toward a place entirely unknown, where a new life waits to be written. before i go, i take out everything i had hidden in my heart and say goodbye to it, piece by piece. memory rises.' The poetic capstone to his move to Asia, plus a photo drop (41 likes). Nikunj's eSIM joy (170 likes): mother-in-law visiting from India, no roaming — a data eSIM in under three minutes and she's connected. 'What a wonderful world we live in 🤗' And Sottiaux's charming correction (2474 likes): 'Meant 2pm obviously.'"
+            ],
+            "original": [
+              "Ryo Lu: leaving is the process from fullness into emptiness / from the familiar circle of life / the routines undone / the streets i knew by heart / toward a place entirely unknown / where a new life waits to be written.",
+              "Nikunj Kothari: I get a data eSIM in under three minutes and she's connected. What a wonderful world we live in 🤗",
+              "Thibault Sottiaux: Meant 2pm obviously."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu 的告别长诗《leaving》（808 赞）：离开，是从满到空的过程——从熟悉的生活圈、散掉的日常、烂熟于心的街道、反复遇见的人、聚在皮肤上的名字与标签，走向全然未知之地，那里有等待书写的新生活。临行前，把藏在心里的一切掏出来，一件一件道别。记忆升起。这是他移居亚洲的诗意终章，另附一张告别配图（41 赞）。Nikunj 的 eSIM 小确幸（170 赞）：岳母从印度来探望才发现没开漫游——三分钟办好数据 eSIM 她就连上了，「我们活在多美好的世界 🤗」。以及 Sottiaux 的卖萌更正（2474 赞）：显然我指的是下午两点。"
+            ],
+            "original": [
+              "Ryo Lu：《leaving》——从满到空，向未知而去，一件一件道别。",
+              "Nikunj：三分钟 eSIM 连通岳母。多美好的世界。",
+              "Sottiaux：显然我指下午两点。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
