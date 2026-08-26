@@ -1,0 +1,141 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-26",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 双发：5 小时限额明起回归 Plus（**9223 赞，今日最高**）——平滑算力负载、挡住意外吃量的重度用户 + DevDay 2026 预告（1869 赞）。Steipete 的「必须逃离无法用 prompt 改变的软件」（**2423 赞**）+ TIL prompt kiddie（654 赞）。Rauchg 的 tset 考古：1979 年 3BSD 里的 sleep(1) 等机械终端「安顿」，fx 用 Zig 重写 1ms 完事（**514 赞**）+ fx 反软件熵增宣言（210 赞）。Levie 论记录系统 agent 时代反而更关键（344 赞）+ ZDR 是 AI 增长幕后功臣（172 赞）。Garry Tan 的数据中心就业论（502 赞）+ Conductor Cloud（389 赞）+ 五行认识论（421 赞）。Amjad：Replit Agent 完全取代了 Claude CoWork（160 赞）。Dan Shipper 求 Google 解封 Every 的 YouTube 账号（116 赞）。今日无新播客，X 侧 13 位 builders 29 条推文正常滚动。"
+  },
+  "archive": {
+    "title": "5 小时限额回归与 prompt 软件日报",
+    "desc": "Sottiaux 宣布 5h 限额回归 Plus（9223 赞），Steipete 宣言「逃离无法用 prompt 改变的软件」（2423 赞），Rauchg 考古 tset 的 sleep(1)。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-26 source feeds (no podcast in feed today).",
+  "sections": [
+    {
+      "title": "5-Hour Limit Returns, DevDay Teaser & Prompt Software / 5 小时限额回归、DevDay 预告与 Prompt 软件",
+      "desc": "Sottiaux 的 5h 限额回归（**9223 赞，今日最高**）+ DevDay 2026（1869 赞）；Steipete 的 prompt 软件宣言（**2423 赞**）+ prompt kiddie（654 赞）+ 主题歌倡议（49 赞）；Nan Yu 的 Codex 装机体验（28 赞）+ AGI 感受（2 赞）+ L7 promo 吐槽（2 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete+thenanyu",
+          "authorName": "Sottiaux / Steipete / Nan Yu",
+          "authorTag": "OpenAI / Builder / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux brings back the 5-hour limit (9223 likes, top of the day): 'Tomorrow we will bring back the 5h limit for Plus accounts across ChatGPT Work and Codex. This is necessary as (a) the 5h limit allows us to smoothen the load on our compute, keeping the plan generous in terms of weekly usage and (b) users on the Plus plan are relatively casual and new users, but then also just accidentally eat through limits.' Plus the DevDay teaser (1869 likes): 'OpenAI DevDay 2026 will be our best DevDay in the history of the company. It will not be close.'",
+              "Steipete's manifesto (2423 likes): 'We need to get away from software that we can't change with a prompt.' Plus his TIL (654 likes): 'TIL: prompt kiddie' and 'More blog posts should come with theme songs' (49 likes). Nan Yu's trio: setting up a new computer with Codex — 'download and install handy, slack, chrome, cleanshot, rectangle… makes you wish siri was good' (28 likes); 'Feel the agi' (2 likes); and the L7 promo parody — 'shipped emoji reactions to Gmail that show up as ugly random one character emails… to anyone using another mail app' (2 likes)."
+            ],
+            "original": [
+              "Thibault Sottiaux: Tomorrow we will bring back the 5h limit for Plus accounts across ChatGPT Work and Codex. (a) the 5h limit allows us to smoothen the load on our compute (b) users on the Plus plan are relatively casual and new users, but then also just accidentally eat through limits.",
+              "Thibault Sottiaux: OpenAI DevDay 2026 will be our best DevDay in the history of the company. It will not be close.",
+              "Peter Steinberger: We need to get away from software that we can't change with a prompt.",
+              "Peter Steinberger: TIL: prompt kiddie.",
+              "Peter Steinberger: More blog posts should come with theme songs.",
+              "Nan Yu: setting up a new computer with Codex is kind of nice… 'download and install handy, slack, chrome, cleanshot, rectangle' makes you wish siri was good.",
+              "Nan Yu: L7 promo: shipped emoji reactions to Gmail that show up as ugly random one character emails with metadata to anyone using another mail app."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 宣布 5 小时限额明起回归（9223 赞，今日最高）：Plus 账户在 ChatGPT Work 和 Codex 都将带回 5h 限额——早就提过、推迟了一阵。必要性在于： 其一，5h 限额让我们平滑算力负载，从而保持周用量上的慷慨；其二，Plus 用户相对轻度、多为新用户，但也会无意间吃光限额。外加 DevDay 2026 预告（1869 赞）：这将是公司史上最好的 DevDay，而且不会接近——差距会很悬。",
+              "Steipete 的宣言（2423 赞）：我们必须逃离那些无法用 prompt 改变的软件。加料：TIL 新词「prompt kiddie」（654 赞）+「更多博客应该自带主题曲」（49 赞）。Nan Yu 三连：用 Codex 装新电脑——「下载安装 Handy、Slack、Chrome、CleanShot、Rectangle」，顺畅得让你希望 Siri 也这么好（28 赞）；「感受 AGI」（2 赞）；以及 L7 晋升材料戏仿——「给 Gmail 发了 emoji 回应，结果在别的邮件 app（包括地球最多人用的 iPhone 邮件）里显示成带元数据的丑陋乱码单字符邮件」（2 赞）。"
+            ],
+            "original": [
+              "Sottiaux：5h 限额明起回归 Plus：平滑算力、防意外重度使用。DevDay 2026 将是史上最好。",
+              "Steipete：逃离无法用 prompt 改变的软件。TIL prompt kiddie。博客该有主题曲。",
+              "Nan Yu：Codex 装机顺滑，希望 Siri 也这么好。Gmail emoji 回应变乱码邮件。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "1979 tset Archaeology, Systems of Record & ZDR / 1979 tset 考古、记录系统与 ZDR",
+      "desc": "Rauchg 的 tset sleep(1) 考古（**514 赞**）+ fx 反熵增（210 赞）；Levie 论记录系统 agent 时代更关键（344 赞）+ ZDR 功臣论（172 赞）；Garry Tan 的数据中心就业论（502 赞）+ Conductor Cloud（389 赞）+ 五行认识论（421 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+levie+garrytan",
+          "authorName": "Rauchg / Levie / Garry Tan",
+          "authorTag": "Vercel CEO / Box CEO / YC",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's tset archaeology (514 likes): 'If your terminal ever gets into a bad state, you run reset. I noticed it was… oddly slow. Turns out in 1979 3BSD's tset had a sleep(1) to let mechanical printer-and-ink terminals settle down 😂 I asked fx to write me a faster alternative in Zig. It takes 1ms instead of 1s.' Plus fx's anti-bloat manifesto (210 likes): 'It's faster, cheaper, more capable, and… smaller. As software evolves, it tends to get slower, more bloated, buggier, and bigger. fx is architected from the outset to prevent this.'",
+              "Levie's double: systems of record (344 likes) — 'have never been more important than in a world where you have AI agents that will do 100X more work on these platforms than people ever did. Agents will be querying the data, processing tasks, executing workflows, collaborating with human and agent users. The governance, reliability, security, access controls, and business logic remain critical.' And ZDR (172 likes): 'ZDR is responsible for a substantial amount of the growth of AI, because it dramatically simplified the compliance process most companies deal with in handling data with subprocessors. The alternative path would have been a far slower adoption rate.' Garry Tan's trio: datacenters create jobs and prosperity, actually (502 likes); Conductor Cloud productivity (389 likes); and the five-line epistemology (421 likes): 'Form a view. Turn it into an artifact or experiment. Put it in contact with reality. Read the result without self-deception. Revise and run again.'"
+            ],
+            "original": [
+              "Guillermo Rauch: Turns out in 1979 3BSD's tset had a sleep(1) to let mechanical printer-and-ink terminals 'settle down' 😂 I asked fx to write me a faster alternative in Zig. It takes 1ms instead of 1s.",
+              "Guillermo Rauch: It's faster, cheaper, more capable, and… smaller. As software evolves, it tends to get slower, more bloated, buggier, and bigger. fx is architected from the outset to prevent this.",
+              "Aaron Levie: Systems of record have never been more important than in a world where you have AI agents that will do 100X more work on these platforms than people ever did. The governance, reliability, security, access controls, and business logic remain critical.",
+              "Aaron Levie: ZDR is responsible for a substantial amount of the growth of AI, because it dramatically simplified the compliance process most companies deal with in handling data with subprocessors.",
+              "Garry Tan: Datacenters create jobs and prosperity, actually.",
+              "Garry Tan: Form a view. Turn it into an artifact or experiment. Put it in contact with reality. Read the result without self-deception. Revise and run again."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的 tset 考古（514 赞）：终端进入「坏状态」时你会跑 reset——我注意到它出奇地慢。一查：1979 年 3BSD 的 tset 里有个 sleep(1)，为的是让机械打印墨水终端「安顿下来」😂 于是让 fx 用 Zig 给我写了个更快的替代——1 毫秒搞定而不是 1 秒。深挖 ncurses、tset、terminfo 和终端初始化的无数门道，很有意思。外加 fx 反熵增宣言（210 赞）：更快、更便宜、更能干、而且……更小。软件演化往往变慢、变臃肿、更多 bug、更大——fx 从架构之初就在防止这件事。",
+              "Levie 双发：记录系统（344 赞）——在 agent 将于这些平台上做出百倍于人类工作的世界里，记录系统从未如此重要：agent 会查询数据、处理任务、执行工作流、与人及 agent 用户协作；治理、可靠性、安全、访问控制与业务逻辑依然是关键。ZDR（172 赞）——零数据保留为 AI 的相当大一部分增长立了功：它大幅简化了大多数公司处理子处理器数据的合规流程，否则采用率会慢得多。Garry Tan 三连：数据中心实际上创造就业与繁荣（502 赞）；Conductor Cloud 让我生产力大增、MacBook 不用再一直开着盖（389 赞）；五行认识论（421 赞）：形成一个观点→把它变成产物或实验→让它接触现实→不带自欺地读结果→修正再来。"
+            ],
+            "original": [
+              "Rauchg：1979 年 tset 的 sleep(1) 等机械终端安顿；Zig 重写 1ms 搞定。fx 生而反熵增。",
+              "Levie：agent 时代记录系统更关键。ZDR 是 AI 增长幕后功臣。",
+              "Garry Tan：数据中心创造就业。五行认识论。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Replit Agent Replaces CoWork, Support Calls & Venture Champions / Replit Agent 接棒、客服电话与风投拥趸",
+      "desc": "Amjad：Replit Agent 完全取代 Claude CoWork（160 赞）+ 里程碑（173 赞）；Peter Yang 的登录弃用论（26 赞）+ AI 客服电话试验（51 赞）+ 三个 AI 参谋长（82 赞）；Madhu Guru 的 evals 第八篇：区分度（92 赞）；Zara 的黑客松过时论（85 赞）+ Altman 最松弛访谈（61 赞）；Nikunj 的风投拥趸论（34 赞）；Dan Shipper 求 Google 解封（116 赞）；Aditya 的 SPC 招募（22/4 赞）。",
+      "cards": [
+        {
+          "authorKey": "amasad+petergyang+realmadhuguru+zarazhangrui+nikunj+danshipper+adityaag",
+          "authorName": "Amjad / Yang / Madhu / Zara / Nikunj / Shipper / Aditya",
+          "authorTag": "Replit CEO / Builder / Product / Builder / FPV / Every / SPC",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Amjad's double: 'Only a few have reached this milestone!' (173 likes) and 'Replit Agent completely replaced Claude CoWork in my day-to-day work. It's much more persistent and fastidious, and it uses code/software more effectively to complete tasks' (160 likes). Peter Yang's trio: login friction — 'Whenever I have to login to a new website/app or even use an agent that's trapped in a website/app I usually just prefer to stop using the product (the only exception is entertainment or gaming). I can't be the only one.' (26 likes); AI customer-support calls — 'I'd like to try using AI to call customer support phone numbers using voice, navigate the terrible automated phone systems, and talk to a human to book appointments or cancel subscriptions' (51 likes); and 'I got 3 AI chief of staffs now, clearly the next step is to add one more' (82 likes).",
+              "Madhu Guru's evals Part 8 (92 likes): the discriminatory property — a hill-climbing eval is useful when it can separate AI systems that are meaningfully different; five systems scoring 92-95 tells you nothing if you already know A and C are substantially better than D and E. Zara's duo: hackathons are an outdated event format (85 likes); and David Senra's interview style getting Altman at his most comfortable (61 likes). Nikunj's venture wisdom (34 likes): 'Every (unconventional) deal that's officially wired dies a 100 times in venture. It usually takes one champion sticking their neck out for the founder — founders, figure out who your real champion is and arm them with whatever info you can.' Dan Shipper's SOS (116 likes): Google disabled Every's YouTube account with 0 notice and no reason. Aditya's SPC recruiting (22/4 likes): Hans Robertson — early at VMware, co-founded Meraki (sold to Cisco for $1.2B), still running Verkada today."
+            ],
+            "original": [
+              "Amjad Masad: Replit Agent completely replaced Claude CoWork in my day-to-day work. It's much more persistent and fastidious, and it uses code/software more effectively to complete tasks.",
+              "Peter Yang: Whenever I have to login to a new website/app or even use an agent that's trapped in a website/app I usually just prefer to stop using the product. I can't be the only one.",
+              "Peter Yang: I'd like to try using AI to call customer support phone numbers using voice, navigate the terrible automated phone systems, and talk to a human to book appointments or cancel subscriptions.",
+              "Peter Yang: I got 3 AI chief of staffs now, clearly the next step is to add one more.",
+              "Madhu Guru: The discriminatory property of evals. A hill-climbing eval is useful when it can separate AI systems that are meaningfully different.",
+              "Zara Zhang: Unpopular opinion: hackathons are an outdated event format (at least the way they're traditionally held).",
+              "Zara Zhang: I really appreciate how @davidsenra immediately cuts to the chase and gets his guests to be their most natural selves.",
+              "Nikunj Kothari: Every (unconventional) deal that's officially wired dies a 100 times in venture. It usually takes one champion sticking their neck out for the founder.",
+              "Dan Shipper: so it looks @google disabled the @youtube account for @every with 0 notice and no reason given.",
+              "Aditya Agarwal: Hans Robertson was early at @VMware, co-founded @meraki and sold it to Cisco for $1.2B, and co-founded Verkada in 2016. He's still running it today."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 双发：只有少数几家到达过这个里程碑（173 赞）；以及「Replit Agent 在我日常工作里完全取代了 Claude CoWork——它更持久、更严谨，用代码/软件完成任务也更高效」（160 赞）。Peter Yang 三连：登录弃用论（26 赞）——每当要登录新网站/应用、或用被困在网站/应用里的 agent 时，我通常干脆放弃这个产品（唯一例外是娱乐和游戏），不可能只有我这样；AI 客服电话试验（51 赞）——想试试用 AI 语音打客服电话、穿过糟糕的自动语音系统、找到真人预约或退订；「我已经有三个 AI 参谋长了，下一步显然是再加一个」（82 赞）。",
+              "Madhu Guru 的 evals 第八篇（92 赞）：区分度——爬山式 eval 有用时，在于它能分出有实质差异的 AI 系统。五个系统打分 92-95 挤在一起，而你明知 A 和 C 远强于 D 和 E——这个 eval 就是坏的，区分度太低。Zara 双发：不受欢迎的观点——黑客松是过时的活动形式（至少传统办 法是）（85 赞）；David Senra 直切要害、让嘉宾最自然——看过很多 Altman 访谈，这期他最松弛（61 赞）。Nikunj 的风投拥趸论（34 赞）：每个（非常规）最终打款的交易都曾在风投内部死过一百次——通常需要一位冠军为创始人把脖子伸出去、悄悄把它护送到终点；创始人们，搞清楚你真正的冠军是谁，把弹药喂给ta。Dan Shipper 的求救（116 赞）：Google 零通知、无理由封了 Every 的 YouTube 账号。Aditya 的 SPC 招募（22/4 赞）：Hans Robertson——VMware 早期、联合创办 Meraki 12 亿美元卖给思科、2016 年联合创办 Verkada 至今仍在掌舵。"
+            ],
+            "original": [
+              "Amjad：Replit Agent 完全取代 Claude CoWork。更持久更严谨。",
+              "Yang：登录弃用论。AI 打客服电话。三个 AI 参谋长。",
+              "Madhu Guru：evals 要有区分度。",
+              "Zara：黑客松过时。Altman 最松弛访谈。",
+              "Nikunj：交易死一百次，需要一位冠军。",
+              "Shipper：Google 无理由封号求救。",
+              "Aditya：Hans Robertson 到访 SPC。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
