@@ -1,0 +1,205 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-27",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Altman 四词核弹「we made a chip and it is fast」（**32803 赞，全周最高**）。Claude 宣布记忆跨聊天与 Cowork 统一（**6846 赞**）+ 记忆以主题列表可查可改（549 赞）+ 健康宗教等敏感话题默认不入记忆（394 赞）；Cat Wu 确认全端同步（588 赞）；Cherny 升级 Claude Code 记忆「更简单更强」（1429 赞）。Sottiaux 发布面向团队与小公司的 Team 计划：SAML/SSO/MFA、集中计费、**无 5h 限额**（**2926 赞**）+「好产品需要时间，至少 34 天」（2034 赞）。Thariq 预告 Claude Code 将更可黑（1118 赞）。Google Labs 推多人实时 vibe coding 实验Putty（1234 赞）。Rauchg 的 Run SDK：QuickJS 轻量安全 eval（419 赞）+ Vercel Connect GA（214 赞）。Peter Yang 开源 /fuck-cancer 技能（1389 赞）。播客：Training Data 专访 Parallel 创始人 Parag Agrawal（前 Twitter CEO）——为 agent 重造搜索（50405 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "OpenAI 造芯与记忆统一日报",
+    "desc": "Altman 四词官宣自研芯片（32803 赞），Claude 聊天×Cowork 记忆统一（6846 赞），OpenAI 团队版无 5h 限额，Parallel 论 agent 搜索。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-27 source feeds.",
+  "sections": [
+    {
+      "title": "OpenAI's Chip, Team Plan & Claude's One Memory / OpenAI 造芯、团队版与 Claude 统一记忆",
+      "desc": "Altman 的芯片官宣（**32803 赞，全周最高**）；Claude 记忆统一（**6846 赞**）+ 主题列表（549 赞）+ 敏感话题开关（394 赞）+ Cat Wu 全端确认（588 赞）+ Cherny 的记忆升级（1429 赞）；Sottiaux 的 Team 计划（**2926 赞**）+ 34 天论（2034 赞）+ polymarket（367 赞）；Swyx 的 Codex 锁定 PSA（5 赞）。",
+      "cards": [
+        {
+          "authorKey": "sama+claudeai+_catwu+bcherny+thsottiaux+swyx",
+          "authorName": "Altman / Claude / Wu / Cherny / Sottiaux / Swyx",
+          "authorTag": "OpenAI CEO / Anthropic / Cowork / Claude Code / OpenAI / AI Ecosystem",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "Sam Altman drops four words (32803 likes, top of the week): 'we made a chip and it is fast.' Claude unifies memory across chat and Cowork (6846 likes): 'Hand Cowork a task and it starts from what Claude already knows from your chats: the project you talked through, your manager's preferences, or the client from last quarter.' Everything remembered is a list of topics in Settings — read, edit, or delete each one (549 likes); sensitive topics like health or religious beliefs stay out unless enabled (394 likes). Cat Wu confirms (588 likes): 'Thanks to your feedback, we've unified memory across Chat and Cowork.' Boris Cherny ships (1429 likes): 'A small improvement: memory is now simpler and more powerful.'",
+              "Sottiaux's Team plan (2926 likes): like the Pro $100 plan but for teams and small companies — all ChatGPT/Work/Codex features, Google Workspace/Slack/GitHub/M365 connectors, SAML/SSO/MFA secure workspace, centralized billing, usage analytics and spend controls, and NO 5h limits. Plus 'Good products take time. At least 34 days.' (2034 likes) and 'I want to see the polymarket' (367 likes). Swyx's PSA (5 likes): don't use Codex 'locked use' right now — it relies on unstable macOS features and locked him out of his Keychain twice this week."
+            ],
+            "original": [
+              "Sam Altman: we made a chip and it is fast",
+              "Claude: Claude now has one memory across chat and Claude Cowork, and you decide what's in it. Hand Cowork a task and it starts from what Claude already knows from your chats.",
+              "Claude: Everything Claude remembers is saved as a list of topics in Settings, where you can read, edit, or delete each one.",
+              "Claude: Topics some consider sensitive, like health or religious beliefs, stay out of memory unless you turn them on in Settings.",
+              "Cat Wu: Thanks to your feedback, we've unified memory across Chat and Cowork. Now, you can tell Claude to remember something once and it'll have that context across surfaces!",
+              "Boris Cherny: A small improvement: memory is now simpler and more powerful. Enjoy!",
+              "Thibault Sottiaux: So much demand for this one. Works similar to the Pro $100 plan but designed for teams and small companies. ✅ SAML, SSO, and MFA ✅ Centralized billing and administration ✅ Usage analytics and spend controls ✅ No 5h limits",
+              "Thibault Sottiaux: Good products take time. At least 34 days.",
+              "Swyx: PSA: do not use codex 'locked use' capabilities right now. it is currently relying on unstable mac features and has completely locked me out of my macos keychain twice this week."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 四词核弹（32803 赞，全周最高）：我们造了块芯片，而且它很快。Claude 宣布记忆跨聊天与 Cowork 统一（6846 赞）：给 Cowork 交个任务，它直接从 Claude 在聊天里已知的上下文开始——你们聊过的项目、你老板的偏好、上季度的客户。所有记忆以主题列表存在设置里，可逐条读、改、删（549 赞）；健康、宗教信仰等敏感话题默认不入记忆，需在设置里打开（394 赞）。Cat Wu 确认（588 赞）：多亏大家的反馈，Chat 与 Cowork 的记忆已统一。Cherny 同步升级（1429 赞）：一个小改进——Claude Code 的记忆现在更简单也更强。",
+              "Sottiaux 发布 Team 计划（2926 赞）：需求太大了。类似 Pro 100 美元计划但面向团队与小公司——全部 ChatGPT/Work/Codex 功能、连接 Google Workspace/Slack/GitHub/M365 等、SAML/SSO/MFA 安全工作区、集中计费与管理、用量分析与支出控制、**无 5h 限额**。外加金句「好产品需要时间。至少 34 天」（2034 赞）与「我想看 polymarket 赔率」（367 赞）。Swyx 的 PSA（5 赞）：现在别用 Codex 的 locked use——它依赖不稳定的 macOS 特性，本周已经两次把我锁在钥匙串外。"
+            ],
+            "original": [
+              "Altman：我们造了块芯片，而且它很快。",
+              "Claude：记忆跨聊天与 Cowork 统一，主题列表可查改删。敏感话题默认不记。",
+              "Cherny：Claude Code 记忆更简单更强。",
+              "Sottiaux：Team 版来了——SSO/MFA、集中计费、无 5h 限额。好产品至少 34 天。",
+              "Swyx：Codex locked use 两次锁死钥匙串，先别用。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Hackable Claude Code, Multiplayer Putty & Secure Eval / 可黑化 Claude Code、多人 Putty 与安全求值",
+      "desc": "Thariq 预告 Claude Code 更可黑（1118 赞）；Google Labs 的 Putty 多人实时 vibe coding（1234 赞）；Rauchg 的 Run SDK（419 赞）+ Vercel Connect GA（214 赞）+ Denny's 梗（31 赞）；Levie 论应用 AI 战略差距（122 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+GoogleLabs+rauchg+levie",
+          "authorName": "Thariq / Google Labs / Rauchg / Levie",
+          "authorTag": "Anthropic / Google / Vercel CEO / Box CEO",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq teases (1118 likes): 'excited to share more on how we're making Claude Code more hackable soon.' Google Labs ships Putty (1234 likes): 'a collaborative vibe coding tool that lets you build tools and websites together in real time. Ready for your imagination to go multiplayer? Join the waitlist.' Rauchg's double: Run SDK (419 likes) — 'secure eval for dynamic Code Mode execution. When agents write code, you don't always need a full sandbox. You can run their code in a lightweight QuickJS secure context. Faster and more cost-efficient. npm i run'; and Vercel Connect GA (214 likes) — 'The hardest problem in building agents is secure connectivity to services and data. Run vercel connect create notion, then get an MCP client you can query on behalf of the authenticated user.'",
+              "Levie on the applied AI gap (122 likes): 'There's a wide gap between the AI models and the underlying workflows of an enterprise, which leaves a ton of opportunity for applied AI companies. The world doesn't just want raw models and agents; it wants problems resolved and outcomes achieved. The premium will sit with the companies that can diffuse this intelligently.'"
+            ],
+            "original": [
+              "Thariq: excited to share more on how we're making Claude Code more hackable soon.",
+              "Google Labs: Play with Putty is a collaborative vibe coding tool that lets you build tools and websites together in real time. Ready for your imagination to go multiplayer?",
+              "Guillermo Rauch: We're introducing Run SDK: secure eval for dynamic Code Mode execution. When agents write code, you don't always need a full sandbox. You can run their code in a lightweight QuickJS secure context. Faster and more cost-efficient.",
+              "Guillermo Rauch: The hardest problem in building agents is secure connectivity to services and data. Excited for Vercel Connect to be GA.",
+              "Aaron Levie: The world doesn't just want raw models and agents; it wants problems resolved and outcomes achieved. The premium will sit with the companies that can diffuse this intelligently."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 预告（1118 赞）：很兴奋很快分享我们如何让 Claude Code 变得更可黑化。Google Labs 上新实验Putty（1234 赞）：多人实时协作 vibe coding 工具——一起实时搭建工具与网站，「让你的想象力进入多人模式」，候补已开。Rauchg 双发：Run SDK（419 赞）——为动态 Code Mode 执行提供安全求值：agent 写代码时不总需要完整沙箱，可以在轻量 QuickJS 安全上下文里跑它们的代码，更快也更省——npm i run；Vercel Connect GA（214 赞）——构建 agent 最难的问题是到服务与数据的安全连接，vercel connect create notion 一条命令拿到可代认证用户查询的 MCP 客户端。外加 Denny's 梗（31 赞）。",
+              "Levie 论应用 AI 战略（122 赞）：AI 模型与企业底层工作流之间存在巨大空隙，给应用 AI 公司留下大量机会——世界要的不只是裸模型和 agent，而是问题被解决、结果被达成；溢价属于能智能扩散这些能力的公司。"
+            ],
+            "original": [
+              "Thariq：Claude Code 将更可黑化。",
+              "Google Labs：Putty 多人实时 vibe coding。",
+              "Rauchg：Run SDK 用 QuickJS 轻量安全求值。Vercel Connect GA。",
+              "Levie：溢价属于能弥合模型与工作流的公司。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "/fuck-cancer OSS, Memory Maxxing & Builder Life / 开源 /fuck-cancer、记忆最大化与构建者生活",
+      "desc": "Peter Yang 开源 /fuck-cancer 技能（**1389 赞**）+ 简报示例（101 赞）+ DevDay 期待（117 赞）；Garry Tan 的 lmao（**4686 赞**）+ 跨 harness 记忆最大化（510 赞）+ 挂人回应（60 赞）；Madhu Guru 的 evals 第九篇路线图问题（83 赞）+ 全系列（0 赞）；Nikunj 的厄尔尼诺监测站（8/3 赞）+ VC 晚宴梗（14 赞）；Steipete 的本周（280 赞）；Dan Shipper 三连（37/51/71 赞）；Aditya 论数据中心民怨（18 赞）。",
+      "cards": [
+        {
+          "authorKey": "petergyang+garrytan+realmadhuguru+nikunj+steipete+danshipper+adityaag",
+          "authorName": "Yang / Tan / Madhu / Nikunj / Steipete / Shipper / Aditya",
+          "authorTag": "Builder / YC / Product / FPV / Builder / Every / SPC",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Peter Yang open-sources /fuck-cancer (1389 likes): 'an AI skill that helps patients and caregivers navigate cancer diagnosis and treatment and advocate for themselves and their loved ones' — built from what patients told him after sharing his mom's story: 'You have to be a huge patient advocate. Ask questions and push for answers, biopsies, and proper testing.' The skill creates and updates a single-source-of-truth brief: patient info, next steps, what we know, medical term definitions, and an update log (101 likes). Plus his DevDay excitement (117 likes): 'ChatGPT / Codex is basically the OS I use for everything I do on my computer.'",
+              "Garry Tan's trio: the enigmatic 'lmao' (4686 likes); 'You need to be cross-harness memory maxxing' (510 likes); and the clout-chaser clapback (60 likes). Madhu Guru's evals Part 9 (83 likes): the Eval Roadmap Problem — evals fail because teams treat them as static artifacts while user expectations evolve; early user wants a 5-page earnings summary, later users want competitive positioning across 50 filings. Nikunj's El Niño monitor (8/3 likes): real-time updates from government sources, impact per region, historical records, glossary — built with Codex and Railway. Plus the VC dinner joke (14 likes). Steipete's week in review (280 likes). Dan Shipper's trio (37/51/71): GET DOT, a device to test, and an upcoming Every vibe check. Aditya on datacenter resentment (18 likes): 'AI today primarily helps knowledge workers and the highest paid segments. I suspect the big change will happen when AI is able to find cures for diseases that ail everyone.'"
+            ],
+            "original": [
+              "Peter Yang: Today, I'm open-sourcing /fuck-cancer, an AI skill that helps patients and caregivers navigate cancer diagnosis and treatment and advocate for themselves and their loved ones.",
+              "Peter Yang: I've found it really useful to have a single source of truth doc with patient information, what to do next, what we know, definitions of medical terms, and an update log.",
+              "Peter Yang: ChatGPT / Codex is basically the OS I use for everything I do on my computer.",
+              "Garry Tan: You need to be cross-harness memory maxxing.",
+              "Madhu Guru: Most evals fail because teams treat them as static artifacts while their users' expectations and behaviors have evolved. Your evals need a roadmap that evolves with your product and actual usage patterns.",
+              "Nikunj Kothari: Introducing the El Niño situation monitor (elneenyo dot com). Real time updates, news and what's happening straight from government sources.",
+              "Aaron Levie/Aditya Agarwal: It's totally unsurprising that the general population hates datacenter buildout. AI today primarily helps knowledge workers and the highest paid segments of the country.",
+              "Aditya Agarwal: I suspect that the big change will happen when AI is able to find cures for diseases that ail everyone."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 开源 /fuck-cancer 技能（1389 赞）：帮患者与照护者导航癌症诊断与治疗、为自己和所爱之人争取权益——源自他分享母亲故事后收到的话：「你必须做个强势的患者倡导者，多问问题、推动要答案、要做活检和 proper testing。」技能会创建并持续更新一份单一事实源简报：患者信息、下一步做什么、我们已知什么、医学术语定义、更新日志（101 赞）。外加 DevDay 期待（117 赞）：ChatGPT/Codex 基本就是我电脑上一切的操作系统。",
+              "Garry Tan 三连：意味深长的「lmao」（4686 赞）；「你需要跨 harness 记忆最大化」（510 赞）；以及对挂人者的回击（60 赞）。Madhu Guru 的 evals 第九篇（83 赞）：路线图问题——evals 失败多因被当成静态工件而用户预期在演化；早期用户要 5 页财报摘要，后来要跨 50 份财报的竞对定位。Nikunj 的厄尔尼诺监测站（8/3 赞）：政府源实时更新、分区影响、历史记录、术语表——用 Codex 和 Railway 搭的。外加 VC 晚宴梗（14 赞）。Steipete 的本周回顾（280 赞）。Dan Shipper 三连（37/51/71 赞）：GET DOT、拿到一台测试设备、Every vibe check 即将上线。Aditya 论数据中心民怨（18 赞）：今天的 AI 主要帮知识工作者和收入最高的人群，不奇怪大众讨厌数据中心建 设——大转折会发生在 AI 能找到治愈所有人的疾病疗法之时。"
+            ],
+            "original": [
+              "Yang：开源 /fuck-cancer——单一事实源简报帮患者导航。",
+              "Tan：跨 harness 记忆最大化。",
+              "Madhu Guru：evals 需要随产品演化的路线图。",
+              "Nikunj：厄尔尼诺监测站上线。",
+              "Aditya：AI 治愈众生之日才是民怨翻转之时。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Parag Agrawal — Building a New Web for AI Agents / 播客：Parag Agrawal——为 AI Agent 造一张新网",
+      "desc": "Training Data 专访 Parallel 创始人（前 Twitter CEO）Parag Agrawal：人类点击数据是 bug、Shapley 值分配内容方收益、TurboNow 最快 agent 搜索、Google Cloud 合作。完整 transcript（50405 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:td-parag",
+          "authorName": "Training Data",
+          "authorTag": "Parag Agrawal（Parallel 创始人，前 Twitter CEO）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8",
+          "en": {
+            "rewrite": [
+              "Training Data interviews Parag Agrawal — Twitter's former CEO, now founder of Parallel Web Systems — on scaling agentic search for the agentic web. Core thesis: 'human click data is a bug; agents doing work with search should rely on agent feedback, not human feedback.' Parallel started with the bet that agents would search 1000x more than humans ever have, requiring reinvented technology AND business models. Key threads: unlearning post-PMF Twitter lessons for a pre-PMF company building for a customer that doesn't exist yet; search as a billion-to-billion matching problem (hundreds of billions of pages × queries → the right thousand tokens); launching a search AGENT first (not a search engine) — trading the index for inference-time compute, competing with outsourced human curation; early customers in insurance underwriting, sales enrichment, finance data pipelines; quality-cost-latency with latency ignored for two years, then TurboNow — 'the fastest, highest quality agentic web search on the market by a lot'; agents as a different customer class — fewer typos, better-specified, longer queries; the pre-AI human slop (SEO affiliate pages) as catering to lazy humans vs. agents getting authoritative excerpts directly; the announced Google Cloud partnership (search and grounding provider for enterprise agent APIs alongside Google Search); why model companies' pretraining crawls don't build fresh indexes (they're not completionists); search multipliers: a chat prompt = 5-10 searches, background portfolio agents = millions; the broken economics of the ad-funded web when humans don't show up — differential pricing must be rebuilt for agents; and the Shapley value framework for publisher compensation — remove a source, measure quality drop, price it against the compute needed to claw it back; the macro math (2-10% of LLM inference spend allocated to web data beats all web data business models outside walled gardens); 12-24 months to meaningful dollars for a wide range of content owners; and the company's original name: Shapley Inc. (shapley.ai was available; shapley.com is a parked porn domain)."
+            ],
+            "original": [
+              "Parag Agrawal: Human click data is a bug, and agent doing work with search should rely on agent feedback, not human feedback.",
+              "Parag Agrawal: We started Parallel with the bet that agents would do it a thousand x more than humans ever have.",
+              "Parag Agrawal: A human action is now a multiplier on number of searches. A chat prompt does five to ten searches; background portfolio agents do millions.",
+              "Parag Agrawal: We announced today that we are working with Google Cloud to be a search and grounding provider for their enterprise agent APIs.",
+              "Parag Agrawal: Every query is essentially: give me a thousand tokens from a trillion web pages and make sure they're the right thousand tokens.",
+              "Parag Agrawal: The formalization of this intuition is Shapley values. If you have unique differentiated data, you get paid more.",
+              "Parag Agrawal: We're twelve to twenty four months from this math being able to give meaningful dollars for a very wide range of content owners on the web.",
+              "Parag Agrawal: The company's original name was Shapley Inc."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Training Data：专访 Parallel 创始人、前 Twitter CEO Parag Agrawal——为 agent 重造搜索与互联网经济。一期把「agent 搜索」从爬虫讲到收益分配的重磅对话：人类点击数据是 bug；先做搜索 agent 再做搜索引擎；放弃延迟两年后 TurboNow 一鸣惊人；与 Google Cloud 达成企业 agent API 搜索与 grounding 提供方合作；用 Shapley 值给内容方分钱；公司原名竟叫 Shapley Inc.。"
+            ],
+            "original": [
+              "【Parallel 是什么：为 agent 的千倍搜索】",
+              "Agrawal：在 Parallel，我们构建让 agent 搜索并使用网络的技术。就像人类学会了用浏览器和搜索引擎点进点出去获取信息，agent 也需要做同样的事。我们创业的赌注是：agent 的搜索量将是人类的一千倍——因此需要重造支撑 agent 搜索的技术，以及与之配套的商业模式。",
+              "Agrawal：我在 Twitter 做高管时，那是一个远超 PMF、数亿用户每天用三十多分钟的产品，反馈回路来自海量用户。而 Parallel 是一家 pre-PMF 公司，前提是几年后互联网上会出现一类新客户——我们在为那个还不存在的客户、每天都在学习的东西做技术。两种世界运转方式完全不同，我在「反学习」Twitter 的经验。",
+              "",
+              "【搜索的本质与破局】",
+              "Agrawal：网络搜索的问题：你要找东西但不知道它在哪。搜索引擎爬取全网、读入并组织成索引，查询到来时经多级检索与排序，把几千亿网页收窄到最相关的少数——本质是「千亿对千亿」的匹配问题。每次查询约等于：从万亿网页里给我一千个 token，而且要是对的那一千个。",
+              "Agrawal：过去难在两点：爬全网建索引贵；更关键的是缺「这个结果比那个好」的反馈数据——人类评分和点击数据都难以规模化获得。现在模型把专家级评分数据变得极便宜。我们的核心观点：人类点击数据是 bug——agent 用搜索干活应该依赖 agent 反馈，而非人类反馈。",
+              "Agrawal：破局是不先做搜索引擎、先做搜索 agent：查询到来后现场爬。深度研究场景里用户能等一分钟甚至十分钟——只要有足够好的地图知道优先爬哪里，用「推理时算力」换「索引」这个延迟优化。早期客户：保险承保与理赔、销售数据增强、金融建模数据管道——都是替代「外包人类策展网络数据」的场景，也让我们用真实用例而非理论 eval 积累经验。",
+              "",
+              "【质量、成本、延迟】",
+              "Agrawal：公司建立在质量、成本、延迟三个维度上。前两年我们刻意忽略延迟，先在每个价位做到最佳质量——蒸馏到小模型是已知技艺而非未知研究。达标后我们发布 TurboNow：市场上最快、质量最高的 agent 网络搜索，而且领先很多。",
+              "Agrawal：为 agent 服务时界面也变了。人类靠关键词搜索——我们懒，给 Google 打两个不完整的词带个错别字就指望最好结果。模型不那么懒：错别字更少、查询描述更好、查询更长，搜索引擎不用去猜 agent 想要什么。",
+              "Agrawal：那些「pre-AI 人类 slop」（SEO 联盟页）之所以存在，是因为它在迎合懒惰的人类：权威数字在第 73 页的 PDF 里，但没人愿意翻。对 agent，我们直接从最权威处取摘录送进上下文——不必被迫做这种权衡。查询进来后：模型理解并改写查询、路由到不同索引（大索引/新鲜索引/结构化索引）、多级检索排序、逐级用更大的模型，最终带回信号最高的一千个 token。",
+              "",
+              "【与模型公司的关系】",
+              "Agrawal：有人认为搜索如此根本、模型公司会自己做。我没看到地面证据：预训练爬虫对建新鲜索引没什么用——模型公司没有耐心做完人主义者，等慢吞吞的 JavaScript 加载，token/算力比太差；而我们恰恰要爬这些。但搜索确实是每个 agent 的核心邻接：买 LLM 干活的用例里十个有九个要联网。所以自建还是购买——对话会继续。今天我们宣布与 Google Cloud 合作：成为其企业 agent API 的搜索与 grounding 提供方，与 Google 搜索并列。",
+              "",
+              "【千倍搜索与背景 agent】",
+              "Agrawal：一次人类动作现在是搜索量的乘数。ChatGPT 里每条提示做 5-10 次搜索；调高档做几百上千次。更大的乘数在背景 agent：给一万家小贷商户做月度风险巡检的 agent，一次运行就是几十万上百万次搜索——过去每月一次的人工流程现在每周跑。我用 Notion 的自定义 agent 给每次会议做预习文档——一次写好提示，它为我的每个会议做几十上百次网络搜索。背景 agent 的部署只受「价值/花费」比约束。",
+              "Agrawal：现在 agent 查询超过人类了吗？还没有，我们还非常早期——走出我们的泡泡，没人听说过 Fable。像我这样的人可能已经运行在千倍档；Cloudflare 监测显示 AI 流量的页面读取量已与人类流量相当。方向是明确的。",
+              "",
+              "【互联网经济与 Shapley 值】",
+              "Agrawal：广告是极高效的差异化定价机制——Google 在大多数查询上亏钱、靠少数赚回，才有免费搜索与免费内容。但如果人类不再出现、来的都是 agent，「有限人类注意力换结果」的根基就塌了。我卖过 Twitter 数据给 OpenAI，也在思考什么才激励相容。",
+              "Agrawal：我们需要的是：对高质量内容差异化付高价、对高价值工作差异化计费，且能规模化而非逐个谈定制交易。最大属性是激励相容。为什么模型公司要付钱？推理时要新鲜数据、训练要数据、还要既有训练的责任豁免——付的是这三样的组合。",
+              "Agrawal：归因怎么做？把某条内容从语料里拿掉，跑 agent，看质量掉了多少；再看花一分钱算力能否把质量补回来——如果能，这份源大概值一分钱。这个直觉的形式化就是 Shapley 值：合作创造了大于各部分之和的饼，如何分才能让人人都有激励继续合作。直接算 Shapley 比付给出版方的钱还贵，但可以用模拟数据训练模型来很好地估计它。就像广告界从手动出价走到自动 ROI 出价——反馈回路一旦建立，市场就会收敛。",
+              "Agrawal：宏观账也算得过来：把 LLM 知识工作推理开销的 2-10% 分给网络数据，就超过今天 Facebook/LinkedIn 之外全部网络数据商业模式的总和。按 agent 网上规模每年一个数量级的增速，12-24 个月内这套数学就能给范围很广的内容方带来有意义的收入。想象一下跟内容方解释 Shapley 数学的场景——需要一点时间，但性质他们爱听：独特数据多得、银行家读一次比退休老爸读一次付得多。",
+              "",
+              "【为什么叫 Parallel】",
+              "Agrawal：公司原名是 Shapley Inc.——注册时 shapley.ai 恰好可用（shapley.com 是个停放的色情域名）。后来我们越来越喜欢 Parallel：一方面当时在并行做很多事情；另一方面我们预见到一张「为 AI 而建的平行网络」——你发布时会想两个受众：人类怎么读，agent 怎么读。双重发布、平行网络。",
+              "（另一位主持人补充：财报电话会就是已翻转的例子——通过 agent 消费财报转写的人几乎肯定比听音频、甚至读转写的人多。若我是上市公司 CEO，我会明确说：我讲的每句话都会被 agent 正确转写与解读。）"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
