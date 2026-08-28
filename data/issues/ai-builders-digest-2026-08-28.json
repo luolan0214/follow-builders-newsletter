@@ -1,0 +1,205 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-08-28",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 双发：「在 OpenAI 的几周抵得上别家公司数年」（**9336 赞，今日最高**）+「二十年没按过重置键了，明天看看能不能找到它掸掸灰」（6582 赞）。Altman 预告下一个模型发布会派对（9236 赞）+ 推荐一份关于坏事的报告（3248 赞）。Claude 上线 Cowork 内置浏览器：导航、填表、干完活（**7149 赞**）+ 桌面端自带浏览器与登录隔离（455 赞）+ Chrome 扩展全付费 GA（247 赞）。Dan Shipper 的「THEY DID IT FOLKS」（**1367 赞**）+ Codex 原生应用来了（258 赞）。Thariq 上线 Claude SendFeedback 工具（944 赞）+ Stripe 反欺诈战（347 赞）。Rauchg 的安全仪表盘与 𝚟𝚎𝚛𝚌𝚎𝚕 𝚜𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝚌𝚑𝚎𝚌𝚔 CLI（261 赞）。Turck 解读 NVIDIA 收编 Hugging Face（119 赞）。播客：AI & I「Best of」重播——Walleye 100 亿美元对冲基金的 AI 手册（71248 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "Codex 原生应用与 Claude 浏览器日报",
+    "desc": "Claude Cowork 内置浏览器（7149 赞）、Codex 原生应用上线，Sottiaux 感叹 OpenAI 几周抵他处数年（9336 赞）。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-08-28 source feeds.",
+  "sections": [
+    {
+      "title": "OpenAI Pace, Codex Native Apps & Party Planning / OpenAI 节奏、Codex 原生应用与发布会派对",
+      "desc": "Sottiaux 的时间膨胀双发（**9336 赞，今日最高** + 6582 赞）；Altman 的派对预告（9236 赞）+ 报告推荐（3248 赞）；Dan Shipper 的三连（**1367 赞** + 258/259 赞）；Steipete 的 Codex 可视化（492 赞）+ 泡沫之问（463 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+sama+danshipper+steipete",
+          "authorName": "Sottiaux / Altman / Shipper / Steipete",
+          "authorTag": "OpenAI / OpenAI CEO / Every / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux on time dilation (9336 likes, top of the day): 'A few weeks at OpenAI feel like years at other companies in terms of how much gets done. Crazy how much you can age in a few days.' And the reset tease (6582 likes): 'A good thing about having aged is that I feel that it's been 20 years since I've pressed the reset button. Intrigued to see if I can find it tomorrow and dust it up.' Altman's double: the next release party (9236 likes) — 'i think we should do another party for our next model release, the 5.5 party was a lot of fun. what would make the next one awesome?' — and 'this is a good report about a bad thing' (3248 likes).",
+              "Dan Shipper's trio: 'THEY DID IT FOLKS' (1367 likes); 'Codex native apps are here!' (258 likes); and 'definite golden age for polymaths and philosophers (luckily, a good antidote for epistemic despair) incredible time' (259 likes). Steipete's pair: 'codex' visualization feature got really good.' (492 likes) and the bubble question (463 likes): 'maybe it is a bubble?'"
+            ],
+            "original": [
+              "Thibault Sottiaux: A few weeks at OpenAI feel like years at other companies in terms of how much gets done. Crazy how much you can age in a few days.",
+              "Thibault Sottiaux: A good thing about having aged is that I feel that it's been 20 years since I've pressed the reset button. Intrigued to see if I can find it tomorrow and dust it up.",
+              "Sam Altman: i think we should do another party for our next model release, the 5.5 party was a lot of fun. what would make the next one awesome?",
+              "Sam Altman: this is a good report about a bad thing:",
+              "Dan Shipper: THEY DID IT FOLKS",
+              "Dan Shipper: Codex native apps are here!",
+              "Dan Shipper: definite golden age for polymaths and philosophers (luckily, a good antidote for epistemic despair)",
+              "Peter Steinberger: codex' visualization feature got really good.",
+              "Peter Steinberger: maybe it is a bubble?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的时间膨胀论（9336 赞，今日最高）：在 OpenAI 的几周，从完成的事量看抵得上别家公司好几年。几天能老这么多，真是疯狂。重置预告（6582 赞）：上了年纪的好处是——感觉已经二十年没按过重置键了，明天 intrigued 看看能不能找到它掸掸灰。Altman 双发：下一个模型发布会要不要再办个派对（9236 赞）——5.5 派对很开心，怎样让下一场更棒？外加「这是一份关于坏事的报告」（3248 赞）。",
+              "Dan Shipper 三连：「THEY DID IT FOLKS」（1367 赞）；Codex 原生应用来了！（258 赞）；「这是博学家与哲学家的黄金时代（幸好是认识论绝望的解药）不可思议的时代」（259 赞）。Steipete 双发：Codex 的可视化功能已经很好了（492 赞）+ 泡沫之问「也许它真是个泡沫？」（463 赞）。"
+            ],
+            "original": [
+              "Sottiaux：OpenAI 几周抵别家数年。二十年没按重置键，明天找找看。",
+              "Altman：下次发布会再办派对？关于坏事的报告。",
+              "Shipper：THEY DID IT。Codex 原生应用。博学家黄金时代。",
+              "Steipete：Codex 可视化变好。也许真是泡沫？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude's Browser, Fraud Fight & Security CLI / Claude 浏览器、反欺诈战与安全 CLI",
+      "desc": "Claude 的 Cowork 内置浏览器（**7149 赞**）+ 桌面端隔离设计（455 赞）+ Chrome 扩展 GA（247 赞）；Thariq 的 SendFeedback 工具（944 赞）+ Stripe 反欺诈（347 赞）；Rauchg 的安全仪表盘 + 𝚟𝚎𝚛𝚌𝚎𝚕 𝚜𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝚌𝚑𝚎𝚌𝚔（261 赞）+ 全球算力（181 赞）。",
+      "cards": [
+        {
+          "authorKey": "claudeai+trq212+rauchg",
+          "authorName": "Claude / Thariq / Rauchg",
+          "authorTag": "Anthropic / Anthropic / Vercel CEO",
+          "sourceUrl": "https://x.com/claudeai",
+          "en": {
+            "rewrite": [
+              "Claude ships its own browser in Cowork (7149 likes): 'When your task involves a website, a browser opens in Cowork's side panel, and Claude navigates, fills forms, and finishes the job.' Nothing to install — built into the desktop app, stays separate from your own browser and logins (455 likes); Claude in Chrome is now GA on all paid plans (247 likes). Thariq's double: the SendFeedback tool (944 likes) — 'instead of you guys having to hit /feedback and write up a report, you can just tell Claude to draft and approve it' — and the Stripe fraud fight (347 likes): 'We're seeing several of our customers be targeted by fraudulent requests and glad for all the work Stripe is doing to help them.'",
+              "Rauchg's pair: the security dashboard + 𝚟𝚎𝚛𝚌𝚎𝚕 𝚜𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝚌𝚑𝚎𝚌𝚔 CLI (261 likes): 'Much like 𝚒𝚜-𝚊𝚐𝚎𝚗𝚝𝚒𝚌, you can call on agents to improve your security posture with human-in-the-loop, or run in crons. Who would have thunk CLIs would save the world 😁' Plus global compute (181 likes): 'Multiple regions, failover, up to 10,000 concurrent sandboxes & 5,000 vCPUs/min ramp by default.'"
+            ],
+            "original": [
+              "Claude: Claude now has its own built-in browser in Cowork. When your task involves a website, a browser opens in Cowork's side panel, and Claude navigates, fills forms, and finishes the job.",
+              "Claude: There's nothing to install. Claude's browser is built into the desktop app and stays separate from your own browser and logins.",
+              "Claude: If you prefer to work in your own browser where you're already signed in, Claude in Chrome is now generally available on all paid plans.",
+              "Thariq: this was my change, excited to roll it out. Claude now has a SendFeedback tool so instead of you guys having to hit /feedback and write up a report, you can just tell Claude to draft and approve it.",
+              "Thariq: We're seeing several of our customers be targeted by fraudulent requests and glad for all the work Stripe is doing to help them. Still a lot of work to do.",
+              "Guillermo Rauch: We're shipping a cool security dashboard, but also the 𝚟𝚎𝚛𝚌𝚎𝚕 𝚜𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝚌𝚑𝚎𝚌𝚔 CLI. Much like 𝚒𝚜-𝚊𝚐𝚎𝚗𝚝𝚒𝚌, you can call on agents to improve your security posture with human-in-the-loop, or run in crons.",
+              "Guillermo Rauch: Global compute at your (agents') fingertips. Multiple regions, failover, up to 10,000 concurrent sandboxes & 5,000 vCPUs/min ramp by default."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 上线 Cowork 内置浏览器（7149 赞）：当你的任务涉及某个网站，浏览器会在 Cowork 侧栏打开，Claude 导航、填表、把活干完。无需安装——内置于桌面应用，且与你自己的浏览器和登录完全隔离（455 赞）；Chrome 扩展同步全付费计划 GA（247 赞）。Thariq 双发：SendFeedback 工具（944 赞）——你们不用再敲 /feedback 手写报告了，直接让 Claude 起草、你批准即可，反馈帮我们改进；Stripe 反欺诈战（347 赞）——看到多家客户被欺诈性请求攻击，感谢 Stripe 所做的帮助，还有很多要做的，这类攻击伤害所有人服务真实用户的能力。",
+              "Rauchg 双发：安全仪表盘 + 𝚟𝚎𝚛𝚌𝚎𝚕 𝚜𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝚌𝚑𝚎𝚌𝚔 CLI（261 赞）——就像 𝚒𝚜-𝚊𝚐𝚎𝚗𝚝𝚒𝚌 一样，可以让 agent 带人类在环里改善安全态势，或挂进 crons 定时跑，谁能想到拯救世界的是 CLI 😁 外加全球算力（181 赞）：多区域、故障转移、默认最多 1 万并发沙箱与每分钟 5000 vCPU 爬坡。"
+            ],
+            "original": [
+              "Claude：Cowork 内置浏览器——导航、填表、干完活。与个人浏览器隔离。Chrome 扩展 GA。",
+              "Thariq：SendFeedback 让 Claude 代写反馈。Stripe 反欺诈还要继续。",
+              "Rauchg：安全 CLI 拯救世界。全球算力触手可及。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "NVIDIA × HF, Box Q2 & Builder Mosaic / NVIDIA 收编 HF、Box 财报与构建者拼图",
+      "desc": "Turck 的 NVIDIA×HF 三赢论（119 赞）+ 坐客席（12 赞）；Levie 的 Box Q2（188 赞）；Josh Woodward 的多人 AI 实验（157 赞）；Aditya 的 DeepCogito 4300 万 A 轮（59 赞）；Zara 的 PR 阻断论（22 赞）+ AI 写作双标（71 赞）；Nikunj 的神秘链接（325 赞）；Amjad 的 Interesting（133 赞）；Nan Yu 与 Peter Yang 的碎片吐槽（39/9/3/46/3/2 赞）。",
+      "cards": [
+        {
+          "authorKey": "mattturck+levie+joshwoodward+adityaag+zarazhangrui+nikunj+amasad+thenanyu+petergyang",
+          "authorName": "Turck / Levie / Woodward / Aditya / Zara / Nikunj / Amjad / Nan Yu / Yang",
+          "authorTag": "FirstMark / Box CEO / Gemini / SPC / Builder / FPV / Replit / Builder / Builder",
+          "sourceUrl": "https://x.com/mattturck",
+          "en": {
+            "rewrite": [
+              "Matt Turck's NVIDIA × Hugging Face analysis (119 likes): 'Truly a win-win-win: NVIDIA is officially the center of open source AI w/ Nemotron and now HF; Hugging Face scores huge + gets the perfect home (no more nagging re business model!); Open source AI wins!' Plus his guest-chair appearance (12 likes): why the best venture firm in the world might be NVIDIA; the hyper power law; why apps are becoming labs faster than labs becoming apps; RSI and 'building God'; AI bubble vs duration mismatch; learning to stop underestimating China. Levie's Box Q2 (188 likes): revenue of $321.1M, up 9% (11% cc) — highest cc growth in 14 quarters, full-year target raised to $1.290B, driven by enterprise AI demand. Josh Woodward experiments with multiplayer AI (157 likes).",
+              "The mosaic: Aditya announces DeepCogito's $43M Series A (59 likes) — a post-training research lab focused on large-scale RL and recursive self-improvement via iterated distillation and amplification (IDA), proven in public from 3B to 600B+ parameters. Zara's pair: PR teams at large companies exist to block real marketing (22 likes); the AI-writing double standard — 'it's fine if I use it; it's not fine if YOU use it' (71 likes). Nikunj's link-only post (325 likes), Amjad's cryptic 'Interesting' (133 likes), Nan Yu's trio (rule of 2.5, scrum, watermarking comms anger at Gruber), and Peter Yang's trio (who to tag for X bugs, newsletter plug, Linear sauna perk)."
+            ],
+            "original": [
+              "Matt Turck: Truly a win-win-win: NVIDIA is officially the center of open source AI w/ Nemotron and now HF. Hugging Face scores huge + gets the perfect home (no more nagging re business model!). Open source AI wins!",
+              "Matt Turck: Chatted with Dan Nathan about: why the best venture firm in the world might be NVIDIA; the 'hyper power law'; why apps are becoming labs faster than labs are becoming apps; RSI and 'building God'; AI bubble vs duration mismatch concern; learning to stop underestimating China.",
+              "Aaron Levie: Yesterday, at Box we reported our Q2 results with revenue of $321.1 million for the quarter, up 9%, or 11% in constant currency (our highest constant-currency growth rate in 14 quarters), and we raised our full-year revenue target to $1.290 billion.",
+              "Josh Woodward: Experimenting with multiplayer AI.",
+              "Aditya Agarwal: The AI frontier will be determined by post-training. @DeepCogito is a post-training research lab. Today they're announcing their $43M Series A.",
+              "Zara Zhang: Most PR teams at large companies exist in order to block real marketing and branding.",
+              "Zara Zhang: When it comes to AI writing, many people seem to apply a double standard to the effect of 'it's fine if I use it; it's not fine if YOU use it'.",
+              "Nan Yu: I am upset because the terrible comms has caused @gruber to lose his mind about watermarking and make @ditheringfm unlistenable for like 2 full episodes."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Turck 的 NVIDIA×HF 三赢论（119 赞）：真正的三赢——NVIDIA 借 Nemotron 与如今的 HF 正式成为开源 AI 的中心；Hugging Face 赚翻 + 找到完美归宿（不用再被商业模式拷问！）；开源 AI 赢了！外加他罕见坐客席（12 赞）：聊了为什么世上最好的风投可能是 NVIDIA、「超幂律」、「应用变实验室快于实验室变应用」、RSI 与「造神」、AI 泡沫 vs 久期错配、学会别再低估中国。Levie 的 Box Q2（188 赞）：季度营收 3.211 亿美元、同比 +9%（固定汇率 +11%，14 个季度以来最高）、全年目标上调至 12.90 亿美元——企业 AI 需求驱动。Josh Woodward 在实验多人 AI（157 赞）。",
+              "拼图时间：Aditya 宣布 DeepCogito 4300 万美元 A 轮（59 赞）——后训练研究实验室，专注大规模强化学习与递归自我改进，核心方法是迭代蒸馏与放大（IDA），已在 3B 到 600B+ 参数模型上公开验证。Zara 双发：大公司的 PR 团队存在的意义往往是阻断真正的市场与品牌工作（22 赞）+ AI 写作双标「我用可以，你用不行」（71 赞）。Nikunj 一条只有链接的帖子（325 赞）、Amjad 的神秘「Interesting」（133 赞）、Nan Yu 三连（2.5 法则、scrum、水印糟糕公关害 Gruber 失常让 Dithering 两期没法听）、Peter Yang 三连（X bug 该 tag 谁、通讯推广、Linear 缺个桑拿福利）。"
+            ],
+            "original": [
+              "Turck：NVIDIA×HF 三赢。最好的风投可能是 NVIDIA。",
+              "Levie：Box Q2 固定汇率 +11%，14 季最高。",
+              "Aditya：DeepCogito 4300 万 A 轮，后训练决定 AI 前沿。",
+              "Zara：PR 阻断真营销。AI 写作双标。",
+              "其余碎片若干。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Walleye — A $10B Hedge Fund's AI Playbook / 播客：Walleye——百亿对冲基金的 AI 手册",
+      "desc": "AI & I「Best of」系列：Every 的 Ben专访 Walleye（近 100 亿美元 AUM）CEO——「使用 ChatGPT 不是作弊」的全员 AI 备忘录、Current 平台、全量录音的数据湖。完整 transcript（71248 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii-walleye",
+          "authorName": "AI & I by Every",
+          "authorTag": "Will（Walleye CEO/CIO/管理合伙人）· Best of 重播",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "AI & I's 'Best of the Pod' reissue: Every's Ben talks with the CEO/CIO/managing partner of Walleye, a ~$10B AUM hedge fund (and Every consulting client). The episode opens with the legendary all-hands memo: 'Using ChatGPT is not cheating. That's a non applicable idea from academia. I use ChatGPT to write this email. You should be using it too and be proud of it. As a hedge fund, we should be ashamed to leave money on the table by ignoring tools that make us faster, smarter, and more effective. Not using these tools is like refusing to use the Internet in 1995 because it wasn't perfect.' Core threads: the owner-operator's conviction — 'if we ultimately get disrupted by AI, that's on me'; the origin moment in March 2023 when a TMT analyst demoed tools he'd built to replace his own job (became Current, the internal fundamental-investing agent platform every team now uses, spiking during earnings); the Sword in the Stone / Merlin analogy — living backwards in time, seeing the endpoint more easily than the steps; leading from the front: weekly demos with a third of the 400-person firm joining, tolerating imperfect demos, flipping fear from 'afraid to make mistakes' to 'afraid to fall behind'; adoption stats: ~75% of the firm are active ChatGPT(-like) users weekly, ~1/3 use AI coding tools like Windsurf; LLM-driven sentiment analysis on unstructured data at scale as pure alpha; recording every Zoom/call into a data lake, morning risk calls processed by LLMs for memory and prediction; writing as thinking — bullet points + context + own-voice prompting turning 4-5 hour memos into 15 minutes ('I don't think we need to waste time trying to be clever anymore'); the tools don't negate thinking — they give you more time to think; the robber-barons/Gilded Age analogy — people went from relevant to obsolete skills within their own lifetimes, faster this time; 'I'm not a VC, thank God' — VCs provocate but someone still has to build; cowboy/barbed-wire history; human nature as the stationary constant ('history doesn't repeat itself, it rhymes'); quant vs human intuition — humans keep an edge in low-large-numbers fuzzy situations; first principles as incentives alignment, hating fluff, intellectual honesty, measuring everything; daily AI journaling and tracking every workout; and the firm as microcosm — 'you have to learn these tools or you're just not gonna be competitive. At some point, if you don't, that's your choice.'"
+            ],
+            "original": [
+              "Will: Using ChatGPT is not cheating. That's a non applicable idea from academia. I use ChatGPT to write this email. You should be using it too and be proud of it.",
+              "Will: Not using these tools is like refusing to use the Internet in 1995 because it wasn't perfect.",
+              "Will: If we ultimately get disrupted by AI, that's on me. And so let's get after that.",
+              "Will: It's kind of like you can see the endpoint more easily than you can see the steps to get there.",
+              "Will: Basically need to be more afraid to getting [left] behind.",
+              "Will: It can be, no exaggeration, like a fifteen minute process that would have taken me four or five hours historically.",
+              "Will: I just don't think we need to waste time on [trying to be clever] anymore.",
+              "Will: These tools don't negate the necessity to think. If anything, they should just give you more time to think.",
+              "Will: You have to learn these tools or in whatever time period, [you're] just not gonna be competitive. At some point, if you don't, that's your choice."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "AI & I「Best of」重播：Every 的 Ben 与 Walleye（近 100 亿美元 AUM 对冲基金、Every 咨询客户）的 CEO/CIO/管理合伙人深谈——一家老派金融公司如何全员 pivot AI。从「使用 ChatGPT 不是作弊」的全员信，到 Current 投研平台、75% 周活、全量录音数据湖、写作即思考的 15 分钟备忘录。一期关于领导力与 AI 落地的实战教科书。"
+            ],
+            "original": [
+              "【开场：那份出名的全员信】",
+              "主持人：CEO 们写「我们是 AI first」备忘录已经成了梗，而你写下了我见过最好的版本。愿意念念开头吗？",
+              "Will：「使用 ChatGPT 不是作弊。那是来自学术界的不适用概念。这封邮件就是我用 ChatGPT 写的。你也应该用，并为此骄傲。作为对冲基金，如果因为忽视让我们更快、更聪明、更有效的工具而把钱留在桌上，我们应该感到羞耻。从最顶层开始，我们就在围绕 AI 建设文化。不用这些工具，就像 1995 年因为互联网不完美而拒绝用它。」",
+              "",
+              "【为什么是我：owner-operator 的信念】",
+              "Will：我的头衔是 CEO、CIO 兼管理合伙人——这家较大规模对冲基金的拥有者兼运营者。我很少接受采访、不上会议、只做过一期播客，这次是刻意的。因为对行业方向、对我们公司的方向有极大的目的感与信念，而我自认拥有带领我们进入下一阶段的技能和落实它的权力——不尽最大纪律与强度去做，对我而言是不负责任的。",
+              "Will：三个受众：Walleye 内部约 400 人；未来可能加入我们的人（让他们看到这家公司对 AI 是认真的，且从我本人开始）；以及生态里的产品公司与合作伙伴。",
+              "Will：我是正经 nerd：普林斯顿工程、牛津数学博士、职业起点是整天给算法策略写代码。我们公司一大块是纯量化交易，机器增强或取代金融里的人类工作这件事我思考了很多年。真正变化是这些工具变得更强、且对非技术人员也可及——尤其在非结构化数据上。作为对公司与投资者负责的人：如果我们最终被 AI 颠覆，那是我的责任。所以，行动起来。",
+              "",
+              "【起点时刻与「梅林视角」】",
+              "Will：两年前，我们最先进的内部 AI 项目 Current 的负责人——当时是 TMT 多空选股团队的分析师——2023 年 3 月来找我：他用新工具让自己效率大增，并尝试替代他自己做分析师的工作。我起初怀疑，但他坐下给我演示，我说：哇，这就是我们的方向。于是我们开始为基本面投资构建 agent 辅助分析。",
+              "Will：我最近的类比是《石中剑》里的梅林——他倒着活在时间里，能瞥见未来，却看不见中间的步骤。我就是这种感觉：无法不相信五年后我们这类公司会深度集成最好的 AI 技术（投资与非投资全领域）——这个行业是信息与结果之间关联最清晰的行业。看终点比看路径容易。",
+              "",
+              "【从领导层示范到全员工具化】",
+              "Will：谁也代替不了领导者定调。我们的周度 demo 有全公司三分之一的人参加。上周一次 demo 天不遂人愿，但没关系——人们接受并拥抱「有些东西还不完美，但你能看到方向」，而不是拿不完美当无视的借口。把恐惧翻转过来：不是怕犯错，而是怕落后。",
+              "Will：具体成果：约 75% 的公司每周（几乎每天）活跃使用 ChatGPT 或类似工具；约三分之一使用 Windsurf 等 AI 编码工具。LLM 让我们大规模处理非结构化数据并纳入信号（历史 上叫情绪分析）——这是纯赚钱层面的提升。Current：每个基本面选股团队都在用，财报季用量暴涨；竞对跳槽来的人说它不仅是更好的工具，而是工作的必需品。现在做长线选股，没有这些工具根本没法竞争——因为总有人能实时处理所有财报，让机器推断出人类跟不上的东西。上周 meetup 上有人提议做播客转摘要产品，当天就有五个 beta 版本，次日推全公司。",
+              "",
+              "【写作、录音与数据湖】",
+              "Will：我靠写作思考——我的教育很贵，最好真能写。现在写邮件/备忘录：先打要点、给足上下文、喂进我写过的同类内容、要求用我自己的声音——夸张点说，15 分钟完成过去要四五小时的事。所以我对这些工具近乎虔诚。很多写作其实是「系鞋带」的部分：把句子缝起来、追求聪明说法。现在不用再浪费时间耍聪明了。",
+              "Will：但工具不取消思考的必要。它们给你更多时间思考。我能看出一段文字是不是机器写的——但那不重要，重要的是概念是否清晰传达。你有一小时，过去 50-60% 在机械打字，现在 5%——多出来的时间应该用来读、校、问「这说得通吗」。",
+              "Will：除少数例外，我们内部录制每一场 Zoom 和电话。行业性质如此，而且我认为全世界都该习惯。你已看到有人戴腕带连续数月录下所有对话；往前推，人们身体里会植入录制设备记录一切。关键是数据策略：把所有数据汇入湖中，随时能插根吸管取用。作为 CIO，我每天早晨和风控团队在控制中心开风险会——全程录制，LLM 持续处理转写，帮我们回忆、给洞察，甚至有预测性。把公司内部所有信息连接起来之后能做什么，我们才刚挠到表面。",
+              "",
+              "【镀金时代、牛仔与人性常数】",
+              "Will：我最爱的历史是内战到一战之间——整个世界剧变的年代，我办公室就望着一座强盗大亨建的火车站。人们在自己的有生之年从「技能相关」走到「技能过时」，这一轮会更快。谢天谢地我不是 VC——他们大多不知道自己在干什么，总在挑动议题，却没意识到还是得有人去把这些建出来。",
+              "Will：牛仔为什么消失？铁丝网。旧西部开放牧场被圈起来，一个时代结束。历史不会重复，但会押韵：人性一万年没变。新总想取代旧、子欲越父——亚历山大大帝征服波斯时，波斯王求和，他回「我冲你来的」。森林大火烧掉老树让新灌木生长。总有拥抱变化的人群与公司，也总有抱住过去的人，冲突会以不同程度存在。",
+              "",
+              "【量化、直觉与第一性原理】",
+              "Will：世界级量化投资在很多十年前就超越了人类能理解的范畴。但人类直觉在「低大数定律」的模糊局面里仍有优势——机器没见过所有先例，人却能处理那团乱麻。我们造的一切工具，最终是让人类做出更准的预测。",
+              "Will：我的第一性原理：激励的威力——理解并尽量对齐个人或群体的激励向量，无论经营公司还是做投资；讨厌空话——一闻到 fluff 我的信任就下降；智力诚实；能测则测。我每天用 AI 记日记（强烈推荐），每次训练都记录追踪多年。把脑子里的念头随手抛出、被捕获处理、未来数月可取用——这些小用例在以前根本不可能。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
