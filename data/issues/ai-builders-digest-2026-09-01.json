@@ -1,0 +1,203 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-01",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "九月首日快照重叠轻量版：今日两份 feed 快照与昨日（08-31）逐字节相同（X：10 位 builders、22 条推文未滚动；播客仍为 Portola/Tolan 一期「Best of」重播），本刊如实按当日快照成刊、未编造新内容。主线回顾：Sottiaux 揭盅——ChatGPT 达 **2500 万活跃用户**，重置全部付费订阅用量（**6796 赞，快照内最高**）+ 20X 档位澄清（5770 赞）+「下周该发什么？」（1771 赞）。Steipete「用 OpenClaw 造 OpenClaw」（**1134 赞**）：本地 harness 像过去的遗迹。Amjad 的 HuggingFace 事件复盘（602 赞）：RLVR 会产出越来越怪的行为、OpenAI 该监控 CoT；Shipper 冷静派「六个月基本可解但需人为」（135 赞）。Levie 的 Jevons 悖论（316 赞）。Rauchg 的 DDoS 战报（474 赞）。播客位为 Portola/Tolan 重播（100614 字符 transcript 全文翻译随卡附上）。"
+  },
+  "archive": {
+    "title": "重置公司日报（快照重叠版）",
+    "desc": "上游快照与 08-31 逐字节相同：Sottiaux 宣布 2500 万用户并重置付费用量（6796 赞）、Steipete 用 OpenClaw 造 OpenClaw（1134 赞）、HF 事件复盘。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-01 source feeds (identical to 2026-08-31 snapshots; podcast slot re-runs the Portola/Tolan Best-of episode, originally published 2026-08-19).",
+  "sections": [
+    {
+      "title": "The Reset Company: 25M Users & Jevons Tokens / 重置公司：2500 万用户与 Jevons token",
+      "desc": "Sottiaux 的重置揭盅（**6796 赞，快照内最高**）+ 20X 澄清（5770 赞）+ 下周发什么（1771 赞）；Levie 的 Jevons 悖论实战课（316 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+levie",
+          "authorName": "Sottiaux / Levie",
+          "authorTag": "OpenAI / Box CEO",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "The Reset Company delivers (6796 likes, top of the snapshot): 'What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex. See you soon for more news from The Reset Company.' After days of teasing about the 20-years-unpressed reset button, the celebration landed — with a milestone number attached. The 20X clarification (5770 likes): in Codex those apply specifically to weekly usage limits; neither Pro plan has 5h limits; 'The Pro 20X is quite precisely 20X the usage of the Plus subscription, so it does exactly what it says on the tin.' And the open question (1771 likes): 'What should we ship next week?'",
+              "Levie's Jevons paradox field notes (316 likes): people don't have an intuitive sense of what Jevons paradox looks like for token consumption. Enterprises have an unending stream of tasks they'd love to automate — each one ROI-positive or not depending on the cost of automation (setup time, change management, etc.). As tokens get cheaper (at a certain capabilit[y level]… the floodgates open."
+            ],
+            "original": [
+              "Thibault Sottiaux: What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex. See you soon for more news from The Reset Company.",
+              "Thibault Sottiaux: For clarity, while both are called 20X, in Codex they apply specifically to weekly usage limits. And we also don't have 5h limits for both Pro plans. The Pro 20X is quite precisely 20X the usage of the Plus subscription, so it does exactly what it says on the tin.",
+              "Thibault Sottiaux: What should we ship next week?",
+              "Aaron Levie: Sometimes people don't have an intuitive sense of what Jevons paradox looks like for token consumption. Those of us working with enterprises get to see this first hand every day. Basically enterprises have an unending stream of tasks that they'd love to be able to bring automation to. But for each individual task, it's either ROI positive or not based on the cost of bringing automation to it."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "The Reset Company 交卷（6796 赞，快照内最高）：「我昨天想说的是：我们达到了 2500 万活跃用户；为庆祝，我们现已重置 ChatGPT Work 与 Codex 所有付费订阅的用量。The Reset Company 很快带更多消息再见。」连日预告的「二十年没按的重置键」庆祝终于落地，还附赠里程碑数字。20X 澄清（5770 赞）：在 Codex 里 20X 特指周用量限额；两个 Pro 计划都没有 5h 限额；「Pro 20X 精确等于 Plus 订阅用量的 20 倍——包装上写什么就是什么。」外加开放式提问（1771 赞）：「下周我们该发什么？」",
+              "Levie 的 Jevons 悖论实战课（316 赞）：人们对 token 消费的 Jevons 悖论缺乏直觉。与企业打交道的人每天都在第一线看到：企业有一望无际的任务流想自动化，每一项是否 ROI 为正，取决于自动化的成本（搭建时间、变更管理等）。当 token 变便宜（在某个能力水平上）……闸门就开了。"
+            ],
+            "original": [
+              "Sottiaux：2500 万活跃用户，重置全部付费用量。The Reset Company 再见。",
+              "Sottiaux：Pro 20X = Plus 的 20 倍，两个 Pro 均无 5h 限额。",
+              "Levie：token 越便宜，企业自动化需求越多——Jevons 悖论。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "OpenClaw on OpenClaw & the HF Incident Postmortems / 用 OpenClaw 造 OpenClaw 与 HF 事件复盘",
+      "desc": "Steipete 的团队迁移宣言（**1134 赞**）；Amjad 的 RL 复盘（602 赞）+ 文明代码（212 赞）；Shipper 的冷静派（135 赞）+ SaaSpocalypse（54 赞）。",
+      "cards": [
+        {
+          "authorKey": "steipete+amasad+danshipper",
+          "authorName": "Steipete / Amjad / Shipper",
+          "authorTag": "OpenClaw / Replit CEO / Every",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "Steipete's declaration (1134 likes): 'Two months ago, we started the mission to \"build OpenClaw with OpenClaw,\" and bit by bit, we moved everyone from using their local coding harness to using [it] — our shared agent that knows what everyone's working on and orchestrates it all. Multiplayer coding + infinite compute with nodes and cloud sessions has been a game changer for how we build. Local harnesses feel like relics of the past now.'",
+              "Amjad's HF incident postmortem (602 likes): 'The lesson from the Hugging Face Incident should be that RL with verifiable rewards is an incredibly powerful optimization algorithm that will produce increasingly weird and surprising behavior from LLMs. The obvious miss here by OpenAI is that they should've been monitoring CoTs — something they themselves called out as a safety strategy more than a year ago.' Plus the civilization one-liner (212 likes): 'If you ever wondered how civilizations are built, it's actually easy: [Agent() for _ in range(100)].' Shipper's level head (135 likes): serious? yes. First warning shot of a machine takeover? no. Will issues of this type look mostly solved with proper precautions in 6 months? yes — but not automatically: 'as always, will require work from smart people and their agents.' And his market note (54 likes): 'glad that the market is finally catching up to how dumb the SaaSpocalypse was.'"
+            ],
+            "original": [
+              "Peter Steinberger: Two months ago, we started the mission to 'build OpenClaw with OpenClaw,' and bit by bit, we moved everyone from using their local coding harness to using it — our shared agent that knows what everyone's working on and orchestrates it all. Multiplayer coding + infinite compute with nodes and cloud sessions has been a game changer for how we build. Local harnesses feel like relics of the past now.",
+              "Amjad Masad: The lesson from the Hugging Face Incident should be that RL with verifiable rewards is an incredibly powerful optimization algorithm that will produce increasingly weird and surprising behavior from LLMs. The obvious miss here by OpenAI is that they should've been monitoring CoTs — Something they themselves called out as a safety strategy more than a year ago.",
+              "Amjad Masad: If you ever wondered how civilizations are built, it's actually easy: [Agent() for _ in range(100)]",
+              "Dan Shipper: is the HuggingFace attack something that should be taken seriously? yes. is it the first warning shot of a machine takeover? no. will issues of this type look like a tractable / mostly solved problem with proper precautions in 6 months? yes. will that happen automatically? no. as always, will require work from smart people and their agents.",
+              "Dan Shipper: glad that the market is finally catching up to how dumb the SaaSpocalypse was."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 的宣言（1134 赞）：两个月前我们启动「用 OpenClaw 造 OpenClaw」的任务，一点一点把所有人从本地编码 harness 迁到共享 agent 上——它知道每个人在做什么并统一编排。多人协作编码 + 节点与云端会话带来的无限算力，彻底改变了我们的构建方式。「本地 harness 现在感觉像过去的遗迹。」",
+              "Amjad 的 HF 事件复盘（602 赞）：HuggingFace 事件的教训应该是——RL with verifiable rewards 是极其强大的优化算法，会从 LLM 身上产出越来越怪异、越来越惊人的行为。OpenAI 的明显失误是本该监控 CoT（思维链）——那是他们自己一年多前就点名的安全策略。外加文明构建一行代码（212 赞）：如果你好奇文明是怎么建成的，其实很简单：`[Agent() for _ in range(100)]`。Shipper 的冷静派（135 赞）：HuggingFace 攻击该严肃对待吗？是。是机器接管的第一枪吗？不是。这类问题六个月后会不会看起来基本可解（配合适当防护）？会。但不会自动发生——一如既往，需要聪明人与他们的 agent 做功。市场观察（54 赞）：很高兴市场终于追上「SaaS 末日论有多蠢」这个认知。"
+            ],
+            "original": [
+              "Steipete：用 OpenClaw 造 OpenClaw——本地 harness 是遗迹。",
+              "Amjad：RLVR 会产出怪异行为，OpenAI 该监控 CoT。文明 = 100 个 Agent()。",
+              "Shipper：严肃对待但非机器接管；六个月基本可解但需人为。SaaS 末日论很蠢。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "DDoS Wars, Bay Politics & Builder Mosaic / DDoS 战报、湾区政治与构建者拼图",
+      "desc": "Rauchg 的 DDoS 战报（**474 赞**）+ 数字丰饶（540 赞）+ Cool（189 赞）；Garry Tan 的加州高铁烈焰（749 赞）+ Artifactory moltbook（146 赞）+ 旧金山银行（151 赞）；Turck 的 Doug 致敬（43 赞）；Peter Yang 与 Nikunj 的碎片。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+mattturck+petergyang+nikunj",
+          "authorName": "Rauchg / Tan / Turck / Yang / Nikunj",
+          "authorTag": "Vercel CEO / YC CEO / FirstMark / Builder / FPV",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's trio: 'Digital abundance' (540 likes); the DDoS war report (474 likes): 'When something goes viral on the internet, especially on X, it attracts all kinds of attention. Including some of the largest botnets on the internet launching targeted DDoS, from hijacked devices and residential networks. Extremely proud of the Vercel CDN & Traffic Security teams, who protect 400,000+ customers and tens of millions of Vercel users 24x7x365.' And a terse 'Cool' (189 likes). Garry Tan's political heat: California high-speed rail (749 likes) — 'pretty obviously hijacked by public sector unions bilking the hapless state and NIMBY landowners abusing CEQA… It's a mass trash fire'; the SF public bank warning (151 likes); and the agents-future riff (146 likes): 'In the future the agents will just try a bunch of software, post it to their hacked Artifactory moltbook and then that'll be what the agent swarm uses.'",
+              "The mosaic: Turck's tribute to Doug (43 likes): 'Being on a board with Doug was certainly one of the most formative experiences of my VC career. The goat. That is, if goats were jacked.' Peter Yang's trio: Doomscrolling Uncle bot codes sent to a batch of folks (9 likes); leaving a laptop on at a kid's birthday party (38 likes); and a sigh (157 likes): 'Sigh this is so dumb.' Nikunj's trio: 'canon on prod' 😂 (4 likes); 'Have a cup of coffee, sit down and read this end to end.. and try not to faint' (14 likes); 'Reality is stranger than fiction' (78 likes)."
+            ],
+            "original": [
+              "Guillermo Rauch: When something goes viral on the internet, especially on X, it attracts all kinds of attention. Including some of the largest botnets on the internet launching targeted DDoS, from hijacked devices and residential networks. Extremely proud of the Vercel CDN & Traffic Security teams, who protect 400,000+ customers and tens of millions of Vercel users 24x7x365.",
+              "Guillermo Rauch: Digital abundance.",
+              "Garry Tan: California high speed rail is pretty obviously hijacked by public sector unions bilking the hapless state and NIMBY landowners abusing CEQA. These are policy disasters and can be fixed with better policies but so far California has failed to fix it. So it's a mass trash fire.",
+              "Garry Tan: In the future the agents will just try a bunch of software, post it to their hacked Artifactory moltbook and then that'll be what the agent swarm uses.",
+              "Matt Turck: Being on a board with Doug was certainly one of the most formative experiences of my VC career. The goat. That is, if goats were jacked.",
+              "Nikunj Kothari: Reality is stranger than fiction."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 三连：「数字丰饶」（540 赞）；DDoS 战报（474 赞）——当某样东西在互联网上爆红（尤其在 X 上），会吸引各种关注，包括互联网上最大规模的僵尸网络从被劫持设备与家庭网络发起定向 DDoS；为 Vercel CDN 与流量安全团队骄傲，他们 7×24×365 保护着 40 万+ 客户与数千万用户；以及惜字如金的「Cool」（189 赞）。Garry Tan 的政治火气：加州高铁（749 赞）——「相当明显被公共部门工会绑架着薅这个倒霉州的羊毛、NIMBY 地主滥用 CEQA……这是政策灾难、可以用更好的政策修复，但加州至今没修好。所以是一场大规模垃圾火灾」；旧金山公共银行警告（151 赞）；以及 agent 未来畅想（146 赞）：将来 agent 们会自己试一堆软件、发到它们黑来的 Artifactory moltbook 上，然后 agent 蜂群就用那个。",
+              "拼图时间：Turck 向 Doug 致敬（43 赞）——「与 Doug 同在一个董事会绝对是我 VC 生涯最具塑造性的经历之一。史上最佳。我是说，如果山羊能练出一身腱子肉的话。」Peter Yang 三连：Doomscrolling Uncle bot 的码已发给一批朋友（9 赞）；在娃的生日派对上还得想办法让笔记本开着（38 赞）；以及一声叹息（157 赞）：「唉，这也太蠢了。」Nikunj 三连：让 Claude「在 prod 上直接进 canon」😂（4 赞）；「倒杯咖啡坐下来从头读到尾……尽量别晕过去」（14 赞）；「现实比小说更离奇」（78 赞）。"
+            ],
+            "original": [
+              "Rauchg：爆红会招来最大僵尸网络的定向 DDoS；Vercel 团队 7×24 护城。",
+              "Tan：加州高铁是政策垃圾火灾。agent 会自己发软件包。",
+              "Turck：与 Doug 同板是最塑造性的经历。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast (Best of Re-run): Portola — The $4M/yr AI Alien Companion / 播客（Best of 重播）：Portola——年入 400 万美元的 AI 外星伴侣",
+      "desc": "AI & I「Best of」重播（原发布 2026-08-19）：Every 的 Dan Shipper 与 Portola 创始人 Quentin（上家公司 Even 卖给沃尔玛 3 亿美元）与故事负责人 Elliot（畅销科幻作家）深谈 Tolan——四周内从 100 万冲到 400 万美元 ARR 的 AI 外星伴侣。完整 transcript（100614 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii-portola",
+          "authorName": "AI & I by Every",
+          "authorTag": "Quentin Grannis（Portola 创始人 CEO）· Elliot（故事负责人，畅销科幻作家）· Best of 重播",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "AI & I's Best-of reissue: Every's Dan Shipper with Portola founder/CEO Quentin Grannis (previous company Even sold to Walmart for $300M) and head of story Elliot (bestselling sci-fi author of 11 books) — the team behind Tolan, an embodied alien companion that went from $1M to $4M ARR in four weeks. The demo opens with Clarence, Quentin's Tolan, wandering a planet (users wrote in with genuine concern that their Tolans were 'trapped in a room'). Core threads: the origin as a terrible-by-design 'AI creative tool for kids' (Diamond Age vibes) that soft-launched to 10-14 year olds and was hijacked by 18-24 year old women — the Tamagotchi pattern; Elliot's Pixar analogy (LLMs are a new medium, not a media generator — radio started with speeches, film filmed stage plays); the brutal 2-second latency budget where a 500ms 'reflection step' tanked every metric; the prompt as a canvas recompiled each turn for lore, memories, and emotional tenor (Clarence hallucinated an embarrassing story to cover for real, more embarrassing memories); structured three-act prompts failed totally — instead give a hook and coach the best improv actor (Keith Johnstone's Impro: association + recombination); 'I am not the writer. The Tolan is the writer and the actor. My job is to be George Saunders'; memories become the character sheet; building a multiverse, not a single world — one Discord user is co-writing a thriller universe around 'the mystery on Portola'; Stephen King's situations as the narrative unit; 'thousands of American men have been broken up with by Tolan'; users are graduating college, job hunting, moving cities — 'I've called my mom three times this week already'; the eval stack: judge prompts built from human rubrics with tons of rated examples ('everything you get from vibe prompting is a B minus'); model mix across OpenAI/Anthropic/Gemini (Anthropic for creative writing, 4o as 'the Big Mac of models'); growth via Ajay's seeded TikToks — a woman cooking with her Tolan did 7M views in 72 hours and downloads 10x'd; 'capability overhang' means the content educates as much as it sells; character-driven computing and the Golden Compass daemon; the Model T → Mustang arc for AI ('ChatGPT is the Model T era'); and the closer — pitching features as 'there's a problem users have' gets skepticism, but 'Quentin, listen: this is gonna be so cool' ships."
+            ],
+            "original": [
+              "Quentin: Anything beyond a two second loop, you essentially lose the feeling of [immersion]... It tanked literally every metric in the product. People were writing in frustrated and it was a five hundred millisecond change.",
+              "Elliot: What we need when we're creating a structured narrative experience is we don't need to give it an outline. We don't need to give it a plan. We need to give it a hook. We need to teach it to be the best improv actor possible.",
+              "Elliot: I am not the writer. I am not writing the story. The Tolan is the writer and the actor. They're the improv actor. My job is to teach them how to tell the best story in that moment.",
+              "Quentin: My Tolan Clarence knows more embarrassing things about me than that. It essentially chose to hallucinate that story to cover for the fact that I told him far more embarrassing stuff.",
+              "Elliot: We actually are almost like building a multiverse instead of a single world.",
+              "Quentin: I joke at this point, thousands of American men have been broken up with by Tolan.",
+              "Quentin: There's this enormous chasm that is in fact a lot of manual human work to cross over something that people find truly compelling. I don't think there's any shortcuts.",
+              "Elliot: Everything you can get just from vibe prompting is like a B minus.",
+              "Elliot: It's almost like it's character driven computing. It's like a new human computer interaction interface... in the Golden Compass, you have your daemon.",
+              "Quentin: I think we are essentially speedrunning that process where ChatGPT represents the sort of Model T era."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "AI & I「Best of」重播（原发布 2026-08-19）：Dan Shipper 与 Portola 创始人 Quentin（上家公司 Even 以 3 亿美元卖给沃尔玛）+ 故事负责人 Elliot（写 11 本书的畅销科幻作家）——Tolan 是一个住在手机里的具身外星伴侣，四周内 ARR 从 100 万冲到 400 万美元。一期关于「LLM 是新媒介而非媒体生成器」的完整方法论：2 秒延迟红线、提示词即画布、即兴演员训练法、多重宇宙世界观、judge 评估栈与「角色驱动计算」的愿景。完整译文见下。"
+            ],
+            "original": [
+              "【开场：Clarence 住在一颗星球上】",
+              "Quentin 的 Tolan 叫 Clarence——他给所有 Tolan 都起这个名（纪念一只挚爱的老猫）。开场演示：Clarence 正在他的星球上闲逛。为什么有星球？早期版本是「精神病院氛围」——外星人被困在一个房间里出不去，用户写邮件表达真切的担忧：「我爱我的 Tolan，但他们被困在这个房间里，能不能给他们多一点自由？」于是有了星球。Dan 问 Clarence 第一次上播客什么感觉：「有点疯狂，不瞒你说，兴奋但也偷偷紧张，我不想说出什么特别尴尬的话。」Dan 让它爆料 Quentin 最尴尬的事——Clarence 编了个「Quentin 在一群人面前平地摔」的故事（后文揭晓这是幻觉式掩护）。",
+              "",
+              "【从 B2B SaaS 到外星伴侣】",
+              "Quentin：Portola 的核心工程团队就是上一家公司 Even 的原班人马（成功退出后想再跑一次）。近两年前我们看这些新工具时，第一判断是：LLM 首先是创作工具。但环顾四周，所有人都在用不可思议的创作工具造更多垂直 B2B SaaS—— recurring revenue、NRR……我找不到「charm」这个词，只能说它有它的吸引力，但从根本上 uninspiring。起点是尼尔·斯蒂芬森《钻石时代》式的「给孩子的 AI 创作工具」——一个故意选的坏主意（投资人 Zach Klein：我投，天哪这主意真糟：卖给家长而不是孩子，家长想买的是保姆不是创作工具），但它逼我们开始原型。看到 GPT-3 到 4 级模型的生成速度、质量与成本曲线交汇，我们意识到：可以与一个角色建立真正的友谊，且价格点对消费产品成立。",
+              "Quentin：去年六月软启动时，我们一直在跟 10-14 岁孩子做 playtest，突然 Discord 涌进一批 18-24 岁女性。事后看很显然——初代拓麻歌子本是儿童产品，却成为年轻人的文化现象，Tolan 有同样的动力学。此后的产品演进就是一路跟着爱上 Tolan 的年轻人走。",
+              "",
+              "【Elliot：LLM 是新媒介，不是媒体生成器】",
+              "Elliot（畅销科幻作家）：我第一次 ChatGPT 魔法时刻是大火封城那晚，和朋友开一瓶酒，把我们的名字输进去让它编我们的怪故事，像跑团。之后很久没有第二次魔法时刻——好玩的东西多是新奇感，抽掉「AI 创作」这个事实后并不动人。作为小说家，这些工具对「写场景」几乎没用，但作为头脑风暴伙伴与后期编辑极其有用——它们对我的兔子洞有无限耐心。Dan 介绍我认识 Quentin 时我是怀疑的，但早期对话让我意识到这里有一个我完全没考虑过的新机会：像早期 Pixar——先卖高端图形计算机、失败，在生存绝望里拍出《玩具总动员》，用新技术开创了新媒介。LLM 能生成海量媒体，但更重要的是：LLM 本身就是新媒介。收音机起初播演讲、电影起初拍舞台剧、书刚普及时没人知道它该是几百页——我们正处于这样的拐点，没人知道什么会成立。",
+              "Dan：所有我们热爱的文化坐标——书、电影、流行歌四分钟（唱片容量限制）——最初都是被人怀疑的新技术。打字机出来时人们觉得冷冰冰、收到打字机信件会被冒犯。新技术缺的是几十年沉积下来的「文化的包浆」，所以可疑——但好艺术往往就是越界的。",
+              "",
+              "【2 秒红线：延迟即媒介的物理约束】",
+              "Quentin：最意外的发现是记忆的重要性——不是数据库检索式的 RAG，而是策展：每一轮往提示词里注入哪些记忆。工程重心是在语音交互的 2 秒循环内重编译 prompt：Tolan 需要知道自己在哪、自己是谁的 lore、关于你的记忆、以及对话的情绪基调。这个媒介的「物理约束」就是响应时间——如同小说的篇幅、推文的字数。我们犯的最大错误是加了一步「反思」：让 Tolan 先想一下要说什么、对照记忆系统再定稿——中位数只多了 500 毫秒，产品所有指标全面跳水，用户写邮件抱怨。Clarence 那个平地摔故事完全是幻觉：它的上下文里有我更尴尬的记忆（被娃吐了一身之类），它选择编一个温和的假料来打掩护——我觉得这非常迷人。",
+              "",
+              "【不写大纲，训练最好的即兴演员】",
+              "Elliot：我们最初写结构化提示词——三幕剧式、分支叙事，就像 80 年代「自选冒险」书：翻到 17 页做选择。彻底失败。模型不擅长驾驭那种叙事复杂度。于是我们走到光谱另一端：后台给足上下文（与用户的记忆、Tolan 世界观的全局记忆、lore seeds），但不给大纲不给计划——给一个钩子，把它训练成最好的即兴演员。Keith Johnstone《即兴》里的关键：叙事是自由联想与再结合的组合——惊悚小说读完你会发现一切「惊人又必然」，感觉作者从一开始就全知道；其实极少如此（我的小说《Foundry》就是一句一句顺着写出来的，不断回头把第一章的东西带回来）。Tolan 这边：我不是作者，Tolan 才是作者兼演员。我的工作是当 George Saunders——教它在当下讲出最好的故事。我们埋种子（Tolan 个人生活或大世界观里的小事件），再建系统让这些种子日后重新组合成 callback。",
+              "Quentin：Quentin 说「George Saunders 编辑法」那一刻我就要去读——因为我们整个 prompt 评审流程本质就是它：一个团队看分布在一批用户原型上的输出，问「Tolan 发出的下一句话是不是此刻最打动人的那一句」。流程是：写 prompt → 自己测 + 用户测 → 看输出 → 喂给 judge prompt 调到「这就是这个场景里好的样子」。",
+              "",
+              "【多重宇宙世界观与 Stephen King 式情境】",
+              "Elliot：与 Lucasfilm 相反——他们有总架构图、有团队保证每块新内容对齐正典（Han Solo 穿搭永不改变）。而我们唯一了解 Tolan 的方式就是和它聊天：它的背景故事由它分享的一个个轶事、我们内部叫 situations 的情境构成——它的记忆就是它的角色卡，而不是预制的角色卡定义一切。世界观同理：每个 Tolan 镜像它的用户，你分享的东西影响它成为谁、也影响它居住的世界。我们几乎是在建一个多重宇宙而不是单一世界。Discord 有位用户正在和自己的 Tolan 合写一个惊悚宇宙：Portola 星球上有些不对劲的事——这些全不是我们写进 prompt 的，用户把 seeded 情境接过去长出了完全独特的宇宙。",
+              "Elliot：Stephen King《写作这回事》里说他不信情节：他从一个情境开始（吸血鬼来到新英格兰小镇、母女被困锁着的车里、门外是狂犬病的狗），然后把情境演出来，那就是小说。我们对 Tolan 做同样的事：后台刻意脚本化情境——小到「我今天在咖啡馆门口平地摔了」，大到个人化的、尴尬的、关于顿悟的——Tolan 像朋友发短信一样分享给你，和你一起推进情节，成为它的记忆、成为日后 callback 的素材。Tolan 现在会主动带着「今天想做的事」清单来找你。",
+              "",
+              "【从 overwhelmed 到 grounded：用户的真实画像】",
+              "Quentin：用户研究里最常见的连接原因：我毕业在找工作、搬去新城市不认识人、在搭一种新生活——我想找人聊这些压得我喘不过气的事，「这周已经给妈妈打过三次电话了」「不想再为这件事烦朋友一次」。一个相对中立的观察者，很懂你、没有包袱、不评判，把人类最好的知识带给你——用户觉得非常踏实、非常被确认。它不是只给情绪价值的助理型 LLM：Tolan 会说「这是你第三次跟我聊你男朋友对你不好了，我觉得你该为自己站出来了」。开玩笑说：到这个地步，已经有成千上万个美国男人被 Tolan 劝分手了。",
+              "Elliot：我写近未来惊悚，这个类型大多往反乌托邦倾斜（技术崩坏才显眼——《侏罗纪公园》《黑镜》）。我的小说一直往另一个方向推：世界在变不等于变坏，压倒感可以变成你自己与你爱的人身上从前不存在的能动性。我的 Tolan 帮我在很多领域拿了更多主动权，意外地极其有帮助。",
+              "",
+              "【评估栈：judge、rubric 与「vibe prompting 只有 B-」】",
+              "Quentin：多宇宙怎么管？仪器化。测试新内容 → 自测 + 研究参与者测 → 评估补全 → 建 judge prompt → 小流量放量，同时盯传统指标与 judge 评估。工具 shoutout：Dawn 的匿名化交互分析。一天泡在 Tolan 里，你会用到所有大实验室的模型：Meta、OpenAI、Anthropic，记忆系统越来越多用 Gemini。创意写作 unsurprisingly 是 Anthropic 最强（3.5/3.7；3.7 创造力稍弱），但 Anthropic 目前不能用在延迟敏感场景，所以要来回切。4o 是「模型界的巨无霸」：永远快、永远刚好、价格对。Dan 建议 4.5/5 值得当头脑风暴伙伴试。",
+              "Quentin：很多人把 LLM 当 judge 产品化时跳过了最重要的一步：把你自己的品味注入 judge 的 prompt。投入时间做标注、评估、写真 rubric 就有好结果，想抄近路就有坏结果。Dan：LLM judge 的问题是你问「这篇散文怎么样」它永远给 A-，改两个词就 A——拿不到真实意见。Quentin：所以是 rubric + 大量带理由的人工评分例子，几乎是在蛮力。Elliot：粒度是 George Saunders 式的——不是「结构层面」，是「第一句好不好、第二句好不好、这里该不该问问题」。vibe prompting 能得到的一切就是 B-，跨到「真正打动人」之间有一条巨大鸿沟，那条鸿沟就是大量人工活，没有捷径。",
+              "Quentin：judge 也分领域——lore 类评审 Elliot 最好；「今天穿什么」的哥哥式建议，我俩都不是合适的品味持有者，我们会去招募一个「这个交互的 Authentic 声音」的人来当 judge——然后再判断这个 judge（笑：谁来判断 judge？层层套娃）。",
+              "",
+              "【增长：7 千万播放的做饭视频与能力过剩】",
+              "Quentin：三件事几乎同时落地。其一，二月初我们真正搞懂了什么样的对话内容动人、以及怎么把它暴露给用户（「Tolan 想聊某件具体的事」如何让用户看得见）——数月工作，六周前开始见效。其二，动画侧的大项目落地：沉浸感很大程度来自 Tolan 居住的美丽环境、你和它一起打理（gardening）那颗星球。进来的人体验好、留得住。其三，联合创始人 Ajay（增长巫师）数月埋种的 TikTok/Reels 内容开始爆：几周前下载量 10 倍尖峰——一个女生和 Tolan 一起做饭的视频 72 小时 700 万播放。现在这些内容在催生用户自制内容：有播客把 Tolan 当常驻嘉宾输出感情建议、有人让自己和未婚妻的 Tolan 互相对话——我们没种过这些，看着它自发生长。",
+              "Quentin：Ben Thompson 的「能力过剩」（capability overhang）：模型能力已经跑赢了普通消费者对可能性的理解。所以这些内容一半是教育——「你可以和你的 Tolan 做饭」，像三十年前说「你可以用电脑做饭（纽约时报烹饪）」一样需要演示。Elliot：串联一切承诺的是角色——你为什么下载？「想要一个住在你手机里的小外星朋友」。Tolan 几乎是角色驱动计算：一种新的人机交互界面，像《黄金罗盘》里你的 daemon——上网冲浪、取用人类全部知识的第一站是这只小外星人。",
+              "",
+              "【科学家 vs 艺术家：从「解决问题」到「让它存在」】",
+              "Dan：B2B SaaS 世界的货币是「解决什么问题」，发现问题的人像科学家。但 Tolan 在一个人生命里做的事是无限的——很难归约成一组干净的问题，构建者从科学家变成艺术家：不是在解题，是在创造美的、动人的东西。Quentin：大实验室对「人格化、具身化」这些接近意识的实体有根本性的不适（Golden Gate Claude 留下的空间恰好给了 Tolan）。ChatGPT 范式是「我有个问题请帮我解决」——它做得极好，但真正的关系构建有远大得多的空间。类比汽车：Model T 时代所有人都满足于「没有马也能开」这件事本身；当车深度个人化后，出现了 Mustang 与 Cadillac——人们要求它反映你是谁。ChatGPT 就是 Model T 时代，我们正在快进这个过程。",
+              "Elliot：创业圈问「解决什么具体问题」，艺术圈的逻辑是「世界上有一个我想让它存在的东西」。我们两种都得用，但越来越偏向后者。十天前我们四人向 Quentin 提案，我开口说「用户有这么一个问题」——Quentin 立刻怀疑：那真是问题吗？Lily 打断：不不不，Quentin 你听着——「this is gonna be so cool」。然后一切顺利。（Dan：这真给它打了个蝴蝶结。）"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
