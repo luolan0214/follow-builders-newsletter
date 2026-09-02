@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-09-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-09-02" data-issue-number="107" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 107 期｜2026-09-02｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Nan Yu 宣布加入 OpenAI 做 Codex 与 ChatGPT（**3062 赞，今日最高**）：「感谢 Linear 团队不可思议的四年，期待把在软件手艺上学到的一切带进下一章。」Sottiaux 的开放调研（2344 赞）：「如果你还没试过 Codex 但过去考虑过——拦住你的那一件事是什么？」Rauchg 的宣言「你的下一个设计系统是……Markdown」（**2443 赞**）：𝙳𝙴𝚂𝙸𝙶𝙽.𝚖𝚍 正在解决 AI 时代最难的问题 slop，以及如何在大组织里真正规模化设计品味；外加 coding tokens 即基础设施论（250 赞）。Garry Tan 站队「Circleback 完胜 Granola」（603 赞）+ GBrain evals（403 赞）。Levie 的开放权重新玩法（119 赞）。Madhu Guru 的 PM 前沿 alpha（140 赞）。Shipper 的拟人化框架（87 赞）。播客：Training Data 重播 Rich Sutton &amp; Khurram Javed——为什么 AI 模型停止学习、如何重启（56411 字符 transcript 全文翻译，本刊 08-20 期曾完整收录）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Nan Yu 宣布加入 OpenAI 做 Codex 与 ChatGPT（**3062 赞，今日最高**）：「感谢 Linear 团队不可思议的四年，期待把在软件手艺上学到的一切带进下一章。」Sottiaux 的开放调研（2344 赞）：「如果你还没试过 Codex 但过去考虑过——拦住你的那一件事是什么？」Rauchg 的宣言「你的下一个设计系统是……Markdown」（**2443 赞**）：𝙳𝙴𝚂𝙸𝙶𝙽.𝚖𝚍 正在解决 AI 时代最难的问题 slop，以及如何在大组织里真正规模化设计品味；外加 coding tokens 即基础设施论（250 赞）。Garry Tan 站队「Circleback 完胜 Granola」（603 赞）+ GBrain evals（403 赞）。Levie 的开放权重新玩法（119 赞）。Madhu Guru 的 PM 前沿 alpha（140 赞）。Shipper 的拟人化框架（87 赞）。播客：Training Data 重播 Rich Sutton &amp; Khurram Javed——为什么 AI 模型停止学习、如何重启（56411 字符 transcript 全文翻译，本刊 08-20 期曾完整收录）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Nan Yu Joins OpenAI &amp; the Codex Feedback Loop / Nan Yu 入职 OpenAI 与 Codex 反馈回路</h2>
+    <p class="section-desc">Nan Yu 的人生新闻（**3062 赞，今日最高**）；Sottiaux 的开放调研（2344 赞）；Peter Yang 的信任论（28 赞）+ 好建议转发（1333 赞）+ 给创作者打气（0 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thenanyu+thsottiaux+petergyang" data-author-name="Nan Yu / Sottiaux / Yang" data-author-tag="→ OpenAI（前 Linear）/ OpenAI / Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Nan Yu / Sottiaux / Yang avatar"><span class="avatar-fallback">NY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nan Yu / Sottiaux / Yang</div>
+            <div class="author-tag is-inline">→ OpenAI（前 Linear）/ OpenAI / Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nan Yu 的人生新闻（3062 赞，今日最高）：「个人消息——我要加入 OpenAI，做 Codex 和 ChatGPT。感谢 Linear 团队不可思议的四年，为我们共同建成的一切骄傲。期待把我在那里学到的关于软件手艺的一切带进下一章。」一位 Linear 工匠奔赴 OpenAI 的编码前线。Sottiaux 的开放调研（2344 赞）：「如果你到现在还没试过 Codex、但过去考虑过——拦住你的那一件事是什么？」Peter Yang 三连：「信任将是个人 agent 采用的最大障碍（也是最大驱动）」（28 赞）；转发一条好建议（1333 赞）；给创作者打气：@drhoeflinger 我刚看了你的视频，天哪做得真好，继续加油（0 赞）。</p>
+              <p>Nan Yu 另有：一个 🤞🏻（167 赞）和一条只言片语的「Concerning」（0 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nan Yu：加入 OpenAI，做 Codex 和 ChatGPT。感谢 Linear 四年。</p>
+              <p>Sottiaux：还没试 Codex 的人，拦住你的是什么？</p>
+              <p>Yang：信任是个人 agent 的最大障碍与驱动。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nan Yu&#39;s personal news (3062 likes, top of the day): &#39;Some personal news—I&#39;m joining OpenAI to work on Codex and ChatGPT. I&#39;m grateful to the Linear team for an incredible 4 years and proud of what we&#39;ve built together. I look forward to bringing everything I&#39;ve learned there about the craft of software into this next chapter.&#39; A Linear craftsman heading to OpenAI&#39;s coding frontier. Sottiaux&#39;s open research (2344 likes): &#39;If you still haven&#39;t tried Codex but have considered it in the past, what&#39;s the one thing holding you back?&#39; Peter Yang&#39;s trio: &#39;Trust is going to be the biggest barrier (and driver) of personal agent adoption&#39; (28 likes); &#39;Great advice&#39; (1333 likes); and a creator shoutout to @drhoeflinger: &#39;I just watched your videos and wow they&#39;re so good. Keep going and thanks for sharing your knowledge&#39; (0 likes).</p>
+              <p>Also from Nan Yu: a 🤞🏻 (167 likes) and a terse &#39;Concerning&#39; (0 likes).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nan Yu: Some personal news—I&#39;m joining OpenAI to work on Codex and ChatGPT. I&#39;m grateful to the Linear team for an incredible 4 years and proud of what we&#39;ve built together. I look forward to bringing everything I&#39;ve learned there about the craft of software into this next chapter.</p>
+              <p>Thibault Sottiaux: If you still haven&#39;t tried Codex but have considered it in the past, what&#39;s the one thing holding you back?</p>
+              <p>Peter Yang: Trust is going to be the biggest barrier (and driver) of personal agent adoption.</p>
+              <p>Peter Yang: Great advice.</p>
+              <p>Peter Yang: Btw @drhoeflinger I just watched your videos and wow they&#39;re so good. Keep going and thanks for sharing your knowledge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thenanyu" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">DESIGN.md &amp; Coding Tokens as Infrastructure / DESIGN.md 与 coding tokens 基础设施论</h2>
+    <p class="section-desc">Rauchg 的设计系统宣言（**2443 赞**）+ coding tokens 治理论（250 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg" data-author-name="Rauchg" data-author-tag="Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg avatar"><span class="avatar-fallback">R</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg</div>
+            <div class="author-tag is-inline">Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的宣言（2443 赞）：「你的下一个设计系统是……Markdown。我们写了 𝙳𝙴𝚂𝙸𝙶𝙽.𝚖𝚍 如何帮助解决今天 AI 最难的问题：slop（劣质生成物）；以及你如何能真正地、终于地在大组织里规模化设计品味。」外加 coding tokens 基础设施论（250 赞）：coding tokens 基本上就是基础设施，但公司们的现状相当于「各位，这是把 AWS 密钥——它能开起任何东西，从 𝚝𝟹.𝚗𝚊𝚗𝚘（3.80 美元/月）到 𝚙𝟻.𝟺𝟾𝚡𝚕𝚊𝚛𝚐𝚎（4 万美元/月），随便造」——公司们不对核心基建这么干的原因正是：你需要治理、优化并观测用量与成本。「实习生可能决定拿它静态网站托管……」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：下一个设计系统是 Markdown；DESIGN.md 对抗 slop。coding tokens 需要 AWS 密钥级的治理。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s manifesto (2443 likes): &#39;Your next design system is… Markdown. We wrote about how 𝙳𝙴𝚂𝙸𝙶𝙽.𝚖𝚍 is helping solve the hardest problem in AI today: slop. And how you can truly, finally scale design taste within a large organization.&#39; And the coding-tokens-as-infrastructure argument (250 likes): the way companies handle them today amounts to &#39;Hey all, here&#39;s an AWS key. It can spin up anything from a 𝚝𝟹.𝚗𝚊𝚗𝚘 (＄𝟹.𝟾𝟶/𝚖𝚘) to an 𝚙𝟻.𝟺𝟾𝚡𝚕𝚊𝚛𝚐𝚎 (＄𝟺𝟶𝚔/𝚖𝚘). Go wild&#39; — the reason companies don&#39;t do this for core infra is that you need to govern, optimize, and observe usage and costs. &#39;The intern might decide to host a static we[b site…]&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Your next design system is… Markdown. We wrote about how 𝙳𝙴𝚂𝙸𝙶𝙽.𝚖𝚍 is helping solve the hardest problem in AI today: slop. And how you can truly, finally scale design taste within a large organization.</p>
+              <p>Guillermo Rauch: Coding tokens are basically infrastructure. Yet, the way companies have approached them amounts to: &#39;Hey all, here&#39;s an AWS key. It can spin up anything from a 𝚝𝟹.𝚗𝚊𝚗𝚘 (＄𝟹.𝟾𝟶/𝚖𝚘) to an 𝚙𝟻.𝟺𝟾𝚡𝚕𝚊𝚛𝚐𝚎 (＄𝟺𝟶𝚔/𝚖𝚘). Go wild.&#39; And obviously the reason companies don&#39;t do this for their core infra is that you need to govern, optimize, and observe usage and costs. The intern might decide to host a static we[b site…]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Tool Wars, Open-Weights Plays &amp; PM Alpha / 工具战争、开放权重玩法与 PM 前沿 alpha</h2>
+    <p class="section-desc">Garry Tan 的 Circleback 站队（**603 赞**）+ GBrain evals（403 赞）；Levie 的开放权重双发（119/77 赞）；Madhu Guru 的 PM 检查清单（140 赞）；Shipper 的拟人化框架（87 赞）+ 拼图（Nikunj 176 赞、Amjad 30 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+levie+realmadhuguru+danshipper+nikunj+amasad" data-author-name="Tan / Levie / Guru / Shipper / Nikunj / Amjad" data-author-tag="YC CEO / Box CEO / PM / Every / FPV / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Tan / Levie / Guru / Shipper / Nikunj / Amjad avatar"><span class="avatar-fallback">T/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Tan / Levie / Guru / Shipper / Nikunj / Amjad</div>
+            <div class="author-tag is-inline">YC CEO / Box CEO / PM / Every / FPV / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 的工具战争：「Circleback 比 Granola 好太多，根本不是一个量级。Granola 到现在都不支持多人消歧」（603 赞）；GBrain 更新（403 赞）：做了新的 GBrain evals，证明他的 retrieval-for-AI-agent 开源层在无 LLM-in-loop 读回记忆上是 SOTA，还加了从 agent transcript 保存记忆的 evals——这是丰富你大脑的最佳方式，附 receipts。Levie 开放权重双发（119/77 赞）：基础开放权重模型越来越好、后训练基建成熟商业化后，拥有大数据语料的公司将有一整套新玩法——拥有自己的模型；以前数据授权是唯一玩法。另外：随着 AI 安全事件升温，我们将需要最精密的 AI agent 来检测和预防安全问题——前沿模型在网安上仍领先，但开放模型追得很快，疯狂年代。Madhu Guru 的 PM alpha（140 赞）：如果你是 PM，理解你特定产品与用例的模型前沿有巨大 alpha——你应该比大多数前沿实验室研究员和 PM 更能回答：各尺寸模型今天擅长什么、各自在哪失败、有什么 workaround、以及沿着轨迹……</p>
+              <p>Shipper 的拟人化框架（87 赞）：「AI 拟人化在帮助我们更好使用（理解、预测）AI 时是好的；在散布恐慌、恐惧与不切实际的人类类比时是坏的。」大多数反对者反对的其实是后者。外加「务实主义者在 AI 时代持续赢」（22 赞）、一条「had me in the first half」（27 赞）、Nikunj 的纯链接帖（176 赞）与 Amjad 的 iOS 交互技巧（30 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Tan：Circleback 完胜 Granola。GBrain evals 证明检索层 SOTA。</p>
+              <p>Levie：开放权重 + 后训练成熟 → 数据富矿公司自建模型。安全 agent 竞赛开场。</p>
+              <p>Guru：PM 该比实验室更懂自己用例的模型前沿。</p>
+              <p>Shipper：拟人化，助用则善，散恐则恶。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s tool wars: &#39;Circleback is so much better than Granola, it&#39;s not even close. Granola still doesn&#39;t even support multiple person disambiguation&#39; (603 likes); and his GBrain update (403 likes): &#39;I just made some new GBrain evals that help prove that my retrieval-for-AI-agent open source layer is SOTA for reading memory back without LLM-in-loop. And I&#39;ve also added evals for memory-save from agent transcript, which is the best way to enrich your brain. Receipts at…&#39; Levie&#39;s open-weights double (119/77 likes): now that base open-weight models are getting far better and post-training infra is maturing, there are all-new plays for companies with large data corpora to have their own models — previously data licensing was the only play; plus: as AI security events pick up, we&#39;ll need the most sophisticated AI agents to detect and prevent security issues — frontier models still lead in cyber, but open models are catching up fast. Madhu Guru&#39;s PM alpha (140 likes): &#39;If you&#39;re a PM, there is immense alpha in understanding the model frontier for your specific product&#39; — you should answer better than frontier-lab researchers: what can each size category do well, where does each fail, what workarounds exist, and given the trajectory…</p>
+              <p>Shipper&#39;s anthropomorphization framework (87 likes): &#39;Anthropomorphization of AI is good when it serves to help us use (understand, predict) AI better. It&#39;s bad when it serves to sow panic, fear, and unrealistic comparisons to human beings&#39; — most opponents are rightly reacting to its misuse. Plus &#39;Pragmatists stay winning in the age of AI&#39; (22), a &#39;had me in the first half&#39; (27), Nikunj&#39;s link-only post (176), and Amjad&#39;s iOS interaction tips (30).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: Circleback is so much better than Granola, it&#39;s not even close. Granola still doesn&#39;t even support multiple person disambiguation.</p>
+              <p>Garry Tan: I just made some new GBrain evals that help prove that my retrieval-for-AI-agent open source layer is SOTA for reading memory back without LLM-in-loop. And I&#39;ve also added evals for memory-save from agent transcript, which is the best way to enrich your brain.</p>
+              <p>Aaron Levie: Now that the base open weights AI models are getting far better, and post training infra is becoming more mature and commercialized, there are going to be all new plays for companies that have large amounts of data to have their own models.</p>
+              <p>Aaron Levie: As AI security events pick up, it&#39;s going to be critical that we have the most sophisticated AI agents for being able to detect and prevent security issues. Frontier models are clearly still ahead in cyber, but open models are catching up quickly. Wild times.</p>
+              <p>Madhu Guru: If you&#39;re a PM, there is immense alpha in understanding the model frontier for your specific product and use cases. You should be able to answer the following better than most frontier lab researchers and PMs for your use cases.</p>
+              <p>Dan Shipper: Anthropomorphization of AI is good when it serves to help us use (understand, predict, etc) AI better. It&#39;s bad when it serves to sow panic, fear, and unrealistic / unwarranted comparisons to human beings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast (Re-run): Sutton &amp; Javed — Why AI Models Stop Learning / 播客（重播）：Sutton 与 Javed——AI 模型为何停止学习</h2>
+    <p class="section-desc">Training Data 重播（2026-08-18 发布，本刊 08-20 期曾完整收录）：Rich Sutton（强化学习之父、《苦涩的教训》作者）与联合创始人 Khurram Javed 创办 Oak Lab，谈大世界假说、持续学习与 continual backprop。完整 transcript（56411 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:td-sutton" data-author-name="Training Data" data-author-tag="Rich Sutton（RL 之父，《苦涩的教训》作者）· Khurram Javed（Oak Lab 联合创始人）· 重播" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Rich Sutton（RL 之父，《苦涩的教训》作者）· Khurram Javed（Oak Lab 联合创始人）· 重播</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>今日 feed 播客位为重播：Training Data 与 Rich Sutton（强化学习之父、《苦涩的教训》作者）及其联创/前学生 Khurram Javed——两人共同创办 Oak Lab（本刊 2026-08-20 期曾完整收录，2026-08-18 发布）。核心论点：大世界假说、合成数据之误、灾难性遗忘的解法（continual backprop）、「LLM 只装作是全部 AI」。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：不是我怪，是这个领域怪】</p>
+              <p>Sutton：人们有时觉得我观点激进，提问都说「你想的和其他人太不一样了」。我完全不这么看——我是用普通方式思考，是其他人想得有点怪。在 AI 疯狂之前，你根本不用说「持续学习」这个词——所有学习都是持续的：我们一直行动、一直学习，这是正常的思维方式。需要专门叫「continual learning」，恰恰说明这个领域怪。</p>
+              <p>Sutton（谈 2003 年去阿尔伯塔）：那段真相其实挺疯狂的——我当时真的病得很重，2003 年正在死于癌症，但还没死成。又一次缓解期，我想：我还没成功死掉，拖着也够久了，不如再找份工作。于是去阿尔伯塔教书，最后没死。现在拿它开玩笑，当时非常严重。更尖锐的问题是：只剩几个月时为什么还继续做研究？本杰明·富兰克林 supposedly 说过：想知道一个人为什么做某事，几乎总是两个原因之一——习惯或虚荣。也许是习惯：继续做我一直做的事。决心对我而言从来不难。</p>
+              <p></p>
+              <p>【《苦涩的教训》：26 词版】</p>
+              <p>Sutton：《苦涩的教训》酝酿很久，它表达的东西可以观察几十年，至少同样源于我亲历的符号 AI 时代：全是关于别被塞入人类知识的尝试分心，只关注问题本身需要什么、以及如何随算力扩展。发布前一年我就写过版本、做过 talk，它不是对某个时刻的回应，是对漫长经历的回应。</p>
+              <p>Sutton：26 词版本大概是这样：「不要像传统 AI 那样一次次被人类知识分心；聚焦于能随算力扩展的学习方法——搜索与学习。」它不是说不需要精巧算法——需要，但要的是随算力扩展的精巧算法。是随算力扩展，而不是随人类输入扩展。</p>
+              <p></p>
+              <p>【LLM：苦涩教训的正例兼反例】</p>
+              <p>Sutton：LLM 既是正例也是反例。正例：它实现了随算力的巨大扩展，把整个互联网喝进去，纯靠规模获得强大得多的系统。反例：继续走下去终将被信息本身限制——互联网是有限的，很难拿到更多样本；而世界之大、远超我们在互联网上存下的一切。最终看，这像是又一个「过度依赖人类知识、最终被拖住」的例子。</p>
+              <p>Javed：合成数据作为 LLM 扩展范式的一部分，是不是一种利用算力的通用方法？不是，这是个巨大的错误。</p>
+              <p>Sutton：也许是下一个大教训。它在阿尔伯塔流传五到十年了，我们叫它「大世界视角/大世界假说」，Khurram 最终写成论文。大世界：世界无穷大、有无穷多东西可学。人们可以生成合成数据集，但永远有更多东西可学。如果你能从经验学习、把人类从回路里拿掉，系统就能做任何事——因为世界够大、考验比我们想让它做的多得多。</p>
+              <p>Javed：谁决定什么是好合成数据、什么是坏合成数据？我现在能写个程序输出海量会伤害模型的合成数据。当前是人类决定——这就是瓶颈：需要人类专家知道什么数据集好什么坏，所以它被人类瓶颈卡住。假设 OpenAI、Anthropic 所有工程师都去度假了，谁来生成合成数据？它不从 agent 的经验里来、不是 agent 自己生成的。比如我想要一架用回声定位（像蝙蝠）飞行的无人机：什么是「对的合成数据」？你得先雇领域专家搞清楚什么数据是对的——先有领域专家，才谈得上学习。</p>
+              <p>Sutton：而且合成数据就是错的——它不是真实世界，而这很重要。世界复杂到不可思议。生成合成数据的是一个小程序，那就是一个小世界。比如：我关心的是你们此刻脑子里在想什么——你能拿到「别人脑子里在想什么」的合成数据吗？不可能。今天我跟你们聊投资，我在乎你们的想法。无人机的电机摩擦磨损、与物理世界的交互——拿不到合成数据。世界无穷复杂，任何对它的模拟都是微观的。大世界假说：世界比任何 agent 的心智都复杂得多——这很显然，因为世界里还装着许多其他 agent。所以任何声称最优或完美都不可能，必须有近似，而且近似会很严重。这就是我们必须持续学习的根本原因：我们会撞进这个巨大世界的某个局部，必须学到调谐到「我们所在的那部分世界」的近似，而不是没在的那些部分。</p>
+              <p></p>
+              <p>【模拟器之辩：让 agent 自己造模拟器】</p>
+              <p>主持人：最新一代自动驾驶公司主要在 sim 里训练，再做 post training——这条流水线很有效，不是吗？</p>
+              <p>Javed：要问的关键问题是：多少工程师参与了搭那个模拟器？我们是否准备好说「唯一值得解的问题，都是能先雇一大队工程师做模拟器的问题」？他们肯定迭代了很多轮：搭模拟器、在里面学、发现 sim-to-real 差距不可接受、修模拟器——一直有人类在环修模拟器。为什么不能把人拿掉、让 agent 自己来？</p>
+              <p>Sutton：而且等它真的上路开，还是会发生意料之外的事——那正是你想从经验里学的。agent 可以从自己的经验里学出模型，这比人类做模拟器好得多：模型错了，它可以通过持续学习修；人类做模拟器，只有等人类发现错了才更新。规划很重要，agent 应该从模拟器学——从它们自己造的模拟器。</p>
+              <p></p>
+              <p>【先验知识与学习不该是敌人】</p>
+              <p>Sutton：AlphaGo Zero 让我很开心、觉得被 vindicate，但本来两个方向都有可能——先验知识没有错。我在《苦涩的教训》一开头就说：先验知识与学习没有原则性冲突，可以先放先验再开始学。生命就是获得知识、拥有知识——先天与后天怎么就成了敌人？但实践中它们一直互斗：钟爱现成人类知识的人想让知识赢，于是想淡化、贬低学习。你对我的印象可能是「爱学习、想贬低先验」——其实我是对心智感兴趣的人：心智就是有先验、再获得更多、获得之后又成为新的先验，两者协作。我显得「以学习为主」，只因为世界其他人都在说「只要知识够了、不需要学习」：LLM 就是把所有知识灌进系统、跑起来之后再也不学——它在和人对话、在交互，权重却永不变。他们声称从「一个根本不再学习的东西」里得到了博士级经验与专长——怪的不是我。</p>
+              <p>Javed：现状是可以在预训练和后训练里随便做，但我们不让模型在部署后学习。你可以给它更多上下文、改变状态，但模型不在学习。Cursor 的 tab 补全模型是真的（批量式）持续学习——权重在更新，Composer 也更新过。但可以好得多：他们收千百万用户的数据、攒成大 batch、做一次策略更新。这能 work，但想象我想教模型某个非常具体的东西——我不想跟十万个其他用户打架争他们想教什么。我想教「我的那份模型」，我不在乎共享知识。这是非常低效的方式。</p>
+              <p></p>
+              <p>【没有动物靠监督学习】</p>
+              <p>Sutton：我们从动物学习汲取大量灵感——是灵感，不是约束。很显然没有动物靠监督学习：没人给我们「肌肉该怎么动」的样本，而那是我们的输出。学校？学校只占我们学习的极小部分——我们学看、学走、学世界如何运作，而且即便在学校里也没人告诉你肌肉怎么动。法国的首都是巴黎、答案已知——但没人告诉我「我」该怎么发出 Paris 这个音：我听你的词、用我自己的肌肉动作发出 Paris，这不是字面意义的监督学习。松鼠不上学也学会了跳树。学校是很特殊的东西，几百年前连人类都没有——把它当学习的主要例子是一种分心。</p>
+              <p>Javed：而且别人的「正确答案」放到你身上就是错的：如果我完全照 Rich 的方式动嘴唇、舌头、声带发 Paris，出来的一定是完全不同的声音。某种程度上，Rich 或任何人都不知道用我的身体发声的正确方式——只有我知道。本体感觉的例子也说明可塑性：有人完全失去本体感觉（走路的根基、刻在脑里），完全不能走了，但两三年内学会看脚走路——大脑的可塑性疯狂到：一个为真二十年的东西不再为真时，它能更新、能扔掉。这正是我们想要的能力。</p>
+              <p></p>
+              <p>【缺失的能力：学模型并用它规划】</p>
+              <p>Sutton：人和松鼠只是程度之别——强调「我们和动物多不同」是傲慢，看共性更好；社会、文化、语言给我们大优势。松鼠也做极为抽象的事：无论你在喂鸟器上设什么障碍，它总能进去——找新的跳法、爬法。</p>
+              <p>Javed：范式转移怎么来？人人举爱因斯坦。范式转移发生时，是一个积累了全部知识的人，从自己的经验里构建新抽象、用它们规划、发现新知识。「提出新抽象、再学新模型、再拿去规划」这个技能，在今天的系统里完全缺失。你可以在人类知识边缘暴露这个问题，也可以在感觉运动层研究它。</p>
+              <p>Sutton：我不想跟你们争「先验重要还是学习重要」——你们差点就在做我说永远别做的事。我们还没在领域里看到的能力是：学出一个模型、然后用这个模型规划。数学能行是因为我们知道算子、知道 Lean 把证明从一个状态带到下一个状态；AlphaGo 能行是因为我们知道游戏规则。要学模型、再用自发现的抽象去规划——领域里几乎找不到实例。这大概是下一个重要东西。</p>
+              <p></p>
+              <p>【阿尔伯塔计划与灾难性遗忘的解药】</p>
+              <p>Sutton：阿尔伯塔计划 12 步是把想法切成小块。第二步「持续深度学习」几乎是最重要的——它解锁其他一切：如果能持续深度学习，就能持续更新世界模型；后半程的步骤全是关于把抽象做对——不是「找到正确的抽象」（没人能说什么是正确的，取决于你所在的世界），agent 必须为自己所处的世界学到正确的抽象。</p>
+              <p>Javed：精英运动员的例子：问他们怎么做某个动作，他们有奇怪的小众术语命名极具体的东西，有时只有自己一个人用时连名字都没有。这些抽象怎么来的？这是缺失的关键。</p>
+              <p>Sutton：持续深度学习是纯算法缺口。拿单样本更新整个模型，旧知识会被负面冲击（灾难性遗忘）；Cursor 的绕法是攒大批量——但多数用例只有单流数据，天真做法会破坏性摧毁先验知识。但这完全可治：第一，步长优化——网络里每个权重有自己的步长并元学习：多数权重步长极小，新样本来时它们不被摧毁、只动该动的地方；第二，特征空间里的 generate-and-test——不靠梯度生成新单元/新特征（梯度只朝已知有用的方向走，永远慢、长不出持续增长的复杂性），而是直接抛出一批新单元、让 backprop 当测试器。我们有个算法叫 continual backprop，几年前发在 Nature：跟 backprop 一模一样，但会持续种下随机初始化的新单元种子——backprop 的随机性只在开局存在、之后被用光；continual backprop 持续注入一点随机性、一点 generate-and-test。把这些拼好，就会有一代强大得多的持续深度学习。这是我们未来几年想做的。</p>
+              <p>Javed：这些算法能用在现在的 LLM 上吗？不能拿现成模型直接更新——这些算法元学习「如何学习」，必须从头训：学新基础模型时同时学两样东西——知识本身，以及未来学新东西的方法。这样才不会灾难性遗忘。</p>
+              <p></p>
+              <p>【最野心：自我维持的心智；万亿参数 20 瓦】</p>
+              <p>Sutton：最野心的是拥有从小到大的全谱知识——从肌肉层面到「怎么坐飞机从一座城到另一座城」这种大抽象（连松鼠都用抽象），统一对待、并且自我维持。老问题是：知识系统里的知识靠什么保持正确？LLM 靠大量后训练确保正确然后冻结。而我们的心智一直在变，却有某种东西让它保持组织、连贯、回落到好状态而不是漂进疯人院——拥有一个自洽、能持续自我训练、保持连贯的心智，这是我们最大的野心。它触手可及：2026 年了，计算机这么快。</p>
+              <p>Javed：万亿参数 20 瓦：用当前存储技术光存万亿参数就不止 20 瓦，但算力在变便宜、能效在提升——五到十年后这是可能的。Sutton：十年摩尔定律翻倍正好两个数量级：今天 2000 瓦能做，十年后 20 瓦。Javed：用对算法现在就能比 2000 瓦更省。</p>
+              <p>Sutton：我看不同研究组——根本没人相信这可能。不相信，你就不会去啃那些技术问题。Javed：我们卡在一个局部极小值：要走向新算法，几乎必然先变差再变好——新范式第一天不会有 SOTA。大实验室被锁死在产品上，走不了「先变糟」的路。Sutton：他们烧那么多能源，我觉得那是他们证明自己是真男人的方式。</p>
+              <p></p>
+              <p>【Oak：不是一颗心，是一种设计】</p>
+              <p>Sutton：如果一切顺利，我们实现这套架构：真正的持续学习、能形成抽象、能规划与推理——真正的智能。人类会无关吗？完全不——世界会变得更刺激。倒是 LLM 可能有风险：它们已经跑出漂亮一程。说明确点：LLM 是惊人的科学突破——神经网络娴熟使用语言完全出乎意料，语言一直是符号方法的地盘，它们彻底改变了这个认知。让我沮丧的是：我们本可以庆祝「在 AI 的子问题上取得大进展」并享受它，它却必须假装自己是全部 AI。智能不等于流利地使用语言——那是智能的 20% 或四分之一。还有更多，我们没做完。</p>
+              <p>Javed：不会是一颗心，是一种设计：很多心智，各自从不同经验里学到不同的东西。回到大世界假说：有无穷多东西可学，一个系统不可能学完；两个同样大的系统显然无法互相建模（一样复杂）。所以永远会是多个系统各自从经验学习。</p>
+              <p>Javed（招聘）：初期团队大多已在心中——都是长期想这些想法的人。这个范式不一样，快速变大没有意义：每个加入的人都得「看见我们看见的东西」，不是所有人都看得见。从小开始、慢慢长到一两打人。Sutton：我们要超级对齐，这样才能高效合作、规模化进展。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A re-run in today&#39;s feed: Training Data&#39;s conversation with Rich Sutton (inventor of reinforcement learning, author of The Bitter Lesson) and his cofounder/former student Khurram Javed, now founding Oak Lab together (originally covered in our 2026-08-20 issue). Core threads: &#39;I&#39;m not weird. The field is weird&#39; — before the AI craziness you wouldn&#39;t say &#39;continual learning&#39; because all learning is continual; the 2003 origin (Sutton was dying of cancer, kept researching out of &#39;habit or vanity,&#39; then didn&#39;t die and moved to Alberta); The Bitter Lesson in 26 words (don&#39;t be distracted by human knowledge; focus on methods that scale with computation — search and learning); LLMs are both a positive and negative example (enormous scaling, but the internet is finite and the world is massively bigger); synthetic data is &#39;just a big mistake&#39; — who decides good vs bad synthetic data? Humans do, so it&#39;s bottlenecked by human expertise; the big world hypothesis (the world is infinitely more complex than any agent&#39;s mind, because it contains many other agents — so approximations must be continually re-tuned to the part of the world you&#39;re in); sim-only training hides the humans-in-the-loop fixing the SimToReal gap — let agents learn simulators they make themselves; prior knowledge and learning should be friends, not enemies (AlphaGo Zero vindicated him, but he&#39;s not anti-prior); LLMs&#39; weights never change — &#39;They claim they got PhD-level expertise out of something that doesn&#39;t learn at all anymore&#39;; Cursor&#39;s tab model is real (batch) continual learning, but you can&#39;t teach YOUR model something specific while fighting 100,000 other users; no animal learns by supervised learning (nobody tells your muscles how to twitch; even &#39;Paris&#39; isn&#39;t supervision — Rich can&#39;t move YOUR vocal cords); the missing capability: learning a model AND planning with it with self-discovered abstractions (AlphaGo works because we know the game&#39;s model; math works because Lean defines state transitions); the Alberta plan — step 2, continual deep learning, &#39;unlocks everything else&#39;; the cure for catastrophic forgetting: per-weight meta-learned step sizes plus generate-and-test in feature space — continual backprop (published in Nature) keeps injecting new random-unit seeds so backprop&#39;s randomness never gets used up; you can&#39;t retrofit these algorithms onto existing models — they meta-learn how to learn, so you must train from scratch; the ambition: a full spectrum of knowledge from tiny to big, a self-maintaining mind that keeps itself coherent rather than drifting into crazy land; the trillion-parameter/20-watt claim (5-10 years = two orders of magnitude of Moore&#39;s Law; labs burn energy &#39;to show they&#39;re real men&#39; and are stuck in a local minimum where things must get worse before better); LLMs are &#39;an amazing scientific breakthrough… but it has to pretend to be all of AI&#39; — fluid language use is maybe 20-25% of intelligence; if Oak succeeds: not one mind but a single design — many minds, each learning from its own experience (two equally complex systems can never fully model each other); and hiring: start small, &#39;super aligned,&#39; because everyone who joins has to &#39;come to see what we see.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rich Sutton: People think I have a radical point of view sometimes… But I don&#39;t see it that way at all. I see it as like I&#39;m thinking the ordinary way. Just everyone else is thinking a bit weird.</p>
+              <p>Rich Sutton: I&#39;m not weird. The field is weird. They feel they need to call it continual learning. It&#39;s just learning.</p>
+              <p>Rich Sutton: It was in 2003… I was, like, really sick. I actually was dying of cancer in 2003 but I wasn&#39;t quite dead… I haven&#39;t succeeded in dying so I might as well… try to get another job.</p>
+              <p>Rich Sutton: Don&#39;t be distracted by human knowledge as AI traditionally has been many times. Instead, focus on learning methods that will scale with computation like search and like learning.</p>
+              <p>Rich Sutton: The internet is finite and it&#39;s hard to get more examples. And the world is big and the world is massively bigger than everything we stored on the internet.</p>
+              <p>Khurram Javed: Who decides what&#39;s a good synthetic data and what&#39;s the bad synthetic data?.. Some human has to decide what is the right synthetic data to generate, and that requires human expertise. So we are bottlenecked by human expertise at that point.</p>
+              <p>Rich Sutton: The big world hypothesis… is that the world is massively more complex than your mind, than any agent. And this is obvious because the world contains many other agents.</p>
+              <p>Rich Sutton: Their weights never change… They claim they got PhD level experience and expertise out of something that doesn&#39;t learn at all anymore. So I&#39;m not the weird one.</p>
+              <p>Khurram Javed: If I move my mouth and my tongue and my vocal cords exactly the same way that Rich does to pronounce Paris, I&#39;m sure a very different sound would come out. So in some sense, Rich or no one knows the right way of producing a sound with my body. Only I know that.</p>
+              <p>Rich Sutton: The big challenge that we don&#39;t see in our field yet, is the ability to learn a model and then plan with a model.</p>
+              <p>Rich Sutton: We have this algorithm called continual backprop. We published in Nature a couple years ago. And it is exactly like backprop, but you also plant new seeds of units that are newly initialized with random weights.</p>
+              <p>Rich Sutton: Large language models are an amazing scientific breakthrough… Instead, it has to pretend to be all of AI. All of intelligence is not fluid, capable use of language… It&#39;s like 20% or a quarter of intelligence. There&#39;s more. We&#39;re not done.</p>
+              <p>Rich Sutton: I think that&#39;s how they show they&#39;re real men, by using lots of energy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-09-02 source feeds (podcast is a re-run of the Training Data episode with Rich Sutton &amp; Khurram Javed, originally published 2026-08-18).">Source: Follow Builders curated daily digest. Built from the 2026-09-02 source feeds (podcast is a re-run of the Training Data episode with Rich Sutton &amp; Khurram Javed, originally published 2026-08-18).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
