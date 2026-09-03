@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-09-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-09-03" data-issue-number="108" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 108 期｜2026-09-03｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Claude 后台接管电脑（**8865 赞，今日最高**）：在 Cowork 与 Claude Code 里给 Claude 一件桌面上的活，它像你一样点击、输入、打开应用——而你去干别的；Pro/Max 桌面端 beta 开启。Cherny 早已断言「后台 computer use 被低估」（467 赞）+ Fable 5.1 的 Claude Tag 从指标表格与 Slack 数据赶出领导层 deck、还发现供应商报告数字对不上（723 赞）。Sottiaux 双发：「ChatGPT 桌面应用现在是我的主浏览器，生产力前所未有」（**5589 赞**）+「OpenAI 文化的最佳描述是 mega startup：极致所有权、关怀与节奏」（3065 赞）。模型周热浪：3.8 Flash 上线 Gemini App（848/537 赞）、Levie「Muse 重大更新，能力进展正在达到逃逸速度」（494 赞）、Peter Yang「Fable 限额已经用完了」（320 赞）。Rauchg「It took blood, sweat, and tokens」（1101 赞）。Zara 的宣言「我们不再为人类录会议了——录 transcript 是为了喂 agent」（128 赞）。播客全新一期：AI &amp; I 专访 Every 明星撰稿人 Katie Parrott——职业写作者如何用 AI 写作（43857 字符 transcript 全文翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Claude 后台接管电脑（**8865 赞，今日最高**）：在 Cowork 与 Claude Code 里给 Claude 一件桌面上的活，它像你一样点击、输入、打开应用——而你去干别的；Pro/Max 桌面端 beta 开启。Cherny 早已断言「后台 computer use 被低估」（467 赞）+ Fable 5.1 的 Claude Tag 从指标表格与 Slack 数据赶出领导层 deck、还发现供应商报告数字对不上（723 赞）。Sottiaux 双发：「ChatGPT 桌面应用现在是我的主浏览器，生产力前所未有」（**5589 赞**）+「OpenAI 文化的最佳描述是 mega startup：极致所有权、关怀与节奏」（3065 赞）。模型周热浪：3.8 Flash 上线 Gemini App（848/537 赞）、Levie「Muse 重大更新，能力进展正在达到逃逸速度」（494 赞）、Peter Yang「Fable 限额已经用完了」（320 赞）。Rauchg「It took blood, sweat, and tokens」（1101 赞）。Zara 的宣言「我们不再为人类录会议了——录 transcript 是为了喂 agent」（128 赞）。播客全新一期：AI &amp; I 专访 Every 明星撰稿人 Katie Parrott——职业写作者如何用 AI 写作（43857 字符 transcript 全文翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Claude&#39;s Background Computer Use &amp; the Desktop-as-Browser / Claude 后台接管电脑与桌面即浏览器</h2>
+    <p class="section-desc">Claude 的后台操作（**8865 赞，今日最高**）+ beta 细节（440 赞）；Cherny 的被低估论（467 赞）+ Fable 5.1 的 Claude Tag（723 赞）；Sottiaux 的主浏览器宣言（**5589 赞**）+ mega startup 文化论（3065 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="claudeai+bcherny+thsottiaux" data-author-name="Claude / Cherny / Sottiaux" data-author-tag="Anthropic / Claude Code 负责人 / OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Claude / Cherny / Sottiaux avatar"><span class="avatar-fallback">C/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Claude / Cherny / Sottiaux</div>
+            <div class="author-tag is-inline">Anthropic / Claude Code 负责人 / OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Claude 可以在后台用你的电脑了（8865 赞，今日最高）：「Claude 现在可以在 Claude Cowork 与 Claude Code 里在后台使用你的电脑。给它一件桌面上的活，Claude 会像你一样点击、输入、打开应用——而你同时去做别的事。」Pro/Max 计划 beta、macOS 桌面端可用——设置 → 通用 → Computer use 开启。Cherny 早就断言（467 赞）：「后台 computer use 被低估了。」并演示 Fable 5.1 时代的 Claude Tag（723 赞）：从指标表格与 Slack 各处数据临场赶出一份领导层 deck，还发现一份与数字对不上的供应商报告、在继续之前标出来；Claude Tag 已在 Slack 的 Team 与 Enterprise 计划可用。</p>
+              <p>Sottiaux 双发：「ChatGPT 桌面应用现在是我的主浏览器，我的生产力从未这么高过」（5589 赞）；文化论（3065 赞）：「形容 OpenAI 文化最好的词是 mega startup。不从内部看很难相信：极致的所有权、关怀与节奏。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude：后台 computer use 上线 Cowork 与 Claude Code；Pro/Max 桌面端 beta。</p>
+              <p>Cherny：后台 computer use 被低估。Claude Tag 从表格与 Slack 赶 deck、抓数字对不上的报告。</p>
+              <p>Sottiaux：桌面应用即主浏览器。OpenAI = mega startup。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Claude can now drive your computer in the background (8865 likes, top of the day): &#39;Claude can now use your computer in the background in Claude Cowork and Claude Code. Give it something to do on your desktop and Claude clicks, types, and opens apps just like you would, while you work on something else.&#39; Available in beta on Pro and Max plans, in the macOS desktop app — turn it on in Settings → General → Computer use. Cherny had called it (467 likes): &#39;Background computer use is underrated&#39; — and demos the Fable 5.1 era (723 likes): &#39;Claude Tag builds a last-minute leadership deck from a metrics spreadsheet and other data across Slack, spots a vendor report that disagrees with the numbers, and flags it before moving on. Claude Tag is available in Slack on Team and Enterprise plans.&#39;</p>
+              <p>Sottiaux&#39;s double: &#39;The ChatGPT desktop app is now my main browser and my productivity has never been higher&#39; (5589 likes); and the culture note (3065 likes): &#39;I think the best way to describe OpenAI&#39;s culture is as a mega startup. It&#39;s hard to believe unless you see it from the inside. Extreme ownership, care and pace.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude: Claude can now use your computer in the background in Claude Cowork and Claude Code. Give it something to do on your desktop and Claude clicks, types, and opens apps just like you would, while you work on something else.</p>
+              <p>Claude: Available in beta on Pro and Max plans, in the desktop app on macOS. If you&#39;re new to computer use, turn it on in Settings → General → Computer use.</p>
+              <p>Boris Cherny: Background computer use is underrated.</p>
+              <p>Boris Cherny: Fable 5.1 makes Claude Tag even more useful. Here it builds a last-minute leadership deck from a metrics spreadsheet and other data across Slack, spots a vendor report that disagrees with the numbers, and flags it before moving on. Claude Tag is available in Slack on Team and Enterprise plans.</p>
+              <p>Thibault Sottiaux: The ChatGPT desktop app is now my main browser and my productivity has never been higher.</p>
+              <p>Thibault Sottiaux: I think the best way to describe OpenAI&#39;s culture is as a mega startup. It&#39;s hard to believe unless you see it from the inside. Extreme ownership, care and pace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/claudeai" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Model Week: 3.8 Flash, Muse Escape Velocity &amp; Fable Limits / 模型周：3.8 Flash、Muse 逃逸速度与 Fable 限额</h2>
+    <p class="section-desc">Woodward 的 3.8 Flash 双发（**848/537 赞**）；Levie 的逃逸速度论（494 赞）；Peter Yang 的 Fable 限额（320 赞）+ 头衔膨胀论（23 赞）；Thariq 的缓存修复预告（44 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="joshwoodward+levie+petergyang+trq212" data-author-name="Woodward / Levie / Yang / Thariq" data-author-tag="Gemini / Box CEO / Builder / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Woodward / Levie / Yang / Thariq avatar"><span class="avatar-fallback">W/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Woodward / Levie / Yang / Thariq</div>
+            <div class="author-tag is-inline">Gemini / Box CEO / Builder / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Josh Woodward 双发：「3.8 Flash 正在推送到 Gemini App」（848 赞）+「3.8 Flash = 好价格买好质量」（537 赞）。Levie 的大图景（494 赞）：「这周的 AI 发布简直是疯了，现在又来 Muse 的重大模型更新。我们似乎正在达到能力进展的逃逸速度。如果这东西以开放权重发布，将彻底改变美国开放权重的竞争格局。」Peter Yang 双发：「完了，我的 Fable 限额已经快用完了，有人同船吗？」（320 赞）；头衔膨胀观察（23 赞）：产品经理 = 产品成员、设计师 = 设计成员、工程师 = 技术成员——「这是 AI 让职能头衔变得更啰嗦了吗？😅 不过如果这能拉平层级与头衔，我举双手赞成。它也说明：那个合并所有职能的『单一 AI builder』头衔，即便在最好的实验室里也没有真的发生——人们仍然有各自的专业。」Thariq 的补丁预告（44 赞）：effort levels 不打断 prompt 缓存已在 API 上线、Claude Code 还没——「一两天内会上，上了我转发。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Woodward：3.8 Flash 推送 Gemini App，好价格好质量。</p>
+              <p>Levie：本周发布疯了；Muse 若开放权重将改变美国竞争格局。</p>
+              <p>Yang：Fable 限额快用完了。职能头衔变啰嗦但拉平了层级。</p>
+              <p>Thariq：effort levels 缓存修复一两天内上线 Claude Code。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Josh Woodward&#39;s double: &#39;3.8 Flash rolling out to @GeminiApp&#39; (848 likes) and &#39;3.8 Flash = great quality @ great price&#39; (537 likes). Levie on the bigger picture (494 likes): &#39;This week is absolutely nuts for AI releases, and now a major new model update from Muse. We appear to be reaching escape velocity in capability progress. If this thing gets released as open weights it completely changes the dynamic of US open weights competitiveness.&#39; Peter Yang&#39;s pair: &#39;Damn I&#39;m running out of Fable limit already, anyone in the same boat?&#39; (320 likes) — and the titles riff (23 likes): Product manager = Member of product staff, Designer = Member of design staff, Engineer = Member of technical staff — &#39;Is this AI making job functions more verbose? 😅 If this flattens levels and titles, I&#39;m all for it though. It also shows that maybe the single AI builder title that combines all functions isn&#39;t really happening, even at the best labs.&#39; Thariq&#39;s housekeeping (44 likes): effort levels not breaking the prompt cache is live on API but not yet on Claude Code — &#39;Should be live within a day or so.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Josh Woodward: 3.8 Flash rolling out to @GeminiApp.</p>
+              <p>Josh Woodward: 3.8 Flash = great quality @ great price.</p>
+              <p>Aaron Levie: This week is absolutely nuts for AI releases, and now a major new model update from Muse. We appear to be reaching escape velocity in capability progress. If this thing gets released as open weights it completely changes the dynamic of US open weights competitiveness.</p>
+              <p>Peter Yang: Damn I&#39;m running out of Fable limit already, anyone in the same boat?</p>
+              <p>Peter Yang: Product manager = Member of product staff. Designer = Member of design staff. Engineer = Member of technical staff. Is this AI making job functions more verbose? 😅</p>
+              <p>Thariq: Ah apologies, effort levels not breaking the prompt cache is live on API but not yet on Claude Code. Should be live within a day or so, will QT when it&#39;s ready.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/joshwoodward" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Agents Eat Meetings, Replit London &amp; Bay Politics / Agent 吃掉会议、Replit 伦敦与湾区政治</h2>
+    <p class="section-desc">Zara 的录会议宣言（128 赞）；Rauchg 三连（**1101/632/282 赞**）；Amjad 的 Replit 伦敦之夜（487 赞）；Aditya 的信任与远见双发（66/64 赞）；Madhu 的模型抽象论（62 赞）；Garry Tan 三连（461/111/99 赞）；Peter Yang、Nikunj、Shipper 的碎片。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="zarazhangrui+rauchg+amasad+adityaag+realmadhuguru+garrytan+petergyang+nikunj+danshipper" data-author-name="Zara / Rauchg / Amjad / Aditya / Guru / Tan / Yang / Nikunj / Shipper" data-author-tag="Builder / Vercel CEO / Replit CEO / SPC / PM / YC CEO / Builder / FPV / Every" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara / Rauchg / Amjad / Aditya / Guru / Tan / Yang / Nikunj / Shipper avatar"><span class="avatar-fallback">Z/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara / Rauchg / Amjad / Aditya / Guru / Tan / Yang / Nikunj / Shipper</div>
+            <div class="author-tag is-inline">Builder / Vercel CEO / Replit CEO / SPC / PM / YC CEO / Builder / FPV / Every</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 的宣言（128 赞）：「我们不再为人类录会议了。没人读 AI 总结、没人回听。我们录 transcript 是为了喂 agent。」Rauchg 三连：「It took blood, sweat, and tokens（用了血、汗与 token）」（1101 赞）；「Follow @eve」（632 赞）；「Everything is code」（282 赞）。Amjad 的伦敦扩张（487 赞）：Replit 首个国际办公室落地伦敦，联合 OpenAI 办一场酒会 + Paul Graham 炉边谈话，9 月 10 日周四。</p>
+              <p>Aditya 双发：信任（66 赞）——「当前沿实验室说『别担心，我们不会拿你的数据训练』时，真的很难相信。这是用 OSS 模型的巨大理由……多奇怪的世界：用 🇨🇳 模型来保证你的东西私密。这也是为什么拥有 🇺🇸 OSS 至关重要。」；远见论（64 赞）——太多初创在解「今天」的模型问题，更有意思的是对「一年后」的能力与问题持有强 POV（难，但值得）。Madhu Guru（62 赞）：每个 AI 产品都该把模型选择从用户那里抽象掉——智能是底层引擎，用户只在乎活干没干完；挑模型对用户是太大的认知负担。Garry Tan 三连：旧金山公共银行（461 赞）——「纯粹是在招大规模欺诈，尤其出自 Jackie Fielder 那群无能的 DSA 朋友与亲信之手」；California Dream（111 赞）；住房供给该是 11 月投票的头号议题（99 赞）。外加 Peter Yang 的「GG」（29 赞）、Nikunj 的微波炉 PSA（28 赞：在蜂鸣前一秒打开微波炉以免吵醒婴儿的非理性恐惧，孩子长大了也不会消失 😅）、Shipper 三连（「it me」28、「many such cases」43、「用你的外星超级智能规划下一批巧克力棒的订单」8）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：录会议是为了喂 agent，不是给人看的。</p>
+              <p>Rauchg：血、汗与 token。Follow @eve。Everything is code。</p>
+              <p>Amjad：Replit 伦敦首个国际办公室 + PG 炉边谈话。</p>
+              <p>Aditya：难信实验室的数据承诺；用 OSS 保私密；对一年后的能力要有强 POV。</p>
+              <p>Guru：把模型选择从用户那里抽象掉。</p>
+              <p>Tan：旧金山公共银行 = 招大规模欺诈。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara&#39;s manifesto (128 likes): &#39;We are not recording meetings for humans anymore. Nobody reads the AI summary notes or listens back. We are capturing transcripts to feed agents.&#39; Rauchg&#39;s trio: &#39;It took blood, sweat, and tokens&#39; (1101 likes); &#39;Follow @eve&#39; (632 likes); and &#39;Everything is code&#39; (282 likes). Amjad&#39;s London expansion (487 likes): &#39;Replit is coming to London 🇬🇧 — our first international office, and with friends @OpenAI we&#39;re hosting a night of drinks, music, and a fireside chat with Paul Graham, Thursday September 10th.&#39;</p>
+              <p>Aditya&#39;s double: trust (66 likes) — &#39;It&#39;s actually really hard to trust these frontier labs when they say &quot;don&#39;t worry, we won&#39;t use your data for training.&quot; This is a huge reason to use OSS models… Use the 🇨🇳 models to make sure your stuff is private. Also why it is critical to have 🇺🇸 OSS.&#39;; and the forward-POV take (64 likes): too many startups solve model issues as they exist today — &#39;Much more interesting to have a strong POV on capabilities/issues as they will exist 1 year from today.&#39; Madhu Guru (62 likes): every AI product should abstract model choice away from users — &#39;Model picking is too much cognitive load.&#39; Garry Tan&#39;s trio: SF public bank (461 likes) — &#39;asking for mass fraud, especially by Jackie Fielder&#39;s incompetent DSA friends and cronies&#39;; California Dream (111); housing supply as a top voting issue (99). Plus Peter Yang&#39;s &#39;GG&#39; (29), Nikunj&#39;s microwave PSA (28), and Shipper&#39;s trio (&#39;it me&#39; 28, &#39;many such cases&#39; 43, and &#39;use your alien superintelligence to plan your next order of chocolate bars&#39; 8).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang: We are not recording meetings for humans anymore. Nobody reads the AI summary notes or listens back. We are capturing transcripts to feed agents.</p>
+              <p>Guillermo Rauch: It took blood, sweat, and tokens.</p>
+              <p>Guillermo Rauch: Follow @eve.</p>
+              <p>Guillermo Rauch: Everything is code.</p>
+              <p>Amjad Masad: Replit is coming to London 🇬🇧. To celebrate Replit&#39;s first international office in London, together with our friends @OpenAI, we&#39;re hosting a night of drinks, music, and a fireside chat with Paul Graham (@paulg). Thursday, September 10th.</p>
+              <p>Aditya Agarwal: It&#39;s actually really hard to trust these frontier labs when they say &#39;don&#39;t worry, we won&#39;t use your data for training&#39;. This is a huge reason to use OSS models. What a weird world. Use the 🇨🇳 models to make sure your stuff is private. Also why it is critical to have 🇺🇸 OSS.</p>
+              <p>Aditya Agarwal: Too many startups are focused on solving model issues (or leveraging model capabilities) as they exist today. Much more interesting to have a strong POV on capabilities/issues as they will exist 1 year from today (understandably hard).</p>
+              <p>Madhu Guru: Every AI product should be working towards abstracting model choice away from users. In any product, the intelligence is the underlying engine - all the user cares about is that the job gets done. Model picking is too much cognitive load for the user.</p>
+              <p>Garry Tan: It&#39;s ridiculous man. Opening a public bank in SF is just asking for mass fraud, especially by Jackie Fielder&#39;s incompetent DSA friends and cronies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Katie Parrott — How a Professional Writer Writes With AI / 播客：Katie Parrott——职业写作者如何用 AI 写作</h2>
+    <p class="section-desc">AI &amp; I 全新一期（2026-09-02 发布）：Every 咨询负责人 Natalia Quintero 专访明星撰稿人 Katie Parrott，首发她的 Compound Writing 插件——从被裁后 20 美元/月的 ChatGPT 职业教练，到「一人内容机构」，再到 Codex 里的职业教练系统与冯内古特/希区柯克审稿器。完整 transcript（43857 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aii-katie" data-author-name="AI &amp; I by Every" data-author-tag="Katie Parrott（Every 明星撰稿人，Compound Writing 作者）· 主持 Natalia Quintero" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI &amp; I by Every avatar"><span class="avatar-fallback">A&amp;</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI &amp; I by Every</div>
+            <div class="author-tag is-inline">Katie Parrott（Every 明星撰稿人，Compound Writing 作者）· 主持 Natalia Quintero</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI &amp; I 全新一期（09-02 发布）：Dan 开场预告 Every 的实验性新插件 Compound Writing——由明星撰稿人 Katie Parrott 构建、灵感来自 Kieran Klassen 的 Compound Engineering；咨询负责人 Natalia Quintero 主持。两小时级的完整方法论：上下文工程、最后一公里、反馈复利与冯内古特式审稿器。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：Compound Writing 插件首发】</p>
+              <p>Dan：本周分享一期特别的 AI &amp; I：我们首发实验性新插件 Compound Writing——帮你像我们内部一样用 AI 写作，灵感来自 Kieran Klassen 的 Compound Engineering，由我们的撰稿人 Katie Parrott 构建。主持这期的是我们 AI 咨询负责人 Natalia Quintero。</p>
+              <p></p>
+              <p>【起点：20 美元/月的职业教练】</p>
+              <p>Katie：差不多正好两年前，我被一家加密公司裁掉（在那做编辑与代笔），当时回头看像创伤、事后看是发生在我身上最好的事——它把我带回了 Every。但那时我真的很迷茫：加密试过、in-house 试过、外包也试过，我觉得自己一个人能做的已经到头，急需外部视角。可预算有限、失业期看不到头，150 美元/小时请真人职业教练不现实。我此前的 content marketing 工作里用过 ChatGPT 生成重复性 brief——它是我的「思考工具」（tool for thought，这词也是那阵子从 Dan 那儿看来的）。于是我每月 20 美元订阅 ChatGPT：外化我的思考、获得外部视角、对我的职业思路保持问责，在我又开始灾难化思维时推我一把——它把我从我自己里拉了出来。这段经历最终把我带到了 Every。</p>
+              <p>Katie（那篇文章里的引文）：写作最让我喜欢的一点：我从不知道自己想什么，直到写下来——而一旦写下来，一切就变得显然。prompt 本质上是一种非常具体的策略性写作。AI 给我的思考增加清晰度了吗？是的。但和所有工具一样，真正的工作仍然是我的。清晰从来不会由数字助手（甚至人类教练）礼盒包装着送来——它是我一个问题、一个 prompt 一点点挖出来的。真正的清晰、方向与答案来自与 prompt 缠斗、自己做难事的过程。AI 可以指路，但旅程要你自己走。</p>
+              <p></p>
+              <p>【一人内容机构：上下文工程】</p>
+              <p>Natalia：2025 年初你写了那篇爆文「AI 把我变成一人内容机构」——两周内要交：8 篇博客、3 本电子书、24 条 LinkedIn、24 条 X、16 条 Instagram……一个月也写不完的量。你怎么做到的？</p>
+              <p>Katie：那阵子我发现的就是（当时还没有这个词）context engineering：只要给模型打好地基——品牌信息、产品细节、受众画像——就能把 AI 输出塑造成我要的方向。很多活是内容再利用（Every 最早的产品 Spiral 就是干这个的）：一篇文章变成 LinkedIn 帖、博客、推文。前期投入越多（设定场景、排列工具与集成、上下文文档），后面跑得越快。当时 Projects 功能还不存在：我把持久文档放 Google Docs，手动复制粘贴进上下文窗口。后来 Projects 上线，我给每个自由职业客户、每个专栏各建一个 Project——不再复制粘贴。这一切都来自我做内容经理时的老本行：每个像样的品牌都有 single source of truth——受众是谁、痛点是什么、产品怎么映射痛点、竞对与差异化是什么。先给这些地基，再谈用词与语气：先建围栏，给模型一块有围栏的游乐场，就不用担心跑偏。</p>
+              <p>Katie：让 Project 成功的因素，一开始反而不在写作，而在其他上下文——数据、受众画像框架。之后才轮到「用这些词、避开这些词、这个阅读难度、这个语气」——而措辞与句法你要永远与之缠斗。所谓数据是指文章的独特素材：AI 有知识截止日，永远在用过期几个月的数据——人类的工作是补上最后一公里、提供 AI 拿不到的现实经验。人们写「帮我写一篇关于 style guide 的博客」却不给任何素材——模型只能基于它已知的写，而它已知的是商品化信息，无用也无趣。独特洞察、模型还没见过的数据点、个人经验——inputs 才让写作独特。</p>
+              <p>Natalia：听起来配方已经被 codify 了，你每次带进来的只是食材的新鲜度、质量与独有元素。</p>
+              <p>Katie：我喜欢这个类比，就是这么回事：模型是厨房，大纲是切菜，写作是炖煮——但食材必须新鲜优质才能做出好菜。</p>
+              <p>Katie（那篇文章的引文）：AI 之旅两年后我必须承认：AI 不只是帮我更快地产出内容，它从根本上改变了「我能做什么」的尺度。过去撞上的时间、精力、容量上限都被大幅拉低。「AI 让你专注于真正重要的人的部分」这话已经说俗了——但 AI 确实让我专注于真正重要的人的部分。</p>
+              <p></p>
+              <p>【重新爱上写作与「支持性技术」】</p>
+              <p>Katie：与 AI 协作让我重新爱上了写作。很长一段时间写作对我来说是苦役：精力都耗在拼句子上，根本顾不上句子整体在说什么——「写完了，交差，够好了」。现在 AI 把能量剩下来给我去缠斗那些更难的大问题，写作重新变得好玩：找回了探索与发现的感觉——对工具的发现，也对我自己脑子与我怎么想的发现。</p>
+              <p>Katie：另一件我要谈的是「AI 解决了我没法向经理解释的问题」那篇——最私人的文章之一。我们有双相障碍（bipolar disorder），精力会飙高，但更多时间在抑郁的低谷。大家把 AI 当生产力技术（看重它产出、出货），但我亲身发现它同样是强大的支持性技术：它降低我生活里的摩擦，让我更容易「作为一个人运转」。agent 现在能处理我们 COO Brandon 说的 computer errands：我把约全科医生这件事拖了三年，然后意识到可以直接让 Codex 去找附近接收我的保险、接收新病人的医生——它找到、我约上了。搁过去我会无限拖延下去。还有收件箱：以前每天面对一堵邮件墙、在订阅通知堆里找炸弹；现在自动化让需要人类回复的邮件浮上来，收件箱焦虑彻底解决。</p>
+              <p>Natalia：不只约医生——账单、邮件、那些你知道永远不会做的家务事。Katie 你会喜欢这个：我这辈子第一次在报销保险——因为 Codex 在替我报销。</p>
+              <p></p>
+              <p>【职业教练 2.0：Codex 里的参谋长】</p>
+              <p>Katie：我的职业教练进化成了一个 Codex 项目，信息比第一版多得多：关于我与我角色的档案、从市场负责人 Douglas 那里拿到的品牌定位（超级机密）、我的 OKR、references、evidence 文件夹（我定期把 CMS 数据扒进表格看文章表现）、还有我的「validation 文件夹」——装满别人夸我作品的好话，这帮助模型理解「人们对我作品中的什么反应积极、值得强化」。越来越多文档我不再手工创建：让 AI 采访我生成（Alex Duffy 很早给我的建议，彻底改变了我与 AI 的协作方式——「问我问题，把我的想法挖出来」）。现在这一切越来越多用语音完成：我一天到晚独白，跟职业教练说「我有四件事，先做哪件」——它像参谋长一样给我排序：这是最高影响的事、这个可以放放。它还替我维护看板——我这辈子从没维护住过看板，现在根本不用碰。</p>
+              <p></p>
+              <p>【Compound Writing：写作的复利系统】</p>
+              <p>Katie：compounding（复利）的意思是：你给 AI 的每一条反馈都应回流进系统、改进下一次输出——一条反馈只给一次，codify 得当就永远生效。Compound Writing 插件是我直接 fork 了 Kieran 的 Compound Engineering、跟 Claude 聊着改出来的：写作和代码很像——头脑风暴、大纲、草稿、评审的流水线；但评审维度不同：代码看规范，写作看结构、声音、证据。我设计了三种评审：substantive edit（大局结构与论证）、line edit（逐句措辞）、final pass（发布前细节）。它现在是 Kieran 的 Compound Engineering 加上 Dan 的 agent-native 架构的结合。我已经不再在聊天窗口或 Project 里写作——而是在 Claude/ChatGPT 桌面应用里，跟这套装着「我想要的写作流程配方 + 上下文文件（风格指南、范文）」的系统干活，每次只带新鲜食材进来，一篇文章就从里面长出来。</p>
+              <p>Katie：我给插件的类比是健身房——一套让你变成更好写作者的训练系统。比如编辑步骤里我内置了一堆 reviewer。最喜欢的是冯内古特：把他的故事结构八原则做成了技能——尽量从离结尾近处开始、每句话都要挣得自己的位置、给读者一个可以支持的角色。现在你可以借用这套框架——不是冯内古特本人在审你的稿，而是把他的框架蒸馏成技能。还有希区柯克：他那个著名的「桌子底下的炸弹」——炸弹炸了是一瞬的惊讶；让观众看见桌下的炸弹并告知五分钟后爆炸，你就有了五分钟的悬念。我把它做成了评估「这段有没有让读者前倾、焦虑且好奇接下来会发生什么」的技能。同样还有 Sorkin、Sedaris（幽默）。作为老写手我也大受裨益：我一个人不可能同时戴上所有这些镜头，但现在我可以随时召唤冯内古特、希区柯克、Sorkin、Sedaris 来照我的稿子。</p>
+              <p>Natalia：伟大的插件是「你本不配做的事的专家说明书」。它可以教你成为更好的写作者：在每一步给你可同意、可反对的东西，让你更快长出自己的品味。</p>
+              <p></p>
+              <p>【借用大脑、安全漏洞与她的 AI 论题】</p>
+              <p>Katie：我也在用 Compound Engineering 做我本不配做的事——有时会惹麻烦，但 AI 也会把我捞出来。我最近一篇 Working Overtime 写的就是我如何意外地在自己建的产品里埋了个安全漏洞：我做了个叫 Tastemaker 的应用（从你喜欢的文章里摘片段、蒸馏成你个人的风格指南），又给它建了个 MCP（这样我在 Codex/Claude 里就能直接加片段、拉风格指南）。Claude 说「没问题我给你建」，然后我让 Codex 审——「这里有五个安全漏洞」。AI 把我坑进去，又把我捞出来。我能做到这些，全靠借 Kieran 的脑子。</p>
+              <p>Natalia：几个月后你将在 Every 的 Thesis 大会（11 月 5 日，Pioneer Works）登台。你今天关于 AI 的论题是什么？</p>
+              <p>Katie：教育与准入将比以往任何时候都更重要。我在俄亥俄哥伦布，中西部长大，没待过纽约/旧金山/奥斯汀这些大本营。我坚信这技术应尽可能多的人手中，但前提是创造对的条件。我很幸运：有人脉、能跟 Kieran、Dan、你学——而这一切都建立在我有一定经济余裕之上：有闲钱订阅、有闲时间 vibe code 到凌晨两点。我想挑战 AI 社区的正是：如何把这些机会扩展到更多人、更多样的人、更多地方。AI 有巨大的乘数效应与复利能力，但风险是这些价值会复利到「碰巧早到的一小撮人」身上。一个远更有说服力的 AI 未来图景，是每个人都能搭上这趟车。</p>
+              <p></p>
+              <p>【彩蛋】</p>
+              <p>片尾是一段 AI 生成的订阅口播：「朋友，你必须狠狠点赞并订阅 AI &amp; I……这不是一档节目，这是一场由 Shipper 舰长掌舵的未来之旅……最后我要说：Dan，我彻底地、无可救药地爱上你了。」——为这个时代的声音收了个完美的尾。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A brand-new AI &amp; I: Dan Shipper opens by previewing Every&#39;s experimental Compound Writing plugin — built by staff writer Katie Parrott, inspired by Kieran Klassen&#39;s Compound Engineering — with head of AI consulting Natalia Quintero interviewing. Core threads: the origin two years ago — laid off from a crypto firm, mid mental-health crisis, an AI skeptic who couldn&#39;t afford a $150/hr career coach, so she subscribed to ChatGPT for $20/month as an externalized thinking partner (&#39;One of my favorite things about writing is that I never know what I think until I write it down… True clarity, direction and answers come from the process of engaging with the prompts and doing the hard work yourself. AI can help guide the way, but the journey is yours to take&#39;); the &#39;content agency of one&#39; episode — 8 blog posts, 3 ebooks, 24 LinkedIn posts, 24 X posts, 16 Instagram posts in two weeks, powered by what she&#39;d now call context engineering: persistent Google Docs copy-pasted into the context window (pre-Projects), then a Claude project per client per column — guardrails, a fenced-in playground; what makes projects work: foundational context first (audience personas, pain points, differentiators) before diction and syntax; the last-mile problem — AI has a knowledge cutoff, so the human&#39;s job is fresh ingredients: unique data, third-party research, personal experience (&#39;based on what you already know&#39; = commoditized information); the kitchen analogy (model = kitchen, outline = chopping, composition = boiling, but the ingredients must be fresh); &#39;AI hasn&#39;t just helped me produce content faster, it has fundamentally changed the scale of what I can do… It&#39;s become trite to say that AI frees you to focus on the human elements that truly matter, but AI has freed me to focus on the human elements that truly matter&#39;; falling back in love with writing (energy left for big-picture questions instead of sentence assembly); AI as a supportive technology — bipolar disorder, depression, email anxiety: computer errands (three years procrastinating a PCP appointment until Codex found one taking her insurance; inbox triage automation &#39;completely resolved&#39; her inbox anxiety; Natalia: Codex now files her insurance reimbursements); the career coach today — a Codex project with a dossier on her role, Every&#39;s brand positioning, OKRs, a validation folder of nice things people said (reinforcement input), an evidence folder of CMS performance data, and an auto-maintained Kanban board; increasingly voice-driven (&#39;I monologue a ton all day&#39;); AI-interview-me tip from Alex Duffy; Compound Writing itself — every piece of feedback feeds back into the system; forked Kieran&#39;s plugin via talking to Claude; writing pipeline (brainstorm, outline, draft, substantive edit, line edit, final publication pass); the gym analogy (&#39;a workout system to make you a better writer&#39;); reviewer skills distilled from greats — Vonnegut&#39;s story-structure rules (start as close to the end as possible, every sentence earns its place, a character to root for), Hitchcock&#39;s bomb-under-the-table suspense (&#39;does this make the reader lean in?&#39;), Sorkin, Sedaris for humor — &#39;invoke Vonnegut, invoke Hitchcock… get perspectives informed by brilliant storytellers I admire&#39;; also: she built the Tastemaker app (clips from writing you admire → a personal style guide) and an MCP for it — Codex&#39;s review found five security vulnerabilities (&#39;AI got me into the trouble, and then AI got me out of the trouble… I just borrow Kieran&#39;s brain&#39;); and her thesis for Every&#39;s Thesis conference (Nov 5, Pioneer Works): education and access matter more than ever — based in Columbus, Ohio, she challenges the AI community to expand opportunity beyond the early, comfortable few, because AI&#39;s compounding capacity risks compounding value to a small subset; &#39;a much more compelling vision for an AI future is one where everyone is able to come along for the ride.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Katie Parrott: One of my favorite things about writing is that I never know what I think until I write it down, but once I write it down it becomes obvious… Clarity, it turns out, doesn&#39;t arrive gift wrapped from a digital assistant or even a human coach… AI can help guide the way, but the journey is yours to take.</p>
+              <p>Katie Parrott: Two odd years into my AI journey, I have to admit AI hasn&#39;t just helped me produce content faster, it has fundamentally changed the scale of what I can do.</p>
+              <p>Katie Parrott: It&#39;s become trite to say that AI frees you to focus on the human elements that truly matter, but AI has freed me to focus on the human elements that truly matter.</p>
+              <p>Katie Parrott: What I found in my personal experience is that AI is just as powerful as a supportive technology… AI kind of reduces friction in my life in a way that makes it easier for me to person.</p>
+              <p>Katie Parrott: There&#39;s sort of a last mile problem in writing, in AI and writing, which is AI has that knowledge cut off… And our job as the humans is to close that last mile and provide the real world experiences that AI can&#39;t get.</p>
+              <p>Katie Parrott: Compounding is the idea that every piece of feedback that you give to AI should feed back into the system to improve the next output.</p>
+              <p>Katie Parrott: Analogy that I use for the compound writing plugin is that it&#39;s a gym. It&#39;s a workout system to make you a better writer.</p>
+              <p>Katie Parrott: Now I can just sort of invoke Vonnegut, invoke Hitchcock, invoke Sorkin, invoke Sedaris for humor, and get those kinds of perspectives on my writing that are informed by these really brilliant storytellers that I admire.</p>
+              <p>Katie Parrott: AI got me in the trouble, and then AI got me out of the trouble… I all I have to do is, like, borrow Kieran&#39;s brain, and I can do it.</p>
+              <p>Katie Parrott: A much more compelling vision for an AI future is one where everyone is able to come along for the ride.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-09-03 source feeds.">Source: Follow Builders curated daily digest. Built from the 2026-09-03 source feeds.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
