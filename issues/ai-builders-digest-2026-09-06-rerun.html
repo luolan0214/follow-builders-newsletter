@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-09-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-09-06" data-issue-number="111" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 111 期｜2026-09-06｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="周日快照重叠轻量版：今日两份 feed 快照与昨日（09-05）逐字节相同（X：13 位 builders、26 条推文未滚动；播客仍为 Arm CEO Rene Haas 一期），本刊如实按当日快照成刊、未编造新内容。主线回顾：Astra 日——Altman 双发「GPT-6 Astra 全量开放」（**15960/12851 赞**）；Sottiaux 的庆祝（**17706 赞，快照内最高**）：为所有 Plus/Pro/Business 做完整 banked reset +「生产率暴涨、计划提前 6 个月上 DevDay」（7364 赞）。Amjad「Astra on Replit ✨」+「奇点已至只是分布不均」（512 赞）；Garry Tan 的 AsideAI 战报「手动 2 小时 vs 3 分钟」（296 赞）；Rauchg 的 WebMCP 论（550 赞）与「AI 软件工厂」（780 赞）。播客位为 Arm CEO Rene Haas 一期（40669 字符 transcript 全文翻译随卡附上）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">周日快照重叠轻量版：今日两份 feed 快照与昨日（09-05）逐字节相同（X：13 位 builders、26 条推文未滚动；播客仍为 Arm CEO Rene Haas 一期），本刊如实按当日快照成刊、未编造新内容。主线回顾：Astra 日——Altman 双发「GPT-6 Astra 全量开放」（**15960/12851 赞**）；Sottiaux 的庆祝（**17706 赞，快照内最高**）：为所有 Plus/Pro/Business 做完整 banked reset +「生产率暴涨、计划提前 6 个月上 DevDay」（7364 赞）。Amjad「Astra on Replit ✨」+「奇点已至只是分布不均」（512 赞）；Garry Tan 的 AsideAI 战报「手动 2 小时 vs 3 分钟」（296 赞）；Rauchg 的 WebMCP 论（550 赞）与「AI 软件工厂」（780 赞）。播客位为 Arm CEO Rene Haas 一期（40669 字符 transcript 全文翻译随卡附上）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">GPT-6 Astra Day: Rollout &amp; the Full Banked Reset / GPT-6 Astra 日：全量上线与银行式重置</h2>
+    <p class="section-desc">Altman 的双发（**15960/12851 赞**）；Sottiaux 的庆祝与重置（**17706 赞，快照内最高**）+ 生产率提前 6 个月论（7364 赞）+ 团队睡眠（3232 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+thsottiaux" data-author-name="Altman / Sottiaux" data-author-tag="OpenAI CEO / OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Altman / Sottiaux avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Altman / Sottiaux</div>
+            <div class="author-tag is-inline">OpenAI CEO / OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman 双发：「GPT-6 Astra 现已面向所有 Pro、Enterprise 与 Business Premium 用户开放——Work/Codex 与 API 均可，接下来开始推 Plus 与 Business。感谢耐心。」（15960 赞）随后：「现在推给所有 Plus 与 Business 用户。构建愉快！」（12851 赞）。Sottiaux 的庆祝（**17706 赞，快照内最高**）：「因为 Astra 今天提前全量上线、而你们一直对我们超级耐心（其实并没有，不过没关系！）……今天也为所有 Plus/Pro/Business 用户做完整的 banked reset，下班前生效。Astra 日快乐，祝周末愉快。PS：如果你在太平洋时间晚 8 点前注册或升级也能赶上，还有时间！」</p>
+              <p>生产率宣言（7364 赞）：「Astra 在未公开发布期间大概是我们最大的竞争优势。用上它之后生产力暴涨，我们把一些计划整整提前了 6 个月——将在 DevDay 发布而不是明年年中。」收尾（3232 赞）：「团队终于能睡个好觉了。下周再见，还有更多 ship。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Altman：GPT-6 Astra 全量开放：Pro/Enterprise/Business Premium → Plus/Business。</p>
+              <p>Sottiaux：提前上线庆祝 + 全量 banked reset。生产力暴涨、计划提前 6 个月到 DevDay。团队睡觉。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Altman&#39;s double: &#39;GPT-6 Astra is now available to all Pro, Enterprise, and Business Premium users in Work/Codex, and is available in the API. We will start rollout to Plus and Business users next. Thank you for the patience.&#39; (15960 likes) — then: &#39;Now out to all Plus and Business users. Happy building!&#39; (12851 likes). Sottiaux&#39;s celebration (17706 likes, top of the snapshot): &#39;Because we are beyond happy to have Astra rolled out today ahead of schedule and you have been super patient with us (not really, but it&#39;s ok!)… we will do the full banked reset today too for all Plus, Pro and Business users. Lands end of day. Happy Astra day and enjoy a phenomenal weekend. PS: If you create the account or upgrade before 8pm PT you will get it too. Still time!&#39;</p>
+              <p>The productivity note (7364 likes): &#39;Astra was probably our biggest competitive advantage while it wasn&#39;t generally available. Since we&#39;ve had it our productivity jumped so much that we shifted some of our plans 6 months ahead and will ship them at DevDay instead of mid next year.&#39; And the wind-down (3232 likes): &#39;And the team will have some nice sleep now. See you next week for some more ships.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: GPT-6 Astra is now available to all Pro, Enterprise, and Business Premium users in Work/Codex, and is available in the API. We will start rollout to Plus and Business users next. Thank you for the patience.</p>
+              <p>Sam Altman: Now out to all Plus and Business users. Happy building!</p>
+              <p>Thibault Sottiaux: Because we are beyond happy to have Astra rolled out today ahead of schedule and you have been super patient with us (not really, but it&#39;s ok!)… we will do the full banked reset today too for all Plus, Pro and Business users. Lands end of day. Happy Astra day and enjoy a phenomenal weekend.</p>
+              <p>Thibault Sottiaux: Astra was probably our biggest competitive advantage while it wasn&#39;t generally available. Since we&#39;ve had it our productivity jumped so much that we shifted some of our plans 6 months ahead and will ship them at DevDay instead of mid next year.</p>
+              <p>Thibault Sottiaux: And the team will have some nice sleep now. See you next week for some more ships.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Astra Everywhere: Replit, Harnesses &amp; Sorcery / Astra 无处不在：Replit、harness 与巫术</h2>
+    <p class="section-desc">Amjad 三连（**512/285/233 赞**）；Garry Tan 的 AsideAI 双发（296/271 赞）；Aditya 的巫术论（88 赞）；Shipper 的梦幻足球三连（62/27/11 赞）；Peter Yang 三连（58/42/19 赞）；Swyx 的 AEO 报告（7 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="amasad+garrytan+adityaag+danshipper+petergyang+swyx" data-author-name="Amjad / Tan / Aditya / Shipper / Yang / Swyx" data-author-tag="Replit CEO / YC CEO / SPC / Every / Builder / Latent Space" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Amjad / Tan / Aditya / Shipper / Yang / Swyx avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad / Tan / Aditya / Shipper / Yang / Swyx</div>
+            <div class="author-tag is-inline">Replit CEO / YC CEO / SPC / Every / Builder / Latent Space</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad 三连：「奇点已至，只是分布不均」（512 赞）；「它来了 🤗」（285 赞）；「Astra 上 Replit ✨」（233 赞）。Garry Tan 的 AsideAI 双发：「用 @AsideAI 当 AI harness 的体验绝对疯狂——手动给 OpenClaw 接 Slack 花了 2 小时；Aside 带全套集成 + 浏览器集成的 harness 不到 3 分钟搞定，还带聪明的默认访问控制」（296 赞）；GStack 现在用 Aside 浏览器当首选远程会话浏览器——「你的 agent 需要以你的身份访问网页与凭据？Aside 是我试遍所有 AI agent 工具后的绝对第一：a/ 惊艳的浏览器，b/ 凭据管理一流，c/ 集成齐全，c/ 本身就是套惊艳的 harness 与记忆系统」（271 赞）。Aditya 的巫术论（88 赞）：「我：我完全理解 RL、推理时扩展、现代数据验证回路怎么工作。也是我：这些模型就是彻头彻尾的巫术，它们能做到这些根本没有道理。」</p>
+              <p>Shipper 的梦幻足球三连：「我让 Astra 给我们 Every 的梦幻橄榄球选秀做录像研究，我们要接管这个联盟了 😤」（62 赞）+ 队名梗（11 赞）+「忍不住」（27 赞）。Peter Yang 三连：许愿 OpenAI 出 Apple Watch 应用——「对着我的 Codex 线程语音输入、它也用语音回——这样就不用揣着手机犯屏幕瘾了。或者这就是传闻中 OpenAI 设备干的事」（58 赞）；「Astra 给我的游戏生成了我这辈子见过最刻板印象的 PM 形象图」（42 赞）；邀请大家玩他的 roguelike 牌组构筑游戏（19 赞）。Swyx 的元观察（7 赞）：他在做一份 Astra/Fable 前沿模型 AEO 报告，「问 Claude 最好的 AI 通讯/播客是什么时，它超爱 @latentspacepod！！」@ricmac 还让他检查了一遍有没有记忆泄漏 lol。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：奇点已至只是分布不均。Astra 上 Replit。</p>
+              <p>Tan：AsideAI：手动 2 小时 vs 3 分钟。首选远程会话浏览器。</p>
+              <p>Aditya：懂 RL 也觉得是巫术。</p>
+              <p>Shipper：Astra 做选秀录像研究。Yang：许愿 Watch 版 Codex。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad&#39;s trio: &#39;The singularity is here, it&#39;s just not evenly distributed&#39; (512 likes); &#39;It&#39;s coming 🤗&#39; (285); and &#39;Astra on Replit ✨&#39; (233). Garry Tan&#39;s AsideAI pair: &#39;Absolutely insane experience using @AsideAI as an AI harness — trying to setup OpenClaw with Slack was a 2 hour experience. Aside&#39;s harness with full integrations AND browser integration did it in less than 3 minutes, and it&#39;s fully featured with smart access control defaults&#39; (296 likes); and GStack now uses Aside&#39;s browser as its preferred remote session browser — &#39;a/ an amazing browser, b/ great at credentials, c/ has all the integrations you need and c/ actually an amazing harness and memory system in its own right&#39; (271 likes). Aditya&#39;s sorcery (88 likes): &#39;Me: I totally understand how RL, inference time scaling, modern data-verification loops work. Also Me: These models are total sorcery. There is no way that they should be able to do what they do.&#39;</p>
+              <p>Shipper&#39;s fantasy football trio: &#39;i&#39;ve got Astra doing film study for our @every fantasy football draft — we going to take over this league 😤&#39; (62); &#39;can you tell Astra is running my @every office fantasy team, this is my team name&#39; (11); &#39;can&#39;t help myself&#39; (27). Peter Yang&#39;s trio: an OpenAI Apple Watch app pitch — &#39;voice dictate to my Codex threads and it&#39;ll reply back with voice too. Then I won&#39;t have to carry my phone around… Or maybe this is what the rumored OpenAI device does&#39; (58); &#39;Astra generated the most stereotypical image of a PM I&#39;ve ever seen for my game&#39; (42); and a roguelike deckbuilder offer (19). Swyx&#39;s meta note (7): his massive Astra/Fable frontier-model AEO report shows &#39;Claude loves @latentspacepod when asked for best ai newsletter/podcast&#39; — and @ricmac made him doublecheck for memory leaks lol.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad: The singularity is here, it&#39;s just not evenly distributed.</p>
+              <p>Amjad Masad: Astra on Replit ✨.</p>
+              <p>Amjad Masad: It&#39;s coming 🤗</p>
+              <p>Garry Tan: Absolutely insane experience using @AsideAI as an AI harness - trying to setup OpenClaw with Slack was a 2 hour experience. Aside&#39;s harness with full integrations AND browser integration did it in less than 3 minutes, and it&#39;s fully featured with smart access control defaults.</p>
+              <p>Garry Tan: GStack now uses @AsideAI browser as it&#39;s preferred remote session browser. Does your AI agent need access to web and credentials as you? Aside is now the #1 absolute best way to do it I&#39;ve found out of all AI agent tools.</p>
+              <p>Aditya Agarwal: Me: I totally understand how RL, inference time scaling, modern data-verification loops work. Also Me: These models are total sorcery. There is no way that they should be able to do what they do.</p>
+              <p>Dan Shipper: i&#39;ve got Astra doing film study for our @every fantasy football draft. we going to take over this league 😤</p>
+              <p>Peter Yang: OpenAI should ship an app for Apple Watch where I can just voice dictate to my Codex threads and it&#39;ll reply back with voice too. Then I won&#39;t have to carry my phone around and have screen addiction. Or maybe this is what the rumored OpenAI device does.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">WebMCP, Self-Improving Factories &amp; Weekend Practice / WebMCP、自我改进工厂与周末练习</h2>
+    <p class="section-desc">Rauchg 三连（**780/550/95 赞**）；Madhu Guru 的周末练习（129 赞）；Turck 双发（58/3 赞）；Zara 的写作感知论（15 赞）；Nikunj 的 sovereign 清单（11 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+realmadhuguru+mattturck+zarazhangrui+nikunj" data-author-name="Rauchg / Guru / Turck / Zara / Nikunj" data-author-tag="Vercel CEO / PM / FirstMark / Builder / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Guru / Turck / Zara / Nikunj avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Guru / Turck / Zara / Nikunj</div>
+            <div class="author-tag is-inline">Vercel CEO / PM / FirstMark / Builder / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 三连：「AI 软件工厂将产出无 bug、自我改进的软件」（780 赞）；超级看多 WebMCP（550 赞）——「就像 Tesla FSD 迎合世界的现状（街道、红绿灯、坑洼全都算上），agent 就需要骑在现有万维网基础设施上跑……WebMCP 让这更高效。还有些独门的赢法：比如 Next.js 的开发页可以把调试工具直接暴露给正在测的那个标签页里的 agent，带页面级上下文，而不是让它在服务器日志里翻找」；以及一条只言片语的「これ」（95 赞）。Madhu Guru 的周末练习（129 赞）：挑一个你熟悉的流程——生活或工作中的——用 AI 把它整条自动化，用你顺手的 AI 产品（可能得试几个）。这个练习会逼你想清楚：1/ 出色的端到端体验长什么样；2/ 各环节怎么咬合。Turck 双发：「Hugging Face 和 Thom_Wolf 赢个不停，先是收购、现在又是这条评论 lol」（58 赞）+ 播客切片（3 赞）。Zara 的观察（15 赞）：「大多数人感知中的 AI 写作比它实际的水平更好。」Nikunj 的清单更新（11 赞）：「基于过去几周，把 sovereign（主权）加进这份清单。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：AI 软件工厂 = 无 bug 自我改进。WebMCP 如 FSD 迎合路网现状。</p>
+              <p>Guru：周末把一个熟悉流程整条 AI 自动化。</p>
+              <p>Turck：HF 赢个不停。Zara：AI 写作被高估。Nikunj：加 sovereign。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s trio: &#39;AI software factories will yield bug-free, self-improving software&#39; (780 likes); super bullish on WebMCP (550 likes) — &#39;Much like Tesla FSD meets the world where it is (streets, stoplights, potholes and all), agents *need* to ride the existing WWW infrastructure… WebMCP makes it more efficient. Some pretty unique wins too. e.g: Next.js dev pages could expose debugging tools directly to agents in the specific tab they&#39;re testing, with page-specific context, instead of sifting through server [logs]&#39;; and a terse「これ」(95). Madhu Guru&#39;s weekend exercise (129 likes): pick a workflow you know well — personal or work — and automate the whole thing with AI; it forces you to think about 1/ what a great end-to-end experience looks like, 2/ how [the pieces fit]. Turck&#39;s pair: &#39;Hugging Face and @Thom_Wolf cannot stop winning, first the acquisition and now this comment lol&#39; (58) and a pod clip (3). Zara&#39;s observation (15): &#39;Most people perceive AI to be a better writer than it actually is.&#39; Nikunj&#39;s list update (11): &#39;Adding &quot;sovereign&quot; to this list based on the last few weeks.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: AI software factories will yield bug-free, self-improving software.</p>
+              <p>Guillermo Rauch: Super bullish on WebMCP. Much like Tesla FSD meets the world where it is (streets, stoplights, potholes and all), agents *need* to ride the existing WWW infrastructure… WebMCP makes it more efficient.</p>
+              <p>Madhu Guru: Here&#39;s one practical thing you can do this weekend to get better at building AI products. Pick a workflow you know well - from your personal life or your work. Automate the whole thing with AI. Use the AI product you&#39;re comfortable with - you&#39;ll probably have to experiment with a few.</p>
+              <p>Matt Turck: Hugging Face and @Thom_Wolf cannot stop winning, first the acquisition and now this comment lol.</p>
+              <p>Zara Zhang: Most people perceive AI to be a better writer than it actually is.</p>
+              <p>Nikunj Kothari: Adding &#39;sovereign&#39; to this list based on the last few weeks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast (Re-run): Rene Haas — Redefining Chip Architecture / 播客（重播）：Rene Haas——重定义芯片架构</h2>
+    <p class="section-desc">No Priors 一期在 feed 中停留（2026-09-03 发布，本刊 09-05 期已完整收录）：Arm CEO 兼 SoftBank Group International 负责人 Rene Haas 谈微处理器之心、AI 验证革命、供应链瓶颈与「token 工厂需要卡车」。完整 transcript（40669 字符）译文随卡附上。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:np-haas" data-author-name="No Priors" data-author-tag="Rene Haas（Arm CEO 兼 SoftBank Group International 负责人）· 重播" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors</div>
+            <div class="author-tag is-inline">Rene Haas（Arm CEO 兼 SoftBank Group International 负责人）· 重播</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>今日 feed 播客位为重播（本刊 09-05 期已完整收录，2026-09-03 发布）：No Priors 与 Arm CEO Rene Haas 的对话——微处理器是万物之心、AI 吃掉芯片验证、供应链 3-5 年紧绷、「token 工厂需要卡车」的 CPU 论与「当领先者没有下行」。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场冷启动：微处理器是万物之心】</p>
+              <p>Haas：从来没有一个被发明出来的计算问题是不需要、也不能用微处理器的——它是万物之心。所有路都穿过它、绕过它、经过它。总得有什么东西去做编排与仲裁：决定那些 token 去哪——那就是 CPU 干的事。芯片设计需要 24-36 个月，而设计本身不是最大头——验证、确认、调试才是，AI 特别擅长这个。要把 AI 关掉，就像 1990 年代有互联网却宣布「只有下午两点到四点能上网，之后去楼下图书馆查」——那是无政府状态。精灵已经出瓶，拦不住。</p>
+              <p></p>
+              <p>【Arm 的双重身份与 Meta 撮合的第一颗芯片】</p>
+              <p>Haas：我们在芯片供应链里有两个位置。主业是 IP 授权——那些进入智能手机、数据中心、汽车的 CPU core；客户要么自己造芯（如三星有厂），要么把设计送去台积电流片。好处是：我们服务的市场太广，等于什么都看得见——汽车、数据中心、手机的供应链动态都看得到。去年三月我们在 Hot Chips 发布了第一颗自己的产品（那颗 CPU），于是自己也跳进了这锅汤：要买基板、买晶圆、买内存。</p>
+              <p>Haas：为什么做芯片？是从早期只供 IP 组件一步步演进的。几年前我们看到：产品周期没有变慢、造芯周期却在拉长，快速出方案越来越重要。于是从单个组件走到 compute subsystem——路演时我用乐高类比：我们提供「怎么拼起来」的蓝图。需求疯狂——起初人们以为没人要（那是芯片设计师的活），但它省上市时间、省成本、省一切。物理产品是再下一步。有些客户拿 Arm IP 就能自己造芯，但想要「基于 Arm 的产品」的人远多于会造芯的客户。Meta 就是第一例：他们想要一颗通用 agentic CPU，市面上没人能给，于是来找我们说「一起做吧」——我们就这样进场了。</p>
+              <p>Haas：客户反应？我们非常小心，先跟所有客户聊了方向。意外的是反弹比我想的少得多——因为野外的软件越多（专有或开源）对生态越有利。英伟达、亚马逊、微软、谷歌这些造 Arm 服务器芯片的人全都支持。终极证明：产品发布时 Jensen、Ronnie、Ahman、James Hamilton 全来道贺。</p>
+              <p></p>
+              <p>【98.5% 毛利的 IP 生意与新长出的供应链肌肉】</p>
+              <p>Haas：交付产品意味着我们是 fabless（无厂、也不打算建厂），但要有供应链运营的人：跟台积电/三星合作拿产能，跟三星/Micron/SK hynix 拿内存配额；工程侧需要后端、版图、实现、bring-up 实验室——一堆物理的东西，原商业模式的美丽之处恰恰是没有物理。我 2013 年从英伟达来 Arm 时想：没有库存、没有退货、没有报废——还有什么不满意的（当年毛利率 98.5%）？我们补上这块肌肉很快，因为领导层来自博通、高通、英伟达——都干过。</p>
+              <p></p>
+              <p>【AI 吃掉验证：80-90% 工程师天天用】</p>
+              <p>Haas：我个人坚信 AI 是一种公用设施，会提升所有行业的生产力，是「伟大的拉平者」。Arm 内部当然重度使用。工程侧：芯片设计 24-36 个月里，架构设计与 RTL 生成不是大头，验证、确认、调试、文档才是——AI 极其擅长。我们 80-90% 的工程师每天在用。要关掉它？见开头的比喻——无政府状态。还不成熟的领域：RTL 生成与顶尖物理设计实现——因为模型只学公开数据，而芯片知识极专有。我们正与模型厂商合作补这块，而 Arm 有天然优势：我们大概有业内最富的 IP 组合——不仅 IP 本身，还有杀手锏级的文档与测试台。我以前待过的芯片公司想过授权自家 IP，然后发现：没文档、没说明——不可用、不可测。而不可用不可测就不可训练，不可训练就对 AI 无用。</p>
+              <p>Haas：多久能变快？五年以上，「从想法到 GDS2 文件」（发给代工厂制造的那个文件）对更直接了当的设计是相当可能的。但「比 Vera Rubin 快 10%、便宜 20%、能效高 30%」这种就别想按个按钮就出来。五到十年内，芯片设计方式会有惊人的变化。</p>
+              <p></p>
+              <p>【供应链：3-5 年紧绷、下一个瓶颈是数据中心本身】</p>
+              <p>Haas：现在很多优秀的年轻 AI 芯片公司，融了巨资、设计创新，却要卖进一个资本需求巨大的行业——跟内存厂、基板厂的关系极其关键，还要拿到 3nm/6nm 线和先进封装。这个紧绷环境至少持续三到五年——只要 transformer 还是产生 AI 训练与推理的「能量单位」，它天生就吃算力、吃内存。</p>
+              <p>Haas：下一个瓶颈？数据中心的建设本身。看看现在所有项目：没有几个是提前完成、比预想省人力的；再叠加美国各地「放慢数据中心」的政策噪音。这可能是逆风——但也算 ok，因为如果基建不是瓶颈，晶圆与内存产能就会是。总会有多个「节流阀」。至于 AI 泡沫：抛开股市的估值泡沫不谈，供给超过需求了吗？差得远。需求是无底的。</p>
+              <p></p>
+              <p>【SoftBank：单一股东、Neo 与机器人家族】</p>
+              <p>Haas：Arm 上市但有一个非常大的单一股东，我可以随时跟我的大股东开非正式投资人会议，我们能共生地做很多事。对年轻公司的建议：极早建立战略合作——供应链里的玩家、私募、银行。半导体又回来了（创业潮），但资本准入是闸门。SoftBank 刚宣布 Neo——我们要做 neocloud（AI 云），可以成为这些年轻芯片公司的家：不用非得去微软谷歌拿 design win。</p>
+              <p>Haas：我在 SoftBank 管 Ampere、Graphcore 和做自动驾驶的 Stack AV——更准确的说法是：Masa 讨论很多事时我都在房间里，帮他成型并执行战略：机器人、OpenAI、基础设施与 Arm。SoftBank 的垂直版图（机器人、能源、数据中心基建）也可以成为 Arm 产品的家——不代表我们要做大众商品芯片生意，可以只给 SoftBank 造。</p>
+              <p></p>
+              <p>【机器人：Jetsons 未来与 Arm 无处不在】</p>
+              <p>Haas：对「通用机器人还没大规模部署」的判断我 100% 同意。机器人 1.0 是专用机器：为特定任务设计机械与软件，新生产线来了不适配就推倒重来——门槛极高。当机器人能靠训练或所见学习、机械上足够通用、成本又在下降——天哪，还有什么做不了的？简直像《杰森一家》：建筑、基建、服务、安保终将被机器人做。现在 TikTok 上有机器人奥运会——我不觉得谁会有兴趣看机器人体育联赛（也许有爱好者圈层），真正的用途是替代大量人类劳动任务。</p>
+              <p>Haas：形态之争（人形 vs 专用）？我认为两者都有：很多工作就是围绕「六英尺高、手臂一定长度的人」优化的。而 Arm 会无处不在：指尖上做感知与实时传感的微处理器全是 Arm；今天人形机器人的大脑（英伟达、高通的那些）本来就跑在 Arm 上。机器人行业将由 Arm 驱动。早期落地：工厂自动化、配送中心、乃至配送本身——自动驾驶卡车某种意义上就是机器人。但商业模式还没跑通、成本太高，需要降本。</p>
+              <p></p>
+              <p>【政策：更多美国晶圆厂、无限游戏与数据中心恐慌】</p>
+              <p>Haas：戴上美国公民帽子说（Arm 是英国公司，总部英国、约四成员工在英国、三成美国、三成亚洲）：我经历过 1980 年代日本 Inc. 用内存定价横扫市场的年代，当年的 Sematec（重振美国半导体）是对的动作，后来互联网与 SaaS 热让半导体的战略重要性被遗忘。美国必须把尽可能多的技术放在本土——需要更多美国晶圆厂（Intel、Micron），这是国家安全问题，也是供应链多元化问题。出口管制方面：我个人认为这是一场无限游戏——不会有终局赢家；但如果大量关键技术变成非美国所有，那不是好事。当领先者没有下行——也许有你不喜欢的二阶三阶效应，但当跟随者，整个剧本都是别人念给你听的。</p>
+              <p>Haas：数据中心的反弹？核心是恐惧——「AI = 失业」。电工工会刚刚公开说「请别禁数据中心，我们需要这些工作」——电工是高技能、需要大量训练认证的岗位，而且需要海量的人。AI 繁荣让很多人受益，但也有很多美国人房贷吃紧、工资不涨，现在又来个 AI——数据中心不幸成了靶心与万能怪物（连「假晒肤水毁供水」这种编造都出来了）。行业有责任去沟通这些好处：能源、液冷、让数据中心更好的一切，全是能创造的工作。</p>
+              <p></p>
+              <p>【CPU 论：token 工厂需要卡车；头上装不下 50 瓦 GPU】</p>
+              <p>Haas：ChatGPT 爆炸、一切围着加速器转时，CPU 被遗忘了。但系统设计没变：CPU、加速器、内存，一个都不能少。当重心从训练移向推理，总得有什么做编排与仲裁——token 工厂只管生产 token，可谁是用卡车把 token 拉走交给用户的人？那就是 CPU。在被发明出「CPU 消失了」的机制之前，CPU 会过得很好。对 Arm 来说，边缘是甜蜜点：小型设备上 AI 越来越多，CPU 本来就是入场券，而且你总不能往头上装一块 50 瓦的 GPU——本地总得处理。未来一两年我最兴奋的：就在这一切的中心——所有 AI 都要算力，算力要能效，而那正是我们最擅长的。我干了整个职业生涯，以前总在想「下一个产品是什么？人们真的需要另一台平板吗？8.9 还是 9.2 英寸？」——现在，AI 带来的机会与创新多到不像话。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A re-run in today&#39;s feed (originally covered in our 2026-09-05 issue): No Priors with Rene Haas, CEO of Arm and head of SoftBank Group International — the microprocessor as the heart of everything; the Meta-brokered first physical Arm chip; AI eating verification (&#39;80-90% of engineers use it daily… shutting it off would be anarchy&#39;); the supply chain constrained for 3-5 years &#39;so long as the transformer is the unit of energy&#39;; robotics as a Jetsons future powered by Arm; &#39;no downside from being the leader&#39;; and the token-factory trucks: &#39;The token factory just generates all these tokens… where are the trucks that are gonna take the tokens away and give them to the users? That&#39;s what CPUs do.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rene Haas: There&#39;s no computing problem that&#39;s ever been invented that doesn&#39;t utilize and can&#39;t utilize the microprocessor. It is the heart of everything.</p>
+              <p>Rene Haas: The actual design is not the largest amount of time. The largest amount of time is in the verification, the validation, the debug. AI is really good at that.</p>
+              <p>Rene Haas: If we were to shut it off, it&#39;s like being in the 1990s, you&#39;ve got internet and you&#39;re now saying, only internet between the hours of two and four. After that, go to the library… It&#39;d be anarchy. The genie&#39;s out of the bottle.</p>
+              <p>Rene Haas: I think we&#39;re gonna be in this constrained environment for three to five years, at least. So long as the transformer is the unit of energy.</p>
+              <p>Rene Haas: Are we oversupplied to demand? Not even close.</p>
+              <p>Rene Haas: There is no downside from being the leader… To be the laggard, you are having the entire script dictated to you.</p>
+              <p>Rene Haas: The token factory just generates all these tokens. It&#39;s like literally where are the trucks that are gonna take the tokens away and give them to the users? That&#39;s what CPUs do.</p>
+              <p>Rene Haas: You just can&#39;t put a 50 watt GPU on your head.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-09-06 source feeds (identical to 2026-09-05 snapshots; podcast slot re-runs the Arm CEO Rene Haas episode, published 2026-09-03).">Source: Follow Builders curated daily digest. Built from the 2026-09-06 source feeds (identical to 2026-09-05 snapshots; podcast slot re-runs the Arm CEO Rene Haas episode, published 2026-09-03).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
