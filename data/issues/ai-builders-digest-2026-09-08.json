@@ -1,0 +1,147 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-08",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "轻量日：5 位 builders、5 条推文 + 1 期全新播客。Levie 的判断（**451 赞，今日最高**）：「互联网对『每个人的私人 agent 到处替他们执行任务』的未来几乎毫无准备——基础设施层、用户体验、新商业模式，无尽的新挑战与新机会。」Zara 的反向忧虑（78 赞）：「我们时代最大的危机之一是人类注意力的缩短——而 agent 让它更糟。」Nikunj 的时代注脚（26 赞）：「Fable 在审 Astra 的每一行代码改动……Fable PM + Astra 工程师组合未尝一败 🤝」Peter Yang 的锐评（74 赞）：「这人连 Time 的 AI 百人榜都没上，我们为什么听他的 /s」。播客全新一期：No Priors 专访 Eon 联合创始人——为 AI 时代重造遗留数据基础设施，含 Google 千万美元买下破产 Spirit Airlines 数据的故事（34237 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "Agent 冲击互联网与遗留数据日报",
+    "desc": "Levie「互联网对全民 agent 时代毫无准备」（451 赞），Nikunj 的 Fable 审 Astra 代码梗，Eon 联创播客：Google 千万买破产航司数据。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-08 source feeds (a light X day: 5 builders, 5 tweets, plus one long-form podcast).",
+  "sections": [
+    {
+      "title": "The Agent-Ready Internet & the Attention Crisis / 互联网准备迎接 agent 与注意力危机",
+      "desc": "Levie 的基础设施宣言（**451 赞，今日最高**）；Zara 的反向忧虑（78 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+zarazhangrui",
+          "authorName": "Levie / Zara",
+          "authorTag": "Box CEO / Builder",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie's call (451 likes, top of the day): 'The internet is almost entirely unprepared for a future where everyone's personal agents are running around executing tasks for them. There are going to be endless new challenges and opportunities at the infrastructure layer, for user experiences, new business models, and more.' Zara's counterpoint (78 likes): 'One of the biggest crises of our time is the shortening of the human attention span. Agents just make things worse.'"
+            ],
+            "original": [
+              "Aaron Levie: The internet is almost entirely unprepared for a future where everyone's personal agents are running around executing tasks for them. There are going to be endless new challenges and opportunities at the infrastructure layer, for user experiences, new business models, and more.",
+              "Zara Zhang: One of the biggest crises of our time is the shortening of the human attention span. Agents just make things worse."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 的判断（451 赞，今日最高）：「互联网对『每个人的私人 agent 到处替他们执行任务』的未来几乎毫无准备。基础设施层、用户体验、新商业模式——无尽的新挑战与新机会。」Zara 的反向忧虑（78 赞）：「我们时代最大的危机之一是人类注意力的缩短——而 agent 让它更糟。」"
+            ],
+            "original": [
+              "Levie：互联网对全民 agent 时代毫无准备。Zara：agent 让注意力危机更糟。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Builder Notes: Fable Reviews Astra & Time List Snark / 构建者笔记：Fable 审 Astra 与百人榜锐评",
+      "desc": "Peter Yang 的锐评（74 赞）；Nikunj 的时代注脚（26 赞）；Nan Yu 的梗（8 赞）。",
+      "cards": [
+        {
+          "authorKey": "petergyang+nikunj+thenanyu",
+          "authorName": "Yang / Nikunj / Nan Yu",
+          "authorTag": "Builder / FPV / OpenAI",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Peter Yang's snark (74 likes): 'This man isn't even on Time's 100 Top AI List so why are we listening to him /s' — the sarcastic dig at list-making, aimed at whichever talking head is currently not on one. Nikunj's era-in-a-bottle note (26 likes): 'Fable reviewing literally every Astra code change.. \"this fix is the real deal\" — Fable PM, Astra engineer is undefeated 🤝' (an AI reviewing another AI's code, both from rival labs). Nan Yu's meme (8 likes): 'J-dog calling AGI.'"
+            ],
+            "original": [
+              "Peter Yang: This man isn't even on Time's 100 Top AI List so why are we listening to him /s",
+              "Nikunj Kothari: Fable reviewing literally every Astra code change.. 'this fix is the real deal'. Fable PM, Astra engineer is undefeated 🤝",
+              "Nan Yu: J-dog calling AGI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 的锐评（74 赞）：「这人连 Time 的 AI 百人榜都没上，我们为什么听他的 /s」——对「榜单崇拜」的讽刺，目标不明但杀伤力十足。Nikunj 的时代注脚（26 赞）：「Fable 在审 Astra 的每一行代码改动……『这个修复是真的靠谱』——Fable 当 PM、Astra 当工程师的组合未尝一败 🤝」（一家实验室的 AI 在给另一家实验室的 AI 审代码）。Nan Yu 的梗（8 赞）：「J-dog 宣布 AGI」。"
+            ],
+            "original": [
+              "Yang：没上百人榜凭什么听他的 /s。Nikunj：Fable 审 Astra 代码。Nan Yu：J-dog 宣布 AGI。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Eon Co-Founders — Rethinking Legacy Data Infrastructure / 播客：Eon 联创——重造遗留数据基础设施",
+      "desc": "No Priors 全新一期（2026-08-27 发布，本刊首次收录）：Eon 联合创始人 Ofir Ehrlich 与 Gonen Stein（上一家公司 CloudEndure 卖给 AWS）谈为 AI 时代重造数据底座——从 Google 千万美元买下破产 Spirit Airlines 的数据说起。完整 transcript（34237 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:np-eon",
+          "authorName": "No Priors",
+          "authorTag": "Ofir Ehrlich 与 Gonen Stein（Eon 联合创始人；前 CloudEndure 创始人，公司卖给 AWS）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "A brand-new No Priors (published 2026-08-27, new to this digest) with Eon co-founders Ofir Ehrlich and Gonen Stein (their previous company, CloudEndure, was acquired by AWS) on rethinking legacy data infrastructure for the AI era. Core threads: the opening thesis — threats now come from 'nonhuman actors, agents that have legitimate access to the environment with legitimate permissions… the velocity of that happening is extreme'; EON itself — a cloud data foundation that maps/classifies data across hyperscalers, ingests it, and makes it queryable by LLMs while cutting cost ('customers already have this data. That's the ironic thing. It's locked'); the Spirit Airlines story — Google paid $10M in bankruptcy court for the airline's data (not the planes), with Mercor rumored as the other bidder; labs are going to Wall Street to buy hedge fund data; models and compute are ephemeral with near-zero switching costs, so 'the only real advantage companies have today is their people and their data'; why real data beats synthetic — building agents that work requires training data that looks like the real world (Spirit dialogues work both as airline data and as 'a large enterprise where lots of people work'); the data unlock problem — business unit owners vs data team leaders, twenty years of systems including 'the server no one dares turn off,' and EON's answer: classify first, then continuously ingest without compromising production, security, or compliance; the security story — at AWS, a customer thought it was protected but 60% of its environment was exposed by ransomware because nothing was mapped or tagged; now the same threats come from agents — 'a table is all of a sudden dropped,' with the same detection methodology (irregular write patterns, entropy changes) but extreme velocity — 'six months ago no one would discuss it; now every leader tells me it happened to them'; assume breach, external (malware-as-a-service) and internal (agents you approved); more dashboards, not fewer — 'agents activating other agents' makes non-human identity (NHI) the #1-2 problem, plus an endpoint renaissance (agents on laptops connected to your WhatsApp and your internal network); the CIO's dilemma — the board says 'enable AI, don't block me' while non-technical people build apps in Lovable with company data, creating 'a complete set of actors inside the organization, not bound by the rules of the organization… but handling sensitive data. It's a good thing and bad thing that everyone can become builders'; why the old stack doesn't survive — plumbing was built single-purpose (the coffee-purchase example: no connection, no context), while combining the burger-lovers list with the pizza-lovers list creates wonders; data ingestion volumes are 'absolutely insane' and agent-generated data is value + noise; Fivetran/DBT were incredible but niche; Databricks reinvents itself 'if you can't beat them, join them'; token economics — 'we're not in the time of token maxing anymore… every token has to earn its value'; the cloud transition comparison — CloudEndure→AWS took years of grinding, AI transformations are so fast customers are 'pausing because they're afraid things might break' and desperately seek control; cloud was abstract ('someone else's computer' — try explaining it to your grandmother) but everyone understands AI from the ChatGPT moment, so adoption is pushed by value AND fear; new consumption patterns — forward-deployed engineers go mainstream (Palantir-local → everyone), PLG suddenly works for DevTools (Cognition: PLG → FDE motion → 'replace the engineering you don't want to do with our engineers'), and the Long Lake model — buy whole companies and transform them into AI companies; and the closer: 'we speak about this as a revolution, but I think we just started. Most companies still don't use AI… it's a wild ride, but the world is gonna be better because of that.'"
+            ],
+            "original": [
+              "Ofir Ehrlich: Up until now, the concerns came from human threats. What we're seeing now on steroids is that the same type of threat is coming from nonhuman actors, agents that essentially have legitimate access to the environment with legitimate permissions… the velocity of that happening is extreme.",
+              "Gonen Stein: Models, compute, everything is relatively ephemeral, almost zero switching costs… The most valuable thing that you have is actually your data.",
+              "Gonen Stein: Two days ago you saw Google buy something from the bankrupt Spirit Airlines. They didn't buy airplanes. They bought the data. They bought the data for $10,000,000.",
+              "Ofir Ehrlich: Customers today already have this data. That's kinda the ironic thing. It's kept in their environment in different forms, but it's locked.",
+              "Ofir Ehrlich: The customer thought that they were protected, they weren't protected because they didn't map and classify and tag their resources properly… 60% of the environment was exposed by ransomware.",
+              "Gonen Stein: I actually think we'll see more dashboards because this will be the only way to figure out what the hell is going on in the world… agents activating other agents.",
+              "Gonen Stein: It's a good thing and bad thing that everyone inside the organization can become builders.",
+              "Gonen Stein: We're not in the time of token maxing anymore… getting value for every token.",
+              "Gonen Stein: We speak about this as a revolution, but I think we just started. Most companies still don't use AI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors 全新一期（08-27 发布，本刊首次收录）：Eon 联创 Ofir Ehrlich 与 Gonen Stein（上家公司 CloudEndure 卖给 AWS）谈 AI 时代的数据底座。核心看点：Google 千万美元买破产航司数据、带合法权限的 agent 成头号新威胁、人人皆 builder 的双刃剑、token 经济学与「革命才刚开始」。完整译文见下。"
+            ],
+            "original": [
+              "【开场：非人类行为者】",
+              "Ofir：到目前为止，安全顾虑来自人类威胁。而现在打着激素上演的是：同类威胁来自非人类行为者——agent 们带着合法的环境访问权与合法权限进来。幸运的是，检测与防护的方法论非常相似，但发生的速度是极端的。",
+              "Gonen：想想非技术的人：他们甚至没意识到安全、合规、谁会用这些数据。他们造的 agent 可能还在调用别的 agent，而他们连这意味着什么都不懂。这在组织内部创造出一整套行为者——不受组织规则约束、未必跑在组织疆界之内、却经手着敏感数据。组织里人人都能当 builder，是好事也是坏事。我们活在非常有趣的时代。",
+              "",
+              "【Eon 是什么：被锁住的数据】",
+              "Ofir：我们在云上建了一个新的数据底座：先帮客户跨多个超大规模云商映射与分类数据——有什么、在哪、什么敏感什么不敏感；然后从各种结构化/非结构化来源轻松摄入这个底座；再以极低成本既做保护与恢复、又能查询、搜索、在其上跑 AI 模型与 LLM。",
+              "Ofir：讽刺的是：客户早就有这些数据了——就放在他们自己的环境里，只是被锁着、不可访问，而且维持成本极高。我们做的就是把客户已有的东西转成高效存储的新格式，加上映射、分类、访问控制，接进 AI 工作流。",
+              "",
+              "【Spirit Airlines：破产航司的数据被抢拍】",
+              "Gonen：创业时有人说我疯了——在 AI 世界里开一家非 AI 公司。结果 AI 顺风变成了狂风，让数据成为组织最重要的资产。模型、算力这些都相对易逝、几乎零切换成本——如果你是酒店集团、餐饮连锁或科技公司，你真正最值钱的东西是数据。两天前 Google 从破产的 Spirit Airlines 那里买了东西：他们没买飞机，花 1000 万美元买了数据，因为他们觉得极其重要——用来训模型。",
+              "主持人：传闻另一个竞标方是 Mercor——多家 AI 公司在破产法庭上抢一家航司的企业数据集，太迷人了。这种「破产数据拍卖」会更多吗？",
+              "Gonen：已经在各种用例上看到了。如果你今天是科技/数据公司的 CEO，会不断被问：愿意卖你的数据吗？我到处都听到。我还听说实验室在跑华尔街、想从对冲基金买数据、学着分析公司。那些常年积攒、原来躺在磁带货架上积灰的数据，突然变得非常重要。大家都意识到：我的数据就是 differentiate 我的东西，是金子。AI 拉平了竞技场——大小公司拿到的酷工具一样多，唯一的真优势就是你的人和你攒下的数据。",
+              "Gonen：为什么真数据这么值钱？今天想造 agent，不能只在实验室里造，得用新数据训练，而非常好的数据集极难找。Harpreet 前几天刚发布了一个法律数据集——真正不像合成数据、能像真实世界的数据太少了。Spirit 的对话数据既能当航司数据用，也能当「一家有层级、有中层管理、很多人协作的大型企业」的数据用。你去看公开数据集：Enron 邮件数据集至今被当真实企业数据用——因为太难找到「像真实世界」的数据。任何人今天造 agent 或新应用，大多数其实不好用——你得接触真实世界的公司。有了真数据，产品第一次发布时就不必拿客户当小白鼠。",
+              "",
+              "【数据解锁问题：业务单元领地与那台没人敢关的服务器】",
+              "Gonen：回到问题本身：为什么需要新工具？过去每个数据团队自己找数据、定项目、拿数据干活——很战术性，用 Fivetran、DBT、Monte Carlo 这些好公司。而有些数据他们根本不知道存在、被锁着。为什么锁着？因为同一家公司里有多个业务单元负责人。你在旧金山当数据团队负责人，我在纽约管一个业务单元。现在 AI 来了，连老板都在玩 ChatGPT——CEO、董事会、股东全明白 AI 是真的，于是来找你：我们有很多数据，数据是新石油，用新工具激活它、做点有价值的事。你说好办，我知道硅谷每天出的新酷东西。问题是：数据在哪？",
+              "Gonen：你终于找到我、说服我给你数据访问权。可我自己都不知道我有什么数据：手下很多人、二十年来数据散在多个系统里、有些系统没人知道在哪；有生产数据、有敏感信息；总有一台「没人知道在干什么但接着电」的服务器，人人都怕关掉它。就算我知道里面有什么，我还得调工程师、冒着影响安全合规与生产可用性的风险把数据抽出来给你、还得低效地存着。我们之间的激励根本不一致：你的任务是做 AI，我的任务是系统别坏、数据别跑、CEO 的工资别不小心进了你的训练集。Eon 的解法完全不同：帮「你」（数据团队负责人）用极简单的方式找到全组织的数据、理解它、分类、映射、加上语义层，然后持续把相关数据带给你——不牺牲生产、不牺牲安全合规，并且因为做过分类，绝不会把不该给的敏感信息给你。",
+              "",
+              "【安全：从勒索软件到「表突然被删了」】",
+              "Ofir：我在 AWS 时期经历过一个教训：一个超大客户以为自己被我们管的容灾服务保护着——其实没有，因为没做映射、分类、打标，60% 的环境被勒索软件攻破。这就是我们创办 Eon 要解的痛点（人类威胁）。而现在打着激素重演的是：同类威胁来自 AI agent——带着对数据库的合法权限，突然间，一张表就没了。幸运的是检测方法论一样：异常写入模式、熵变等；但速度是极端的。",
+              "Gonen：六个月前没人愿意跟我聊这个；几个月前开始，我见到的每一位领导要么害怕发生在自己身上、要么已经被发生过了。现在的处境很怪：我不再知道我的数据上到底在跑什么；既要防外部（新的恶意软件即服务让攻击门槛大降），也要防内部——我自己批准进环境的 agent。我们必须假设已被突破，无论恶意与否，并具备应对能力。",
+              "",
+              "【更多仪表盘、NHI 爆炸与 CIO 困境】",
+              "Gonen：有人问仪表盘会不会消失？我认为反而会更多——因为这将是你搞明白「这世界到底在发生什么」的唯一方式。agent 开始写世界上大部分代码；agent 还会激活 agent、再激活 agent——追踪非人类身份（NHI）几乎成了不可能任务。你看现在 NHI 与端点安全公司爆炸式出现：几年前端点是完全不同的问题，现在人们的笔记本上跑着 agent、连着 WhatsApp 也连着内网与应用。CIO/IT 副总裁两头受气：董事会和 CEO 说「给我上 AI、别拦我」；另一头又怕得要死。非技术的人用 Lovable 之类给自己搭东西、把公司数据放进去，他们根本没想过安全合规。这既是组织内人人皆 builder 的美好，也是危险。",
+              "",
+              "【旧栈为什么不适用：咖啡、汉堡与披萨】",
+              "Gonen：现有管道是按单一目的搭的：我录完播客下楼买咖啡、刷卡、某处的数据库里写进一笔交易——有人抽数、存走、完事；另一个人之后再用别的方式处理——彼此没有连接、没有上下文。以前无所谓，因为你对数据只能做「本来就打算做」的事。今天不同：如果你能聪明地收集、清洗、高效存储全部数据并高效激活，团队就能拿数据创造奇迹。想象组织里一个人有「纽约所有爱吃汉堡的人」名单、另一个人有「纽约所有爱吃披萨的人」数据库——他们素不相识；把两者合起来就能问出智能的问题。现在公司摄入的数据量完全疯狂，其中大量由 agent 生成——价值与噪音并存，所以需要能跨位置理解数据、清洗噪音、让数据可用的工具。Fivetran、DBT 都很了不起，但都很窄。Databricks 这样的伟大公司在持续自我重塑——「打不过就加入」：自建 agent、自建数据库，主动掌管数据怎么被用、怎么被生成。这与三五年前完全不同。",
+              "Gonen：还有 token 经济学：我们不再身处 token 最大化时代——存储要钱、token 更要钱，得让每个 token 都挣回价值。花几百万可以，但要花得值。",
+              "",
+              "【云迁移 vs AI 转型、前向部署工程师与 Long Lake 模式】",
+              "Ofir：把 CloudEndure 卖给 AWS 前后，我们支撑过超大规模的企业迁移（数千到数十万台服务器，Azure/GCP 都做了 OEM 集成）——那需要巨量技术与人力投入。而现在的 AI 转型快到客户失去控制权，以至于控制权本身变成了阻碍：他们暂停、观望，因为怕东西坏掉、数据泄漏、IP 流出——他们极度渴望「看得见 + 管得住」。",
+              "Gonen：云是抽象的——本质上就是「别人的电脑」，我很难跟祖母解释云是什么；但 AI 人人都懂：人人都经历过 ChatGPT 时刻。于是 C 层、CEO、董事会、股东全在推：用 AI，否则就出局。价值与恐惧同时在推。公司消费软件的方式也第一次剧变：前向部署工程师（FDE）原来是 Palantir 的专利，现在人人都在做——大型遗留企业知道流程要以年计、但必须现在就要，唯一快起来的办法就是让带着硅谷顶级工具箱的强工程师进场改造。PLG 也突然 work 了——过去我总说 PLG 对 DevTools 不管用，现在看 Cognition：先 PLG、再 FDE 打进银行、「你不想做的工程换我们的工程师来做」。还有 Long Lake 这种激进新玩法：与其等你 adopting AI，不如我买下公司、把它整体改造成 AI 公司，大家共赢。我们把这叫革命，但革命才刚开始：大多数公司还没用上 AI，都还在旅程起点。疯狂颠簸，但我相信世界会因此更好。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
