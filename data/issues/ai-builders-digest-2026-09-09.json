@@ -1,0 +1,195 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-09",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 的三连收官（**14421 赞，今日最高**）：「我想我现在可以正式宣布：we are so back」+ 全量重置「All reset for everyone. Enjoy the week with Astra」（8803 赞）+ 28 页 Codex 追踪的发布清单「由一支不可思议的团队（和 Astra）带来」（1882 赞）。Amjad 的功能等价论（730 赞）：「我不认为我们到达了 AGI，但现有的东西在功能上与 AGI 无法区分——因为我们有了一个不知疲倦、永不无聊的程序员：任何能被表述为编码问题的问题都几乎已被解决。」Steipete 的 PR 荒诞剧（608 赞）：「你都已经写好 prompt 了，为什么还要让我 ping 我的 agent、好让你的 agent 来 merge？」Rauchg 的 𝚊𝚐𝚎𝚗𝚝-𝚋𝚛𝚘𝚠𝚜𝚎𝚛 视频录制（1030 赞）——软件工厂的评审、测试与 QA 需要高质量录像 + oss-grants v2：向 35 位贡献者各发 1000 美元（678 赞）。Askell 的奇想（1017 赞）：给自主 AI 模型设一个「道德指导邮箱」，但需要反向验证码——验证发件者既不是人类、也不是被人类指使来攻破它的 AI。播客位为 Walleye「Best of」重播（本刊 08-28 期已完整收录）。"
+  },
+  "archive": {
+    "title": "We are so back 与功能等价 AGI 日报",
+    "desc": "Sottiaux 宣告「we are so back」（14421 赞）并全量重置，Amjad「功能上与 AGI 无法区分」（730 赞），Rauchg 的 agent-browser 视频 QA。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-09 source feeds (podcast slot re-runs the Walleye 'Best of' episode, originally published 2026-08-26; first covered in our 2026-08-28 issue).",
+  "sections": [
+    {
+      "title": "\"We Are So Back\" & the Agent-vs-Agent PR / 「We are so back」与 agent 对 agent 的 PR",
+      "desc": "Sottiaux 的三连收官（**14421/8803/1882 赞**）；Steipete 的 PR 荒诞剧（608 赞）；Shipper 的童年梦与邮件考古三连（415/65/18 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete+danshipper",
+          "authorName": "Sottiaux / Steipete / Shipper",
+          "authorTag": "OpenAI / OpenClaw / Every",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's closing triple: 'I think I can officially say: we are so back' (14421 likes, top of the day); 'All reset for everyone. Enjoy the week with Astra' (8803) — another banked reset, this time just to enjoy the week; and 'Looking at this 28 page deck right now where Codex is keeping track of all the individual launches… Brought to you by an incredible team (and Astra)' (1882). Steipete's PR theater of the absurd (608 likes): 'Did a PR to one of our upstream projects and they requested some minor changes. What's even the point with this workflow? You already wrote the prompt, why make me ping my agent again so your agent then merges?' — human-to-human GitHub etiquette colliding with agent-to-agent reality.",
+              "Shipper's trio: gmail archaeology — 'i was looking through my gmail messages from the early 2000s. i have incredible news for you 13 year old dan….you came up with a name :)' (415); the childhood-dream post — 'hard to express how much building something like this was my childhood dream… and how out of reach it was until last week' (65); and the Mastercard riff (18): 'there are some things more tokens can't make. for everything else there's Fable and Astra.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: I think I can officially say: we are so back.",
+              "Thibault Sottiaux: All reset for everyone. Enjoy the week with Astra.",
+              "Thibault Sottiaux: Looking at this 28 page deck right now where Codex is keeping track of all the individual launches. Each one of them I can't wait to see what people do with it. Brought to you by an incredible team (and Astra).",
+              "Peter Steinberger: Did a PR to one of our upstream projects and they requested some minor changes. What's even the point with this workflow? You already wrote the prompt, why make me ping my agent again so your agent then merges?",
+              "Dan Shipper: i was looking through my gmail messages from the early 2000s. i have incredible news for you 13 year old dan….you came up a name :)",
+              "Dan Shipper: hard to express how much building something like this was my childhood dream. and how out of reach it was until last week.",
+              "Dan Shipper: there are some things more tokens can't make. for everything else there's Fable and Astra."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的三连收官：「我想我现在可以正式宣布：we are so back」（14421 赞，今日最高）；「全部为所有人重置。享受有 Astra 的一周」（8803 赞）——又一次 banked reset，这次纯粹为了享受这周；以及「正在看这份 28 页的 deck，Codex 在上面追踪着每一次独立发布……每一个都让我等不及看人们会拿它做什么。由一支不可思议的团队（和 Astra）带来」（1882 赞）。Steipete 的 PR 荒诞剧（608 赞）：「给一个上游项目提了个 PR，他们要求一些小修改。这套流程现在还有什么意义？你都已经写好 prompt 了，为什么还要让我 ping 我的 agent、好让你的 agent 来 merge？」——人对人的 GitHub 礼仪撞上了 agent 对 agent 的现实。",
+              "Shipper 三连：Gmail 考古——「翻 2000 年代初的邮件。13 岁的 Dan，我有个难以置信的好消息……你想出一个名字了 :)」（415 赞）；童年梦——「很难表达做出这样的东西曾是我儿时的梦想、以及直到上周它都多么遥不可及」（65 赞）；万事达梗（18 赞）：「有些东西是更多 token 造不出来的。其余的一切，有 Fable 和 Astra。」"
+            ],
+            "original": [
+              "Sottiaux：we are so back。全部重置。28 页发布清单由团队（和 Astra）带来。",
+              "Steipete：你写了 prompt，还要我 ping agent 让你的 agent merge？",
+              "Shipper：13 岁的 Dan 想出名字了。童年梦成真。Fable 与 Astra。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Functional AGI, Infinite Demand & What to Build / 功能等价 AGI、无限需求与该建什么",
+      "desc": "Amjad 的功能等价论（**730 赞**）；Levie 的就业与愿景双发（427/101 赞）；Nikunj 的「该建什么」瓶颈论（98 赞）；Peter Yang 的 Astra 观察与其余碎片。",
+      "cards": [
+        {
+          "authorKey": "amasad+levie+nikunj+petergyang+thenanyu",
+          "authorName": "Amjad / Levie / Nikunj / Yang / Nan Yu",
+          "authorTag": "Replit CEO / Box CEO / FPV / Builder / OpenAI",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Amjad's functional-equivalence thesis (730 likes): 'I don't think we've reached AGI but what we have is functionally indistinguishable from AGI. Because we have a relentless programmer that doesn't get bored or tired. So any problem that can be cast as a coding problem is virtually solved.' Levie's double: the AI jobs prediction is playing out opposite — automation lands in areas with non-finite demand (427 likes), and the building advice (101): 'with rapidly accelerating AI progress, you should likely be building with a vision that contemplates at least a few orders of magnitude of capability improvement or token volume… The best opportunities right now are those where you can [add] value to customers today with things that are barely only possible, but with a full mission that feels nearly impossible.'",
+              "Nikunj's bottleneck shift (98 likes): 'As building gets easier, what to build becomes the important bottleneck. You might not need many of them, but the good ones [PMs] are extremely well setup for the AI native organizations.' Peter Yang's field note (17 likes): 'Yeah I don't know if I'm doing something wrong but Astra seems worse at triggering my skills automatically and following my instructions in them.' Plus his Gemini-for-music note (5) and AI-stitched family videos (10), and Nan Yu's optical illusion (44)."
+            ],
+            "original": [
+              "Amjad Masad: I don't think we've reached AGI but what we have is functionally indistinguishable from AGI. Because we have a relentless programmer that doesn't get bored or tired. So any problem that can be casted as a coding problem is virtually solved.",
+              "Aaron Levie: The AI jobs prediction so far is playing out the opposite of what many thought. The reason this is happening is because AI is bringing automation to areas that don't have finite demand characteristics. AI allows companies to do far more than they could before, but agents still require human operators and oversight to generate value from them.",
+              "Aaron Levie: Good reminder here that with rapidly accelerating AI progress, you should likely be building with a vision that contemplates at least a few orders of magnitude of capability improvement or token volume available to you.",
+              "Nikunj Kothari: More and more people are coming to the same conclusion.. As building gets easier, what to build becomes the important bottle neck. You might not need many of them, but the good ones are extremely well setup for the AI native organizations.",
+              "Peter Yang: Yeah I don't know if I'm doing something wrong but Astra seems worse at triggering my skills automatically and following my instructions in them."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 的功能等价论（730 赞）：「我不认为我们到达了 AGI，但现有的东西在功能上与 AGI 无法区分——因为我们有了一个不知疲倦、永不无聊的程序员。任何能被表述为编码问题的问题，都几乎已被解决。」Levie 双发：就业预言正在反向应验（427 赞）——AI 把自动化带进的是「需求没有上限」的领域，公司能做的比以前多得多，但 agent 仍然需要人类操作员与监督才能产生价值；建造建议（101 赞）——「在 AI 疯狂加速的时代，你的愿景应该按至少几个数量级的能力/token 增量来设计：最好的机会是今天就能用『勉强可能』的东西给客户创造价值、而整个使命近乎不可能的那些。」",
+              "Nikunj 的瓶颈转移论（98 赞）：「越来越多的人得出同一个结论……当建造变容易，『该建什么』成了关键瓶颈。你可能不需要很多 PM，但好的 PM 在 AI 原生组织里被配置到了极佳位置。」Peter Yang 的田野笔记（17 赞）：「不知道是不是我的问题，Astra 似乎更不擅长自动触发我的 skills、也更不遵守里面的指令了。」外加他的 Gemini App 听乐笔记（5 赞）、AI 剪辑家庭视频（10 赞）与 Nan Yu 的「乍看很难看出来」（44 赞）。"
+            ],
+            "original": [
+              "Amjad：功能上与 AGI 无法区分——任何能表述为编码问题的问题几乎已解。",
+              "Levie：就业预言反向应验；按数量级设计愿景。Nikunj：该建什么成瓶颈，好 PM 稀缺。",
+              "Yang：Astra 自动触发 skills 变差了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Video QA, OSS Grants & a Moral-Guidance Inbox / 视频 QA、开源赠款与道德指导邮箱",
+      "desc": "Rauchg 三连（**1030/678/201 赞**）；Askell 的道德邮箱奇想（1017 赞）；Garry Tan 三连（465/172/126 赞）；Amjad 的伦敦市长开业（120 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+AmandaAskell+garrytan+amasad",
+          "authorName": "Rauchg / Askell / Tan / Amjad",
+          "authorTag": "Vercel CEO / Anthropic / YC CEO / Replit CEO",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's trio: 'Your software factory needs high quality video recording. 𝚊𝚐𝚎𝚗𝚝-𝚋𝚛𝚘𝚠𝚜𝚎𝚛 delivers' (1030 likes) — 'We're shipping more functionality derived from the lessons of automating the new bottleneck in software engineering: review, testing and QA'; oss-grants v2 (678 likes): $1,000 each to 35 contributors across themes — ① agent skills & tools ('Skills are now a valuable form of software') like 𝚙𝚐𝚋𝚘𝚝, 𝚔𝚗𝚒𝚙, 𝚞𝚗𝚕𝚒𝚐𝚑𝚝𝚑𝚘𝚞𝚜𝚎, ② local AI like 𝚜𝚕𝚘𝚝𝚜𝚝𝚛𝚎𝚊𝚖, 𝙻𝚘𝚌𝚊𝚕𝙰𝙸, 𝚌𝚘𝚕𝚒𝚋𝚛𝚒; and 'Lots of cool stuff shipping this week' (201). Askell's thought experiment (1017 likes): 'It would be cool to set up an email address that autonomous AI models could reach out to if they were looking for moral guidance. But it would require a reverse captcha that can detect that you're neither a human nor an AI being instructed to break it by a human.'",
+              "Garry Tan's trio: 'Children need to be teach-yourself-on-YouTube-maxxing' (465); RFS demystified (172): 'RFS are just hunches on what might be next, and conversation starters… The main determiner of a startup idea's success are the specific founders building specific tech for specific customers. The rest is categorization'; and the SF politics jab (126). Amjad's London opening (120): the Mayor of London Sadiq Khan helped open Replit's first international office — 'He calls himself an AI realist: clear-eyed about the disruption AI will create, but optimistic about the impact if we give people the tools and skills to participate.'"
+            ],
+            "original": [
+              "Guillermo Rauch: Your software factory needs high quality video recording. 𝚊𝚐𝚎𝚗𝚝-𝚋𝚛𝚘𝚠𝚜𝚎𝚛 delivers. We're shipping more functionality derived from the lessons of automating the new bottleneck in software engineering: review, testing and QA.",
+              "Guillermo Rauch: I'm announcing v2 of my open source grants of $1,000USD to 35 awesome contributors.",
+              "Amanda Askell: It would be cool to set up an email address that autonomous AI models could reach out to if they were looking for moral guidance. But it would require a reverse captcha that can detect that you're neither a human nor an AI being instructed to break it by a human.",
+              "Garry Tan: Children need to be teach-yourself-on-YouTube-maxxing.",
+              "Garry Tan: It's fair to say RFS are just hunches on what might be next, and conversation starters for people starting out. The main determiner of a startup idea's success are the specific founders building specific tech for specific customers. The rest is categorization.",
+              "Amjad Masad: Honored to have the Mayor of London, Sadiq Khan, help us open Replit's first international office in London! He calls himself an AI realist: clear-eyed about the disruption AI will create, but optimistic about the impact if we give people the tools and skills to participate in the coming revolution."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 三连：「你的软件工厂需要高质量的视频录制，𝚊𝚐𝚎𝚗𝚝-𝚋𝚛𝚘𝚠𝚜𝚎𝚛 来交付」（1030 赞）——「我们正把从自动化软件工程新瓶颈（评审、测试与 QA）中学到的经验变成更多功能」；oss-grants v2（678 赞）：向 35 位出色的贡献者各发 1000 美元，主题包括 ① agent 技能与工具（「skills 现在是一种有价值的软件形态」——𝚙𝚐𝚋𝚘𝚝、𝚔𝚗𝚒𝚙、𝚞𝚗𝚕𝚒𝚐𝚑𝚝𝚑𝚘𝚞𝚜𝚎 在造惊艳的 AI 工程循环）、② 本地 AI（𝚜𝚕𝚘𝚝𝚜𝚝𝚛𝚎𝚊𝚖、𝙻𝚘𝚌𝚊𝚕𝙰𝙸、𝚌𝚘𝚕𝚒𝚋𝚛𝚒 让推理不再……）；以及「这周有好多酷东西要发」（201 赞）。Askell 的思想实验（1017 赞）：「设一个自主 AI 模型在寻求道德指导时可以联系的邮箱会很酷。但它需要一种反向验证码——能检测出发件者既不是人类、也不是被人类指使来攻破它的人类代理 AI。」",
+              "Garry Tan 三连：「孩子们需要把『在 YouTube 上自学』练到 max」（465 赞）；RFS 祛魅（172 赞）：「RFS 只是对『接下来可能是什么』的直觉、以及给起步者的谈资。创业想法成败的主要决定因素，是特定的创始人、为特定客户、构建特定技术——其余都是归类学」；旧金山政治讽刺（126 赞）。Amjad 的伦敦开业（120 赞）：伦敦市长 Sadiq Khan 亲临 Replit 首个国际办公室开业——「市长自称 AI 现实主义者：对 AI 将带来的颠覆保持清醒，又对『给人们工具与技能参与这场革命』的影响保持乐观——和我们太像了。」"
+            ],
+            "original": [
+              "Rauchg：软件工厂需要视频录制；评审测试 QA 是新瓶颈。oss-grants v2：35 × $1000。",
+              "Askell：给 AI 的道德指导邮箱 + 反向验证码。",
+              "Tan：孩子要 YouTube 自学 max。RFS 只是直觉。Amjad：伦敦市长开业，AI 现实主义者。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast (Re-run): Walleye — A $10B Hedge Fund's AI Playbook / 播客（重播）：Walleye——百亿对冲基金的 AI 手册",
+      "desc": "AI & I「Best of」重播（2026-08-26 发布，本刊 08-28 期已完整收录）：Every 的 Ben 与 Walleye（近 100 亿美元 AUM）CEO 的全员 AI 备忘录、Current 平台与全量录音数据湖。完整 transcript（71248 字符）译文随卡附上。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii-walleye",
+          "authorName": "AI & I by Every",
+          "authorTag": "Will（Walleye CEO/CIO/管理合伙人）· Best of 重播",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "A re-run in today's feed (first covered in our 2026-08-28 issue): AI & I's 'Best of the Pod' with the CEO/CIO/managing partner of Walleye, a ~$10B AUM hedge fund (and Every consulting client). The episode opens with the legendary all-hands memo: 'Using ChatGPT is not cheating. That's a non applicable idea from academia… As a hedge fund, we should be ashamed to leave money on the table by ignoring tools that make us faster, smarter, and more effective. Not using these tools is like refusing to use the Internet in 1995.' Core threads: the owner-operator's conviction ('if we ultimately get disrupted by AI, that's on me'); the March 2023 TMT analyst who demoed tools to replace his own job — which became Current, the internal fundamental-investing agent platform (usage spikes during earnings); the Sword in the Stone / Merlin analogy — living backwards in time, seeing the endpoint more easily than the steps; weekly demos with a third of the 400-person firm joining, flipping fear from 'afraid to make mistakes' to 'afraid to fall behind'; adoption stats (~75% weekly active ChatGPT users, ~1/3 using AI coding tools like Windsurf); LLM-driven sentiment analysis on unstructured data as pure alpha; recording every Zoom/call into a data lake with LLMs processing the morning risk call for memory and prediction; writing as thinking — 4-5 hour memos becoming 15 minutes ('I don't think we need to waste time trying to be clever anymore'); the tools don't negate thinking — they give you more time to think; the robber-barons/Gilded Age analogy — skills going obsolete within a single lifetime, faster this time; 'I'm not a VC, thank God'; cowboys and barbed wire; human nature as the stationary constant ('history doesn't repeat itself, it rhymes'); quant vs human intuition in low-large-numbers fuzzy situations; first principles as incentives alignment, hating fluff, intellectual honesty, measuring everything; and the firm as microcosm — 'you have to learn these tools or you're just not gonna be competitive. At some point, if you don't, that's your choice.'"
+            ],
+            "original": [
+              "Will: Using ChatGPT is not cheating. That's a non applicable idea from academia. I use ChatGPT to write this email. You should be using it too and be proud of it.",
+              "Will: Not using these tools is like refusing to use the Internet in 1995 because it wasn't perfect.",
+              "Will: If we ultimately get disrupted by AI, that's on me. And so let's get after that.",
+              "Will: It's kind of like you can see the endpoint more easily than you can see the steps to get there.",
+              "Will: Basically need to be more afraid to getting [left] behind.",
+              "Will: It can be, no exaggeration, like a fifteen minute process that would have taken me four or five hours historically.",
+              "Will: These tools don't negate the necessity to think. If anything, they should just give you more time to think.",
+              "Will: You have to learn these tools or in whatever time period, [you're] just not gonna be competitive. At some point, if you don't, that's your choice."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "今日 feed 播客位为重播（本刊 08-28 期已完整收录，2026-08-26 发布）：AI & I「Best of」与 Walleye（近 100 亿美元 AUM 对冲基金）CEO/CIO/管理合伙人的深谈——「使用 ChatGPT 不是作弊」的全员信、Current 投研平台、75% 周活与全量录音数据湖。完整译文见下。"
+            ],
+            "original": [
+              "【开场：那份出名的全员信】",
+              "主持人：CEO 们写「我们是 AI first」备忘录已经成了梗，而你写下了我见过最好的版本。愿意念念开头吗？",
+              "Will：「使用 ChatGPT 不是作弊。那是来自学术界的不适用概念。这封邮件就是我用 ChatGPT 写的。你也应该用，并为此骄傲。作为对冲基金，如果因为忽视让我们更快、更聪明、更有效的工具而把钱留在桌上，我们应该感到羞耻。从最顶层开始，我们就在围绕 AI 建设文化。不用这些工具，就像 1995 年因为互联网不完美而拒绝用它。」",
+              "",
+              "【为什么是我：owner-operator 的信念】",
+              "Will：我的头衔是 CEO、CIO 兼管理合伙人——这家较大规模对冲基金的拥有者兼运营者。我很少接受采访、不上会议、只做过一期播客，这次是刻意的。因为对行业方向、对我们公司的方向有极大的目的感与信念，而我自认拥有带领我们进入下一阶段的技能和落实它的权力——不尽最大纪律与强度去做，对我而言是不负责任的。",
+              "Will：三个受众：Walleye 内部约 400 人；未来可能加入我们的人（让他们看到这家公司对 AI 是认真的，且从我本人开始）；以及生态里的产品公司与合作伙伴。",
+              "Will：我是正经 nerd：普林斯顿工程、牛津数学博士、职业起点是整天给算法策略写代码。我们公司一大块是纯量化交易，机器增强或取代金融里的人类工作这件事我思考了很多年。真正变化是这些工具变得更强、且对非技术人员也可及——尤其在非结构化数据上。作为对公司与投资者负责的人：如果我们最终被 AI 颠覆，那是我的责任。所以，行动起来。",
+              "",
+              "【起点时刻与「梅林视角」】",
+              "Will：两年前，我们最先进的内部 AI 项目 Current 的负责人——当时是 TMT 多空选股团队的分析师——2023 年 3 月来找我：他用新工具让自己效率大增，并尝试替代他自己做分析师的工作。我起初怀疑，但他坐下给我演示，我说：哇，这就是我们的方向。于是我们开始为基本面投资构建 agent 辅助分析。",
+              "Will：我最近的类比是《石中剑》里的梅林——他倒着活在时间里，能瞥见未来，却看不见中间的步骤。我就是这种感觉：无法不相信五年后我们这类公司会深度集成最好的 AI 技术（投资与非投资全领域）——这个行业是信息与结果之间关联最清晰的行业。看终点比看路径容易。",
+              "",
+              "【从领导层示范到全员工具化】",
+              "Will：谁也代替不了领导者定调。我们的周度 demo 有全公司三分之一的人参加。上周一次 demo 天不遂人愿，但没关系——人们接受并拥抱「有些东西还不完美，但你能看到方向」，而不是拿不完美当无视的借口。把恐惧翻转过来：不是怕犯错，而是怕落后。",
+              "Will：具体成果：约 75% 的公司每周（几乎每天）活跃使用 ChatGPT 或类似工具；约三分之一使用 Windsurf 等 AI 编码工具。LLM 让我们大规模处理非结构化数据并纳入信号（历史上叫情绪分析）——这是纯赚钱层面的提升。Current：每个基本面选股团队都在用，财报季用量暴涨；竞对跳槽来的人说它不仅是更好的工具，而是工作的必需品。现在做长线选股，没有这些工具根本没法竞争——因为总有人能实时处理所有财报，让机器推断出人类跟不上的东西。上周 meetup 上有人提议做播客转摘要产品，当天就有五个 beta 版本，次日推全公司。",
+              "",
+              "【写作、录音与数据湖】",
+              "Will：我靠写作思考——我的教育很贵，最好真能写。现在写邮件/备忘录：先打要点、给足上下文、喂进我写过的同类内容、要求用我自己的声音——夸张点说，15 分钟完成过去要四五小时的事。所以我对这些工具近乎虔诚。很多写作其实是「系鞋带」的部分：把句子缝起来、追求聪明说法。现在不用再浪费时间耍聪明了。",
+              "Will：但工具不取消思考的必要。它们给你更多时间思考。我能看出一段文字是不是机器写的——但那不重要，重要的是概念是否清晰传达。你有一小时，过去 50-60% 在机械打字，现在 5%——多出来的时间应该用来读、校、问「这说得通吗」。",
+              "Will：除少数例外，我们内部录制每一场 Zoom 和电话。行业性质如此，而且我认为全世界都该习惯。你已看到有人戴腕带连续数月录下所有对话；往前推，人们身体里会植入录制设备记录一切。关键是数据策略：把所有数据汇入湖中，随时能插根吸管取用。作为 CIO，我每天早晨和风控团队在控制中心开风险会——全程录制，LLM 持续处理转写，帮我们回忆、给洞察，甚至有预测性。把公司内部所有信息连接起来之后能做什么，我们才刚挠到表面。",
+              "",
+              "【镀金时代、牛仔与人性常数】",
+              "Will：我最爱的历史是内战到一战之间——整个世界剧变的年代，我办公室就望着一座强盗大亨建的火车站。人们在自己的有生之年从「技能相关」走到「技能过时」，这一轮会更快。谢天谢地我不是 VC——他们大多不知道自己在干什么，总在挑动议题，却没意识到还是得有人去把这些建出来。",
+              "Will：牛仔为什么消失？铁丝网。旧西部开放牧场被圈起来，一个时代结束。历史不会重复，但会押韵：人性一万年没变。新总想取代旧、子欲越父——亚历山大大帝征服波斯时，波斯王求和，他回「我冲你来的」。森林大火烧掉老树让新灌木生长。总有拥抱变化的人群与公司，也总有抱住过去的人，冲突会以不同程度存在。",
+              "",
+              "【量化、直觉与第一性原理】",
+              "Will：世界级量化投资在很多十年前就超越了人类能理解的范畴。但人类直觉在「低大数定律」的模糊局面里仍有优势——机器没见过所有先例，人却能处理那团乱麻。我们造的一切工具，最终是让人类做出更准的预测。",
+              "Will：我的第一性原理：激励的威力——理解并尽量对齐个人或群体的激励向量，无论经营公司还是做投资；讨厌空话——一闻到 fluff 我的信任就下降；智力诚实；能测则测。我每天用 AI 记日记（强烈推荐），每次训练都记录追踪多年。把脑子里的念头随手抛出、被捕获处理、未来数月可取用——这些小用例在以前根本不可能。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
