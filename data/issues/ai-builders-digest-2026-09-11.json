@@ -1,0 +1,176 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-11",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Altman 的双喜（**14897 赞，今日最高**）：「时之笛重制是近来的最好消息。11 月 5、6 日我将无法联系——需要先找一箱 Mountain Dew」；以及「欢迎回来，Paul。感谢你做这件事、感谢你为 AI 安全做过的一切，期待再次共事」（3349 赞）。Sottiaux 的致歉与安抚（9117 赞）：今晨部分 banked reset 在 ChatGPT Work 与 Codex 未完全生效——受影响窗口内的每位用户都会再得一次重置并收到道歉邮件；外加与研究员辩论新模型命名的快乐（2971 赞）「他们会想出最搞笑的名字」。Claude 官宣 Marketplace（2858 赞）：CrowdStrike、Cursor、Factory、Gamma、Vercel 首批入驻，企业可用 Anthropic 消费承诺直接购买 Claude 驱动的产品与 agent。Steipete「This is brilliant」（1153 赞）+ Dashboard/Mini-Apps 已替换其团队大量自研工具（161 赞）。今日无播客（连续第二天）。"
+  },
+  "archive": {
+    "title": "塞尔达重制与 Claude 市场日报",
+    "desc": "Altman「时之笛重制是最好消息」（14897 赞）并欢迎 Paul 回归；Sottiaux 就 banked reset 故障道歉（9117 赞）；Claude Marketplace 上线。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-11 source feeds (14 builders, 28 tweets; no podcast episode in today's feed, second day in a row).",
+  "sections": [
+    {
+      "title": "Zelda Remake & Welcome Back, Paul / 塞尔达重制与欢迎 Paul 回归",
+      "desc": "Altman 三连（**14897/7017/3349 赞**）：时之笛重制、服务优先的坦诚、Paul 的回归。",
+      "cards": [
+        {
+          "authorKey": "sama",
+          "authorName": "Sam Altman",
+          "authorTag": "OpenAI CEO",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "The triple: 'ocarina of time remake is the best news in a long time. i will be unavailable november 5 and 6; need to find a case of mountain dew' (14897 likes, top of the day) — the CEO scheduling PTO around a Zelda launch; 'This would suck, but we will prioritize great service for customers until we can get back on top of things' (7017) — responding to the capacity crunch with a service-first promise; and 'Welcome, Paul. Grateful you are doing this, and all you have done for AI safety. Excited to work together again' (3349) — welcoming a major AI-safety figure (apparently) back into the fold."
+            ],
+            "original": [
+              "Sam Altman: ocarina of time remake is the best news in a long time. i will be unavailable november 5 and 6; need to find a case of mountain dew.",
+              "Sam Altman: This would suck, but we will prioritize great service for customers until we can get back on top of things.",
+              "Sam Altman: Welcome, Paul. Grateful you are doing this, and all you have done for AI safety. Excited to work together again."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 三连：「时之笛重制是近来的最好消息。11 月 5、6 日我将无法联系——需要先找一箱 Mountain Dew」（14897 赞，今日最高）——CEO 为塞尔达发售排好休假；「这会很糟，但我们会优先为用户提供优质服务，直到重新掌控局面」（7017 赞）——面对容量吃紧的服务优先承诺；以及「欢迎回来，Paul。感谢你做这件事、感谢你为 AI 安全做过的一切，期待再次共事」（3349 赞）——欢迎一位重量级 AI 安全人物（显然是）回归阵营。"
+            ],
+            "original": [
+              "Altman：时之笛重制是最好消息，11 月 5、6 日失联。优先服务用户。欢迎 Paul 回归。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Banked-Reset Kerfuffle & the Claude Marketplace / Banked reset 故障与 Claude 市场",
+      "desc": "Sottiaux（**9117 赞**）就今晨 reset 未生效致歉 + 「Happy to be building here」（5776 赞）+ 模型命名大战（2971 赞）；Claude 官宣 Marketplace（2858 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "The incident post (9117 likes): 'There was a bit of a kerfuffle this morning with some banked resets not fully applying when used in ChatGPT Work and Codex. Everyone who used one in the affected time window is getting another one and an email to apologize.' The warmth post (5776): 'Happy to be building here with you all. Lots to explore.' And the naming lore (2971): 'One of the greatest joys is debating new model names with researchers. They come up with the most hilarious stuff.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: There was a bit of a kerfuffle this morning with some banked resets not fully applying when used in ChatGPT Work and Codex. Everyone who used one in the affected time window is getting another one and an email to apologize.",
+              "Thibault Sottiaux: Happy to be building here with you all. Lots to explore.",
+              "Thibault Sottiaux: One of the greatest joys is debating new model names with researchers. They come up with the most hilarious stuff."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "事故通报（9117 赞）：「今晨有点小乱子：部分 banked reset 在 ChatGPT Work 与 Codex 中使用时没有完全生效。在受影响时间窗内用过的每个人都会再得一次重置、并收到一封道歉邮件。」温情贴（5776 赞）：「很高兴和大家一起在这里建造，还有太多可探索的。」命名趣闻（2971 赞）：「最大的乐趣之一就是和研究员们辩论新模型的名字——他们会想出最搞笑的东西。」"
+            ],
+            "original": [
+              "Sottiaux：reset 未完全生效，受影响者再得一次并收道歉邮件。与研究员辩论模型名最搞笑。"
+            ]
+          }
+        },
+        {
+          "authorKey": "claudeai",
+          "authorName": "Claude",
+          "authorTag": "Anthropic",
+          "sourceUrl": "https://x.com/claudeai",
+          "en": {
+            "rewrite": [
+              "The Marketplace launch (2858 likes): 'New on Claude Marketplace: @CrowdStrike, @cursor_ai, @FactoryAI, @GammaApp, and @vercel. Enterprises can now use their Anthropic spend commitment to buy more Claude-powered products and agents. Get started.' Plus the builder listing call (107): 'If you're building on the Claude Platform, get listed and make it easier for our customers to buy your product' — a channel play turning spend commitments into a procurement shortcut."
+            ],
+            "original": [
+              "Claude: New on Claude Marketplace: @CrowdStrike, @cursor_ai, @FactoryAI, @GammaApp, and @vercel. Enterprises can now use their Anthropic spend commitment to buy more Claude-powered products and agents.",
+              "Claude: If you're building on the Claude Platform, get listed and make it easier for our customers to buy your product."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Marketplace 上线（2858 赞）：「Claude Marketplace 新入驻：CrowdStrike、Cursor、Factory、Gamma 与 Vercel。企业现在可以用他们的 Anthropic 消费承诺购买更多 Claude 驱动的产品与 agent。」外加建站者征集（107 赞）：「如果你在 Claude 平台上构建，来上架吧——让我们的客户更容易买到你的产品。」把消费承诺变成采购捷径的渠道打法。"
+            ],
+            "original": [
+              "Claude：Marketplace 上线，五大厂首批入驻，可用消费承诺采购。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Dashboards, Mini-Apps & Model Blind Spots / 仪表盘、迷你应用与模型盲点",
+      "desc": "Steipete 三连（**1153/161/25 赞**）：brilliant、Dashboard/Mini-Apps 替换自研工具、OpenClaw 云会话；Peter Yang 的盲点测试 prompt（95 赞）与 Dr Light 改名（117 赞）；Zara 的「想法易、信念难」（114 赞）；碎片若干。",
+      "cards": [
+        {
+          "authorKey": "steipete+petergyang+zarazhangrui+thenanyu+nikunj+danshipper",
+          "authorName": "Steipete / Yang / Zara / Nan Yu / Nikunj / Shipper",
+          "authorTag": "OpenClaw / Builder / Builder / OpenAI / FPV / Every",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "Steipete's triple: 'This is brilliant' (1153 likes); 'Dashboards/Mini-Apps was something I pushed two months ago and now it replaced lots of custom tooling we built around OC. Everything's a sidebar entry, a dashboard or a plugin now for our team server' (161); and the speed win (25): 'Finally got cloud sessions working *fast* in OpenClaw. Remote Terminal, WebVNC and CUA for computer use.' Peter Yang's pair: the blind-spot prompt (95): 'My favorite way to test a new model's thinking abilities: Ask it for brutally honest feedback about your blind spots that are holding you back with this prompt (just paste the whole image into ChatGPT). Astra's feedback was especially blunt :)'; and the rename joke (117): 'I installed @poteto's Dr Eggbot for making new Grok bots (highly recommended!) but had to rename it to Dr Light so it doesn't become evil 😅.'",
+              "The rest: Zara's three-line truth (114): 'Idea is easy / Conviction is hard'; Nan Yu's 'Introducing Apple Orbital Strike' (56) — the meme; Nikunj's satisfied 'Finally' (44); and Shipper's 'i love looking at the @every slack' (16)."
+            ],
+            "original": [
+              "Peter Steinberger: This is brilliant.",
+              "Peter Steinberger: Dashboards/Mini-Apps was something I pushed two months ago and now it replaced lots of custom tooling we built around OC. Everything's a sidebar entry, a dashboard or a plugin now for our team server.",
+              "Peter Steinberger: Finally got cloud sessions working *fast* in OpenClaw. Remote Terminal, WebVNC and CUA for computer use.",
+              "Peter Yang: My favorite way to test a new model's thinking abilities: Ask it for brutally honest feedback about your blind spots that are holding you back with this prompt (just paste the whole image into ChatGPT). Astra's feedback was especially blunt :)",
+              "Peter Yang: I instlaled @poteto's Dr Eggbot for making new Grok @bot (highly recommended!) but had to rename it to Dr Light so it doesn't become evil 😅",
+              "Zara Zhang: Idea is easy. Conviction is hard.",
+              "Nan Yu: Introducing Apple Orbital Strike.",
+              "Dan Shipper: i love looking at the @every slack."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Steipete 三连：「This is brilliant」（1153 赞）；「Dashboards/Mini-Apps 是我两个月前推动的东西，现在它替换了我们围绕 OpenClaw 自建的大量工具——团队服务器上的一切现在都是侧边栏条目、仪表盘或插件」（161 赞）；速度战报（25 赞）：「终于让 OpenClaw 的云会话跑得飞快：Remote Terminal、WebVNC 与用于计算机使用的 CUA。」Peter Yang 双发：盲点测试法（95 赞）——「我最爱的新模型思维能力测试：用这个 prompt 请它对你正在拖累你的盲点给出残忍诚实的反馈（把整张图直接贴进 ChatGPT）。Astra 的反馈尤其直白 :)」；改名梗（117 赞）——「装了 poteto 的 Dr Eggbot 来做新的 Grok bot（强烈推荐！），但不得不改名叫 Dr Light，免得它变邪恶 😅」。",
+              "其余：Zara 的三行真言（114 赞）：「想法容易 / 信念难」；Nan Yu 的「Introducing Apple Orbital Strike」梗（56 赞）；Nikunj 心满意足的「Finally」（44 赞）；Shipper 的「我爱看 Every 的 slack」（16 赞）。"
+            ],
+            "original": [
+              "Steipete：Dashboard/Mini-Apps 替换自研工具。Yang：盲点 prompt 测模型；Dr Eggbot 改名 Dr Light。Zara：想法易信念难。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Capability vs GDP & the Automation Model / 能力与 GDP 之辩与自动化模型",
+      "desc": "Levie 双发（205/70 赞）：企业物理定律与编码 agent 的远大前程；Shipper 的报告模型批判（189 赞）；Rauchg 的降价清单与 Benchmarks 活动（211/183 赞）；其余碎片。",
+      "cards": [
+        {
+          "authorKey": "levie+danshipper+rauchg+adityaag+mattturck+garrytan",
+          "authorName": "Levie / Shipper / Rauchg / Aditya / Turck / Tan",
+          "authorTag": "Box CEO / Every / Vercel CEO / SPC / VC / YC CEO",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie's double: the reconciliation thesis (205 likes): 'The way to reconcile capability level of AI vs. GDP impact is that the diffusion of AI will take much longer than people think… You could bring the world's greatest superintelligence to many workflows, and still be bound by the laws of corporate physics: getting data prepared and put into a pipeline, process reengineering and change management, aligning on how the' — and the coding-agents horizon (70): 'The world is going to be using coding agents for far more than anyone would have thought before… In short, by lowe[ring]…' (new categories, companies that couldn't afford software, cyber defense, life-sciences research, legacy upgrades).",
+              "Shipper's model critique (189 likes): 'this is a very good and well designed report. however, two impt assumptions… 1. the report assumes that jobs can be decomposed into tasks 2. the report models human tasks created by automation always as a fraction of automated tasks… the underlying assumption is automation always reduces human labor (or at best leaves it the same).' Rauchg's pair: the price-cut receipts (211): '8 price cuts, fee removals and structure improvements, plus 16 model discounts… in the last 6 months alone. More to come'; and the event plug (183): 'AI Benchmarks with @Benchmark & @Vercel… about one of the most important software categories of our generation.' Plus Aditya's Waymo note (30): Dmitri Dolgov — joining Google's self-driving project in 2009, now co-CEO — visiting SPC this month; Turck's VC grit at the latest-ever US Open finish (64); and Garry Tan's Jane Kim broadside (218)."
+            ],
+            "original": [
+              "Aaron Levie: The way to the reconcile capability level of AI vs. GDP impact is that the diffusion of AI will take much longer than people think. And it will also show up in ways that are hard to measure in GDP immediately. You could bring the world's greatest superintelligence to many workflows, and still be bound by the laws of corporate physics.",
+              "Aaron Levie: The world is going to be using coding agents for far more than anyone would have thought before.",
+              "Dan Shipper: this is a very good and well designed report. however, two impt assumptions in it that significantly change the analysis once you start to play with it: 1. the report assumes that jobs can be decomposed into tasks 2. the report models human tasks created by automation always as a fraction of automated tasks.",
+              "Guillermo Rauch: 8 price cuts, fee removals and structure improvements, plus 16 model discounts… in the last 6 months alone. More to come…",
+              "Aditya Agarwal: One of the greatest examples of human-oriented technology is @Waymo. But it took a long road to get here. @dmitri_dolgov joined Google's self-driving project in 2009. He's now leading Waymo as co-CEO. He's coming by @spc this month.",
+              "Garry Tan: Jane Kim is a NIMBY who helped create the SF doom loop, and now she's failing up: she wants to be CA Insurance Commissioner. She is no public servant. We should keep her out of office."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 双发：调和论（205 赞）——「调和 AI 能力与 GDP 影响的方式是：AI 的扩散会比人们想的慢得多，而且它会以 GDP 难以即时度量的方式显现。就算你把世界上最强的超级智能带进许多工作流，你仍然受制于企业物理定律：数据准备与入管道、流程再造与变革管理、对齐『怎么做』……」；编码 agent 前景（70 赞）——「世界使用编码 agent 的场景将远超此前想象：全新品类的工具、给过去买不起软件的公司造软件、用 agent 防御网络风险、自动化生命科学研究、处理复杂工作流的海量数据、升级遗留系统……」。",
+              "Shipper 的模型批判（189 赞）：「这份报告做得非常好、设计精良。但有两个重要假设，一动手调参就会显著改变结论：1. 它假设工作可以被分解为任务；2. 它把自动化创造的人类任务永远建模为『自动化任务的一个分数』——换句话说，其底层假设是自动化总在减少人类劳动（至多持平）。」Rauchg 双发：降价清单（211 赞）——「仅过去 6 个月：8 次降价、费用取消与结构改进，外加 16 项模型折扣……还会更多」；活动预告（183 赞）——「与 Benchmark 合办的 AI Benchmarks：旧金山史上名字最贴切的活动、也是我们这代最重要的软件品类之一。」其余：Aditya 的 Waymo 致敬（30 赞）——Dolgov 2009 年加入 Google 自动驾驶项目、现任 co-CEO，本月到访 SPC；Turck 的 VC 拼劲（64 赞）——美网史上最晚收官夜的「inspiring」；Garry Tan 对 Jane Kim 的开炮（218 赞）。"
+            ],
+            "original": [
+              "Levie：AI 扩散受制于企业物理定律。Shipper：任务分解与自动化假设改变结论。Rauchg：6 个月 8 降价 16 折扣。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
