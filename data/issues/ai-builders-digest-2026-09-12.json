@@ -1,0 +1,190 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-12",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 落锤（**15157 赞，今日最高**）：「为确保现有用户拥有出色体验、持续用上 Astra，我们将暂停 $200 Pro 套餐订阅——它对我们系统的压力最大；我们想走最小的一步、保住尽可能广的访问。其余套餐与 API 照常，对存量账户无影响，我们正尽快扩容」——昨日预警今日兑现；配套 API 发布（2715 赞）：「按需扩展的 agent——这就是 ChatGPT Work 底层的基础设施，包成 API，1 分钟上手」。Steipete 呼应（636 赞）：「趁早上车，Astra 需求涨得太快」，另有一针见血的工程观（2293 赞）：「复制逻辑不再痛苦，抽象仍然痛苦」。Peter Yang 的逆风发言（401 赞）：「以干活效率论，Sol > Astra」。Cherny 的安全双发：威胁情报报告「绝对令人恐惧且必读」（338 赞）+ 原型与生产代码的两套标准（1155 赞）。平台日：Gemini 上 Windows、Dreambeans 全美开放、Vercel 每日 1000 万次部署、Box × OpenAI 深化合作。播客全新一期：MAD Podcast 专访 Richard Socher——RSI 公司 Recursive 融 6.5 亿美元、4.1 亿砸向单一算力合同，新书《The Eureka Machine》9 月 22 日出版（76077 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "Pro 暂停与尤里卡机器日报",
+    "desc": "Sottiaux 暂停 $200 Pro 订阅（15157 赞）保存量扩容；Steipete「复制逻辑不再痛苦，抽象仍然痛苦」；Socher 谈 RSI 公司 Recursive 与《The Eureka Machine》。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-12 source feeds (18 builders, 35 tweets, plus one long-form podcast: MAD Podcast with Richard Socher, published 2026-09-10, new to this digest).",
+  "sections": [
+    {
+      "title": "The Pro Pause & the Capacity Week / Pro 暂停与容量之周",
+      "desc": "Sottiaux（**15157 赞**）兑现昨日预警：暂停 $200 Pro 订阅 + 「按需扩展 agent」API（2715 赞）+ data/dashboard 梗（1951 赞）；Steipete 三连（2293/636/233 赞）；Peter Yang「干活 Sol > Astra」（401 赞）；Zara 之问（80 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete+petergyang+zarazhangrui",
+          "authorName": "Sottiaux / Steipete / Yang / Zara",
+          "authorTag": "OpenAI / OpenClaw / Builder / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "The hammer drops (15157 likes, top of the day): 'To make sure our current users have an incredible experience and continued access to Astra, we are going to pause subscriptions to our $200 Pro plan. These put the most strain on our systems and we wanted to take the smallest step that allows us to continue giving the broadest access possible. All other plans and the api remain available. There is no impact to existing accounts and we are working on adding more capacity as fast as we can.' The companion launch (2715): 'Scaled agents on demand. This is pretty much the infrastructure that runs under the hood for ChatGPT Work, all wrapped up in an API which you can use to get started in < 1 min.' And the internal-culture gem (1951): 'Do you pronounce it data or data? This is the way everyone makes dashboards and learns about the business at OpenAI.'",
+              "Steipete's trio: 'This makes a lot of sense. Duplicating logic is no longer painful. Abstractions still are' (2293) — the programming-philosophy tweet of the week; 'Better hop on soon. Astra demand is growing too fast!' (636); and 'Trading tokens for an AC. Who knew SF could be so hot 🫠' (233). Peter Yang's headwind take (401): 'In my humble opinion, for getting shit done Sol > Astra.' Zara's question (80): 'Why is computer use still so painfully slow??'"
+            ],
+            "original": [
+              "Thibault Sottiaux: To make sure our current users have an incredible experience and continued access to Astra, we are going to pause subscriptions to our $200 Pro plan. These put the most strain on our systems and we wanted to take the smallest step that allows us to continue giving the broadest access possible. All other plans and the api remain available.",
+              "Thibault Sottiaux: Scaled agents on demand. This is pretty much the infrastructure that runs under the hood for ChatGPT Work, all wrapped up in an API which you can use to get started in < 1 min.",
+              "Peter Steinberger: This makes a lot of sense. Duplicating logic is no longer painful. Abstractions still are.",
+              "Peter Steinberger: Better hop on soon. Astra demand is growing too fast!",
+              "Peter Yang: In my humble opinion, for getting shit done Sol > Astra.",
+              "Zara Zhang: Why is computer use still so painfully slow??"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "落锤（15157 赞，今日最高）：「为确保现有用户拥有出色体验、持续用上 Astra，我们将暂停 $200 Pro 套餐订阅——它对系统压力最大；我们想走最小的一步、保住尽可能广的访问。其余套餐与 API 照常，对存量账户无影响，正尽快扩容。」——昨日「或需暂停」的预警今日兑现。配套 API（2715 赞）：「按需扩展的 agent——这基本就是 ChatGPT Work 底层运行的那套基础设施，包成一个 API，1 分钟内上手开工。」内部文化梗（1951 赞）：「你把它念成 data 还是 data？这就是全 OpenAI 做仪表盘、了解业务的方式，离不开它。」",
+              "Steipete 三连：「这很有道理：复制逻辑不再痛苦，抽象仍然痛苦」（2293 赞）——本周最佳编程哲学推；「趁早上车，Astra 需求涨得太快！」（636 赞）；「拿 token 换一台空调，谁想到旧金山能这么热 🫠」（233 赞）。Peter Yang 的逆风（401 赞）：「依我拙见，论干活效率：Sol > Astra。」Zara 之问（80 赞）：「为什么计算机使用还是这么痛苦地慢？？」"
+            ],
+            "original": [
+              "Sottiaux：暂停 $200 Pro 新订阅，存量不受影响，尽快扩容。Steipete：复制逻辑不痛，抽象仍痛。Yang：干活 Sol > Astra。Zara：computer use 为何还这么慢。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Guardrails, Memory Prompts & Build Days / 护栏、记忆 prompt 与 Build Days",
+      "desc": "Cherny 的威胁报告与生产代码标准（338/1155 赞）+ 回信文化（1737 赞）；Thariq 的记忆访谈 prompt（**1774 赞**）；Shipper 三连（373/148/32 赞）；Claude 官宣 Fable 5.1 Build Days（2687 赞）。",
+      "cards": [
+        {
+          "authorKey": "bcherny+trq212+danshipper+claudeai",
+          "authorName": "Cherny / Thariq / Shipper / Claude",
+          "authorTag": "OpenAI / OpenAI / Every / Anthropic",
+          "sourceUrl": "https://x.com/bcherny",
+          "en": {
+            "rewrite": [
+              "Cherny's security double: 'The latest Threat Intelligence report is an absolutely terrifying and important read. As models become more intelligent, without the right safeguards and monitoring they also become more dangerous. Many capabilities are dual use: a model that codes well can be used to hack critical infrastructure; a model that assists with biology research can also be used to engineer the next pandemic' (338); and the standards reply (1155): 'Prototypes and other throw-away code can be treated as totally black box… Production code written by Claude should have a higher bar than if it was written by a human' — Anthropic backs it with lint rules and tests. Plus his reply culture post (1737): 'Every day, I get a lot of emails and messages like this one. I try to respond to as many as I can.' Thariq's prompt (1774): 'Try this prompt in Claude chat: Interview me in depth… about relevant parts of my life you don't know about yet and save it all to memory.' Claude's Build Days (2687): buildathons worldwide Sept 11–25.",
+              "Shipper's trio: 'the possibilities for this are incredible. extremely psyched to experiment' (373); 'I'm so sorry' (148); and 'very handsome interviewer too' (32)."
+            ],
+            "original": [
+              "Boris Cherny: The latest Threat Intelligence report is an absolutely terrifying and important read. As models become more intelligent, without the right safeguards and monitoring they also become more dangerous. Many capabilities are dual use: a model that codes well can be used to hack critical infrastructure; a model that assists with biology research can also be used to engineer the next pandemic.",
+              "Boris Cherny: 1. Prototypes and other throw-away code can be treated as totally black box. 2. Production code written by Claude should have a higher bar than if it was written by a human. At Anthropic, we have many guardrails in place to make sure this is happening: lots of lint rules, lots of tests.",
+              "Thariq: Try this prompt in Claude chat to give it more context about yourself: Interview me in depth using free text, or askuserquestion tool when multiple choice works, about relevant parts of my life you don't know about yet and save it all to memory.",
+              "Claude: Fable 5.1 Build Days start this week. The Claude community is hosting buildathons in cities all around the world from September 11–25. Bring a problem, an idea, or just show up and see what's possible."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cherny 安全双发：最新威胁情报报告「绝对令人恐惧且必读」（338 赞）——「模型越聪明，没有恰当护栏与监控就越危险。很多能力是双刃的：擅长编码的模型可以被用来攻击关键基础设施；辅助生物研究的模型也能被用来设计下一场大流行」；生产标准回复（1155 赞）：「原型与一次性代码可以完全当黑盒……而 Claude 写的生产代码应该比人写的有更高的标准」——Anthropic 用大量 lint 规则与测试兜底。外加回信文化（1737 赞）：「每天我都收到很多这样的邮件与私信，我尽量都回。」Thariq 的 prompt（1774 赞）：「在 Claude 聊天里试试：『用自由文本（多选合适时用 askuserquestion 工具）深度采访我、了解你还不知道的我人生相关部分，并全部存入记忆。』」Claude 官宣（2687 赞）：Fable 5.1 Build Days 本周开启，9 月 11-25 日全球城市建设马拉松。",
+              "Shipper 三连：「这事的可能性难以置信，极度兴奋想实验」（373 赞）；「I'm so sorry」（148 赞）；「采访者也很帅」（32 赞）。"
+            ],
+            "original": [
+              "Cherny：威胁报告必读；Claude 生产代码要比人写的标准更高。Thariq：记忆访谈 prompt。Claude：Build Days 全球开跑。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Platform Day: Windows, Dreambeans & 10M Deployments / 平台日：Windows、Dreambeans 与千万部署",
+      "desc": "Josh Woodward：Gemini 上 Windows（459 赞）；Google Labs：Dreambeans 全美开放（393 赞）；Rauchg 三连（509/269/131 赞）；Levie 的企业见闻与 Box × OpenAI（220/151 赞）；Turck 为 Socher 播客预热（19 赞）。",
+      "cards": [
+        {
+          "authorKey": "joshwoodward+GoogleLabs+rauchg+levie+mattturck",
+          "authorName": "Woodward / Labs / Rauchg / Levie / Turck",
+          "authorTag": "Google / Google Labs / Vercel CEO / Box CEO / VC",
+          "sourceUrl": "https://x.com/joshwoodward",
+          "en": {
+            "rewrite": [
+              "Google's platform day: 'Gemini, now on Windows!' (459); and Dreambeans (393): 'officially available to all US users (18+) on iOS and Android, free of charge… You can also now connect @Geminiapp to Dreambeans' for personalized daily stories. Rauchg's infrastructure trio: 'Each day ~10 million deployments are made on Vercel, with 2.35 billion made to date… Underlying our CDN is a global metadata store that synchronizes within hundreds of milliseconds, globally' (509); 'We made deployments faster again' (269); and the vision one-liner (131): 'A computer for every agent, in every region.'",
+              "Levie's double: enterprise road tales (220) — 'Met with a couple dozen technology leaders this week across banking, media, information services, insurance, and consulting… Cyber! Everyone nervous about the growing rate of vulnerabilities coming at them from AI, and the implications of the OpenAI Hugging Face incident'; and the Box × OpenAI partnership (151): 'Excited to partner more deeply with OpenAI so you can work with your enterprise content from Box securely in ChatGPT… the future of work will be AI agents that can process data and execute workflows anywhere.' Plus Turck's teaser (19) for the Socher episode: 'When AI builds AI: my conversation with @RichardSocher about RSI and scientific progress.'"
+            ],
+            "original": [
+              "Josh Woodward: Gemini, now on Windows!",
+              "Google Labs: Dreambeans is officially available to all US users (18+) on iOS and Android, free of charge. No subscription required. You can also now connect @Geminiapp to Dreambeans.",
+              "Guillermo Rauch: Each day ~10 million deployments are made on Vercel, with 2.35 billion made to date. Vercel is one of the most heavily multi-tenant systems in the world.",
+              "Guillermo Rauch: A computer for every agent, in every region.",
+              "Aaron Levie: Excited to partner more deeply with OpenAI so you can work with your enterprise content from Box securely in ChatGPT. Software continues to go headless, and we're massive believers that the future of work will be AI agents that can process data and execute workflows anywhere.",
+              "Matt Turck: When AI builds AI: my conversation with @RichardSocher about RSI and scientific progress."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Google 平台日：「Gemini，现在上了 Windows！」（459 赞）；Dreambeans（393 赞）：「正式向全美用户（18+）开放，iOS 与 Android 免费、无需订阅……现在还能把 Gemini App 接到 Dreambeans，它会基于你聊天中的细腻理解推送更个性化的每日故事。」Rauchg 基础设施三连：「Vercel 每天约 1000 万次部署、累计 23.5 亿……CDN 底下是一个全球元数据存储，数百毫秒内全球同步」（509 赞）；「我们又一次把部署变快了」（269 赞）；愿景一行（131 赞）：「给每个 agent 一台计算机，在每个区域。」",
+              "Levie 双发：企业路演见闻（220 赞）——「本周见了银行、媒体、信息服务、保险与咨询的几十位技术负责人……安全！所有人都在担心 AI 带来的漏洞增速、以及 OpenAI-Hugging Face 事件的影响」；Box × OpenAI 合作（151 赞）——「非常兴奋与 OpenAI 深化合作，让你能在 ChatGPT 里安全地处理 Box 中的企业内容……工作的未来是能随处处理数据、执行工作流的 AI agent。」外加 Turck 的预告（19 赞）：「当 AI 造 AI：我与 Richard Socher 谈 RSI 与科学进步。」"
+            ],
+            "original": [
+              "Gemini 上 Windows；Dreambeans 全美免费开放。Vercel 日部署 1000 万。Box × OpenAI 深化合作。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Richard Socher — When AI Improves Itself / 播客：Richard Socher——当 AI 自我改进",
+      "desc": "MAD Podcast 全新一期（2026-09-10 发布，本刊首次收录）：Matt Turck 对话 Richard Socher——Recursive 融资 6.5 亿美元专攻 RSI、新书《The Eureka Machine》（9 月 22 日出版）谈 AI 如何重燃科学进步。完整 transcript（76077 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-socher",
+          "authorName": "MAD Podcast",
+          "authorTag": "Richard Socher（Recursive 创始人；前 Salesforce 首席科学家）× Matt Turck",
+          "sourceUrl": "https://www.youtube.com/@DataDrivenNYC/videos",
+          "en": {
+            "rewrite": [
+              "A brand-new MAD Podcast (published 2026-09-10, new to this digest): Matt Turck with Richard Socher, who just raised $650M for Recursive — a company built for recursive self improvement (AI that makes better AI) — and whose book The Eureka Machine (out Sept 22) is a blueprint for how AI + RSI will revolutionize science. Core threads: why scientific progress slowed (knowledge went from a body to a labyrinth of 34,000 journals; academia punishes risk — Socher's early neural-net NLP papers were mostly rejected); AI as the new paradigm (like calculus for physics, weaving biology's pieces back together); next-token prediction as world model (driving north from NY → Boston; protein-folding distances showing up in representations); 'anything you can simulate, AI will solve' — games, math ('will change massively'), programming (picture→website→infinite examples), even the funky robot run at the Chinese Olympics humans may emulate; hallucination as feature (novel protein exploration; for facts, just add search + summarize — 'we didn't need neurosymbolic, just more don't-hallucinate examples'); reading → writing biology (2018 ProGen → Profluent's Eli Lilly deals, better than CRISPR-Cas9; per-patient drug trials, an FDA first); no hard takeoff (physics still takes years, but companies now reach multiple late-stage-2 drugs in 6-18 months instead of one after 8 years); the jobs theory (demand elasticity: illustrators lose, coding wins via Jevons paradox); off-ramping from progress (Greek islands, Bhutan's happiness-over-GDP); the AI economist (2018 RL simulation recovering and then surpassing the Saez formula; desk-rejected by Nature and Science; hope for a GPT-3 moment, more likely adopted in Singapore or China than the US); the Eureka machine's four pillars (LLM knowledge — with the 'knowledge returned to the open domain' cycle of closed labs → Chinese open-source distillation; scientific measurements; simulation — virtual cell as goalpost; the real world — robotic labs like Periodic Labs and Parallel Bio, whose FDA approval to skip certain animal trials means 'if you love animals, you can love AI'); agent swarms on top (open-endedness; Clune's microwave: you don't get it by 'heat this pot faster'); compute as the biggest constraint ($410M committed to a single Amazon deal — 'will probably be one of the smallest compute deals in our future'); Recursive's milestones (narrow-domain Eureka machine outperforming months/years of human endeavor; new CUDA kernels, benchmarked by NVIDIA's SOLEXEC); 'we are a real company, not an academic lab — most neo-labs will not succeed'; and the closer: ten spaces of intelligence, no unit of intelligence yet (like energy has one), visual intelligence bounded only by light cones — 'boy are we far away from the true upper bounds of any of the spaces of intelligence.'"
+            ],
+            "original": [
+              "Richard Socher: Anything you can simulate, AI will solve. And before you know it, you're in this recursive self improvement loop and we believe that that will be a great unlock.",
+              "Richard Socher: Boy, are we far away from the true upper bounds of any of the spaces of intelligence. And there is still so much further that AI can go.",
+              "Richard Socher: We evolved from a body of knowledge to a labyrinth of knowledge, 34,000 journals that might as well have no trespassing signs.",
+              "Richard Socher: The first pillar is just large language models… the few large closed labs took almost everything from the open internet, trained a model, but then the Chinese open source companies basically siphoned a lot of that knowledge out by distilling it, but then open sourced it back into the open domain.",
+              "Richard Socher: If you care about the outputs of an industry or a company then you love AI. If you get paid hourly you probably hate AI.",
+              "Richard Socher: Compute is the biggest constraint… We raised $670ish [million] and that will probably be one of the smallest compute deals that will happen in our future.",
+              "Richard Socher: We are a real company, not an academic lab. We are building real products, we're talking to real customers.",
+              "Richard Socher: Parallel Bio… has already gotten FDA approval to skip certain animal trials… if you love animals, you can also love AI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "MAD Podcast 全新一期（09-10 发布，本刊首次收录）：Matt Turck 对话 Richard Socher——刚为 Recursive 融了 6.5 亿美元专攻递归自我改进（AI 造更好的 AI），新书《The Eureka Machine》9 月 22 日出版。核心看点：科学为何放缓、next-token 即世界模型、可仿真即可解、幻觉是特性、四支柱尤里卡机器、4.1 亿美元的单笔算力合同、十个智能空间的上界。完整译文见下。"
+            ],
+            "original": [
+              "【开场：RSI 与新书】",
+              "Socher 开场金句：「任何你能仿真的东西，AI 都能解决。不知不觉间你就进入了递归自我改进循环——我们相信那将是一次巨大的解锁。天呐，我们距离任何智能空间的真实上界都还遥远得很，AI 还能走得更远得多。」Turck 介绍：Socher 是被引最多的 AI 研究者之一，如今站在「递归自我改进」（RSI）这个词的中心——刚为 Recursive 融资 6.5 亿美元，新书《The Eureka Machine》是 AI 与 RSI 革命化科学的蓝图。",
+              "",
+              "【科学进步为何放缓】",
+              "Socher：这是个有点反直觉的事实。想想抗生素：细菌感染从死刑与瘟疫变成了小麻烦，我们真正解决了它；但病毒与癌症远没有同样解决。基础性的新东西如 E=mc²、广义相对论之后，物理学的根本理论也没再有大进展。许多领域从「理解了一些基础构件」走到「能做大量工程」，同时分裂成上千个子领域——如今几乎不可能当那种能在所有领域间穿行的通才，因为每个领域都要好几年才能真正深入。子领域越多越细，每个里面的人手就越不够。这就是放缓的重要原因。",
+              "Socher：我们从「知识之体」演化成了「知识迷宫」——34000 本期刊，干脆挂上「禁止入内」的牌子。我自己学语言学、学计算机、这几年又在学生物，每次和生物学家聊，十句话之后就是一堆你不懂的缩写，多数人一会儿就神游了。而且学术界不鼓励冒险：太新颖的论文会被拒。2010 年前后我用神经网络做 NLP，头几篇论文基本全被 NLP 会议拒了，只在小的子圈子里被接收。我还记得 NeurIPS 前身 NIPS 的第一个深度学习 workshop——就三四十人，全是现在大名鼎鼎的人，但当时就是一小撮「叛徒」。",
+              "",
+              "【AI 是新的科学范式：next-token 即世界模型】",
+              "Socher：科学的强项是把东西越切越小，而要把它们重新织回一起，得用 AI——就像微积分之于物理，AI 之于生物。微生物组、大脑：我们理解单个神经元——突触、放电、化学（很多神经模型至今忽略化学）——但拼到一起就不明白为什么整颗大脑能产生一个念头。AI 是思考这些复杂系统的完美语言，而且研究神经网络总比研究原生生物系统容易。",
+              "Socher：为什么擅长做聊天机器人的技术也擅长科学发现？想想预测下一个 token 为什么这么强：语料里总有人写「我在纽约，往北开去……」——更大可能是波士顿而不是耶鲁，城市越大越可能。仅凭预测这一个词，你就吸收了地理知识；做上万亿遍，地理就被编进了网络。蛋白质折叠同理：三维空间里更接近的蛋白质，在 next-token 网络的表征里也表现出相关性。token 可以是词、子词，也可以是蛋白质、几块像素、一段声音——一切皆可 token 化。当然，所有模型都是错的、有些是有用的：蛋白质不只是序列，还有三维结构——但这个类比能被推到这么远，令人惊讶。而科学几乎都站在巨人肩膀上，聪明地重组已有思想就能带来巨大进步——我们联合创始人 Jeff Clune 就举过好几个例子：AI 生成的想法，几个月后被人原样发表了——新颖性门槛已经多次达标。",
+              "",
+              "【可仿真即可解：游戏、数学、编程与跑步姿势】",
+              "Socher：我们基本能预测 AI 将在哪里必然超人类：凡是能仿真或能验证的领域。能仿真，AI 就能在里面实验无限次。完美信息的游戏（棋类看得见全盘）最简单——AI 还能自我对弈，这正是开放性与 RSI 的重要部分。数学将在几年内巨变——前沿数学家已充分意识到，很多过去有用的手工技巧（就像手工特征工程、手工架构工程）将不再有用。最有力的可仿真可验证对象是编程：给一张网站截图说「做成这样」，就能造出无限多训练例——整个编程业将改变，冲击整个数字经济。还有个好玩例子：中国运动会上机器人那好笑的跑姿——仿真里 AI 试了各种跑法找到这种人类从未想到的方式；我的直觉是人类会去模仿那种跑法来跑得更快，就像棋手和围棋手因与近乎完美的 AI 对练而变得更强。",
+              "",
+              "【幻觉是特性、从读到写生物】",
+              "Socher：探索新蛋白质时，幻觉是特性不是 bug——每台计算机都能死记硬背，有趣的是「幻觉得多合理、多有意思地偏离分布」——调高温度即可。事实性问题则给搜索引擎结果再总结，幻觉问题大部分就解决了——当初以为需要神经符号推理，其实只需要更多「别幻觉、照搜索结果总结」的例子。别忘了：海森堡与苦艾酒、某些不太健康的精神状态也推动过物理学。",
+              "Socher：生物正从记忆学科变成可编程的工程学科。2018 年我们在 Salesforce 训练了当时最大的蛋白质语言模型 ProGen（一作 Ali Madani），他后来创办 Profluent，如今与礼来签了数十亿美元合同——造出的新蛋白在基因编辑上比 CRISPR-Cas9 更好、更精准。还有个试验为每位患者造不同的药——FDA 史上第一次。美国和欧洲临床试验太难，很多团队去中国（更便宜更快，但要担心 IP 被吸走）或澳大利亚（把临床试验权下放到每家医院，引入竞争）。我不信疯狂硬起飞：物理与现实验束还在——想知道停药三年后有没有问题就是得等三年；但变化是：过去八年一款药进晚期试验，现在 6-18 个月多款药进二期晚段，上市时可能有八款以上，且预测模型更好、成功率更高。",
+              "",
+              "【就业弹性、杰文斯与离场权】",
+              "Socher：如果你在乎产出，你爱 AI；如果你按小时领薪，你大概恨 AI。就业的关键变量是需求价格弹性：插画师恨 AI——价格跌了一千倍，需求没涨一千倍，世界不需要那么多插画；编码相反——越便宜用得越多，杰文斯悖论，程序员需求反而在涨，未来每人手机上可能有几十个为自己定制的 app。我还兴奋于：吃微塑料、吃完就死的细菌（要小心变异）；等离子体平衡已是机器学习控制问题；更高效的太阳能板与不必依赖锂的电池。「想知道一件事为什么不行，去问专家」——NLP 如此，如今生物与长寿也如此。另一方面，会有人选择从进步中「下匝道」：希腊小岛打鱼的人不必想 AI；不丹用幸福而非 GDP 记分。David Deutsch 的《无穷的开始》讲科学如何解决一个又一个难题——我个人全押进步，但有人会不参与，AI 这个加速剂让这个问题更迫切。AI 的公关做得很糟：小说曾毁掉青年（《少年维特之烦恼》真导致过自杀，如今是德国高中生必读）、漫画曾很坏、游戏曾很坏——现在是聊天机器人很坏；但数亿人从中获得更便宜的医疗、法律、情感建议——「未来整体上需要更好的营销」。",
+              "",
+              "【AI 经济学家】",
+              "Socher：经济学没有基准测试，投稿 Nature 和 Science 直接桌拒——有位完全不懂 AI 的伦理学家说「RL 做经济学太怪了」看都不看。于是经济学变成政治场：你必须写符合本系政治倾向的论文。2018 年我们造了个仿真社会：agent 有效用函数、每天愿工作时长、从先验采样；它们收集资源、建房、可垄断资源变富；再有一个元 agent 给各组定税收与补贴。奖励设为「平等 × 生产率」的乘积——你既想增长也不想一个 agent 占有一切。agent 们会钻空子——在税年前后倒腾收益避税。有趣的是：系统先复原了经济学著名的 Saez 公式（那是在「只做一次经济决策」世界里可证最优的税制），然后超越了它——因为真实经济是时序决策，agent 会针对税制做出反适应。希望这篇论文有朝一日迎来「GPT-3 时刻」——有人把它规模化成逼真仿真，让 AI 对经济政策给出客观建议（人类仍须定义目标函数）。美国因身份政治与超级 PAC 很难采用；新加坡或中国更可能先试。",
+              "",
+              "【尤里卡机器的四支柱与 agent 蜂群】",
+              "Socher：第一支柱是 LLM——把人类知识摄入机器。其中有个我没在书里多写、但亲历的怪循环：几家闭源大厂把开放互联网的一切拿去训了模型；中国开源公司又用蒸馏把这批知识从闭源模型里抽出来开源——于是知识回到了它出发的开放互联网。第二支柱是科学测量：我们看不见引力波与伽马射线，但能造仪器去测；有些知识甚至难以用人类语言描述——「这个网络因为这 500 万个参数预测了这个词」列出来也不会给你直觉，就像没人说得清你转方向盘时为什么动了小指的肌纤维。需要很多大学与实验室把物理、化学、生物的「世界模型」合到一起——「虚拟细胞」是一个很好的门柱，完整形态尚不存在。第三支柱是仿真：理想中是一台疯狂的统一大仿真，但需要分层抽象——化学不必模拟到量子细节，生物可以把分子抽象成蛋白质；有时过度简化会漏掉量子生物学的意外。第四支柱是现实世界：仿真总会漏掉混淆变量，最终要造真机器、放卫星、去测宇宙。自驾机器人实验室已有先行者（Periodic Labs）；投资上略早，两三年后正当其时。Parallel Bio 用人源干细胞做类器官（淋巴结免疫细胞），已获 FDA 批准跳过部分动物试验——省下数百万美元与无数专为试验饲养然后解剖的动物：爱动物的人也可以爱 AI。在四支柱之上是 agent 蜂群与科学家社区：开放性过程在生物里造出了手指、眼睛与大脑；Jeff Clune 的微波炉例子——你不可能靠「把这口锅加热快一点」得到微波炉，你得先做雷达、发现口袋里的巧克力化了——研究路径的重组才是惊喜之源。",
+              "",
+              "【Recursive：真公司、算力与里程碑】",
+              "Socher：算力是最大约束。未来人类与公司将越来越多地决定「什么问题值得解、给它多少算力」，会出现按问题的新缩放律。公开互联网大半已被消化，但新闻总在发生——you.com 持续给各家实验室喂最新搜索结果。Recursive：目标是建造递归自我改进的超级智能、自动化知识发现与科学发现。八位联创从不同方向走到同一认识——Clune 与 Tim Rocktäschel 从开放性/演化算法来；我从「特征工程→架构工程→下一个该自动化的是思想本身」来。融资最后是 6.7 亿左右，其中 4.1 亿投给 Amazon 的单一算力合同——「这大概会是我们未来最小的一笔算力交易」。今年内会有几个有意思的发布。我不喜欢「neo lab」这个类别——它们大多不会成功；我们是真公司、做真产品、见真客户。博客里展示过通往完整 RSI 的里程碑：在窄域里，尤里卡机器的第一版已能在小模型的自动研究上超过人类数月有时数年的投入；还能造新的 CUDA kernel 加速推理，NVIDIA 的 SOLEXEC bench 是基准，用户反馈非常正面。",
+              "",
+              "【智能的上界】",
+              "Socher：至今没有人把「智能」定义清楚。我目前的看法：基本构件是预测、行动与目标——就像能量有单位，我们还不知道智能的单位是什么。类似物理里动能势能之外还有化学能、机械能、电能，AI 里也有视觉智能、语言智能、物理智能与机器人——我定义了十个智能空间，每个都有很多维度。举视觉一例：人类只能看到电磁频谱很窄的一段，而智能体可以从伽马射线看到引力波、可以有亿万只传感器——但每个传感器都有光速视界，视觉智能终究受光锥约束。结论：天呐，我们离任何智能空间的真实上界都还远得很——所以当有人说「AI 这套算法要泡沫破裂了」：也许智能的单位成本会波动，但这个领域与文明能走的路还长得很。（《The Eureka Machine》9 月 22 日出版。）"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
