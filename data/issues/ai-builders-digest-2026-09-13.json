@@ -1,0 +1,185 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-13",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 的质量复盘（**15758 赞，今日最高**）：「与部分用户协作，我们找到并修复了以下问题——为旧模型写的 skills 触发过频、阻止模型自查；一个可选的上下文管理实验会导致提前停止或回复旧消息（已停用，粗估影响 4-5k 用户）」。周报贴（4233 赞）：本周 Astra 驱动上线了 Images 2.5、GPT-Live-1、Agents API、Data Agent、ChatGPT for Financial Services——「还没到 DevDay 呢」。Thariq 的 evals 双发：`claude plugin eval init` 插件评估上线（1250 赞）+「如今光看 pass/fail 分数基本没法解读 evals——我看到的很多失败源于过严的隐藏测试，有时模型的答案比标准答案更合理」（1504 赞）。Zara 的冷静（704 赞）：「一人公司被高估了——建造新东西是深切的孤独体验，你需要有人一起头脑风暴、一起受苦、一起庆祝」。播客全新一期：No Priors 专访 Coinbase CEO Brian Armstrong——「我们不想让 AI 没有银行账户」（53906 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "Astra 质量修复与 agentic 金融日报",
+    "desc": "Sottiaux 修复质量根因并盘点本周五连发（15758 赞）；Thariq 推 plugin evals；No Priors 专访 Coinbase CEO：为 AI agent 开户与 X402 协议。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-13 source feeds (15 builders, 30 tweets, plus one long-form podcast: No Priors with Coinbase CEO Brian Armstrong, published 2026-09-10, new to this digest).",
+  "sections": [
+    {
+      "title": "Quality Fixes & the Astra Ship List / 质量修复与 Astra 发布清单",
+      "desc": "Sottiaux 三连（**15758/4233/3042 赞**）：根因修复、本周五连发、Git AI 团队加盟；Steipete 让 Astra 在云会话里玩 Doom（270 赞）；Peter Yang 的软件工厂怀疑论（179 赞）与任务系统分工（91 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete+petergyang",
+          "authorName": "Sottiaux / Steipete / Yang",
+          "authorTag": "OpenAI / OpenClaw / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's triple: the quality postmortem (15758 likes, top of the day): 'Working with some of you, we have found and fixed the following issues: Some skills written for previous models were triggering too often or preventing the model from checking its work. An opt-in context management experiment that could cause early stops or replies to older messages. We've disabled it. Our rough estimate is that 4-5k users were affected'; the ship list (4233): 'Astra powered ships this week: Images 2.5, GPT-Live-1, Agents API, Data Agent, ChatGPT for Financial Services — and yet it's not yet DevDay. Busy plans for next week too'; and the hire (3042): welcoming Aidan & Sasha from the Git AI team — 'We'll also keep Git AI open source and continue investing in it.' Steipete's Doom run (270): 'Astra on OC in a cloud session playing Doom with CUA. Not quite AGI yet, but probably beats fly brain.' Peter Yang's pair: software-factory skepticism (179): 'Other than for verification & testing, I don't think AI is at a point where it can self-improve a product or build a new feature end-to-end without human in the loop… if it makes one wrong assumption the whole thing becomes a waste of tokens'; and the choreography (91): 'All local scheduled tasks live in Codex. All cloud tasks I'm porting over to Grok Bot. Makes it a clean split.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Hi Astra users. A reset and a quick update on quality issues that have been posted around. Working with some of you, we have found and fixed the following issues: Some skills written for previous models were triggering too often or preventing the model from checking its work. An opt-in context management experiment that could cause early stops or replies to older messages. We've disabled it.",
+              "Thibault Sottiaux: Astra powered ships this week: Images 2.5, GPT-Live-1, Agents API, Data Agent, ChatGPT for Financial Services. And yet it's not yet DevDay. Busy plans for next week too.",
+              "Thibault Sottiaux: Excited to welcome Aidan & Sasha from the Git AI team to OpenAI! Together, we'll make it easier for businesses to see where Codex is making a difference… We'll also keep Git AI open source and continue investing in it.",
+              "Peter Steinberger: Astra on OC in a cloud session playing Doom with CUA. Not quite AGI yet, but probably beats fly brain.",
+              "Peter Yang: I am skeptical of \"software factories.\" Other than for verification & testing, I don't think AI is at a point where it can self-improve a product or build a new feature end-to-end without human in the loop.",
+              "Peter Yang: All local scheduled tasks live in Codex. All cloud tasks I'm porting over to Grok Bot. Makes it a clean split."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 三连：质量复盘（15758 赞，今日最高）——「与部分用户协作，我们找到并修复了以下问题：①为旧模型写的 skills 触发过频、或阻止模型自查；②一个可选加入的上下文管理实验会导致提前停止或回复旧消息——已停用，粗估影响 4-5k 用户」；发布清单（4233 赞）——「本周 Astra 驱动上线：Images 2.5、GPT-Live-1、Agents API、Data Agent、ChatGPT for Financial Services。而且这还没到 DevDay，下周计划也很满」；招贤（3042 赞）——欢迎 Git AI 团队的 Aidan 与 Sasha 加入 OpenAI：「我们会让 Git AI 保持开源并持续投入。」Steipete 的 Doom 实况（270 赞）：「Astra 在 OpenClaw 云会话里用 CUA 玩 Doom。还不算 AGI，但大概打得过果蝇大脑。」Peter Yang 双发：软件工厂怀疑论（179 赞）——「除验证与测试外，我不认为 AI 已能在无人监督下端到端自改进产品或建新功能……一旦做错一个假设，整晚循环就是浪费 token」；分工宣言（91 赞）——「所有本地定时任务住 Codex，云端任务全部迁去 Grok Bot——干净利落的分工。」"
+            ],
+            "original": [
+              "Sottiaux：skills 过频触发与上下文实验已修复停用。本周五连发未到 DevDay。Git AI 团队加盟并保持开源。Steipete：Astra 云会话玩 Doom。Yang：怀疑软件工厂；Codex 本地、Grok 云端分工。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Evals Week: Plugin Evals & Personal Benchmarks / Evals 之周：插件评估与个人基准",
+      "desc": "Thariq 双发（**1250/1504 赞**）：plugin evals 上线 + 「模型的答案比标准答案更合理」；Shipper 的 vibe check 升级（42 赞）；Madhu 的企业 AI 失败学（96 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+danshipper+realmadhuguru",
+          "authorName": "Thariq / Shipper / Madhu",
+          "authorTag": "OpenAI / Every / Builder",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's double: the launch (1250 likes): 'we heard feedback that it's hard to know if your skills are still working with new model releases. plugin evals are here to help — run `claude plugin eval init` in your plugin folder'; and the interpretation thesis (1504): 'it's basically impossible to interpret evals by looking at just at the pass/fail scores these days. Many of the failures I see in benchmarks are due to overly strict hidden tests, in some cases the model's answer makes more sense than the expected eval result.' Shipper's vibe-check upgrade (42): 'better benchmark scores don't tell you much about how well a model does on your real work — that's why for the last 3 years @every we've done vibe checks… now we're doubling down and getting more quantitative: an internal platform for personal benchmarks based on our real day-to-day work.' Plus his hiring call (47) and the ominous 'okay this is not great' (73). Madhu Guru's failure taxonomy (96): 'Why most enterprise AI efforts fail. 1/ Using old-school playbooks for AI — the CEO picks a trusted lieutenant to lead a central AI team… the skill gap: the team structure, product patterns, how you launch and learn that got you here do not work with AI.'"
+            ],
+            "original": [
+              "Thariq: we heard feedback that it's hard to know if your skills are still working with new model releases. plugin evals are here to help. Run `claude plugin eval init` in your plugin folder.",
+              "Thariq: it's basically impossible to interpret evals by looking at just at the pass/fail scores these days. Many of the failures I see in benchmarks are due to overly strict hidden tests, in some cases the model's answer makes more sense than the expected eval result.",
+              "Dan Shipper: better benchmark scores don't tell you much about how well a model does on your real work. That's why for the last 3 years @every we've done vibe checks on new models: long-form reviews based on hands-on testing… now we're doubling down, and getting more quantitative.",
+              "Madhu Guru: Why most enterprise AI efforts fail. 1/ Using old-school playbooks for AI. The CEO picks a trusted lieutenant to lead a central AI team. The problem here is the skill gap. The team structure, product patterns, how you launch and learn that got you here do not work with AI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 双发：上线（1250 赞）——「我们听到反馈：新模型发布后很难知道你的 skills 是否还能用。plugin evals 来帮忙——在插件目录里跑 `claude plugin eval init`」；解读论（1504 赞）——「如今光看 pass/fail 分数基本没法解读 evals。我看到的很多基准失败源于过严的隐藏测试——有些情况下，模型的答案比预期的评测标准答案更合理。」Shipper 的 vibe check 升级（42 赞）：「更好的基准分并不能告诉你模型在你真实工作上的表现——这就是为什么三年来 Every 一直在做 vibe check：基于真实工作的长评……现在我们加倍投入、更加量化：一个让所有人基于日常真实工作建立个人基准的内部平台。」外加招聘帖（47 赞）与不祥的「okay this is not great」（73 赞）。Madhu 的失败学（96 赞）：「为什么多数企业 AI 努力失败：1/ 用旧打法做 AI——CEO 挑一位亲信任职领导中央 AI 团队……问题在技能鸿沟：让你走到今天的团队结构、产品模式、发布与学习方式，在 AI 面前统统失灵。」"
+            ],
+            "original": [
+              "Thariq：plugin evals 上线；失败常因过严测试。Shipper：vibe check 转向个人基准。Madhu：旧打法是企业 AI 失败首因。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gateways, Acquisitions & One-Person Myths / 网关、收购与一人公司迷思",
+      "desc": "Rauchg「AI Gateways 是新的 CDN」（290 赞）；Amjad：Replit 收购一家完全构建在 Replit 上的公司（548 赞）；Ryo Lu 移居台北（1029 赞）与 Cursor 长驻 agent（599 赞）；Zara 的一人公司反思（704 赞）；Garry Tan 的 SAT 论（732 赞）；Turck 的 9/11 回忆（129 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+amasad+ryolu_+zarazhangrui+garrytan+mattturck+adityaag+levie+nikunj",
+          "authorName": "Rauchg / Amjad / Ryo / Zara / Tan / Turck / Aditya / Levie / Nikunj",
+          "authorTag": "Vercel / Replit / Cursor / Builder / YC / VC / SPC / Box / FPV",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's thesis (290 likes): 'Tailscale's model router is powered by Vercel AI Gateway as its underlying infrastructure. AI Gateways are the new CDNs. You could go \"direct to origin\", but it's brittle. You could DIY, but it's painful and costly.' Amjad's trio: 'Replit acquires a business entirely built on Replit. I expect first of many to come' (548); 'Love seeing all the Astra 3D experiments on Replit!' (193); and 'Routines with budgets!' (66). Ryo Lu's double: the move (1029): 'i emptied my house, said goodbyes, and moved to Taipei. So far so great! 💛'; and the launch (599): 'long-lived agents for your big ideas — now in Cursor.' Zara's essay-in-three (704): 'I think the idea of a \"one-person company\" is overrated… building something new can be a profoundly lonely experience. It is extremely easy to lose motivation when you don't tie yourself to the mast together with somebody else.'",
+              "The rest: Garry Tan's SAT take (732): 'once you score 1600 you should unlock a second harder test… we should have more and higher measures of excellence. But instead they ban the SAT so that everything turns into random lottery'; Levie's Box-sandbox integration (81): 'you can mount Box to agent sandboxes… agents are going to need the same primitives that people have had'; Turck's 9/11 story (129) — the young co-founder of a NYC startup inside the day; Aditya's United 93 reflection (34) and SPC policy series (12); Nikunj's attribution wars (39): 'Success has many fathers, but failure is an orphan… in the next couple of years you'll see many names scrubbed.'"
+            ],
+            "original": [
+              "Guillermo Rauch: Tailscale's model router is powered by Vercel AI Gateway as its underlying infrastructure. AI Gateways are the new CDNs. You could go \"direct to origin\", but it's brittle. You could DIY, but it's painful and costly.",
+              "Amjad Masad: Replit acquires a business entirely built on Replit. I expect first of many to come.",
+              "Ryo Lu: i emptied my house, said goodbyes, and moved to Taipei. So far so great! 💛",
+              "Ryo Lu: long-lived agents for your big ideas. Now in Cursor.",
+              "Zara Zhang: I think the idea of a \"one-person company\" is overrated. Yes, a person can do a lot more thanks to AI. But building something new can be a profoundly lonely experience. You need someone to brainstorm together, suffer together, celebrate together… It is extremely easy to lose motivation when you don't tie yourself to the mast together with somebody else.",
+              "Garry Tan: TBH once you score 1600 you should unlock a second harder test that gives you a second score on top of the 1600 — we should have more and higher measures of excellence. But instead they ban the SAT so that everything turns into random lottery and excellence cannot be recognized.",
+              "Aaron Levie: Now you can mount Box to agent sandboxes to make it far easier for an agent to read and write files on the agent's computer. As AI agents execute critical workflows in the enterprise, they're going to need the same primitives that people have had.",
+              "Matt Turck: My 9/11 story. In September 2001, I was the young co-founder of a NYC tech startup, TripleHop Technologies. We were building enterprise search software, using whatever AI existed at the time, building what would be today close to what a Glean does."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的论断（290 赞）：「Tailscale 的模型路由器由 Vercel AI Gateway 作底层基础设施驱动。AI Gateways 就是新的 CDN——你可以直连源站，但脆弱；可以自己搭，但痛苦又烧钱。」Amjad 三连：「Replit 收购了一家完全构建在 Replit 上的公司——我预计这是许多个中的第一个」（548 赞）；「爱看 Replit 上的各种 Astra 3D 实验！」（193 赞）；「带预算的 Routines！」（66 赞）。Ryo Lu 双发：搬家（1029 赞）——「清空了房子、道了别、搬去台北。目前感觉太棒了！💛」；发布（599 赞）——「为你大想法服务的长驻 agent——现在进了 Cursor。」Zara 的三段反思（704 赞）：「『一人公司』的想法被高估了。是的，借助 AI 一个人能做更多——但建造新东西是种深切的孤独体验：你需要有人一起头脑风暴、一起受苦、一起庆祝……不把自己和另一个人一起绑上桅杆，动力极容易流失。」",
+              "其余：Garry Tan 的 SAT 论（732 赞）——「考到 1600 就该解锁更难的第二场考试……我们应该有更多、更高的卓越度量。可他们却禁掉 SAT，好让一切变成随机抽签、卓越无从被识别」；Levie 的沙盒集成（81 赞）——「现在可以把 Box 挂载到 agent 沙盒……agent 需要人类一直拥有的那些原语」；Turck 的 9/11 回忆（129 赞）——2001 年那天他是一家纽约初创（TripleHop）的年轻联创，「做的企业搜索，用当时的 AI，接近今天 Glean 做的事」；Aditya 的 United 93 感怀（34 赞）与 SPC 政策对谈系列（12 赞）；Nikunj 的署名战争（39 赞）——「成功有许多父亲，失败是孤儿……未来两年你会看到很多名字被抹去或巧妙省略。」"
+            ],
+            "original": [
+              "Rauchg：AI Gateways 是新的 CDN。Amjad：Replit 收购 Replit 上的公司。Ryo：移居台北；Cursor 长驻 agent。Zara：一人公司被高估。Tan：该解锁更难的第二场考试。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Brian Armstrong — Coinbase's Everything Exchange / 播客：Brian Armstrong——Coinbase 的万物交易所",
+      "desc": "No Priors 全新一期（2026-09-10 发布，本刊首次收录）：Coinbase 联创兼 CEO 谈 agentic 金融（AIFi）、稳定币支付、代币化与新公司 New Limit 的长寿科学。完整 transcript（53906 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:np-armstrong",
+          "authorName": "No Priors",
+          "authorTag": "Brian Armstrong（Coinbase 联创兼 CEO；New Limit 联创）× Elad Gil",
+          "sourceUrl": "https://www.youtube.com/watch?v=uLDK4l_-gUE",
+          "en": {
+            "rewrite": [
+              "A brand-new No Priors (published 2026-09-10, new to this digest) with Coinbase cofounder/CEO Brian Armstrong — also cofounder of longevity company New Limit. Core threads: the Everything Exchange (every asset class coming on-chain — stocks, commodities, perps, prediction markets — '88% of our revenue is from non-Bitcoin trading'); stablecoin payments ('under one second, under 1¢, to move money anywhere in the world… money can now move at the speed of information, just like a WhatsApp message'); Agentic Finance / AIFi — 'we don't want the AIs to be unbanked. If we wanna bank the AIs, they deserve financial services as well… with a single prompt your agent can have its own financial account' (self-custodial wallets, no KYC — agents have no government ID); 76% of agent e-commerce transactions are under 30¢, where card rails (30¢ flat + %) make no sense; X402 (the agentic payment protocol Coinbase incubated and donated to the Linux Foundation — Google, Cloudflare, AWS working on it) and the agentic.market stats site; specialists beating generalists (open-weight models fine-tuned on 100k proprietary compliance cases outperforming frontier models); Elon's no-money-in-the-future take vs scarcity enduring ('Dyson spheres are going to be expensive pretty far into the future… crypto was really good for humans, and it's going to be essential for AI'); recursive self improvement inside Coinbase — the company 'brain' (incident history, financial controls, every AB test, full PR history per repo; every human correction flows back into the brain, so one-shot PR accept rates 'start to tick up'); the Toshi harness (10 parallel agents across cheaper models finishing phase one in minutes — 'instead of bugging the team, I just send them a PR for review, and it's already done… it's very addictive'); tasks are being automated, not people eliminated (company sizes won't shrink to 10, but 2-5 person companies will do far more); tokenized stocks (first true tokenized equity, 1:1 with custody; 4 billion people without brokerage access — 'Tether was the first version with USD'); prediction markets ($100M revenue run-rate within months, >100% QoQ; policy markets on unemployment rates, even 'opinion markets' on the big questions — 'Is there a God?'); New Limit (epigenetic reprogramming — the 'meta problem' of restoring youthful cell function; AI-recommended pooled screens; successful reprogramming of one human cell type in humanized mice; first phase-1 trial next year; liver→vasculature→T-cells; the $20B ALD drug; 'skin — that's probably a trillion dollar market right there'); starting a second company while CEO ('if you make money in software you have an obligation to put it into hard tech'); cognitive enhancement as the next meta problem (folic-acid IQ gains; 'AI is getting smarter — humans need to take control of our evolution'); embryo editing (Preventive investment; 80% of Americans support disease-prevention editing; 'at some point it'll be abnormal to have children without this screening'; gills and wings in the limit case — diversity increases, not decreases); and Freedom Cities / special economic zones (Prospera in Honduras — Coinbase invested; federal-land zones for data centers, nuclear plants, drone delivery without normal red tape — 'there is no sandbox to try innovation, and that is just incredibly stifling')."
+            ],
+            "original": [
+              "Brian Armstrong: We don't want the AIs to be unbanked. If we wanna bank the AIs, they deserve financial services as well. The AI agents themselves are gonna have to have their own accounts.",
+              "Brian Armstrong: About 76% of the agent ecommerce transactions we're seeing are under 30¢. There'll be more agents than humans in the not too distant future… the agentic economy will be bigger than the human economy at some point.",
+              "Brian Armstrong: When you go to make that change and edit the agent's thinking, that context has to go back into the brain… the accept rate for one shotted PRs starts to tick up over time, and you've now got a recursive self improvement system.",
+              "Brian Armstrong: 88% of our revenue is from non Bitcoin trading at this point.",
+              "Brian Armstrong: It's under one second, under 1¢ US to move money anywhere in the world… money can now move at the speed of information, just like a WhatsApp message.",
+              "Brian Armstrong: Instead of bugging the team and asking them do something, I just send them a PR for review, and it's already done. And that's a magical moment that I just like, it's very addictive.",
+              "Brian Armstrong: Tasks are being automated or eliminated. People are not being eliminated.",
+              "Brian Armstrong: Most of the diseases that take us out are all correlated with age… we're trying to go for the meta problem: restore the function your cells had when they were younger.",
+              "Brian Armstrong: There is no sandbox to go try this innovation, and that is just incredibly stifling."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors 全新一期（09-10 发布，本刊首次收录）：Coinbase 联创兼 CEO Brian Armstrong（同时是长寿公司 New Limit 联创）谈万物交易所、agentic 金融、X402 协议、公司内部的「大脑」与 RSI、代币化股票、预测市场与表观遗传重编程。完整译文见下。"
+            ],
+            "original": [
+              "【开场：万物交易所与 agentic 金融】",
+              "Armstrong：刷卡最低手续费通常是 30 美分加百分比——付 30 美分发一笔 1 美分的支付毫无意义。我们看到的统计：约 76% 的 agent 电商交易低于 30 美分。我们不想让 AI 没有银行账户——如果要给 AI 开户，它们也配得上金融服务。我们做了些简单工具：一条 prompt 粘给你的 AI agent，它就能拥有自己的金融账户——用自托管钱包与加密轨道，没有 KYC 流程：AI agent 没有政府身份证，也（暂时）没法带着人形机器人伙伴走进银行网点。不远的将来 agent 会比人多，agent 经济在某刻会比人类经济更大。",
+              "Armstrong：Coinbase 正处在激动人心的时刻。一方面所有资产类别都在上链：股票、大宗商品、加密货币、衍生品、永续期货、预测市场——都能在一个地方交易、有良好流动性与交叉保证金。第二块是稳定币支付——增长疯狂，比特币跌它也在涨：一秒之内、不到 1 美分把世界任何地方的钱转过去，钱以信息的速度流动，像 WhatsApp 消息一样。第三块是 AI 改变金融服务，我们叫 Agentic Finance 或 AIFi：①人人该有 AI 投资顾问——像富人专属顾问那样教你建组合、定投、税损收割、现金生息，用对话完成，已在产品里上线；②agent 自己要有账户——将来还会有隔离资金的 agent 子账户挂在你的身份下，也可以是纯自托管钱包，甚至能发币募资。",
+              "",
+              "【X402、专业化 agent 与稀缺的未来】",
+              "Armstrong：今天的 agent 常被卡住——「这里有付费墙，请刷你的卡」「要开 AWS 资源」「订好了酒店但请你输信用卡」。将来 agent 该有自己的消费账户，像助理或员工那样；可能还需要稳定币背书的信用卡做向后兼容。我们看到大量 agent 支付跑在新协议 X402 上——那是我们在 Coinbase 孵化、捐给 Linux 基金会的，Google、Cloudflare、AWS 都在参与。我们做了个网站 agentic.market 可以看这个新经济的支付流量统计。这些小额交易多是获取信息：风投从付费数据源做研究、招聘方抓 LinkedIn 数据，很多其实是 agent 向其他专业 agent 买数据——像一次工具调用。",
+              "Armstrong：前沿模型被训练成很好的通才，但我们看到开源小模型在公司专有数据上微调或强化学习后，能在专门任务上超过前沿模型——比如拿 Coinbase 十万条合规案例训练的合规审查队列。将来市场上会出现一批专家 agent：专门帮你订披萨的、只在海量专有 Figma 数据上训练的杰出设计师……",
+              "Armstrong：Elon 说未来会没有货币——这次我不同意他（尽管多数事我都同意）。我明白他的意思：最终要用能量与质量来计量。但稀缺会长期存在：即便机器人和 AI 让商品、食品、住房变得极便宜造成通缩，土地、能源、芯片仍稀缺——戴森球在很远的未来都会很贵。所以仍需要交换媒介。AI 兴起之时，加密轨道恰好成为这一切的完美补充：加密对人类很好用，对 AI 将是必需品。",
+              "",
+              "【Coinbase 内部：公司大脑与 RSI】",
+              "Armstrong：内部我们和多数公司一样从基础做起：编码工具接上数据仓库、机器学习做风控反欺诈、AI 客服。最近在推进边界的一件事：尽可能接近并真正实现递归自我改进（RSI）。给公司装「大脑」——可以是每个团队一个、每个服务仓库一个、甚至每个人一个（我认为个人大脑应该离职时可以带走，我们正在定相关政策）。",
+              "Armstrong：大脑是什么？该服务历史上所有事故、必须执行的财务控制、跑过的每个 AB 测试、完整的 GitHub PR 史（被接受与被拒的）。agent 进来改服务时先摄入大脑；人审查发现「漏了点什么」时，关键一步不是手动改掉就发布，而是把这次对 agent 思考的修正写回大脑——不只修这一个 case，而是修所有未来 case。于是单发 PR 的接受率开始随时间爬升——你就得到了一个递归自我改进系统。内部 agent 框架叫 Toshi，已集成这些工具，能对外部供应商发起调用、用 X402 协议支付。",
+              "Armstrong：今天早些时候我在为一个较复杂的功能做规划：让高端模型把功能拆成三阶段、每阶段十件事，然后执行阶段一——起 10 个并行 agent 分别干，并自行推荐合适的（更便宜的）模型——它起了一堆开源模型和 Grok。上播客前两分钟它 ping 我：阶段一全部完成、待审。这开始变得上瘾：过去我有想法或发现 bug 只能在 Slack 里整天骚扰团队，现在 @ 一个 agent，直接给团队发一个已完成的 PR 待审。",
+              "Armstrong：生产率确实在提升，但这不等于公司平均规模会变小——被自动化消灭的是任务，不是人。Coinbase 不会裁到十个人，而是现有的人能干更多、一切加速；同时两三人公司确实能做远超历史预期的事。",
+              "",
+              "【万物交易所、代币化与预测市场】",
+              "Armstrong：最近财报披露：我们 88% 的收入来自非比特币交易。股价与比特币相关性还挺高——我爱比特币、它是数字黄金——但加密在更新金融系统的每个角落。刚发布的代币化股票（暂限美国以外）：第一个真正的代币化股票产品——不是合成品、衍生品或债务工具，是 1:1 托管真实证券的证券。世界上约 40 亿人没有任何券商或美股账户，没法投资 Coinbase、英伟达、苹果；正如 Tether 在美国外让美元账户普及，这 40 亿人也想要高质量投资。接下来私人信贷、国债、银行存款都会被代币化——金融服务将跑在现代轨道上；想送侄子一股股票，直接转账到他的钱包。",
+              "Armstrong：预测市场在 Coinbase 应用里增长飞快——上线数月就达到约 1 亿美元收入运行率，季度环比超 100%。体育是一部分，只是娱乐，但社会意义更大：不止选举——想评估政策？「若实施该政策，一年/两年/三年后失业率会是多少」，可以为其开预测市场辅助决策。还有人生大问题——「有神吗？我们是演化还是智能设计的？」有人叫它意见市场：没有明确的结算日，但新论文、新事件会让 60% 的共识变成 80%，人们照样能下注——就像股票也没有结算日。我们才刚挠到表面。",
+              "",
+              "【New Limit：表观遗传重编程】",
+              "Armstrong：Coinbase 2021 年上市后我问自己是否要开始下一段——结论是 Coinbase 才刚开始（加密只占全球 GDP 约 0.5%），但我也想孵化些别的东西。如果靠软件赚了钱，你多少有义务把钱投进硬科技。我列了大趋势：太空、AI、聚变、脑机接口——都已有好团队；长寿领域我没看到足够多好团队，且很多是蛇油。办了几场晚宴把最聪明的 CEO 与科学家聚在一起问「什么是高潜且被低投入的」，一个反复出现的答案是表观遗传重编程——山中伸弥实验室的早期结果展示可以把细胞重编程恢复年轻功能（他们是改变细胞类型，我们不想那样）。这像 2010-11 年的比特币之于我：三个月停不下来地想。这种灵感是易腐的，要趁它消退前做点什么。于是 Jacob Kimmel（现任 CEO）、Blake Byers、Greg Johnson 联合创立了 New Limit。",
+              "Armstrong：科学进展比我想的快。南旧金山有实验室、五六十人：AI 起步——我们造了表观遗传重编程的前沿模型，从海量转录因子组合中推荐下一批实验（巨大搜索空间），然后大规模 pooled screens（在实验室里移原子移液体，不只是软件），命中的做功能测定（动物模型，更贵更慢），最好的进人体试验。我们已在人源化小鼠模型中成功重编程至少一种人类细胞类型，正在非人灵长类测试，明年启动第一个一期临床，未来几年还会有三到十个候选药。",
+              "Armstrong：最先攻三种细胞：肝细胞、血管细胞、免疫细胞（尤其 T 细胞）。走 GLP-1 类似路线：先做高未满足需求、有时较小的市场——肝项目一期做酒精性肝病（ALD）：今天他们除肝移植外别无选择、多数等不到，确诊后 12 个月存活率极低；单这个药若成可能值 200 亿美元。但目标不是肝病药：是让 40 岁的人拥有 20 岁的肝、免疫系统、血管，乃至大脑、肌肉、皮肤——皮肤单算可能就是万亿市场。最终你会服用一组鸡尾酒疗法：不同细胞类型、不同载荷，同一主题——把细胞重编程到年轻时的功能。夺走我们生命的多数疾病都与年龄高度相关：年轻时身体能修复癌变细胞与损伤，老了就失去这种能力。与其逐个追症状，不如攻这个元问题——恢复细胞年轻功能，从根上咬一大口。",
+              "",
+              "【认知增强、胚胎编辑与自由城市】",
+              "Armstrong：未来五年主线是 Agentic Finance 与稳定币——把加密从 0.5% 的全球 GDP 与 7 亿持有者做到十亿人以上。前沿想法上我最近在想认知增强：给孩子足够叶酸等营养能提高 IQ——也许该办场晚宴聊聊：针对成人、儿童、胚胎的疗法如何拉平认知基线？这是又一个元问题，我还没有好论题——有主意请联系我。我们在与 AI 赛跑：AI 越来越聪明，人类也该在某个时刻接管自己的演化。我投了一家做胚胎编辑的公司 Preventive：人们看过《千钧一发》会紧张，但 Pew 调查显示 80% 美国人支持为防病做胚胎编辑——没人想让孩子得罕见遗传病。今天看似争议，将来会越来越正常，最终不做这种筛查反而异常——像不系安全带开车。",
+              "Armstrong：（Elad 问：会不会人人买同一个「智力套餐」、减少神经多样性？）我反而认为会增进多样性：人类偏好的多样性是无限的——伟大的艺术家、将军、工程师、政治家，每个父母偏好不同；而且很多只是抬高底线，孩子还是他自己，只是不再有精神分裂或抑郁症。极限情况下你甚至能得到真正离谱的多样性——有鳃能水下呼吸的孩子、有翅膀能飞的，谁知道接管演化能走多远。",
+              "Armstrong：我还超关注特殊经济区——它是能解锁整类进步的元问题。世界许多地方拖慢进步的是过度监管。Coinbase 投资过洪都拉斯的 Prospera 以学习此事。竞选时讨论过「自由城市」：美国联邦政府有大量土地，若认为核能、药物发现、加密、无人机配送对美国战略重要，就划出 10 或 100 平方英里：这里建数据中心、核电站、无限无人机配送都不必过 EPA 与地方审批——在安全可控的范围内实验，跑通了再走正常流程推广。现在的问题是根本没有沙盒去试创新——这极度窒息。深圳、新加坡、迪拜都证明了这类区的威力；美国本就因联邦制是 50 个特殊经济区，还可以更进一步。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
