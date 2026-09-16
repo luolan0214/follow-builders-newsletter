@@ -1,0 +1,173 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-16",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 的预告与全民共创（**8017 赞，今日最高**）：「Codex 里有什么已经不再有用、应该删掉的功能？告诉我」——同日再放风（1488 赞）：「本周的发布量级，放在 DevDay 2025 都成立。疯狂。」Cherny 的重磅（2169 赞）：Claude Mods 开始推送——「有人已经做了个在 Claude 里玩俄罗斯方块的模组 🤯」。Rauchg 的军备扩充（1935 赞）：欢迎 Google Cloud Run 之父 Steren 加入 Vercel 领导 Fluid 计算家族——「Serverless 是云的上一章，agent 是下一个前沿，它们需要为之设计的新计算原语」；配套方法论（1182 赞）：「Agent 的上限取决于你给它的证明器、编译器、类型系统与 linter——verifiers + skills 就是新的『框架』」。Levie 的世纪难题（68 赞）：「在 agent 使用我们系统比人类多 100 倍的世界里保护企业数据，将是 21 世纪最复杂的安全与治理挑战之一。」播客全新一期：AI & I 专访 Every 明星撰稿人 Katie Parrott——从 ChatGPT 职业教练到 Compound Writing 插件（43857 字符 transcript 全文翻译）。"
+  },
+  "archive": {
+    "title": "Mods 上线与复合写作日报",
+    "desc": "Cherny 宣布 Claude Mods（俄罗斯方块模组）；Sottiaux「本周发布量级堪比 DevDay」并征集该删功能；Rauchg 迎来 Cloud Run 之父；Katie Parrott 的 Compound Writing。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-16 source feeds (12 builders, 23 tweets, plus one long-form podcast: AI & I with Every staff writer Katie Parrott, published 2026-09-02, new to this digest).",
+  "sections": [
+    {
+      "title": "Mods Landing & the DevDay-Week Tease / Mods 上线与 DevDay 量级预告",
+      "desc": "Sottiaux 双发（**8017/1488 赞**）：征集该删的功能 + 本周发布量级预告；Cherny 的 Claude Mods 与俄罗斯方块模组（2169 赞）；Steipete 的跟进（655 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+bcherny+steipete",
+          "authorName": "Sottiaux / Cherny / Steipete",
+          "authorTag": "OpenAI / Codex 负责人 / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's double: the crowdsourced cleanup (8017 likes, top of the day): 'What's a feature we should remove from Codex that isn't useful anymore?' — and the tease (1488): 'This week will also be a level of ships that you could have expected for DevDay 2025. Crazy.' Cherny's launch (2169): 'Claude Mods are landing now. Someone already built a Tetris-in-Claude mod 🤯 See issue for the latest community update, technical details, and more cool demos.' Steipete's follow-through (655): 'This is so useful. pushing to add this to codex as well.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: What's a feature we should remove from Codex that isn't useful anymore?",
+              "Thibault Sottiaux: This week will also be a level of ships that you could have expected for DevDay 2025. Crazy.",
+              "Boris Cherny: Claude Mods are landing now. Someone already built a Tetris-in-Claude mod 🤯",
+              "Peter Steinberger: This is so useful. pushing to add this to codex as well."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 双发：全民共创的减法（8017 赞，今日最高）——「Codex 里有什么已经不再有用、应该删掉的功能？说说看」；量级预告（1488 赞）——「本周的发布量级，放在 DevDay 2025 都成立。疯狂。」Cherny 的发布（2169 赞）：「Claude Mods 开始推送。有人已经做了个在 Claude 里玩俄罗斯方块的模组 🤯 最新社区更新、技术细节与更多酷 demo 见 issue。」Steipete 的跟进（655 赞）：「这太有用了，正在推动把它也加进 codex。」"
+            ],
+            "original": [
+              "Sottiaux：征集该删的功能；本周发布堪比 DevDay 2025。Cherny：Mods 上线，已有俄罗斯方块模组。Steipete：推动引入 codex。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Fluid Compute, Verifiers & the 100X Security Problem / Fluid 计算、验证器与 100 倍安全问题",
+      "desc": "Rauchg 三连（**1935/1182/200 赞**）：Cloud Run 之父加盟、「verifiers + skills 是新框架」、𝚏𝚡 自动升级；Levie 双发（91/68 赞）：agentic 负载重估与 21 世纪治理难题；Woodward 的 Gemini 权力用户团（1001 赞）；Turck 的冷静（34 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+levie+joshwoodward+mattturck",
+          "authorName": "Rauchg / Levie / Woodward / Turck",
+          "authorTag": "Vercel CEO / Box CEO / Google / VC",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's triple: the hire (1935 likes): 'Welcoming Steren, creator of Google Cloud Run, to Vercel. He will lead the Fluid family of compute products (Functions, Containers, Sandbox, Builds). Serverless was the last chapter of the cloud, and Steren helped define the paradigm at Google. Agents are the next frontier, and they require new compute primitives designed for them'; the methodology (1182): 'Agents are only as good as the proof-checkers, compilers, type systems, and linters you give them. 𝚜𝚑𝚊𝚍𝚌𝚗/𝚕𝚒𝚗𝚝 helps agents stay on track with the rules of your design system. Meta: verifiers + skills are the new \"frameworks\"!'; and the 𝚏𝚡 note (200): 'One of the coolest things about 𝚏𝚡 is that it auto-upgrades, and 𝚌𝚝𝚛𝚕+𝚐 restarts + resumes the chat. Also, 0.0.10 is much, much faster for longer sessions.'",
+              "Levie's double: the workload reset (91): 'We probably need to all update our sense of what's coming in terms of agentic workloads with the combination of agent swarms, better computer use, the next wave of APIs and MCPs coming online, and new form factors like Muse or Instinct, vertical enterprise agents, background workflow agents…'; and the governance problem (68): 'Protecting enterprise data in a world where agents are using our systems 100X more than people ever did is going to be one of the more complex security and governance challenges of the 21st century. Security and productivity gains are inexorably linked: give an agent too much unfettered access and you can't control your data; lock everything down and you strangle the gains.' Woodward's cohort note (1001): the Gemini power-user program — 20+ features tested, a new cohort getting early access to 'what's next for Daily Brief & Personal Intelligence.' Turck's reality check (34): 'Ok, this was a fun weekend, but we all understand AI progress is not going to slow down, right? Too many players, too many economic incentives and too much prisoner's dilemma, both domestically and globally.'"
+            ],
+            "original": [
+              "Guillermo Rauch: Welcoming Steren, creator of Google Cloud Run, to Vercel. He will lead the Fluid family of compute products. Serverless was the last chapter of the cloud, and Steren helped define the paradigm at Google. Agents are the next frontier, and they require new compute primitives designed for them.",
+              "Guillermo Rauch: Agents are only as good as the proof-checkers, compilers, type systems, and linters you give them. Meta: verifiers + skills are the new 'frameworks'!",
+              "Aaron Levie: Protecting enterprise data in a world where agents are using our systems 100X more than people ever did is going to be one of the more complex security and governance challenges of the 21st century.",
+              "Josh Woodward: 2 months ago, we launched a Gemini power user group to test early features in the app. 20+ features tested later, your feedback has been incredible. A new cohort is now getting early access to what's next for Daily Brief & Personal Intelligence.",
+              "Matt Turck: Ok, this was a fun weekend, but we all understand AI progress is not going to slow down, right? Too many players, too many economic incentives and too much prisoner's dilemma, both domestically and globally."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 三连：重磅入职（1935 赞）——「欢迎 Google Cloud Run 之父 Steren 加入 Vercel，领导 Fluid 计算家族（Functions、Containers、Sandbox、Builds）。Serverless 是云的上一章、他在 Google 定义了这个范式；agent 是下一个前沿，需要为它们设计的新计算原语」；方法论（1182 赞）——「Agent 的上限取决于你给它的证明器、编译器、类型系统与 linter。𝚜𝚑𝚊𝚍𝚌𝚗/𝚕𝚒𝚗𝚝 帮 agent 守住设计系统的规则。元层面：verifiers + skills 就是新的『框架』！」；𝚏𝚡 笔记（200 赞）——「𝚏𝚡 最酷的一点是自动升级，𝚌𝚝𝚛𝚕+𝚐 重启并恢复会话；0.0.10 对长会话快了很多。」",
+              "Levie 双发：负载重估（91 赞）——「我们大概都需要更新对 agentic 负载的预期：agent 蜂群 + 更好的计算机使用 + 下一波 API 与 MCP 上线 + Muse/Instinct 这类新形态、垂直企业 agent、后台工作流 agent……我们将把 agent 扔到远超初判量的任务上」；治理难题（68 赞）——「在 agent 以百倍于人类的强度使用系统的世界里保护企业数据，将是 21 世纪最复杂的安全与治理挑战之一。安全与生产力增益密不可分：放任访问则失控，全锁死则掐死收益。」Woodward 的用户团（1001 赞）：Gemini 权力用户团两个月测了 20+ 功能，新一批正提前体验 Daily Brief 与 Personal Intelligence 的下一步。Turck 的冷静（34 赞）：「周末很欢乐，但我们都明白 AI 进步不会放慢，对吧？玩家太多、经济激励太多、国内外双重囚徒困境。」"
+            ],
+            "original": [
+              "Rauchg：Cloud Run 之父领导 Fluid；verifiers+skills 是新框架。Levie：100 倍 agent 流量的治理难题。Turck：进度不会放慢。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Code Origin Stories & Walking With Voice / Claude Code 起源与走路语音",
+      "desc": "Thariq 的 Latent Space 双录（393/381 赞）；Peter Yang 三连（146/88/51 赞）：等不及 2030、语音散步、cool 她；Aditya 的 demo 骄傲（118 赞）；Nikunj 双发（54/9 赞）；Amjad 沉默发帖（6 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+petergyang+adityaag+nikunj+amasad",
+          "authorName": "Thariq / Yang / Aditya / Nikunj / Amjad",
+          "authorTag": "OpenAI / Builder / SPC / FPV / Replit CEO",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's double: 'just finished recording on latent space. I'm excited about this one — we get very technical about things we haven't really talked about much yet' (393); and 'I talked to Sid & Robert about building Claude Code: how much things have changed, how hard it's been to keep up with model capabilities and also what we miss about software engineering before AI' (381). Peter Yang's trio: 'She sounds super cool tbh' (146); 'Screw it I can't wait to 2030' (88 — the StarCraft-3-impatient gang); and the walking note (51): 'Voice has made me more productive going on walks in nature than staring at my screen which is an incredible feeling.' Aditya's pride (118): 'This is an incredible demo. AI can be human. That is the ultimate goal. So proud to have been their earliest partner. As always, a lot more to build.' Nikunj's pair: the Dreamforce PSA (54) — 'Lyft bike is way way faster for your intra city commutes… Just like open source models you get 90% of the value for 10% of the time!'; and the Piston investment (9): closed payment loops for fleet fuel spend. Plus Amjad's bare-links post (6)."
+            ],
+            "original": [
+              "Thariq: I talked to Sid & Robert about building Claude Code: how much things have changed, how hard it's been to keep up with model capabilities and also what we miss about software engineering before AI.",
+              "Peter Yang: Screw it I can't wait to 2030.",
+              "Peter Yang: Voice has made me more productive going on walks in nature than staring at my screen which is an incredible feeling.",
+              "Aditya Agarwal: This is an incredible demo. AI can be human. That is the ultimate goal. So proud to have been their earliest partner.",
+              "Nikunj Kothari: PSA to the new Dreamforce visitors.. Lyft bike is way way faster for your intra city commutes than spending hours stuck in a Waymo / Uber. Just like open source models you get 90% of the value for 10% of the time!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 双录：「刚录完 Latent Space——这期我很兴奋：我们会非常技术地聊一些还没怎么公开谈过的东西」（393 赞）；「我和 Sid、Robert 聊了造 Claude Code 的故事：变化有多大、追着模型能力跑有多难、以及我们怀念 AI 之前的软件工程什么」（381 赞）。Peter Yang 三连：「说实话她听起来超酷」（146 赞）；「管他呢，我等不到 2030 了」（88 赞——星际 3 等不及党）；散步笔记（51 赞）——「语音让我在自然里散步时的产出超过了盯着屏幕，这感觉难以置信。」Aditya 的骄傲（118 赞）：「这个 demo 惊人。AI 可以像人——这就是终极目标。骄傲能当他们的最早合作伙伴；照例，还有很多要建。」Nikunj 双发：Dreamforce 提示（54 赞）——「Lyft 自行车比堵在 Waymo/Uber 里快得多……就像开源模型：10% 的时间拿到 90% 的价值！」；投资 Piston（9 赞）——车队加油的闭环支付。外加 Amjad 的纯链接帖（6 赞）。"
+            ],
+            "original": [
+              "Thariq：Latent Space 谈 Claude Code 起源。Yang：语音散步超屏幕。Aditya：AI 可以像人是终极目标。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Katie Parrott — How a Professional Writer Writes With AI / 播客：Katie Parrott——职业写作者如何用 AI 写作",
+      "desc": "AI & I 全新一期（2026-09-02 发布，本刊首次收录）：Every 明星撰稿人 Katie Parrott（Working Overtime 专栏作者）× Natalia Quintero——从两年前把 ChatGPT 当职业教练，到「一人内容代理机构」，再到自研 Compound Writing 插件（内置冯内古特与希区柯克审稿技能）。完整 transcript（43857 字符）已全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:aii-parrott",
+          "authorName": "AI & I by Every",
+          "authorTag": "Katie Parrott（Every 明星撰稿人）× Natalia Quintero（Every AI 咨询负责人）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "A new-to-this-digest AI & I (published 2026-09-02) with Every staff writer Katie Parrott, hosted by head of AI consulting Natalia Quintero — previewing the Compound Writing plugin (built by Katie, inspired by Kieran Klassen's Compound Engineering). Core threads: the origin story — laid off from a crypto firm, in the middle of a mental-health crisis, an AI skeptic turns to ChatGPT as a $20/month career coach ('I couldn't afford $150 an hour… it externalized my thinking, held me accountable, challenged my catastrophizing'); 'I never know what I think until I write it down… Clarity doesn't arrive gift wrapped from a digital assistant. The journey is yours to take'; the content agency of one (eight blog posts, three ebooks, 24 LinkedIn posts, 24 X posts, 16 Instagram posts in two weeks) powered by what she now calls context engineering — brand messaging, audience personas, pain points, differentiators ('a fenced-in place for the model to play'); the last-mile problem — AI has a knowledge cutoff, 'our job as humans is to close that last mile and provide the real-world experiences' — otherwise the model serves 'commoditized information'; the kitchen analogy ('the model is the kitchen, the outline is chopping, composition is boiling — but the individual ingredients have to be fresh'); AI as supportive technology (bipolar disorder; Codex found a primary-care physician taking her insurance after three years of procrastination; Quora triaging her inbox so only human-needed emails surface; Natalia filing insurance reimbursements via Codex); the career coach today — a Codex project with a dossier on her role, brand positioning, OKRs, a scraped performance spreadsheet, and a 'validation folder' of nice things people said ('what do people respond positively to that we want to reinforce?'); the interview technique ('I'm always having AI interview me. Alex Duffy gave me that tip' — talk until the system matches the vision); compounding — every piece of feedback feeds back into the system forever ('Compound Writing = Compound Engineering forked for writing': brainstorm → outline → draft → substantive edit → line edit → final pass); no longer in a chat window — the desktop app with context files and the codified recipe; the gym metaphor ('it's a workout system to make you a better writer'); reviewer skills built from Vonnegut's eight elements of story ('start as close to the end as possible; every sentence must earn its place'), Hitchcock's bomb under the table ('one moment of surprise vs five minutes of suspense — does this make the reader lean in?'), Sorkin, Sedaris for humor — 'invoke them as lenses on my writing'; borrowing brains in both directions (she built Tastemaker — an MCP app that pulls clips from writing you admire into a style guide — and 'AI got me into trouble, then AI got me out': Claude built it with five security vulnerabilities, Codex caught them); and her thesis for the Every Thesis conference (Nov 5, Pioneer Works): 'education and access are going to matter more than ever… AI compounds, and the risk is that the value compounds to a small subset of people who happened to be early. A much more compelling vision is one where everyone comes along for the ride' — from Columbus, Ohio, on why distribution of opportunity is the challenge."
+            ],
+            "original": [
+              "Katie Parrott: One of my favorite things about writing is that I never know what I think until I write it down. Clarity doesn't arrive gift wrapped from a digital assistant or even a human coach. AI can help guide the way, but the journey is yours to take.",
+              "Katie Parrott: The model is the kitchen. The outline is chopping, and the composition is boiling, but you need the individual ingredients to be fresh and good to produce good work.",
+              "Katie Parrott: AI is just as powerful as a supportive technology. It reduces friction in my life in a way that makes it easier for me to person.",
+              "Katie Parrott: Compounding is the idea that every piece of feedback that you give to AI should feed back into the system to improve the next output.",
+              "Katie Parrott: I'm always having AI interview me. Ask me questions to draw out what I think about this.",
+              "Katie Parrott: The risk is that that value is going to compound to this small subset of people that happen to be early. A much more compelling vision for an AI future is one where everyone is able to come along for the ride."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "AI & I 全新一期（09-02 发布，本刊首次收录）：Every 明星撰稿人 Katie Parrott 谈职业写作者的 AI 工作流——$20/月的职业教练起步、上下文工程、Compound Writing 插件（冯内古特与希区柯克当审稿人）、AI 作为「支持性技术」与她的机会分配论。完整译文见下。"
+            ],
+            "original": [
+              "【起点：被裁那天，用 ChatGPT 当职业教练】",
+              "Parrott：差不多整整两年前，我写了那篇最受欢迎的 Every 文章：刚被一家加密公司裁掉（我是团队的编辑兼代笔），同时正处在心理健康危机里。回头看那是 traumatizing，但也回头看我人生里最好的事——它把我带回 Every。当时我试过加密、in-house、out-house，试遍了，感觉靠自己已走到头，急需外部视角；但预算有限、失业期不可见，每小时 150 美元的真教练请不起，20 美元一个月的 ChatGPT 订阅可以。它帮我把思考外化、给我外部视角、对我的职业旅程负责，还会在我灾难化思维时挑战我——把我从自己里拉了出来。",
+              "Parrott：那篇文章里有句我很喜欢的话：「写作最迷人的一点是：不写下来，我永远不知道自己在想什么；一旦写下来，答案就变显然。清晰从来不会由数字助理或人类教练礼盒包装好送到——它是我一个问题一个问题、一条 prompt 一条 prompt 挖出来的。AI 能引路，但旅程要你自己走。」",
+              "",
+              "【一人内容代理机构与上下文工程】",
+              "Parrott：2025 年初做自由撰稿时我严重超卖：两周要交 8 篇博客、3 本电子书、24 条 LinkedIn、24 条 X、16 条 Instagram。当时我发现的（那时还没这个词）就是 context engineering：只要给模型打好地基——品牌讯息、产品细节、受众画像——就能把输出塑造成我要的方向。大量是内容再利用（Every 最早的 Spiral 就是干这个的）。前期投入看似费劲：搭工具、接集成、写上下文文档；但环境一旦搭好，你就能跑、而且跑得飞快。六个月后我又一次超卖，同样靠它活下来。",
+              "Parrott：那些上下文文件来自我做内容营销时的基本功：像样的品牌都有 single source of truth——受众是谁、痛点是什么、产品怎么对上痛点、竞品与差异化。Projects 出现前我都是手动把 Google Doc 里的常驻文档复制进上下文；Projects 出现后我为每个自由客户、后来为每个专栏各建一个 project。核心永远是写作的基本规则：先给模型围栏——一个有栅栏的游乐场，把它推向正确方向，就不太会拿到完全跑偏的东西。",
+              "Parrott：顺序很重要：先受众画像与数据地基，然后才是「用这些词、别用那些词、这个阅读难度、这个语气」。而「数据」指的是那篇稿子独有的东西——AI 有知识截止日期，我们人类的工作就是补上最后一公里：公司做的研究、第三方数据、亲身经历。很多人只说「写一篇关于 style guide 的博客」，模型只能用它已知的——那是商品化信息，无趣也无用。让写作独特的，永远是模型还没有的那些输入。（Natalia 的类比我很爱：模型是厨房，列提纲是切菜，行文是炖煮——但食材必须新鲜。）",
+              "",
+              "【AI 作为支持性技术：双向情感障碍与「电脑跑腿」】",
+              "Parrott：一年前那篇《AI 解决了我没法向经理解释的问题》是最私人的。我们习惯把 AI 当生产力技术——看重它出活；但我发现它作为支持性技术同样强大。我有双相障碍：经历高能量的尖峰，更多时间陷在抑郁的低谷。AI 降低了生活中的摩擦，让我更容易「作为一个人运转」。我把约全科医生这事拖了三年，后来发现可以直接告诉 Codex：去找附近接收我保险、接收新患者的全科医生——它找到、我约上了。靠我的大脑，这事会无限拖延。用 Quora 处理收件箱也一样：真正需要人类回应的邮件浮上来，订阅通知沉下去——「炸雷」不再藏在百万封邮件里。收件箱焦虑彻底解决。Natalia：我人生第一次在报销保险——因为 Codex 在替我报销。",
+              "Parrott：在 Every 工作满一年，听起来平常，对我是里程碑。AI 价值的证据就是：我还在这里、做着我骄傲的工作。与 AI 共事让我重新爱上写作——以前写作像苦役，全部精力耗在拼句子上，没力气管整篇在说什么，「差不多就行，赶紧下桌」；现在精力有富余，能去 wrestle 那些更难的大图景问题，写作重新有了探索与发现的乐趣——对工具的、也对我自己脑子的。",
+              "",
+              "【职业教练 2.0：Codex 项目 + 面试式工作法】",
+              "Parrott：我的职业教练如今是 Codex 里的一个 project：有我的角色档案、从市场负责人 Douglas 那里拿来的品牌定位、我每季度从 CMS 抓到表格的全部内容表现数据、读者反馈，还有我的「validation 文件夹」——收集别人说我作品的好话，这帮模型理解「人们对我的什么反应积极、值得强化」；还有 Q2 与 Q3 的 OKR。如今越来越多上下文文档不再手写——我让 AI 通过面试生成：Alex Duffy 很早给我的秘诀「永远让 AI 面试你」彻底改变了我的工作方式——「问我问题，把我对这件事的想法挖出来」。当时我就说：我想造一个职业教练，把上下文全给它看，聊到系统跟我脑中设想一致为止。现在它给我定位、排优先级、做项目管理，还替我维护一块看板——我从来看不住看板，现在碰都不用碰，问一句「这个交付物几号 due」它就答。",
+              "",
+              "【Compound Writing：反馈只说一次】",
+              "Parrott：Compounding 的理念来自 Kieran Klassen 的 Compound Engineering：你给 AI 的每一条反馈都应该回流进系统、改进下一次输出——一条反馈只该说一次，正确地编码后就永远在。我把它 fork 来改造成写作版（「fork」这个词都是干 AI 之后才学会的）：写作与代码惊人相似——头脑风暴、提纲、草稿、评审、终稿；区别在审的东西不是编码规范而是结构、声音、证据。我要了两层评审：substantive edit（大图景结构与论证）与 line edit（行文），再加最后一遍发布前检查。我的 AI 好点子全是从 Every 同事那儿「抄」的：Compound Engineering + Dan 的 agent 原生架构，合成 Compound Writing。现在我写每篇稿都在用：不再待在聊天窗口，而是桌面 app + 上下文文件 + 固化好的流程配方，再把新鲜素材带进这个生态—— somehow 一篇文章就出来了。",
+              "Parrott：对它的类比是「健身房」——一套让你变成更好写作者的训练系统。比如编辑步骤里我造了一批 reviewer：最喜欢的之一是冯内古特——他的故事八要素：「尽量从离结尾近处开始；每句话都得挣得自己的位置；给读者一个能为之加油的角色」，我把它做成技能；还有希区柯克——桌子底下的炸弹：炸弹爆了是一瞬的惊讶，让观众看见炸弹并说「五分钟后爆炸」，你就得到五分钟的悬念。我把它变成评估技能：这段让读者前倾了吗？让读者焦虑好奇了吗？于是我可以随时 invoke 冯内古特、希区柯克、Sorkin、Sedaris（幽默）——借这些 brillant 叙事者的镜头看我的稿子。Natalia：这也是练出自己品味的方式——你会发现自己共鸣哪个框架；好插件就是「你本来没资格做的事的专家说明书」，它给你大量可反应的东西，同意或不同意都让你更快变强。",
+              "",
+              "【借脑与被 AI 救、以及她的论题】",
+              "Parrott：我也在反向借脑：用 Compound Engineering 干我没资格干的事——有时惹麻烦，AI 也把我捞出来。最近一篇 Working Overtime 写的就是：我给自己造的 Tastemaker（把你欣赏的文章片段拉进来、蒸馏成你自己的 style guide 的应用）加了个 MCP，方便在 Codex/Claude 里直接加片段；结果没装上带更强安全特性的最新版插件，Claude 直接给我建了，Codex 一审：五个安全漏洞。AI 把我坑了，AI 又把我捞出来。我一个人建了这些产品、建了自己的网站——只要借 Kieran 的脑子就行。",
+              "Parrott：我的论题（11 月 5 日 Every Thesis 大会）：教育与准入将比以往任何时候都更重要。我在俄亥俄哥伦布斯，中西部长大，没在纽约/旧金山/奥斯汀待过。我强烈相信这技术应到尽可能多人手里——但前提是创造对的条件。我有幸有 connections、能向 Kieran、Dan、Natalia 学习，而这一切建立在一定经济余裕之上：有预算订订阅、有闲到凌晨两点 vibe code。我想向 AI 社区提出的挑战：怎么把这种机会扩展给更多人、更多样的人、更多地方。AI 有巨大的乘数与复利能力——风险在于价值复利到「碰巧早到的一小撮人」。更有说服力的 AI 未来图景是：每个人都上得了这趟车。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
