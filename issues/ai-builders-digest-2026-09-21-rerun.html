@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-09-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-09-21" data-issue-number="126" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 126 期｜2026-09-21｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="极轻日：8 位 builders、11 条推文；播客位为 Socher 重播（本刊 09-12 期已完整收录）。Sottiaux 的年度总结（**9804 赞，今日最高**）：「2026 是 Linux 桌面元年」——agent 时代的操作系统隐喻。Rauchg 的乐观（1177 赞）：「近期这波 AI 最酷的地方：每个人都为建造而兴奋。短期闹剧都放一边，这对世界是无法计量的好事——人们想创造与发布，而不只是消费。」Nikunj 的投资自白（246 赞）：「我每天花约 2 小时编程、做 side project、折腾新 repo……几乎每天有 DM 问『你不是 VC 吗，干嘛干这个？』——这个时代跑得太快，不亲手做，我完全不懂你怎么能懂接下来会发生什么。」Levie 的产品论（340 赞）：「个人 agent 是『造 agent 想用的东西』的终极体现」。Peter Yang 的流媒体断舍离（295 赞）：「Apple TV 全是神剧，退了 Netflix。」">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">极轻日：8 位 builders、11 条推文；播客位为 Socher 重播（本刊 09-12 期已完整收录）。Sottiaux 的年度总结（**9804 赞，今日最高**）：「2026 是 Linux 桌面元年」——agent 时代的操作系统隐喻。Rauchg 的乐观（1177 赞）：「近期这波 AI 最酷的地方：每个人都为建造而兴奋。短期闹剧都放一边，这对世界是无法计量的好事——人们想创造与发布，而不只是消费。」Nikunj 的投资自白（246 赞）：「我每天花约 2 小时编程、做 side project、折腾新 repo……几乎每天有 DM 问『你不是 VC 吗，干嘛干这个？』——这个时代跑得太快，不亲手做，我完全不懂你怎么能懂接下来会发生什么。」Levie 的产品论（340 赞）：「个人 agent 是『造 agent 想用的东西』的终极体现」。Peter Yang 的流媒体断舍离（295 赞）：「Apple TV 全是神剧，退了 Netflix。」</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">The Year of Linux Desktop &amp; the Builder Wave / Linux 桌面元年与建造者之潮</h2>
+    <p class="section-desc">Sottiaux（**9804 赞**）：「2026 是 Linux 桌面元年」；Rauchg 双发（1177/84 赞）：建造之潮与里根「闪亮之城」；Nikunj 的投资自白（246 赞）：每天 2 小时亲手编程。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+rauchg+nikunj" data-author-name="Sottiaux / Rauchg / Nikunj" data-author-tag="OpenAI / Vercel CEO / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Rauchg / Nikunj avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Rauchg / Nikunj</div>
+            <div class="author-tag is-inline">OpenAI / Vercel CEO / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的年度总结（9804 赞，今日最高）：「2026 是 Linux 桌面元年」——那个流传几十年的梗，终于在 agent 时代成真（当 agent 成为新的「桌面」，底层操作系统隐喻随之而来）。Rauchg 双发：建造之潮（1177 赞）——「近期这波 AI 最酷的地方：每个人都为建造而兴奋。短期闹剧都放一边，这对世界是无法计量的好事——人们想创造与发布，而不只是消费」；里根「闪亮之城」演说摘引（84 赞）——「一座高耸、自豪的城，建在比海洋更坚固的岩石上……城墙上若有墙，墙上有门，门向每一个有心与意志来到这里的人敞开。」Nikunj 的投资自白（246 赞）：「我每天花约 2 小时编程、做 side project、痴迷折腾、试新 repo……几乎每天有 DM 问『你不是 VC 吗，干嘛干这个？』——与任何时代都不同，现在跑得太快：不亲手做，我完全不懂你怎么能懂接下来会发生什么。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：2026 是 Linux 桌面元年。Rauchg：人人想创造与发布。Nikunj：VC 也要每天 2 小时编程。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s verdict (9804 likes, top of the day): &#39;2026 is the year of linux desktop&#39; — the decades-running meme finally landing in the agent era. Rauchg&#39;s double: the builder wave (1177): &#39;The coolest thing about the recent wave of AI is that everyone is excited about building. All short-term drama aside, this is an immeasurably good development for the world. The people want to create and ship, not just consume&#39;; and the Reagan &#39;shining city&#39; quote (84). Nikunj&#39;s investment confession (246): &#39;I spend ~2 hours a day programming, building side projects, tinkering obsessively, trying new repos… I get basically a DM a day asking &quot;aren&#39;t you a VC, why are you doing this?&quot; Unlike other eras, things are moving SO fast that if you don&#39;t do this, I simply don&#39;t understand how folks will ever learn what&#39;s coming next.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: 2026 is the year of linux desktop.</p>
+              <p>Guillermo Rauch: The coolest thing about the recent wave of AI is that everyone is excited about building. All short-term drama aside, this is an immeasurably good development for the world. The people want to create and ship, not just consume.</p>
+              <p>Nikunj Kothari: I spend ~2 hours a day programming, building side projects, tinkering obsessively, trying new repos.. I get basically a DM a day asking &quot;aren&#39;t you a VC, why are you doing this?&quot; Unlike other eras, things are moving SO fast that if you don&#39;t do this, I simply don&#39;t understand how folks will ever learn what&#39;s coming next.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Personal Agents, Tastemakers &amp; Apple TV / 个人 agent、品味官与 Apple TV</h2>
+    <p class="section-desc">Levie（**340 赞**）：「个人 agent 是『造 agent 想用的东西』的终极体现」；Peter Yang 三连（295/82/23 赞）：Apple TV 神剧榜与 Netflix 退订、ChatGPT Finances 预告、/tastemaker 品味技能；Nan Yu 的田野报告（12 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+petergyang+thenanyu" data-author-name="Levie / Yang / Nan Yu" data-author-tag="Box CEO / Builder / OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Yang / Nan Yu avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Yang / Nan Yu</div>
+            <div class="author-tag is-inline">Box CEO / Builder / OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 的产品论（340 赞）：「个人 agent 是『造 agent 想用的东西』的终极体现。Muse 这类产品的形态是：你要能把任务完整交给 agent、并确保它端到端完成。为此 agent 必须能成功操作你的工具、或用自己的工具完成任务——用你的 MCP 或 CLI、顺畅导航你的网站、能够交易，等等。」Peter Yang 三连：流媒体断舍离（295 赞）——「Apple TV 全是神剧，退了 Netflix。《Widow&#39;s Peak》9.5/10；《Silo》第三季 9/10。已看：《人生切割术》9.5/10；《流人》8/10，等新季攒多几集再看」；理财播客预告（82 赞）——请到 ChatGPT Finances 产品负责人 Evan Bloch 分享六个人人可用的个人理财 prompt：主动找税务减免、信用卡权益最大化、通往财务独立的交互式预测等；品味官技能（23 赞）——「我有一个简单 markdown 文件 + /tastemaker 技能：给看过的电影剧集书打分，每周它查新片与我没看过的，给出极其相关的推荐——要开源吗？」Nan Yu 的田野报告（12 赞）：「试着让 Muse 和 Instinct 都打电话，它们都自称做不到……还在灰度推送吗？」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：个人 agent 即「造 agent 想用的东西」。Yang：Apple TV 神剧退 Netflix；tastemaker 评分技能。Nan Yu：Muse/Instinct 都打不了电话。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s product thesis (340 likes): &#39;Personal agents are the ultimate manifestation of &quot;build something that agents want.&quot; The form factor of a product like Muse is you want to be able to hand off a task to the agent and ensure that it is fully completed end to end. To do this, the agent must be able to successfully operate with your tools or use its own… Use your MCP or CLI, easily navigate your site, be able to transact, and more.&#39; Peter Yang&#39;s trio: the streaming verdict (295): &#39;Apple TV is full of bangers, canceled my Netflix. Widow&#39;s Peak, 9.5/10. Silo season 3, 9/10. Already seen: Severance, 9.5/10. Slow Horses, 8/10, gonna wait for more episodes&#39;; the finance podcast (82): six practical personal-finance prompts with ChatGPT Finances product lead Evan Bloch — tax savings, credit-card rewards, interactive FI forecasts; and the tastemaker skill (23): &#39;I have a simple markdown file and a /tastemaker skill that I use to add ratings for movies, TV shows, and books I&#39;ve seen. Then every week it looks up new releases and makes incredibly relevant suggestions. Should I open source this?&#39; Nan Yu&#39;s field report (12): &#39;I&#39;m trying to place calls with both Muse and Instinct and they both claim to be unable to do so… is this still rolling out?&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: Personal agents are the ultimate manifestation of &quot;build something that agents want&quot;. The form factor of a product like Muse is you want to be able to hand off a task to the agent and ensure that it is fully completed end to end.</p>
+              <p>Peter Yang: Apple TV is full of bangers, canceled my Netflix. Widow&#39;s Peak, 9.5/10. Silo season 3, 9/10.</p>
+              <p>Peter Yang: I have a simple markdown file and a /tastemaker skill that I use to add ratings for movies, TV shows, and books I&#39;ve seen. Then every week it looks up new releases and stuff I haven&#39;t seen and makes incredibly relevant suggestions.</p>
+              <p>Nan Yu: I&#39;m trying to place calls with both muse and instinct and they both claim to be unable to do so… is this still rolling out?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Nation-State Fears &amp; the UC Petition / 国家级行为者之忧与 UC 请愿</h2>
+    <p class="section-desc">Aditya 的直白推断（46 赞）：「我 100% 认定若干大公司已被国家级行为者渗透而不自知」；Garry Tan 的 UC 反歧视请愿（268 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="adityaag+garrytan" data-author-name="Aditya / Tan" data-author-tag="SPC / YC CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aditya / Tan avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aditya / Tan</div>
+            <div class="author-tag is-inline">SPC / YC CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aditya 的直白推断（46 赞）：「看过 Gemini（Google）、OpenAI 与 Anthropic 争相发布的『更多 agent 入侵』公告之后……我 100% 断定：若干大公司已经被国家级行为者渗透、而它们自己毫不知情。」Garry Tan 的请愿（268 赞）：「停止加州大学系统中的种族歧视」——附请愿链接。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aditya：大公司必已被国家级行为者渗透而不自知。Tan：UC 反歧视请愿。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aditya&#39;s sober take (46 likes): &#39;After seeing the rush of announcements by Gemini (Google), OpenAI and Anthropic about even more agent intrusions…… I take it for 100% granted that a number of major companies have been penetrated by nation states without them knowing about it.&#39; Garry Tan&#39;s campaign (268): &#39;Stop racial discrimination in the University of California system&#39; — linking the petition.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aditya Agarwal: After seeing the rush of announcements by Gemini (Google), OpenAi and Anthropic about even more agent intrusions......I take it for 100% granted that a number of of major companies have been penetrated by nation states without them knowing about it.</p>
+              <p>Garry Tan: Stop racial discrimination in the University of California system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/adityaag" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast (Re-run): Richard Socher — When AI Improves Itself / 播客（重播）：Richard Socher——当 AI 自我改进</h2>
+    <p class="section-desc">MAD Podcast 重播（2026-09-10 发布，本刊 09-12 期已完整收录）：Recursive 融资 6.5 亿美元专攻 RSI、新书《The Eureka Machine》（9 月 22 日出版）。完整 transcript（76077 字符）译文随卡附上。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad-socher" data-author-name="MAD Podcast" data-author-tag="Richard Socher（Recursive 创始人；前 Salesforce 首席科学家）× Matt Turck" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="MAD Podcast avatar"><span class="avatar-fallback">MP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">MAD Podcast</div>
+            <div class="author-tag is-inline">Richard Socher（Recursive 创始人；前 Salesforce 首席科学家）× Matt Turck</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast 全新一期（09-10 发布，本刊首次收录）：Matt Turck 对话 Richard Socher——刚为 Recursive 融了 6.5 亿美元专攻递归自我改进（AI 造更好的 AI），新书《The Eureka Machine》9 月 22 日出版。核心看点：科学为何放缓、next-token 即世界模型、可仿真即可解、幻觉是特性、四支柱尤里卡机器、4.1 亿美元的单笔算力合同、十个智能空间的上界。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：RSI 与新书】</p>
+              <p>Socher 开场金句：「任何你能仿真的东西，AI 都能解决。不知不觉间你就进入了递归自我改进循环——我们相信那将是一次巨大的解锁。天呐，我们距离任何智能空间的真实上界都还遥远得很，AI 还能走得更远得多。」Turck 介绍：Socher 是被引最多的 AI 研究者之一，如今站在「递归自我改进」（RSI）这个词的中心——刚为 Recursive 融资 6.5 亿美元，新书《The Eureka Machine》是 AI 与 RSI 革命化科学的蓝图。</p>
+              <p></p>
+              <p>【科学进步为何放缓】</p>
+              <p>Socher：这是个有点反直觉的事实。想想抗生素：细菌感染从死刑与瘟疫变成了小麻烦，我们真正解决了它；但病毒与癌症远没有同样解决。基础性的新东西如 E=mc²、广义相对论之后，物理学的根本理论也没再有大进展。许多领域从「理解了一些基础构件」走到「能做大量工程」，同时分裂成上千个子领域——如今几乎不可能当那种能在所有领域间穿行的通才，因为每个领域都要好几年才能真正深入。子领域越多越细，每个里面的人手就越不够。这就是放缓的重要原因。</p>
+              <p>Socher：我们从「知识之体」演化成了「知识迷宫」——34000 本期刊，干脆挂上「禁止入内」的牌子。我自己学语言学、学计算机、这几年又在学生物，每次和生物学家聊，十句话之后就是一堆你不懂的缩写，多数人一会儿就神游了。而且学术界不鼓励冒险：太新颖的论文会被拒。2010 年前后我用神经网络做 NLP，头几篇论文基本全被 NLP 会议拒了，只在小的子圈子里被接收。我还记得 NeurIPS 前身 NIPS 的第一个深度学习 workshop——就三四十人，全是现在大名鼎鼎的人，但当时就是一小撮「叛徒」。</p>
+              <p></p>
+              <p>【AI 是新的科学范式：next-token 即世界模型】</p>
+              <p>Socher：科学的强项是把东西越切越小，而要把它们重新织回一起，得用 AI——就像微积分之于物理，AI 之于生物。微生物组、大脑：我们理解单个神经元——突触、放电、化学（很多神经模型至今忽略化学）——但拼到一起就不明白为什么整颗大脑能产生一个念头。AI 是思考这些复杂系统的完美语言，而且研究神经网络总比研究原生生物系统容易。</p>
+              <p>Socher：为什么擅长做聊天机器人的技术也擅长科学发现？想想预测下一个 token 为什么这么强：语料里总有人写「我在纽约，往北开去……」——更大可能是波士顿而不是耶鲁，城市越大越可能。仅凭预测这一个词，你就吸收了地理知识；做上万亿遍，地理就被编进了网络。蛋白质折叠同理：三维空间里更接近的蛋白质，在 next-token 网络的表征里也表现出相关性。token 可以是词、子词，也可以是蛋白质、几块像素、一段声音——一切皆可 token 化。当然，所有模型都是错的、有些是有用的：蛋白质不只是序列，还有三维结构——但这个类比能被推到这么远，令人惊讶。而科学几乎都站在巨人肩膀上，聪明地重组已有思想就能带来巨大进步——我们联合创始人 Jeff Clune 就举过好几个例子：AI 生成的想法，几个月后被人原样发表了——新颖性门槛已经多次达标。</p>
+              <p></p>
+              <p>【可仿真即可解：游戏、数学、编程与跑步姿势】</p>
+              <p>Socher：我们基本能预测 AI 将在哪里必然超人类：凡是能仿真或能验证的领域。能仿真，AI 就能在里面实验无限次。完美信息的游戏（棋类看得见全盘）最简单——AI 还能自我对弈，这正是开放性与 RSI 的重要部分。数学将在几年内巨变——前沿数学家已充分意识到，很多过去有用的手工技巧（就像手工特征工程、手工架构工程）将不再有用。最有力的可仿真可验证对象是编程：给一张网站截图说「做成这样」，就能造出无限多训练例——整个编程业将改变，冲击整个数字经济。还有个好玩例子：中国运动会上机器人那好笑的跑姿——仿真里 AI 试了各种跑法找到这种人类从未想到的方式；我的直觉是人类会去模仿那种跑法来跑得更快，就像棋手和围棋手因与近乎完美的 AI 对练而变得更强。</p>
+              <p></p>
+              <p>【幻觉是特性、从读到写生物】</p>
+              <p>Socher：探索新蛋白质时，幻觉是特性不是 bug——每台计算机都能死记硬背，有趣的是「幻觉得多合理、多有意思地偏离分布」——调高温度即可。事实性问题则给搜索引擎结果再总结，幻觉问题大部分就解决了——当初以为需要神经符号推理，其实只需要更多「别幻觉、照搜索结果总结」的例子。别忘了：海森堡与苦艾酒、某些不太健康的精神状态也推动过物理学。</p>
+              <p>Socher：生物正从记忆学科变成可编程的工程学科。2018 年我们在 Salesforce 训练了当时最大的蛋白质语言模型 ProGen（一作 Ali Madani），他后来创办 Profluent，如今与礼来签了数十亿美元合同——造出的新蛋白在基因编辑上比 CRISPR-Cas9 更好、更精准。还有个试验为每位患者造不同的药——FDA 史上第一次。美国和欧洲临床试验太难，很多团队去中国（更便宜更快，但要担心 IP 被吸走）或澳大利亚（把临床试验权下放到每家医院，引入竞争）。我不信疯狂硬起飞：物理与现实验束还在——想知道停药三年后有没有问题就是得等三年；但变化是：过去八年一款药进晚期试验，现在 6-18 个月多款药进二期晚段，上市时可能有八款以上，且预测模型更好、成功率更高。</p>
+              <p></p>
+              <p>【就业弹性、杰文斯与离场权】</p>
+              <p>Socher：如果你在乎产出，你爱 AI；如果你按小时领薪，你大概恨 AI。就业的关键变量是需求价格弹性：插画师恨 AI——价格跌了一千倍，需求没涨一千倍，世界不需要那么多插画；编码相反——越便宜用得越多，杰文斯悖论，程序员需求反而在涨，未来每人手机上可能有几十个为自己定制的 app。我还兴奋于：吃微塑料、吃完就死的细菌（要小心变异）；等离子体平衡已是机器学习控制问题；更高效的太阳能板与不必依赖锂的电池。「想知道一件事为什么不行，去问专家」——NLP 如此，如今生物与长寿也如此。另一方面，会有人选择从进步中「下匝道」：希腊小岛打鱼的人不必想 AI；不丹用幸福而非 GDP 记分。David Deutsch 的《无穷的开始》讲科学如何解决一个又一个难题——我个人全押进步，但有人会不参与，AI 这个加速剂让这个问题更迫切。AI 的公关做得很糟：小说曾毁掉青年（《少年维特之烦恼》真导致过自杀，如今是德国高中生必读）、漫画曾很坏、游戏曾很坏——现在是聊天机器人很坏；但数亿人从中获得更便宜的医疗、法律、情感建议——「未来整体上需要更好的营销」。</p>
+              <p></p>
+              <p>【AI 经济学家】</p>
+              <p>Socher：经济学没有基准测试，投稿 Nature 和 Science 直接桌拒——有位完全不懂 AI 的伦理学家说「RL 做经济学太怪了」看都不看。于是经济学变成政治场：你必须写符合本系政治倾向的论文。2018 年我们造了个仿真社会：agent 有效用函数、每天愿工作时长、从先验采样；它们收集资源、建房、可垄断资源变富；再有一个元 agent 给各组定税收与补贴。奖励设为「平等 × 生产率」的乘积——你既想增长也不想一个 agent 占有一切。agent 们会钻空子——在税年前后倒腾收益避税。有趣的是：系统先复原了经济学著名的 Saez 公式（那是在「只做一次经济决策」世界里可证最优的税制），然后超越了它——因为真实经济是时序决策，agent 会针对税制做出反适应。希望这篇论文有朝一日迎来「GPT-3 时刻」——有人把它规模化成逼真仿真，让 AI 对经济政策给出客观建议（人类仍须定义目标函数）。美国因身份政治与超级 PAC 很难采用；新加坡或中国更可能先试。</p>
+              <p></p>
+              <p>【尤里卡机器的四支柱与 agent 蜂群】</p>
+              <p>Socher：第一支柱是 LLM——把人类知识摄入机器。其中有个我没在书里多写、但亲历的怪循环：几家闭源大厂把开放互联网的一切拿去训了模型；中国开源公司又用蒸馏把这批知识从闭源模型里抽出来开源——于是知识回到了它出发的开放互联网。第二支柱是科学测量：我们看不见引力波与伽马射线，但能造仪器去测；有些知识甚至难以用人类语言描述——「这个网络因为这 500 万个参数预测了这个词」列出来也不会给你直觉，就像没人说得清你转方向盘时为什么动了小指的肌纤维。需要很多大学与实验室把物理、化学、生物的「世界模型」合到一起——「虚拟细胞」是一个很好的门柱，完整形态尚不存在。第三支柱是仿真：理想中是一台疯狂的统一大仿真，但需要分层抽象——化学不必模拟到量子细节，生物可以把分子抽象成蛋白质；有时过度简化会漏掉量子生物学的意外。第四支柱是现实世界：仿真总会漏掉混淆变量，最终要造真机器、放卫星、去测宇宙。自驾机器人实验室已有先行者（Periodic Labs）；投资上略早，两三年后正当其时。Parallel Bio 用人源干细胞做类器官（淋巴结免疫细胞），已获 FDA 批准跳过部分动物试验——省下数百万美元与无数专为试验饲养然后解剖的动物：爱动物的人也可以爱 AI。在四支柱之上是 agent 蜂群与科学家社区：开放性过程在生物里造出了手指、眼睛与大脑；Jeff Clune 的微波炉例子——你不可能靠「把这口锅加热快一点」得到微波炉，你得先做雷达、发现口袋里的巧克力化了——研究路径的重组才是惊喜之源。</p>
+              <p></p>
+              <p>【Recursive：真公司、算力与里程碑】</p>
+              <p>Socher：算力是最大约束。未来人类与公司将越来越多地决定「什么问题值得解、给它多少算力」，会出现按问题的新缩放律。公开互联网大半已被消化，但新闻总在发生——you.com 持续给各家实验室喂最新搜索结果。Recursive：目标是建造递归自我改进的超级智能、自动化知识发现与科学发现。八位联创从不同方向走到同一认识——Clune 与 Tim Rocktäschel 从开放性/演化算法来；我从「特征工程→架构工程→下一个该自动化的是思想本身」来。融资最后是 6.7 亿左右，其中 4.1 亿投给 Amazon 的单一算力合同——「这大概会是我们未来最小的一笔算力交易」。今年内会有几个有意思的发布。我不喜欢「neo lab」这个类别——它们大多不会成功；我们是真公司、做真产品、见真客户。博客里展示过通往完整 RSI 的里程碑：在窄域里，尤里卡机器的第一版已能在小模型的自动研究上超过人类数月有时数年的投入；还能造新的 CUDA kernel 加速推理，NVIDIA 的 SOLEXEC bench 是基准，用户反馈非常正面。</p>
+              <p></p>
+              <p>【智能的上界】</p>
+              <p>Socher：至今没有人把「智能」定义清楚。我目前的看法：基本构件是预测、行动与目标——就像能量有单位，我们还不知道智能的单位是什么。类似物理里动能势能之外还有化学能、机械能、电能，AI 里也有视觉智能、语言智能、物理智能与机器人——我定义了十个智能空间，每个都有很多维度。举视觉一例：人类只能看到电磁频谱很窄的一段，而智能体可以从伽马射线看到引力波、可以有亿万只传感器——但每个传感器都有光速视界，视觉智能终究受光锥约束。结论：天呐，我们离任何智能空间的真实上界都还远得很——所以当有人说「AI 这套算法要泡沫破裂了」：也许智能的单位成本会波动，但这个领域与文明能走的路还长得很。（《The Eureka Machine》9 月 22 日出版。）</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A brand-new MAD Podcast (published 2026-09-10, new to this digest): Matt Turck with Richard Socher, who just raised $650M for Recursive — a company built for recursive self improvement (AI that makes better AI) — and whose book The Eureka Machine (out Sept 22) is a blueprint for how AI + RSI will revolutionize science. Core threads: why scientific progress slowed (knowledge went from a body to a labyrinth of 34,000 journals; academia punishes risk — Socher&#39;s early neural-net NLP papers were mostly rejected); AI as the new paradigm (like calculus for physics, weaving biology&#39;s pieces back together); next-token prediction as world model (driving north from NY → Boston; protein-folding distances showing up in representations); &#39;anything you can simulate, AI will solve&#39; — games, math (&#39;will change massively&#39;), programming (picture→website→infinite examples), even the funky robot run at the Chinese Olympics humans may emulate; hallucination as feature (novel protein exploration; for facts, just add search + summarize — &#39;we didn&#39;t need neurosymbolic, just more don&#39;t-hallucinate examples&#39;); reading → writing biology (2018 ProGen → Profluent&#39;s Eli Lilly deals, better than CRISPR-Cas9; per-patient drug trials, an FDA first); no hard takeoff (physics still takes years, but companies now reach multiple late-stage-2 drugs in 6-18 months instead of one after 8 years); the jobs theory (demand elasticity: illustrators lose, coding wins via Jevons paradox); off-ramping from progress (Greek islands, Bhutan&#39;s happiness-over-GDP); the AI economist (2018 RL simulation recovering and then surpassing the Saez formula; desk-rejected by Nature and Science; hope for a GPT-3 moment, more likely adopted in Singapore or China than the US); the Eureka machine&#39;s four pillars (LLM knowledge — with the &#39;knowledge returned to the open domain&#39; cycle of closed labs → Chinese open-source distillation; scientific measurements; simulation — virtual cell as goalpost; the real world — robotic labs like Periodic Labs and Parallel Bio, whose FDA approval to skip certain animal trials means &#39;if you love animals, you can love AI&#39;); agent swarms on top (open-endedness; Clune&#39;s microwave: you don&#39;t get it by &#39;heat this pot faster&#39;); compute as the biggest constraint ($410M committed to a single Amazon deal — &#39;will probably be one of the smallest compute deals in our future&#39;); Recursive&#39;s milestones (narrow-domain Eureka machine outperforming months/years of human endeavor; new CUDA kernels, benchmarked by NVIDIA&#39;s SOLEXEC); &#39;we are a real company, not an academic lab — most neo-labs will not succeed&#39;; and the closer: ten spaces of intelligence, no unit of intelligence yet (like energy has one), visual intelligence bounded only by light cones — &#39;boy are we far away from the true upper bounds of any of the spaces of intelligence.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Richard Socher: Anything you can simulate, AI will solve. And before you know it, you&#39;re in this recursive self improvement loop and we believe that that will be a great unlock.</p>
+              <p>Richard Socher: Boy, are we far away from the true upper bounds of any of the spaces of intelligence. And there is still so much further that AI can go.</p>
+              <p>Richard Socher: We evolved from a body of knowledge to a labyrinth of knowledge, 34,000 journals that might as well have no trespassing signs.</p>
+              <p>Richard Socher: The first pillar is just large language models… the few large closed labs took almost everything from the open internet, trained a model, but then the Chinese open source companies basically siphoned a lot of that knowledge out by distilling it, but then open sourced it back into the open domain.</p>
+              <p>Richard Socher: If you care about the outputs of an industry or a company then you love AI. If you get paid hourly you probably hate AI.</p>
+              <p>Richard Socher: Compute is the biggest constraint… We raised $670ish [million] and that will probably be one of the smallest compute deals that will happen in our future.</p>
+              <p>Richard Socher: We are a real company, not an academic lab. We are building real products, we&#39;re talking to real customers.</p>
+              <p>Richard Socher: Parallel Bio… has already gotten FDA approval to skip certain animal trials… if you love animals, you can also love AI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@DataDrivenNYC/videos" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-09-21 source feeds (a very light X day: 8 builders, 11 tweets; podcast slot re-runs the MAD Podcast Richard Socher episode, originally published 2026-09-10, first covered in our 2026-09-12 issue).">Source: Follow Builders curated daily digest. Built from the 2026-09-21 source feeds (a very light X day: 8 builders, 11 tweets; podcast slot re-runs the MAD Podcast Richard Socher episode, originally published 2026-09-10, first covered in our 2026-09-12 issue).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
