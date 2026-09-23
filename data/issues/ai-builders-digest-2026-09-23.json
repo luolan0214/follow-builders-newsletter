@@ -1,0 +1,118 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-23",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sottiaux 的引擎轰鸣（**12522 赞，今日最高**）：「女士们先生们……发动……你们的……引擎。快到周二了，我答应过周二有一次重置。还有些别的东西。回头见。」——DevDay 前奏与 Altman 上周预告的「值得等」开始对齐。Steipete 的澄清与骄傲（4388 赞）：「因为那个『Meta 用了 OpenClaw』的故事在传——他们造了自己的 agent、只是受了启发。Nat 和他的团队干得漂亮，致敬！」+「自己跑 claw 的美妙：他们封不了你」（1108 赞）+「骄傲地说我们做足了功课：他们没找到任何致命问题」（433 赞，审计通过）。Rauchg 的硬核测试（2194 赞）：「刚给 Grok 4.7 出了道难题——逆向一个正在运行的二进制。漂亮地解了，而且飞快！」Thariq 的时代注脚（1759 赞）：「我现在一天要打好几次『用大图、少写字』。」Peter Yang 的广告业警钟（379 赞）：「如果你的生意大头是给人类看定向展示广告——当 agent 替你浏览网站、把活干完、人类根本没看到你的广告时，会发生什么？」今日无播客。"
+  },
+  "archive": {
+    "title": "周二引擎与 OpenClaw 传闻日报",
+    "desc": "Sottiaux 预告周二重置「发动引擎」（12522 赞）；Steipete 澄清 Meta 自研 agent 只是受 OpenClaw 启发；Rauchg 实测 Grok 4.7 逆向运行中二进制。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-23 source feeds (10 builders, 21 tweets; no podcast episode in today's feed).",
+  "sections": [
+    {
+      "title": "Engines On & the Meta-OpenClaw Story / 引擎轰鸣与 Meta-OpenClaw 传闻",
+      "desc": "Sottiaux（**12522 赞**）：周二重置预告；Steipete 三连（4388/1108/433 赞）：Meta 自研澄清、「自己跑 claw 封不了你」、审计通过。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+steipete",
+          "authorName": "Sottiaux / Steipete",
+          "authorTag": "OpenAI / OpenClaw",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's rev-up (12522 likes, top of the day): 'Ladies and gentlemen... start... your... ENGINES. We are almost Tuesday and I promised a reset for Tuesday. Among some other things. See you soon.' Steipete's triple: the Meta clarification (4388): 'Because this \"Meta uses OpenClaw\" story is going around. They built their own agent, being inspired. Nat and his team did a great job. Kudos!'; the freedom flex (1108): 'The beauty of running a claw yourself: they cannot block you'; and the audit note (433): 'Proud to say that we did our homework. They found nothing critical.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Ladies and gentlemen... start... your... ENGINES. We are almost Tuesday and I promised a reset for Tuesday. Among some other things. See you soon.",
+              "Peter Steinberger: Because this \"Meta uses OpenClaw\" story is going around. They built their own agent, being inspired. Nat and his team did a great job. Kudos!",
+              "Peter Steinberger: The beauty of running a claw yourself: they cannot block you.",
+              "Peter Steinberger: Proud to say that we did our homework. They found nothing critical."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的引擎轰鸣（12522 赞，今日最高）：「女士们先生们……发动……你们的……引擎。快到周二了，我答应过周二有一次重置。还有些别的东西。回头见。」——重置预告 +「别的东西」，DevDay 前的期待值拉满。Steipete 三连：Meta 澄清（4388 赞）——「因为那个『Meta 用了 OpenClaw』的故事在传：他们造了自己的 agent、只是受了启发。Nat 和他的团队干得漂亮，致敬！」；自由宣言（1108 赞）——「自己跑 claw 的美妙之处：他们封不了你」；审计通报（433 赞）——「骄傲地说我们做足了功课：他们没找到任何致命问题。」"
+            ],
+            "original": [
+              "Sottiaux：周二重置 + 别的东西。Steipete：Meta 自研只是受启发；自己跑 claw 封不了；审计无致命问题。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Grok 4.7's Binary Reverse & Coding Weapons / Grok 4.7 逆向二进制与编码武器库",
+      "desc": "Rauchg 三连（**2194/462/91 赞**）：Grok 4.7 逆向运行中二进制、英雄相惜、Jev over HTTP；Garry Tan 三连（356/213/22 赞）：capydotai 新秘密武器、Cluely 重估、GBrain PR 波；Thariq 时代注脚（1759 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+trq212",
+          "authorName": "Rauchg / Tan / Thariq",
+          "authorTag": "Vercel CEO / YC CEO / OpenAI",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's trio: the hard test (2194 likes): 'I just gave Grok 4.7 a pretty hard problem, involving reverse-engineering a running binary. Beautifully solved. And it's so fast!'; the mutual respect note (462): 'Game recognizing game'; and the shipping note (91): 'In addition to our type-safe TypeSafe @aisdk API (get it?), you can now use Jev over HTTP in AI Gateway.' Garry Tan's trio: the new weapon (356): 'Not really sure how @capydotai does it, but it really is able to track multi-step workflow and do large PRs faster than Codex or Claude Code on its own. My most favorite new agentic coding secret weapon in my arsenal the last week' — plus the GBrain PR example (22) and the Cluely reconsideration (213): 'If you really think about it Cluely as a realtime thought helper and semi-adversarial assistant with ongoing context is still a good idea.' Thariq's era-note (1759): 'I now type \"use big pictures and few words\" several times a day.'"
+            ],
+            "original": [
+              "Guillermo Rauch: I just gave Grok 4.7 a pretty hard problem, involving reverse-engineering a running binary. Beautifully solved. And it's so fast!",
+              "Guillermo Rauch: In addition to our type-safe TypeSafe @aisdk API (get it?), you can now use Jev over HTTP in AI Gateway.",
+              "Garry Tan: Not really sure how @capydotai does it, but it really is able to track multi-step workflow and do large PRs faster than Codex or Claude Code on its own. My most favorite new agentic coding secret weapon in my arsenal the last week.",
+              "Garry Tan: If you really think about it Cluely as a realtime thought helper and semi-adversarial assistant with ongoing context is still a good idea.",
+              "Thariq: I now type \"use big pictures and few words\" several times a day."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 三连：硬核测试（2194 赞）——「刚给 Grok 4.7 出了道难题：逆向一个正在运行的二进制。漂亮地解了，而且飞快！」；英雄相惜（462 赞）——「Game recognizing game」；发布（91 赞）——「除了我们类型安全的 TypeSafe AI SDK API（懂我意思吧），现在还能在 AI Gateway 里走 HTTP 用 Jev。」Garry Tan 三连：新武器（356 赞）——「真不知道 capydotai 怎么做到的：它能追踪多步工作流、做大型 PR 比 Codex 或 Claude Code 单打独斗还快——过去一周我最爱的新 agentic 编码秘密武器」；GBrain PR 实例（22 赞）与 Cluely 重估（213 赞）——「认真想想：Cluely 作为实时思维助手 + 半对抗性助理 + 持续上下文，仍然是个好主意。」Thariq 的时代注脚（1759 赞）：「我现在一天要打好几次『用大图、少写字』。」"
+            ],
+            "original": [
+              "Rauchg：Grok 4.7 漂亮解掉逆向二进制。Tan：capydotai 是新秘密武器。Thariq：大图少字。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Agent Commerce & the Ad-Market Awakening / agent 商流与广告业警钟",
+      "desc": "Peter Yang 三连（379/46/7 赞）：广告业 rude awakening、住进 agent 聊天、ChatGPT Finances 报销实录；Levie 双发（69/53 赞）：agent 用软件百倍于人类、个人 agent 的变现；Amjad（566 赞）；Nikunj 三连（164/56/35 赞）；Swyx（7 赞）。",
+      "cards": [
+        {
+          "authorKey": "petergyang+levie+amasad+nikunj+swyx",
+          "authorName": "Yang / Levie / Amjad / Nikunj / Swyx",
+          "authorTag": "Builder / Box CEO / Replit CEO / FPV / Latent Space",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Peter Yang's trio: the ad-market warning (379 likes): 'I think we're in for a rude awakening in the ad markets: If a huge part of your business is showing targeted display ads to humans — what happens when agents browse your website and get the job done without a human seeing your ads at all?'; the new home (46): 'Nah. I no longer live in email or text, I live in the chat with my agent(s)'; and the ChatGPT Finances receipt (7): Ethan used points to book a hotel, still got billed — 'ChatGPT caught it, worked with customer service, and I ended up getting reimbursed.' Levie's double: 'AI agents will use software 100X more than people ever did… In fact, in many ways these core primitives become even more important when agents can take destructive actions' (69); and the monetization math (53): 'The monetization potential of personal agents that are transacting on your behalf is quite significant… eventually a substantial amount of commerce inevitably goes through them.'",
+              "The rest: Amjad's thesis (566): 'AI is reviving the American Dream'; Nikunj's trio — Codex on Mac as the undefeated computer-use champion (164), 'the companies boasting about tokenmaxxing have the worst product experiences… Less is more has never been more apt' (56), and the GitHub-squares joke (35); plus Swyx's Jev pod announcement (7)."
+            ],
+            "original": [
+              "Peter Yang: I think we're in for a rude awakening in the ad markets: If a huge part of your business is showing targeted display ads to humans what happens when agents browse your website and get the job done without a human seeing your ads at all?",
+              "Peter Yang: Nah. I no longer live in email or text, I live in the chat with my agent(s).",
+              "Aaron Levie: The monetization potential of personal agents that are transacting on your behalf you is quite significant. If you imagine agents that are perfectly capable of handling an arbitrarily complex task end to end, then eventually a substantial amount of commerce inevitably goes through them.",
+              "Amjad Masad: AI is reviving the American Dream.",
+              "Nikunj Kothari: With a few exceptions, the companies boasting about tokenmaxxing have the worst product experiences.. It's because good products are all about curation & gardening and not throwing the kitchen sink at agents expecting them to figure it out. Less is more has never more apt."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 三连：广告警钟（379 赞）——「我想广告市场要迎来一次 rude awakening：如果你的生意大头是给人类看定向展示广告——当 agent 替你浏览网站、把活干完、人类根本没看到你的广告时，会发生什么？」；新住址（46 赞）——「不。我不再住在邮件与短信里了，我住在与我 agent 的聊天里」；报销实录（7 赞）——ChatGPT Finances 产品负责人 Ethan 用积分订了酒店还被扣款，「ChatGPT 抓到了、跟客服交涉、最后我拿到退款」。Levie 双发：百倍论（69 赞）——「AI agent 用软件的强度会是人类的一百倍……当 agent 能在我们的系统里采取破坏性动作、或其访问的上下文决定工作流成败时，这些核心原语反而更重要」；变现算术（53 赞）——「替你交易的个人 agent 的变现潜力相当可观：当 agent 能端到端处理任意复杂的任务，最终大量商业活动必然流经它们。」",
+              "其余：Amjad 的判断（566 赞）——「AI 正在复兴美国梦」；Nikunj 三连——Codex on Mac 配 Computer Use「在工作量上简直无敌」（164 赞）；「吹 tokenmaxxing 的公司产品体验普遍最差：好产品讲究策展与园艺，不是把厨房水槽都扔给 agent 指望它们自己想明白。Less is more 从未如此贴切」（56 赞）；GitHub 绿格子玩笑（35 赞）。外加 Swyx 的 Jev 播客上线通告（7 赞）。"
+            ],
+            "original": [
+              "Yang：广告业 rude awakening；住在 agent 聊天里。Levie：大量商业必然流经个人 agent。Nikunj：tokenmaxxing 公司产品最差。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
