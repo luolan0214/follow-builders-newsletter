@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-09-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-09-24" data-issue-number="129" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 129 期｜2026-09-24｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="大日子：GPT-6 Sol 与 Luna 发布 + Claude Opus 5.5 上线 + 前沿模型全面降价。Sottiaux 的官宣（**23309 赞，今日最高**）：「GPT-6 Sol 与 Luna 上线：不只是全方位的显著提升，写作与那种『一上手就知道』的品质也上了台阶。同时**永久降 API 价 50%**……还有一件事：我们正在给所有 Plus、Pro 与 Business 账户装载一次 banked reset。开跑吧！」Cherny 的 Opus 5.5 战报（6778 赞）：「Opus 5.5 与 Fable 5.1 各自把 HAProxy 从 C 移植到 Rust——都几乎通过全部测试，但 Opus 5.5 用时 9.5 小时 vs 12 小时，成本还低 51%」+ 用 Lean 形式化验证 Claude Agent SDK（3324 赞：「几条短 prompt = 16 个 PR 修掉各种 bug 与竞态」）。Cat Wu（1308 赞）：Opus 5.5 成为 Claude Code 与 Claude App 默认模型。Rauchg 的 Next.js 评测（1087 赞）：Opus 5.5 / GPT-6 Sol / Fable 5.1 三家并列 **97%**、Grok 4.7 64% 但便宜 2-7 倍。Levie 的总结（655 赞）：「这是 Jevons 悖论应用于 agent——每次 AI 降价，可部署 agent 的用例都急剧扩张。」今日无播客。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">大日子：GPT-6 Sol 与 Luna 发布 + Claude Opus 5.5 上线 + 前沿模型全面降价。Sottiaux 的官宣（**23309 赞，今日最高**）：「GPT-6 Sol 与 Luna 上线：不只是全方位的显著提升，写作与那种『一上手就知道』的品质也上了台阶。同时**永久降 API 价 50%**……还有一件事：我们正在给所有 Plus、Pro 与 Business 账户装载一次 banked reset。开跑吧！」Cherny 的 Opus 5.5 战报（6778 赞）：「Opus 5.5 与 Fable 5.1 各自把 HAProxy 从 C 移植到 Rust——都几乎通过全部测试，但 Opus 5.5 用时 9.5 小时 vs 12 小时，成本还低 51%」+ 用 Lean 形式化验证 Claude Agent SDK（3324 赞：「几条短 prompt = 16 个 PR 修掉各种 bug 与竞态」）。Cat Wu（1308 赞）：Opus 5.5 成为 Claude Code 与 Claude App 默认模型。Rauchg 的 Next.js 评测（1087 赞）：Opus 5.5 / GPT-6 Sol / Fable 5.1 三家并列 **97%**、Grok 4.7 64% 但便宜 2-7 倍。Levie 的总结（655 赞）：「这是 Jevons 悖论应用于 agent——每次 AI 降价，可部署 agent 的用例都急剧扩张。」今日无播客。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">GPT-6 Sol &amp; Luna: The Reset Arrives / GPT-6 Sol 与 Luna：重置来了</h2>
+    <p class="section-desc">Sottiaux 三连（**23309/12590/6045 赞**）：Sol/Luna 官宣 + 永久降价 50% + banked reset；Levie 的 Jevons 定律（655 赞）；Altman 的更正（855 赞）与团队致敬（3675/2124 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+levie+sama" data-author-name="Sottiaux / Levie / Altman" data-author-tag="OpenAI / Box CEO / OpenAI CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Levie / Altman avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Levie / Altman</div>
+            <div class="author-tag is-inline">OpenAI / Box CEO / OpenAI CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 三连：官宣（23309 赞，今日最高）——「GPT-6 Sol 与 Luna 上线。不只是全方位显著提升，写作与『一上手就知道』的品质也上了台阶。同时**永久降 API 价 50%**，让两者在大量新场景可用、订阅额度也更耐用……还有一件事：正在给所有 Plus、Pro 与 Business 账户装载一次 banked reset。开跑！」；效率注脚（12590 赞）——「我们一直专注『人人可得的效率与智能』。为团队骄傲——只有顶端能力足够强，才可能惠及其余一切」；卖萌预告（6045 赞）——「可能是我们至今最可爱的发布，但拳头的分量一点没少。」Levie 的解读（655 赞）：「AI 单任务成本的下降速度是历史上任何技术都无法比拟的；而每次 AI 降价，能部署 agent 的用例都急剧扩张——这就是应用于 agent 的 Jevons 悖论。」Altman 三连：更正（855 赞）——「啊我说的是语音不是视频 :( 抱歉让大家失望」；创业公司论（3675 赞）；与对 Michelle 的致敬（2124 赞）——「OpenAI 何其幸运……大家会很高兴看到她与团队接下来端出的东西！」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：Sol/Luna 发布、永久降价 50%、banked reset。Levie：Jevons 悖论应用于 agent。Altman：是语音不是视频。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s triple: the launch (23309 likes, top of the day): &#39;GPT-6 Sol and Luna are out. Not only are they a very significant improvement across the board, but also in writing and general &quot;you know when you try it&quot; quality. We are also permanently reducing the API price by 50% making both of them viable for a ton of new usecases… And one more thing. We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let&#39;s go&#39;; the efficiency note (12590): &#39;We have been focusing on efficiency and intelligence for all. Very proud of the team. Only possible when you have incredible models at the top end of the capability&#39;; and the tease (6045): &#39;Maybe our cutest launch so far. But still packing the biggest punch.&#39; Levie&#39;s read (655): &#39;The rate at which the cost per task drops in AI is unlike any other type of technology in history. And every time the cost of AI drops, the use-cases you can deploy agents against dramatically increase. This is Jevons paradox applied to agents.&#39; Altman&#39;s trio: the correction (855): &#39;argh i meant VOICE not video :( sorry to dissapoint&#39;; the startups note (3675); and the tribute to Michelle (2124): &#39;openai is so, so lucky… people will be quite pleased to see what she + team have cooking next!&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: GPT-6 Sol and Luna are out. Not only are they a very significant improvement across the board, but also in writing and general &quot;you know when you try it&quot; quality. We are also permanently reducing the API price by 50% making both of them viable for a ton of new usecases and making your usage go further too, even on the subscriptions.</p>
+              <p>Thibault Sottiaux: We are loading a banked reset into all accounts of our Plus, Pro and Business users.</p>
+              <p>Aaron Levie: The rate at which the cost per task (on a like-for-like basis) drops in AI is unlike any other type of technology in history. And every time the cost of AI drops, the use-cases you can deploy agents against dramatically increase. This is Jevons paradox applied to agents.</p>
+              <p>Sam Altman: argh i meant VOICE not video :( sorry to dissapoint.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Opus 5.5 Launch Day: HAProxy, Lean &amp; Blender Worlds / Opus 5.5 发布日：HAProxy、Lean 与 Blender 世界</h2>
+    <p class="section-desc">Cherny 三连（**6778/3324/117 赞**）：HAProxy 移植竞速、Lean 形式化验证、信息图；Cat Wu（1308/119 赞）：默认模型官宣；Albert 的 Blender 1906 旧金山（890/73/31 赞）；Claude 官方三连（261/257/226 赞）；Shipper（37 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="bcherny+_catwu+alexalbert__+claudeai+danshipper" data-author-name="Cherny / Wu / Albert / Claude / Shipper" data-author-tag="Anthropic / Anthropic / Anthropic / Anthropic / Every" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Cherny / Wu / Albert / Claude / Shipper avatar"><span class="avatar-fallback">C/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Cherny / Wu / Albert / Claude / Shipper</div>
+            <div class="author-tag is-inline">Anthropic / Anthropic / Anthropic / Anthropic / Every</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cherny 三连：移植竞速（6778 赞）——「Opus 5.5 是个真好的模型，几周来一直是我的日用主力。我们让 Opus 5.5 与 Fable 5.1 各自把 HAProxy 从 C 移植到 Rust：都几乎通过全部测试，但 Opus 5.5 用时 9.5 小时 vs 12 小时，成本低 51%」；形式化验证（3324 赞）——「我用 Opus 5.5 + Lean 形式化验证了 Claude Agent SDK：几条短 prompt = 16 个 PR，修掉各种 bug 与竞态条件。TLA+ 也好用，我常把两者结合查数据流、并发与状态管理的问题——两种语言我都不熟，但 Claude 都极擅长」；外加 Opus 做的信息图（117 赞）。Cat Wu 官宣（1308 赞）：「Claude Opus 5.5 现在是 Claude Code 与 Claude App（含 Cowork）在 Pro/Max/Team 计划下的默认模型……默认 effort 档：智能与 Fable 5.1 相当但更快，限额比 Opus 5 多撑 25%。给它一个雄心勃勃的任务吧。」Albert 的 Blender 热（890 赞）——「用 Opus 5.5 玩 Blender 上瘾：更强的 3D 建模与视觉意味着一条 prompt 就能建出整个世界：历史精确的 1906 年地震前旧金山 Market 街」（含完整考据 prompt：Sanborn 火险地图、1899-1905，73 赞）。Claude 官方三连（261/257/226 赞）：算法绘画程序、积木建模应用与发布之问。Shipper 的新粉欢迎帖（37 赞）：「今天涨了近 1 万粉！」附 Opus 5.5 vs Sol 6 的 vibe check。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cherny：HAProxy 移植 9.5 小时省 51%；Lean 验证出 16 个 PR。Wu：Opus 5.5 成默认模型。Albert：Blender 重建 1906 旧金山。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cherny&#39;s triple: the HAProxy race (6778 likes): &#39;Opus 5.5 is a really good model. It&#39;s been my daily driver the last few weeks. We had Opus 5.5 and Fable 5.1 each port HAProxy from C to Rust. Both passed nearly all of HAProxy&#39;s tests, but Opus 5.5 finished in 9.5 hours compared to Fable 5.1&#39;s 12 hours, and for 51% less cost&#39;; the formal verification (3324): &#39;I used Opus 5.5 to formally verify the Claude Agent SDK using Lean. A couple short prompts = 16 PRs fixing various bugs and race conditions… I don&#39;t know either language well, but Claude is excellent at both&#39;; and the infographic (117). Cat Wu&#39;s announcement (1308): &#39;Claude Opus 5.5 is now the default model in Claude Code and the Claude app, including Cowork, for Pro, Max, and Team plans… Your rate limits will go 25% further on Opus 5.5 compared to Opus 5.&#39; Albert&#39;s Blender kick (890): &#39;I&#39;ve been on a Blender kick with Opus 5.5. Its better 3D modeling and vision mean you can build an entire world from a single prompt. Historically accurate San Francisco Market street in 1906, pre-earthquake&#39; — with the full scope prompt (73) and the rollout note (31). Claude&#39;s own trio (261/257/226): the algorithmic drawing program, the toy brick-building app, and the launch prompt. Shipper&#39;s welcome mat (37): &#39;i added almost 10k new followers today!&#39; with his Opus-5.5-vs-Sol-6 vibe check.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: We had Opus 5.5 and Fable 5.1 each port HAProxy from C to Rust. Both passed nearly all of HAProxy&#39;s tests, but Opus 5.5 finished in 9.5 hours compared to Fable 5.1&#39;s 12 hours, and for 51% less cost.</p>
+              <p>Boris Cherny: I used Opus 5.5 to formally verify the Claude Agent SDK using Lean. A couple short prompts = 16 PRs fixing various bugs and race conditions.</p>
+              <p>Cat Wu: Claude Opus 5.5 is now the default model in Claude Code and the Claude app, including Cowork, for Pro, Max, and Team plans. Your rate limits will go 25% further on Opus 5.5 compared to Opus 5.</p>
+              <p>Alex Albert: I&#39;ve been on a Blender kick with Opus 5.5. Its better 3D modeling and vision mean you can build an entire world from a single prompt. Historically accurate San Francisco Market street in 1906, pre-earthquake.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Benchmarks, Taste &amp; Software Immortality / 评测、品味与软件不朽</h2>
+    <p class="section-desc">Rauchg 三连（**1418/1087/1045 赞**）：Next.js 评测三家并列 97%、Anthropic 的品味、软件永生论；Thariq 三连（4528/254/73 赞）：别急着上功能；Levie 的 Box 数据（232 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+trq212+levie" data-author-name="Rauchg / Thariq / Levie" data-author-tag="Vercel CEO / OpenAI / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Thariq / Levie avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Thariq / Levie</div>
+            <div class="author-tag is-inline">Vercel CEO / OpenAI / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 三连：评测榜（1087 赞）——「跑了新一轮 Next.js 评测：① Opus 5.5【97%】② GPT-6 Sol【97%】③ Fable 5.1【97%】④ Grok 4.7【64%】——值得注意的是 Grok 便宜 2-7 倍」；品味赞（1418 赞）——「爱 Anthropic 发布的品味……AI 时代，没有理由不把设计前沿往前推：这就是 Next.js 的巅峰形态」；软件不朽论（1045 赞）——「软件再也不会死了。你喜欢 Google Reader？酷，你可以生成并部署自己的版本——永远属于你。」Thariq 三连：发布哲学（4528 赞）——「使用模型能力的正确方式不是往生产环境堆 10 倍功能，而是花更多时间理解用户、做实验、建原型、学你不懂的东西——好发布真正能用的东西」；游戏循环论（254 赞）——「想做游戏，3D 生成是帮你想象游戏成真的好能力——但先把好玩、令人满足的游戏循环琢磨明白（也是说给自己听）」；工作流注脚（73 赞）。Levie 的 Box 实测（232 赞）：「Box 用 Opus 5.5 测了复杂企业知识工作：token 少用 63%、冗余度降 42%、快 30%（对 Opus 5）——模型本身还更便宜，对企业的 agentic 计算机使用、编码、分析是重大利好。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：三家并列 97%，Grok 64% 但便宜 2-7 倍；软件永生。Thariq：别堆功能，去理解用户。Levie：Box 实测 token 省 63%。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s trio: the eval tally (1087 likes): &#39;We ran fresh Next.js evals. The tally: ① Opus 5.5 [97%] ② GPT 6 Sol [97%] ③ Fable 5.1 [97%] ④ Grok 4.7 [64%]. Notably, Grok is 2x-7x cheaper&#39;; the taste note (1418): &#39;Love the tastefulness with which anthropic ships… With AI, there&#39;s no excuse not to push the design frontier. This is @nextjs at its finest&#39;; and the immortality thesis (1045): &#39;Software will never die again. You liked Google Reader? Cool, you can generate and deploy your own. Yours, forever.&#39; Thariq&#39;s trio: the shipping philosophy (4528): &#39;the right way to use model capabilities is not to ship 10x more features to prod. it&#39;s to spend more time understanding your users, trying experiments, building prototypes, learning about things you don&#39;t understand so that you can ship things that actually work&#39;; the game-loop note (254); and the workflows note (73). Levie&#39;s Box numbers (232): &#39;At Box, we&#39;ve been testing Opus 5.5 on complex enterprise knowledge work… 63% fewer tokens used, 42% less verbosity, and 30% faster vs. Opus 5.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: We ran fresh Next.js evals. The tally: Opus 5.5 [97%], GPT 6 Sol [97%], Fable 5.1 [97%], Grok 4.7 [64%]. Notably, Grok is 2x-7x cheaper.</p>
+              <p>Guillermo Rauch: Software will never die again. You liked Google Reader? Cool, you can generate and deploy your own. Yours, forever.</p>
+              <p>Thariq: the right way to use model capabilities is not to ship 10x more features to prod. it&#39;s to spend more time understanding your users, trying experiments, building prototypes, learning about things you don&#39;t understand so that you can ship things that actually work.</p>
+              <p>Aaron Levie: At Box, we&#39;ve been testing Opus 5.5 on a variety of complex enterprise knowledge work tasks… 63% fewer tokens used, 42% less verbosity, and 30% faster vs. Opus 5.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">SI Jokes, 14-Year-Old Bugs &amp; the Rest / SI 玩笑、14 岁老 bug 与其余</h2>
+    <p class="section-desc">Amjad 的 SI 段子（935 赞）；Steipete 的 libuv 考古（850 赞）；Garry Tan 三连（155/144/111 赞）；Nikunj 的 SPV 揭秘（34 赞）；Aditya 的 Waymo 炉边（41/17 赞）与 Sentience（23 赞）；Woodward（235 赞）；Peter Yang（19 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="amasad+steipete+garrytan+nikunj+adityaag+joshwoodward+petergyang" data-author-name="Amjad / Steipete / Tan / Nikunj / Aditya / Woodward / Yang" data-author-tag="Replit CEO / OpenClaw / YC CEO / FPV / SPC / AWS CEO / Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Amjad / Steipete / Tan / Nikunj / Aditya / Woodward / Yang avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad / Steipete / Tan / Nikunj / Aditya / Woodward / Yang</div>
+            <div class="author-tag is-inline">Replit CEO / OpenClaw / YC CEO / FPV / SPC / AWS CEO / Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>趣味组：Amjad 的段子（935 赞）——「你的智能是假的（artificial）。我的？是超级的（super）。Super Intelligence，简称 SI。」Steipete 的考古（850 赞）——「升到 macOS 27 后 ChatGPT 偶尔崩……Astra 在 libuv 里挖出一个约 14 岁的老 bug。」Garry Tan 三连：Capy 后续（111 赞）；GStack 之问（155 赞）——「如果你在做酷东西，GStack 真的会劝你申 YC :-)」；与教世界写 prompt 的使命（144 赞）——「我们要教全世界使用 AI，让它给所有人的追求插上翅膀。」</p>
+              <p>其余：Nikunj 的 SPV 揭秘（34 赞）——「现在看到大额融资标题，你可以合理断定其中相当大一部分来自 SPV……结合分层估值与收入口径差异，我只想说：别再信标题了——布丁的证明不在公开视野里」+ 他的《A Walk In The Park》第三集（34 赞）与 YouTube 版（0 赞）；Aditya 三连——办了 50 多场 Minus One 炉边，「9 岁儿子第一次主动要求参加的，是昨天与 Waymo Dmitri 的那场：为物理世界造东西的动人之处无可否认」（41 赞）、Sentience 的愉悦时刻（23 赞）、安全辩论史考（17 赞）；Woodward 的里程碑（235 赞）；Peter Yang 的澳剧发现（19 赞）与 Opus 5.5 视频指路（3 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：你的智能是假的，我的是 Super。Steipete：Astra 挖出 libuv 14 岁 bug。Nikunj：大额融资别信标题。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The fun: Amjad&#39;s bit (935 likes): &#39;Your intelligence is fake. It&#39;s artificial. Mine? It&#39;s super. Super Intelligence. Aka SI.&#39; Steipete&#39;s archaeology (850): &#39;Had ChatGPT sometimes crashing on me after updating to macOS 27 and... Astra found a ~14 year old bug in libuv.&#39; Garry Tan&#39;s trio: the Capy follow-up (111), the GStack note (155): &#39;If you&#39;re working on something cool, GStack does actually tell you to apply to YC :-)&#39;; and the teaching mission (144): &#39;We need to teach the world to prompt and maximally use AI… to help all people see the way it can give you wings.&#39;</p>
+              <p>The rest: Nikunj&#39;s SPV reveal (34): &#39;if you read headlines of a large fundraise, you can be reasonably sure now that a large amount of it came from SPVs even though the headlines say something else… don&#39;t believe the headlines anymore&#39; — plus his A Walk In The Park episode (34) and YouTube note (0); Aditya&#39;s trio — the Waymo fireside (41): &#39;The first one my 9 year old asked to attend was yesterday&#39;s with Dmitri of Waymo&#39;; the Sentience delight (23); and the safety-history note (17); Woodward&#39;s milestone (235); Peter Yang&#39;s Apple TV find (19); and his Opus-5.5 pointer (3).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad: Your intelligence is fake. It&#39;s artificial. Mine? It&#39;s super. Super Intelligence. Aka SI.</p>
+              <p>Peter Steinberger: Had ChatGPT sometimes crashing on me after updating to macOS 27 and... Astra found a ~14 year old bug in libuv.</p>
+              <p>Garry Tan: If you&#39;re working on something cool, GStack does actually tell you to apply to YC :-)</p>
+              <p>Nikunj Kothari: To the point that if you read headlines of a large fundraise, you can be reasonably sure now that a large amount of it came from SPVs even though the headlines say something else.</p>
+              <p>Aditya Agarwal: The first one my 9 year old asked to attend was yesterday&#39;s with Dmitri of Waymo. The evocative beauty of building things for the physical world is undeniable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-09-24 source feeds (17 builders, 43 tweets — a double-launch day: GPT-6 Sol/Luna and Claude Opus 5.5; no podcast episode in today&#39;s feed).">Source: Follow Builders curated daily digest. Built from the 2026-09-24 source feeds (17 builders, 43 tweets — a double-launch day: GPT-6 Sol/Luna and Claude Opus 5.5; no podcast episode in today&#39;s feed).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
