@@ -1,0 +1,146 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-25",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Claude Marketplace 上线（**4249 赞，今日最高**）：「现在可以在 Claude Marketplace 上发现工具、agent 与专家伙伴——接入 Slack、Notion 连接器；购买 Cursor、CrowdStrike 等公司的 agent 与产品；借助 Accenture、Deloitte 等服务伙伴扩展规模。」Sottiaux 的语音官宣（4009 赞）：「Voice！我已经习惯直接打给 ChatGPT 聊工作、查邮件、写代码、管日历——而且横跨整个插件生态，含第三方插件。」+ DevDay 前夜预告（3159 赞）：「下周二 DevDay：有些真好玩的东西，但也有很多会**改变你工作方式**的东西——我们最有雄心的一次冲刺。」Cherny 的提速揭秘（3292 赞）：「注意到 claude.ai 与桌面应用最近快了很多？这篇博客讲我们怎么做的。」+ 今日之最彩蛋：在计算机历史博物馆见到了 Donald Knuth 本尊（1417 赞）。Rauchg 的 agent 解剖学（1453 赞）：「Muse、Instinct、OpenClaw、Claude Code——所有成功的 agent 都有三大件：🧠 大脑（模型/harness）、👐 双手（工具/浏览器）、🗃️ 文件（记忆/技能/repo）。」Ryo Lu 的反思长文（1087 赞）：「效率、产出、速度——我们像崇拜神一样崇拜这些词……但如果没有时间深度思考，无止境的生产到底为了什么？」今日无播客。"
+  },
+  "archive": {
+    "title": "Marketplace 与语音官宣日报",
+    "desc": "Claude Marketplace 上线（4249 赞）；Sottiaux 官宣 ChatGPT 语音工作流并预告下周二 DevDay；Rauchg 拆解成功 agent 的「三大件」解剖学。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-25 source feeds (17 builders, 37 tweets; no podcast episode in today's feed).",
+  "sections": [
+    {
+      "title": "Claude Marketplace & the Anatomy of Agents / Claude Marketplace 与 agent 解剖学",
+      "desc": "Claude 官方双发（**4249/179 赞**）：Marketplace 上线；Rauchg 双发（1453/112 赞）：三大件解剖与 ShellPerfBench；Garry Tan 三连（434/428/292 赞）。",
+      "cards": [
+        {
+          "authorKey": "claudeai+rauchg+garrytan",
+          "authorName": "Claude / Rauchg / Tan",
+          "authorTag": "Anthropic / Vercel CEO / YC CEO",
+          "sourceUrl": "https://x.com/claudeai",
+          "en": {
+            "rewrite": [
+              "Claude's launch (4249 likes, top of the day): 'You can now discover tools, agents and expert partners on Claude Marketplace. Use it to: Add connectors and plugins like Slack and Notion; Buy agents and products from companies like Cursor and CrowdStrike; Scale with service partners like Accenture and Deloitte' — plus the marketplace browse link (179). Rauchg's double: the anatomy lesson (1453): 'Muse, Instinct, OpenClaw, Claude Code… All successful agents have 3 key components: 🧠 Brain → model, harness (logic); 👐 Hands → tools, computer, browser; 🗃️ Files → memories, skills, repos. The \"easy\" way is to throw all these in 1 stateful computer (a Mac Mini)… But if you want to cost-efficiently run agents in the cloud…'; and the ShellPerfBench tip (112): 'I'm really neurotic about the startup time of a new shell session. Opus 5.5 found a lot of really great optimizations other models missed. Anon, anytime you open a new terminal, you might be silently suffering. Tell your agent to optimize .zshrc and friends.' Garry Tan's trio: 'Two important simultaneous trends in how startups get customers: Make software agents want. Use agents to make people want software' (434); 'This is not priced in yet' (428); and 'Muse is very impressive' (292)."
+            ],
+            "original": [
+              "Claude: You can now discover tools, agents and expert partners on Claude Marketplace. Use it to: Add connectors and plugins like Slack and Notion; Buy agents and products from companies like Cursor and CrowdStrike; Scale with service partners like Accenture and Deloitte.",
+              "Guillermo Rauch: Muse, Instinct, OpenClaw, Claude Code… All successful agents have 3 key components: Brain → model, harness (logic); Hands → tools, computer, browser; Files → memories, skills, repos.",
+              "Guillermo Rauch: I'm really neurotic about the startup time of a new shell session. Opus 5.5 found a lot of really great optimizations other models missed.",
+              "Garry Tan: Two important simultaneous important trends in how startups get customers: Make software agents want. Use agents to make people want software."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 官方双发：Marketplace 上线（4249 赞，今日最高）——「现在可以在 Claude Marketplace 上发现工具、agent 与专家伙伴：接入 Slack、Notion 等连接器与插件；购买 Cursor、CrowdStrike 等公司的 agent 与产品；借助 Accenture、Deloitte 等服务伙伴扩展规模。」+ 浏览入口与上架邀请（179 赞）。Rauchg 双发：解剖学（1453 赞）——「Muse、Instinct、OpenClaw、Claude Code……所有成功的 agent 都有三大件：🧠 大脑（模型、harness=逻辑）、👐 双手（工具、计算机、浏览器）、🗃️ 文件（记忆、技能、repo）。『省事』路线是把它们全塞进一台有状态电脑（Mac Mini）……但若想低成本在云里跑 agent……」；ShellPerfBench（112 赞）——「我对新 shell 会话的启动时间极度神经质。Opus 5.5 找到一堆其他模型错过的优化。匿名君，每次开新终端你可能都在默默受苦：让你的 agent 去优化 .zshrc 们吧。」Garry Tan 三连：双趋势论（434 赞）——「创业公司获客的两条同时发生的重要趋势：造 agent 想用的软件；用 agent 让人想要软件」；「这还没被定价」（428 赞）；「Muse 非常令人印象深刻」（292 赞）。"
+            ],
+            "original": [
+              "Claude：Marketplace 上线。Rauchg：agent 三大件——大脑/双手/文件。Tan：造 agent 想用的软件，用 agent 让人想要软件。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Voice, Speed & DevDay Eve / 语音、提速与 DevDay 前夜",
+      "desc": "Sottiaux 双发（**4009/3159 赞**）：语音官宣与 DevDay 预告；Cherny 三连（3292/1417/68 赞）：提速揭秘、见到 Knuth、形式化方法细节；Swyx（205 赞）与 Peter Yang 三连（309/206/25 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+bcherny+swyx+petergyang",
+          "authorName": "Sottiaux / Cherny / Swyx / Yang",
+          "authorTag": "OpenAI / Anthropic / Latent Space / Builder",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's double: Voice! (4009 likes): 'I've gotten so used to just call ChatGPT and talk about all the work, check on emails, do some coding, manage my calendar and it works across the full ecosystem of plugins, including 3P developed plugins'; and the DevDay tease (3159): 'Can't wait for DevDay next Tuesday. Some really fun stuff, but also many many things that should change the way you work. It's been our most ambitious sprint and Astra has really made new things possible in such short amounts of time.' Cherny's trio: the speed post (3292): 'If you've noticed how fast claude.ai and the Desktop app have become in the last few weeks, here's how we did it. Lots of juicy learnings & techniques in the blog post'; meeting Knuth (1417): 'It was an honor to meet Donald Knuth at the Computer History Museum today'; and the formal-methods footnote (68): 'Claude is doing something like: 1. Building a model of the program… 2. Finding counter-examples… 3. Reproducing the bugs 4. Fixing the bugs. It's not that the whole codebase is formally verified (yet!)'. Swyx's AINews verdict (205): 'ran @latentspacepod AINews side by side with 6 Sol and the difference was night and day. 5.5 Opus is the new default model for AINews going forward. So much more concise and tasteful reporting, with much less slopese than even 5 Opus.' Peter Yang's trio: the Opus 5.5 list (309): 'Smart / Fast / Fun to talk to / Good at writing / Friendly on rate limits / Constantly surprising'; the slides prompt (206); and the harness gap (25): 'With a model this good the Claude Code harness really needs great live voice and browser + computer use. Right now one lab has the best model and another has the best harness.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Voice! I've gotten so used to just call ChatGPT and talk about all the work, check on emails, do some coding, manage my calendar and it works across the full ecosystem of plugins, including 3P developed plugins.",
+              "Thibault Sottiaux: Can't wait for DevDay next Tuesday. Some really fun stuff, but also many many things that should change the way you work. It's been our most ambitious sprint and Astra has really made new things possible in such short amounts of time.",
+              "Boris Cherny: It was an honor to meet Donald Knuth at the Computer History Museum today.",
+              "Swyx: can confirm. ran @latentspacepod AINews side by side with 6 Sol and the difference was night and day. 5.5 Opus is the new default model for AINews going forward.",
+              "Peter Yang: Right now one lab has the best model and another has the best harness."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 双发：语音官宣（4009 赞）——「Voice！我已经完全习惯直接打给 ChatGPT：聊工作、查邮件、写代码、管日历——而且横跨整个插件生态，含第三方开发的插件」；DevDay 前夜（3159 赞）——「等不及下周二 DevDay 了：有些真好玩的东西，但也有很多会**改变你工作方式**的东西——我们最有雄心的一次冲刺，Astra 让这么多新东西在这么短时间内成为可能。」Cherny 三连：提速揭秘（3292 赞）——「注意到 claude.ai 与桌面应用最近快了很多？这篇博客讲我们怎么做的，一堆 juicy 的学习与技巧」；高光时刻（1417 赞）——「今天在计算机历史博物馆见到 Donald Knuth，荣幸之至」；形式化方法注脚（68 赞）——「Claude 实际在做的是：1. 给程序建模型、瞄准棘手状态机或竞态高发区 2. 在模型里找反例（疑似 bug）3. 复现 4. 修复——不是整个代码库都被形式化验证了（还差得远），而是最毛的部分被建模检查」。Swyx 的实测（205 赞）——「AINews 用 6 Sol 与（Opus 5.5）并排跑过：天壤之别。5.5 Opus 今后是 AINews 的默认模型：报道简洁有品味得多，slopese 比 5 Opus 还少。」Peter Yang 三连：Opus 5.5 六连赞（309 赞）——「聪明 / 快 / 聊得开心 / 会写 / 限额友好 / 能力上限持续令人惊讶」；slides prompt 效果（206 赞）；与 harness 缺口论（25 赞）——「模型这么好，Claude Code harness 真的需要出色的实时语音与浏览器/计算机使用：现在一家实验室有最好的模型，另一家有最好的 harness。」"
+            ],
+            "original": [
+              "Sottiaux：语音打给 ChatGPT 管一切；DevDay 会改变工作方式。Cherny：提速博客 + 见到 Knuth。Swyx：Opus 5.5 成 AINews 默认。Yang：一家有最好模型，一家有最好 harness。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Prompt Transparency & the Think Manifesto / prompt 透明化与「思考」宣言",
+      "desc": "Thariq 三连（**2289/1265/101 赞**）：新型深度帖、「one-shot」背后的 10k 字符 prompt；Ryo Lu 的生产力反思（1087 赞）；Madhu 反驳 Ben Thompson（146 赞）；Aditya 双发（409/136 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+ryolu_+realmadhuguru+adityaag",
+          "authorName": "Thariq / Lu / Madhu / Aditya",
+          "authorTag": "OpenAI / Builder / Meta / SPC",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's trio: the new format (2289 likes): 'this is a new type of post we're trying where we share in-depth about how we do work using specific prompts and techniques you should be able to replicate. let us know if it's useful!'; the reality check (1265): 'the post: \"Claude one-shot this\". the prompt: 10k characters with good takes plus skills, examples and API keys'; and 'also it does look incredible' (101). Ryo Lu's manifesto (1087): 'efficiency, productivity, speed — we keep worshipping these words like they are what we live for… but what is the point of endless production if there is no time left to think deeply? not react, not optimize, not summarize, not clear the queue — think. to sit with a question long enough that your real intention starts to appear.' Madhu's counter (146): 'I respectfully disagree with @benthompson on this. Consumers don't have one relationship with \"doing things\". Browsing clothes can be entertainment (for some). But hiring a roofer is miserable (for most). Even with shopping, sometimes you want to browse for an hour. Sometimes you want the right thing just delivered.' Aditya's double: 'You think Zuck is good when he is down and in the trenches and in war mode? Just see how he dominates when he has the big stack. Proud Facebook alum. LFG.' (409); and the team metric (136): 'A team that has been working together for 3+ years is significantly higher throughput and more resilient… A key mistake… is to simply ask about team size as opposed to team longevity. AUC for teams is the right metric.'"
+            ],
+            "original": [
+              "Thariq: the post: \"Claude one-shot this\". the prompt: 10k characters with good takes plus skills, examples and API keys.",
+              "Ryo Lu: we keep worshipping these words like they are what we live for… but what is the point of endless production if there is no time left to think deeply? not react, not optimize, not summarize, not clear the queue. think.",
+              "Madhu Guru: Browsing clothes can be entertainment (for some). But hiring a roofer is miserable (for most).",
+              "Aditya Agarwal: A team that has been working together for 3+ years is significantly higher throughput and more resilient than a team that has just formed. A key mistake I see investors/employees make all the time is to simply ask about team size as opposed to team longevity. AUC for teams is the right metric."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 三连：新栏目（2289 赞）——「这是我们尝试的一种新型帖子：深度分享我们如何用具体的 prompt 与技巧做工作——你应该能复刻。有用吗？欢迎反馈」；打脸注脚（1265 赞）——「帖子：『Claude 一次就搞定了』。prompt：一万字符的好观点 + 技能 + 示例 + API key」；「而且它看起来确实惊艳」（101 赞）。Ryo Lu 的宣言（1087 赞）：「效率、产出、速度——我们像崇拜神一样崇拜这些词，仿佛我们为之而活……ship 更快、merge 更多、管更多 agent、压缩每个循环、删掉每个停顿、把每小时变成产出——但如果没时间深度思考，无止境的生产到底为了什么？不是反应、不是优化、不是总结、不是清空队列——是思考。与一个问题共处得足够久，直到你真正的意图开始浮现。」Madhu 的反驳（146 赞）：「恕我不能同意 Ben Thompson 这点：消费者与『做事』的关系不止一种。逛衣服可以是娱乐（对某些人）；找屋顶工是折磨（对多数人）。就连购物——有时你想逛一小时，有时你只想要对的东西直接送到。」Aditya 双发：Zuck 论（409 赞）——「你以为 Zuck 在战壕里、封锁中、战争模式下就很强？等他手握大筹码看他怎么统治。自豪的 Facebook 校友。LFG」；团队度量（136 赞）——「合作 3 年以上的团队，产出与韧性都显著高于新组团队。投资人/员工最常犯的错是只问团队规模而不问团队年龄——团队的 AUC 才是正确的指标。」"
+            ],
+            "original": [
+              "Thariq：one-shot 背后是 10k 字符 prompt。Ryo Lu：没时间思考的生产为了什么。Aditya：团队 AUC—— longevity 而非 size。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Muse × Box, AI Parties & the Rest / Muse × Box、AI 派对其余",
+      "desc": "Levie 双发（186/81 赞）：Muse × Box 与创意产业愿景；Shipper 的 agent 派对实验（264/31 赞）；Woodward 的 Gemini 应用商店（366 赞）；Steipete 三连（96/89/14 赞）；Amjad 双发（284/88 赞）；Nikunj 双发（50/15 赞）；Swyx 其余（12/4 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie+danshipper+joshwoodward+steipete+amasad+nikunj",
+          "authorName": "Levie / Shipper / Woodward / Steipete / Amjad / Nikunj",
+          "authorTag": "Box CEO / Every / AWS CEO / OpenClaw / Replit CEO / FPV",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie's double: 'Muse and Box, together at last' (186); and the creative-industry vision (81): 'As the barriers and the costs come down, more films will get made, not fewer. Studios will get to take more risks… In the 1980s, animation was dismissed as a niche corner of the business. Today it is one of the most beloved and profitable.' Shipper's experiment (31): 'tomorrow at 6pm we find out if an ai agent can throw a good party. the @every agent planned every's september meetup from the food and drinks menu to the guest list. come grade it!' — plus 'sick' (264). Woodward's Gemini apps rollout (366): 'More of your favorite apps are coming to Gemini! Which ones do you want next?' Steipete's trio (96/89/14): 'Astra is crushing it'; 'Who needs VNC when there's browsers'; and 'crushed it'. Amjad's double: 'You need young people to break the mold, question deeply held beliefs, and attempt the impossible. The ideal college would cultivate exactly that' (284); and the eyes emoji (88). Nikunj's pair (50/15), plus Swyx's stragglers (12/4)."
+            ],
+            "original": [
+              "Aaron Levie: Muse and Box, together at last.",
+              "Dan Shipper: tomorrow at 6pm we find out if an ai agent can throw a good party. the @every agent planned every's september meetup from the food and drinks menu to the guest list.",
+              "Josh Woodward: More of your favorite apps are coming to Gemini! Which ones do you want next?",
+              "Amjad Masad: You need young people to break the mold, question deeply held beliefs, and attempt the impossible. The ideal college would cultivate exactly that."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 双发：「Muse 与 Box，终成眷属」（186 赞，配图）；创意产业愿景（81 赞）——「随着门槛与成本下降，电影会更多而不是更少，工作室能冒更多险……1980 年代动画被当作生意的小角落，今天它是最受爱戴、最赚钱的品类之一。」Shipper 的实验（31 赞）——「明晚 6 点揭晓 AI agent 能不能办一场好派对：@every 的 agent 从餐饮菜单到宾客名单全权操办了九月的 meetup——来布鲁克林 Brownstone 给它打分！」外加「sick」（264 赞）。Woodward 的 Gemini 商店扩容（366 赞）——「更多你爱的应用正来到 Gemini！下一个想要谁？」Steipete 三连（96/89/14 赞）——「Astra 杀疯了」「有浏览器谁还要 VNC」「搞定了」。Amjad 双发：教育论（284 赞）——「你需要年轻人来打破常规、质疑深信之物、尝试不可能——理想大学正应培养这个」；👀（88 赞）。Nikunj 双发（50/15 赞）与 Swyx 尾巴（12/4 赞）。"
+            ],
+            "original": [
+              "Levie：Muse × Box 终成眷属。Shipper：agent 办派对实验。Woodward：Gemini 应用扩容。Amjad：理想大学培养打破常规的年轻人。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
