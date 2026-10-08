@@ -1,0 +1,118 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-29",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Sonnet 5.5 发布日 + DevDay 前夜：18 位 builders、34 条推文，无播客。Altman 的预热（**8097 赞，今日最高**）：「对明天的 DevDay 相当兴奋。我们找到了一个新东西。」Cherny 的实测（4835 赞）：「Sonnet 5.5 在 Claude Code 里修 bug：快 30%、用量省 30%。」Cat Wu 的官宣（423 赞）：「Sonnet 5.5 来了！Claude Code 用户比 Sonnet 5 多完成约 30% 的任务——更聪明，同样的活更省 token。」Thariq 的时代注脚（4265 赞）：「现在基本不可能『给你看我的 prompt』了——一切都是引用、技能与示例：我常让 agent 先看我做过的另外三个 repo、上网搜参考资料、调用别的 AI API。」Sottiaux 的 Pro $200 重开公告（697 赞）：「明天重开 Pro $200 订阅，同时改变用量计算——算下来相当于旧计划的**一半 API 消费金额**。」DevDay 现场（4105 赞）：「Sunday vibes. Fort Mason 见 🎮」Rauchg 的迁移战报（429 赞）：「把 workload 尽量少干预地迁到 Vercel：构建快约 70%、渲染快约 75%，一周内收尾。」"
+  },
+  "archive": {
+    "title": "Sonnet 5.5 与 DevDay 前夜日报",
+    "desc": "Sonnet 5.5 发布（快 30% 省 30%）；Altman「我们找到了一个新东西」（8097 赞）；Pro $200 重开降价；Thariq「prompt 不可示人」时代论。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-29 source feeds (18 builders, 34 tweets; no podcast episode in today's feed).",
+  "sections": [
+    {
+      "title": "Sonnet 5.5 Launch & the DevDay Eve / Sonnet 5.5 发布与 DevDay 前夜",
+      "desc": "Altman（**8097 赞**）：「新东西」预告；Cherny（4835 赞）+ Cat Wu（423 赞）+ Albert（729 赞）+ Shipper（203 赞）+ Levie（146 赞）+ Claude 官方三连的 Sonnet 5.5 发布矩阵；Sottiaux 三连（697/481/4105 赞）；swyx 的玩梗（198 赞）。",
+      "cards": [
+        {
+          "authorKey": "sama+bcherny+_catwu+alexalbert__+danshipper+levie+claudeai+thsottiaux+swyx",
+          "authorName": "Altman / Cherny / Wu / Albert / Shipper / Levie / Claude / Sottiaux / Swyx",
+          "authorTag": "OpenAI CEO / Anthropic / Anthropic / Anthropic / Every / Box CEO / Anthropic / OpenAI / Latent Space",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "The eve: Altman's teaser (8097 likes, top of the day): 'Pretty excited for DevDay tomorrow. We have found a new thing.' Shipper's field note (52): 'i've been to every dev day since 2023. this is by far the most launches @OpenAI has ever had. rsi?' — with swyx's meme (198): 'oai designers have to be trolling us.' The Sonnet 5.5 matrix: Cherny's demo (4835): 'Sonnet 5.5 fixing a bug with Claude Code. 30% faster and 30% less usage'; Cat Wu's launch (423): 'Sonnet 5.5 is here! In Claude Code, users get ~30% more tasks done compared to Sonnet 5. It's smarter, so it needs fewer tokens for the same work'; Albert's take (729): 'Sonnet 5.5 has the same feel I liked about Opus 5.5. It writes clearly, it's very fast, and it's a major capabilities jump over Sonnet 5'; Shipper's writing verdict (203): 'It has dramatically improved writing even versus Opus 5.5 in my testing. Astra is still my favorite for writing, but this model beats it at revision tasks'; Levie's Box numbers (146): 'roughly 2.4x faster to a finished deliverable on 12% fewer tokens'; and Claude's trio (177/167/142) — bouncing-ball physics, pixel-art forest creatures, and the launch question.",
+              "Sottiaux's triple: the Pro $200 relaunch (697): 'Tomorrow we are re-opening the Pro $200 subscriptions… if you do the math, it will net out at half the dollar in API spend compared to the old Pro $200 plan'; the photo credit (481): 'Taken by none other than the incredible @ah20im'; and 'Sunday vibes. See you at Fort Mason soon' (4105)."
+            ],
+            "original": [
+              "Sam Altman: Pretty excited for DevDay tomorrow. We have found a new thing.",
+              "Boris Cherny: Sonnet 5.5 fixing a bug with Claude Code. 30% faster and 30% less usage.",
+              "Cat Wu: Sonnet 5.5 is here! In Claude Code, users get ~30% more tasks done compared to Sonnet 5. It's smarter, so it needs fewer tokens for the same work.",
+              "Alex Albert: Sonnet 5.5 has the same feel I liked about Opus 5.5. It writes clearly, it's very fast, and it's a major capabilities jump over Sonnet 5. Really great model to iterate with.",
+              "Dan Shipper: SONNET 5.5 IS OUT! It has dramatically improved writing even versus Opus 5.5 in my testing for @every.",
+              "Thibault Sottiaux: Tomorrow we are re-opening the Pro $200 subscriptions to new subscribers, but together with it we are also changing how we calculate the usage for it. In effect, if you do the math, it will net out at half the dollar in API spend compared to the old Pro $200 plan."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "前夜：Altman 的预热（8097 赞，今日最高）——「对明天的 DevDay 相当兴奋。我们找到了一个新东西。」Shipper 的现场观察（52 赞）——「2023 年以来每届 DevDay 都在：这是 OpenAI 发布最多的一届。rsi？」swyx 玩梗（198 赞）——「OpenAI 设计师一定是在钓我们。」Sonnet 5.5 发布矩阵：Cherny 实测（4835 赞）——「Sonnet 5.5 在 Claude Code 里修 bug：快 30%、用量省 30%」；Cat Wu 官宣（423 赞）——「Sonnet 5.5 来了！Claude Code 用户比 Sonnet 5 多完成约 30% 的任务——更聪明，同样的活更省 token。这里它用工具调用耙树叶：比 Sonnet 5 快 24 秒、省 6K token，给她省出读书时间 :)」；Albert 的手感（729 赞）——「有我喜欢的 Opus 5.5 那味儿：写得清楚、飞快，比 Sonnet 5 是一次大能力跃迁，很好的迭代搭档」；Shipper 的写作判定（203 赞）——「写作大幅提升甚至超过 Opus 5.5；Astra 仍是我最爱，但改稿任务它更强」；Levie 的 Box 数据（146 赞）——「最难测试整体 +4 分，出活快约 2.4 倍、token 省 12%，关键垂类 +18 个百分点」；Claude 官方三连（177/167/142 赞）——弹球物理对比、像素风森林生物与发布之问。",
+              "Sottiaux 三连：Pro $200 重开（697 赞）——「明天重开 Pro $200 订阅，同时改用量计算：算下来净得相当于旧计划一半的 API 消费金额」；摄影致谢（481 赞）——「出自神级的 ah20im」；现场预热（4105 赞）——「Sunday vibes. Fort Mason 见 🎮」"
+            ],
+            "original": [
+              "Altman：我们找到了一个新东西。Cherny：快 30% 省 30%。Wu：多完成 30% 任务。Sottiaux：Pro $200 重开、API 消费减半。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The End of Showable Prompts & Token Economics / 「prompt 不可示人」时代与 token 经济学",
+      "desc": "Thariq 三连（**4265/2698/1691 赞**）：prompt 时代论、step by step 梗与工作流成本；Rauchg 三连（429/213/33 赞）：迁移战报与免 auth 域名搜索；Peter Yang 三连（80/80/53 赞）：两强竞争论与星际关卡。",
+      "cards": [
+        {
+          "authorKey": "trq212+rauchg+petergyang",
+          "authorName": "Thariq / Rauchg / Yang",
+          "authorTag": "OpenAI / Vercel CEO / Builder",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's trio: the era note (4265 likes): 'it's basically impossible for someone to just \"show you their prompt\" now, because everything is about references, skills and examples. I often ask my agent to look at 3 other repos I've made first, search the web for references, use other AI APIs, etc.'; the meme (2698): 'I just told Claude \"can you help me think through this problem step by step\"'; and the token economics (1691): 'With Sonnet + Opus 5.5 I think this sort intelligence should be very available. Try Sonnet 5.5 in particular when making workflows.' Rauchg's trio: the migration report (429): 'We migrated with as little intervention as possible… ~70% faster builds and ~75% faster paints. We derived two AI skills from the migration that we'll be sharing back'; the authless search (213): 'You can now search @vercel domains without auth. Especially great if you're an agent'; and the viz joke (33). Peter Yang's trio: the two-frontier take (53): 'I'm just glad there are 2 (and soon more) competitors pushing the frontier so we can all benefit'; the DevDay first-timer note (80); and the StarCraft build (80): 'I built a working StarCraft level with Sonnet 5.5. You play Terran, defending your base against the Zerg.'"
+            ],
+            "original": [
+              "Thariq: it's basically impossible for someone to just \"show you their prompt\" now, because everything is about references, skills and examples.",
+              "Guillermo Rauch: We migrated with as little intervention as possible, setting out to prove just how much faster @vercel is. ~70% faster builds and ~75% faster paints.",
+              "Peter Yang: I'm just glad there are 2 (and soon more) competitors pushing the frontier so we can all benefit.",
+              "Peter Yang: I built a working StarCraft level with Sonnet 5.5. You play Terran, defending your base against the Zerg."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 三连：时代论（4265 赞）——「现在基本不可能『给你看我的 prompt』了：一切都关乎引用、技能与示例。我常让 agent 先看我做过的另外三个 repo、上网搜参考资料、用别的 AI API」；自嘲梗（2698 赞）——「我刚才只跟 Claude 说了一句『能帮我一步一步想清楚这个问题吗』」；token 经济学（1691 赞）——「每当我说到 projects、claude tag、动态工作流这类高层抽象，总有人担心 token 成本。有 Sonnet + Opus 5.5，这种智能应当非常平价——做工作流尤其试试 Sonnet 5.5。」Rauchg 三连：迁移战报（429 赞）——「尽量少干预地把 workload 迁到 Vercel，证明它到底多快：构建快约 70%、渲染快约 75%；迁移沉淀出两个 AI 技能将回馈社区」；免 auth 搜索（213 赞）——「现在可以免 auth 搜索 vercel 域名——对 agent 尤其友好」；选票梗（33 赞）。Peter Yang 三连：两强论（53 赞）——「几个月前还说『Anthropic 被 codex 干碎了』、如今又『OpenAI 被 Claude 5.5 干碎了』——X 上的人真善变。我只庆幸有两家（很快更多）在推前沿，大家受益」；DevDay 初体验（80 赞）；星际关卡（80 赞）——「用 Sonnet 5.5 做了个能玩的星际争霸关卡：你打人族守基地扛虫族——陆战队员、攻城坦克、大和舰，Suno 配乐，sizzle reel 也是 Sonnet 剪的。」"
+            ],
+            "original": [
+              "Thariq：prompt 不可示人时代。Rauchg：构建快 70% 渲染快 75%。Yang：两家推前沿大家受益。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "YouBike, Distribution Truths & Karma / YouBike、渠道真相与因果",
+      "desc": "Ryo Lu 双发（**185/11 赞**）：台湾 YouBike 骑行地图；Nikunj 三连（111/93/14 赞）：渠道护城河之问；Garry Tan 双发（401/190 赞）；Zara 的招募帖（180 赞）；Steipete（48 赞）与 Shipper 尾巴（3 赞）。",
+      "cards": [
+        {
+          "authorKey": "ryolu_+nikunj+garrytan+zarazhangrui+steipete+danshipper",
+          "authorName": "Lu / Nikunj / Tan / Zara / Steipete / Shipper",
+          "authorTag": "Builder / FPV / YC CEO / Builder / OpenClaw / Every",
+          "sourceUrl": "https://x.com/ryolu_",
+          "en": {
+            "rewrite": [
+              "Ryo Lu's double: 'what i've been doing: i love youbike' (185) — with the multi-city follow-up (11): 'try it in all cities with youbike in taiwan: docks, navigation, live turn-by-turn directions with voice.' Nikunj's trio: the distribution question (111): 'Where are all the \"distribution is a moat and hence raise a lot of money\" investors today.. when the incumbents are flexing their distribution muscle. It's SO important to stay first principles on what matters. Find your unfair advantages… Use capital as a weapon to compound and not as destiny'; plus the link post (93) and the Opus one-shot video (14). Garry Tan's double: 'Karma isn't a thing that happens, it's a choice you can make now' (401); and 'Codegen meets WhatsApp actually makes a ton of sense' (190). Zara's open call (180): 'Hello, I'm looking to chat with some of my followers! If you're building web-based/frontend experiences with AI but have a hard time making it look beautiful/not AI slop… Would love to have a chat.' Plus Steipete's DevDay note (48) and Shipper's vibe-check pointer (3)."
+            ],
+            "original": [
+              "Ryo Lu: what i've been doing: i love youbike.",
+              "Nikunj Kothari: Where are all the \"distribution is a moat and hence raise a lot of money\" investors today.. when the *checks notes* incumbents are flexing their distribution muscle. It's SO important to stay first principles on what matters.",
+              "Garry Tan: Karma isn't a thing that happens, it's a choice you can make now.",
+              "Zara Zhang: Hello, I'm looking to chat with some of my followers! If you're building web-based/frontend experiences with AI but have a hard time making it look beautiful/not AI slop."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Ryo Lu 双发：「最近在干的活：我爱 YouBike 💛」（185 赞）+ 全台推广（11 赞）——「试试台湾所有城市：站点、导航、实时语音转弯指引。」Nikunj 三连：渠道之问（111 赞）——「那些『渠道是护城河、所以要多融资』的投资人今天都在哪……当（查笔记）在位者正炫耀渠道肌肉时。回到第一性原理太重要了：找你的不公平优势，做高留存、最好有网络效应的好产品；资本当武器复利用，别当宿命」+ 链接帖（93 赞）与 Opus 一镜到底视频（14 赞）。Garry Tan 双发：「Karma 不是等来的事，是你现在就能做的选择」（401 赞）；「Codegen 遇上 WhatsApp 其实非常合理」（190 赞）。Zara 的招募帖（180 赞）——「你好，想和关注者们聊聊：如果你在用 AI 做 web/前端但难逃 AI slop 感、或想复刻 X 上的酷 demo、或自己就在做并愿分享过程——DM 我！」外加 Steipete 的 DevDay 见（48 赞）与 Shipper 的 vibe check 指路（3 赞）。"
+            ],
+            "original": [
+              "Lu：爱 YouBike。Nikunj：别把渠道当宿命。Tan：Karma 是当下的选择。Zara：招募前端 AI 创作者聊。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

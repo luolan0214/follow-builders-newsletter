@@ -1,0 +1,117 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-09-28",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "【快照重叠轻量版】今日两份上游快照与 09-27 逐字节相同（14 位 builders、25 条推文；无播客）——上游未滚动，本日无新内容可收录，以下为昨日主题的重播整理，未编造任何新内容。主线回顾：Thariq 的担忧（4322 赞）——「最怕把 agent 的生产力增益靠变懒吃掉」；Sottiaux 的 DevDay 前瞻（6051 赞）——「code freeze 已经不再是回事，未来代码甚至可能按约束逐请求在线生成」；Rauchg 把 Mini 浏览器移植到 Rust + Swift（508 赞）；Amanda Askell 的香水实验结论（869 赞）——「所有香水都难闻」。"
+  },
+  "archive": {
+    "title": "生产力焦虑与 Rust 移植周日版（快照重叠版）",
+    "desc": "上游快照与 09-27 逐字节相同：懒惰之忧、code freeze 之死与 Rust 移植重播整理。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-09-28 source feeds — note: both snapshots are byte-identical to 2026-09-27 (upstream not rolled; 14 builders, 25 tweets; no podcast). Overlap re-run edition, no new content was fabricated.",
+  "sections": [
+    {
+      "title": "Eating the Gains & the End of Code Freeze / 吃掉增益与 code freeze 之死",
+      "desc": "Thariq（**4322 赞**）：懒惰之忧；Sottiaux 双发（6512/6051 赞）：省略号与逐请求生成代码；Shipper 的妙语（156 赞）；Turck 的观察（53 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+thsottiaux+danshipper+mattturck",
+          "authorName": "Thariq / Sottiaux / Shipper / Turck",
+          "authorTag": "OpenAI / OpenAI / Every / VC",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's fear (4322 likes, top of the day): 'I am most afraid of us eating the productivity gains of agents by just becoming lazier.' Sottiaux's double: the ellipsis tease (6512) — '. . . . . .' — and the DevDay thesis (6051): 'Code freeze isn't really a thing anymore before releases and in the future the code might even be generated online per request according to some constraints.' Shipper's one-liner (156): 'industry built on modeling humans as rational agents panics as humans adopt rational agents.' Turck's observation (53): 'It continues to be notable how many AI researchers (who understand how AI actually works) believe in neither AI doom nor massive uncontrollable acceleration, while non AI researchers (who have limited knowledge) have very definite and certain views on the topic.'"
+            ],
+            "original": [
+              "Thariq: I am most afraid of us eating the productivity gains of agents by just becoming lazier.",
+              "Thibault Sottiaux: Code freeze isn't really a thing anymore before releases and in the future the code might even be generated online per request according to some constraints.",
+              "Dan Shipper: industry built on modeling humans as rational agents panics as humans adopt rational agents.",
+              "Matt Turck: It continues to be notable how many AI researchers (who understand how AI actually works) believe in neither AI doom nor massive uncontrollable acceleration, while non AI researchers (who have limited knowledge) have very definite and certain views on the topic."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 的担忧（4322 赞，今日最高）：「我最怕的是：我们把 agent 带来的生产力增益，全靠变懒吃掉了。」Sottiaux 双发：省略号悬念（6512 赞）——「. . . . . .」（DevDay 前的经典吊胃口）；论断（6051 赞）——「发布前的 code freeze 已经不再是回事了；未来代码甚至可能按约束、逐请求在线生成。」Shipper 的妙语（156 赞）——「一个建立在『把人类建模为理性 agent』之上的行业，在人类真的开始采用理性 agent 时慌了。」Turck 的观察（53 赞）——「始终值得注意的是：那么多（真正懂 AI 怎么运作的）AI 研究者既不信末日也不信不可控加速，而（知识有限的）非研究者们对这话题倒有非常确定无疑的观点。」"
+            ],
+            "original": [
+              "Thariq：最怕生产力增益被懒惰吃掉。Sottiaux：code freeze 不复存在。Shipper：理性 agent 时代行业慌了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Rust Port, Anti-Bot & Switching Costs / Rust 移植、反 bot 与切换成本",
+      "desc": "Rauchg（**508 赞**）：Mini 浏览器移植 Rust + Swift；Garry Tan 三连（446/418/16 赞）：反 bot 论战；Levie 的切换成本经济学（174 赞）；Steipete 的 CI 革新（571 赞）；Nikunj 的 Astra 赞叹（19 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg+garrytan+levie+steipete+nikunj",
+          "authorName": "Rauchg / Tan / Levie / Steipete / Nikunj",
+          "authorTag": "Vercel CEO / YC CEO / Box CEO / OpenClaw / FPV",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's rewrite (508 likes): 'I ported my Mini web browser to Rust & Swift. It's faster, more secure, and shockingly, nicer to iterate on than Electron + Bun. I always wanted Safari-like UX but… Chrome. Thanks to the cef crate, I can bundle up-to-date Chromium. fx acp lets me embed an agent without bloating the app.' Garry Tan's trio: 'Anti-bot is for losers tbh' (418) — plus 'Oh I can do this with CDP. Haha you have not actually hit any real anti-bot then' (16) and 'Do not nerf. Made in San Francisco' (446). Levie's economics (174): 'in a world where agents begin to make the best or most efficient choice for their users… switching costs will come down and competition is going to increase dramatically until some equilibrium.' Steipete's CI plan (571): 'My plan is to let codex decide which tests actually need to run and drastically nix CI and run tests hourly.' Nikunj's Astra note (19): 'Astra is absurd. Give it decently hard verifiable end to end tasks with the right tools and watch it just fly.'"
+            ],
+            "original": [
+              "Guillermo Rauch: I ported my Mini web browser to Rust & Swift. It's faster, more secure, and shockingly, nicer to iterate on than Electron + Bun.",
+              "Garry Tan: Anti-bot is for losers tbh.",
+              "Garry Tan: Do not nerf. Made in San Francisco.",
+              "Aaron Levie: On one hand, there is some subset of the economy that benefits from the friction customers traditionally have changing something about their habits. In those parts of the market, switching costs will come down and competition is going to increase dramatically.",
+              "Peter Steinberger: My plan is to let codex decide which tests actually need to run and drastically nix CI and run tests hourly."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 的重写（508 赞）：「我把我的 Mini 浏览器移植到了 Rust + Swift：更快、更安全，而且迭代体验竟然比 Electron + Bun 还好——一直想要 Safari 般的 UX、Chrome 的心，靠 cef crate 捆上最新 Chromium 实现了；fx acp 让我嵌入 agent 又不臃肿应用：它通过 ACP 与本地 fx CLI 对话，fx 再通过 MCP server 管浏览器。甩掉 Electron 后我还省下……」Garry Tan 三连：「反 bot 是给失败者准备的，说实话」（418 赞）；「『哦我用 CDP 就行』——哈哈那你还没撞上真正的反 bot」（16 赞）；「Do not nerf。Made in San Francisco」（446 赞）。Levie 的经济学（174 赞）——「当 agent 开始为用户做出最优或最高效选择：一部分原本靠『换习惯的摩擦』吃饭的经济会遭殃——切换成本下降、竞争急剧加剧，直到新均衡。」Steipete 的 CI 革新（571 赞）——「我的计划：让 codex 决定哪些测试真的需要跑，大幅砍掉 CI、每小时跑测试。」Nikunj 的赞叹（19 赞）——「Astra 荒谬地强：给它够难但可验证的端到端任务和合适的工具，看它起飞。」"
+            ],
+            "original": [
+              "Rauchg：Mini 移植 Rust+Swift 更快更安全。Tan：反 bot 是失败者的。Levie：切换成本崩塌竞争加剧。Steipete：让 codex 决定跑哪些测试。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Perfume Science, Games & the Rest / 香水实验、游戏记忆与其余",
+      "desc": "Amanda Askell 双发（**869/104 赞**）：香水实验全记录；Peter Yang 三连（66/57/1 赞）：游戏是最长记忆的软件；Nan Yu（19 赞）；Thariq 的 Neopets 暴露年龄（395 赞）；Zara 双发（354/68 赞）；Amjad 双发（167/55 赞）；Nikunj 其余（6/1 赞）。",
+      "cards": [
+        {
+          "authorKey": "AmandaAskell+petergyang+thenanyu+trq212+zarazhangrui+amasad",
+          "authorName": "Askell / Yang / Nan Yu / Thariq / Zara / Amjad",
+          "authorTag": "Anthropic / Builder / OpenAI / OpenAI / Builder / Replit CEO",
+          "sourceUrl": "https://x.com/AmandaAskell",
+          "en": {
+            "rewrite": [
+              "Amanda Askell's double: the perfume experiment (869 likes): 'I wanted to know if I only hate perfume because I've never owned a nice one. So I researched a bunch of the fanciest and most well reviewed perfumes and bought a tiny sample bottle of each. I can now confidently confirm that all perfume smells disgusting' — plus the orange note (104): 'I like things like the smell of a fresh orange. The perfumes that are supposed to be realistic and citrusy smell at best like orange layered over skunk.' Peter Yang's trio: the games thesis (57): 'Notice how almost nobody has fond memories of SaaS or business software that they used back in the day but everyone remembers their favorite games. Games really are the software that has the longest staying power in our memories. LLM models are probably the inverse of that'; the millennial confirmation (66); and the DKC composer shoutout (1). Nan Yu (19): 'We came up in the golden era.' Thariq's reveal (395): 'dating myself with neopets I fear.'",
+              "Zara's double: the expression defense (354): 'People who ask \"why do you keep posting without monetizing your content\" don't understand that: 1. Self-expression is an innate human instinct that requires no justification or utilitarian motive 2. Influence is so much more valuable than money'; and the dazzle warning (68): 'New technology can be so dazzling and flashy that it blinds us to the ways in which it's not working.' Amjad's double: 'Cool to see Replit being popular at Chan-Zuckerberg household!' (167) and 'Love to see it' (55). Plus Nikunj's stragglers (6/1)."
+            ],
+            "original": [
+              "Amanda Askell: I wanted to know if I only hate perfume because I've never owned a nice one. So I researched a bunch of the fanciest and most well reviewed perfumes and bought a tiny sample bottle of each. I can now confidently confirm that all perfume smells disgusting.",
+              "Peter Yang: Notice how almost nobody has fond memories of SaaS or business software that they used back in the day but everyone remembers their favorite games. Games really are the software that has the longest staying power in our memories.",
+              "Zara Zhang: Self-expression is an innate human instinct that requires no justification or utilitarian motive. Influence is so much more valuable than money.",
+              "Amjad Masad: Cool to see Replit being popular at Chan-Zuckerberg household!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amanda Askell 双发：香水实验（869 赞）——「我想知道自己讨厌香水是不是因为从没买过好的。于是研究了一堆最名贵、最受好评的香水，每种买了小样。现在我可以自信确认：所有香水都难闻」；柑橘补充（104 赞）——「我确实喜欢鲜橙子的气味，而那些号称写实柑橘调的香水，闻起来顶多是橙子叠臭鼬。」Peter Yang 三连：游戏论（57 赞）——「注意：几乎没人对当年用过的 SaaS 或商业软件有美好回忆，但人人都记得自己最爱的游戏——游戏才是记忆里停留最久的软件；LLM 大概正好相反 😂」；千禧代自认（66 赞）；大金刚作曲家致敬（1 赞）。Nan Yu（19 赞）：「我们赶上了黄金年代。」Thariq 暴露年龄（395 赞）：「怕是要用 Neopets 暴露年龄了。」",
+              "Zara 双发：表达辩护（354 赞）——「问『你一直发帖却不变现图什么』的人不懂：1. 自我表达是人类本能，不需要正当性或功利动机 2. 影响力比钱值钱得多」；炫目警告（68 赞）——「新技术可以炫目到让我们看不见它没起作用的地方（有时还让你觉得：不 work 是你的错，因为世界跑这么快、人人都在你前面）」。Amjad 双发：「很高兴看到 Replit 在陈-扎克伯格家受欢迎！」（167 赞）与「爱看这个 😂」（55 赞）。外加 Nikunj 尾巴（6/1 赞）。"
+            ],
+            "original": [
+              "Askell：所有香水都难闻。Yang：游戏是记忆里停留最久的软件。Zara：自我表达不需要变现理由。Amjad：Replit 进了 CZI 家。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
