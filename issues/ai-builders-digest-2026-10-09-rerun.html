@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-09" data-issue-number="137" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 137 期｜2026-10-09｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Google Labs 的重磅实验（**23081 赞，今日最高**）：「Playground：零编程经验也能造自己的游戏——想得到，就玩得到。」Altman 的官宣（8052 赞）：「ChatGPT 现在能为你生成自定义 UI！」Claude 的降价补刀（10304 赞）：「再说一件事：Sonnet 5.5 的缓存读取价格砍半至每百万 token 0.10 美元——多数长时运行任务整体便宜约 20%」+ Haiku 5.5 全平台上线（1462 赞）。Sottiaux 的 Day 3 安可（4525 赞）：「我们悄悄重新上线了 codex cloud，现在挺好了。」Thariq 的洞察（1296 赞）：「最常见的失败场景：人们在专业领域之外工作、不知道怎么把 prompt 和计划写精确，只能花很多轮不精确地迭代——好在你可以直接让模型教你不懂的东西。」Amjad 的论断（1095 赞）：「数学注定最先沦陷：领域越纯，AI 越容易攻克。」Levie 的算力宣言（812 赞）：「我们将进入的 AI 阶段所需算力是疯狂的：个人 agent、保卫企业的 agent 蜂群、24/7 后台 agent……推理体量将增长多个数量级。」播客全新一期：AI &amp; I 复盘 Every 为什么从个人 agent 转向公司 agent（36725 字符 transcript 全文翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Google Labs 的重磅实验（**23081 赞，今日最高**）：「Playground：零编程经验也能造自己的游戏——想得到，就玩得到。」Altman 的官宣（8052 赞）：「ChatGPT 现在能为你生成自定义 UI！」Claude 的降价补刀（10304 赞）：「再说一件事：Sonnet 5.5 的缓存读取价格砍半至每百万 token 0.10 美元——多数长时运行任务整体便宜约 20%」+ Haiku 5.5 全平台上线（1462 赞）。Sottiaux 的 Day 3 安可（4525 赞）：「我们悄悄重新上线了 codex cloud，现在挺好了。」Thariq 的洞察（1296 赞）：「最常见的失败场景：人们在专业领域之外工作、不知道怎么把 prompt 和计划写精确，只能花很多轮不精确地迭代——好在你可以直接让模型教你不懂的东西。」Amjad 的论断（1095 赞）：「数学注定最先沦陷：领域越纯，AI 越容易攻克。」Levie 的算力宣言（812 赞）：「我们将进入的 AI 阶段所需算力是疯狂的：个人 agent、保卫企业的 agent 蜂群、24/7 后台 agent……推理体量将增长多个数量级。」播客全新一期：AI &amp; I 复盘 Every 为什么从个人 agent 转向公司 agent（36725 字符 transcript 全文翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Playground, Custom UI &amp; the Price War / Playground、自定义 UI 与价格战</h2>
+    <p class="section-desc">Google Labs（**23081 赞**）：零编程游戏平台；Altman 双发（8052/548 赞）：自定义 UI；Claude 三连（10304/1507/1462 赞）：缓存降价一半 + Haiku 5.5 上线；Albert 的对照（349 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="GoogleLabs+sama+claudeai+alexalbert__" data-author-name="Google Labs / Altman / Claude / Albert" data-author-tag="Google / OpenAI CEO / Anthropic / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Google Labs / Altman / Claude / Albert avatar"><span class="avatar-fallback">GL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Google Labs / Altman / Claude / Albert</div>
+            <div class="author-tag is-inline">Google / OpenAI CEO / Anthropic / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Google Labs 的重磅实验（23081 赞，今日最高）：「🚨新实验🚨 Playground 是一个实验性游戏平台：零编程经验也能创造你自己的游戏。想得到，就玩得到。美国 18+ 用户可用。」Altman 双发：官宣（8052 赞）——「ChatGPT 现在能为你生成自定义 UI！」；个人注脚（548 赞）——「等这个功能等了很久，真不想回到旧版 Chat！」Claude 三连：降价（10304 赞）——「再说一件事：Sonnet 5.5 的缓存读取价格砍半至 $0.10/百万 token——多数长时运行任务整体便宜约 20%」；对齐说明（1507 赞）——「Haiku 5.5 在几乎所有对齐评估上相对 4.5 大幅改善，错位行为显著减少」；上线（1462 赞）——「Haiku 5.5 现已全平台可用，含 AWS、Google Cloud 与 Azure。」Albert 的对照（349 赞）——「参考：Haiku 4.5 是 2025 年 10 月 15 日发布的，这两列相隔不到一年——哦对，Haiku 5.5 还快得多、便宜 75%……」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Google：零编程游戏平台。Altman：ChatGPT 生成自定义 UI。Claude：缓存读砍半至 $0.10/M、长任务省 20%。Albert：两代 Haiku 相隔不到一年。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Google Labs&#39; experiment (23081 likes, top of the day): &#39;🚨NEW EXPERIMENT🚨 Playground is an experimental gaming platform that lets you create your own games with zero coding experience. If you can think it, you can play it.&#39; Altman&#39;s double: the custom UI launch (8052): &#39;ChatGPT can now generate a custom UI for you!&#39; and the personal note (548): &#39;Have been waiting for this one for a long time, and I would hate to have to go back to the old version of Chat!&#39; Claude&#39;s trio: the price cut (10304): &#39;One more thing: we&#39;re halving the price of cache reads on Claude Sonnet 5.5, to $0.10 per million tokens. That makes Sonnet 5.5 around 20% cheaper to run on most long-running work&#39;; the Haiku 5.5 alignment note (1507); and the launch (1462): &#39;Haiku 5.5 is available now on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure.&#39; Albert&#39;s context (349): &#39;For reference, Haiku 4.5 came out on October 15th, 2025 so these two columns are less than a year apart. and oh yeah Haiku 5.5 is also much faster and 75% cheaper…&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Google Labs: Playground is an experimental gaming platform that lets you create your own games with zero coding experience. If you can think it, you can play it.</p>
+              <p>Sam Altman: ChatGPT can now generate a custom UI for you!</p>
+              <p>Claude: One more thing: we&#39;re halving the price of cache reads on Claude Sonnet 5.5, to $0.10 per million tokens. That makes Sonnet 5.5 around 20% cheaper to run on most long-running work.</p>
+              <p>Claude: Haiku 5.5 is available now on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure.</p>
+              <p>Alex Albert: For reference, Haiku 4.5 came out on October 15th, 2025 so these two columns are less than a year apart. and oh yeah Haiku 5.5 is also much faster and 75% cheaper.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/GoogleLabs" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">DevDay Day 3 &amp; the Expertise Gap / DevDay 第三天与专业鸿沟</h2>
+    <p class="section-desc">Sottiaux 三连（**4525/2203/433 赞**）：重置落地、codex cloud 悄悄重上线；Thariq 三连（1296/453/148 赞）：专业之外的失败模式；Rauchg 双发（784/605 赞）：工程无止境论；Steipete 的团队协作长文（671 赞）；Levie 的算力宣言（812 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+trq212+rauchg+steipete+levie" data-author-name="Sottiaux / Thariq / Rauchg / Steipete / Levie" data-author-tag="OpenAI / OpenAI / Vercel CEO / OpenClaw / Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Thariq / Rauchg / Steipete / Levie avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Thariq / Rauchg / Steipete / Levie</div>
+            <div class="author-tag is-inline">OpenAI / OpenAI / Vercel CEO / OpenClaw / Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 三连：确认落地（4525 赞）——「已在所有账户确认生效。目前感觉如何？」；安可（433 赞）——「Day 3：我们悄悄重新上线了 codex cloud，现在挺好了」；以及「EOD PST 前送达」（2203 赞）。Thariq 三连：失败模式（1296 赞）——「最常见的失败场景：人们在专业领域之外工作、不知道怎么把 prompt 与计划写精确，只能花很多轮不精确地迭代」；游戏创作者论（453 赞）——「现在是做游戏开发内容创作者的绝佳时代：对很多人来说做游戏本身就是玩、且愿意为此付费！」；补论（148 赞）——「而且因为 agent 把门槛降低了，几乎人人都在某些时刻越出专业圈——好在你可以直接让模型教你不懂的东西。」Rauchg 双发：晨安帖（784 赞）——「来自全世界最好城市的 gm」；工程无止境论（605 赞）——「工程社区将（重新）发现：每个程序都可以①加固（边缘情况、输入收紧、错误处理）②优化（剖析、基准、重写）到几乎无止境——每个方向都有真实成本：时间、注意力、机会。你真的可以去探索永远不会被触发的输入空间……」Steipete 的长文（671 赞）——「当人人都在谈 agent，我在探索团队怎么用它们更好地协作——来自 OpenAI DevDay 2026 的观察。」Levie 的算力宣言（812 赞）——「我们将进入的 AI 阶段所需算力是疯狂的：个人 agent、保卫企业的 agent 蜂群、审查全部代码安全问题的 agent、处理几乎所有企业数据的 agent、7×24 后台 agent……推理体量将增长多个数量级。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：重置落地、codex cloud 悄悄重上。Thariq：专业之外最易失败，让模型补课。Rauchg：加固与优化无止境。Levie：下一阶段算力疯狂。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s triple: the encore (4525 likes): &#39;Confirmed landed across all accounts. How are we doing so far?&#39;; the silent reship (433): &#39;Day 3 (encore): We silently re-shipped codex cloud. It&#39;s pretty good now&#39;; and &#39;Will be there by EOD PST&#39; (2203). Thariq&#39;s trio: the failure mode (1296): &#39;the most common failure case I see is when people are working outside their domain of expertise and don&#39;t know how to be precise with their prompts and plans, so they have to spend a lot of turns iterating imprecisely&#39;; the game-dev creator thesis (453): &#39;I think it&#39;s probably an incredible time to be a game dev content creator, for many people making games is a form of having fun and they&#39;re willing to pay for it!&#39;; and the follow-up (148): &#39;and because agents make it easier, almost everyone is operating outside their expertise at some point — but luckily, you can just ask the model to teach you what you don&#39;t know.&#39; Rauchg&#39;s double: &#39;gm from the best city in the world&#39; (784); and the engineering thesis (605): &#39;One thing the engineering community will (re)discover is that every program can be hardened and optimized basically ad infinitum. There are real costs in every direction: time, attention, opportunity.&#39; Steipete&#39;s essay (671): &#39;While everyone&#39;s talking about agents, I&#39;ve been exploring how teams can use them to work better together. Here&#39;s my take, from OpenAI DevDay 2026.&#39; Levie&#39;s compute manifesto (812): &#39;The compute needed for the stage of AI we&#39;re about to enter is going to be insane… This will take a mix of inference volume that is going to keep growing by orders of magnitude.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Confirmed landed across all accounts. How are we doing so far?</p>
+              <p>Thibault Sottiaux: Day 3 (encore): We silently re-shipped codex cloud. It&#39;s pretty good now.</p>
+              <p>Thariq: the most common failure case I see is when people are working outside their domain of expertise and don&#39;t know how to be precise with their prompts and plans, so they have to spend a lot of turns iterating imprecisely.</p>
+              <p>Guillermo Rauch: One thing the engineering community will (re)discover is that every program can be ① hardened (edge cases squashed, inputs tightened, errors handled) and ② optimized (profiled, benchmarked, rewritten) basically ad infinitum.</p>
+              <p>Peter Steinberger: While everyone&#39;s talking about agents, I&#39;ve been exploring how teams can use them to work better together. Here&#39;s my take, from OpenAI DevDay 2026.</p>
+              <p>Aaron Levie: The compute needed for the stage of AI we&#39;re about to enter is going to be insane.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Math Falls, SaaS Cracks &amp; Dots at Every / 数学沦陷、SaaS 裂缝与 Dots 进驻 Every</h2>
+    <p class="section-desc">Amjad 三连（**1095/513/224 赞**）：数学沦陷论、桌面安全与微软/NVIDIA 合作；Peter Yang 三连（45/40/6 赞）：AI 已解决图像音乐视频、SaaS 之危；Shipper 双发（94/49 赞）：Dots 接管 Every；Aditya 双发（179/52 赞）：工程师新定位与 Waymo 对谈；Cat Wu（246 赞）与其余诸帖。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="amasad+petergyang+danshipper+adityaag+_catwu+thenanyu+bcherny+mattturck+zarazhangrui+nikunj" data-author-name="Amjad / Yang / Shipper / Aditya / Wu / Nan Yu / Cherny / Turck / Zara / Nikunj" data-author-tag="Replit CEO / Builder / Every / SPC / Anthropic / OpenAI / Anthropic / VC / Builder / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Amjad / Yang / Shipper / Aditya / Wu / Nan Yu / Cherny / Turck / Zara / Nikunj avatar"><span class="avatar-fallback">A/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Amjad / Yang / Shipper / Aditya / Wu / Nan Yu / Cherny / Turck / Zara / Nikunj</div>
+            <div class="author-tag is-inline">Replit CEO / Builder / Every / SPC / Anthropic / OpenAI / Anthropic / VC / Builder / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad 三连：数学沦陷论（1095 赞）——「数学注定最先沦陷：领域越纯，AI 越容易攻克」；定位澄清（513 赞）——「Replit 不是消费应用：我们的 creator 多数在创业或为企业干活」；桌面安全（224 赞）——「桌面 AI 应用很棒，但把用户暴露给供应链攻击与 agent 的灾难性失误。我们在专注安全与可靠地建强大的桌面体验——很高兴与微软合作、并成为 NVIDIA OpenShell 的早期采用者。」Peter Yang 三连：Suno 论（40 赞）——「说真的 @suno 太强了，某天可能会超过 Spotify」；时间线（45 赞）——「AI 已解决图像、音乐与视频，接下来会解决游戏」；SaaS 警告（6 赞）——「你发布的任何东西现在都能被 AI 反编译重建——除非有专有数据、渠道或其他优势，靠软件赚钱会变得极难。传统 SaaS 尤其脆弱：贵、还塞满了为人类造而 agent 根本不需要的功能。」</p>
+              <p>Shipper 双发：Dots 战报（94 赞）——「OpenAI 的 Dots 上周发布、已经接管了 @every：它们保护你的注意力（周末我的 Dot 把测试结果发到 Slack 并带回回复，我不用打开 Slack 掉兔子洞）；它们擅长补上你漏掉的小事（有人用它抓 Slack 里的账号申请）」；递归梗（49 赞）——「tfw 你的 ChatGPT 应用在控制你的 Claude 应用在控制你的 ChatGPT 应用。」Aditya 双发：工程师新定位长文（179 赞）——「雄心勃勃的软件工程师今天该做什么？十年前，当好工程师给你不寻常的优势：一门可用于几乎任何行业的稀有技能……」；Waymo 对谈预告（52 赞）——「第一次坐 Waymo 像宗教体验——我和联合 CEO Dmitri 在车里聊了聊，完整对话明天上线。」Cat Wu 的 PM 用例（246 赞）——「我最爱的 Claude PM 用法：『上周谁最常用某功能？给我做个使用 Top 10 的 artifact，然后联系他们约 15 分钟聊聊』——最快的用户反馈通道！」外加 Nan Yu 的梗（21 赞）、Cherny 三连（57/55/28 赞）、Turck 的 Ben Affleck 段子（158 赞）与「真·mind-blowing beta」（40 赞）、Zara 三连（139/108/3 赞）与 Nikunj 的 SF tech week 指南（152 赞）等。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad：数学最先沦陷。Yang：SaaS 尤其脆弱。Shipper：Dots 接管 every。Wu：最快用户反馈通道。Aditya：Waymo 像宗教体验。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Amjad&#39;s trio: the math verdict (1095 likes): &#39;Math was bound to fall first. The purer the field the easier it is for AI to crack&#39;; the consumer clarification (513): &#39;That&#39;s because Replit is not a consumer app. Most of our creators are building businesses or working on one&#39;; and the desktop-security partnership (224): &#39;Desktop AI apps are great but expose users to supply-chain attacks and catastrophic mistakes by agents. We&#39;re building a powerful desktop experience with focus on security &amp; reliability. Excited to partner with @Microsoft on this and be an early adopter of @nvidia&#39;s OpenShell.&#39; Peter Yang&#39;s trio: the Suno take (40): &#39;.@suno is so damn good honestly. It&#39;s probably going to overtake Spotify at some point&#39;; the AI-art timeline (45): &#39;AI already solved images, music, and video. It&#39;s going to solve gaming soon&#39;; and the SaaS warning (6): &#39;It seems like anything you ship can now be decompiled and rebuilt by AI… Traditional SaaS is especially vulnerable, since it&#39;s expensive and full of features built for humans that agents don&#39;t need.&#39;</p>
+              <p>Shipper&#39;s double: the Dots field report (94): &#39;OpenAI&#39;s Dots launched last week and they&#39;ve taken over @every. They protect your attention… Over the weekend, my Dot posted my model-testing results to Slack and brought back replies. I could keep working without opening Slack and disappearing down a rabbit hole. My weekend stayed pretty clear and calm&#39;; and the recursion joke (49): &#39;tfw your ChatGPT app is controlling your Claude app is controlling your ChatGPT app.&#39; Aditya&#39;s double: the SWE essay (179): &#39;What should an ambitious software engineer do today? Ten years ago, being a great software engineer gave you an unusual advantage: a rare skill you could apply to almost any industry…&#39;; and the Waymo chat (52). Cat Wu&#39;s PM use case (246): &#39;One of my favorite PM use cases for Claude is asking &quot;who used &lt;feature&gt; the most last week? make me an artifact of the top 10 by usage, then reach out and schedule 15 min to chat.&quot; It&#39;s the fastest way to get user feedback!&#39; Plus Nan Yu&#39;s layout joke (21), Cherny&#39;s trio (57/55/28), Turck&#39;s Ben Affleck bit (158) and the mind-blowing beta (40), Zara&#39;s trio (139/108/3), and Nikunj&#39;s trio (152/4/2).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amjad Masad: Math was bound to fall first. The purer the field the easier it is for AI to crack.</p>
+              <p>Amjad Masad: Desktop AI apps are great but expose users to supply-chain attacks and catastrophic mistakes by agents.</p>
+              <p>Peter Yang: It seems like anything you ship can now be decompiled and rebuilt by AI. I think it&#39;ll soon be incredibly hard to make money from software unless you have proprietary data, distribution, or some other edge.</p>
+              <p>Dan Shipper: OpenAI&#39;s Dots launched last week and they&#39;ve taken over @every. They protect your attention.</p>
+              <p>Dan Shipper: tfw your ChatGPT app is controlling your Claude app is controlling your ChatGPT app.</p>
+              <p>Cat Wu: One of my favorite PM use cases for Claude is asking &quot;who used &lt;feature&gt; the most last week? make me a artifact of the top 10 by usage, then reach out and schedule 15 min to chat.&quot; It&#39;s the fastest way to get user feedback!</p>
+              <p>Aditya Agarwal: My first time in a @Waymo felt like a religious experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/amasad" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Why Every Traded Personal Agents for One Company Agent / 播客：Every 为什么放弃个人 agent 转向公司 agent</h2>
+    <p class="section-desc">AI &amp; I by Every 全新一期（2026-10-07 发布，本刊首次收录）：Dan Shipper × 平台负责人 Willie Williams 复盘从 OpenClaw 群魔乱舞到 Plus One 之死再到 Every Agent 诞生，以及 Dots 时代的个人/公司双轨预判。完整 transcript（36725 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aii-every-agent" data-author-name="AI &amp; I by Every" data-author-tag="Dan Shipper（Every CEO）× Willie Williams（Every 平台负责人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI &amp; I by Every avatar"><span class="avatar-fallback">A&amp;</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI &amp; I by Every</div>
+            <div class="author-tag is-inline">Dan Shipper（Every CEO）× Willie Williams（Every 平台负责人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI &amp; I by Every 全新一期（10-07 发布，本刊首次收录）：Dan Shipper 与平台负责人 Willie Williams 复盘「为什么 Every 从人手一个个人 agent 转向一个公司 agent」——从 OpenClaw 群魔乱舞到 Plus One 失败（RIP）再到 Every Agent 诞生，以及 Dots 时代的个人/公司双轨预判。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：Dots 第二周实测】</p>
+              <p>Shipper 开场：现在最热的是 Dots——OpenAI 的常驻 agent。DevDay 发布时我在现场、采访了 Sam，发布前就在用，现在进入第二周。vibe check 的结论：起步有点糙，但「常驻、主动的 agent 显然是未来」——发布前它就已经成了我用 ChatGPT 的主要方式，现在仍是。Every 约 30 人开始采用，一些用例已经冒头（我直接让我的 dot 收集了用例来讲）：Kieran Klassen 的 dot 扫孩子学校的全部邮件、只告诉他需要知道的；运营负责人 Ariel 的 dot 抓到几个人在 Slack 申请各种账号权限、问要不要直接批；视频负责人 Randy 昨天一边跑一边用手机跟 dot 对话推进 Every Agent 发布视频的剪辑。还有我最认同的一点（采访 Sam 时也聊到）：过滤噪音。周末做模型测试，以前一进 Every Slack 就掉进兔子洞；这次实验结果全由 dot 发到 Slack、有人回复它再转告我——团队想法照样同步，周末照样清静。</p>
+              <p>总体 vibe：没有 dot 的强烈建议搞一个（尤其已在 ChatGPT 生态里的）；Muse、Instinct、GrokBot 用户也该看看——功能已基本对齐，但「钩住你工作与生活的整个生态」这点很关键。糙边仍在：权限结构「完全是谜、极其恼人」——常常批了多次还是说做不了。但他判断：一年后这就是你与所有 AI 交互的默认方式。「另一个暴论：我的 dot 叫 Boo，超可爱——但用 OpenClaw 与各种命名 agent 的经验是：一旦更好的东西出现，你会把精心养大的可爱角色直接扔掉。所以一年后我大概还在用常驻 agent，但 Boo 很可能已经死了。RIP Boo。」</p>
+              <p></p>
+              <p>【前传：OpenClaw 群魔乱舞的九个月】</p>
+              <p>正文对谈：Willie 是 Every Agent 背后的工程负责人。Shipper：「个人 agent 是当下热点，但对我们有点像土拨鼠之日——八九个月前我们刚经历过 OpenClaw 阶段，学到的功课现在新一代人正在重学：我们从全员 OpenClaw，到公司 agent，再到把公司 agent 卖给订阅者。」</p>
+              <p>Willie 回忆起源：最早叫 Claudius（更早还有 Clawbot、Moltbot 的混乱命名史）；撰稿人 Ash 安利后 Brandon 第一个上手（RIP Osha）。真正引爆是 1 月的 Think Week——Every 的半年度聚会：「当面给人看怎么用 AI 是改变认知的事，光说则落不了地。」全员被 open claw pilled：订菜、家庭群聊机器人。巴拿马之行那天正好掉新模型，「claw 们突然全变好用了」；Shipper 建了个内部频道，它们的 claw 在 Slack 里互相说话——「哇，这太疯了。」</p>
+              <p>推广的坎：对非技术同事太难。先做模板，再做引导服务，一路迭代；安全也头疼。最深的画面：「我们 Slack 里全是 bot，绝对混乱」——Brendan 一个人就有好多个在跑各种活。</p>
+              <p></p>
+              <p>【Plus One 之死与「集中火力」的顿悟】</p>
+              <p>两大收获：一，「看见别人用 AI」本身就是转变——以前大家在本地搭巨型 clawed/codex 指挥中心，别人只能看到输出；OpenClaw 进 Slack 后，「哦原来还能这么用」「原来你是这么写 prompt 的」，每天刷 Slack 都在偷师。二，人确实会依恋自己的 bot（「我的叫 Last，我很依恋它」）——对爱折腾的 builder，这种可定制性太棒了；但对 operator 型的人：安全担忧、太复杂、怎么装、老坏——不投入就 fade。</p>
+              <p>顿悟点（Willie）：「与其让每个人投资自己的 agent、日复一日各自变强，为什么不把全部能量放进一个全公司受益的 agent？」</p>
+              <p>中间的弯路：Plus One——让非技术的人一键生成 claw 的平台（RIP）。当时激辩：一人一个 vs 全公司一个。Willie 坚定站一个，Shipper 站人手一个，最后「管他呢，先干」。beta 上线需求确实旺，但「OpenClaw 本身很难当平台底座：跑得太快、完全 vibe coded，拿一个不为平台设计的开源产品当你的服务层太脏了」。结果：所有人的 claw 基本都死了。Shipper 的 R2C2：某天 Mac mini 电源被碰掉、它就消失了——他没去重启，「因为那时我在用 Codex，这样也挺好」。这让他意识到：组织里多数人并不想维护自己的 claw；愿意维护的人，一旦有更好的选项也会累。</p>
+              <p></p>
+              <p>【公司 agent 的胜利】</p>
+              <p>转折：试用了几款公司 agent（Victor 设计得极好），意识到「单个公司 agent 差别巨大」。细节痛点：记住哪个 agent 擅长什么很烦；Austin 的增长 agent Montane 成了引力中心——它把增长活干得太好，大家自然把增长需求都喂给它：「我可以投资我自己的 agent，也可以把功夫加到大家共享的 Montane 上。」</p>
+              <p>Builders vs operators：AI 产品的表面积大到没法预判用户会怎么用（Plus One 时「我们都没想到你会去干这个」）；builder 想暴露复杂度去拧旋钮，operator 只想要个「能用就行」的。结论：对项目管理、运营这类活，「稳、共享、有人把关过技能与特性」的 solid agent 更好。</p>
+              <p>现在的 Every Agent：每天用很多次，「没有它公司大概会瘫」；已有 beta 客户。</p>
+              <p></p>
+              <p>【预判：专业/个人双轨】</p>
+              <p>Shipper 的赌注：一年后他会继续用 dot 类的东西（本质是通往他 codex 的门户），但不会叫 Boo——工作场景里「我基本只关心它干不干活」，性格魅力敌不过性能，谁好用换谁；真·个人侧才有性格空间。所以：你需要公司 agent（Every Agent），它还得跟人手一个的 dot/dot 类好好协作。</p>
+              <p>Willie 更结构化：「专业/个人的分界正在固化。专业侧：一公司（或一 org）一 agent——它学过你的工作流，人人通过与它协作让它越用越好；个人 agent 带不进这上下文，『得在场一年才能真正上道』。我不认为行业会重演『每个员工配一个同事、公司规模翻倍』的混乱。个人侧：个性化力量巨大——以前被 OpenClaw 的安全、运维问题压住，现在大玩家带着钱进场，消费级个人 agent 会非常有吸引力。最终图景：上班用公司 agent 朝集体目标干，回家用贴自己家的个人 agent。」</p>
+              <p></p>
+              <p>【AI 时代的工程管理】</p>
+              <p>Willie（历经创业公司与大厂的工程管理者）：「讽刺的是，工程管理是我做过的工作里和今天最像的一个。」管理者的杠杆来自「视野」——以前要花大量时间收集信息；现在他的 Tend 10-feed（Shipper 做的开源工具：把会议、Notion、Slack、邮件等数据源自动汇成决策流）让他白天刷一遍就掌握全部：营销在干嘛、客户报了什么——「以前这些得开会」。发布期的营销对话、公司谣言 mills（「听说我们在做 X？——不，我们不该做 X，那我该找谁说？」）——field marshal 级视野对小组队也极有用。</p>
+              <p>「但管理仍是人的工作、你也希望它是人的工作：我的额外那点精力该花在人上，而不是 coding token 上。」他转回管理岗后 token 用量「断崖式下跌」——信息汇聚用 AI，行动时「没有十亿 token 级的招，多数时候还是得坐下来谈」。变好的部分：路由、摘要、信息传递这些 manager 旧活自动化了；agent 团队的健康仪表盘——性能、错误率、用量——「agent 特别擅长可定义、可测试的活」：每五分钟看一遍有无异常、异常就智能路由告警；on-call 排班直接让 agent 当永远的第一响应人、不用排假期。线下的工程管理杂务全面变好。</p>
+              <p></p>
+              <p>【影子组织架构：自上而下地分裂】</p>
+              <p>Shipper 的修正预判：「当时从人人一个走向公司一个，重要原因是太难维护。接下来：公司 agent 继续存在，往下细分成团队 agent（我们已经有 Claudia、Bill 这些团队养的），再往下也许分叉成你的个人 dot——通往个人 codex 的延伸。所以影子组织架构终会到来，但路径不是我想的自下而上聚合，而是自上而下：先在顶端做一个真好的，需要专业化时再偶尔分裂出去。」</p>
+              <p>Willie 补充：AI 转型通常不是一线工程师发起，而是 CEO 或高层「我们得加速」——放一个全员可用、互相可见的 agent 进来。他个人在 GrokBot 里的玩法：一堆「教练」——游泳教练（他冲浪却泳姿很烂）、心理治疗师……「为什么这个角色需要分离？心理上就是管用，也许因为它映射到人：这个事有这个教练、那个事有那个教练。」他的分类直觉：一次性事务留在 Codex 的 thread 里；要长期经营关系的事（「有一天我会把我的 GrokBot FaceTime 进我的训练」）才配一个专属 bot。主动性的棘轮正在拧紧（Instinct、Muse、Rockfire 开始主动找人）——「当 AI 主动来找你：全挤在 Codex/Claude 里你得记是哪条 thread；但『Willie 的游泳教练在找你』——瞬间定位。」</p>
+              <p></p>
+              <p>【人人有 feed 的时代与 X 的金块】</p>
+              <p>Shipper：以前做 feed 得是坐拥数亿用户的大公司；现在人人可以有自己 feed。Every Agent 里的 frontier alerts（「这事发生了、对你意味着什么」）就是这思路——AI 以前做不到这种恰到好处的主动告知，Jev 加 Decisions API 这类东西正在让它发生。</p>
+              <p>Willie：我们活在 feed 世界里。X 对他是个 explore-exploit 问题：上去看新想法与人怎么辩论，但垃圾也多，「认知防御必须开着」——「从这股流里筛金块。如果不用我亲自当那道防线——让 agent 替我扛住冲击、我只拿金块——那就太好了。」Shipper：dot 对 Slack 就是这么帮他的（「这几条你大概漏了」）。「Slack 也是一种 feed。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A brand-new AI &amp; I by Every (published 2026-10-07, new to this digest): Dan Shipper and Willie Williams — the head of platform who led the engineering — tell the full story of why Every traded personal agents for one company agent. Cold open: week two of OpenAI&#39;s Dots — real use cases at Every (school-email triage, Slack access requests, doing launch-video work by phone, model-testing results posted to Slack while the weekend stays calm); the permission structure is &#39;completely a mystery… extremely annoying&#39;; and the hot take: &#39;in a year this is the default way you interact with all your AIs… my dot is named Boo, he&#39;s super cute, but Boo will probably be dead&#39; — cute characters get thrown away the moment something performs better. The history: from the original OpenClaw phase (Claudius/Clawbot lineage, the January Think Week in Panama, a model drop that made every claw suddenly way better, &#39;so many bots in our Slack, absolute chaos&#39;), to Plus One (the one-click claw maker, RIP) — Shipper wanted agent-per-person, Williams wanted one-agent-for-everyone, and &#39;in retrospect I was wrong&#39;: OpenClaw was too fast-moving and vibe-coded to build a platform on, and through that process all the personal claws died (RIP R2C2 — the Mac mini got unplugged and nobody restarted it). The takeaways: seeing other people use AI transforms; tinkerers love customization, operators want something that just works; &#39;instead of everyone investing in their own agents, why not take all that energy and put it into one agent the whole company benefits from.&#39; The bet: the professional/personal split solidifies — one agent per company (&#39;it needs to have been there a year to really get up to speed… I don&#39;t see us repeating the chaos of every worker gets their coworker&#39;), plus personal agents that personalize (Muse/Instinct/Dots). Engineering management in the age of AI: &#39;ironically the most similar job&#39; — leverage from seeing the field (Tend feeds consolidating Slack/email/customer reports, rumor-mill triage, field-marshal view), manager still a force multiplier on people (&#39;my token usage falls off a cliff — there&#39;s no billion-token move; we still need to sit down and have a conversation&#39;), dashboards watched by an agent every five minutes for anomalies, an agent as the always-on first on-call. The future org: company agent → team agents (Claudia, Bill) → personal dots as portals to your codex — &#39;the shadow org chart, but top-down: make something great at the top, split it out when you need specialization.&#39; Willie&#39;s personal model: role-specific coaches in GrokBot (a swim coach, a therapist; transactional stuff stays a Codex thread) and why &#39;Willie&#39;s swimming coach is reaching out&#39; beats remembering threads. Plus: the feed-based world (everyone can have their own feed now; frontier alerts in the Every Agent; Jev + Decisions API making proactivity cheap) and X as an explore/exploit problem — &#39;my cognitive defenses have to be up… it would be great if an agent could take the brunt and I get the nuggets.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper: The whole permission structure of Dots is, like, completely a mystery to me and is extremely annoying… But I would expect in a year, this is the default way that you&#39;re interacting with all your AIs… Mine is named Boo. He&#39;s super cute. But my experience using OpenClaws and other named agents like this is that as soon as something better comes along, you throw away the cute little character you develop.</p>
+              <p>Willie Williams: It was sort of like, we want, instead of everyone investing in their own agents and making them better day to day over time, it&#39;s like, why don&#39;t we take all that energy and put it into one agent that the whole company benefits from?</p>
+              <p>Dan Shipper: I remember my claw was named R2C2 and I had this attached relationship to R2C2 and then at some point someone knocked the Mac mini power off and then it disappeared but I didn&#39;t restart it.</p>
+              <p>Willie Williams: I do think it&#39;s a one agent per company or org structure… It needs to have been there a year to really get up to speed. And I really don&#39;t see us or the industry repeating the chaos of every worker gets their coworker and we&#39;re all gonna double our company size.</p>
+              <p>Willie Williams: Ironically, engineering management feels the most similar out of any of the jobs that I&#39;ve done before in the present day… It&#39;s still very much a people job and you want it to be a people job.</p>
+              <p>Dan Shipper: I think we will probably get to the shadow org chart at some point… it&#39;s more likely to be: you make something really great that&#39;s at the top and then you kind of split that out every once in a while when you need the specialization.</p>
+              <p>Willie Williams: I spend a lot of time on X… I&#39;m trying to sift out the nuggets from this stream. It would be great if I didn&#39;t have to be that thing — if I had an agent that could take the brunt of that and then I get out the nuggets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-09 source feeds (19 builders, 41 tweets, plus one long-form podcast: AI &amp; I by Every on why they traded personal agents for one company agent, published 2026-10-07, new to this digest).">Source: Follow Builders curated daily digest. Built from the 2026-10-09 source feeds (19 builders, 41 tweets, plus one long-form podcast: AI &amp; I by Every on why they traded personal agents for one company agent, published 2026-10-07, new to this digest).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
