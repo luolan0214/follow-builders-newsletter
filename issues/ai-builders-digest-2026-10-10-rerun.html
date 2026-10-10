@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-10" data-issue-number="138" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 138 期｜2026-10-10｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Sottiaux 的惊天官宣（**19591 赞，今日最高**）：「今天，我们发布 ChatGPT。」——重置之后，ChatGPT 以全新产品的姿态重新出发（内置网页浏览器、为浏览器扩展与人机协作设计的原生体验）。Day 4 加码（8346 赞）：「即时转向（instant steering）——输入时即可转向输出；GPT-6.1 Sol ultrafast：面向极高吞吐场景、按 token 计价史上最低。」Claude 的对招（868 赞）：「Docs、Slides 与 Design 设计工具已对每个计划开放（含免费版）」+ 模型间的工具交接（584 赞）。Thariq 开源了 Chrome 扩展仓库（1248 赞）。Steipete 的剧透（781 赞）：「.claw 来了！」Levie 的公司新政（337 赞）：「我们刚通过一项政策：对模型保持礼貌——大家已经把『请』『谢谢』写进与模型的日常协作。」Madhu 的宣言（387 赞）：「计算栈的每一层都在为 agent 重塑——浏览器、操作系统、硬件、身份、支付、软件经济学。」播客全新一期：Training Data 对话 Google AI 基础设施负责人 Amin Vahdat——goodput、TPU 双芯片与轨道数据中心（67537 字符 transcript 全文翻译）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Sottiaux 的惊天官宣（**19591 赞，今日最高**）：「今天，我们发布 ChatGPT。」——重置之后，ChatGPT 以全新产品的姿态重新出发（内置网页浏览器、为浏览器扩展与人机协作设计的原生体验）。Day 4 加码（8346 赞）：「即时转向（instant steering）——输入时即可转向输出；GPT-6.1 Sol ultrafast：面向极高吞吐场景、按 token 计价史上最低。」Claude 的对招（868 赞）：「Docs、Slides 与 Design 设计工具已对每个计划开放（含免费版）」+ 模型间的工具交接（584 赞）。Thariq 开源了 Chrome 扩展仓库（1248 赞）。Steipete 的剧透（781 赞）：「.claw 来了！」Levie 的公司新政（337 赞）：「我们刚通过一项政策：对模型保持礼貌——大家已经把『请』『谢谢』写进与模型的日常协作。」Madhu 的宣言（387 赞）：「计算栈的每一层都在为 agent 重塑——浏览器、操作系统、硬件、身份、支付、软件经济学。」播客全新一期：Training Data 对话 Google AI 基础设施负责人 Amin Vahdat——goodput、TPU 双芯片与轨道数据中心（67537 字符 transcript 全文翻译）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">ChatGPT, Relaunched / ChatGPT 重发布</h2>
+    <p class="section-desc">Sottiaux 双发（**19591/8346 赞**）：ChatGPT 全新发布与 Day 4 的即时转向 + GPT-6.1 Sol ultrafast；Claude 三连（868/584/79 赞）：Docs/Slides/Design 全计划开放、工具交接与初创暂停通知。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+claudeai" data-author-name="Sottiaux / Claude" data-author-tag="OpenAI / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Claude avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Claude</div>
+            <div class="author-tag is-inline">OpenAI / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 双发：重发布（19591 赞，今日最高）——「今天，我们发布 ChatGPT。」重置兑现：ChatGPT 作为全新产品重新出发——内置网页浏览器、为浏览器扩展与人机协作设计的原生体验；Day 4（8346 赞）——「Day 4 再来一件事（这届 DevDay对我而言太棒了）：✦ 即时转向（instant steering）——输入时即可转向输出；✦ GPT-6.1 Sol ultrafast——我们最快的模型，面向超高吞吐场景，按 token 计价史上最低。」Claude 三连：出 beta（868 赞）——「Docs、Slides 与 Design 设计工具已对每个计划开放（含免费版）！看看 Claude 文档的全部新功能」；工具交接（584 赞）——「现在模型之间可以带着所需上下文互相交接工作：Claude 需要浏览、研究或处理数据时，可以交给对的那位」；初创暂停通知（79 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：今天我们发布 ChatGPT；Sol ultrafast 各件史上最低。Claude：Docs/Slides/Design 全计划开放，模型间可交接工作。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s double: the relaunch (19591 likes, top of the day): &#39;Today, we are announcing ChatGPT.&#39; — the reset fulfilled, ChatGPT reintroduced as a new product (with a built-in web browser and a native experience designed for browser extensions and human-agent collaboration); and Day 4 (8346): &#39;One more thing for Day 4 (this is a great DevDay for me): ✦ Instant steering — steer the output while you are typing. ✦ GPT-6.1 Sol ultrafast — our fastest model yet, aimed at super high throughput use cases, at the lowest per-token price we have ever proposed.&#39; Claude&#39;s trio: the un-beta (868): &#39;Docs, Slides, and Design are now out of beta and available on every plan, including Free! Check out everything that&#39;s new with Claude docs&#39;; the handoffs (584): &#39;Now your models can hand off work to each other — with the context they need. When Claude needs to browse, research, or crunch data, it can hand off to the right model for the job&#39;; and the startups pause note (79).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Today, we are announcing ChatGPT.</p>
+              <p>Thibault Sottiaux: One more thing for Day 4 (this is a great DevDay for me): Instant steering - steer the output while you are typing. GPT-6.1 Sol ultrafast - our fastest model yet, aimed at super high throughput use cases, at the lowest per-token price we have ever proposed.</p>
+              <p>Claude: Docs, Slides, and Design are now out of beta and available on every plan, including Free!</p>
+              <p>Claude: Now your models can hand off work to each other — with the context they need.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">The .claw Era &amp; Open-Sourced Extensions / .claw 时代与开源扩展</h2>
+    <p class="section-desc">Steipete（**781 赞**）：「.claw 来了！」；Thariq 三连（1248/92/30 赞）：Chrome 扩展开源；Rauchg 的挖掘新人才（528 赞）；Shipper 双发（147/44 赞）：Checks 的招聘闭环。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="steipete+trq212+rauchg+danshipper" data-author-name="Steipete / Thariq / Rauchg / Shipper" data-author-tag="OpenClaw / OpenAI / Vercel CEO / Every" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Steipete / Thariq / Rauchg / Shipper avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Steipete / Thariq / Rauchg / Shipper</div>
+            <div class="author-tag is-inline">OpenClaw / OpenAI / Vercel CEO / Every</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 的剧透（781 赞）：「.claw 来了！」——agent 的顶级域时代要来了。Thariq 三连：开源（1248 赞）——「把 Chrome 扩展的仓库公开了。它只用权限与 4 个主机交互（claude.ai、anthropic.com、console.anthropic.com 和本地调试服务器）。必须警告：它是往死里 vibe code 出来的（Chrome 扩展部分全是 codex 写的）。希望更有本事的人能拿它做出酷东西」+ 跟进（92/30 赞）。Rauchg 的发现（528 赞）——「这个时代我最爱的涌现行为之一：通过开源工作发现新人才。杰出工程师的 agent 们有独特的签名——如果你知道去哪看。」Shipper 双发：Checks 招聘闭环（44 赞）——「招聘流程：1. 读帖子 2. 点申请 3. Checks 用有趣的情境挑战测你的技能 4. 拿 offer。就这样。」+ 扩张说明（147 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：.claw 要来了。Thariq：Chrome 扩展开源、纯 vibe code。Rauchg：从开源工作里挖新人才。Shipper：Checks 招聘闭环。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete&#39;s tease (781 likes): &#39;.claw incoming!&#39; — a new TLD era for agents. Thariq&#39;s trio: the open-sourcing (1248): &#39;Made the repo for the chrome extension public. It only uses the permissions to interact with 4 hosts (claude.ai, anthropic.com, console.anthropic.com, and the localhost debug server). I have to warn you that it&#39;s vibe coded to hell and back (codex wrote all the chrome extension parts). Hopefully someone more skilled can do something cool with it&#39;; plus the follow-ups (92/30). Rauchg&#39;s discovery (528): &#39;One of my favorite emergent behaviors of this era: discovering new talent through their open source work. The agents of great engineers have a distinctive signature, if you know where to look.&#39; Shipper&#39;s double: the Checks pipeline (44): &#39;hiring loop: 1. read post 2. click apply 3. checks tests your skills with fun scenario-based challenges 4. get an offer. that&#39;s it.&#39; — and the expansion note (147).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: .claw incoming!</p>
+              <p>Thariq: Made the repo for the chrome extension public. It only uses the permissions to interact with 4 hosts (claude.ai, anthropic.com, console.anthropic.com, and the localhost debug server). I have to warn you that it&#39;s vibe coded to hell and back.</p>
+              <p>Guillermo Rauch: One of my favorite emergent behaviors of this era: discovering new talent through their open source work. The agents of great engineers have a distinctive signature, if you know where to look.</p>
+              <p>Dan Shipper: hiring loop: 1. read post 2. click apply 3. checks tests your skills with fun scenario-based challenges 4. get an offer. that&#39;s it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Politeness Policies, Seed Math &amp; the Rest / 礼貌政策、种子轮算术与其余</h2>
+    <p class="section-desc">Madhu（**387 赞**）：计算栈每层为 agent 重塑；Levie 双发（337/99 赞）：对模型礼貌的公司新政 + Box Mount 无头版；Nikunj 的种子创始人建议（222 赞）；Turck 的 Andy Pavlo 数据库课（109 赞）；Garry Tan 三连（68/43/13 赞）与 Peter Yang 三连（36/18/3 赞）等。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="realmadhuguru+levie+nikunj+mattturck+garrytan+petergyang+thenanyu+adityaag+swyx" data-author-name="Madhu / Levie / Nikunj / Turck / Tan / Yang / Nan Yu / Aditya / Swyx" data-author-tag="Meta / Box CEO / FPV / VC / YC CEO / Builder / OpenAI / SPC / Latent Space" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Madhu / Levie / Nikunj / Turck / Tan / Yang / Nan Yu / Aditya / Swyx avatar"><span class="avatar-fallback">M/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Madhu / Levie / Nikunj / Turck / Tan / Yang / Nan Yu / Aditya / Swyx</div>
+            <div class="author-tag is-inline">Meta / Box CEO / FPV / VC / YC CEO / Builder / OpenAI / SPC / Latent Space</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Madhu 的宣言（387 赞）——「计算栈的每一层都在为 agent 重塑：浏览器、操作系统、硬件、身份、支付、软件的经济学。这可能是做建设者最激动人心的时代。」Levie 双发：礼貌新政（337 赞）——「Box 刚通过一项政策：对模型保持礼貌。有证据表明模型在被礼貌对待时表现更好，而且大家早已把『请』和『谢谢』写进日常协作。我们预计这很快会成为标准实践——想站在历史正确的一边」；Box Mount 无头版发布（99 赞）。Nikunj 的种子轮建议（222 赞）——「种子创始人的门槛升高了，但很多预期没有：新创始人仍被拿来与资本便宜、获客容易年代的创始人比。小心来自另一个时代的建议——它可能让你在这个时代吃亏。」Turck 的指路（109 赞）——「不容错过：CMU 的 Andy Pavlo 谈数据库与 agent——他怎么用编码 agent、vibe coding、用 LLM 做数据库调优……」外加 Garry Tan 三连（68/43/13 赞）、Peter Yang 三连（Tend 仓库指路 36 赞、「打电话给朋友」功能许愿 18 赞、口味论 3 赞）、Nan Yu 的 Beats 年代注脚（27 赞）、Aditya 双发（19/2 赞）与 Swyx 三连（15/2/2 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Madhu：计算栈每层为 agent 重塑。Levie：对模型礼貌写进公司政策。Nikunj：小心另一个时代的建议。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Madhu&#39;s manifesto (387 likes): &#39;Every layer of the computing stack is being rebuilt for agents. Browsers. Operating systems. Hardware. Identity. Payments. The economics of software. This is probably the most exciting time ever to be building.&#39; Levie&#39;s double: the politeness policy (337): &#39;We just passed a policy at Box to be polite to models. There is some evidence that models perform better with politeness and everyone has already incorporated please and thank you into their day to day collaboration. We expect this to be standard practice soon and wanted to be on the right side of history&#39;; and the Box Mount headless launch (99). Nikunj&#39;s seed advice (222): &#39;The bar for seed founders has gone up but in many cases expectations have not. New founders are still compared with founders who built when capital was cheap and distribution was easy. Be careful about advice from a different era. It may put you at a disadvantage in this one.&#39; Turck&#39;s pointer (109): &#39;ICYMI: Outstanding discussion by @andy_pavlo of CMU on databases &amp; agents, covering his own use of coding agents, vibe coding, using LLMs for database tuning…&#39; Garry Tan&#39;s trio (68/43/13), Peter Yang&#39;s trio — the Tend repo pointer (36), the &#39;call a friend&#39; feature request (18), and the palate take (3) — plus Nan Yu&#39;s Beats-era note (27), Aditya&#39;s pair (19/2/0), and Swyx&#39;s triple (15/2/2).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Madhu Guru: Every layer of the computing stack is being rebuilt for agents. Browsers. Operating systems. Hardware. Identity. Payments. The economics of software. This is probably the most exciting time ever to be building.</p>
+              <p>Aaron Levie: We just passed a policy at Box to be polite to models. There is some evidence that models perform better with politeness and everyone has already incorporated please and thank you into their day to day collaboration.</p>
+              <p>Nikunj Kothari: The bar for seed founders has gone up but in many cases expectations have not. New founders are still compared with founders who built when capital was cheap and distribution was easy. Be careful about advice from a different era.</p>
+              <p>Matt Turck: ICYMI: Outstanding discussion by @andy_pavlo of CMU on databases &amp; agents, covering his own use of coding agents, vibe coding, using LLMs for database tuning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/realmadhuguru" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Amin Vahdat — Google&#39;s $200B Infrastructure Moonshots / 播客：Amin Vahdat——Google 的 2000 亿美元基础设施豪赌</h2>
+    <p class="section-desc">Training Data 全新一期（2026-10-06 发布，本刊首次收录）：Google AI 基础设施负责人谈 goodput、TPU 8I/8T 双芯片、光路交换、电力约束与轨道数据中心 moonshot。完整 transcript（67537 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:td-vahdat" data-author-name="Training Data" data-author-tag="Amin Vahdat（Google Fellow、AI 基础设施负责人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">Amin Vahdat（Google Fellow、AI 基础设施负责人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Training Data 全新一期（10-06 发布，本刊首次收录）：对话 Google Fellow、AI 基础设施负责人 Amin Vahdat——人类历史上最疯狂 CapEx 建设（仅 Google 今年就预计投入超 2000 亿美元）的操盘手。核心看点：goodput 取代 FLOPS、每六个月翻倍的 token 产能、TPU 的 2013 逆势豪赌与 2026 双芯片（8I/8T）、光路交换、电力是「最根本的约束」、轨道数据中心 moonshot。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【AI 数据中心与普通数据中心：专用化的艺术】</p>
+              <p>开场定位：我们正处「人类历史上最大的 CapEx 建设」中——仅 Google 一家今年就预计投入超 2000 亿美元、大头在数据中心。AI 数据中心与普通数据中心相似处很多（混凝土、围护、电气、制冷、一排排配电、海量网络与存储），真正的区别是「专用化」：传统数据中心是 20-30 年的建筑投资，硬件寿命约 6 年、要装下好多代服务器；AI 数据中心往往「专为用途而建、与硬件协同设计」——存储机柜功耗 10-40 千瓦，而 TPU/GPU 机柜轻松数百千瓦、未来几年人们谈论的是兆瓦级；一排放 30 个存储机柜与放一两个 AI 机柜的建筑设计完全不同；网络同理（硬盘存储机柜需要的网络与 AI 机柜相比微不足道）。若追求完全通用，会做得过大过重。他还提到给 Ineffable Intelligence 交付的大集群：「那些光纤的分形之美」成了他们社交账号最受欢迎的帖子之一。</p>
+              <p></p>
+              <p>【FLOPS 是虚荣指标，goodput 才是真章】</p>
+              <p>怎么自我考核？FLOPS 或任何「芯片中心」指标都是理论值——真正在乎的是「按工作负载交付的性能」。而性能很少由单芯片决定：是 FLOPS、HBM、SRAM 加上 2/4/8/16/1000/10000 颗芯片的组合、喂数据的 CPU、连接一切的网络。关键度量：FLOP 利用率 + goodput。goodput（Google 术语，业界开始采用）：吞吐量要扣除损耗——同步工作负载（训练、服务、agentic）里成千上万组件要在微秒/毫秒级协同，一个失败全体停摆：查原因、找 checkpoint、恢复、重启，最坏从头再来——这些都是「干了的活」但不是「交付的答案」。纸面解题回到第一步重来，throughput 不变、goodput 崩了。10 万加速器规模下「一天失败多次、甚至一小时多次」，而且失败原因没有众数——有早就修了；是不断发现的长尾：最前沿的制程、网络、硬件、还有软件（编译器 bug、运行时 bug、模型问题、OS 问题）都能拖累端到端性能。</p>
+              <p></p>
+              <p>【每六个月产能翻倍与增益的来源拆解】</p>
+              <p>他给团队的目标：有效可用产能（以 token 生成能力计）约每六个月翻倍——不一定是 FLOPS 翻倍，一半以上来自软件：模型优化、运行时优化，几十上百个小优化反复落地。经验拆解（以每瓦智能计）：大头来自模型侧改进；系统软件也相当可观（保证硬件被有效使用）；硬件本身「美得惊人」——现在这个世界，年同比 2 倍以上的性能提升完全可能，像给上面所有人的「免费乘数」。</p>
+              <p></p>
+              <p>【TPU 简史：2013 逆势豪赌到 8I/8T 双芯片】</p>
+              <p>TPU 项目 2013 年启动时是彻底的逆势下注：「芯片的苦涩教训」是专用化永不赢——摩尔定律在、标准编程模型在。但当时有一两个应用（翻译、语音识别的推理）受益巨大、用通用 CPU 支撑所需的量不可想象。第一代专注推理；第二代加上训练；第二代出来时 transformer 诞生——彻底改变了 TPU 计划；后来推荐系统跑得极好、广告场景跟上来——一路扩展到生成式 AI 时代的更大规模系统。</p>
+              <p>专用的分寸：2026 年的抉择是「一颗芯片同时做好训练推理，还是两颗各自特化」。分析结果是今年发布两颗：8I（推理）与 8T（训练）——因为到 26 年推理/服务在起飞、其生命期可能占市场 30-60%，特化值得；若推理只占 2-5%，即便特化芯片快 2 倍也不划算。硬件专用化的根本权衡：越专用越快越省电但越不灵活——工作负载必须「有点持久」，你能精确预估特化的赢面。而且 8I 与 8T 都能干对方的活：若 8I 只会推理、8T 只会训练，就得提前 6 年精确预测各自需求——互备给了灵活性。</p>
+              <p></p>
+              <p>【为什么不把 transformer 烧进芯片】</p>
+              <p>挑衅问题：现代 AI 市场都是 transformer，为何不把架构直接烧进硅？答：transformer 最终是向量/矩阵乘加 softmax——一组线性代数原语，「我们和其他家基本已经烧进硬件了」。剩下的差异在模型架构：多少层、怎么穿过层、每维用什么形状的矩阵向量——可以再往下一层「为你的模型特化」，有不少公司在探索，是个非常有意思的方向。TPU vs GPU：GPU 更通用（Google 也大量售卖和使用 GPU），重叠区之外看具体问题——Google 的哲学是给客户选择权。</p>
+              <p></p>
+              <p>【协同设计的账与 DeepMind 的并肩】</p>
+              <p>协同设计的账：你可以设计抽象层让自己跑在任何硬件/软件/网络上——好处是随处可跑、零锁定；坏处是「把大量性能留在桌上」——每层之间都有阻抗失配，每层 10%、20% 到 2 倍的优化机会乘起来，端到端就是巨大的每瓦智能/每瓦 goodput 空间。被问 OpenAI（同构算力栈）与 Anthropic（异构）是否因此走向传闻中迥异的模型架构：不予猜测，但「可能有很多原因」。Google 与 DeepMind 的协作则「真正深入」：研究人员拿着模型优化来，「若硬件支持这个、端到端能快多少」——两边工程师关进同一房间几天到几周，「你要的做不到、但这个可以，你往这边改模型架构、拿 90-98% 的收益」，甚至为这种量级的收益把 tape-out 推迟一两周。芯片管线同时有五六代在跑：生产中的、回来在调试的、即将 tape-out 的、设计中的、概念中的。有深度仿真基础设施预测未来工作负载如何映射到不同硬件架构；他每周与 Koray（译者注：DeepMind 研究负责人）和 Demis 聊好几次。「我们也在用 Gemini 为未来的 Gemini 设计硬件。」硬件规划超前 2-5 年、模型研究者默认不看那么远——但 Google 的研究者是「伴着多年度硬件周期长大的一代」：0.5-1% 的小改不会来烦你（他们知道停 tape-out 是大事），真有大机会绝对并肩搞定。</p>
+              <p>最惊人的事实：TPU 架构在中等细节层面「自 v1 以来没怎么变过」——像 CPU 的指令集（load/store/add/branch）：超大矩阵乘单元、管向量与 scatter-gather 的 sparse core、经 ICI 网络的远程读写——原语就那五六个，却扩展支撑了一代代模型与算法。</p>
+              <p></p>
+              <p>【长程 agent 改变负载形状】</p>
+              <p>长程 agent 带来两大变化：一，不再有人类在环限速——人类读回复要想几秒到几十秒，agent 拿到响应毫秒级就能解析、推理、发起下一个请求；二，这些推理与解析多半发生在 CPU 上，还要去各处（本地 DRAM、别的 CPU 的 DRAM、SSD、HDD）取状态——编排量暴增。所以加速计算需求上升的同时，传统数据中心 CPU、网络、存储的需求「直线飙升」。设计难题随之而来：CPU 机柜贴着 TPU/GPU 机柜放（建筑就无法完全特化），还是分栋放（楼间网络复杂度、可靠性、成本、数百微秒延迟）？「你的工作真难。」「好玩，真好玩。」</p>
+              <p></p>
+              <p>【光路交换：镜子 redirect 光】</p>
+              <p>网络侧：Google 约 15-16 年前就率先在数据中心内用波分复用；同时引入光路交换（OCS）。与电分组交换不同，OCS 完全在光域搬数据：底层是 MEMS 微电机驱动 3D 镜阵，128/256 端口的盒子把每个输入端口映射到输出端口、光打在镜子上反射到对的出口。当初两个动机：给机柜群之间造纯光学的「捷径」（计算集群↔存储集群），以及不动物理光纤就能扩缩网络。到 TPU 时代的新用法：TPU 用 torus 拓扑直连，某机柜坏了——不动光纤、毫秒级把光重定向到热备机柜。全自由空间光（无光纤）？衰减与带宽损失太大，覆盖一栋大楼几乎不可能——但那些光缆的尽头正是数据中心的 OCS。</p>
+              <p></p>
+              <p>【电力：最根本的约束】</p>
+              <p>「最根本的约束是什么」——没有单一答案、全都难、且不断换位；但若必须回答：电力。其他东西「我们知道怎么解、只是时间问题」；电力是长期绑定约束——也许核能终将带来充裕清洁能源，时机与规模未知。实操：首选并网。「给最喜欢的公用事业公司客气地打电话」，提前多年共同规划：吉瓦级不是「明天给我送来」的事。也很在意公平：输电线路升级、变电站扩建等成本由 Google 覆盖——避免「因为给我们建产能、别人家电费涨了」。缺口期自建补充：太阳能、电池备份，甚至反过来在全年最热的两周向电网返送电。为什么不自建到底？统计复用/大数定律：自建 99.99%+ 可靠性的 1 吉瓦意味着建 2 吉瓦——太贵；并网多方共赢。表后（离网）自建只在极罕见情况下做。</p>
+              <p></p>
+              <p>【规模的艺术与旧芯片的命运】</p>
+              <p>数据中心多大合适？是艺术、也是持续辩论：10-15 年前就辩过「全塞一个吉瓦楼」（单点故障 + 如今电力根本不可得）。现状：边缘 POP 数十兆瓦、与 ISP 合作——「真的可能是伊拉克」；训练集群接近吉瓦；其他站点数百兆瓦。生命周期：直觉上「最新最大集群训前沿模型、旧集群转推理」——方向对但不全对：推理需求大到不能只靠退役训练集群；且训练集群高度集中（同大陆），其他大陆服务容量不足，还得专门建服务集群。服务集群更小、垂直整合更少：计算/网络/存储要同置（没法那么特化）、模型端点要铺满全球并照顾就近性。旧芯片：他那句出圈的话——「七八岁的 TPU 仍然 100% 利用率」。折旧期约 6 年，之后按新一代的能效算账换新；按 pod 整体思考（一个 TPU 8T pod 约 9600 颗芯片、150 来个机柜），旧 pod 拔掉、新 pod 塞进去——占地未必严丝合缝，改造是门手艺。</p>
+              <p></p>
+              <p>【开放标准与 AI 进团队】</p>
+              <p>开放标准是信仰：Google 自研 JAX 并深爱之，但客户爱 PyTorch——于是有 Torch TPU 让未修改的模型直接跑。历史上 IP 为什么赢？开放标准 + 沙漏的细腰：上面任何软件、下面任何硬件、谁都能插进路由器口成为互联网的一部分——这就是互联网爆炸式增长的原因。「这个建设太大太重要，不能是任何一家厂商的封闭专有标准。」所以 TPU、GPU、其他加速器都支持。AI 对团队的改变：软件工程侧众所周知（编码、测试、发布、设计）；硬件侧少有人报道——「今天早上刚看了数字：硬件工程师的 AI token 用量与软件工程师一样多」；从设计启动到 tape-out 在缩短、bring-up 在缩短；数据中心设计评估（吉瓦楼 vs 百兆瓦园区）从人工电子表格流程，变成 AI 把对的信息汇到人类决策者面前——「还算不上推理模型替代人的判断」。</p>
+              <p></p>
+              <p>【轨道数据中心与 2036 的前沿超算】</p>
+              <p>轨道数据中心：真的在认真做——「毫不夸张地说，是我们的 moonshot 之一」。基本盘：太空因无大气衰减太阳能多约 40%（1.4 倍）；太阳同步轨道上光照覆盖 90-100%（地面 28-35%）——再乘上 3-4 倍的小时数、电池基本退出等式、且全程无碳。挑战也实打实：太空散热反而更难、可靠性、维修更难（也许机器人+宇航服？）——冗余会是朋友；自由空间光通信将从设想变现实：不串光纤了，激光实时校准对准接收器。「没有拦路虎，没有根本性的拦路虎。」</p>
+              <p>2036 年的前沿超算：十年正好在不确定性锥的边缘，「大概已有少数人在想 2036 的机器」。趋势判断：集成度会高得多——机架中央化制造，72/144/288/576/1152 颗 GPU（TPU 同理）深度集成进单个机架；单个机架多个兆瓦？到 2036 可以尽情想象；到时候「接上水、电、光纤三根线，把机架推进去就开跑」。会不会是个大外星球？「2036 年也不是没可能直接发射上天、被空间站的机械臂抓住插进对的模块。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A brand-new Training Data episode (published 2026-10-06, new to this digest) with Amin Vahdat — Google Fellow and head of Google&#39;s AI infrastructure, the man spearheading one of the most capital-intensive build-outs in human history (Google alone expected to spend $200B+ on CapEx this year). Core threads: an AI data center vs a regular one — &#39;more purpose built, co-designed with the hardware&#39;: a storage rack draws 10-40kW while a TPU/GPU rack hits hundreds of kilowatts (megawatts in a few years), so row layouts, power distribution, cooling and networking all change; FLOPS is a vanity metric — what matters is goodput (&#39;delivered performance for the workload&#39;), because at 100,000-accelerator scale something fails multiple times a day, synchronous jobs stall on any failure, and recovery work is not goodput; the six-month doubling — effective token-generation capacity must double every six months, and as much or more comes from software as hardware; the empirical split of intelligence-per-watt gains: most from model improvements, quite a bit from systems software, with hardware&#39;s 2x/year as a &#39;free multiplier&#39;; the TPU program&#39;s contrarian 2013 bet (the &#39;bitter lesson of chips: specialization never wins&#39;), transformed by the transformer moment, culminating in 2026&#39;s two-chip strategy (8I for inference, 8T for training — and each can do the other&#39;s job as a fungibility hedge over a 6-year hardware life); why not burn the transformer into silicon (it&#39;s matrix multiplies and softmax — &#39;roughly baked into the hardware&#39; already; the next level is specializing to your model); the case for co-design (abstraction layers let you run anywhere but &#39;leave significant performance on the table&#39; — per-layer 10%-2x wins multiply end-to-end) and the shoulder-to-shoulder DeepMind collaboration (chips intercepted in flight, tape-outs delayed weeks for model-level wins, a 5-6 stage pipeline from production to concept, simulation infra mapping future workloads, weekly chats with Koray and Demis, and &#39;we&#39;re using Gemini to design hardware for future Geminis&#39;); the stunning stability (&#39;TPU architecture at a medium level of detail hasn&#39;t really changed since TPU v1&#39;); long-horizon agents changing the shape of demand (no human in the loop → seconds become milliseconds; CPU, networking and storage demand going through the roof); optical circuit switching (MEMS mirrors redirecting light in milliseconds to swap failed TPU racks without touching fiber); power as &#39;the single most fundamental constraint&#39; (grid-connected preference, years of co-planning with utilities, paying for transmission upgrades so residential rates don&#39;t rise, statistical multiplexing, solar+battery gap-filling and giving back at peak); data center sizing as an art (edge POPs of tens of MW — &#39;literally, it could be Iraq&#39; — up to ~gigawatt training clusters); seven- and eight-year-old TPUs still at 100% utilization, replaced as pods after depreciation; open standards as religion (JAX and PyTorch, the IP hourglass, TPUs + GPUs + others); AI inside the team (hardware engineers&#39; token counts equal to software engineers&#39;, design-to-tapeout shrinking, AI streamlining DC planning); orbital data centers as a real moonshot (1.4x solar power, 90-100% sun coverage vs 28-35% on land, batteries mostly gone, cooling actually harder, free-space optics becoming real, &#39;no fundamental showstoppers&#39;); and the 2036 frontier supercomputer — centrally-manufactured multi-megawatt racks where you &#39;bring water, power and fiber, wheel it in, plug those three things in&#39; — possibly launched into space and plugged in by a robotic arm.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Amin Vahdat: I think that the big difference that we&#39;re seeing with AI infrastructure is specialization… An AI data center oftentimes is going to be more purpose built. So in other words, we are oftentimes co-designing the building with the hardware that might go into it.</p>
+              <p>Amin Vahdat: Whether it&#39;s FLOPS or pick your other favorite chip centric metric, these are in theory… What we really care about in the end is what&#39;s the performance delivered by workload.</p>
+              <p>Amin Vahdat: You have to double the capability of that hardware to generate tokens every six months. And as much or more of that is going to come from software as it is from hardware.</p>
+              <p>Amin Vahdat: In our experience, most of the benefits come from model side improvements in terms of intelligence per watt.</p>
+              <p>Amin Vahdat: It&#39;s like the bitter lesson of chips is that specialization never wins. But in this particular case… we have this one application, or a few, that would benefit tremendously.</p>
+              <p>Amin Vahdat: If I had to answer fundamentally, I would say that power is the single most fundamental constraint that we face.</p>
+              <p>Amin Vahdat: I said that our seven and eight year old TPUs are still at 100% utilization.</p>
+              <p>Amin Vahdat: We&#39;re using Gemini to design hardware for future Geminis as well.</p>
+              <p>Amin Vahdat: In space, you have something like 40% more power available because of lack of attenuation in the atmosphere… There are no showstoppers here, no fundamental showstoppers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-10 source feeds (15 builders, 32 tweets, plus one long-form podcast: Training Data with Google AI infrastructure chief Amin Vahdat, published 2026-10-06, new to this digest).">Source: Follow Builders curated daily digest. Built from the 2026-10-10 source feeds (15 builders, 32 tweets, plus one long-form podcast: Training Data with Google AI infrastructure chief Amin Vahdat, published 2026-10-06, new to this digest).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
