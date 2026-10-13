@@ -1,0 +1,219 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-13",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "【快照重叠轻量版】今日上游两份快照与昨日（10-12）逐字节相同（13 位 builders、20 条推文未滚动；播客仍为 No Priors × Fractile 一期）——本期为昨日主题的重播整理，未编造任何新内容。昨日主线回顾：Karpathy 重发四月旧推并宣告鸿沟还在扩大（**30115 赞，两日最高**）：「对 LLM 能力的共同理解差距正在*扩大*——已是一道陡峭的漏斗」：约 60 亿人（75%）几乎没碰过 LLM；10-20 亿人当它是更好的搜索；约 2000 万专业用户看几周几个月的项目一个 prompt 完成；约 5000 人摸到前沿内部系统。Levie（343 赞）与 Garry Tan（**1113 赞**：「Be part of the 5000 today…人类历史上最大的 alpha 之泉」）接力解读。Sottiaux 三连（**10608/4625/2553 赞**）：Day 7——GPT-6.1 Sol 默认上下文升至 500k（+80%，上限 1M）+「订阅额度内不收长上下文费用」+投票结果出乎意料。Thariq（1219 赞）：「Terrence Tao 方向上是对的，我们不该接受一个不透明的超级智能——沟通是智能的关键信号」。Rauchg（2659 赞）：「太酷了，学习的未来」。Garry Tan（1624 赞）：「用确定性代码替换 LLM 调用是明摆着的」。Turck 工种演化梗（54 赞）：「打孔员→……→agent 管理者与 harness 工程师，一切都会好的。」播客（重播）：No Priors × Fractile CEO Walter Goodwin——内存带宽才是推理芯片的真瓶颈（本刊 10-12 期已完整收录全文翻译）。"
+  },
+  "archive": {
+    "title": "能力漏斗日报（重播）",
+    "desc": "快照与 10-12 相同未滚动：Karpathy「理解鸿沟在扩大」（30115 赞）+ Sottiaux「Sol 默认 500k 上下文」；Fractile CEO 论内存带宽（重播）。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Snapshot-overlap light edition: both 2026-10-13 source feeds are byte-identical to 2026-10-12 (13 builders, 20 tweets, same No Priors podcast with Fractile CEO Walter Goodwin, already fully covered in the 2026-10-12 issue). No new content was fabricated.",
+  "sections": [
+    {
+      "title": "The Widening Funnel / 扩大的能力漏斗",
+      "desc": "Karpathy（**30115 赞，今日最高**）重发四月旧推：对 LLM 能力的共同理解差距已变成陡峭漏斗——60 亿人没碰过、20 亿人轻度用、2000 万专业用户、5000 人摸到前沿内部；Levie（343 赞）与 Garry Tan（**1113 赞**）接力：「Be part of the 5000 today…人类历史上最大的 alpha 之泉」。",
+      "cards": [
+        {
+          "authorKey": "karpathy+levie+garrytan",
+          "authorName": "Karpathy / Levie / Garry Tan",
+          "authorTag": "前 Tesla AI 总监 / Box CEO / YC CEO",
+          "sourceUrl": "https://x.com/karpathy",
+          "en": {
+            "rewrite": [
+              "Karpathy dusts off an April tweet (30115 likes, top of the day): the gap in shared understanding of LLM capability is *widening* — now a sharp funnel rather than two groups talking past each other. ~6B people (~75%) have barely touched LLMs; ~1-2B (~20%) are casual free-tier users treating them as a better Google; ~20M (0.2%) see first-hand that weeks/months of professional math&code projects now complete with a prompt ('less than 1 year ago, I was writing code manually by hand… occasionally pressing Tab'); and ~5,000 (~0.00006%) with internal access see swarms of thousands of agents collaborating for weeks on software mega projects — minting zero days, machine-speed cyber, new science and math — while human review falls behind (people still doing 'archeology' of the OpenAI-HF incident; mathematicians poring over 722 frontier manuscripts). The funnel is driven by: 1) impact scales with ambition/problem size/horizon; 2) jaggedness — capability peaks in digital, verifiable, economically valuable domains; 3) access tiers. Levie's echo (343): the vast majority use AI as a next-gen-search chatbot, 'dramatically underrepresenting' full capability, while agent swarms are possibly the ultimate form factor — but a huge amount of change management (workflows, data, compliance) is needed, which is exactly where the applied layer will shine. Garry Tan (1113): 'Be part of the 5000 today. It's amazing. The lucky thing is the price will come down and more people will see this… Greatest alpha fountain in the history of man.'"
+            ],
+            "original": [
+              "Andrej Karpathy: Dusting off this tweet from April because this gap in shared understanding of LLM capability is *widening*. It's now less \"two groups of people speaking past each other\" and more a sharp funnel. - Napkin math somewhere around 6B people (~75% of the population) have barely come in contact with LLMs at all. - Around 1-2B (~20%) are casual and infrequent users of free-tier ChatGPT-like products… treats them a bit like a better Google search… - Now we get to professional use of frontier-grade LLMs in math&code. Somewhere around 20M people (0.2%) see first-hand that large, complex projects that used to take them weeks/months can now be completed by agents with a prompt… - And finally we get to the ~5,000 people (~0.00006%) with access to frontier-grade systems internally… It looks like swarms of thousands of agents collaborating over weeks on software mega projects: minting zero days, running cyber attacks and defenses at machine speeds, discovering new science, advancing the frontier of mathematics… The general public has mostly not interacted with these systems… And a small sliver of professionals are experiencing the vertigo of the curve going vertical. And it is all happening at the same time.",
+              "Aaron Levie: This is a good way to understand how early we actually are in AI diffusion right now. The vast majority of people are using AI as a chatbot for simple interactions that approximate next-generation search. This is super useful but dramatically underrepresents the full capability of AI… agent swarms represent possibly the ultimate form factor of what agents will do inside of our workflows… You can get an early sense of where things are going and the opportunity ahead by seeing through the funnel that Andrej lays out.",
+              "Garry Tan: Be part of the 5000 today. It's amazing. The lucky thing is the price will come down and more people will see this, and get a chance to bring it to the world. Greatest alpha fountain in the history of man"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Karpathy 重发四月旧推（30115 赞，今日最高）：对 LLM 能力的共同理解差距在*扩大*——不再是「两群人说不到一块」，而是一道陡峭漏斗。约 60 亿人（75%）几乎没碰过 LLM；10-20 亿人（20%）是免费版轻度用户，当它是更好的谷歌搜索（「不到一年前，我还在手写代码、一个字符一个字符地敲进编辑器、偶尔按一下 Tab 补一小块」说的是他自己成了 0.2% 那层的亲历者）；约 2000 万人（0.2%）在数学与代码的专业使用中第一手看到：几周几个月的项目现在 agent 一个 prompt 完成；最后约 5000 人（0.00006%）能用前沿内部系统——数千 agent 协作数周的软件巨型项目、零日挖矿、机器速度的攻防、新科学、数学前沿，而人类审阅开始跟不上（OpenAI-HF 事件的「考古」还在做；数学家们还要研读 722 份前沿数学手稿）。漏斗由三因素驱动：1) 影响随雄心/问题规模/时间视野放大；2) 参差性——能力在数字化、可验证、有经济价值的域登顶（RL 在可验证奖励上的涌现）；3) 访问层级（免费/付费/内部）。「这就是此刻的怪异之处：大众基本没碰过这些系统；多数专业人士只见温和提升；一小撮专业人士正经历曲线垂直起飞的眩晕——而这一切同时发生。」Levie 接力（343 赞）：绝大多数人把 AI 当下一代搜索的聊天机器人用，「严重低估」了完整能力；agent 集群可能是最终形态——但需要大量变革管理（工作流、数据迁移、合规治理），而这正是应用层在企业发光的地方。Garry Tan（1113 赞）：「今天就加入那 5000 人吧，太惊人了。幸运的是价格会降下来、更多人会看到它并把它带给世界——人类历史上最大的 alpha 之泉。」"
+            ],
+            "original": [
+              "Karpathy：对 LLM 能力的共同理解差距在扩大。约 60 亿人几乎没碰过 LLM；10-20 亿人当它是更好的搜索；约 2000 万专业用户看到几周几个月的项目一个 prompt 完成；约 5000 人摸到前沿内部——数千 agent 协作数周、零日挖矿、机器速度攻防。大众没碰过、多数专业人士只见温和提升、一小撮人在经历曲线垂直起飞的眩晕——而这一切同时发生。",
+              "Levie：绝大多数人把 AI 当下一代搜索用，严重低估了完整能力；agent 集群可能是最终形态，但需要大量变革管理——这正是应用层发光的地方。",
+              "Garry Tan：今天就加入那 5000 人。价格会降、更多人会看到。人类历史上最大的 alpha 之泉。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Day 7: Sol at 500k / Sol 的 50 万上下文",
+      "desc": "Sottiaux 三连（**10608/4625/2553 赞**）：Day 7——GPT-6.1 Sol 经 Codex 与 Work 的默认上下文升至 500k（原 272k，约 +80%，上限 1M），减少 compaction；「订阅额度内使用不收长上下文费用」；投票结果让他意外——本以为 Pro 100/200/500 会更倾向 2 倍用量以换回 5 小时限额来平滑需求。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex & ChatGPT @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's Day 7 triple: the context bump (10608 likes): 'We have increased default context length for GPT-6.1 Sol to 500k when used through Codex & Work, up from 272k or an ~80% increase. We will go higher in the future, but it helps reduce occurrence of compactions and with tasks that require keeping a lot of context and nuance over periods of time. It was carefully tested and is the new sweet spot for most of our users. You can still override it… with maximum context length of GPT-6.1 Sol of 1M'; the pricing note (2553): 'With this change, we are not charging long context fees for GPT-6.1 Sol when drawing usage from the subscription'; and the poll postmortem (4625): 'The results of this poll has gotten me confused. I definitely thought it would sway much more favorably in the 2X direction across Pro 100/200/500 at the cost of bringing back 5h limits in order to smoothen the demand curve.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Day 7/ We have increased default context length for GPT-6.1 Sol to 500k when used through Codex & Work, up from 272k or an ~ 80% increase. We will go higher in the future, but it helps reduce occurrence of compactions and with tasks that require keeping a lot of context and nuance over periods of time. It was carefully tested and is the new sweet spot for most of our users. You can still override it if you want to be higher our lower, with maximum context length of GPT-6.1 Sol of 1M.",
+              "Thibault Sottiaux: With this change, we are not charging long context fees for GPT-6.1 Sol when drawing usage from the subscription.",
+              "Thibault Sottiaux: The results of this poll has gotten me confused. I definitely thought it would sway much more favorably in the 2X direction across Pro 100/200/500 at the cost of bringing back 5h limits in order to smoothen the demand curve."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的 Day 7 三连：上下文升级（10608 赞）——「我们把 GPT-6.1 Sol 经 Codex 与 Work 使用的默认上下文长度提升到 500k，从 272k 上调、约 +80%。未来还会更高——这能减少 compaction 的发生，也更好地支持需要长期保留大量上下文与细节的任务。经过仔细测试，是对大多数用户的新甜点位。你仍可自行调高调低，Sol 的最大上下文为 1M。」定价说明（2553 赞）——「伴随此变更，从订阅额度内使用 GPT-6.1 Sol 不收长上下文费用。」投票复盘（4625 赞）——「这个投票的结果把我整困惑了。我本以为 Pro 100/200/500 会明显更倾向于 2 倍用量方向、哪怕代价是恢复 5 小时限额来平滑需求曲线。」"
+            ],
+            "original": [
+              "Sottiaux：Day 7——Sol 默认上下文 500k（+80%，上限 1M），减少 compaction；订阅额度内不收长上下文费；投票结果出乎意料，本以为大家会要 2 倍用量换 5 小时限额。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Opaque Superintelligence & Trust / 不透明的超级智能与信任",
+      "desc": "Thariq（**1219 赞**）：「Terrence Tao 方向上是对的——沟通是智能的关键信号，产品与模型应该与人类建立理解，而不是把人类去中介化」；Rauchg（**2659 赞**）：「太酷了，学习的未来」；Garry Tan（**1624 赞**）：「用确定性代码替换 LLM 调用，代码更好也更贴合用户想要的东西」；Turck 的工种演化梗（54 赞）；Peter Yang 与女儿用 Codex 造 modretro 游戏（75 赞）+ Rasmic 的信任论（24 赞）；Zara「如今只在 Chrome 里用 Gemini」（93 赞）；Shipper 的读书 feed（73 赞）；Swyx 的 AIE NYC 讲者晚宴（36 赞）。",
+      "cards": [
+        {
+          "authorKey": "trq212+rauchg+garrytan+mattturck",
+          "authorName": "Thariq / Rauchg / Garry Tan / Turck",
+          "authorTag": "OpenAI / Vercel CEO / YC CEO / FirstMark",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq on transparency (1219): 'I think Terrence Tao is directionally correct, we shouldn't settle for a super intelligence that is opaque. A key signal of intelligence is communication. We should strive to make products and models that build understanding with humans instead of disintermediating them.' Rauchg's pointer (2659): 'So cool. The future of learning.' Garry Tan's engineering rule (1624): 'Replacing LLM calls with deterministic code is a no brainer and also results in better code that better matches what users want.' And Turck's job-evolution meme (54): 'People were punch card operators then they were Lotus Notes admins, then they were Flash developers and Dreamweaver webmasters, then they were DevOps and Tableau analysts, and now they're becoming agent managers and harness engineers. It will work out just fine.'"
+            ],
+            "original": [
+              "Thariq: I think Terrence Tao is directionally correct, we shouldn't settle for a super intelligence that is opaque. A key signal of intelligence is communication. We should strive to make products and models that build understanding with humans instead of disintermediating them.",
+              "Guillermo Rauch: So cool. The future of learning",
+              "Garry Tan: Replacing LLM calls with deterministic code is a no brainer and also results in better code that better matches what users want",
+              "Matt Turck: People were punch card operators then they were Lotus Notes admins, then they were Flash developers and Dreamweaver webmasters, then they were DevOps and Tableau analysts, and now they're becoming agent managers and harness engineers. It will work out just fine."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 论透明（1219 赞）——「我觉得 Terrence Tao 方向上是对的：我们不该接受一个不透明的超级智能。沟通是智能的关键信号。我们应当努力做出与人类*建立理解*的产品和模型，而不是把人类去中介化。」Rauchg 指路（2659 赞）——「太酷了。学习的未来。」Garry Tan 的工程守则（1624 赞）——「用确定性代码替换 LLM 调用是明摆着的事：代码更好，也更贴合用户真正想要的东西。」Turck 的工种演化梗（54 赞）——「人们先是打孔机操作员，然后是 Lotus Notes 管理员，然后是 Flash 开发者与 Dreamweaver 站长，然后是 DevOps 与 Tableau 分析师，现在正在成为 agent 管理者与 harness 工程师。一切都会好的。」"
+            ],
+            "original": [
+              "Thariq：不该接受不透明的超级智能；沟通是智能的关键信号；产品应与人类建立理解而非去中介化。Rauchg：学习的未来。Garry Tan：用确定性代码替换 LLM 调用。Turck：打孔员→Lotus Notes→Flash→DevOps→agent 管理者。会好的。"
+            ]
+          }
+        },
+        {
+          "authorKey": "petergyang+zarazhangrui+danshipper+swyx",
+          "authorName": "Peter Yang / Zara Zhang / Shipper / Swyx",
+          "authorTag": "Builder / Design Engineer / Every CEO / Latent Space",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Peter Yang's pair: the father-daughter build (75): 'Building a @modretro game with my daughter and Codex'; and the trust quote from Micky (@Rasmic), who's taught 100K+ people to build with AI (24): 'I'm not at a point where I trust the agent, especially with stuff that people are using… The manual review is like the final step. All the work's done, and I have as much evidence from the agent as possible. With evidence-driven testing, before and after, and even greploop, we're trying to build trust. The agent presents evidence: This is the work that's done, and this is why it's good. For anyone who's been a developer for any time, manual review is probably the worst part of your job. This sort of helps minimize the friction.' Zara Zhang's usage note (93): 'The only place where I use Gemini these days is in Chrome.' Shipper's side project (73): 'made a feed that automatically tracks the books im reading (and have read going back to 2012!) maybe we should have a feed for everybody @every could be fun to see.' Swyx's prep (36): 'reupping my talk tips thread for all our lovely AIE NYC speakers. see you tmr at speaker dinner!' — plus the minor notes (Peter Yang's YouTube-comments quip at 3, Garry Tan's SF politics take at 239, Nan Yu's 'Who's gonna tell him' at 0, Nikunj's 🔵👼 at 20)."
+            ],
+            "original": [
+              "Peter Yang: Building a @modretro game with my daughter and Codex",
+              "Micky (@Rasmic): I'm not at a point where I trust the agent, especially with stuff that people are using. The manual review is like the final step. All the work's done, and I have as much evidence from the agent as possible. With evidence-driven testing, before and after, and even greploop, we're trying to build trust. The agent presents evidence: This is the work that's done, and this is why it's good.",
+              "Zara Zhang: The only place where I use Gemini these days is in Chrome",
+              "Dan Shipper: made a feed that automatically tracks the books im reading (and have read going back to 2012!) maybe we should have a feed for everybody @every could be fun to see",
+              "Swyx: reupping my talk tips thread for all our lovely AIE NYC speakers. see you tmr at speaker dinner!"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 双发：父女共建（75 赞）——「和女儿用 Codex 造一台 @modretro 掌机游戏」；信任引语（24 赞）——教过 10 万+ 人用 AI 的 Micky（@Rasmic）：「我还没到信任 agent 的程度，尤其是别人在用的东西……人工审查是最后一步：活都干完了，我从 agent 那里拿到尽可能多的证据。用前测后测的证据驱动测试、甚至 greploop，我们在建立信任——agent 呈现证据：这是做完的活、这是它为什么好。对任何写过代码的人，人工审查大概是最烦的部分，这能把摩擦降到最小。」Zara Zhang 的使用观察（93 赞）——「如今我唯一用 Gemini 的地方是 Chrome 里。」Shipper 的副业（73 赞）——「做了个自动追踪我在读（以及 2012 年以来读过）的书目的 feed。也许 @every 该给每个人做 feed，会很好玩。」Swyx 的会前准备（36 赞）——「为可爱的 AIE NYC 讲者们重发我的演讲技巧串。明晚讲者晚宴见！」另有小注：Peter Yang 的 YouTube 评论吐槽（3 赞）、Garry Tan 的旧金山政治帖（239 赞）、Nan Yu 的「谁去告诉他」（0 赞）、Nikunj 的 🔵👼（20 赞）。"
+            ],
+            "original": [
+              "Peter Yang：和女儿用 Codex 造 modretro 游戏。Rasmic：还不信任 agent——靠证据驱动测试与 greploop 建立信任，把人工审查的摩擦降到最小。Zara：只在 Chrome 里用 Gemini。Shipper：读书 feed。Swyx：AIE NYC 讲者晚宴见。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast (Replay): Walter Goodwin — Frontier Chips for Frontier AI Labs / 播客（重播）：Walter Goodwin——给前沿实验室的前沿芯片",
+      "desc": "No Priors × Fractile CEO Walter Goodwin（重播：快照与昨日相同，本刊 10-12 期已完整收录全文翻译）：AI 芯片动物园里满是复制粘贴；从 SRAM 转向高带宽 DRAM 的豪赌；「聊天机器人更快只是更快的马，真正的电梯是长程 agent 提速」；带宽 scaling law；第三方前沿芯片公司为何能活几十年。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-walter-goodwin",
+          "authorName": "No Priors",
+          "authorTag": "Walter Goodwin（Fractile 创始人/CEO）",
+          "sourceUrl": "https://www.youtube.com/watch?v=OpeCP4wCxkA",
+          "en": {
+            "rewrite": [
+              "A brand-new No Priors episode (new to this digest) with Walter Goodwin, founder and CEO of full-stack AI chip company Fractile (founded summer 2022, ~150 people). Core threads: the 'extraordinary zoo' of AI silicon is mostly identikit — hyperscaler internal efforts (Google TPU, Meta MTIA, Microsoft Maya, OpenAI Jalapeno) all realized through a small number of ASIC houses like Broadcom, sharing HBM, Tensor Cores and TSMC packaging, leaving a dearth of teams going all the way up and down the stack; the two core technical bets — inference from day one (when a recently-IPO'd 'inference' chip was a training chip until 18 months ago), and memory bandwidth: after two years on an SRAM-based design (like Groq/Cerebras) abandoned over scalability (context length and KV caches grow), Fractile spent two more years on skunkworks with memory vendors to get extreme bandwidth to high-capacity DRAM — a platform ramping H2 next year that unites GPU-like capacity with Groq-like speed; why speed matters — the snappier chatbot is 'the faster horses of fast inference' (Henry Ford), the real elevator is radically faster long-running agents, and data-center economics collapse to cost per gigabyte of memory; bandwidth scaling laws — 25x more bandwidth per chip than HBM parts unlocks sparser MoEs (1/16 → 1/128/1/256) and FLOP-cheaper attention, a multiplying factor on global throughput (FLOPs scaled ~1M-fold in 20 years, bandwidth only ~40x); AI-forward chip design — compressing the observation-to-volume latency is the chip-space equivalent of frontier models ('carve out a 3-6 month advantage and you win all deployments'), and on intent-to-GDS2 in 10 years: divide by four and subtract a bit, with NP-hard place-and-route loops and surrogate-model approximations as the bottleneck, 'we're gonna be generating a lot of reasoning tokens before we place a given circuit'; and market structure — first-party chips as NVIDIA price leverage, frontier labs' premium-speed raison d'être ('otherwise we'd all be using Kimi models'), and why third-party frontier chip players sustain for decades: an all-in proprietary-silicon bet could kill a lab in the nine months before a rival's chip-only breakthrough lands."
+            ],
+            "original": [
+              "Walter Goodwin: Fractile is a chip company. We build very, very fast inference chips for the world's largest models.",
+              "Walter Goodwin: If you look across this entire space of AI silicon, one of the things that I think is very striking is there's a lot of relatively identikit chips out there.",
+              "Walter Goodwin: The snappier chatbot is kind of the faster horses of fast inference. The place where the ability to take a multi trillion parameter model and run it comfortably at many thousands of tokens per second, in our view, is a fundamental elevator on capability for AI is in taking these very long running agents and making them radically faster.",
+              "Walter Goodwin: The economics actually collapse down to essentially a cost per gigabyte of the memory that you're implying.",
+              "Walter Goodwin: We've scaled FLOPs like a million fold in the last twenty years. Memory bandwidth has gone up about 40x in the same time frame.",
+              "Walter Goodwin: It is the equivalent of the frontier model for the chip space, is if you can just find a way to structurally carve out a three to six months advantage, you will be winning all of those deployments.",
+              "Walter Goodwin: A heuristic that has been successful over the past couple of years is to just always question your logical assumption and then divide it by four on time scale.",
+              "Walter Goodwin: There's a bit of a joke today that the first party efforts, their primary purpose is to reduce the price that people pay NVIDIA.",
+              "Walter Goodwin: For the frontier labs, there's this window of premium capability, premium intelligence that is their entire raison d'etre. Otherwise, we'd all be using Kimi models all the time.",
+              "Walter Goodwin: I could die in the nine months before I get to deploy enough of that chip that I've also now gained that kind of five x in computational efficiency."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors 全新一期（本刊首次收录）：对话全栈 AI 芯片公司 Fractile 创始人/CEO Walter Goodwin（2022 年夏成立，约 150 人）——AI 芯片「动物园」里大多是复制粘贴；两大技术赌注：从第一天就押推理 + 押内存带宽（弃 SRAM 转向高带宽 DRAM，明年下半年 ramp）；「聊天机器人更快」只是快马，真正的电梯是长程 agent 提速；带宽 scaling law：每芯片带宽是 HBM 的 25 倍，解锁更稀疏的 MoE 与省 FLOPs 的 attention；AI-forward 芯片设计：intent 到 GDS2 的时间除以四再减一点；市场结构：第一方芯片是压 NVIDIA 价格的筹码，第三方前沿芯片公司能活几十年是因为 all-in 自研可能让实验室在 9 个月内死掉。完整译文见下。"
+            ],
+            "original": [
+              "【开场：3-6 个月的结构性优势】",
+              "我们现在只想造出一颗芯片。而如果你拆开一台 NVIDIA 系统，里面有 6 到 9 颗 NVIDIA 自建的定制芯片共同组成一个真正强大的东西——差距摆在那里。如果生产力足够，我们也想开始以同样的方式构建自己的全家桶。在任何时刻保有一条「滚动的赌注前沿」、且随时准备触发其中一条 ramp，这是巨大的优势。芯片界 equivalent 的 frontier model 就是：只要找到办法结构性 carve out 出 3-6 个月的优势，你就能赢下所有部署。",
+              "",
+              "【Fractile 是什么：为世界最大模型造超快推理芯片】",
+              "主持人（No Priors）开场：今天的嘉宾是全栈 AI 芯片公司 Fractile 的创始人/CEO Walter Goodwin，聊什么是全栈、他们的技术赌注、为什么死磕内存带宽、对前沿模型架构的预测，以及 NVIDIA/AMD/自研/新加速器阵营的芯片市场结构。",
+              "Walter：Fractile 是一家芯片公司，我们为世界最大的模型造非常非常快的推理芯片。对速度的下注从第一天就有。公司 2022 年夏成立，当时我们看到两件事：一是基于互联网训练、跨一切泛化的基础模型的到来；二是少数聪明人说「我们得想办法在 test time 灌更多算力」——把 AlphaGo 式的能力（一个够强的网络在规模化 rollout 后变得超人类）带进语言建模。过去四年的追求：造出让巨大模型跑得比今天的芯片快得多的芯片，且能 scale——scale 到超越今天前沿的模型、scale 到超长上下文。",
+              "",
+              "【芯片动物园：一堆复制粘贴】",
+              "AI 硅片的选项是个「非凡的动物园」，但 striking 的是大量芯片相当 identikit（复制粘贴）。这是结构性产业属性：超大规模厂商的自研芯片——Google 的 TPU 十多年前开了头、Meta 的 MTIA、微软的 Maya、OpenAI 现在的 Jalapeno——最终都由少数几家 ASIC 交付行（后端交付行）实现，Broadcom 是最大的一家（两万亿美元公司）。凑近看这个「选择过剩」的光谱，其实平台间高度相似：都用 HBM（NVIDIA/AMD GPU 与所有 ASIC 通用的 DRAM）、都押 Tensor Core 做矩阵乘、都用 TSMC 先进封装。真正从头到尾打通硅片栈、试图构建根本性新能力的团队，仍然稀缺。",
+              "",
+              "【架构师与 Broadcom 的交接点】",
+              "假设你是 Google 在设计 TPU：团队里有人对要加速的 workload 有极强理解——十多年前这就催生了 Tensor Core 这种由架构师构想、极其擅长矩阵乘的专用电路（洞察：矩阵乘占这些模型 flop 数的绝大多数）。架构师的领地：懂芯片行为 + 懂目标 workload。往下，组织里另一批聪明人把它降级成电路级描述——这就是 front end design，机制上仍然像在电脑上写代码。这份描述芯片底层意图/逻辑的代码交给 Broadcom：经过综合（RTL → 电路集合）最终布局，最终交给 TSMC 的东西字面上是一张位图（GDS2 文件）：金属层放哪、每个晶体管放哪。Broadcom 的复杂性在于拥有 chip-to-chip 连接用的模拟 IP、以及特定工艺节点（3nm、5nm）的物理布局。今天这一段对所有这些项目都是外包的。",
+              "",
+              "【150 人的全栈精瘦团队】",
+              "很多行业是瀑布式流程，然后突然来了种更敏捷的新思路。作为全栈公司，Fractile 团队横跨极深的 workload 理解——我们甚至会跑在前面想「我们会怎么改模型架构来更贴合我们的赌注」「我们这条赌注的 scaling law 向量是什么」，再向客户与伙伴倡导；这帮我们为一颗 1-2 年后才量产的芯片定赌注。公司内部：自有 front end 设计师、自有物理设计团队、自有后端实现团队、自己做先进封装——人不多（今天约 150 人），每个环节都精瘦，但换来敏捷闭环。AI 芯片比以往任何芯片都更要求下注正确：需要技术、运气、还要出手极快。把整个故事握在屋里，和到某个交接点就交给下家的旧模式完全不同——你不再受制于那个伙伴的行为。",
+              "",
+              "【技术赌注一：从第一天就押推理】",
+              "第一个赌注是方向。四年半前显然正处推理故事的心脏，但之后两年我仍在向世界科普什么是推理。今天某些「推理芯片」——包括最近上市的那家——18 个月前还是训练芯片。marginal cost（边际成本）有两层含义：听着像小钱，实际是每次部署模型都要付的钱。所以第一，纯押「我们将滑入部署时代」+ 押速度，深刻塑造了我们随后的架构响应。",
+              "",
+              "【技术赌注二：从 SRAM 转向高带宽 DRAM】",
+              "架构上我们走了一段旅程：头两年像 Groq/Cerebras 一样做 SRAM 芯片——SRAM 是超高带宽内存，与逻辑在同一块硅上，计算与模型权重/KV cache 之间带宽极高，能把语言模型推到数千 token/s。但 2023 年末、2024 年我们开始担心这个路线的可扩展性：今天有两样东西在涨——模型参数是一方面；真正让我们紧张的是越来越长的上下文（KV cache 随之膨胀）。这把我们带到近两年的新赌注：与内存厂商及逻辑代工厂伙伴紧密合作，拿到对更大容量内存的极高带宽访问——多个 skunkworks 项目脱离 SRAM、给 DRAM 内存做高几个数量级的带宽。这个平台明年下半年 ramp：把 GPU/TPU 上那种高容量低成本 DRAM 的可扩展性，与 Groq/Cerebras 芯片的速度优势合为一体。",
+              "",
+              "【为什么速度重要：聊天机器人是「更快的马」】",
+              "速度今天在哪里真正撬动局面？一个版本是「聊天机器人更跟手」——但亨利·福特问人们想要什么、人们答「更快的马」，snappier chatbot 就是快推理的「更快的马」。我们的判断：把数万亿参数模型舒服地跑到数千 token/s，对 AI 能力的根本性提升在于把长程 agent 大幅提速。今天的 tantalizing 错配：快推理芯片带宽超高但容量超低——看它们实际的部署细节，并不跑长上下文 attention，那还得翻回 GPU。所以这个挑战归结为一个平凡的观察：我们需要同时具备「极高内存带宽（每秒加载权重与状态数千次）」和「经济的内存」的芯片——因为在数据中心为数千用户跑推理，经济学坍缩为「你占用的内存的每 GB 成本」。",
+              "",
+              "【设计周期：workload 以软件节奏翻新】",
+              "任何时刻你都希望手里有一颗精准瞄准你关心 workload 的芯片——但真有的话，6 个月后你又想要别的了。今天每两周就出一个新模型。理智来自跨模型找共性：新 LLM 永远 desperate 地想要数量级更高的内存带宽；仍然自回归、生成时低 batch，存在吞吐效率/成本与速度的根本权衡。但演变也真实存在：看中国开源前沿，attention 机制的细节每几周就翻新（MoE 的稀疏度、attention 本身的稀疏度），还可能有更大的冲击。所以存在「物理与金融世界的极限」与「以软件节奏翻新的 workload 需求」之间的对偶：想更激进地出新平台，也有根本的刹车。",
+              "",
+              "【AI-forward 芯片设计与压缩观察→量产延迟】",
+              "Fractile 对 AI-forward 的芯片设计极其兴奋。经典 CS 的 Amdahl 定律：能并行的部分飞快、不能的部分原地踏步——长链条组织里的 front end 设计公司也一样：即便用 AI 把 12 个月的 front end 压缩到零头，如果下一段还是传统瓶颈与传统节奏，激进改造流程就没有压倒性的回报。握有端到端才允许根本性重新思考。但也要诚实地同时相信两件冲突的事：一、压缩整体芯片设计周期有巨大价值；二、仍需下微妙而深思熟虑的架构赌注——因为芯片仍需 3 年以上的有用寿命来摊销（3-5 年摊销窗口才是理性金融决策）。fab 的钟摆不变：送片到拿片 3-5 个月（超级加急也一样）；装进数据中心有延迟、还要给底层硅融资。所以我不相信「因为流程压缩了就每几周出一颗根本性新芯片」；能达成的是：观察→量产的间隔越短，可捕获的价值越大——永远保持一条滚动的赌注前沿，随时触发 ramp；那可能带来对竞争者常驻的 6 个月差距，就是你的 wedge。芯片界的 frontier model：结构性 carve out 3-6 个月优势，赢下所有部署。",
+              "",
+              "【intent 到 GDS2 要十年？除以四再减一点】",
+              "主持人：我跟某前三半导体 CEO 聊过，问他「首席架构师的 intent 到可用的 GDS2 文件要多久」，他说十年，还不许我播出。你怎么看？",
+              "Walter：过去几年屡试不爽的启发式：把你的逻辑假设打个问号，时间上除以四，再减一点。十年听起来合理，但我会除以四——未来几年内就会出现端到端的「原型级」打通。芯片设计有意思的地方：中间仍有一些用常规算法解 NP 难问题的环路——要产出 GDS2，你仍在跑一堆布局布线工具，常规算法一跑就是几天。这和 RSI 很像：智能在加速「思考」，实验反而成了瓶颈（受限于 compute 时间）。surrogate model（有限元分析、热估计的近似模型）回报巨大——正因为 Amdahl 定律，加速了智能与试验间隔后，加速试验本身变得同等重要。最终 sign-off 短期内不会变：Cadence/Synopsys 与代工厂合作几十年建立的 DRC/LVS clean 检查极具价值。但中间放一个「模糊布局算法」让你更快迭代——这才是该多做的事，否则它就是瓶颈。放一个电路之前，我们会先生成大量 reasoning tokens。（Dwarkesh 节目里 Baron Milledge 说过：也许该在发起实验前先想 100 年，实验后再想 100 年——中间那次实验又贵又占钟表时间。）",
+              "",
+              "【带宽 scaling law：25 倍带宽解锁什么】",
+              "我们最大的 workload 赌注当然是追速度：最大化内存带宽。芯片公司要跨一个对偶：既要在「硬件彩票」下极擅长跑今天 HBM GPU/XPU 上训练出来的自回归 MoE transformer，又要因根本性新能力而探索「引力」——你能把新模型版图拉向哪。Fractile 每芯片带宽比 HBM 芯片高约 25 倍，我们在内部探索「带宽的 scaling law」：传统 scaling law 想的是 flop——训练/测试时灌的 flop 越多性能越好。但已知想法的版图里已经有「带宽 scaling law」的雏形：MoE 众所周知理想上应该越来越稀疏——同等智能下，从 1/16 稀疏到 1/128、1/256 能省海量 flop；拦路的是在 HBM GPU/XPU 上服务不动：带宽瓶颈、MFU 极低。attention 同理：存在更省带宽、更费 flop 的 attention 形态。20 年里 flop 涨了约百万倍，内存带宽只涨了约 40 倍——抬高带宽前沿，就能省下另一边：用更少 flop 达到同等智能，这是全球吞吐的乘数。",
+              "",
+              "【市场结构：第一方芯片与压价筹码】",
+              "今天的现实：所有大规模部署者都在尽可能多地部署不同平台。compute 对这些玩家太存在主义了，供给多样性是硬需求。业界有个笑话：第一方自研芯片的主要目的是压 NVIDIA 的报价——有一定道理，因为那些努力在架构上相当相似，赌的不是「启用别家芯片启用不了的根本性能力」，而是博弈论：能不能自己造一点、从 AMD 买一点，好从 NVIDIA 拿到更好的价格——外加囤产能、要一点掌控权。而一旦进入「真正给出新能力」的芯片：所有想在前沿部署 AI 的人都必须有一个「把模型跑快几个数量级」的方案。对前沿实验室，溢价能力/溢价智能的窗口就是它们存在的全部理由——「否则我们早就都在用 Kimi 模型了」。开源从背后施压，让「最好的模型权重 + 最快部署（最短时间做最多推理）」变得更加重要——以速度为最优先的芯片成为这个世界的关键一环。",
+              "",
+              "【为什么第三方前沿芯片公司能活几十年】",
+              "我们常要做的一个论证：为什么未来几十年世界会持续存在「前沿第三方芯片玩家」、而不是全被实验室收编？因为所有前沿玩家都在打一场不对称的博弈：all-in 自研硅片意味着暴露于巨大风险。假设我是实验室一号、已 all-in 某专有硅片；实验室二号发现了一个新的计算突破，同等智能下计算效率高得多——但只在它们选定的芯片上有效。在我部署够那颗芯片、也拿到那 5 倍效率之前的那 9 个月里，我可能已经死了。所以这些公司反而迫切需要「彼此部署相同的平台」；在芯片层面做差异化 all-in 赌注，对任何在前沿竞争的玩家都是不理性且危险的。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
