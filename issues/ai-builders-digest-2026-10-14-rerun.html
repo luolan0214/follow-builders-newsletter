@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-14" data-issue-number="142" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 142 期｜2026-10-14｜双语精选版｜5 条精选｜5 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Steipete 的暴论（**2153 赞**）：「6.1 Sol ultrafast &gt;&gt;&gt; 6 Astra——成本差不多，250 tpm 是完全不同的游戏」+ 重申「vibes coding 是句脏话」（1832 赞）。Sottiaux 三连（**2741/2202/880 赞**）：「配菜要配什么 reset？做完了」+「好计划都很简单。我有一个能让所有人的用量大幅提升的计划，希望尽快做完」+「@poteto 的土豆泥，店里请」。Levie 三连（**487/289/159 赞**）：Meta 全力跳进前沿——多家推 SOTA 意味着加速 + token 成本下降；「AI 终将比我们更擅长在看到任务后自己决定用什么 harness」；agent 集群将成为企业工作流核心、网络安全是最大受益者。Rauchg（539 赞）：「编码 CLI 越来越复杂——daemon、三层 TUI、客户端-服务器架构。CLI 的全部意义在于零摩擦地交付智能、保持 unix 之风」。Peter Yang（77 赞）：Grok bot 用「人格」而非聊天线程——像雇员工：Behind the Growth 管客服、YouTube Producer 管调研、Loving Husband 管家里跑腿。Zara Zhang 的蟑螂游戏故事（64 赞）：朋友把童年灭蟑螂的回忆做成游戏，朋友玩哭了——「代码是讲故事的新媒介」。播客全新一期：Every Podcast（原 AI &amp; I）更名首播——Dan Shipper 在 DevDay 现场对话 Sam Altman：Dots 如何夺回他的早晨（35156 字符全文翻译随卡附上）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Steipete 的暴论（**2153 赞**）：「6.1 Sol ultrafast &gt;&gt;&gt; 6 Astra——成本差不多，250 tpm 是完全不同的游戏」+ 重申「vibes coding 是句脏话」（1832 赞）。Sottiaux 三连（**2741/2202/880 赞**）：「配菜要配什么 reset？做完了」+「好计划都很简单。我有一个能让所有人的用量大幅提升的计划，希望尽快做完」+「@poteto 的土豆泥，店里请」。Levie 三连（**487/289/159 赞**）：Meta 全力跳进前沿——多家推 SOTA 意味着加速 + token 成本下降；「AI 终将比我们更擅长在看到任务后自己决定用什么 harness」；agent 集群将成为企业工作流核心、网络安全是最大受益者。Rauchg（539 赞）：「编码 CLI 越来越复杂——daemon、三层 TUI、客户端-服务器架构。CLI 的全部意义在于零摩擦地交付智能、保持 unix 之风」。Peter Yang（77 赞）：Grok bot 用「人格」而非聊天线程——像雇员工：Behind the Growth 管客服、YouTube Producer 管调研、Loving Husband 管家里跑腿。Zara Zhang 的蟑螂游戏故事（64 赞）：朋友把童年灭蟑螂的回忆做成游戏，朋友玩哭了——「代码是讲故事的新媒介」。播客全新一期：Every Podcast（原 AI &amp; I）更名首播——Dan Shipper 在 DevDay 现场对话 Sam Altman：Dots 如何夺回他的早晨（35156 字符全文翻译随卡附上）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Sol Ultrafast Love &amp; Reset à la Carte / Sol 真香与 reset 上桌</h2>
+    <p class="section-desc">Steipete 双发（**2153/1832 赞**）：「6.1 Sol ultrafast &gt;&gt;&gt; 6 Astra——同价位、250 tpm、完全不同的游戏」+「vibes coding 是句脏话（去年说过，再说一遍）」；Sottiaux 三连（**2741/2202/880 赞**）：「配菜要配什么 reset？做完了」+「好计划都简单：一个能让所有人用量大增的计划」+「@poteto 的土豆泥，店里请」；Thariq（1843 赞）：「evergreen」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="steipete+thsottiaux+trq212" data-author-name="Steipete / Sottiaux / Thariq" data-author-tag="OpenClaw / Codex @OpenAI / OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Steipete / Sottiaux / Thariq avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Steipete / Sottiaux / Thariq</div>
+            <div class="author-tag is-inline">OpenClaw / Codex @OpenAI / OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete 双发：Sol 判词（2153 赞）——「6.1 Sol ultrafast 完胜 6 Astra：成本差不多，但 250 tpm 是完全不同的游戏」；重申（1832 赞）——「去年说过，再说一遍：vibes coding 是句脏话。」Sottiaux 三连：reset 菜单（2741 赞）——「配菜要配什么 reset？已经做完了。」；简单计划预告（2202 赞）——「好计划都很简单。我有一个能让所有人的用量显著提升的计划，希望尽快做完。」；免费土豆泥（880 赞）——「@poteto 的土豆泥，店里请。」Thariq 的 evergreen 引推（1843 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：Sol ultrafast 完胜 Astra，250 tpm 是另一个游戏；vibes coding 是脏话。Sottiaux：reset 已上桌；好计划都简单，有个让所有人用量大增的计划在路上。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Steipete&#39;s double: the Sol verdict (2153): &#39;6.1 Sol ultrafast &gt;&gt;&gt; 6 Astra. ~same cost but whole different game with 250 tpm&#39;; and the re-up (1832): &#39;said that last year, saying it again. vibes coding is a slur.&#39; Sottiaux&#39;s triple: the reset menu (2741): &#39;What would you like with your side of reset? It&#39;s done.&#39;; the simple-plans tease (2202): &#39;Good plans are simple. I have one that should result in significantly more usage for everyone. Hope to get it done soon.&#39;; and the free mash (880): &#39;Mashed @poteto on the house.&#39; Thariq&#39;s evergreen quote-tweet (1843).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: 6.1 Sol ultrafast &gt;&gt;&gt; 6 Astra ~ same cost but whole different game with 250 tpm</p>
+              <p>Peter Steinberger: said that last year, saying it again. vibes coding is a slur.</p>
+              <p>Thibault Sottiaux: What would you like with your side of reset? It&#39;s done.</p>
+              <p>Thibault Sottiaux: Good plans are simple. I have one that should result in significantly more usage for everyone. Hope to get it done soon.</p>
+              <p>Thibault Sottiaux: Mashed @poteto on the house.</p>
+              <p>Thariq: evergreen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Meta Jumps In, Swarms &amp; the Frontier Delta / Meta 入场、集群与前沿差值</h2>
+    <p class="section-desc">Levie 三连（**487/289/159 赞**）：Meta 全力跳进前沿——多家推 SOTA 将进一步加速 + 最高能力 token 成本下降；「AI 终将比我们更擅长在看到任务后自己决定 harness——这必然是 agent 的最终架构」；agent 集群将成企业工作流核心，网络安全是最大受益者之一；Aditya（42 赞）：「前沿实验室员工与头部 1% AI 组织之间的用法差值很大——这里面有一个横向加速器的公司机会」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+adityaag" data-author-name="Levie / Aditya Agarwal" data-author-tag="Box CEO / SPC" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Aditya Agarwal avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Aditya Agarwal</div>
+            <div class="author-tag is-inline">Box CEO / SPC</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 三连：Meta 入场（487 赞）——「Meta 现在全力跳进前沿，AI 迎来疯狂时段：多家同时推 SOTA，会带来进一步的加速，同时把最高能力级别的 token 成本打下来。」自定 harness（289 赞）——「这项研究很酷，而且必然是 agent 的最终架构：在极限处，AI 在看到任务后自己决定用什么 harness，显然比我们提前设计要强。」集群论（159 赞）——「agent 集群将成为许多企业工作流的核心：对可大规模并行的问题扔算力，好处大到不用白不用。网络安全会是最大受益者之一——不知疲倦不无聊地测试海量攻击排列组合，本来就是这个领域最需要的属性；考虑到要保护的 IT 系统、软件、物理设施与数据的范围，这将成为大企业最大的 token 消耗之一。」Aditya 的差值观察（42 赞）——「前沿实验室员工用 AI 的方式，与哪怕是头部 1% 的 AI 组织之间都有巨大差值——这还只是公开能力……我怀疑这个差值会存在相当久……而且这里面藏着一个公司机会：一个横向加速器。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：Meta 全力跳进前沿——多家推 SOTA 意味着加速与 token 降价；AI 终将自己决定 harness；agent 集群是企业工作流核心，网安是最大受益者。Aditya：前沿实验室与头部组织的用法差值里藏着横向加速器的公司机会。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s triple: Meta at the frontier (487): &#39;What a crazy time in AI with Meta now jumping fully into the frontier. Now that there are multiple players pushing the state of the art, this is going to lead to a further acceleration of advances, as well as the lowering cost of tokens for even the highest levels of capability.&#39;; the self-determined harness (289): &#39;Ok this is quite cool research and ultimately must be the eventual architecture of agents. In the limit, AI will obviously be better at determining its own harness once it sees the task at hand, than us being able to do this in advance&#39;; and the swarm thesis (159): &#39;Agent swarms are going to be a core part of many enterprise workflows in the future… Cyber will be one of the biggest beneficiaries of this as it&#39;s a space where testing vast number of permutations of attacks (without getting tired or bored) is an incredibly useful property… This will become one of the biggest token uses in large enterprises.&#39; Aditya&#39;s delta observation (42): &#39;There is a big delta in how frontier lab employees use AI and how even the top 1% of AI orgs use AI. This is on public capabilities… I suspect this delta will exist for a while… I also feel like there is a company opportunity in here that is a horizontal accelerant.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: What a crazy time in AI with Meta now jumping fully into the frontier. Now that there are multiple players pushing the state of the art, this is going to lead to a further acceleration of advances, as well as the lowering cost of tokens for even the highest levels of capability.</p>
+              <p>Aaron Levie: In the limit, AI will obviously be better at determining its own harness once it sees the task at hand, than us being able to do this in advance</p>
+              <p>Aaron Levie: Agent swarms are going to be a core part of many enterprise workflows in the future… Cyber will be one of the biggest beneficiaries… This will become one of the biggest token uses in large enterprises given the range of IT systems, software, physical infrastructure, and data that needs to be protected at all times.</p>
+              <p>Aditya Agarwal: There is a big delta in how frontier lab employees use AI and how even the top 1% of AI orgs use AI. This is on public capabilities...I suspect this delta will exist for a while.. I also feel like there is a company opportunity in here that is a horizontal accelerant.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">CLI Minimalism, Personas &amp; Human Stories / CLI 极简、人格与人的故事</h2>
+    <p class="section-desc">Rauchg 三连（**539/179/125 赞**）：「编码 CLI 越来越复杂——CLI 的全部意义是零摩擦交付智能、unix 之风：6MB、毫秒启动、模型无关」+ Muse Wonder 上线 Vercel AI Gateway；Peter Yang（77 赞）：Grok bot 用人格而非聊天线程——像雇员工；Ryo Lu（338 赞）：ryOS 新增 Dictionary + Fitness；Zara Zhang（64 赞）：蟑螂游戏的故事——「代码是讲故事的新媒介」；Woodward 的 Lenny 专访（342 赞）；Swyx「把每个城市最好的 AI 带出来」（97 赞）；Garry Tan 三连（176/167/82 赞）等。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+petergyang+ryolu_+danshipper" data-author-name="Rauchg / Peter Yang / Ryo Lu / Shipper" data-author-tag="Vercel CEO / Builder / ryOS / Every CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Peter Yang / Ryo Lu / Shipper avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Peter Yang / Ryo Lu / Shipper</div>
+            <div class="author-tag is-inline">Vercel CEO / Builder / ryOS / Every CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 三连：CLI 宣言（539 赞）——「编码 CLI 越来越复杂：daemon、三层 TUI、客户端-服务器架构。CLI 的全部意义在于零摩擦地交付智能、保持 unix 之风。💾 试试 fx：6MB、毫秒级启动、模型无关；品味克制：内置 MCP、Skills、子 agent 与 ACP。」；Muse Wonder 上线 Vercel AI Gateway（179 赞，用 fx --model meta/muse-wonder-1.0 即可试）；以及一条「这太逗了😂」（125 赞）。Peter Yang 论 Grok bot 人格（77 赞）——「它建立在人格而非聊天线程上，真的像在雇员工：Behind the Growth 负责客服、YouTube Producer 负责调研与准备、Loving Husband 负责家里跑腿、Health Coach 盯着我的训练」（新功能：免费 X 访问、自己的邮箱、Opus）。Ryo Lu 的 ryOS 更新（338 赞）——「ryOS 新增 Dictionary + Fitness：学新词、发音、漢字；用 AI 规划训练、追踪身体与饮食。用 @bot 和 @cursor_ai 做的。」Shipper 的 Muse Wonder 测试手记（43/16/10 赞）——用它做了个「个人 benchmark」讲解视频：「呃……相当糙；有趣的是它目前所有视频都是用（中文）解说的……恢复了！还是烂。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：CLI 的意义是零摩擦交付智能、unix 之风——fx 6MB、毫秒启动、模型无关。Peter Yang：Grok bot 建立在人格而非线程上，像雇员工各管一摊。Ryo：ryOS 加了词典与健身。Shipper：Muse Wonder 做的视频还挺糙。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s triple: the CLI manifesto (539): &#39;Coding CLIs keep getting more complicated. Daemons, 3 layers of TUIs, client-server architectures. The whole point of a CLI is to deliver intelligence with zero friction, and be unix-like. 💾 Try [fx]. It&#39;s 6mb, starts in milliseconds, model-agnostic. It&#39;s tastefully minimal: MCP, Skills, Subagents and ACP built-in.&#39;; the Muse Wonder gateway note (179); and the reaction (125). Peter Yang on Grok bot personas (77): &#39;It&#39;s built on personas instead of chat threads, so it really feels like hiring employees to work for you. Each owns a specific job: → Behind the Growth owns customer support → YouTube Producer owns research and prep → Loving Husband owns errands for my family → Health Coach keeps my workouts on track&#39; (plus its new features: free X access, its own email, and Opus). Ryo Lu&#39;s ryOS drop (338): &#39;new on ryOS: Dictionary + Fitness — learn new words, pronunciation, 漢字. plan workouts, track body and food with AI. made with @bot @cursor_ai&#39; Shipper&#39;s Muse Wonder testing notes (43/16/10): using it to make a personal-benchmarks explainer video — &#39;this is ummm pretty rough… all of its videos so far are narrated in [Chinese]… and it&#39;s back up! still bad.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Coding CLIs keep getting more complicated. Daemons, 3 layers of TUIs, client-server architectures. The whole point of a CLI is to deliver intelligence with zero friction, and be unix-like.</p>
+              <p>Peter Yang: It&#39;s built on personas instead of chat threads, so it really feels like hiring employees to work for you. Each owns a specific job: Behind the Growth owns customer support, YouTube Producer owns research and prep, Loving Husband owns errands for my family, Health Coach keeps my workouts on track.</p>
+              <p>Ryo Lu: new on ryOS: Dictionary + Fitness. learn new words, pronunciation, 漢字. plan workouts, track body and food with AI. made with @bot @cursor_ai</p>
+              <p>Dan Shipper: I used muse wonder to make a video explaining personal benchmarks.. this is ummm pretty rough. interestingly all of its videos so far are narrated in...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="zarazhangrui+joshwoodward+swyx+garrytan+thenanyu+nikunj" data-author-name="Zara Zhang / Woodward / Swyx / Garry Tan / Nan Yu / Nikunj" data-author-tag="Design Engineer / OpenAI / Latent Space / YC CEO / OpenAI / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara Zhang / Woodward / Swyx / Garry Tan / Nan Yu / Nikunj avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang / Woodward / Swyx / Garry Tan / Nan Yu / Nikunj</div>
+            <div class="author-tag is-inline">Design Engineer / OpenAI / Latent Space / YC CEO / OpenAI / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Zhang 的蟑螂游戏故事（64 赞）——「我刚听了最动人的 AI 编码故事：朋友 @vicyaqingyang 在一个满是蟑螂的清贫之家长大，她妈妈把灭蟑螂变成了游戏。她把这事讲给另一个朋友听，那位朋友据此 vibe code 了一个游戏：在房间里抓蟑螂、和妈妈比赛。她玩的时候哭了。这游戏技术上毫不复杂，任何模型现在都能很快做出来——赋予它灵魂的，是背后的人的故事、经历与情感。代码是讲故事的新媒介。」Woodward 谈 Lenny 专访（342 赞）——「他表里如一：善良、有备而来、深度好奇。好的采访者会做功课——他把我们的对话带到了我从没公开谈过的地方。谢谢 @lennysan！」Swyx 的纽约之爱（97 赞）——「我工作里最棒的部分之一：把每个城市最好的 AI 带出来。我爱纽约 ♥️」+ AIE NYC 工作坊回顾（4/3 赞）。Garry Tan 三连（176/167/82 赞）——「没人会来救你。你也不需要被拯救」「pro rata 对投资人很重要且强大」「我们需要修理工」。另有 Nan Yu 的「One. Of. Us.」（55 赞）、Nikunj 的 Surya 们都是全能怪（33 赞）、Peter Yang 的星际争霸情怀双发（61/3 赞）——「太多人的童年由星际争霸定义……不敢相信新作要 2030 年才出。@Blizzard_Ent 该加倍押注这个 IP：电影、剧集、还有真正的 RTS！」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：蟑螂游戏——技术上不复杂，灵魂来自背后的人的故事；代码是讲故事的新媒介。Woodward：Lenny 表里如一、深度好奇。Swyx：把每个城市最好的 AI 带出来。Garry Tan：没人会来救你，你也不需要。Peter Yang：暴雪该重仓星际争霸。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara Zhang&#39;s cockroach-game story (64): &#39;I just heard the most touching AI coding story. A friend grew up in a modest home full of cockroaches. To turn lemons into lemonade, her mom made killing them a game. When she told this story to another friend, that friend vibe coded a game from it. You catch cockroaches in a room and compete against Mom. She cried while playing it. The game isn&#39;t technically sophisticated. Any model can build it pretty quickly now. What gives it a soul is the human story, experience, and emotion behind it. Code is the new medium for storytelling.&#39; Woodward&#39;s Lenny interview note (342): &#39;What you see is what you get with him: he&#39;s kind, prepared, and deeply curious… he took our conversation to places that I&#39;ve never talked about in public.&#39; Swyx&#39;s NYC love (97): &#39;one of the best parts of my job is bringing out the best in ai in each city. i love new york ♥️&#39; — plus the AIE NYC workshop writeup notes (4/3). Garry Tan&#39;s trio: the self-reliance note (176): &#39;Nobody is coming to save you. You don&#39;t need saving&#39;; the pro-rata note (167); and &#39;We need repairmen&#39; (82). Nan Yu&#39;s &#39;One. Of. Us.&#39; (55), Nikunj&#39;s Surya appreciation (33), and Peter Yang&#39;s StarCraft pair (61/3): &#39;So many people&#39;s childhoods were defined by StarCraft… Still can&#39;t believe the new game won&#39;t come out till 2030. @Blizzard_Ent should double down on this franchise.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang: She cried while playing it. The game isn&#39;t technically sophisticated. Any model can build it pretty quickly now. What gives it a soul is the human story, experience, and emotion behind it. Code is the new medium for storytelling.</p>
+              <p>Josh Woodward: What you see is what you get with him: he&#39;s kind, prepared, and deeply curious. Great interviewers do their homework, and you can tell he&#39;s in that league: he took our conversation to places that I&#39;ve never talked about in public.</p>
+              <p>Swyx: one of the best parts of my job is bringing out the best in ai in each city. i love new york ♥️</p>
+              <p>Garry Tan: Nobody is coming to save you. You don&#39;t need saving</p>
+              <p>Peter Yang: So many people&#39;s childhoods were defined by StarCraft even Ben. Still can&#39;t believe the new game won&#39;t come out till 2030.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Sam Altman — How Dots Take Back His Time / 播客：Sam Altman——Dots 如何夺回时间</h2>
+    <p class="section-desc">Every Podcast（原 AI &amp; I）更名首播（本刊首次收录）：Dan Shipper 在 DevDay 现场对话 Sam Altman——「人们想要的东西多得多」；文艺复兴 vs 工业革命与「家养宠物」宿命论的驳回；Dots 夺回早晨与心智空间（keynote 前五分钟预警 demo 会挂、通宵找 Slack 截图、睡前语音留言醒来功能建好还多走七步）；Space 的 live documents（「七个人的 dots 协作出涌现之物」）；Decisions API 与 Jev 的启发；订阅随身带走；「OpenAI 杀死 X 创业公司」为何从不发生；CEO 亲自 ship（「也许我会 ship 一个真的 OpenAI 产品——我受启发了」）；速度的民主化（「让摩尔定律蒙羞」）。完整 transcript（35156 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:every-sam-altman" data-author-name="Every Podcast（原 AI &amp; I）" data-author-tag="Dan Shipper × Sam Altman（OpenAI CEO，DevDay 现场对谈）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Every Podcast（原 AI &amp; I） avatar"><span class="avatar-fallback">EP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Every Podcast（原 AI &amp; I）</div>
+            <div class="author-tag is-inline">Dan Shipper × Sam Altman（OpenAI CEO，DevDay 现场对谈）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Every Podcast 更名（原 AI &amp; I）后第一期（本刊首次收录）：Dan Shipper 在 DevDay 现场对话 Sam Altman——「人们想要的东西多得多」；文艺复兴 vs 工业革命（「家里宠物」式的宿命论「肯定不是我们的想法」）；Dots 如何夺回他的早晨与心智空间（ keynote 前五分钟预警 live demo 会挂、通宵帮他找 Slack 截图、睡前语音留言醒来功能已建好还多走了七步）；Space 的 live documents（「七个人的 dots 协作能创造一种涌现之物」）；Decisions API 与 Jev 的启发；订阅随身带走；「OpenAI 杀死 X 创业公司」为什么从不发生；CEO 亲自下场写插件（「也许我会 ship 一个真的 OpenAI 产品……我受启发了」）；以及速度的民主化（「不久的将来 8 倍速好价、然后 100 倍速……让摩尔定律蒙羞」）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：更名与 DevDay 现场对谈】</p>
+              <p>开场白：你可能在想 AI &amp; I 怎么了——同一个节目，只是更名为 Every Podcast。第一期嘉宾：Sam Altman，DevDay 现场录制，有现场观众。</p>
+              <p></p>
+              <p>【编码模型的未来与「人的中心」】</p>
+              <p>Shipper：四年前要是告诉我编码模型到这个水平，我会怀疑 DevDay 还会有多少开发者来——结果开发者比以往任何时候都多。骑着编码模型能力的上升曲线，你对工程与工作的未来学到了什么？</p>
+              <p>Altman：人们想要的东西实在太多了，期望值极高——这是好事，也是我们都将拥有的那个值得探索的未来的原因。开发者从未能做这么多，但门槛也从未这么高。我从不像别人那样对岗位问题那么悲观，但世界上存在多少潜在需求、以及人如何始终处在 AI 一切的中心，还是让我在正面意义上意外了。</p>
+              <p>为什么如此以人为中心？「我们对机器做什么其实没那么在乎，某种意义上从来都不在乎——我们痴迷的是其他人：艺术背后的人、公司背后的人、想法与产品背后的人。」Shipper 接梗：如果 agent 在数据中心解了 Navier-Stokes 而没人发现，它真的解了吗？Altman：那是个好例子——一万个 agent 完美协作四天干成了那件惊人的事，而公众反应几乎完全不在「问题被解决」上：大量讨论在解读、在相关的人身上。这是好事。</p>
+              <p></p>
+              <p>【22 个发布与平台哲学】</p>
+              <p>Shipper：我数了今天发布了 22 个新东西；我四届 DevDay 都在，去年好像 9 个，前年四五个。Altman：等明年吧。（笑）我们还砍了一堆原本要发的东西——得塞进 50 分钟里。我们要践行自己布道的：如果这些工具能让人大幅提效、人们想要更多东西，我们自己最好也造得更多。</p>
+              <p>新瓶颈是什么？现在什么都能造了——该造什么、怎么保持一致性？Altman：转向持久智能/主动智能——agent 7×24 在后台运行、连着你的系统、主动为你做事，这个方向明显值得探索；同时可被构建的想法太多，缺的是把它们想出来并造出来的创造精神。所以开放生态：让人像我们一样在 ChatGPT 里建应用、把订阅带到任何地方、做 marketplace。</p>
+              <p>Shipper：这很像比尔·盖茨当年谈 Windows 平台——创造的价值大于你捕获的。App Store 这口锅你已经甩了很多年，学到了什么？Altman：我们显然还没搞定 App Store 的等价物，但我们已经搞定了一个让很多人在之上构建巨大价值的平台。AI 模型公司有两种思想流派：相信/希望世界上最终只剩一家公司的；以及像我们这样相信会看到公司数量文艺复兴的——一人公司、小团队做出惊人的新产品与服务，我们要用平台全力 enable。虽然 App Store 还没想明白，但我们已经帮几百万人构建了重要的新产品与公司。</p>
+              <p></p>
+              <p>【文艺复兴 vs 工业革命】</p>
+              <p>主题演讲里工业革命 vs 文艺复兴的对比，关键差别是什么？Altman：一种解读是文艺复兴根本性地以人为中心，工业革命以机器为中心。工业革命给世界带来了巨大的正面影响，但很多人并没有从中获得纯粹正面的个人体验——他们被变成机器上的齿轮，做极度专门化的事，与让生活美好的很多东西断开了联系。</p>
+              <p>听到有人说「AI 会自动化一切、人没有角色了、我们会变成家养宠物、AI 决定怎么奖励我们」——我很难过。肯定不是我们的想法。我期盼的是：科学发现、艺术、公司创立的巨大新浪潮；人人都从经济增长与新生事物中受益；同时人们重新拿回生活的控制权，按自己想要的的方式花时间。文艺复兴还有一个部分是人与过去很多东西的重新连接，叠加疯狂的未来主义与科学工程发现——「人类潜能被极大地扩展了」的那种感觉。你在 AI 时代同时听到这两种声音。</p>
+              <p></p>
+              <p>【Dots：夺回早晨与心智空间】</p>
+              <p>Altman：Dots 是第一个让我夺回早晨与早晨心智空间的东西。我过去最爱清晨——一天中创造力最高的时段，做当天真正复杂深入的项目。现在经营这家大公司，随时都有事在出问题，一夜之间发生很多事；不马上看手机，有时没事，有时真灾难、拖一小时就恶化。问题是一看手机，脑子就被污染，深度工作时段没了。现在我相信我的 dot 有好判断：什么事我必须想、什么事不用想、有没有非常紧急的、其余替我处理——我把创造力的空间、或者干脆陪孩子的时间拿回来了。听起来小，但对我的生活是显著改善。</p>
+              <p>今天两个实例：keynote 是个大制作，现场演示与同时部署大量新功能有风险，真出了问题——Tebow 的 dot 在演示前五分钟给他发消息：「你在 DevDay keynote 上，我知道你在准备它，我看过演示文稿所以知道 demo 是什么；这个设置大概率会让 demo 挂掉——要我试着修吗？」只剩几分钟，这次它还修不了，但也许下个版本就能直接修 prod。想想这一切要怎么凑齐才能发生。而我全天背靠背、正常事务严重落后——我的 dot 在我进上一场之前说：「你与 Dan 那场之间有个小空档，必须关注这一件事。」我本来绝不可能发现，会是个大乱子。</p>
+              <p>dot 叫什么？Dottie（之前叫过 Alfred）。Shipper：我的叫 Boo。Altman：我喜欢它——它已成为我用 chat 的默认方式，这很有前景。还很早、很糙、有很多面（移动端、自己的云端电脑等），会每周快速变好。Shipper：我也遇到类似的——改签航班时它说「这个航班时段你有个会」——那会不在日历上，它是在 Slack 里读到的。Altman：把整个人生的上下文聚合起来、以连细心的人都难做到的方式做事——这是它最令人印象深刻的地方之一。</p>
+              <p></p>
+              <p>【研究视角与「雇不到人」的任务】</p>
+              <p>从研究上要发生什么才可能？Altman：这个系统很复杂，但最重要的也许是 Astra——需要一个足够聪明的模型，把模型推过智能门槛是关键，其余还有很多要建的。</p>
+              <p>有些事你说过「雇人也做不了」。Altman：有个我很兴奋的新功能，要解释清楚到能让人建出来太难了，而且有多种做法我拿不准。我就不停给 dot 记笔记——走路时想到什么记什么。dot 跑去建了五六个版本，我给反馈、迭代——任何有空的时刻、任何念头都能直接倒进去。睡前迷迷糊糊留一段长语音，早上醒来不光东西建好了，它还自己往下走了七步。还有一类我过去会放弃的任务：我记得在 Slack 里见过某个东西，Slack 搜索太烂我平时用 Codex 搜——搜了十几二十分钟没找到，我都要怀疑自己是不是做梦。第二天 dot 说：「我注意到你昨天在找这个没找到——我想了一晚上，帮你找到了。」是张截图，我记得成了文字；它耐心地把每张截图都 OCR 看了一遍。这种我早就放弃了。</p>
+              <p>Shipper：我们总嫌 Slack、邮件读不完——它正好擅长在正确的时刻给你正确的那条。Altman：几周用下来我还意识到：社交媒体、手机、通知对我们的注意力攻击，比我意识到的严重得多。</p>
+              <p></p>
+              <p>【Space 与 live documents】</p>
+              <p>Space 一次发三个办公套件工具是个大赌注。Altman：我们本没想做这个，后来意识到软件整体上根本不是为与 AI 协作设计的。你可以自己用，也可以让 AI 代你用，但要真正紧密协作——尤其是多个人和多个人 的 AI 一起工作时——现有抽象全都会崩。这是野心赌注，但人机协作这个空间太值得探索。新想法我还是喜欢老派地自己写——写的过程帮我思考；然后让我的 dot 或别人的 dot 做后续。</p>
+              <p>最惊人的是我们还没有词来命名的东西——姑且叫 live documents：一份会随着人们的互动与世界的 变化自动更新的文档；而且多人的 dots 能在它上面协作——七个人的 dots 一起创造出某种存在于我们所有人脑子里、但是涌现出来的新东西。我们现在想新功能时就这么玩。</p>
+              <p>最有用的 live doc 是什么？Altman：看板——大概每个人都有一个每天看的公司仪表盘。我以前和别人共用一个；现在我有一个只给我自己的、随我在意的事不断演化的业务摘要——它读我全部的 Slack 消息、不断重写。这就是「活文档」的感觉。我现在最在意什么？最近一直在想眼前的安全、对齐与安全挑战；六个月前更在意营收、增长这些传统业务指标。我很想看我的 dot 认为我每天最在乎什么、随时间怎么变——我们还没有好的可视化方式。Shipper：我想要一个实时心情仪表盘——拿不准要不要看某条 Slack 时我问 dot，它说「稍后看」。</p>
+              <p></p>
+              <p>【Decisions API 与 Jev】</p>
+              <p>Shipper：Decisions API 可能是今天最阴的重要发布——Jev 是个新热点，真的改变了我们内部构建的思路。它源于 Jev 吗？Altman：Diogo（前 OpenAI）很早就讲这类想法，我们一直在琢磨怎么做成。Luna 的头号需求——虽然大家爱那个模型——是「更便宜、更快」。看到 Jev 的反响让我们更兴奋去往这个方向排优先级：为常见用例把技术做得超快、超便宜。Jev 的路线相当不同，我们也许能从零做类似的事，但我们有别的事要做：我们要在成本、速度、模态的 Pareto 曲线每个点上做到最好、最便宜、最快、最强；新的架构与技术我们覆盖不完，但主力干活的 workhorse 我们来交付。</p>
+              <p></p>
+              <p>【Codex 原生应用与订阅随身】</p>
+              <p>Shipper：原生应用、插件扩展终于来了；把 ChatGPT 订阅的额度带给应用开发者也改变了方程——以前总在算「让用户用多少 AI 才不会把我用破产」。Altman：最兴奋的是我们还没想到的那些。为什么做 Big Dev Day：深深相信我们楼外的好想法远多于楼内。我不知道我会最爱哪个 ChatGPT 原生应用或插件扩展，但我非常确信会有我今天无法想象、OpenAI 内部也没人能有把握地想象到的东西让我真心喜欢。订阅随身：有那么多好东西，我们想试，但我讨厌注册 100 个订阅；试用时我想用满血 AI。「这是你的订阅——你应该想在哪儿用就在哪儿用。」</p>
+              <p></p>
+              <p>【「OpenAI 杀死 X 创业公司」为何从不发生】</p>
+              <p>应用层今天有人做得好吗？Altman：新东西才刚出，当然还没有；但尽管两年前人人都怕「模型公司会吃掉一切」，现在有数量惊人的重要新公司与好产品在不断出现——我从没见过创业公司如此快地成功。我很想再当一回创业投资人——这是黄金时代。我一贯是看人下注：找到最好的创始人、押注有雄心的项目、愿意与他们共担大风险。</p>
+              <p>「OpenAI 刚杀死 X 创业公司」这条推永远有效——因为人们爱末日论——但从不发生。为什么？Altman：其一，我们真心相信赋能建设者好过当一个巨型邪恶巨无霸；今天我们做的事没有任何其他 AI 实验室会做——把我们自己用的所有工具同样给你。我们在模型访问上一直推 frontier，我们对开发者是真心的（我自己也是创业圈出来的）。其二，文艺复兴式的理由：可探索的东西太多，人们会做出不可思议的东西，我们自己能掌握的只是那愿景的极小一角。世界得到了一种全新的赋能——也许是我们把它从山上取下来的，但我们要把它给所有人。</p>
+              <p></p>
+              <p>【创业信条重审与 CEO 亲自 ship】</p>
+              <p>创业圈的老信条——必须有联合创始人、YC 的投资结构基于旧的 成本结构——若从零重想会怎么变？Altman：有些大概是不变量：make something people want（不管是人想要还是 agent 想要）；但一个人或两个人能完成的工作量已经完全不同了——硅谷这条创业流水线还没对此做足够的重审。</p>
+              <p>作为 CEO 现在也能亲自 build 了？Altman：首先我们不是巨型公司——大厂的人数大概是我们的百倍。我真心相信：把摩擦降低一点，人们就会多造很多。有了 dots 和这些时间碎片，我觉得我不会再只做以前 Codex 时代那种给自己用的小项目——我希望能真正 launch 一个东西到世界上，比如做个插件扩展放出去。（现场观众欢呼）也许我会 ship 一个真正的 OpenAI 产品，谁知道呢。……行，我做。我现在受启发了。</p>
+              <p></p>
+              <p>【Ultrafast 与速度的民主化】</p>
+              <p>Shipper：你所有 prompt 都在 Ultrafast 上打？Altman：是。有点担心我们因此与用我们工具的人脱节——我们给自己上了不少约束，但让我退回慢的太难了。Brett Victor 十五二十年前有个演讲：创作者应当与所创之物有即时连接，速度与反馈回路极其重要。我没意识到响应快这么多对我的迭代式思考回路是多大的差别——做东西、想问题，是天壤之别。</p>
+              <p>速度的民主化：历史我们主要做的是把 IQ 的价格打下来——能力猛涨、价格每隔几个月/一年雪崩式下降。现在明显新增一个向量：速度。自研芯片将为「人人可得超快推理」做巨大贡献，模型研究与推理栈也会。我们意识到要像当年投入智能民主化一样投入速度民主化。多久能用上 Ultrafast 打所有 prompt？现在付钱就行。（笑）不久的将来我们能以好价格交付 8 倍速，然后是 100 倍速，还会有 GPT-7 galaxy 之类。正确的看法是：可预见的未来，智能、速度永远会有更高价位的真 frontier；但你也可以押注我们会继续做我们一直在做的——让每美元价值复利式上升，「让摩尔定律蒙羞」。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The Every Podcast&#39;s first episode after rebranding from AI &amp; I (new to this digest): Dan Shipper interviews Sam Altman live at DevDay. Core threads: &#39;people just want so much more stuff&#39; — developers have never been able to do more, and the bar has never been higher; humans stay at the center (&#39;we don&#39;t care that much about what the machines do… we&#39;re obsessed with other people&#39; — the Navier-Stokes solve got attention for its interpretation and people, not the math); 22 launches this year vs 9 last year (&#39;just wait for next year&#39;); the two schools of AI companies — those who hope there&#39;ll be only one company in the world, and those like OpenAI who believe in &#39;a renaissance in the number of companies&#39; (one-person companies, small teams); Renaissance vs Industrial Revolution — the renaissance centered on people, the industrial revolution turned many into cogs, and &#39;house cats&#39; doom-talk is &#39;certainly not what we think&#39;; Dots giving him back his mornings (&#39;the first thing that has given me back control of my mornings and my mental space&#39;) — a dot that flagged a broken live demo 5 minutes before the keynote, an overnight Slack screenshot hunt (&#39;I kept thinking about it overnight and I found it for you&#39;), voice-note-to-built-feature loops (&#39;wake up in the morning, not only is the thing built, but it went off and did the next seven steps&#39;), and &#39;the crazy attention hacking of social media and phones had gotten way worse than I realized&#39;; Space&#39;s live documents (&#39;seven people&#39;s dots working together create something new… an emergent thing&#39;) and his personal living dashboard of the business; the Decisions API and Jev&#39;s inspiration (&#39;the number one request of Luna was I want it to be even cheaper and even faster&#39;); portable subscriptions (&#39;it&#39;s your subscription — you should get to use it wherever you want&#39;); why &#39;OpenAI killed X startup&#39; never happens (&#39;way more good ideas outside of our building than inside… maybe we brought it down from the mountain, but we want to give it to everybody&#39;); startup lore re-examined (make something people want stays; how much work one or two people can do &#39;feels totally different&#39;); a CEO who ships (&#39;maybe I&#39;ll ship a real OpenAI product. Who knows?… I will do that. I&#39;m inspired now&#39;); all prompting on Ultrafast and the Brett Victor immediate-connection principle; and the democratization of speed (&#39;8X at a great price in the not distant future, then 100X faster… put Moore&#39;s law to shame&#39;).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: I think people just want so much more stuff. People&#39;s expectations are so high… developers, they&#39;ve never been able to do more, but there&#39;s never been a higher bar either.</p>
+              <p>Sam Altman: We don&#39;t care that much about what the machines do. And in some sense we never have. And we&#39;re just like, we&#39;re obsessed with other people.</p>
+              <p>Sam Altman: There are people that believe or hope that there&#39;s only going to be one company in the world. And then there are people like us that believe we are going to see a renaissance in the number of companies.</p>
+              <p>Sam Altman: The Dots, the new thing we launched today, is the first thing that has given me back control of my mornings and my mental space in the mornings.</p>
+              <p>Sam Altman: It&#39;s pretty cool to go to sleep and just leave a long voice note as you&#39;re kind of drifting off with a bunch of thoughts and wake up in the morning, not only is the thing built, but it went off and did the next seven steps.</p>
+              <p>Sam Altman: I noticed you were trying to do this thing and you didn&#39;t find it. But I kept thinking about it overnight and I found it for you.</p>
+              <p>Sam Altman: Seven people&#39;s dots can, working together, create something new that kind of existed in all of our heads to some degree, but was like an emergent thing.</p>
+              <p>Sam Altman: The number one request with Luna, even though people love that model, was I want it to be even cheaper and even faster.</p>
+              <p>Sam Altman: There will always be a real frontier in terms of intelligence or speed or whatever else at a higher price. But I think you can also bet that we will keep doing what we&#39;ve done of just a ridiculous, like put Moore&#39;s law to shame, relentless focus on driving value per dollar up and up and up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-14 source feeds (15 builders, 31 tweets, plus one long-form podcast: The Every Podcast (formerly AI &amp; I) with Sam Altman recorded live at DevDay, new to this digest).">Source: Follow Builders curated daily digest. Built from the 2026-10-14 source feeds (15 builders, 31 tweets, plus one long-form podcast: The Every Podcast (formerly AI &amp; I) with Sam Altman recorded live at DevDay, new to this digest).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
