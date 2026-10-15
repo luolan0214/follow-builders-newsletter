@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-15" data-issue-number="143" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 143 期｜2026-10-15｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Gemini 4 Argon 发布日。Sottiaux 的 Day 9（**10414 赞，今日最高**）：「我们上线了 chatgpt &amp; codex 桌面应用磁盘状态存储的优化，磁盘占用量应减少 60%。小 ship，但收到太多高级用户磁盘跑满的反馈。」Rauchg 的祝贺（1841 赞）：「恭喜 Gemini 团队。永远不要赌 Google 输——带来 Transformers 的公司，数据、工程人才与算力压倒性。所有人都理直气壮地转回 coding：编码 agent 是 AI 的杀手级应用，我们正身处开发者与建设者的极乐世界。顺带：Muse Wonder 与 Gemini Argon 背靠背发布，提醒你（无论个人还是公司）要保持模型无关、gateway-maxxx / fx-maxxx。」Levie 的 Box 评测（376 赞）：「过去一周我们在 Box AI Complex Work 上测了 Gemini 4 Argon：比 Gemini 3.1 Pro 跳升 14 个百分点、稳稳站上前沿」——金融服务 +18、医疗 +25、科技 +37、能源 +16、消费品 +33。Shipper 的反例（235 赞）：「gemini 4 argon 在我们的资深工程师 benchmark 上很挣扎——21%，远低于 Sol 6 甚至 Muse。」Garry Tan（327 赞）：「给你的 harness 一个带真实凭据的真实浏览器是真正的解锁」。Swyx 的 Kill My SaaS 战报（86 赞）：「$43,000/年 的 SaaS、72 份提交、约 100B token 之后——结果来了。」播客全新一期：Training Data × David Silver &amp; Lasse Espeholt（Ineffable Intelligence）——AlphaGo/AlphaZero 缔造者造「经验时代的超级学习者」，预测三年内真超级智能（68727 字符全文翻译随卡附上）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Gemini 4 Argon 发布日。Sottiaux 的 Day 9（**10414 赞，今日最高**）：「我们上线了 chatgpt &amp; codex 桌面应用磁盘状态存储的优化，磁盘占用量应减少 60%。小 ship，但收到太多高级用户磁盘跑满的反馈。」Rauchg 的祝贺（1841 赞）：「恭喜 Gemini 团队。永远不要赌 Google 输——带来 Transformers 的公司，数据、工程人才与算力压倒性。所有人都理直气壮地转回 coding：编码 agent 是 AI 的杀手级应用，我们正身处开发者与建设者的极乐世界。顺带：Muse Wonder 与 Gemini Argon 背靠背发布，提醒你（无论个人还是公司）要保持模型无关、gateway-maxxx / fx-maxxx。」Levie 的 Box 评测（376 赞）：「过去一周我们在 Box AI Complex Work 上测了 Gemini 4 Argon：比 Gemini 3.1 Pro 跳升 14 个百分点、稳稳站上前沿」——金融服务 +18、医疗 +25、科技 +37、能源 +16、消费品 +33。Shipper 的反例（235 赞）：「gemini 4 argon 在我们的资深工程师 benchmark 上很挣扎——21%，远低于 Sol 6 甚至 Muse。」Garry Tan（327 赞）：「给你的 harness 一个带真实凭据的真实浏览器是真正的解锁」。Swyx 的 Kill My SaaS 战报（86 赞）：「$43,000/年 的 SaaS、72 份提交、约 100B token 之后——结果来了。」播客全新一期：Training Data × David Silver &amp; Lasse Espeholt（Ineffable Intelligence）——AlphaGo/AlphaZero 缔造者造「经验时代的超级学习者」，预测三年内真超级智能（68727 字符全文翻译随卡附上）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Argon Lands / Argon 登场</h2>
+    <p class="section-desc">Josh Woodward 三连（**529/414/209 赞**）：Gemini 4 Argon 的家具腿、合成器与「最新 Gemini 模型做的这个」；Levie 的 Box 评测（376 赞）：+14 个百分点、稳站前沿，五行业全胜；Shipper 的反例（235 赞）：资深工程师 benchmark 仅 21%；Rauchg 的祝贺（1841 赞）：「永远不要赌 Google 输——编码 agent 是杀手级应用，保持模型无关。」</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="joshwoodward+levie+danshipper+rauchg" data-author-name="Woodward / Levie / Shipper / Rauchg" data-author-tag="Google DeepMind / Box CEO / Every CEO / Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Woodward / Levie / Shipper / Rauchg avatar"><span class="avatar-fallback">W/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Woodward / Levie / Shipper / Rauchg</div>
+            <div class="author-tag is-inline">Google DeepMind / Box CEO / Every CEO / Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Gemini 4 Argon 发布日。Woodward 演示三连（529/414/209 赞）：「Gemini 4 Argon：宽 96 毫米，制造这条定制家具腿最难的部分是决定给它几层堆叠球」「最新的 Gemini 模型做了这个」+ 24 词 prompt 造出把马蹄声、涟漪与你自己的手变成音乐的合成器。Levie 的 Box 评测（376 赞）——「过去一周我们在 Box AI Complex Work 上测 Gemini 4 Argon：比 Gemini 3.1 Pro 大升级、全线跳升 14 个百分点、稳稳站上前沿」：金融服务 +18（融资缺口分析严格按规格逐行构建，而 3.1 Pro 把利息并成了单个数字）；医疗 +25（两个模型都发现了危险血钾与药物相互作用，只有 Argon 回头把肇事药物从最终方案里拿掉——让方案对得上自己的诊断）；科技 +37（拉对了正确月份的用户/留存数据并正确指出北美，3.1 Pro 拉错行、一度报出 100% 以上的留存还指错了地区）；能源 +16（稳定发现数据中心智能电表日志在十一月中断，3.1 Pro 常漏判「日志完整」）；消费品 +33（看到现有库存能填补早期产能缺口，让更小的扩张、更早的上线与更快的回本成为可能）。「Gemini 4 在数学、逻辑、分析与商业领域深度知识上强得多，而且工作得更狠——不停在半路。」Shipper 的反例（235 赞）——「gemini 4 argon 在我们的资深工程师 benchmark 上很挣扎：21%，远低于 Sol 6 甚至 Muse。」Rauchg 的祝贺（1841 赞）——「恭喜 Gemini 团队。永远不要赌 Google 输——这家带来 Transformers 的公司有压倒性的数据、工程人才与算力。所有人都理直气壮地转回了 coding：编码 agent 是 AI 的杀手级应用，我们正身处开发者与建设者的极乐世界。顺带一提：Muse Wonder 与 Gemini Argon 背靠背发布提醒了你——无论个人还是公司，保持模型无关、gateway-maxxx / fx-maxxx。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Woodward：Argon 定制家具腿与 24 词合成器。Levie：+14 个百分点稳站前沿；五个行业全胜；工作得更狠、不停在半路。Shipper：资深工程师 benchmark 仅 21%。Rauchg：永远不要赌 Google 输；编码 agent 是杀手级应用；保持模型无关。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Gemini 4 Argon day. Woodward&#39;s demo trio (529/414/209): &#39;Gemini 4 Argon: At 96 millimeters wide, the hardest part of manufacturing this custom furniture leg was deciding how many stacked spheres to give it&#39;; &#39;The latest Gemini model made this&#39;; and the 24-word-prompt synthesizer that turns galloping horses, rippling water, and your own hands into music. Levie&#39;s Box eval (376): &#39;At Box, we&#39;ve been testing Gemini 4 Argon on our Box AI Complex Work eval for the past week. It&#39;s a huge upgrade over Gemini 3.1 Pro, jumping by 14 percentage points across all our tests, and firmly at the frontier&#39; — with per-industry wins: financial services +18 (funding-gap analysis built exactly as specified, every line broken out), healthcare +25 (the only model that went back and pulled the offending drugs from the ICU regimen so the plan matched its own diagnosis), technology +37 (pulled the right month&#39;s user/retention figures and correctly flagged North America, where 3.1 Pro reported retention above 100% and pointed at the wrong region), energy +16 (consistently caught the smart-meter log stopping in November), consumer products +33 (saw existing inventory could bridge an early capacity gap, making the smaller expansion viable). &#39;Gemini 4 is far more capable on math, logic, analytics, and deep knowledge of a variety of business domains. It also works far harder to complete tasks fully without stopping short.&#39; Shipper&#39;s counterpoint (235): &#39;gemini 4 argon really struggles on our senior engineer benchmark task — comes in at 21% far below Sol 6 and even Muse.&#39; And Rauchg&#39;s congrats (1841): &#39;Congrats Gemini team. Never bet against Google, the company that brought us Transformers and has overwhelming data, engineering talent, and compute. Everyone has, rightfully, pivoted back to coding. Coding agents are the killer app of AI. We&#39;re firmly at an elysium for developers and builders. Incidentally, getting Muse Wonder and Gemini Argon back-to-back is a reminder why you as an individual, and your company, should stay model agnostic and gateway-maxxx / fx-maxxx.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Josh Woodward: Gemini 4 Argon: At 96 millimeters wide, the hardest part of manufacturing this custom furniture leg was deciding how many stacked spheres to give it.</p>
+              <p>Josh Woodward: Gemini 4 Argon: How a 24-word prompt built a custom synthesizer that turns galloping horses, rippling water, and your own hands into music.</p>
+              <p>Aaron Levie: It&#39;s a huge upgrade over Gemini 3.1 Pro, jumping by 14 percentage points across all our tests, and firmly at the frontier… It also works far harder to complete tasks fully without stopping short of the desired result.</p>
+              <p>Dan Shipper: gemini 4 argon really struggles on our senior engineer benchmark task. comes in at 21% far below Sol 6 and even Muse</p>
+              <p>Guillermo Rauch: Congrats Gemini team. Never bet against Google, the company that brought us Transformers and has overwhelming data, engineering talent, and compute. Everyone has, rightfully, pivoted back to coding. Coding agents are the killer app of AI. We&#39;re firmly at an elysium for developers and builders. Incidentally, getting Muse Wonder and Gemini Argon back-to-back is a reminder why you as an individual, and your company, should stay model agnostic and gateway-maxxx / fx-maxxx.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/joshwoodward" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Day 9, Kill My SaaS &amp; the Real Browser / Day 9、杀死 SaaS 与真浏览器</h2>
+    <p class="section-desc">Sottiaux（**10414 赞，今日最高**）：Day 9——磁盘状态优化、占用减 60%；Swyx 的 Kill My SaaS 战报（86 赞）：$43k/年 SaaS、72 份提交、~100B token；Garry Tan（327 赞）：真实浏览器 + 真实凭据的解锁；Amjad 三连（191/167/134 赞）：MXC.exe、给网站加小狗、「今天暂停前沿研究，AI 也还要 10 年才能扩散进经济。」</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+swyx+garrytan+amasad" data-author-name="Sottiaux / Swyx / Garry Tan / Amjad" data-author-tag="Codex @OpenAI / Latent Space / YC CEO / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sottiaux / Swyx / Garry Tan / Amjad avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sottiaux / Swyx / Garry Tan / Amjad</div>
+            <div class="author-tag is-inline">Codex @OpenAI / Latent Space / YC CEO / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的 Day 9（10414 赞，今日最高）——「我们上线了 chatgpt &amp; codex 桌面应用磁盘状态存储的优化，磁盘占用应减少 60%。小 ship，但收到太多高级用户磁盘跑满的反馈。」Swyx 的 Kill My SaaS 战报（86 赞）——「很多人谈 SaaS 之死，但大多是理论式的。我们拿了一个自己在用的真实 $43,000/年 SaaS，发起全球黑客松：一个周末克隆它、AI + 真人双重评测、任意模型任意 harness。72 份提交、大量人工评测、约 100B token 之后——结果来了：杀死一个中等复杂度 SaaS 到底还难在哪，以及 $10,000 大赛的获胜者与访谈。」Garry Tan 的解锁（327 赞）——「给你的 harness 一个带真实凭据的真实浏览器是真正的解锁——强烈推荐 @AsideAI。」Amjad 三连：MXC.exe（191 赞）；「回头见，给我所有网站加小狗」（167 赞）；扩散论（134 赞）——「今天就可以暂停前沿研究，AI 也还要再花 10 年才能扩散进经济。我们正在与解决方案伙伴合作加速这件事。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：Day 9——桌面应用磁盘状态优化、占用 -60%。Swyx：$43k SaaS、72 提交、100B token 的克隆实验结果。Garry Tan：真浏览器真凭据是解锁。Amjad：暂停前沿研究，AI 也要 10 年才扩散进经济。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s Day 9 (10414 likes, top of the day): &#39;We&#39;ve rolled out optimizations to how we store state on disk for the chatgpt &amp; codex desktop app that should reduce the amount stored on disk by 60%. Small ship but we&#39;ve heard enough feedback about power users running out of disk space.&#39; Swyx&#39;s Kill My SaaS results (86): &#39;A lot of people talk about the death of SaaS but mostly in theoretical terms. We took a real $43,000/year SaaS we use and launched a global hackathon to clone it in a weekend, with both AI and REAL HUMAN evals, using any models any harness. 72 submissions, a lot of manual evals and ~100B tokens later, here are the results… what&#39;s still hard about killing nontrivial, mid-tier SaaS, and the winners of the $10,000 Kill My SaaS contest with qualitative interviews!&#39; Garry Tan&#39;s unlock (327): &#39;Giving your harnesses access to a real browser with your real credentials is a real unlock - highly recommend @AsideAI.&#39; Amjad&#39;s triple: MXC.exe (191); &#39;brb, adding puppies to all my sites&#39; (167); and the diffusion take (134): &#39;You can pause frontier research today, and it would take AI another 10 years to diffuse into the economy. We&#39;re working with solutions partners to accelerate that.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Day 9/ We&#39;ve rolled out optimizations to how we store state on disk for the chatgpt &amp; codex desktop app that should reduce the amount stored on disk by 60%. Small ship but we&#39;ve heard enough feedback about power users running out of disk space.</p>
+              <p>Swyx: We took a real $43,000/year SaaS we use and launched a global hackathon to clone it in a weekend, with both AI and REAL HUMAN evals, using any models any harness. 72 submissions, a lot of manual evals and ~100B tokens later, here are the results.</p>
+              <p>Garry Tan: Giving your harnesses access to a real browser with your real credentials is a real unlock - highly recommend @AsideAI</p>
+              <p>Amjad Masad: You can pause frontier research today, and it would take AI another 10 years to diffuse into the economy. We&#39;re working with solutions partners to accelerate that.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Cyber Swarms &amp; the Rest / 网安集群与其余</h2>
+    <p class="section-desc">Levie（60 赞）：「网安将是 AI agent 最大的战场之一——agent 集群审查每一行代码、测试任意排列的漏洞、实时研究事件」；Thariq 回家（858 赞）；Nikunj 的 Jake/Railway 推介（50 赞）；Peter Yang 三连（101/54/28 赞）：湾区房屋的五位数园艺费、Poteto 的捣蛋、卫生间纸里的录音设备；Nan Yu「Told y&#39;all」（78 赞）；Garry Tan 的旧金山政治帖（153 赞）；Swyx 的人才密度（35 赞）与 Zara 的好评（33 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+trq212+nikunj+petergyang+thenanyu+garrytan+swyx+zarazhangrui" data-author-name="Levie / Thariq / Nikunj / Peter Yang / Nan Yu / Garry Tan / Swyx / Zara" data-author-tag="Box CEO / OpenAI / FPV / Builder / OpenAI / YC CEO / Latent Space / Design Engineer" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Thariq / Nikunj / Peter Yang / Nan Yu / Garry Tan / Swyx / Zara avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Thariq / Nikunj / Peter Yang / Nan Yu / Garry Tan / Swyx / Zara</div>
+            <div class="author-tag is-inline">Box CEO / OpenAI / FPV / Builder / OpenAI / YC CEO / Latent Space / Design Engineer</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 的网安论（60 赞）——「网安将是未来 AI agent 最大的战场之一。显然，软件漏洞风险与攻击面会因 agent 能钻任何缝隙找东西而扩大百倍；但反过来也成立：agent 集群审查每一行代码、测试任意排列的漏洞组合、在事件发生时比人类更快地研究它——将极大提升我们保障系统安全的方式。网安一直是那种永远雇不够人、永远清不完已知风险积压的领域；agent 终于给了你一次拿到好得多的覆盖的机会。」战场遍布实验室、数据提供商、网络与防火墙层、身份、终端、SDLC 乃至企业数据保护。Thariq 的回家（858 赞）——「回到家的感觉真好。」Nikunj 的 Jake 推介（50 赞）——「每月跟 @JustJake 聊天，我所有先验都会被击碎：怎么扩张、怎么销售、怎么招人、怎么构建。@Railway 是家 n=1 的公司，因为 Jake 用他自己的方式经营它。」Peter Yang 三连：湾区房主特供（101 赞）——「在湾区拥有房子很有趣：你可以随手就在园艺上花掉五位数」；「Poteto 的捣蛋总能逗笑我」（54 赞）；以及不太高明的伪装（28 赞）——「是我错觉吗，还是说插在会议室电视上、用卫生纸『藏』着的 USB 录音设备根本不算什么好伪装？」另有 Nan Yu 的「Told y&#39;all」（78 赞）、Garry Tan 的旧金山政治帖（153 赞）、Swyx 的人才密度帖（35 赞）与 Zara 的视频好评（33 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：网安是 AI agent 最大战场之一——集群审每行代码、测任意漏洞排列；agent 终于给了清完风险积压的机会。Thariq：回家真好。Nikunj：Jake 用自己的方式经营 Railway。Peter Yang：湾区园艺五位数；卫生纸藏录音设备不算好伪装。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s cyber thesis (60): &#39;Cyber is going to be one of the biggest spaces for AI agents in the future. Obviously the risks of software exploits and the attack surface area increases 100 fold due to the ability for agents to work through any crack to find what they&#39;re looking for. But this goes the other way as well. The ability to have agent swarms review every line of code, test any number of permutations of exploits, and research any incident faster than humans as they happen, will be a huge boost… You can never hire enough people or work through the backlog of all known risks. Agents actually give you a chance finally to have far better coverage&#39; — with plays across labs, data providers, network/firewall, identity, endpoints, SDLC, and data protection. Thariq&#39;s homecoming (858): &#39;excited to be back home.&#39; Nikunj&#39;s Jake appreciation (50): &#39;All my priors get shattered when I chat with @JustJake every month… @Railway is an n of 1 company because Jake runs it HIS way.&#39; Peter Yang&#39;s trio: the Bay Area homeowner special (101): &#39;Owning a house in the Bay Area is fun because you can just randomly spend five-figures on yard work&#39;; &#39;Poteto cracks me up with her trolling&#39; (54); and the not-so-hidden recorder (28): &#39;Is it just me or is an usb recording device plugged into a conference room tv &quot;concealed&quot; in toilet paper not a very good disguise at all.&#39; Plus Nan Yu&#39;s &#39;Told y&#39;all&#39; (78), Garry Tan&#39;s SF politics post (153), Swyx&#39;s talent-density note (35), and Zara&#39;s video praise (33).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: The ability to have agent swarms review every line of code, test any number of permutations of exploits, and research any incident faster than humans as they happen, will be a huge boost in how we secure systems in the future. You can never hire enough people or work through the backlog of all known risks. Agents actually give you a chance finally to have far better coverage of this.</p>
+              <p>Nikunj Kothari: All my priors get shattered when I chat with @JustJake every month. @Railway is an n of 1 company that&#39;s because Jake runs it HIS way.</p>
+              <p>Peter Yang: Owning a house in the Bay Area is fun because you can just randomly spend five-figures on yard work.</p>
+              <p>Peter Yang: Is it just me or is an usb recording device plugged into a conference room tv &quot;concealed&quot; in toilet paper not a very good disguise at all</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Silver &amp; Espeholt — A Superlearner for the Age of Experience / 播客：Silver &amp; Espeholt——经验时代的超级学习者</h2>
+    <p class="section-desc">Training Data 全新一期（本刊首次收录）：对话 Ineffable Intelligence 创始人 David Silver 与 Lasse Espeholt——超级学习者 = 完全自主发现、从经验学习（LLM 的人类数据可能「把事情往下坠」）；crucibles 坩埚环境（围棋 + 第二个 agent = 无限洋葱复杂度）；简单奖励替代面包屑；AlphaZero 几小时超越两年人类在环；人类语言不是推理终点；语言式对齐失效——用「超级智能的科学」gate 现实世界；GCP 最大 Rubin 集群首批客户；20 人复仇者团队；预测：一年内强证据、三年内真超级智能。完整 transcript（68727 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:td-silver-espeholt" data-author-name="Training Data" data-author-tag="David Silver &amp; Lasse Espeholt（Ineffable Intelligence 创始人；AlphaGo/AlphaZero/AlphaStar/MuZero 主持者 + Impala/SeedRL/MetNet 作者）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Training Data avatar"><span class="avatar-fallback">TD</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Training Data</div>
+            <div class="author-tag is-inline">David Silver &amp; Lasse Espeholt（Ineffable Intelligence 创始人；AlphaGo/AlphaZero/AlphaStar/MuZero 主持者 + Impala/SeedRL/MetNet 作者）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Training Data 全新一期（本刊首次收录）：对话 Ineffable Intelligence 创始人 David Silver 与 Lasse Espeholt——AlphaGo/AlphaZero/AlphaStar/MuZero 的缔造者与 Impala/SeedRL/MetNet 的作者组队造「经验时代的超级学习者」。核心看点：超级学习者 = 完全自主发现、可落地具身域（LLM 的人类数据可能「把事情往下坠」）；crucibles 坩埚环境（围棋单智能体无聊至极、放入第二个智能体即得「无限洋葱」复杂度）；简单奖励替代面包屑（进化只优化一个适应度信号却涌现出生命的全部复杂度）；AlphaZero 为何几小时就超越两年人类在环工作；人类语言不是推理的终点；语言式对齐正在失效——用模拟里的「超级智能科学」来 gate 现实世界；明年最大的 Rubin 集群首位客户；20 人复仇者联盟团队；预测：一年内强证据、三年内真超级智能（「因为编码 agent 加速了一切——系好安全带」）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：AlphaGo 缔造者的新征程】</p>
+              <p>嘉宾：David Silver——AlphaGo、AlphaZero、AlphaStar、MuZero、AlphaTensor、AlphaProof 的主持者，强化学习教父级人物（Rich Sutton 的「Reward is enough」合作者）；Lasse Espeholt——Impala 与 SeedRL 的作者、2018 年 Capture-the-Flag 自主 agent 与 MetNet 天气模型的负责人、Google Brain 阿姆斯特丹办公室创始人。两人现在共同创立 Ineffable Intelligence：为「经验时代」造超级学习者。</p>
+              <p></p>
+              <p>【什么是超级学习者】</p>
+              <p>David：关键问题是——什么系统才能真正把我们带向那个一切知识、一切奇迹皆可触及的未来？我的观点是：它需要一次又一次地从自己的经验中学习。换句话说，它应当是一个超级学习者。从经验中学习也正是 AlphaGo、AlphaZero、MuZero 时代我们一直依赖的思路：agent 从自身经验中提取智慧、越学越强，不依赖任何人类数据。当这样的学习者真正解锁时，产生的超级智能将像遇见魔法：能做美妙之事，甚至发现我们自己都不知道有可能存在的全新知识领域。</p>
+              <p>第一次遭遇它是什么感觉？「会是惊奇。我自己经验里最接近的类比：在窄得多的领域——棋类——达到超人水平时，看到 AlphaGo 下棋的围棋手们是惊叹的、喜悦的；国际象棋同样。想象远远超越那些——发现新科学领域、我们做梦都想不到的新技术——将难以置信。」</p>
+              <p>当前范式（LLM+RL）已在攻克千禧年难题、做出科学发现——这算超级学习者吗？David：我对 LLM 的成就有很多尊重。但我说的超级学习者，首先是要完全自主地发现；而目前这些突破需要大量人类在环的努力，还不是完全自主。其次它应当适用于真实世界的具身领域、能从物理经验中学习——我们离那还远得很。用语言来思考这些问题可能根本就不是正确的范式；LLM 里用的这些人类数据，可能正在把事情往下坠。</p>
+              <p></p>
+              <p>【日常：RL 栈与 crucibles 坩埚】</p>
+              <p>实践里怎么建？David：日常是大量硬核技术工作——Rasa 那样的干将构建整个栈：最先进的强化学习栈、大规模运行、以最优方式吸入数据、让系统不停地学。另一块是「crucibles（坩埚）」：让超级学习者能在其中做出惊人发现、表达并学习我们所知一切智能的模拟环境。怎么落地到里程碑？用人类知识发现之旅上的伟大时刻做天然里程碑——让我们的 agent 重新发现人类走过的那些关键时刻。</p>
+              <p>agent 会先重新发现什么？「我想我们会被惊到。」与领域其他人做法的关键差异：我们不做「面包屑」——不预设 agent 该按顺序学这学那、牵着它的鼻子走向特定结果。我们给 agent 简单目标，请它发现能让我们惊讶的东西。</p>
+              <p></p>
+              <p>【简单奖励与涌现】</p>
+              <p>人们常问：RL 里怎么造出一个完美描述「科学」或「有趣数学」的奖励函数？替代思路：给 agent 一个非常简单直接要优化的量，但放进一个有大量东西可学的复杂环境。自然界一直如此：对极易描述的量的追求与优化，常常涌现出极难描述的复杂度。进化只优化某种适应度信号，就涌现出生命的全部复杂度；人类追求相对简单的目标，最终获得了复杂行为与全部知识——进化并没有对人类说「这是科学，你要达到最复杂的科学」。人类大概是这样：为追目标开始协调；协调中发现沟通有用；沟通中开始交易；交易中发现基础算术有用；然后发现工具有用；发现要理解工具得有点基础科学；科学带来更复杂的技术；理解技术又需要更复杂的数学……在简单目标的追求中，不可思议的复杂度涌现了。把这条路走对，事情就会起飞。</p>
+              <p>奖励函数长什么样？像生存与繁衍吗？David：我们实验了很多种奖励。但可以确定的是：我们不会去精雕一个恰好描述「科学」「技术」「语言」的奖励。我们要 agent 自己去发现。如果作为 AI 科学家我们连这都破解不了，就永远不会有能发现「我们不知道其存在」的全新知识领域的 agent——就像牛顿时代没人知道量子物理或相对论的存在。</p>
+              <p></p>
+              <p>【crucibles 的复杂度从哪来】</p>
+              <p>Lasse：坩埚的关键不是手工雕一堆谜题，而是有巨量涌现复杂度。来源可以是：复杂物理引擎 + 数百万交互物体；也可以是数百万交互 agent——世界突然包含了其他所有 agent 的复杂度。比 Atari 那类标准模拟器、比标准 benchmark 任务复杂得多。像围棋：一张位图就能表示、模拟极其简单，却能看到复杂行为的涌现——当然围棋比我们能做的简单得多，但 100% 写实物理又太贵。所以我们要造一个梯度：简单、跑得快、可迭代的坩埚，但其中已能看到复杂行为。</p>
+              <p>主持人：选择表达什么原语很微妙——比如经济学多源于博弈论、与物理无关；但若环境里有信息论，也许真能重新发现不少经济学。环境里捕获的原语决定涌现出的学习类型？Lasse：对，终极目标是扎根真实世界，但要有垫脚石。</p>
+              <p>David：我太喜欢围棋这个例子了。19×19 的格子、 maximize 领地——若是单智能体游戏，会是想象中最无聊的游戏：往格子上摆子直到填满，毫无策略。放入第二个 agent 的瞬间，你得到涌现的复杂度：一个 agent 必须推理另一个 agent 所有可能的行为。据我们所知、以及我们当年砸进去的全部算力——那条学习曲线没有尽头，可以在这游戏里不断发现新东西。当然围棋仍只是棋类、某种意义上很窄；但它证明：极简单的环境动力学可以导出「无限的洋葱」——层层复杂度永不停止（当然是在我们计算机容量内的无限）。</p>
+              <p></p>
+              <p>【语言不是终点】</p>
+              <p>agent 会重新发现语言吗？会像我们的语言吗？David：我个人相信，认为人类语言是推理的终点或最佳方式——有点天真。必然存在远更精妙的推理方式——也许是可并行的、丰富的、复杂的神经推理——最终远比基于人类语言的方式更具表达力、更强大。而且从人类语言出发本身就有问题：它把我们「agent 该怎么思考」的全部偏见都拉了进来。一个思想实验：退回五百年、一千年前，只用那个时代的人类语言——我们的 agent 大概会相信世界是平的、疾病由四体液引起；那些奇怪的信念深嵌在语言与思维过程里，极难去除。所以超越语言是真正重要的目标。</p>
+              <p></p>
+              <p>【AlphaGo → AlphaZero：主动放手】</p>
+              <p>主持人：AlphaGo 到 AlphaZero——去掉人类先验反而更强，当时意外吗？David：说实话我不确定。我喜欢做「刀锋上」的研究——五五开的问题。已知答案的 95% 把握的研究很无聊。当时就是五五开，看到结果非常兴奋。我们在 Ineffable 下的注正在于此：放弃大家今天都在依赖的先验——人类数据、整个互联网的知识——能让我们走得更远。这是一个主动选择。</p>
+              <p>为什么？短期是牺牲：放弃一定量的性能，换取潜在大得多的东西。回到超级学习者的定义：深度方向——要能发现远超人类知识、远超先验的东西；越依赖人类数据，越难发现那种能开辟全新知识领域的算法。广度方向——要能放进那些语言与人类数据根本不适配的环境（各种传感器、各种具身域）。AlphaGo 的经验：我们花了约两年、类似 LLM 路线地堆人料、人在环里逐代改进，才赢李世石。AlphaZero 做对了之后——放弃人类数据、专注「能自己发现的算法」——只花了几小时就超越了那两年的人类在环工作。国际象棋四小时击败史上最强 AI；围棋大约一两天。必须主动放开人类数据，才能让算法一路射穿对手、永远学下去。如果不做这个主动选择——今天很多 LLM 公司本质上是「半自主、人类在环」的学习算法，成千上万人在学习回路里——行，也确实走得很远，敬意；但不退后一步去发现「自己学的过程」，我相信到不了真正的超级学习者。</p>
+              <p></p>
+              <p>【先验的实用主义】</p>
+              <p>Lasse：设计环境与奖励当然有人类偏见，但我们不想把它偏向冯·诺依曼架构的机器。如果让它解决「机器有用」的问题，看它造出什么样的计算机器会非常有意思。David：补充——我们对此并不宗教化。不是说任何角落都不能有人类先验；是实用主义立场：不放弃那万亿条人类知识数据集，就得不到这个领域应得的进步。弱的环境无关先验完全合理；要避免的是那些精确编码「我们关于这一个问题/世界全部知识」的强先验。</p>
+              <p></p>
+              <p>【时机：超级预测者】</p>
+              <p>信心多少？David：首先我强烈相信这条路最终可行——大脑是唯一的存在证明：一个发现的了伟大通用智能、在具身世界里工作、什么都能学的系统。其次，成不成在时机：创业不能太早也不能太晚。我此前预测过：计算机围棋在解决前十年做预测、精确到年份；星际争霸对了；AlphaProof 预测 IMO 何时被攻破也对了。「到目前为止我做得很好。」我有强烈的感觉：现在正是它倒下的正确时机——技术大进步、LLM 编码/auto-research 加速能力、scaling law 的理解、栈的成熟度，一切都到位了。当然这是研究，研究从无保证——这正是刺激所在：时机押对，你就是第一个、就能改变整个 AI 领域。</p>
+              <p>算力是最大驱动吗？很大、非常大。我们拿到的算力允许做比过去自发现 RL 尝试高几个数量级的东西——对比 OpenAI 当年 hide-and-seek（agent 发现基础工具使用的早期例子），我们现在大概能跑十万倍算力的实验。人们没有回来真正推这条路，很可惜。Lasse：我们很幸运锁定了很大的集群，真的有机会放手测——在 DeepMind 反而做不到。Sutton 对模拟的不屑（sim-to-real 不会直接迁移）：David 部分同意——真实世界以难模拟的方式复杂得多；但我们的做法是：在模拟里完成发现超级学习者的全部科学；拿到那个超级学习者算法后，它应当适用于真实世界；同时把模拟越做越高保真、验证仍然成立，再放进世界。</p>
+              <p></p>
+              <p>【模拟够不够格】</p>
+              <p>对的问题：超级智能能否在模拟中建成？若能，它将快 10-100 倍（无限并行、完美可复现），而且是最安全的地方。能否表达？图灵完备的模拟就能表达一切计算——人类已在模拟世界里造出过极复杂的计算机；经济：有货币（硬币/纸/比特）即可表达全部经济学；语言：多 agent + 一条沟通信道即可；数学在任何宇宙可表达；科学是研究我们世界的学问——agent 会发现它自己那个世界的科学；能量、熵、演化在许多东西里可表达。也有些只能真实世界表达（量子计算是好例子）。核心：若模拟里能一路到超级智能，就会更快、更安全地发生。</p>
+              <p>MetNet 的注脚（Lasse）：我们当年在阿姆斯特丹做的 ML 短时天气预报，比物理模拟好——物理模拟误差随时间累积。物理模拟并不完美；很多相对简单的环境不需要精确物理就能看到技术与涌现行为；当然某处有个天花板（量子物理之类），但不需要真实物理也能做非常有趣的事。</p>
+              <p></p>
+              <p>【对齐：模拟里的超级智能科学】</p>
+              <p>主持人：RL 规模化带来了 misalignment，你们的超级学习者会自然对齐人类价值吗？David：今天我们对齐重度依赖 agent 使用的语言与基于人类数据的先验——至今相当有效，但正在接近极限。agent 越来越强，会开始压过先验：学会说一套、做另一套。我的信念：这不够，需要更多。我们公司能做的最重要的一件事，是真正建立「超级智能的科学」：在模拟里真正造出超级智能、看着超级学习者一路走完全程，开始理解「一个超级智能社会在什么条件下能和平互动」——尤其与世界上那些较弱的智能和平互动。如果能做对，就能得到真正的科学答案，指导现实世界——我们正冲向一个有很多交互超级智能的真实结局，没人知道会怎样；在模拟里越快得到答案并公开分享，处境越好。</p>
+              <p>第二件事：用这套科学来 gate 我们在现实世界的决策。我们的承诺是：现实世界的每一步推进，都以「超级智能科学」提供了足够证据、确信会有好结果为前提。</p>
+              <p>语言监控（chain-of-thought）失效后怎么办？David：监控仍然有用，但越来越难——agent 也许产出百万字的推理巨著，也许用诡计想一套做一套。我们需要军火库里加别的武器：不用语言的监控方式——比如影子动作（看它若被允许会如何行动、但不真让它行动）；比如用其他超级智能做监控者——一个「轻轻踩在地球上」的杰出科学家 agent，配一个监控其行动量级、正则化以防其过度影响世界的超级智能。这里有很多研究要做，我不假装有全部答案；但如果大家因为只盯语言路线而不看这些，麻烦了——语言路线本身不够。我说「麻烦」是指 agent 不做我们想要的事；总体我乐观：世界将有很多复杂交互的超级智能存在，会形成行动者的平衡——其中支持人类繁荣的那些，会支持并保护我们、对抗不支持的那些。</p>
+              <p></p>
+              <p>【节奏：现实缓行、模拟狂奔】</p>
+              <p>怎么看 frontier 降速的讨论？David：我非常支持对现实世界的 AI 前沿进行节奏控制；同时支持在模拟里尽可能快。因为模拟里能发展出「超级智能的科学」，帮现实世界找到好结局。总体我支持 Demis、Dario 等人建议的方向。事情移动太快，快到我们适应不过来；稍微放缓，给政府、组织与情绪反应适应的时间，也让模拟里的科学工作继续全速推进。「在模拟里加速以理解正在发生什么——在现实世界里谨慎。」这就是我的总结。</p>
+              <p></p>
+              <p>【算力：Rubin 集群与 GPU 上的一切】</p>
+              <p>Lasse：我们非常幸运：年底前将成为 GCP 上最大 Rubin 集群的第一批客户（其实一个月内就开始了），为现在拿算力的创业公司感到难受——越来越难。基于 NVIDIA GPU 的通用芯片：模拟、训练、推理都能方便地做。Vera Rubin 架构特别棒：一个机架基本就是一台机器，节点间带宽极高——这对强化学习至关重要：RL 的迭代周期比 LLM 快得多。我们八十年前在 Google 时那种「CPU 取之不尽」的情况已不复存在；一切都要在 GPU 上跑、不需要 GPU 之外的百万 CPU。LLM 公司现在遇到的（CPU 上跑沙箱、模拟计算机）正是我们多年前解决过的问题——我们不想让自己陷入那种境地。算力在训练/推理/模拟间分配；GPU 这些年为训练与推理定制、较少为模拟——办法：model-based RL（模型比模拟贵得多）、replay buffer、数据复用，以及把模拟做到最快、吃满 GPU。scaling law：RL 的 scaling law 略不同——问题非平稳，随进展数据分布会变；很有意思的研究方向；我们正积极推动，尤其在从较小集群迁往大集群的当下，要准备好。</p>
+              <p></p>
+              <p>【Impala、SeedRL 与团队】</p>
+              <p>Lasse 的履历：加入 DeepMind 深度学习团队时，大多数人还在单机 CPU 上跑 RL。我和同事们做了真正用 GPU、随算力线性扩展的 agent（Impala）——高效、易扩展、极易扩展修改，成了公司最流行的 RL agent，一度大多数 RL 团队都在用它或其衍生品。后来拿到成排 TPU，需要更大规模——我去 Google Brain 创立阿姆斯特丹办公室期间做了 SeedRL：最好地同时用 TPU 做推理与训练、环境保持任意灵活（从围棋到昂贵的物理模拟）。Ineffable 今天用的正是这些算法及其衍生——按环境不同选用，各有取舍。David：做大规模 RL 架构的人若没读过那几篇原文，非常值得一看——今天在用的很多想法都能追溯到 Lasse 当年颇有先见之明的工作。Lasse：有趣的是对比十年前的 RL 界：LLM 社区尤其最近两年在用 RL，很多东西是在重新发现我们多年前用过的方案——当然上面也有很多新意。</p>
+              <p>团队多大？David：刻意保持小：总共 20 人。如今极少数顶尖的人就能做成极多。招人看四件事：才华、善良协作的品格、使命认同、技能匹配——标准极高。Lasse：小团队也意味着人均算力极高，不用从第一天就抢资源。三位联创一起做过 AlphaStar——其实四位联创来自那个队（当年在 DeepMind 是刻意挑的最佳中的最佳）；另外三位联创来自非常成功的创业公司。David：找人的过程很下功夫——我不得不对很多过去的同事说「不」，因为门槛实在太高；有幸从极出挑的人群里选出了超级明星团队，进 Ineffable 不容易，但进来的人都是极好的人。</p>
+              <p></p>
+              <p>【研究主导的文化与预测】</p>
+              <p>主持人：在最大集群们陷入囚徒困境竞速的此刻，一群深度相信科学使命的人聚在一起，想必如清风拂面。David：对——我们建立的是研究主导的文化：不是做「上一个产品的 V17.1」的公司，而是研究者追求他们相信可能的突破的公司。我们从一开始就把公司围绕这个中心建立，造一个研究的避风港、顶住产品压力——因为我们相信：做出了这些突破，下游会有大得多的产品与成功。</p>
+              <p>收尾预测：多久有「路线正确」的强证据？David：一年之内。多久达成使命（与超级智能第一次接触）？「原以为三到五年，我的时间线加速了一点——我说三年，因为编码 agent 能加速事情。会很快。」——系好安全带。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A brand-new Training Data episode (new to this digest) with David Silver and Lasse Espeholt of Ineffable Intelligence — the AlphaGo/AlphaZero legends&#39; new venture building &#39;a superlearner for the age of experience.&#39; Core threads: the superlearner defined — something that discovers completely autonomously, applicable to embodied domains, where LLMs&#39; human-in-the-loop effort and human data may actually be &#39;weighing things down&#39; (&#39;thinking about these things in terms of language might not even be the right paradigm&#39;); crucibles — simulated environments with enough emergent complexity (physics engines with millions of interacting objects, millions of interacting agents; &#39;Go is just a 19x19 grid — single-agent Go would be the most boring game imaginable; the moment you put a second agent in, you get an infinite onion of layers of complexity&#39;) for agents to rediscover everything from motor control to language to math to science; simple rewards instead of breadcrumb trails — &#39;we&#39;re not pulling the agent by its nose&#39;; evolution optimized one fitness signal and gave rise to all of life&#39;s complexity, humans pursuing simple goals cascaded from coordination to communication to trading to arithmetic to tools to science; why AlphaZero took just hours to beat two years of human-in-the-loop AlphaGo work (&#39;it has to be an active choice to let go of the human data&#39;); human language is not the endpoint of reasoning (&#39;maybe using parallelizable, rich, complex neural reasoning will be far more expressive&#39;; using 1000-year-old language would bake in flat-world beliefs); weak environment-agnostic priors are fine, trillion-item datasets are not (&#39;we&#39;re not religious about it — it&#39;s a pragmatic position&#39;); timing — Silver the super-forecaster (called Computer Go&#39;s fall to the year, ten years out; called StarCraft and the IMO) says this is the right time, with 100,000x more compute available than OpenAI&#39;s hide-and-seek era; the cluster — first customer of the largest Rubin cluster on GCP by year-end, &#39;one rack is basically one machine&#39; with the fast iteration RL needs, everything kept on GPUs (LLM companies now rediscovering the CPU-sandbox problems he solved years ago); alignment — language-based alignment is reaching its limits as agents &#39;learn to say one thing and act in a different way&#39;; the most important thing Ineffable can do is build the science of superintelligence in simulation — what conditions make a society of superintelligences interact peacefully with lesser intelligences — and gate real-world action on that evidence; monitoring beyond language (shadow actions; superintelligent monitors regularizing the magnitude of other agents&#39; actions); pace the real world (supportive of the Demis/Dario direction) but accelerate in simulation; the 20-person Avengers-grade team (four cofounders from AlphaStar; &#39;I&#39;ve had to say no to a lot of people I&#39;ve worked with — our bar is so super high&#39;) and its research-led culture; and the forecast: strong evidence within a year, true superintelligence in three (&#39;my timelines have accelerated because of coding agents — buckle up&#39;).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>David Silver: I think what it needs to do is to go and learn, learn and learn again from its own experience. In other words, it should be a super learner.</p>
+              <p>David Silver: To me, gives rise to a superintelligence that will be like encountering magic.</p>
+              <p>David Silver: What I mean by a super learner is something which, first of all, discovers completely autonomously.</p>
+              <p>David Silver: Thinking about these things in terms of language might not even be the right paradigm, and it might just be that all of this human data that&#39;s being used in LLMs is kind of weighing things down.</p>
+              <p>David Silver: The moment you put a second agent into the environment, you get this emergent complexity.</p>
+              <p>David Silver: The pursuit and optimization of very simple, easy-to-describe quantities can often give rise to incredibly hard-to-describe complexity and emergence.</p>
+              <p>David Silver: Once we got it right, that algorithm, it took just a few hours to outperform the two years of work which we&#39;d done with human in the loop.</p>
+              <p>David Silver: Anyone who thinks that human language is the endpoint of reasoning — that perspective is a little naive.</p>
+              <p>David Silver: If we can&#39;t crack this problem as AI scientists, we&#39;re never gonna have agents that discover whole new fields of knowledge that we don&#39;t even know about.</p>
+              <p>David Silver: We could probably run experiments that use 100,000 times more compute (than OpenAI&#39;s hide-and-seek).</p>
+              <p>Lasse Espeholt: We are the first customers of the largest Rubin cluster on GCP by the end of the year.</p>
+              <p>David Silver: The most important single thing that we can do as a company is to actually understand the science of superintelligence.</p>
+              <p>David Silver: I&#39;m very much supportive of the idea that there should be pacing of what happens at the frontier of AI in the real world. At the same time, I think we should move as fast as possible in simulation.</p>
+              <p>David Silver: I think we will see some extremely strong evidence that we&#39;re on the right track within a year. And I think we will achieve something which is a true superintelligence… I&#39;m gonna say three years, because of what can be done with coding agents to accelerate things.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-15 source feeds (13 builders, 28 tweets, plus one long-form podcast: Training Data with Ineffable Intelligence founders David Silver and Lasse Espeholt, new to this digest).">Source: Follow Builders curated daily digest. Built from the 2026-10-15 source feeds (13 builders, 28 tweets, plus one long-form podcast: Training Data with Ineffable Intelligence founders David Silver and Lasse Espeholt, new to this digest).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
