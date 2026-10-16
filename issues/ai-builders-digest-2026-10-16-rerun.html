@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-16" data-issue-number="144" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 144 期｜2026-10-16｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Muse 开放权重日。Levie（532 赞）：「他们做到了——做出了 Muse 的开放权重模型，这对美国开源界是巨大的一步。」Rauchg 三连（**1438/931/307 赞**）：「🤯」「What a SHIP!」与「TLDR：我们在 GTA6 之前先等来了 Vercel 齐柏林飞艇与飞行汽车」。Garry Tan（203 赞）：「开源权重模型在崛起。」Levie 的后台 agent 论（503 赞）：「我们正从『与 agent 来回聊天』转向『后台 agent』——它们在后台持续工作、不占你的注意力，需要你时才来找你：这是对 agent 界的常驻 shifts 带来质变。」Cherny 的承诺（568 赞）：「过去几个月我们在 Claude 模型的 prompt injection 处理上进展很大，很快还有更多。agent 做得越多（且并行得越多），这里的持续进展就越重要。」Sottiaux 的法语三连（**2774/799/2772 赞**）：「Either we are out of ideas or we are cooking. Time will tell」「Je programme en français」「Bonjour」。Shipper 的《心灵捕手》梗（63 赞）：「你当然这么想——你刚读完多义性（polysemanticity）的论文，自然觉得可解释性是一切……」播客全新一期：MAD Podcast 对话 TypeSafe CEO、RLHF 共同发明人 Diogo Almeida——Jev「决策模型」API 全解（70940 字符全文翻译随卡附上）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Muse 开放权重日。Levie（532 赞）：「他们做到了——做出了 Muse 的开放权重模型，这对美国开源界是巨大的一步。」Rauchg 三连（**1438/931/307 赞**）：「🤯」「What a SHIP!」与「TLDR：我们在 GTA6 之前先等来了 Vercel 齐柏林飞艇与飞行汽车」。Garry Tan（203 赞）：「开源权重模型在崛起。」Levie 的后台 agent 论（503 赞）：「我们正从『与 agent 来回聊天』转向『后台 agent』——它们在后台持续工作、不占你的注意力，需要你时才来找你：这是对 agent 界的常驻 shifts 带来质变。」Cherny 的承诺（568 赞）：「过去几个月我们在 Claude 模型的 prompt injection 处理上进展很大，很快还有更多。agent 做得越多（且并行得越多），这里的持续进展就越重要。」Sottiaux 的法语三连（**2774/799/2772 赞**）：「Either we are out of ideas or we are cooking. Time will tell」「Je programme en français」「Bonjour」。Shipper 的《心灵捕手》梗（63 赞）：「你当然这么想——你刚读完多义性（polysemanticity）的论文，自然觉得可解释性是一切……」播客全新一期：MAD Podcast 对话 TypeSafe CEO、RLHF 共同发明人 Diogo Almeida——Jev「决策模型」API 全解（70940 字符全文翻译随卡附上）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Muse Goes Open Weights / Muse 开放权重日</h2>
+    <p class="section-desc">Levie 双发（**532/503 赞**）：「Muse 开放权重——美国 OSS 的巨大一步」+ 从来回聊天到后台 agent 的质变；Rauchg 三连（**1438/931/307 赞**）：「🤯」「What a SHIP!」与「TLDR 我们在 GTA6 之前先等来了 Vercel 齐柏林与飞行汽车」；Garry Tan（203 赞）：「开源权重模型在崛起」；Levie 的愿望清单（193 赞）：机器人、飞行汽车、超级智能、机上高速网络、太空旅行。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+rauchg+garrytan" data-author-name="Levie / Rauchg / Garry Tan" data-author-tag="Box CEO / Vercel CEO / YC CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Rauchg / Garry Tan avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Rauchg / Garry Tan</div>
+            <div class="author-tag is-inline">Box CEO / Vercel CEO / YC CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 双发：开放权重（532 赞）——「他们做到了——做出了 Muse 的开放权重模型，这对美国开源界是巨大的一步」；愿望清单（193 赞）——「机器人、飞行汽车、超级智能、机上高速网络、太空旅行……」。后台 agent 论（503 赞）——我们正从「与 agent 来回聊天」转向「后台 agent」：它们在后台持续工作、不占你的注意力，需要你时才来找你——agent 界的常驻 shifts 带来的质变。Rauchg 三连：对 Muse 开放的「🤯」（1438 赞）与「What a SHIP!」（931 赞）+ 玩笑（307 赞）——「TLDR：我们在 GTA6 之前先等来了 Vercel 齐柏林飞艇与飞行汽车。」Garry Tan 的潮水帖（203 赞）——「开源权重模型在崛起。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：Muse 开放权重是美国 OSS 的一大步；从来回聊天到后台 agent 是质变。Rauchg：GTA6 之前先有了 Vercel 齐柏林与飞行汽车。Garry Tan：开源权重在崛起。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s double: the open-weights call (532): &#39;They did it. They made a Muse open weights model, which is a huge step forward for OSS in the US&#39; — plus the wonder-list (193): &#39;robots, flying cars, superintelligence, fast internet on planes, space travel...&#39; And the background-agents thesis (503): we&#39;re moving from chatting back and forth with agents to background agents that work continuously without occupying your attention and only come to you when needed — a qualitative shift from the &#39;always shifts&#39; of the agent world. Rauchg&#39;s trio: the 🤯 (1438) and &#39;What a SHIP!&#39; (931) reactions to the Muse drop, plus the joke (307): &#39;TLDR we got Vercel zeppelin and flying cars before GTA6.&#39; Garry Tan&#39;s rising tide note (203): &#39;Open weight models rising.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: They did it. They made a Muse open weights model, which is a huge step forward for OSS in the US</p>
+              <p>Aaron Levie: We&#39;re moving from chatting back and forth with agents to background agents… This is one of those shifts that changes the surface area of what agents can handle.</p>
+              <p>Guillermo Rauch: TLDR we got Vercel zeppelin and flying cars before GTA6</p>
+              <p>Garry Tan: Open weight models rising</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Injection Defense &amp; the French Day / 注入防御与法语日</h2>
+    <p class="section-desc">Cherny（**568 赞**）：「我们在 Claude 的 prompt injection 处理上进展很大，agent 做得越多、这里的持续进展越重要」；Sottiaux 法语三连（**2774/799/2772 赞**）：「Either we are out of ideas or we are cooking. Time will tell」「Je programme en français」「Bonjour」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="bcherny+thsottiaux" data-author-name="Boris Cherny / Thibault Sottiaux" data-author-tag="Claude Code @Anthropic / Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Boris Cherny / Thibault Sottiaux avatar"><span class="avatar-fallback">BC</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Boris Cherny / Thibault Sottiaux</div>
+            <div class="author-tag is-inline">Claude Code @Anthropic / Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cherny 的安全承诺（568 赞）——「过去几个月我们在 Claude 模型的 prompt injection 处理上进展很大，很快还有更多。agent 做得越多（且并行得越多），在这里持续进展就越重要。如果你在做 agent 安全，我们很想聊聊：bcherny@anthropic.com。」Sottiaux 的法语日三连（2774/799/2772 赞）——「要么我们已经没点子了，要么我们正在憋大招。时间会证明」/「我用法语编程」/「Bonjour」——这条神秘的「烹饪」预告让时间线集体猜测。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cherny：Claude 的 prompt injection 处理进展很大；agent 做得越多、这里越重要。Sottiaux：要么没点子了、要么在憋大招；我用法语编程；Bonjour。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cherny&#39;s security pledge (568): &#39;We&#39;ve made a lot of progress on handling prompt injection for the Claude models over the past few months, expect more soon. It&#39;s really important that we continue to make progress here as agents do more (and do more in parallel). If you&#39;re working on agent security, we&#39;d love to talk: bcherny@anthropic.com.&#39; Sottiaux&#39;s French day triple (2774/799/2772): &#39;Either we are out of ideas or we are cooking. Time will tell&#39; / &#39;Je programme en français&#39; / &#39;Bonjour&#39; — the cryptic cooking tease that sent the timeline speculating.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: We&#39;ve made a lot of progress on handling prompt injection for the Claude models over the past few months, expect more soon. It&#39;s really important that we continue to make progress here as agents do more (and do more in parallel). If you&#39;re working on agent security, we&#39;d love to talk: bcherny@anthropic.com</p>
+              <p>Thibault Sottiaux: Either we are out of ideas or we are cooking. Time will tell</p>
+              <p>Thibault Sottiaux: Je programme en français</p>
+              <p>Thibault Sottiaux: Bonjour</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Prod Not God &amp; the Rest / 造产品不造神与其余</h2>
+    <p class="section-desc">Garry Tan 的双发（**652/153 赞**）：「科技界的人们：停止 virtue signaling」与旧金山政治；Shipper 的《心灵捕手》梗（63 赞）；Turck 的 Jev 播客（88 赞）；Aditya（52 赞）：「Goodfire 可能是 SPC 出品的最重要公司之一」；Steipete（142 赞）：「crabbox 被低估了」；Nikunj 的 gm nyc（349 赞）；Nan Yu（34 赞）：「taste 不等于审美品味」；Amanda Askell（342 赞）：《不要抬头》红发造型；Zara 双发（56/1 赞）与 Peter Yang 三连（16/2/3 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+danshipper+mattturck+adityaag+steipete+nikunj+thenanyu+AmandaAskell+zarazhangrui+petergyang" data-author-name="Garry Tan / Shipper / Turck / Aditya / Steipete / Nikunj / Nan Yu / Askell / Zara / Peter Yang" data-author-tag="YC CEO / Every CEO / FirstMark / SPC / OpenClaw / FPV / OpenAI / Anthropic / Design Engineer / Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Shipper / Turck / Aditya / Steipete / Nikunj / Nan Yu / Askell / Zara / Peter Yang avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Shipper / Turck / Aditya / Steipete / Nikunj / Nan Yu / Askell / Zara / Peter Yang</div>
+            <div class="author-tag is-inline">YC CEO / Every CEO / FirstMark / SPC / OpenClaw / FPV / OpenAI / Anthropic / Design Engineer / Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 双发（652/153 赞）——「科技界的人们：停止 virtue signaling。去 build。」+ 旧金山政治帖。Shipper 的《心灵捕手》梗（63 赞）——「你当然这么想——你刚读完多义性的论文，自然觉得可解释性能解决每个 AI 问题……」+ Every 的新访谈上线（2 赞）。Turck 的 Jev 播客指路（88 赞）——「满月纪念播客：做决策而非文本的 AI——@diogo_e_monteiro（TypeSafe CEO、RLHF 共同发明人）」+ Aditya 的 Goodfire 赞歌（52 赞）——「我的直觉：@goodfireai 可能是 SPC 出品的最重要公司之一。如果你还没跟可解释性领域，他们在把它做成生产级。」Steipete（142 赞）——「crabbox 被低估了。」Nikunj 的 gm nyc（349 赞）。Nan Yu 的品味论（34 赞）——「taste 不等于审美品味——它意味着对『对你而言什么是好品质』的品味、以及如何传达它」+ 新武器入库（12 赞）。Amanda Askell 的《不要抬头》红发梗（342 赞）。Zara 双发（56/1 赞）——Ezra Klein 语录 + 《幼儿时报》：为两岁孩子做的哈利波特式活体图像报纸。Peter Yang 三连（16/2/3 赞）——8 岁孩子用 bot 设计 T 恤并自动监控回复。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：停止 virtue signaling，去 build。Shipper：心灵捕手式讽刺——刚读完多义性论文就觉得可解释性包治百病。Turck：Jev 满月播客。Aditya：Goodfire 或是 SPC 最重要的公司之一。Steipete：crabbox 被低估。Nan Yu：taste 是对品质的品味而非审美。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s pair: the virtue-signaling take (652): &#39;tech people: stop virtue signaling. Build.&#39; — and the SF politics post (153). Shipper&#39;s Good Will Hunting joke (63): &#39;Of course that&#39;s your contention. You just got finished reading about polysemanticity, so naturally you think interpretability is the solution to every AI problem…&#39; plus the Every interview drop (2). Turck&#39;s Jev episode pointer (88): &#39;A one-month anniversary podcast: The AI that makes decisions, not text — @diogo_e_monteiro (CEO @typesafeio, RLHF co-inventor) on @JEV&#39; — with Aditya&#39;s Goodfire appreciation (52): &#39;My sense is @goodfireai might be one of the most important companies out of SPC. If you haven&#39;t been following the interpretability space, they are building it for production use.&#39; Steipete&#39;s note (142): &#39;crabbox is underrated.&#39; Nikunj&#39;s gm (349), Nan Yu&#39;s taste take (34): &#39;taste does not mean taste in aesthetics. it means taste in what good quality means to you and how to communicate it&#39; — plus the arsenal addition (12). Amanda Askell&#39;s Don&#39;t Look Up bit (342), Zara&#39;s pair (56/1): the Ezra Klein quote and The Toddler Times — a Harry Potter-style newspaper with living images made for her toddler, and Peter Yang&#39;s trio (16/2/3): the 8-year-old designing T-shirts with bot monitoring replies.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: tech people: stop virtue signaling. Build.</p>
+              <p>Dan Shipper: Of course that&#39;s your contention. You just got finished reading about polysemanticity, so naturally you think interpretability is the solution to every AI problem...</p>
+              <p>Matt Turck: A one-month anniversary podcast: The AI that makes decisions, not text.</p>
+              <p>Aditya Agarwal: My sense is @goodfireai might be one of the most important companies out of SPC.</p>
+              <p>Peter Steinberger: crabbox is underrated.</p>
+              <p>Nan Yu: taste does not mean taste in aesthetics. it means taste in what good quality means to you and how to communicate it</p>
+              <p>Zara Zhang: [The Toddler Times] a Harry Potter style newspaper with living images</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Diogo Almeida — The AI That Makes Decisions, Not Text / 播客：Diogo Almeida——做决策而非文本的 AI</h2>
+    <p class="section-desc">MAD Podcast 全新一期（本刊首次收录）：对话 TypeSafe CEO、RLHF 共同发明人 Diogo Almeida——Jev 决策模型 API 全解：只回概率不回文本；系统一智能的独立市场；「聪明的 if 语句」取代巨型 prompt；RLHF 副作用复盘（谄媚、过度拒答、模式坍缩）；RLVR 碾压基准却没改变自动化（「95% 爱因斯坦、5% 憨豆先生」）；RLCD 与「最苦的教训」；「分类是 AI 完备的」；预训练是「浪费资源的巨大垃圾箱」；「造 prod 不造神」；对 RSI 的怀疑与 AI 冬天已解除。完整 transcript（70940 字符）已全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:mad-diogo-almeida" data-author-name="MAD Podcast（DataDrivenNYC）" data-author-tag="Diogo Almeida（TypeSafe CEO、RLHF 共同发明人、Jev 之父）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="MAD Podcast（DataDrivenNYC） avatar"><span class="avatar-fallback">MP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">MAD Podcast（DataDrivenNYC）</div>
+            <div class="author-tag is-inline">Diogo Almeida（TypeSafe CEO、RLHF 共同发明人、Jev 之父）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>MAD Podcast 全新一期（本刊首次收录）：Matt Turck 对话 TypeSafe CEO、RLHF 共同发明人 Diogo Almeida——Jev「决策模型」API 完整解读：只回概率不回文本；系统一智能的独立市场；用「聪明的 if 语句」取代巨型自然语言 prompt；RLHF 的副作用复盘（谄媚、过度拒答、模式坍缩、「让模型在决策上变笨一点」）；RLVR 碾压基准却没改变自动化（「95% 爱因斯坦、5% 憨豆先生——不告诉你何时是憨豆，你怎么敢自动化？」）；新训练法 RLCD 与「最苦的教训」；对「只是个分类器」的正名（Facebook、TikTok、Google 全靠分类器）；「造 prod，不造神」；对 RSI 的怀疑与「AI 冬天」已解除的判断。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：Jev 是什么】</p>
+              <p>Matt Turck（MAD Podcast）：欢迎 Diogo Almeida——TypeSafe 的 CEO。Jev 发布约三周，我从未见过一个发布引起这么大轰动。请用一分钟介绍自己与公司。</p>
+              <p>Diogo：我曾是 OpenAI 的机器学习研究员，RLHF 的共同发明人之一。现在的公司叫 TypeSafe——名字来自软件工程里的类型安全：让错误不可能发生、让程序员不担心东西出岔。Jev 是我们的产品：一个 API，输入数据与指令，返回概率——不是文本。比如「这封邮件是愤怒的吗：0.85」。</p>
+              <p></p>
+              <p>【系统一 vs 系统二】</p>
+              <p>主持人：用卡尼曼的系统一（快思考、直觉）/系统二（慢思考、推理）框架，Jev 属系统一、经典 LLM（ChatGPT 式）属系统二，方向对吗？</p>
+              <p>Diogo：方向对。补充一个细微处：没做 latent reasoning（隐藏推理）训练的模型本来就是系统一模型；AI 在常识意义上的系统一非常强。是推理训练让它们能做系统二任务，但它们在系统二任务上永远脆弱。我的主张是：AI 就是擅长系统一，而这本身已极其有价值——据我所见，我们远未解决系统二的「参差性」；说「系统二不成则全盘皆输」是把婴儿跟洗澡水一起倒掉。</p>
+              <p></p>
+              <p>【可组合性：逻辑门的胜利】</p>
+              <p>Diogo：大段题外话但值得：软件用最基础的逻辑门（与、或、比特比较）做到了多少事？从 1980 到 2020 年的技术基本都由软件驱动（作为软件工程师我可能有偏见）。软件变强大的方式不是「这里放个与门」，而是把一个工作单元做得可靠到能变成更大的东西、然后组合起来。AI 的用量爆发也会走这条路：先有人显式地映射出工作流（工作流自动化会是这样开始），然后把工作流装进「盒子」，人们去调用更高层的盒子——这就是软件的全部。盒子要可售卖、安全、可靠；而且一旦花功夫造出来，就可以无限复制。想象乐高能建高楼还能随意复制粘贴——软件之于自动化正是如此。</p>
+              <p>所以系统二任务并没有出局——我们相信系统二任务应该由「可靠到可以被信任、被构建于其上」的简单构件组合而成。而 AI 至今不可组合：除了别的 AI，它跟什么都不玩得来——挺悲哀的。</p>
+              <p></p>
+              <p>【邮件助理的例子】</p>
+              <p>主持人：客户支持太复杂，换个相近但简单的例子？</p>
+              <p>Diogo：邮件行政助理。据我所知日程助理至今没被解决——人们试了多年。LLM 的做法：写一个巨大的系统提示词、塞满你的偏好；风格上永远无可挑剔（永远不会不像一封好信）、永远讨人喜欢（LLM 太擅长谄媚），但经常不做对决策。于是人们不停往系统 prompt 里打补丁：投资者来信这样、入站邮件那样……复杂度一升、错误率越来越高——因为你只是在祈祷模型别犯那些错。错一次要么尴尬要么昂贵（比如没跟重要投资者约上会），最后把系统整个拔掉换回人类。</p>
+              <p>Jev 的做法：不用自然语言描述「如果重要就……」，而是为每一件事做独立的分类器——智能的 if 语句：过去软件表达不了「这是不是入站邮件」这种意图，现在可以了。你得到一个可读（legible）的系统：每个 if 语句的准确率都可测量、没有一个会被忘记；出了错，因为系统可读，直接加进 eval。它起步会比文本系统差——文本系统有一堆体面的默认值、看起来很合理（它就是被训练成讨人喜欢的样子）——但你真正在乎的行为，你拿得到控制权。这就是系统一模型 + 代码能给的：代码是过山车的轨道，你不会脱轨；类型安全同理。因为可读，这些系统容易建、也才敢放后台跑。</p>
+              <p></p>
+              <p>【分解与概率阈值】</p>
+              <p>主持人：所以 Jev 把输入翻译成一组概率：紧急与否、升级与否、发给哪个部门？</p>
+              <p>Diogo：对，而且不要直接问 Jev「该不该升级」——那是太高级的决策，需要经验与信任。把问题一直分解到最低层：过滤入站销售、过滤猎头；「别人已在抄送的邮件我就别出现在里面，但若对方说『Diogo 你看看这个』，我突然就该看见」——这类精细行为需要聪明人想，但无论哪种方式，系统总归要被编程——自然语言或代码；用代码更便宜、更快、且保证执行。随使用不断往下钻、把行为越调越准。</p>
+              <p>为什么返回概率：这是我们从 OpenAI 学到的教训。模型没有细粒度控制——拒答就是例子：同一条请求，刷新一下有时拒有时不拒，这行为很疯狂。而你的拒答阈值跟别人很不一样：迪士尼对角色与 IP 的保护阈值，跟 Character AI（爱做角色扮演）必然天差地别。离散决策没有意义；给开发者尽可能多的信息，让他们为自己的应用选阈值：「我把一位极重要投资者的邮件错分类了——把阈值调低，我可以接受误报，实在受不了漏报。」</p>
+              <p></p>
+              <p>【速度与价格：扔掉文本生成】</p>
+              <p>主持人：为什么更快更便宜？</p>
+              <p>Diogo：不谈智能就没法谈速度——想快我砍半网络就快一倍。我们显然在一个新的速度量级上：扔掉了极慢、极贵的文本生成部分；我们不是自回归的——更喜欢这种并行式的、对正确答案的渐进发现。但人们没意识到的不只是工程上砍掉慢件，而是「你优化什么就得到什么」：我们要从这些美妙的认知核里以最好、最丰富、最致密的方式萃取智能。发布前的悲剧是：AI 明明不可思议地强，却对大多数事毫无用处。不只是拔掉插头、扔掉坏部分，还要把智能磨平、做到足够鲁棒，让它浮现出来。</p>
+              <p></p>
+              <p>【分类是 AI 完备的】</p>
+              <p>主持人：这不算窄而专吗？</p>
+              <p>Diogo：我会反驳「窄而专」。可以微调小模型做窄任务；但我主张分类是 AI 完备（AI-complete）的：通用万能验证器/分类器绝对 AI 完备——哪怕你想要文本输出（对系统来说挺少见），完美分类器也能变成它。所以这不是窄，是另一种形状的智能——它自己就是一个大分支，下面会有非常多优美的子分支。现在有三种类型，未来会更多——到时候大家就明白我们为什么没叫它「决策模型」。</p>
+              <p></p>
+              <p>【RLHF 复盘：它的功与它的罪】</p>
+              <p>主持人：你共同发明了 RLHF——它在根上出了什么问题？</p>
+              <p>Diogo：一句话：RLHF 是让模型会聊天、让模型讨人喜欢。回头看，RLHF 的很多优化极其风格化，而不是更深地接通网络里的事实。它「成为 RLHF」的关键是任务本身：为人类偏好优化 + 文本进文本出的形状。当时我们是 OpenAI 的黑羊——没人喜欢把昂贵的人类放进回路，太难迭代。我们打地鼠式地追问题、不断解决，直到它通用、讨喜、好用。创造 AI 新方向最难的部分是「知道任务是什么」——事后看显然，当时充满不确定。所有照抄我们的人都不必再趟这些——我们把迭代的苦活全干了、写进了论文。RLHF 是对你偏好的最优代理：所以你永远看不到「一眼就烂」的输出——尽管它可能跟一个错得离谱的答案一样糟；对明显烂的惩罚极重，严重扭曲了模型的概率空间。</p>
+              <p>副作用：谄媚、过度拒答、模式坍缩（风格上极度重复——每个模型重复的方式不同，但你用多了就能感觉到「它老说这句」——这是 RLHF 让模型死守安全风格车道的副作用，代价是预训练模型曾有而 RLHF 后失去的创造力：预训练模型狂野、有创意、怪异，体内装着互联网上的全部风格，偶尔完全脱轨——那很美）；还有我认为 RLHF 让模型在决策上比预训练模型笨了一点。最让我担心的：RLHF 大大抬高了期望——人类感知的模型水平与现实脱钩，大家觉得「我的天，什么都能自动化了」，而经验上并没有发生。</p>
+              <p></p>
+              <p>【RLVR：碾压基准却没改变自动化】</p>
+              <p>主持人：RLVR（可验证奖励的强化学习）呢？</p>
+              <p>Diogo：RLVR 是为「可简单评测」的任务（数学、证明、过单元测试）在中间做任意复杂的事（推理链）。关键不只是可验证奖励——那早有人试、一直不 work——而是需要中间的推理链做创造性的事才能到达答案。RLVR 在基准上完全不平台期：按构造它就是「刷基准」任务的形状，于是造成了另一种「过度承诺、交付不足」。RLVR 很酷，但我担心的是自动化：经验上 RLVR 没有真正改变自动化。它也随机、不可靠——我喜欢这么形容：95% 爱因斯坦、5% 憨豆先生；它不告诉你什么时候是憨豆，你怎么敢自动化任何东西？校准（知道自己何时不可靠）模型至今不擅长。</p>
+              <p></p>
+              <p>【RLCD 与「最苦的教训」】</p>
+              <p>主持人：所以你们发明了新训练法？</p>
+              <p>Diogo：我不愿只叫它后训练——当年我们做 RLHF 时「后训练」这个概念都不存在。RL 只是整个任务派的一小片：任务是搞清输入输出长什么样、怎么指导标注、北极星是什么、数据集怎么配平。数据也一样：指令跟随的数据在 RLHF 之前根本不存在于世界上；RLVR 的数据（RL 环境）存在但没人能训练所以没市场。我们都得发明新形状的数据、迭代、然后自己造——全部 in-house，可见的未来都会如此：全世界不知道自己在干什么，而世界级的专家都在我们队里。我们显然不需要用户数据。</p>
+              <p>关于我那篇「最苦的教训」：Sutton 的苦涩教训大意是算力与规模化比算法重要。我认为这对 Sutton 当时做 RL 的游戏环境是过度简化——游戏里任务和数据都是算力的函数；真实世界里没有数据你什么都做不了：互联网数据已经用完，预训练无法继续 scale。而要 even 知道数据该长什么样，你得先有任务。你优化什么就得到什么——所有人都直觉懂这个，除了机器学习研究者。最大的收益永远来自「搞清任务」本身：ChatGPT 前后是聊天机器人智能史上最大的一跳，像大人打小孩；RLVR（Q*、o1）在基准上自成一档；同样地，因为我们是唯一为机器原生智能优化的人，从可靠机器原生智能的角度我们自成一档。</p>
+              <p></p>
+              <p>【预训练：资源的巨大浪费】</p>
+              <p>主持人：你们做预训练吗？</p>
+              <p>Diogo：我们用一组开源权重模型的组合——预训练模型里有大量压缩好的智能，但它们是文本形状的，所以我们要做一些「恶心的事」（作为热爱后训练的人我不愿称之为后训练——那是后训练的私生子化）。众所周知我们直到最近融资不到 4000 万美元——要么我们在预训练上有惊人突破，要么我们比别人更会因陋就简。是后者。说实话我认为预训练是浪费资源的巨大垃圾箱——希望永远不做，未来谁知道。</p>
+              <p></p>
+              <p>【「只是个分类器」是最高级的恭维】</p>
+              <p>主持人：很多人说 Jev「只是个分类器」。</p>
+              <p>Diogo：ML 人（尤其研究者）至今真看不懂 Jev 的价值——这对我们很好。分类器批评是我心中最蠢的批评之一：分类器不是老式机器学习的一种——某些类型是——分类器是一个接口，是把智能放进软件系统的形状。Facebook 怎么运作？分类器。TikTok 呢？分类器。Google 呢？分类器。软件靠比特比较做了这么多；想让智能影响代码里的分支、做复杂行为——靠的就是分类器。所以说 Jev 是分类器不但不是贬低，简直是恭维到不公平：等价于每个工程师随手就有一个 2019 年的 20 人 ML 工程团队、为你的每个念头即时建分类器——而实际上比那更聪明，因为今天的模型比 2019 年强。ML 人不懂，是因为他们忙着做苦涩教训里最不值钱的那部分（算法），忙着在数据中心里造神，而不去看真实世界、看自动化实际做了多少。</p>
+              <p>主持人：你 T 恤上那句话？</p>
+              <p>Diogo：Prod, not god——我们造产品，不造神。通用性上：LM 能做的任务它都能做；可编程性解锁更多——比如「我幕僚长发来的邮件、哪怕写得像 AI，也别标垃圾」——每个分类器为你定制。梦想是智能无处不在：数据库的每一行每一列、软件的每一层——盒子套盒子：一个又快又便宜的盒子被别的盒子调用一百次，就得到越来越高级的认知自动化单元。未来会科幻得难以置信。与 Cursor/Cognition 的区别：他们加速「写软件」本身（当软件工程师），我们要做软件里面的逻辑门——扩展软件工程师能做出的可能性，而不是取代他们。</p>
+              <p></p>
+              <p>【抄袭者们与基准无用论】</p>
+              <p>主持人：出 stealth 三周，Cloudflare、Databricks、微软都跟进了，OpenAI 也发了 Decisions API。</p>
+              <p>Diogo：我谈谈我的看法但不想贬人。我启动这个项目时以为一周就能做完——第一周确实做出了和现在跟风者很像的东西，但非常明显不鲁棒；这个问题困扰了我多年。拿形状、抄接口非常容易——像当年 Google 在 RLHF 之前发的 alpha：不是烂，是比没有还糟。据我对领域的判断，跟风者在真实可靠性上大概落后我们数年——但我想先测量再对外这么说。基准？无用。「谎言、基准与基准」。基准伤最深的恰恰是它号称要帮的用户——没时间自己试的那些人，被误导得最狠。我的请求：不必信我们，只是把我们的模型也试一下，哪个好用用哪个。唯一怕的是有人用了笨模型就断定这整类不行。顺带要给 OpenAI 的 Decisions API 一个 shoutout：他们没附基准——在我的书里因此比其他所有人都高一档。</p>
+              <p></p>
+              <p>【开源与市场：杰文斯悖论】</p>
+              <p>开源（Cloudflare 开源了他们的版本）？我们在想、辩论过很多。我们的模型目前远超他人但离「完全就绪」还远；API 让我们迭代快得多、服务得好得多。未来（尤其做小模型、端上时）不排除。开源短期是霰弹枪（foot gun）——有人就是爱玩枪，我也乐意给。市场：短期有重叠（大家从「拿 LLM 硬凑工作流」迁过来——那本来就不该是 LLM 的市场，只是当时只有这个工具），长期是完全独立的系统一市场。LLM 继续做文本与代码生成。Jev 这个名字来自杰文斯悖论：效率越高、用量越大——我们的智能会像半导体那样杰文斯（再套一层 for 循环、跑它 10 到 100 倍），而不像天然气。</p>
+              <p></p>
+              <p>【RSI 怀疑论与 AI 冬天的解除】</p>
+              <p>主持人：你持两个不常见的立场：一、我们并不在通往 RSI 的路上；二、AI 冬天已解除。</p>
+              <p>Diogo：RSI——我在这个领域待得够久、这支舞看过很多遍：人们看到小的百分比提升就外推到月球，现实是 Amdahl 定律。神经架构搜索的年代一模一样的叙事（效率+10%，然后自己发现自己、循环到不可思议），整个领域最后进了垃圾桶。真实世界的收益递减人们不懂；每次都是刚入场的人第一次尝到「自我改进」兴奋不已。基于我见过的证据，这不会发生。</p>
+              <p>冬天：某种意义上仍可能发生——巨头与超大规模者的股价可能回调，因为大家都在给「神之时刻」定价（我不是专家）。但我担心的那种冬天是：AI 继续在自动化上无可救药地无用——而这个已经不会发生了。我爱 ChatGPT、爱 Claude Code 与 Codex，但鉴于 AI 之强，这些还不够；几乎所有人内心深处都有同感：聊天机器人感觉很魔法，可它改变世界的方式少得奇怪——装瓶这么便宜的智能本该无处不在，可每年都有知名公司因为聊天机器人不够可靠、连得来速自动化都失败。这种状况会很快被解决。</p>
+              <p></p>
+              <p>【收尾】</p>
+              <p>周六录制、疯狂时段——但我们不是 996 公司，我们成熟而理性，北极星很不一样。感谢所有早期信徒：大多数听说过 Jev 的人还没 get it——没关系，真正需要知道的人已经知道了；get 到的人在社交媒体与私聊里尖叫着欢呼：「AI 终于变得合理了一点点。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>A brand-new MAD Podcast episode (new to this digest): Matt Turck interviews Diogo Almeida, CEO of TypeSafe and co-inventor of RLHF, about Jev — the &#39;decision model&#39; API that returns probabilities instead of text. Core threads: System 1 vs System 2 (Kahneman) — Jev is a system-one model, and &#39;AI is just good at system one, and that is extremely valuable on its own; we have not come even close to solving the jaggedness of system two&#39;; composability — software conquered the world with dumb logic gates by doing units of work so reliably they could be composed into bigger things, and &#39;AI so far has been incredibly noncomposable — it plays nicely with nothing except other AI&#39;; the executive-assistant email example — LLM systems program giant natural-language prompts that make subtle, embarrassing, costly mistakes as complexity rises, while Jev decomposes intent into legible &#39;smart if statements&#39; (classifiers) that can be measured, never forgotten, and added to evals (&#39;code is the roller coaster tracks — you don&#39;t go off the rails&#39;); returning calibrated probabilities so developers choose their own thresholds (Disney vs Character AI on refusals); speed/price — &#39;a new quantum of speed&#39; from tossing out autoregressive text generation for &#39;parallel, gradual discovery&#39;; &#39;classification is AI-complete&#39; — not narrow, a different shape of intelligence; the RLHF post-mortem — what made RLHF RLHF was the task (human preference, text-in-text-out), side effects include sycophancy, over-refusal, mode dropping and models &#39;slightly dumber at decisions&#39;, plus a harmful expectations-reality decoupling (&#39;holy smokes we can automate&#39; that empirically didn&#39;t happen); RLVR — crushes every benchmark &#39;by construction&#39; (95% Einstein, 5% Mr. Bean: &#39;if it doesn&#39;t tell you when it&#39;s the Mr. Bean, how are you gonna automate anything?&#39;) but hasn&#39;t changed automation; RLCD — the new training method, where RL is &#39;a small slice of the whole task pie&#39; and the data shape had to be invented in-house; the Bitterest Lesson — Sutton&#39;s compute-over-algorithms was an oversimplification born of game worlds where task and data are functions of compute; &#39;you get what you optimize for&#39; and the biggest bang is figuring out the task (ChatGPT pre/post-RLHF was adult-vs-toddlers); pretraining — TypeSafe MacGyvers open-weight models together with &#39;disgusting things&#39; (a &#39;bastardization of post training&#39;) on &lt;$40M raised, because &#39;pretraining is a giant dumpster fire of wasting resources&#39;; on &#39;just a classifier&#39; — classifiers are an interface, not old-school ML (&#39;how does Facebook work? Classifiers. TikTok? Classifiers. Google? Classifiers&#39;), and Jev as &#39;every engineer having a 2019 20-person ML team building every classifier on the fly — and it&#39;s smarter than that&#39;; &#39;Prod not god&#39;; the copycats (Cloudflare, Databricks, Microsoft, OpenAI&#39;s Decisions API — which earns a shoutout for not shipping benchmarks: &#39;benchmarks are useless… they hurt most the users they&#39;re meant to help&#39;); Jevons paradox as name origin and market thesis (a separate system-one market that will Jevons like semiconductors, not gas); RSI skepticism (the neural-architecture-search déjà vu; Amdahl&#39;s law; &#39;people young to the field getting jazzed about their first taste of self-improvement&#39;); and the winter that mattered — &#39;AI continuing to be so unbelievably useless at automation&#39; — now averted: chatbots are magical yet have changed the world weirdly little, and the famous drive-through failures will be addressed &#39;quite quickly.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Diogo Almeida: I would describe RLHF as making models chat and making models pleasing for chat.</p>
+              <p>Diogo Almeida: AI is very strong at system one… And as far as I can tell, we have not come even close to solving the jaggedness of system two.</p>
+              <p>Diogo Almeida: The idea is you can make classifiers for all of these things, and you have this legible system where not only can you measure if every if statement is accurate, you know that none of those if statements will be forgotten.</p>
+              <p>Diogo Almeida: Code is kind of like the roller coaster tracks. You don&#39;t go off the rails. Code prevents that from happening.</p>
+              <p>Diogo Almeida: AI so far has been incredibly noncomposable. Like, it plays nicely with nothing except other AI. And that&#39;s kind of tragic.</p>
+              <p>Diogo Almeida: The way I like to describe it is 95% Einstein, 5% Mr. Bean. And if it doesn&#39;t tell you when it&#39;s the Mr. Bean, then how are you gonna automate anything?</p>
+              <p>Diogo Almeida: Classification is AI complete.</p>
+              <p>Diogo Almeida: You get what you optimize for, and you need to know what you optimize for.</p>
+              <p>Diogo Almeida: I think pretraining is a giant dumpster fire of wasting resources.</p>
+              <p>Diogo Almeida: We&#39;re building prod, not god.</p>
+              <p>Diogo Almeida: The way AI winter I&#39;m worried about is AI continuing to be so unbelievably useless at automation. And I just think that that&#39;s not gonna happen anymore.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/watch?v=zvXGR81FBZc" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-16 source feeds (14 builders, 30 tweets, plus one long-form podcast: MAD Podcast with TypeSafe CEO and RLHF co-inventor Diogo Almeida on Jev, new to this digest).">Source: Follow Builders curated daily digest. Built from the 2026-10-16 source feeds (14 builders, 30 tweets, plus one long-form podcast: MAD Podcast with TypeSafe CEO and RLHF co-inventor Diogo Almeida on Jev, new to this digest).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
