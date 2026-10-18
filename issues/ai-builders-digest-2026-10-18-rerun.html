@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-18" data-issue-number="146" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 146 期｜2026-10-18｜双语精选版｜2 条精选｜2 位作者｜2 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="周末播客特辑。今日 X feed 与昨日完全相同（37 条推文已在 10-17 期完整收录），但播客快照里是一期全新节目：No Priors 对话 OpenAI 联合创始人、President Greg Brockman（**本刊首次收录**，45000 字符 transcript 全文翻译随卡附上）。核心论断开门见山：「网络安全支出、安全支出实际上应该远远超过软件支出——人们还没有真正内化网络安全的物理学将发生多大改变。」要点速览：数学里程碑——「AI 能否产生新知识？如今已无法否认：答案是能」（近 400 个重要公开问题被解决，领域专家从中挖出出人意料的思想迁移而非不可理解的证明）；为什么数学先破——数据充足，而生物学被数据卡脖子（「算力×数据×算法=能力=结果」）；药物发现是第一优先——「人类极其不擅长生物学；对神经网络来说，没有理由它该更擅长自然语言而不是生物学」；Dots 主动 agent——「你下班了它还在干」，本质是「形态而非能力的改变」；「最好的 UI 是没有 UI——ChatGPT 从文本框开始，我们要去的地方连文本框都没有」；「防守者窗口」——巅峰 AI 帮防守者加固、趁能力尚未广泛扩散（韩国银行入侵已是前哨）；每一行人类写的代码从未真正被检查过（「从来没有哪位 CISO 的资源是够用的」）；形式化验证（「模型这么擅长证明，为什么不用来证明软件的安全性质？」）；25 名工程师、项目全停、只做安全的内部演习；以及 Steve Jobs 的 iMac 把手——让人感到随时能把机器拎起来扔出窗外。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">周末播客特辑。今日 X feed 与昨日完全相同（37 条推文已在 10-17 期完整收录），但播客快照里是一期全新节目：No Priors 对话 OpenAI 联合创始人、President Greg Brockman（**本刊首次收录**，45000 字符 transcript 全文翻译随卡附上）。核心论断开门见山：「网络安全支出、安全支出实际上应该远远超过软件支出——人们还没有真正内化网络安全的物理学将发生多大改变。」要点速览：数学里程碑——「AI 能否产生新知识？如今已无法否认：答案是能」（近 400 个重要公开问题被解决，领域专家从中挖出出人意料的思想迁移而非不可理解的证明）；为什么数学先破——数据充足，而生物学被数据卡脖子（「算力×数据×算法=能力=结果」）；药物发现是第一优先——「人类极其不擅长生物学；对神经网络来说，没有理由它该更擅长自然语言而不是生物学」；Dots 主动 agent——「你下班了它还在干」，本质是「形态而非能力的改变」；「最好的 UI 是没有 UI——ChatGPT 从文本框开始，我们要去的地方连文本框都没有」；「防守者窗口」——巅峰 AI 帮防守者加固、趁能力尚未广泛扩散（韩国银行入侵已是前哨）；每一行人类写的代码从未真正被检查过（「从来没有哪位 CISO 的资源是够用的」）；形式化验证（「模型这么擅长证明，为什么不用来证明软件的安全性质？」）；25 名工程师、项目全停、只做安全的内部演习；以及 Steve Jobs 的 iMac 把手——让人感到随时能把机器拎起来扔出窗外。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Podcast: Greg Brockman — The Defender&#39;s Window / 播客：Brockman 论防守者窗口</h2>
+    <p class="section-desc">No Priors 全新一期（本刊首次收录）：OpenAI 联合创始人、President Greg Brockman 谈 GPT-6 之后的数学里程碑（「AI 产生新知识已成事实」）、药物发现第一优先论（「破解生物学的语言」）、Dots 主动 agent（「形态而非能力的改变」）、「最好的 UI 是没有 UI」、防守者窗口与形式化验证、25 名工程师内部安全演习，以及那个惊人论断——「安全支出应远超软件支出」。45000 字符 transcript 全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:nopriors-greg-brockman" data-author-name="No Priors Podcast" data-author-tag="Greg Brockman（OpenAI 联合创始人 &amp; President）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors Podcast avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors Podcast</div>
+            <div class="author-tag is-inline">Greg Brockman（OpenAI 联合创始人 &amp; President）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>本刊首次收录 No Priors：Elad Gil 与主持人对话 OpenAI 联合创始人、President Greg Brockman——GPT-6 向十亿人推送之后的这一周。核心线索：数学里程碑（「AI 能否产生新知识？如今已无法否认——答案明确是能」；近 400 个重要公开问题被解决）；为什么数学先破（数据充足，而生物学被数据卡脖子）；药物发现是第一优先（「人类极其不擅长生物学——对神经网络来说，没有理由它该更擅长自然语言而不是生物学」）；Dots 主动 agent 的形态革命；消费级与企业级助手将融合（区别只是算力预算）；「最好的 UI 是没有 UI——ChatGPT 从一个文本框开始，我们要去的地方连文本框都没有」；以及重头戏网络安全：「防守者窗口」、每代人写的代码从未真正被检查过、形式化验证、25 名工程师内部安全演习，与那个惊人的判断——「安全支出应该远超软件支出」。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：安全的物理学要变了】</p>
+              <p>Greg Brockman（冷开场）：为了确保 AGI 造福全人类，我们认为人类必须稳坐驾驶席、对未来保有控制权，这项技术应当放大人类的能动性。放眼我们将要进入的世界：软件在某种程度上正在变成「准入门槛」——它变得太便宜了。你不只是想要软件——你想要可靠的、安全的、你能信赖的软件。所以网络安全支出、安全支出实际上应该远远超过软件支出。我认为人们还没有真正内化：网络安全的物理学将发生多大改变。我认为我们有机会迎来一个安全得多的世界。</p>
+              <p>主持人：欢迎回到 No Priors。今天 Elad 和我对话 OpenAI 联合创始人、President Greg Brockman。我们聊 OpenAI 最新的数学成果、Astra、为什么 Greg 相信 AI 现在能产生真正的新知识，以及他为什么主张安全支出应远超软件支出——这可是个相当大胆的论断。</p>
+              <p></p>
+              <p>【数学里程碑：新知识已成事实】</p>
+              <p>Elad：AI 的每一周都像一年。OpenAI 这周动静很大：GPT-6 推给了超过十亿人，数学侧也有激动人心的新闻。你现在最兴奋的是什么？</p>
+              <p>Greg：我对 OpenAI 的运转方式有个信念，来自那句骑行名言——「它从不会变容易，你只是骑得更快」。每次你以为到了影响力的峰值，就会意识到还有另一个层级。这不只关乎一家公司或一项技术，而是我们全世界一起在采用这项技术、从中获得最大价值、改善每个人的生活。这周的数学结果是一个真正的里程碑：想想过去一千年人类生活质量改善的根本驱动力是技术、是科学进步——我们现在有能力大幅加速科学发现。「AI 到底能不能产生新知识」这个老问题，如今已无法否认：答案明确是——能。</p>
+              <p>当然还有更多要做——我们还没到提出全新理论的程度，但我们已经能解决百年老的数学问题。真正令人兴奋的不是机器给你一个答案，而是装备了这些工具的人能做到从前不可想象的事：人的杠杆率在暴涨。你有数学问题就能解；那把同样的能力用到生物学呢？你是个小生意主、想把生意经营好呢？为你的领域调校的智能，将让几乎不可想象的结果对每个人都触手可及。</p>
+              <p></p>
+              <p>【证明的美与「可沟通性」】</p>
+              <p>Elad：早期模型连算术都翻车，现在能证高级定理了。当这些进展冲击数学、物理、材料学时——任何数学领域里能真正裁定一个定理的人本来就极少——你怎么看「沟通」这一侧？</p>
+              <p>Greg：我数学出身，曾以为自己会成为数学家，深受 Galois、Gauss 这些在百年、四百年时间尺度上工作的人启发。数学之美在于理解宇宙的结构——数学是发明还是发现？美与意义某种程度上在观者眼中。所以对我来说，关键不是「这是一个没人看得懂的证明、问题解决了」，而是从中能提炼出什么洞察。我们公布了近 400 个现已解决的重要公开问题，数学界正在逐个挖掘洞察；领域专家们写道：里面有出人意料的思想迁移——「为什么他们把那个结果用在这里？」——正在浮现的不是不可理解的定理（当然数学史上一直有不可理解的证明：四色定理就是完美例子——机器枚举一堆情形、毫无美感可言）。我们已经进入机器发现的另一个阶段。</p>
+              <p>主持人：我很乐观的一点是，随着模型的心智理论变好——能弄清我们人类知道什么、并带我们跟上通往新理解的路——「人们被期待懂多少」的水位线也会整体抬升。我自己就是先用 Math Academy、再用 ChatGPT 补数学的人。</p>
+              <p>Greg：这点很重要，也许是这项技术被低估的好处之一：帮人知道得更多、理解得更多、更好地理解彼此与世界。而且这与 AI 安全和对齐直接相连——2017 年起我们就讨论过辩论与迭代放大这类技术：当 AI 解决的问题对人类来说太难检查时怎么办？总结一本书就极难检查——除非读过全书，你不知道总结好不好。但如果有另一个 AI 试图证明这个总结是坏的，它回来说「书里这段明显是关键情节、而总结里没有」——你不必读全书也能判断这是个好论证。所以存在一些训练方式，既让人类保有监督、稳坐驾驶席（这是 OpenAI 的根本价值观），又让 AI 的成果真正面向「让人学到东西」、而非抽象的知识本身。</p>
+              <p></p>
+              <p>【为什么数学先破：数据】</p>
+              <p>主持人：对多数人来说数学理论进展仍偏抽象。AI for science——比如「未来若干年解决所有疾病」的信念——从数学到那里的中间一步是什么？</p>
+              <p>Greg：这么多年迭代下来，我们已能看出规律的形状：如果一个 AI 在某个维度变强了、而你明白它为什么变强，那么所有具备相似性质的人类领域都应该期待类似结果。数学为什么先被拿下？一部分是原始智能已到位；大家说「数学可验证」——但如今不再完全成立：算术可验证（对个答案就行），可自然语言证明极难验证。真正的核心洞察是数据：数学有海量数据、理论物理有海量数据；生物学呢？显然被数据卡死。</p>
+              <p>幸运的是我们也在攻关少数据技术。深度学习的根本物理学就是：算力×数据×算法=能力=结果。把这些模型与技巧搬到生物领域——有些环节会迅速沦陷（从前极其痛苦的事变得极其容易），但会出现新瓶颈。有些瓶颈甚至不是深层生物理论：比如监管申报——把临床试验的全部论证写出来要一年，AI 写这些容易得多。所以药物发现流程的每一步都要重新审视；有些环节基础数据根本不存在——湿实验室的创新、仿真的创新会变得极其重要。</p>
+              <p>Elad：你说到点子上了。早期研究（AlphaFold 那一代）都聚焦在设计分子、判断是否结合；而做一款药要 15 年、15 亿美元——约 1500 万美元在临床前（小鼠实验、分子），14 亿以上在临床试验；两三年对十二年。</p>
+              <p></p>
+              <p>【药物发现：第一优先】</p>
+              <p>Greg：如果只能挑一个领域彻底革命，药物发现是最清晰、最显然的选择——纯粹地提升所有人的生活质量，是大家长期公认的 AI 第一应用。这条流水线长到离谱，而且我们会发现：人类极其不擅长生物学、极其不擅长药物发现。自然语言对人类是母语——它跟我们与世界的互动方式高度契合；生物学对我们完全陌生。但对神经网络来说，没有任何先验理由认为它该更擅长自然语言而不是生物学——既然神经网络在自然语言上已经这么强，从第一性原理出发，你完全应该能破解「生物学的语言」。这是我的第一优先：第一性原理上应该成立，实证上我们也已经在这么多环节上如此接近。</p>
+              <p>可以大幅提高并行度、压缩各环节时长。药物发现还有很多维度：比如 N-of-1 疾病——很多人的病其实有药可治，只是那篇论文存在于文献某处，找到那唯一一篇对症的论文就能治好这个人；这种操作有大量先例，可以大规模铺开。所以短期内的实际影响是可能的。材料科学是另一个例子，还有一长尾领域会看到「人类能 accompli 什么」的真实变化。</p>
+              <p></p>
+              <p>【监管与「物理学的改变」】</p>
+              <p>主持人：药物 15 年上市周期里，试验由监管定制、有充分理由。如果技术成立、数据可得，说服监管改变预期会成为限制因素吧？</p>
+              <p>Greg：这里有一个时刻（当然还有工作要做）：如果你能真正证明药物发现的物理学已经变了，它当然应该传导到系统每一层。拿个很不一样的例子——自动驾驶：道路、安全规则都是为人类司机调校的；当自动驾驶比人类安全 10 倍、100 倍，你就该重新思考整个交通系统——也许某些区域只允许自动驾驶。监管也不统一：澳大利亚与美国的临床试验监管差异很大，已经有很多试验搬到监管环境更合理的地方。所以一切取决于我们真正能证明什么：神经网络会不会比真跑一场临床试验更有预测力？我们还没到，但可以想象会到。长期研究结果需要至少一个真实长周期来对应验证——但我认为「可能性的 80%」会很快兑现。</p>
+              <p></p>
+              <p>【Dots：形态而非能力的革命】</p>
+              <p>主持人：Astra 发布与 DevDay 已过了一阵。内外部用法有什么让你意外的？</p>
+              <p>Greg：Dots 真正改变了我们很多人的工作方式。Dots 是一个主动型 agent——always on、一直干活，你下班了它还在干。我的 Dot 会盯着我本该做没做的事：该发的消息、答应过的事；每天早上醒来它给我一张待办清单——而且它经常注意到我从未让它注意的事：日程冲突、『你得提前离开这个会才能赶到那个事』。它对上下文极其敏感：知道我今天的安排、理解我们的项目、知道我收件箱与 Slack 里有什么、知道我最近在问什么问题。Dots 的本质是形态的改变、不是能力的改变——它就是个 Astra 级模型、有自己的云端电脑；但在工作场景里，这种形态配合这个智能水平，是 game changer。</p>
+              <p>Elad：你跑多个还是就一个？</p>
+              <p>Greg：就一个，图标是只小猫头鹰，覆盖我全部工作生活。</p>
+              <p></p>
+              <p>【消费级与企业级将融合】</p>
+              <p>主持人：OpenAI 同时有研究、消费、企业/开发者平台。工作助手（Dots）与消费助手（instincts、muses 之类）会分离吗？</p>
+              <p>Greg：一定会融合，但压力确实不同。大众消费产品必须解决规模化与免费/低价；工作场景里——不管你是高管还是 IC——「峰值智能」就容易卖得多：只要多花钱有回报，就值得堆算力。所以主要区别就是成本。ChatGPT 里我们花大力气做了最大规模的免费层、把记忆带给所有免费用户——那是巨大的工程投入；同一功能给极少数人、高成本实现反而容易。所以个人助理市场会分层：不同层消耗的算力根本不同，产品形态也随之略不同（支付、旅行这类更偏消费）。但没有本质区别——就是一个在做事的 AI，只是被不同方向的力挤压。OpenAI 的优势在于：我们有 12 亿 ChatGPT 消费者、又有领先的编码与企业业务——没有第二家两者兼有。所以我们的策略是统一它们：不在两条战线作战、只在一条战线作战。这也是 AI 的大方向：模糊消费与企业的边界。我们会迎来创业者的文艺复兴——已经在发生：我认识的人辞职创业，说「要是没有这个我能信赖的 AI、能搞定那么多准入门槛的事，我绝不会辞职」。</p>
+              <p></p>
+              <p>【最好的 UI 是没有 UI】</p>
+              <p>Elad：传统上企业级与消费级的分野在 UI。你怎么看动态 UI 的演化？</p>
+              <p>Greg：首先，最好的 UI 是没有 UI——AI 的方向就在这里：一个你能说话的东西，口头说、Slack 说、iMessage 说，任何界面都行——Dots 今天 literally 就是这样。但个人场景与工作场景有根本差异：工作场所有管理员、有安全团队、有更多利益相关方；它不只是「你的、代表你的 AI」。这带来产品差异，有时是很小的：比如企业想控制新功能何时上线——于是有管理开关，结果你能用的功能反而更少。这就回到「没有 UI」的悖论：功能缺失了，你怎么让人知道？这是持续存在的挑战，得直面这份复杂。但说到底，想想又疯狂又美：ChatGPT 从一个文本框开始；我们要去的地方，连文本框都没有——那就是我们被承诺过的 AI。</p>
+              <p>主持人：一个没有 UI 的产品靠什么变好？算力、模型质量、记忆系统、行为校准——「该想多用力」的校准现在做得如何？</p>
+              <p>Greg：这个我们越来越擅长。GPT-6 推给所有人后，AI 要深想一个问题时，可以先给你个快答、然后继续想、再给你完整答案。另外配合「没有 UI」，我们推出了智能 UI：AI 可以实时生成 UI。虽然没有固定界面、没有按钮菜单要学，但 AI 能把结果塑造成视觉上正是你要的样子——订机票要复杂界面（看所有选项）；「怎么组装自行车」你可能需要一个定制小应用——往常得有人写一个月，你当然不会为装自行车雇人写一次性应用，但 AI 在你需要的当下现场写一个完全没问题。我们正进入一个 AI 把自己塑造给你的世界：用户界面正在变成「你在那一刻恰好需要的东西」——这是我们产品思路每一层的焦点。</p>
+              <p></p>
+              <p>【网络安全：防守者窗口】</p>
+              <p>Elad：最近 AI 话语最大的转向之一是网络安全。你怎么建护栏？</p>
+              <p>Greg：我确实认为网络安全的物理学正在改变，而我们正处在所谓的「防守者窗口」：巅峰前沿 AI 能帮助防守者加固自身——这些能力还未广泛扩散，但广泛扩散的能力正在随每次模型发布棘轮式上升（全球各家供应商都是）。前沿影响已经开始显现——比如韩国已有多起由不同模型驱动的高知名度银行入侵事件。关键图景是：防守者必须利用这个窗口。我们一直在努力通过 Daybreak 计划，负责任地把巅峰智能开放给防守者、用极强的模型找出并修复系统漏洞。必须意识到：这些缺陷本来就存在。每一行人类写的代码你都得问「安全吗？写它的人受训对了吗」——你会意识到我们构建系统的方式在根本上就不安全，而且我们一直心知肚明：从来没有哪位 CISO 的资源是够用的。</p>
+              <p>主持人：看看 XKCD 那幅漫画——全世界的基建都压在一个住在地下室的人写的开源项目上；还有 Heartbleed——都早于这些 AI 问题。</p>
+              <p>Greg：没错。这些其实是人的问题：我们选择这样搭建互联网——安全是事后补丁上去的。早期蠕虫病毒爆发后，人们才意识到要杀毒软件、要把 HTTP 升级成 HTTPS——我们总走了较慢的那条路，先造再补。互联网其实是为韧性而建、不是为安全而建。现在大量技术债会浮出水面，到了还债的时候。作为公司我们全力投入这个时刻：我们有十亿美元级承诺，帮一线防守者获得模型访问、用于防御；我们在研究如何找出各种漏洞、帮世界响应、协调事件响应、与政府和社区协作落地。</p>
+              <p>我认为人们还没内化网络安全物理学的变化幅度——而机会恰恰在于：这是一个通向安全得多的世界的窗口。AI 让你以前所未有的方式还技术债：比如软件的形式化验证——这些模型显然极擅长证明，为什么不用来证明软件的安全性质？这技术一直存在，只是太痛、太小众、太贵——没有人对任何像样的系统真的做。这一切都可以改变。我们内部已经在这么干：每出一个新模型，就把它用于自保——找漏洞、然后打满（saturate）。比如我们抽调了约 25 名生产工程师，告诉他们「你们的项目全部暂停，你们现在只做安全」：让当时的巅峰智能模型扫我们全部基础设施、发现一堆问题，还做了工具以便日后重复；修完之后，这个模型能找到的问题就饱和了。这是个好故事。但注意：下一个模型出来，整个过程要再来一遍。同时，如今这么多代码是 AI 辅助写的——我们正在（也已经在）训练模型从一开始就写安全的代码。所以用对了 AI，我们可以拥有从根本上更安全的系统。</p>
+              <p>Elad：所以听起来会有一段过渡期：攻击与事件先变多，等代码库用上更安全的 AI 代码、防守追上来之后才会好转——这好像也是业内目前的共识。</p>
+              <p>Greg：我对我们能驾驭这个时刻非常乐观，但它确实需要协同响应：防守者要内化「网络安全的物理学变了」、窗口不会永远开着。我们要转向一个新世界：组织的安全 = 基础功（一次性投资）+ 用来防御自身的网络能力水平。在那个世界里，防守者可以反超攻击者——但这需要大量改变：每个组织的运作方式、我们对关键基建的集体思考、给从未有资源的那些主体补资源。</p>
+              <p></p>
+              <p>【安全支出应远超软件支出】</p>
+              <p>主持人：你内部那个例子太好了——互联网级技术债，然后你说「抽 25% 工程师、冻结功能一个季度」。世界还没接受这种状态。传统上安全支出约占 IT 预算低个位数百分比。你觉得现在应该是多少？传统网安工具还相关吗，还是该花两倍？</p>
+              <p>Greg：我有种感觉：安全支出实际上应该远远超过软件支出。我真的这么想——我可能不对，但看看我们要进入的世界：软件正在变成「准入门槛」的反面——它太便宜了。所以你当然不只要软件，你要的是可靠、安全、你信得过的软件——软件的韧性才是价值所在、而且会越来越重要。XKCD 里那个开源维护者从来说不通；之所以有那个世界，是因为写出可靠软件太难、人人都有供应链、极少有公司审计自己的供应链——恶意包一上传、一批公司中招。这一切必须改变，而靠人类软件开发者根本不可能改变：懂这些冷门专业知识的人太少了。</p>
+              <p>我们在与社区一起做：与 CrowdStrike 这类公司合作。这是协同响应，但我们真的视之为 OpenAI 要牵头领导的核心优先级——因为我们有前沿模型、有网安领域的巅峰智能：这里有向善的变革性潜力。过去几个月我们谈了自己开发流程的安全与对齐转型；我们也在为全世界想这件事：帮世界从根本上更安全、帮人们走通这段时期。</p>
+              <p></p>
+              <p>【人类始终在驾驶席】</p>
+              <p>Elad：OpenAI 一直非常 pro-human、强调人类能动性与进步——这是当初制衡其他公司、让 AI 普惠正向的初心。这股精神还在吗？</p>
+              <p>Greg：这精神深植于我们的使命——确保 AGI 造福全人类，「人类」二字是关键。我们认为人类应稳坐驾驶席、对未来保有控制权，技术应放大人类能动性。</p>
+              <p>主持人：即使模型能力超越人类？</p>
+              <p>Greg：这一点绝对关键。要记住这些模型是参差的：有些地方 AI 明显强过任何人——GPT-4 懂的就已远超任何个人。我常想起 Steve Jobs 为什么给 iMac 装把手：让人感到能控制这台机器——随时可以拎起来扔出窗外。同样的精神必须适用于 AI：人类在驾驶席，人类判断、人类价值。未来人类在某些领域会更像 CEO 或董事会成员：你身边全是领域专家、全是知识面与想法可能都胜过你的团队——但根本问题始终是：你满意吗？这是你想要的吗？这让你的生活更好吗？这不只关乎 AI，是关乎技术本身：技术是为了托举人类文明——它是生活质量改善最根本的驱动力。这就是 OpenAI 的信念。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>New to this digest: No Priors (Elad Gil &amp; co-host) sits down with OpenAI cofounder and President Greg Brockman right after GPT-6 rolled out to over a billion people. Core threads: the math milestone — &#39;is AI actually able to come up with new knowledge? At this point, it&#39;s just impossible to deny&#39; — ~400 important open problems resolved, with domain experts finding &#39;surprising ways of applying ideas&#39; rather than incomprehensible proofs (four-color-theorem era is over); why math fell first — raw intelligence plus data availability, whereas biology is data-bottlenecked (deep learning physics: compute × data × algorithms = capability = results); drug discovery as the #1 domain to revolutionize — &#39;humans are incredibly bad at biology… for a neural net, there&#39;s no reason it should be better at natural language than biology&#39;; N-of-1 diseases where the cure already exists in some paper; regulatory filings as a near-term AI win; the Dots form factor — a proactive agent that&#39;s always on (&#39;you stop working, it keeps working&#39;), knows your inbox, Slack, calendar and top-of-mind questions — &#39;a change to the form factor, not the capability&#39;; consumer vs enterprise assistants converging (the distinction is really about how much compute each segment can afford; ChatGPT&#39;s 1.2B users + leading enterprise business, &#39;no one else has both in house&#39;); &#39;the best UI is no UI… ChatGPT started as a text box, and what we&#39;re heading to, there isn&#39;t even a text box — that is the AI we were promised&#39;; generative/intelligent UI on the fly (bespoke one-off apps like bike-assembly instructions); the big one — cybersecurity: we are in &#39;the defender&#39;s window&#39; — peak frontier AI can help defenders before capable models diffuse broadly (South Korean bank hacks as leading edge); every line of human-written code was never really checked (&#39;there&#39;s never been a CISO who&#39;s been over-resourced&#39;); the internet was built for resilience, not security, and the tech debt is coming due; formal verification of security properties (&#39;these models are great at proving things — why not prove security properties of software?&#39;); the internal drill — 25 production engineers, projects on hold, peak model poking all infrastructure until findings saturate, repeat with each new model; the headline claim: &#39;cyber spend, security spend should actually vastly outstrip software spend&#39; because software itself is becoming so cheap it&#39;s no longer the barrier — reliability is; a $1B commitment to frontline defenders (Daybreak program, CrowdStrike partnership); and the pro-human close — Steve Jobs&#39; iMac handle as the design metaphor for AI: people should feel they can always pick it up and throw it out the window; humans as CEOs/board members of ever-more-capable teams; &#39;are you happy? Is this what you wanted? Is this what makes your life better?&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Greg Brockman: There has always been this question of is AI actually able to come up with new knowledge, and at this point, it&#39;s just impossible to deny. It is definitively, yes, possible.</p>
+              <p>Greg Brockman: We published about almost 400 very important open problems that are now resolved, and the mathematical community is going through all of that to look for insights.</p>
+              <p>Greg Brockman: Humans are incredibly bad at biology… For a neural net, I don&#39;t really think there&#39;s any reason to believe it should be better at natural language than… biology. You should be able to really crack the language of biology.</p>
+              <p>Greg Brockman: Dots is a proactive agent. It&#39;s always on, always working. You stop working, it keeps working.</p>
+              <p>Greg Brockman: The best UI is no UI… The ChatGPT, the text box, that&#39;s where it started… and what we&#39;re heading to, there isn&#39;t even a text box. That is the AI we were promised.</p>
+              <p>Greg Brockman: We are in what we call the defender&#39;s window… Defenders need to use this time.</p>
+              <p>Greg Brockman: There&#39;s never been a CISO who&#39;s been over-resourced.</p>
+              <p>Greg Brockman: I have a feeling that cyber spend, security spend should actually vastly outstrip software spend. Like, I really think that…</p>
+              <p>Greg Brockman: These models are obviously great at proving things. Why not prove security properties of software?</p>
+              <p>Greg Brockman: We think that humans should be firmly in the driver&#39;s seat, should have control over the future, and that this technology should amplify human agency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Weekend Replay: Slides Wars &amp; Roadster / 周末重播：Slides 大战与 Roadster</h2>
+    <p class="section-desc">今日 X feed 与 10-17 完全相同（17 位 builders、37 条推文，昨日已完整收录）——此处保留要点重播：Cherny「没有 Claude Code Review 我无法想象生产力」（3399 赞）vs Sottiaux「What is ChatGPT Space」（1744 赞）的 Slides 大战；Altman 盛赞新 Roadster（**55749 赞**）与 Navier-Stokes T 恤（9023 赞）；Amjad「数学家的五阶段哀伤」（651 赞）；Shipper「下一跃升是 editing and oversight」（86 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="weekend-replay-2026-10-17" data-author-name="Follow Builders（重播）" data-author-tag="X feed 与 10-17 相同" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Follow Builders（重播） avatar"><span class="avatar-fallback">FB</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Follow Builders（重播）</div>
+            <div class="author-tag is-inline">X feed 与 10-17 相同</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>重播说明：今日 X feed 与 10-17 完全相同——同样 17 位 builders、37 条推文，昨日刊物已完整收录，今日不重复展开。要点重播：Slides 大战（Cherny 的 Claude Code Review 生产力证词 3399 赞 +「别错过 Claude Slides」3025 赞，对阵 Sottiaux 的「What is ChatGPT Space, that is the question」1744 赞 + slides 支持官宣 556 赞）；Roadster 日（Altman「新 Roadster 相当惊艳，干得好 Elon」**55749 赞**——本刊史上最热推文之一——以及 Navier-Stokes 里程碑 T 恤 9023 赞）；Amjad 的「数学家五阶段哀伤」（651 赞）与 Shipper 的能力地图（86 赞）——「生成已又便宜又好，下一跃升是编辑与监督」。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cherny：没有 Claude Code Review 我无法想象生产力。Sottiaux：What is ChatGPT Space, that is the question。Altman：新 Roadster 相当惊艳。Amjad：数学家已到抑郁尾声、进入接受。Shipper：下一跃升是 editing and oversight。详见 10-17 期。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Replay note: today&#39;s X feed is byte-identical to 2026-10-17 — the same 17 builders and 37 tweets, fully covered in yesterday&#39;s issue. Headline replays: the Slides Wars (Cherny&#39;s Claude Code Review testimony at 3399 and &#39;Don&#39;t sleep on Claude Slides&#39; at 3025, vs Sottiaux&#39;s &#39;What is ChatGPT Space&#39; at 1744 plus the slides-support announcement at 556); Roadster Day (Altman&#39;s &#39;Wow the new roadster looks quite amazing, good job @elonmusk&#39; at 55749 — one of the biggest tweets in the digest&#39;s history — plus the Navier-Stokes milestone shirt at 9023); Amjad on mathematicians&#39; five stages of grief (651); Shipper&#39;s capability map (86): &#39;generation is now cheap and high quality — the big capabilities bump we need is now editing and oversight.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: I could not imagine being productive without Claude Code Review. It runs on all of my PRs, and catches almost every bug before it goes it.</p>
+              <p>Thibault Sottiaux: What is ChatGPT Space, that is the question.</p>
+              <p>Sam Altman: Wow the new roadster looks quite amazing, good job @elonmusk</p>
+              <p>Amjad Masad: Fascinating to see Mathematicians go through all the stages of grief… We&#39;re at the tail end of depression and entering acceptance.</p>
+              <p>Dan Shipper: generation is now cheap and high quality — the big capabilities bump we need is now editing and oversight</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-18 source feeds: X feed byte-identical to 2026-10-17 (17 builders, 37 tweets — fully covered in that issue; today kept as a weekend replay card), plus one brand-new-to-this-digest podcast: No Priors with OpenAI cofounder &amp; President Greg Brockman on the changing physics of cybersecurity and drug development (full transcript translated).">Source: Follow Builders curated daily digest. Built from the 2026-10-18 source feeds: X feed byte-identical to 2026-10-17 (17 builders, 37 tweets — fully covered in that issue; today kept as a weekend replay card), plus one brand-new-to-this-digest podcast: No Priors with OpenAI cofounder &amp; President Greg Brockman on the changing physics of cybersecurity and drug development (full transcript translated).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
