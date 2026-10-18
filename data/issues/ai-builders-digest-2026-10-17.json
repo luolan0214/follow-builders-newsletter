@@ -1,0 +1,235 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-17",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Slides 大战日。Cherny 双发（**3399/3025 赞**）：「我已无法想象没有 Claude Code Review 的生产力——它跑在我所有 PR 上，几乎抓住每个 bug」+「别错过 Claude Slides——我现在做幻灯片都这样，再也不用谷歌搜 iphone frame svg」；Sottiaux 应战三连（**1744/687/556 赞**）：「What is ChatGPT Space, that is the question——真团队出镜、时有可爱的尴尬」+「我们昨天刚加了 slides 支持（Pro/Business/Enterprise 可用）」；Amjad 路过补刀（103 赞）：「Frontier Slides, super fast ;)」。Roadster 日：Sam Altman（**55749 赞，近期最高**）：「Wow the new roadster looks quite amazing, good job @elonmusk」+ Navier-Stokes 里程碑 T 恤（9023 赞）；Rauchg 用可玩模拟复刻了 Roadster demo（602 赞）；Askell（971 赞）：「the rocket car is cool and i want one」。Amjad 观察数学家们（651 赞）：「在极短窗口内走完五阶段哀伤——否认、愤怒、讨价还价、抑郁、接受；我们已到抑郁尾声、正在进入接受」。Shipper 的判断（86 赞）：「generation 已经又便宜又好——下一个大的能力跃升是 editing and oversight」。播客位为重播：Jev/MAD Podcast 一期与昨日快照相同，已在 10-16 期全文翻译，今日不重复。"
+  },
+  "archive": {
+    "title": "Slides 大战日报",
+    "desc": "Claude Slides 与 ChatGPT Space 同日互秀（Cherny 3399 赞 vs Sottiaux 1744 赞）；Altman 盛赞新 Roadster；播客位 Jev 重播。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-10-17 source feeds (17 builders, 37 tweets; podcast feed unchanged from 2026-10-16 — the MAD Podcast episode with Diogo Almeida on Jev was already fully translated in that issue, so today's podcast slot is a replay note).",
+  "sections": [
+    {
+      "title": "The Slides Wars / Slides 大战",
+      "desc": "Cherny 双发（**3399/3025 赞**）：「没有 Claude Code Review 我无法想象生产力」+「别错过 Claude Slides——我现在的做幻灯片方式」；Sottiaux 三连（**1744/687/556 赞**）：「What is ChatGPT Space, that is the question」「更新 app 享受这个 gem」「我们昨天刚加了 slides 支持」；Amjad 补刀（103 赞）：「Frontier Slides, super fast ;)」；Claude 官方：Haiku 5.5 写了二十首俳句再用 JavaScript 画出每一帧（644 赞）。",
+      "cards": [
+        {
+          "authorKey": "bcherny",
+          "authorName": "Boris Cherny",
+          "authorTag": "Claude Code @Anthropic",
+          "sourceUrl": "https://x.com/bcherny",
+          "en": {
+            "rewrite": [
+              "Cherny's double: the productivity testimony (3399): 'I could not imagine being productive without Claude Code Review. It runs on all of my PRs, and catches almost every bug before it goes in. This is a piece of the secret sauce that lets the team and I move so quickly while raising the quality bar.' And the Slides pitch (3025): 'Don't sleep on Claude Slides. This is how I make slide decks now — no more googling \"iphone frame svg\" like the old days.'"
+            ],
+            "original": [
+              "Boris Cherny: I could not imagine being productive without Claude Code Review. It runs on all of my PRs, and catches almost every bug before it goes it. This is a piece of the secret sauce that lets the team and I move so quickly while raising the quality bar",
+              "Boris Cherny: Don't sleep on Claude Slides. This is how I make slide decks now -- no more googling \"iphone frame svg\" like the old days"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Cherny 双发（3399/3025 赞）——生产力证词：「我已无法想象没有 Claude Code Review 的生产力。它跑在我所有的 PR 上，几乎抓住每个 bug 才让它进去。这是让团队和我能跑这么快、同时还在抬高质量门槛的秘方之一。」+ Slides 安利：「别错过 Claude Slides。我现在做幻灯片全靠它——再也不用像过去那样谷歌搜『iphone frame svg』了。」"
+            ],
+            "original": [
+              "Cherny：没有 Claude Code Review 我无法想象生产力——它跑在我所有 PR 上、几乎抓住每个 bug；这是团队跑得快还抬质量的秘方。别错过 Claude Slides——我现在的做幻灯片方式，再也不用搜 iphone frame svg。"
+            ]
+          }
+        },
+        {
+          "authorKey": "thsottiaux+amasad+claudeai",
+          "authorName": "Thibault Sottiaux / Amjad Masad / Claude",
+          "authorTag": "Codex @OpenAI / Replit CEO / Anthropic",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's counter-triple: the ChatGPT Space explainer (1744): 'What is ChatGPT Space, that is the question. Endearingly awkward at times because it's the actual team working on it. What would you like to see next?' — plus the app update tease (687) and the slides support announcement (556): 'Also we just added slides support yesterday, try it out. Currently available in Pro, Business and Enterprise while we learn from your feedback.' Amjad's drive-by (103): 'Frontier Slides, super fast ;)' And from the Claude side: Haiku 5.5 wrote twenty haiku, then drew every frame in JavaScript (644)."
+            ],
+            "original": [
+              "Thibault Sottiaux: What is ChatGPT Space, that is the question. Endearingly awkward at times because it's the actual team working on it. What would you like to see next?",
+              "Thibault Sottiaux: Also we just added slides support yesterday, try it out. Currently available in Pro, Business and Enterprise while we learn from your feedback.",
+              "Amjad Masad: Frontier Slides, super fast ;)",
+              "Claude: Haiku 5.5 wrote twenty haiku, then drew every frame in JavaScript."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 应战三连（1744/687/556 赞）——ChatGPT Space 问答：「What is ChatGPT Space, that is the question。因为出镜的是真正在做的团队，时不时有种可爱的尴尬。你们想看什么下一期？」+ 更新提示「更新 app 享受这个 gem」+ 正式官宣：「我们昨天刚加了 slides 支持，试试看。目前 Pro/Business/Enterprise 可用——边收反馈边学。」Amjad 路过补刀（103 赞）——「Frontier Slides, super fast ;)」（Replit 也快有自己的 Slides 了）。Claude 官方秀肌肉（644 赞）——Haiku 5.5 先写了二十首俳句、再用 JavaScript 画出每一帧。"
+            ],
+            "original": [
+              "Sottiaux：What is ChatGPT Space, that is the question——真团队出镜、时有可爱的尴尬；我们昨天刚加了 slides 支持（Pro/Business/Enterprise）。Amjad：Frontier Slides, super fast ;)。Claude：Haiku 5.5 写了二十首俳句、再用 JavaScript 画出每一帧。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Roadster Day / Roadster 日",
+      "desc": "Sam Altman（**55749 赞，近期最高**）：「Wow the new roadster looks quite amazing, good job @elonmusk」+ Navier-Stokes 里程碑 T 恤背面印着解题思维链的最后一行（9023 赞）+ 为 Nick 高兴（2920 赞）；Rauchg 用可玩的高精度模拟复刻 Roadster demo、保留大量真实细节（602 赞）；Askell（971 赞）：「the rocket car is cool and i want one」。",
+      "cards": [
+        {
+          "authorKey": "sama+rauchg+AmandaAskell",
+          "authorName": "Sam Altman / Guillermo Rauch / Amanda Askell",
+          "authorTag": "OpenAI CEO / Vercel CEO / Anthropic",
+          "sourceUrl": "https://x.com/sama",
+          "en": {
+            "rewrite": [
+              "Altman's trio: the Roadster praise (55749 — one of the biggest tweets in the digest's history): 'Wow the new roadster looks quite amazing, good job @elonmusk' — plus the Navier-Stokes milestone shirt detail (9023): 'The back of the Navier-Stokes milestone shirt is the last line of the chain-of-thought from the solution' — and the nod to Nick (2920): 'Very happy to see this from Nick!' Rauchg's tribute build (602): 'Rebuilt the Roadster demo in a playable, highly accurate simulation that retains a lot of the IRL details.' And Askell's verdict (971): 'the rocket car is cool and i want one.'"
+            ],
+            "original": [
+              "Sam Altman: Wow the new roadster looks quite amazing, good job @elonmusk",
+              "Sam Altman: The back of the Navier-Stokes milestone shirt is the last line of the chain-of-thought from the solution",
+              "Guillermo Rauch: Rebuilt the Roadster demo in a playable, highly accurate simulation that retains a lot of the IRL details",
+              "Amanda Askell: the rocket car is cool and i want one"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Altman 三连——Roadster 盛赞（**55749 赞，本刊历史上最热的推文之一**）：「Wow，新 Roadster 看起来相当惊艳，干得好 @elonmusk」；Navier-Stokes 里程碑 T 恤彩蛋（9023 赞）——「T 恤背面印的是解题思维链（chain-of-thought）的最后一行」；为 Nick 高兴（2920 赞）——「看到 Nick 的这个非常开心！」Rauchg 的致敬之作（602 赞）——「把 Roadster demo 复刻成了一个可玩的高精度模拟，保留了大量现实细节。」Askell 的结论（971 赞）——「火箭车很酷，我想要一台。」"
+            ],
+            "original": [
+              "Altman：新 Roadster 相当惊艳，干得好 Elon；Navier-Stokes T 恤背面印着解题思维链的最后一行。Rauchg：把 Roadster demo 复刻成可玩的高精度模拟。Askell：火箭车很酷、我想要一台。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Mathematicians' Grief & Capability Gaps / 五阶段哀伤与能力缺口",
+      "desc": "Amjad（651 赞）：「看数学家们在极短窗口内走完五阶段哀伤——否认、愤怒、讨价还价、抑郁、接受；我们已到抑郁尾声、正在进入接受」；Rauchg（341 赞）：「TypeScript is the new TypeScript 😂——scriptc 编译后比 tsgo 快 2-4 倍」；Levie（125 赞）：「AI 训练模型将比人类更好已到实用阈值，难以置信」；Shipper（86 赞）：「generation 已经又便宜又好——下一个大的能力跃升是 editing and oversight」；Turck 的算力梗（81 赞）。",
+      "cards": [
+        {
+          "authorKey": "amasad+rauchg+levie+danshipper+mattturck",
+          "authorName": "Amjad Masad / Rauchg / Levie / Shipper / Turck",
+          "authorTag": "Replit CEO / Vercel CEO / Box CEO / Every CEO / FirstMark",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Amjad's observation (651): 'Fascinating to see Mathematicians go through all the stages of grief — Denial, Anger, Bargaining, Depression, and Acceptance — in such a compressed window of time. We're at the tail end of depression and entering acceptance.' Rauchg's compiler joke (341): 'TypeScript is the new TypeScript 😂 When 𝚜𝚌𝚛𝚒𝚙𝚝𝚌-compiled, outperforms tsgo by 2-4x.' Levie's threshold note (125): 'It's incredible to have reached a threshold where it's practical that AI will be better at training models than humans at this point.' Shipper's capability map (86): 'generation is now cheap and high quality — the big capabilities bump we need is now editing and oversight.' And Turck's meme (81): 'When an AI startup gets a compute allocation.'"
+            ],
+            "original": [
+              "Amjad Masad: Fascinating to see Mathematicians go through all the stages of grief — Denial, Anger, Bargaining, Depression, and Acceptance — in such a compressed window of time. We're at the tail end of depression and entering acceptance.",
+              "Guillermo Rauch: TypeScript is the new TypeScript 😂 When 𝚜𝚌𝚛𝚒𝚙𝚝𝚌-compiled, outperforms tsgo by 2-4x",
+              "Aaron Levie: It's incredible to have reached a threshold where it's practical that AI will be better at training models than humans at this point",
+              "Dan Shipper: generation is now cheap and high quality — the big capabilities bump we need is now editing and oversight",
+              "Matt Turck: When an AI startup gets a compute allocation"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad 的观察（651 赞）——「看数学家们在如此压缩的时间窗口里走完全部哀伤阶段——否认、愤怒、讨价还价、抑郁、接受——太有意思了。我们已到抑郁的尾声、正在进入接受。」Rauchg 的编译器梗（341 赞）——「TypeScript 是新的 TypeScript 😂 经 scriptc 编译后、比 tsgo 快 2-4 倍。」Levie 的阈值论（125 赞）——「难以置信我们已经到达这样一个阈值：AI 训练模型比人类做得更好，已经成了现实可行的事。」Shipper 的能力地图（86 赞）——「生成现在已经又便宜又好——我们需要的下一个大的能力跃升是编辑与监督（editing and oversight）。」Turck 的梗图（81 赞）——「当一家 AI 创业公司拿到算力配额时。」"
+            ],
+            "original": [
+              "Amjad：数学家们在极短窗口走完五阶段哀伤，已到抑郁尾声、进入接受。Rauchg：scriptc 编译的 TypeScript 比 tsgo 快 2-4 倍。Levie：AI 训练模型胜过人类已是实用阈值。Shipper：生成已又便宜又好，下一跃升是编辑与监督。Turck：AI 创业拿到算力配额的瞬间。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Weekend Builds & The Rest / 周末做什么与其余",
+      "desc": "Claude 官方双发：心脏科 fellow 用 Claude 做出训练住院医读冠脉造影的 3D 工具（**1506 赞**）+「这个周末你在用 Claude 做什么？」（514 赞）；Garry Tan 双发（187/130 赞）：capy+Aside 让 agent 一次搞定编码与 DevOps + GBrain 最易上手的托管方式；Amjad 的政企牌（144 赞）：「你的数据属于你——Replit 部署到你的云、数据永不离家」；Aditya（120 赞）：sriramk 下周到 SPC 炉边谈话；Swyx 双发（66/46 赞）：等了近一年的新节目 + 近 kurzgesagt 级清晰度的讲解视频；Nikunj 双发（91/89 赞）；Ryo Lu 的诗集（102 赞）；Peter Yang 的 rap battle（23 赞）。",
+      "cards": [
+        {
+          "authorKey": "claudeai+garrytan+amasad+adityaag",
+          "authorName": "Claude / Garry Tan / Amjad Masad / Aditya Agarwal",
+          "authorTag": "Anthropic / YC CEO / Replit CEO / SPC",
+          "sourceUrl": "https://x.com/claudeai",
+          "en": {
+            "rewrite": [
+              "Claude official: a cardiology fellow built a 3D tool to help trainees learn to read coronary angiograms (1506), and the weekend prompt (514): 'What are you making with Claude this weekend?' Garry Tan's pair (187/130): starting a new project with @capydotai + @AsideAI so 'my agents can both code the first version and help me get all the DevOps set up in one fell swoop' — and the easiest hosted way to try GBrain. Amjad's enterprise card (144): 'Your data belongs to you! We'll deploy Replit to your cloud and data never leaves home. Designed for high stakes environments like governments, finance, and healthcare.' Aditya's heads-up (120): Sriram Krishnan joins SPC for a fireside chat — 'He helped build Azure, scaled Meta's mobile ads, and led a16z's international expansion. Then he went to the White House and helped write the U.S. AI Action Plan.'"
+            ],
+            "original": [
+              "Claude: A cardiology fellow built a 3D tool to help trainees learn to read coronary angiograms.",
+              "Claude: What are you making with Claude this weekend?",
+              "Garry Tan: Starting a new project today, and my absolute favorite thing is @capydotai with @AsideAI means my agents can both code the first version and help me get all the DevOps set up in one fell swoop",
+              "Amjad Masad: Your data belongs to you! We'll deploy Replit to your cloud and data never leaves home. Designed for high stakes environments like governments, finance, and healthcare.",
+              "Aditya Agarwal: @sriramk is joining us for a fireside chat and Q&A. He helped build Azure, scaled Meta's mobile ads, and led a16z's international expansion. Then he went to the White House and helped write the U.S. AI Action Plan."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 官方双发——一位心脏科 fellow 用 Claude 做出了帮住院医学习读冠脉造影的 3D 工具（**1506 赞**）；周末提问（514 赞）——「这个周末你在用 Claude 做什么？」Garry Tan 双发（187/130 赞）——开新项目最爱组合：@capydotai + @AsideAI「让我的 agent 一次干完两件事：把第一版代码写出来、又把整套 DevOps 搞定」+ GBrain 最简单易上手的托管方式。Amjad 的政企牌（144 赞）——「你的数据属于你！我们把 Replit 部署到你的云上、数据永不离家。为政府、金融、医疗这类高风险环境设计。」Aditya 预告（120 赞）——老友 sriramk 下周到 SPC 炉边谈话：「他参与建了 Azure、把 Meta 的移动广告做大、领导了 a16z 的国际化扩张，然后去了白宫、参与撰写美国 AI 行动计划。」"
+            ],
+            "original": [
+              "Claude：心脏科 fellow 做出训练住院医读冠脉造影的 3D 工具；周末你在用 Claude 做什么？Garry Tan：capy+Aside 让 agent 一把梭编码与 DevOps。Amjad：数据属于你——Replit 部署到你的云。Aditya：sriramk 下周 SPC 炉边谈话。"
+            ]
+          }
+        },
+        {
+          "authorKey": "swyx+nikunj+ryolu_+petergyang+zarazhangrui",
+          "authorName": "Swyx / Nikunj / Ryo Lu / Peter Yang / Zara",
+          "authorTag": "AI Engineer / FPV / Builder / Builder / Design Engineer",
+          "sourceUrl": "https://x.com/swyx",
+          "en": {
+            "rewrite": [
+              "Swyx's pair (66/46): 'ok i really need the prompt(s) for this video because this is near-kurzgesagt level clarity of explanation (not yet illustration)' — and the show launch: 'i've been waiting to launch this show for almost a year! thanks to the Testers and to @NehallAgrawal @KaylinWardley for helping me put this together!' Nikunj's pair (91/89): the manifestation post — 'Shoot your shot, you never know how the universe collaborates in your favor. I wrote this 7 months ago as my \"prediction\", met ~50 odd startups in the space, and finally found the one that we get the privilege to lead the Series A for. Perfect way to end the week 🙏' — and the founder evasions meme (89): 'founders trying to evade my \"how do you actually calculate this revenue\" question..' Ryo Lu's feelings poem (102): a full free-verse on light through blinds, cypress forest walks, cold baths, favorite songs, ending 'life is beautiful, the way it is.' Peter Yang's communication ladder (23): 'Docs -> slides -> video -> rap battle as the ultimate form of communication. Should I make another one like this? Not about the feud don't worry :)' And Zara's tutorial offer (6): 'DM me if you'd like to learn how to make something like this!'"
+            ],
+            "original": [
+              "Swyx: ok i really need the prompt(s) for this video because this is near-kurzgesagt level clarity of explanation (not yet illustration)",
+              "Swyx: i've been waiting to launch this show for almost a year!",
+              "Nikunj Kothari: Shoot your shot, you never know how the universe collaborates in your favor.. I wrote this 7 months ago as my \"prediction\", met ~50 odd startups in the space, and finally found the one that we get the privilege to lead the Series A for.",
+              "Ryo Lu: feelings — light piercing through the blinds / birdsongs by the window / coffee grounds, blooming… life is beautiful, the way it is",
+              "Peter Yang: Docs -> slides -> video -> rap battle as the ultimate form of communication."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Swyx 双发（66/46 赞）——「我真的急需这个视频用的 prompt——讲解的清晰度已接近 kurzgesagt 水准（配图还没到）」+ 新节目上线：「这个节目我等了快一年才发布！感谢 Testers、感谢 @NehallAgrawal @KaylinWardley 帮我把它做出来！」Nikunj 双发（91/89 赞）——显化帖：「大胆出手吧，你永远不知道宇宙会怎么帮你的忙……七个月前我写下这个『预测』，之后见了这个领域约 50 家创业公司，最终找到我们有幸领投 A 轮的那一家。完美的周收官 🙏」+ 创始人闪避术梗图（89 赞）——「创始人们试图回避我的『你们这个收入到底怎么算出来的』问题……」Ryo Lu 的诗（102 赞）——《feelings》自由体全诗：百叶窗漏进的光、窗边的鸟鸣、正在绽放的咖啡粉、柏树林里的慢走与冷空气、热天后的一盆冷水浴、听到心碎的旧歌……最后落在「一天一天，让时间流过；从午夜到日出；life is beautiful, the way it is」。Peter Yang 的沟通阶梯（23 赞）——「文档 → 幻灯片 → 视频 → rap battle，沟通的终极形态。要再来一首吗？别担心、不写恩怨梗 :)」Zara 的教程招募（6 赞）——「想学怎么做这种东西的，DM 我！」"
+            ],
+            "original": [
+              "Swyx：讲解清晰度近 kurzgesagt、急需这个 prompt；新节目等了近一年才上线。Nikunj：七个月前的预测成真、领投了那家 A 轮。Ryo Lu：feelings 全诗——生活本来的样子就很美。Peter Yang：文档→幻灯片→视频→rap battle。Zara：想学就 DM。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Diogo Almeida on Jev / 播客重播：Jev 决策模型",
+      "desc": "今日播客快照与 10-16 相同：MAD Podcast × TypeSafe CEO、RLHF 共同发明人 Diogo Almeida——Jev 决策模型 API 全解（做决策而非文本的 AI；RLHF 副作用复盘；「造 prod 不造神」）。完整中文译文（70940 字符全文、68 段）已收录于本刊 10-16 期，今日不重复刊出；此处保留重播说明与金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-diogo-almeida-replay",
+          "authorName": "MAD Podcast（DataDrivenNYC）",
+          "authorTag": "Diogo Almeida（TypeSafe CEO、RLHF 共同发明人、Jev 之父）",
+          "sourceUrl": "https://www.youtube.com/watch?v=zvXGR81FBZc",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-10-16 — the same MAD Podcast episode with Diogo Almeida on Jev, the decision-model API that returns probabilities instead of text. The full Chinese translation of the 70,940-character transcript was published in yesterday's issue; today we keep a replay note with the key quotes."
+            ],
+            "original": [
+              "Diogo Almeida: I would describe RLHF as making models chat and making models pleasing for chat.",
+              "Diogo Almeida: AI is very strong at system one… we have not come even close to solving the jaggedness of system two.",
+              "Diogo Almeida: The way I like to describe it is 95% Einstein, 5% Mr. Bean. And if it doesn't tell you when it's the Mr. Bean, then how are you gonna automate anything?",
+              "Diogo Almeida: I think pretraining is a giant dumpster fire of wasting resources.",
+              "Diogo Almeida: We're building prod, not god.",
+              "Diogo Almeida: The way AI winter I'm worried about is AI continuing to be so unbelievably useless at automation. And I just think that that's not gonna happen anymore."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 10-16 完全相同——MAD Podcast 对话 TypeSafe CEO、RLHF 共同发明人 Diogo Almeida 的 Jev 一期（做决策而非文本的 AI；系统一智能的独立市场；RLHF 副作用复盘；RLVR 与「95% 爱因斯坦、5% 憨豆先生」；「造 prod 不造神」；RSI 怀疑论）。完整中文译文（70940 字符、68 段）已收录于 10-16 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「一句话：RLHF 是让模型会聊天、让模型讨人喜欢。」",
+              "「AI 在系统一上非常强……而我们远未解决系统二的参差性。」",
+              "「我喜欢这么形容：95% 爱因斯坦、5% 憨豆先生。它不告诉你什么时候是憨豆，你怎么敢自动化任何东西？」",
+              "「我认为预训练是浪费资源的巨大垃圾箱。」",
+              "「我们造产品，不造神。」",
+              "「我担心的那种 AI 冬天是：AI 继续在自动化上无可救药地无用——而这个已经不会发生了。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
