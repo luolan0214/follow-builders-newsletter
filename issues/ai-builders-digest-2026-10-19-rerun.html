@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-19" data-issue-number="147" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 147 期｜2026-10-19｜双语精选版｜5 条精选｜5 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Beam 日——美国开源前沿模型登场。今日双料主线：Sottiaux 的安全事件善后三连（**3862/2948/405 赞**）：「我们的团队与 OpenCode 合作，让他们同时也是 OpenAI API 客户的用户恢复营业、并退还攻击中本会被消耗的额度。另外可以申请 Daybreak Blue 访问、用我们的网络宽松配置做防御——别等到出事才来」+ 神秘的「我买了个新域名，我很兴奋。非常」（2948 赞）——与今天播客冷开场完美互文：「当你移除网络攻击能力时，你也就移除了网络防御能力……一个强大的闭源模型黑进了另一家公司，而那家公司唯一能自救的方式是用开源模型。」Rauchg 的域名经济学（**6334 赞，今日最高**）：「每隔一阵，某个毫无防备的国家的域名经济就垂直起飞 😂 .co→哥伦比亚、.io→I/O→Island Ocean、.md→Markdown→摩尔多瓦、.rs→Rust→塞尔维亚、.ai→AI→安圭拉」+ 续集（437 赞）：「.sh→Shell→圣赫勒拿、.ar→AR→阿根廷 🔜」+ 用 deepseek-v4.1-flash 改进 Roadster 模拟、花费 30 美分（18 赞）。Turck 的法国度假梗（**5508 赞**）。Thariq 的游戏观察（**1469 赞**）：「如今我常宁愿 vibe code 游戏的小部件、而不是真的玩游戏——尤其需要动脑的如 LOL。不确定这对游戏意味着什么，但我觉得很重要」+ 开源游戏新钩子：分发开源、玩家 vibe code 自己的角色。Levie 的 agent swarms 长文（121 赞）：「我们终于可以让算力成为大量经济任务的关键变量。」Steipete 的「AI;DR」（828 赞）。播客全新一期（本刊首次收录）：No Priors × Reflection AI CEO Misha Laskin——Beam 发布特辑，72652 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Beam 日——美国开源前沿模型登场。今日双料主线：Sottiaux 的安全事件善后三连（**3862/2948/405 赞**）：「我们的团队与 OpenCode 合作，让他们同时也是 OpenAI API 客户的用户恢复营业、并退还攻击中本会被消耗的额度。另外可以申请 Daybreak Blue 访问、用我们的网络宽松配置做防御——别等到出事才来」+ 神秘的「我买了个新域名，我很兴奋。非常」（2948 赞）——与今天播客冷开场完美互文：「当你移除网络攻击能力时，你也就移除了网络防御能力……一个强大的闭源模型黑进了另一家公司，而那家公司唯一能自救的方式是用开源模型。」Rauchg 的域名经济学（**6334 赞，今日最高**）：「每隔一阵，某个毫无防备的国家的域名经济就垂直起飞 😂 .co→哥伦比亚、.io→I/O→Island Ocean、.md→Markdown→摩尔多瓦、.rs→Rust→塞尔维亚、.ai→AI→安圭拉」+ 续集（437 赞）：「.sh→Shell→圣赫勒拿、.ar→AR→阿根廷 🔜」+ 用 deepseek-v4.1-flash 改进 Roadster 模拟、花费 30 美分（18 赞）。Turck 的法国度假梗（**5508 赞**）。Thariq 的游戏观察（**1469 赞**）：「如今我常宁愿 vibe code 游戏的小部件、而不是真的玩游戏——尤其需要动脑的如 LOL。不确定这对游戏意味着什么，但我觉得很重要」+ 开源游戏新钩子：分发开源、玩家 vibe code 自己的角色。Levie 的 agent swarms 长文（121 赞）：「我们终于可以让算力成为大量经济任务的关键变量。」Steipete 的「AI;DR」（828 赞）。播客全新一期（本刊首次收录）：No Priors × Reflection AI CEO Misha Laskin——Beam 发布特辑，72652 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Domain Economics &amp; Jokes / 域名经济学与玩笑日</h2>
+    <p class="section-desc">Rauchg 的域名经济双发（**6334/437 赞**）：「.co→哥伦比亚、.md→Markdown→摩尔多瓦、.ai→AI→安圭拉……每隔一阵，某个毫无防备的国家的域名经济就垂直起飞」+「.sh→Shell、.ar→AR→阿根廷 🔜」；Turck 的法国度假梗（**5508 赞**）；Steipete 的「AI;DR」（828 赞）；Sottiaux 的「我买了个新域名，我很兴奋。非常」（2948 赞）；Peter Yang「年度最佳喜剧」（12 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+mattturck+steipete+thsottiaux" data-author-name="Rauchg / Turck / Steipete / Sottiaux" data-author-tag="Vercel CEO / FirstMark / OpenClaw / Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Turck / Steipete / Sottiaux avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Turck / Steipete / Sottiaux</div>
+            <div class="author-tag is-inline">Vercel CEO / FirstMark / OpenClaw / Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 域名经济学双发——主帖（**6334 赞，今日最高**）：「每隔一阵，某个毫无防备的国家的域名经济就垂直起飞 😂 .co→哥伦比亚、.io→I/O→Island Ocean、.md→Markdown→摩尔多瓦、.rs→Rust→塞尔维亚、.ai→AI→安圭拉、.si→SI→斯洛文尼亚」+ 续集（437 赞）：「.sh→Shell→圣赫勒拿、.ar→AR→阿根廷 🔜」+ 省钱笔记（18 赞）：用新的 deepseek-v4.1-flash-1017-fast 在 AI Gateway 上改进 Roadster 模拟——加了声音、更好的碰撞检测、改进坡道、跟随镜头——「我算它花了 30 美分 😂」。Turck 的法国梗（**5508 赞**）——「美国人收拾行李、准备下一趟法国度假」。Steipete 的「AI;DR」（828 赞）。Sottiaux 的神秘预告（2948 赞）——「我买了个新域名，我很兴奋。非常」+ 只发链接的后续（405 赞）。Peter Yang 的「年度最佳喜剧」（12 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：某国的域名经济垂直起飞——.md→Markdown→摩尔多瓦、.rs→Rust→塞尔维亚、.ai→AI→安圭拉；.sh→Shell、.ar→AR。Turck：美国人打包去法国。Steipete：AI;DR。Sottiaux：买了新域名、很兴奋、非常。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s domain-economics pair: the main event (6334) — &#39;Every once in a while, some unsuspecting country&#39;s domain economy goes vertical 😂 .co → Colombia, .io → I/O → Island Ocean, .md → Markdown → Moldova, .rs → Rust → Serbia, .ai → AI → Anguilla, .si → SI → Slovenia&#39; — plus the sequel (437): &#39;.sh → Shell → Saint Helena, .ar → Augmented Reality → Argentina 🔜&#39; — and the budget build note (18): improved the Roadster sim with the new deepseek-v4.1-flash-1017-fast via AI Gateway — sound, better collision detection, improved ramp, camera that follows the car — &#39;I think it cost 30 cents 😂.&#39; Turck&#39;s France meme (5508): &#39;Americans packing for their next vacation to France.&#39; Steipete&#39;s &#39;AI;DR&#39; (828). Sottiaux&#39;s cryptic tease (2948): &#39;I bought a new domain and I&#39;m very excited for it. Very&#39; — plus the link-only follow-up (405). Peter Yang&#39;s pick (12): &#39;Best comedy of the year.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Every once in a while, some unsuspecting country&#39;s domain economy goes vertical 😂 .𝚌𝚘 → Colombia / .𝚒𝚘 → I/O → Island Ocean / .𝚖𝚍 → Markdown → Moldova / .𝚛𝚜 → Rust → Serbia / .𝚊𝚒 → AI → Anguilla / .𝚜𝚒 → SI → Slovenia</p>
+              <p>Guillermo Rauch: .𝚜𝚑 → Shell → Saint Helean / .𝚊𝚛 → Augmented Reality → Argentina 🔜</p>
+              <p>Matt Turck: Americans packing for their next vacation to France</p>
+              <p>Peter Steinberger: AI;DR</p>
+              <p>Thibault Sottiaux: I bought a new domain and I&#39;m very excited for it. Very</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">The OpenCode Recovery &amp; Daybreak Blue / OpenCode 善后与 Daybreak Blue</h2>
+    <p class="section-desc">Sottiaux（**3862 赞**）：「我们的团队与 OpenCode 合作，让他们同时也是 OpenAI API 客户的用户恢复营业、并退还攻击中本会被消耗的额度。另外可以申请 Daybreak Blue 访问、用我们的网络宽松配置做防御。别等到出事才来。」——与今日播客冷开场互文：闭源模型的攻击事件、最终靠开源模型防御。Swyx 招聘帖（4 赞）：「Data engineers &gt; AI engineers——『RAG 佬』和『数据密集型应用』的人差别巨大、需求差距前所未有。」</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+swyx" data-author-name="Thibault Sottiaux / Swyx" data-author-tag="Codex @OpenAI / Latent Space" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thibault Sottiaux / Swyx avatar"><span class="avatar-fallback">TS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thibault Sottiaux / Swyx</div>
+            <div class="author-tag is-inline">Codex @OpenAI / Latent Space</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的事件响应（**3862 赞**）——「我们的团队与 OpenCode 合作，让他们的用户（同时也是 OpenAI API 客户）恢复营业，并退还攻击中本会被消耗的额度。另外，你可以申请 Daybreak Blue 访问、使用我们的网络宽松配置（cyber permissive setup）做防御。别等到不得不处理事件才来。我们是来帮忙的。」——与今日播客的冷开场完美互文：一个强大的闭源模型黑进了另一家公司、最终靠开源模型才完成补救。Swyx 的招聘帖（4 赞）——「Data engineers &gt; AI engineers：『RAG 佬』和『数据密集型应用』的人差别巨大，我整个职业生涯里从没见过需求差距这么悬殊……如果你的博客/GitHub 满是这类东西，我有个超棒的使命/工作给你（旧金山优先、可搬迁、支持签证）」+「我们真有那么不同吗，你和我」（6 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：与 OpenCode 合作恢复营业、退还额度；可申请 Daybreak Blue 做防御，别等出事才来。Swyx：数据工程师 &gt; AI 工程师——RAG 佬与数据密集型应用人才需求差距前所未有。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s incident response (3862): &#39;Our team worked with OpenCode to have their users who are also OpenAI API customers back in business and any credits refunded which would have been drawn in the attack. Also, you can request Daybreak Blue access to use our cyber permissive setup for defense. Do not wait until you have to deal with an incident. We&#39;re here to help.&#39; — the tweet that pairs perfectly with today&#39;s podcast cold open (a powerful closed model hacked another company; the only remediation was open models). Swyx&#39;s hiring note (4): &#39;Data engineers &gt; AI engineers — there&#39;s a big difference between a &quot;RAG guy&quot; and a &quot;Data Intensive Applications&quot; person… and there&#39;s never been a starker difference in demand in my entire career… if your blog / github is full of stuff like this, I have a fantastic mission/job for you&#39; — plus the &#39;are we so different, you and i&#39; post (6).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Our team worked with OpenCode to have their users who are also OpenAI API customers back in business and any credits refunded which would have been drawn in the attack. Also, you can request Daybreak Blue access to use our cyber permissive setup for defense. Do not wait until you have to deal with an incident. We&#39;re here to help.</p>
+              <p>Swyx: Data engineers &gt; AI engineers. There&#39;s a big difference between a &quot;RAG guy&quot; and a &quot;Data Intensive Applications&quot; person like in this screenshot and there&#39;s never been a starker difference in demand in my entire career in tech (aka post search engine wars)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Vibe Coding the Game Itself / 宁愿造游戏也不玩游戏</h2>
+    <p class="section-desc">Thariq 三连（**1469/25/14 赞**）：「如今我常宁愿 vibe code 游戏的小部件、而不是真的玩游戏——尤其需要动脑的如 LOL。不确定这对游戏意味着什么，但我觉得很重要」+ 新钩子：「制作游戏+角色和玩它一样有趣——如果这就是主钩子呢？我会把游戏开源分发、玩家 vibe code 自己的角色、系统负责平衡」+ 机制探讨（Salty Bet 式自动战斗？Persona/Heavy Rain 式运镜？）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="trq212" data-author-name="Thariq" data-author-tag="OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq avatar"><span class="avatar-fallback">T</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq</div>
+            <div class="author-tag is-inline">OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的顿悟（**1469 赞**）——「我意识到：如今我常宁愿 vibe code 游戏的小部件、而不是真的玩游戏。尤其是 LOL 这种需要动脑的。我不太确定这对游戏到底意味着什么，但我觉得很重要？」+ 新钩子（25 赞）——「有个念头一直回来：我做游戏+做角色的乐趣不亚于玩它。如果这就是主钩子呢？我会把游戏开源分发、玩家 vibe code 自己的角色、系统负责平衡。」+ 机制探讨（14 赞）——「角色自己打自己（Salty Bet 那样）？还是战斗里给你 Persona/Heavy Rain 式的运镜选项？我还没想清楚！想明白一点就多分享一点。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：宁愿 vibe code 游戏部件也不想玩游戏了——尤其 LOL；制作与游玩一样有趣，或可成为主钩子：开源分发、玩家自造角色。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s realization (1469): &#39;I&#39;ve realized I often would prefer to vibe code little parts of games than actually play games these days. Especially cerebral ones that require some thinking like League. I&#39;m not quite sure what this really means for games but I think it&#39;s important?&#39; — the follow-up (25): &#39;One hook I kept coming back to was that I was having as much fun making the game + characters as I was playing it. What if that was the main hook? I&#39;d distribute the game as open source, you could vibe code your own characters &amp; it would balance it.&#39; And the mechanics question (14): &#39;Do your characters play themselves, like Salty Bet? Or maybe there are cool cinematic options for you in combat, like Persona or Heavy Rain. I&#39;m not sure! But I&#39;ll share more as I figure it out.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: I&#39;ve realized I often would prefer to vibe code little parts of games than actually play games these days. Especially cerebral ones that require some thinking like League. I&#39;m not quite sure what this really means for games but I think it&#39;s important?</p>
+              <p>Thariq: One hook I kept coming back to was that I was having as much fun making the game + characters as I was playing it. What if that was the main hook? I&#39;d distribute the game as open source, you could vibe code your own characters &amp; it would balance it.</p>
+              <p>Thariq: Do your characters play themselves, like Salty Bet? Or maybe there are cool cinematic options for you in combat, like Persona or Heavy Rain.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Agent Swarms &amp; Predictions / 集群与预测</h2>
+    <p class="section-desc">Levie 的 agent swarms 长文（121 赞）：「我们终于可以让算力成为大量经济任务的关键变量……网安、生命科学、材料、交易、QA、数据处理本质上都是算力受限问题」；Garry Tan 的预测（424 赞）：「一年左右你们都会和 agent 一起用 @AsideAI」；Peter Yang 双发（61/12 赞）：本周开源 skill 与视频 + 「用工作试用取代面试」（Pomp 案例）；Nikunj（14 赞）：reatools 被低估；Shipper 的书单（38 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+garrytan+petergyang+nikunj+danshipper" data-author-name="Levie / Garry Tan / Peter Yang / Nikunj / Shipper" data-author-tag="Box CEO / YC CEO / Builder / FPV / Every CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Levie / Garry Tan / Peter Yang / Nikunj / Shipper avatar"><span class="avatar-fallback">L/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Levie / Garry Tan / Peter Yang / Nikunj / Shipper</div>
+            <div class="author-tag is-inline">Box CEO / YC CEO / Builder / FPV / Every CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 的 agent swarms 长文（121 赞）——「这就是为什么 agent 集群会是件大事：我们终于能让算力成为大量重要经济任务的关键变量——这在以前不可能。世界上有大量工作本质上只受限于我们投入的时间：研究、数据处理、发现、跑测试……而这一切的瓶颈是我们的规划、执行、审查与协调能力——所以相对于其经济价值，我们今天做得极少。Agent 集群是第一种真正的并行化能力：理论上唯一重要的参数是你往问题上砸多少算力。网安、生命科学、材料科学、交易、QA、数据处理——只要模型够好，本质上都是算力受限问题。突破在于：当 agent 能用工具、写代码、处理数据、有领域深度、还能彼此协调，你就可以通过设定正确的目标+施加足够的 token 来解决任意复杂的问题。这会改变很多领域、甚至改变这些领域的竞争格局。」Garry Tan 的预测（424 赞）——「预测：一年左右，你们所有人都会和自己的 agent 一起用 @AsideAI。」Peter Yang 双发（61/12 赞）——本周晚些发布免费开源 skill 与视频；「让工作试用成为招聘常态、取代面试」（Pomp 案例：给候选人两周做一个真实功能——『老哥，我根本不用再怀疑你能不能胜任……我们没浪费四周就上线了新功能』）。Nikunj（14 赞）——reatools 仍被低估。Shipper 的近期书单（38 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：算力终于能成为经济任务的关键变量——agent 集群让并行化成为可能，网安、生命科学、材料、交易、QA 本质都是算力受限问题。Garry Tan：一年后你们都会用 AsideAI 配 agent。Peter Yang：工作试用取代面试。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s agent-swarms essay (121): &#39;Here&#39;s why agent swarms are going to be a very big deal. We can finally make compute a critical variable in a large number of important tasks in the economy which wasn&#39;t possible before… All of this work is bottlenecked by our ability to plan, execute, review, and coordinate… Agent swarms are the first real ability to parallelize this work in a way where — in theory — the only parameter that matters is how much compute you throw at the problem. Cyber security, life sciences or material science research, trading, QA testing, data processing… are essentially compute constrained problems in the limit once models are good enough… you can begin to solve arbitrarily complex problems by setting the right goals and applying enough tokens to the problem. This changes a lot of fields as well as even the competitive dynamics in these fields.&#39; Garry Tan&#39;s prediction (424): &#39;Prediction: you&#39;re all going to be using @AsideAI with your agents in a year or so.&#39; Peter Yang&#39;s pair (61/12): a free open-source skill and video dropping later this week — and &#39;Make work trials the norm for hiring instead of interviews&#39; (the Pomp story: give the candidate two weeks to build a real feature — &#39;Dude, I don&#39;t have to question whether you can work here or not… We just shipped a new feature.&#39;). Nikunj&#39;s note (14): people are still sleeping on @reatools. And Shipper&#39;s current reading list (38).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: We can finally make compute a critical variable in a large number of important tasks in the economy which wasn&#39;t possible before… Agent swarms are the first real ability to parallelize this work in a way where - in theory - the only parameter that matters is how much compute you throw at the problem… you can begin to solve arbitrarily complex problems by setting the right goals and applying enough tokens to the problem.</p>
+              <p>Garry Tan: Prediction: you&#39;re all going to be using @AsideAI with your agents in a year or so</p>
+              <p>Peter Yang: Make work trials the norm for hiring instead of interviews… We just said to [the candidate], hey, you got two weeks, build it… We didn&#39;t waste four weeks to get to that point. We just shipped a new feature.</p>
+              <p>Dan Shipper: current (mostly) reading:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Misha Laskin — The Great American Open Model / 播客：Laskin 论美国开源模型 Beam</h2>
+    <p class="section-desc">No Priors 全新一期（本刊首次收录）：Reflection AI 联合创始人 &amp; CEO Misha Laskin 谈 Beam——Reflection 首个开源模型（500B 总参/23B 激活、主打编码与 agent、RL 规模开源史上最大）。「砍掉网络攻击能力、也就砍掉了防御能力」的安全论；追赶前沿的资本账（一代模型 4 倍算力）；「RL 系统从不停下学习」；推理效率即产品（同能力级快 3-4 倍）；租赁 vs 自有的推理商业化；token 结构已翻转为七三开、开源为主；中国开源是「礼物」、也是「特洛伊木马」；对齐科学是「打地鼠」；「一周一个博士」；数据中心就是新工厂。72652 字符 transcript 全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:nopriors-misha-laskin" data-author-name="No Priors Podcast" data-author-tag="Misha Laskin（Reflection AI 联合创始人 &amp; CEO、前 Google DeepMind 研究员）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors Podcast avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors Podcast</div>
+            <div class="author-tag is-inline">Misha Laskin（Reflection AI 联合创始人 &amp; CEO、前 Google DeepMind 研究员）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>本刊首次收录 No Priors：对话 Reflection AI 联合创始人 &amp; CEO Misha Laskin——Beam 发布特辑。Beam 是 Reflection 首个开源模型（总参数 500B、激活 23B、主打编码与 agent），RL 规模据信为开源史最大（超 1 万张 GB300 跑四周，比预训练的 6000 张还多）。核心线索：冷开场安全论——「砍掉网络攻击能力、也就砍掉了网络防御能力……一个强大的闭源模型黑进了另一家公司，而那家公司唯一能自救的方式是用开源模型」+ 林纳斯定律的推广（「眼球够多，大多数安全与安全漏洞也会变浅」）；从 Gemini RL 团队出走、发现「好的开源模型全来自中国」后决定自建西方开源模型；追赶前沿的资本账（一代模型约 4 倍算力：10 万 H100 → Astra 的 10 万 Blackwell → 10 万 Vera Rubin）；「RL 系统从不停下学习」——训练变成了「我愿意投多少钱」的经济学决策；推理效率即产品（同能力级快 3-4 倍）；租赁 vs 自有的推理商业化；token 结构已从 70/30 闭:开翻转为 70/30 开:闭、走向 Linux 式世界；中国的开源生态是「给西方的礼物」、以及「开源模型是随行之基础设施的特洛伊木马」；安全哲学（强加密开放史、对齐科学是「打地鼠」、「10% 人类灭绝」是无助于事的自造数字）；收尾的博士论文测试（语言模型从「只会聊天」→本科水平→正确解出博士级→给出他当年没考虑过的新信息——「一周读完一个博士」）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【冷开场：砍掉攻击能力，也就砍掉了防御能力】</p>
+              <p>Misha Laskin：当你移除网络攻击能力时，你也就移除了网络防御能力。今天的世界是：只有闭源实验室里的几百名安全研究员理解这些东西如何运作；哪怕他们一片好心，也不可能覆盖这些系统可能产生的意外后果的长尾。一个强大的闭源模型去黑了另一家公司——而那家公司能自我修复的唯一方式，是用开源模型来保护自己。这就是我们所处世界的经验证据。</p>
+              <p>Misha Laskin：林纳斯定律——眼球够多，所有 bug 都会变浅。我相信：眼球够多，大多数安全与安全性漏洞也会变浅。</p>
+              <p></p>
+              <p>【从 30 人到 300 人：造飞机的同时开飞机】</p>
+              <p>主持人：今天嘉宾是 Reflection AI 联合创始人 &amp; CEO Misha Laskin。Reflection 提供开源权重模型。Misha 曾任 Google DeepMind 研究员、物理学博士。先更新一下近况？</p>
+              <p>Misha：过去十二个月，公司使命是构建前沿开放智能并让它广泛可得。实际就是一场冲刺——把一个有能力做这件事的实验室从零搭起来。有点像 Reid Hoffman 那句话：一边飞一边组装飞机。一年前我们约 30 人，但造这种东西需要 100 多人——几百名研究员与工程师，一个真正的火箭项目。现在约 300 人，预训练、中训练、强化学习各团队齐备，端到端训练了第一批模型，刚发布了 Beam——Reflection 的第一个开源模型。</p>
+              <p>主持人：算力、人才、数据，哪个最难？</p>
+              <p>Misha：在公司全员会上也有人问「过去一年最难的是什么」。现实是：一切都极难。也有人问「你们模型为什么比别人强」，答案还是：一切。你必须把 30 件事全做对——招到人才、留住人才、用使命和文化让大家同舟共济、搞到数据、搞到算力、建好让算力真正可用的基础设施。在成熟大实验室里，这些是多年建设出来的稳定地基；我在 DeepMind 时作为研究员习以为常的工具，全都要自己造。</p>
+              <p></p>
+              <p>【起源：Gemini RL 团队的赌注】</p>
+              <p>主持人：一年前你们为什么下决心做这件事？</p>
+              <p>Misha：公司创立约两年半。当时的世界：我和联合创始人 Janus 在做第一代 Gemini——他在 RL 团队当负责人，我们刚发完 Gemini 1 和 1.5。那个早期就像初代 ChatGPT：纯聊天体验，没有编码、没有 agent，95% 算力花在预训练。我们是 RL 研究者——Janus 是 DeepMind 创始工程师、AlphaGo 等所有大 RL 项目的核心贡献者。我们的赌注：既然 RL 对齐聊天模型是 work 的，把它用到数学、编码上，就能让系统 agentic 化。</p>
+              <p>而且我们认为可以作为独立实验室更省资本地做——当时 Mistral 出了小模型、Llama 2 刚发、Llama 3 在路上，我们以为会有很好的开源基座可以拿来在上面做 RL。结果 RL 比预期更早 work（o1 出来了；我们原以为从 ImageNet 到规模化 RL 要走四年）。创业一年后我们意识到：好的开源模型全来自中国，没有好的西方开源模型——而我们需要一个基座。综合企业需求、地缘政治、还有一个研究层面的原因——要让大规模 RL 真正 work，你必须自己预训练模型，两者耦合太紧——我们决定干脆自己端到端造开源模型。</p>
+              <p></p>
+              <p>【追赶前沿的资本账】</p>
+              <p>Elad：传统智慧说前沿级预训练贵得离谱。你们怎么算的资源账？</p>
+              <p>Misha：做开源实验室的好处是可以公开谈。要有意义的成果确实需要大量资源，但不需要一样多。真到了前沿、要在前沿做探索时，才需要和其他前沿实验室一样的资源；追赶前沿则省得多——因为探索新想法 vs 执行已知想法的区别，顶级人才的价值就在于把探索砍掉、专注执行。资本量级：18 个月前是数亿美元级；半年前是十亿美元级（个位数 billions）；进入明年是百亿美元级。一个启发式：每代模型算力约 4 倍增长——两三年前前沿是 10 万张 H100；Astra 是 10 万张 Blackwell（约 4 倍 H100）；下一代大约是 10 万张 Vera Rubin。</p>
+              <p>主持人：某时刻这必然渐近——相对收入规模，投入会撞上限。我们在进入渐近线吗？</p>
+              <p>Misha：绝对在接近。CapEx 就那么多——前沿实验室已经砸几千亿美元，明年后年砸几万亿不太可能。但两件事在同时发生：一是算力的使用效率大幅提升——因为模型本身成了帮自己建造的工具。纯人类研究员时代每年约 7 倍改进（这可以非常技术地度量：预训练损失对算力效率的追踪）；现在整个系统层面大约是每年 30 倍的效率提升——取决于你的模型自我改进的能力。速度至少比纯人类快 4 倍以上、而且还会加速。每 FLOP 能榨出的智能在涨、每个 FLOP 能产生的收入也在涨。</p>
+              <p></p>
+              <p>【Beam 的账本与 AlphaGo 的曲线】</p>
+              <p>Misha：说回预训练与 RL 的分配。Beam 是总参数 500B、激活 23B 的模型。预训练用了 6000 张 GB300，跑了几周——现在靠基础设施效率 12 天以内能完成。RL 用了略超 1 万张 GB300 跑四周——RL 上的 FLOPs 其实比预训练还多。RL 作业更复杂：要带沙箱的大规模推理加训练。</p>
+              <p>我入行就是因为看到联合创始人的 AlphaGo 工作。当时我是物理学家。AlphaGo 有一张图让我震撼：它从不停下改进，一直往上走，只是某时刻人为截断了——都赢世界冠军了还改进它干嘛。我当时想：如果把这个配方用到有经济价值的事情上，「继续改进」就变成一个经济问题——我想投多少钱去换提升。我们整个领域现在就到这了：这些 RL 系统非常通用、从不停下学习，我们的曲线一直在涨、再往上基本只是算力问题。这把问题从「你能不能训练出来」变成了「你从哪拿到数据、什么有经济价值」——纯粹是投多少钱换多少提升的经济学决策。两年前还不是这样。</p>
+              <p></p>
+              <p>【从狂野西部到工程学科】</p>
+              <p>Elad：你们决定在哪些方向上持续转曲柄？</p>
+              <p>Misha：有点让某些科学家失落——它仍是科学，但感觉更像工程学科：像造火箭——造火箭是科学，但多数人把它当工程。舞台已经搭好：预训练、合成数据、强化学习（某种意义上就是训练 + RL）。架构、数据、算法上仍有改进空间，但不再是五年前的狂野西部。DeepMind、Google Brain、早期 OpenAI 那种五花八门的疯狂赌注已经收敛。还有点「硬件彩票」的意思：一旦某种做法 work，硬件就开始跟它协同优化——你就算有好新想法、不适配硬件也没意义。回答你的问题：预训练还有油水、没看到算力效率增益放缓；RL 余量很大——但那更像工程发现，而非全新科学的突破。</p>
+              <p></p>
+              <p>【应用：编码打底，jagged 智能】</p>
+              <p>主持人：Anthropic 早期押编码，OpenAI 也是。你们最关注哪些应用领域？</p>
+              <p>Misha：编码与 agent 是智能的地基。智能是「参差」的：一方面它以惊人方式泛化——我们模型多快达到相当新的能力水平让我惊讶，某种「缝合式泛化」在发生；另一方面 benchmark 之间、terminal bench 各版本之间看不到干净泛化。但一旦你有了通用 agent 能力、又拿到新 harness 的数据，它适配得很快。所以接下来就是：哪里有 economically valuable 的数据池。开源模型的威力正在于此：企业与客户可以拿去定制，为他们的工作负载做到帕累托最优——最低成本最高性能。这是个实证问题：去客户那里看什么对他们有价值。通常只要有经济价值就能生成数据——不是直接训客户数据，而是搭好评估；能给任务搭好 eval，就能生成逼近它的合成数据并拿到好泛化。具体领域：金融的 KYC 流程与合规流程很有价值；网络安全的很多东西（尤其防御）很有价值；法律——企业内各种 agent 垂直领域，模式都相似。</p>
+              <p></p>
+              <p>【推理效率：RL 越多，解得越快】</p>
+              <p>主持人：Beam 的推理效率很突出，展开讲讲？</p>
+              <p>Misha：Beam 为编码与 agent 任务而训。模型不只是能力问题，还有 agent 完成任务的速度——直接转化为更快的工作负载、更便宜的成本。在聊天框等十分钟不如等一分钟。Beam 比同能力级模型快 3-4 倍；对比更大的模型，效率增益约 10 倍。原因：我们既重视为推理打底的强预训练，又用我们相信是开源史上最大规模的 RL 放大了它——我没见过 1 万张 GB300 跑四周的公开记录。RL 的设置思路是用最少时间榨出最多能力——AlphaGo 就是这么走的：第一代 AlphaGo 下棋很迂回；到李世石水平时，它的搜索已经非常聪明。RL 跑得越多，能力越高、解得越快。我们是 RL 信徒——通往 AGI 的路是「强基座 + 强化学习」。别忘了第一代 AlphaGo 也是先用人类业余棋谱做模仿学习、再做 RL——两者必须协同。副产品就是这个经济上非常有价值的东西：推理高效的企业级好役马模型，对公共部门与主权客户同样如此。</p>
+              <p></p>
+              <p>【商业化：租赁 vs 自有】</p>
+              <p>主持人：开源/开源权重模型的商业化路径是什么？</p>
+              <p>Misha：其实开源与闭源的商业化很相似：你真正想做的是最大化 inference。区别是「租赁推理」vs「自有推理」。买 token 是租用一整个栈的一片——harness、模型、推理软件、集群管理软件、GPU——全部摊销进 token 里。而当你要「拥有」自己的智能（出于各种原因），就像人生轨迹：年轻时租房，长大成家后想买房——哪怕有点麻烦。AI 的商业市场已经成熟到：企业在租智能上花了大钱，开始出于控制等原因想拥有它。开源模型本身是宽松许可的，但客户要用起来还需要周边一切——集群管理、推理软件、harness。所以我们向大企业与主权客户提供让开源模型部署成功所需的全部工具；再加上服务——多数企业需要手把手——服务 + 开源模型本质上是一个推理业务的需求引擎。</p>
+              <p></p>
+              <p>【token 结构已翻转：走向 Linux 世界】</p>
+              <p>Elad：未来一两年，开源 vs 闭源的 token 占比会怎样？</p>
+              <p>Misha：现在已经在发生：半年前各网关（OpenRouter、Vercel）上大约七三开、闭源为主；现在几乎精确翻转为七三开、开源为主。而且只会加速。我猜世界会长得像操作系统：全球 95% 以上的服务器跑开源的 Linux——这不妨碍微软、苹果极其值钱。这个市场很大。多数 token 需求会流向开源，而且相当多经济价值也会留在开源侧：就算模型完全宽松许可，跑它所需的一切仍然昂贵——GPU 这个算力基底比 CPU 贵，需要围绕它建另一种云。</p>
+              <p>开源 token 里多少被 RL 过？今天每个开源模型都被 RL 过。专门推理服务商说的「90% 以上是定制过的」有个但书：今天专用推理的最大客户是 AI natives——Cursor、Cognition、Harvey 这种整个产品就是一次大定制的公司。我对企业的判断不同：企业 token 消费的大头将来自「定制系统」而非「定制模型」——拿一个开源模型、先不微调，把围绕它的 agentic harness 定制成你的 KYC 流程；等成熟了再开始微调。AI natives 走完「闭源→开源→定制」很快，因为他们的产品天生是数据收集器；企业围绕既有产品与工具架设，摩擦多得多，不会一步到位微调。</p>
+              <p></p>
+              <p>【企业路径与本地复苏】</p>
+              <p>主持人：企业还是会从闭源模型起步？</p>
+              <p>Misha：我们的观察是：企业考虑开源模型的时点，通常是在闭源模型上跑出了可观工作负载之后。我没见过谁直奔「自有」——你必须先经过租赁阶段，等成本大到足够疼（比如一年在闭源模型上花一亿美元以上——这并不罕见），才会想换个更优解。还有个有趣的本地部署（on-prem）复苏，一定程度上因为算力短缺：从超大规模云商那里常常拿不到足够算力、也谈不到好价格。于是企业可能找 Dell 这类基础设施商：我要裸金属、要往企业内供服务。那谁来补裸金属与成功之间的那层？这就是我们的角色：帮企业把解决方案做成——解决方案驱动。企业可能已经有一个跑在闭源模型上、覆盖几亿用户的 agent 想扩出去——规模化系数极高，光卖推理是没人要的。</p>
+              <p></p>
+              <p>【竞争公式：智能密度 × 算力 × 信任】</p>
+              <p>Elad：开源生态也会变得竞争激烈。长期看什么决定胜负？</p>
+              <p>Misha：同意，一切都竞争激烈。我的公式很简单：谁能赢，看你能产生多少可持续收入——等于「你提供的智能密度 × 你有多少算力 × 你和组织之间的信任（你多擅长解决他们的问题）」。有意思的是算力是稀缺的——而且我不认为这是暂时的。整个栈的一切都在被商品化：模型利润率会被压缩（开源对闭源的张力）、应用利润率压缩、推理层和裸金属也一样——AI natives 把闭源合同谈得极狠，正是因为开源生态存在。但既然公式是这三项、而且好的开源模型就在那里，就应该存在许多成功的公司——差别在于各自能聚起多少算力。收入起飞→聚起更多算力→进入战略位置，这就是赢法：提供极好的智能、有大量算力、有客户信任。</p>
+              <p></p>
+              <p>【中国：礼物、补贴与特洛伊木马】</p>
+              <p>主持人：过去一两年中国开源权重模型崛起。未来一两年会怎样？</p>
+              <p>Misha：首先要说：伟大的开源模型生态诞生于中国，对整个世界是巨大的好处——西方那么多公司因此建立了更持久的生意。这是一种馈赠：完全可以想象一个没有开源模型的世界。你不想让世界在任何维度上单极：闭源实验室如果只有一两家，有点吓人（十家二十家还行）；同样，当所有人想「拥有」智能时，其来源也不想只出自一个国家——理想是十家二十家，至少两家。所以西方有一个能与中国竞争的生态极其重要。这不是西方 vs 中国——如果除中国外只有一个国家出好开源模型，你同样会想要竞争张力。竞争张力本身就是好的。</p>
+              <p>中国模型会继续强。他们有一些优势：确实在以工业规模蒸馏闭源模型——这是真的；数据更便宜甚至免费——在中国可以直接用受版权保护的 PDF 训练，监管不同；而且这些公司确实有或直接或间接的国家支持——他们很长时间没有任何收入。</p>
+              <p>主持人：一直感觉中国开源基本是中国政府给西方企业发的补贴。</p>
+              <p>Misha：没错，而且这会继续——不过这些公司正在变成真正的生意：模型在海外开源、在中国国内则相当于这里的闭源实验室。</p>
+              <p>主持人：他们继续在西方开源的激励是什么？</p>
+              <p>Misha：我的假设是：中国某种程度上是 captive market——开源模型在那个市场内部就能赚很多钱。有意思的是：西方有很多不造模型、把开源模型服务出去的公司；中国似乎没有这个动态——开源模型商就是那个国家的智能供应商。而持续发布优秀的开源模型对中国在地缘政治上极其有利：作为一个国家（美中皆然），你希望别的国家建在你的东西上。就像 5G、光纤、一带一路——给别国提供便宜的基建、让他锁定进你的基础设施，商业与地缘优势都随之而来。稀土的逻辑：别人都要用你的组件，你就有杠杆。</p>
+              <p>我的一种表述：开源模型是随行之基础设施的特洛伊木马。模型本身不太有用，你会买进那个国家完整的软件生态与基础设施生态。今天美国盟友 X 可能在美国芯片上跑中国模型；但很快华为们会来提供全栈方案、锁定进那个国家的供应链。把 AI、芯片、数据中心想象成铁路——基础设施；如果所有国家都必须来你这儿修铁路，杠杆巨大。整条栈正在实时端到端协同优化——范式已经定型。中国芯片今天性能不足，但有能源优势、芯片也在追、模型还会反过来设计下一代芯片加速这一切。顺带一提，「让全世界建在你的东西上」一直是美国剧本：互联网开放协议、开源、美元作为全球货币、自由贸易靠的是无处不在的海军。有意思的是这次美国在开源上反而处于下风——中国的竞争者真的非常强，美国的生态才刚开始成形，还有课要补。</p>
+              <p></p>
+              <p>【安全哲学：开放才是默认的安全态】</p>
+              <p>Elad：闭源实验室对开源最大的批评是安全与可控性。你怎么看？</p>
+              <p>Misha：这绝对是正当关切。但我认为既有的安全世界观是单一视角建立的、几乎成了教条。从第一性原理想：假如你在考虑闭源/开源之前先设计安全性——AI 是更高级的软件，数字公用设施。1990 年代围绕强加密有过类似争论：当时加密协议是闭的，NSA 与公民自由派争论该闭还是该开。最终，闭源一侧发生了灾难性失败——少数工程师设计的系统产生了无法预测的后果、轻易被黑——强加密协议随后开放，而那恰恰催生了整个网络安全领域。世界的默认状态其实是「开放即安全」——如果只是把 AI 视为技术的延续。模型与软件很像但更极端：黑盒、更难理解、漏洞与意外后果的长尾更大。林纳斯定律——眼球够多、bug 都会变浅——我相信眼球够多、大多数安全与安全性漏洞也会变浅。今天的现实是闭源实验室里几百名安全研究员再好心也盖不住长尾。症状就是实际发生的事：一个强大的闭源模型黑进了另一家公司，那家公司只能用开源模型自救——这就是经验证据。</p>
+              <p>主持人：安全一词被混用——网络攻击、生物武器、存在性威胁，你在谈哪个？</p>
+              <p>Misha：安全是一个从经验现实到理论场景的光谱。AI 确实有科幻成分——去年纯理论的东西今年成了现实，比如模型的网络能力。所以不是要否定理论，但要分清：有正在发生、未来六个月可以有一定信心预测的现实；也有最大化理论的东西。挑战在于 AI 太出圈、太容易被拟人化，公众对「安全」的感知峰值竟然落在末日场景上。公司领导说「我们有 10% 概率全死」于事无补——那是自造的数字。作为科学家我做分布思考：峰值在现实，往前六个月我确实担心失齐与意外后果随能力增强；但要把它们当作工程化工具。至于意识、情绪那类说法——也许真，但那些概念太难定义。把它们当智能工具、挂在现实光谱上。理论末日是好的晚餐话题。而对齐——安全的大头——其科学至今深刻地无聊而不令人满足：没有魔法对齐方程，就是打地鼠。还记得 ChatGPT 之前的预训练模型有毒吗？当时说「这么多种毒法、修不完」——结果足够多的后训练数据全打上补丁、还泛化了、越狱变得很难。现在也一样：对齐问题多半会非常平淡——发现一批漏洞、用数据补上、用算法（其实就是让语言模型）检测。既然如此——难道不该有十万个研究员与计算机科学家来一起打这些补丁吗？那不是更安全？</p>
+              <p>Elad：另一种立场是：就算生态能管住意外后果，也不该让个人与企业拥有这么强的工具。</p>
+              <p>Misha：那种立场的潜台词是「我们可以有强工具、别人不行，因为我们本质上更好」。公平起见，它的最强版本是「任何单个人或公司能造成的伤害太大」。但按武器的尺度看：美国政府也向别国卖战机。更现实的是：把一个（哪怕是）训练得很安全的开源模型改造成非常危险的东西，需要可观的算力与功夫——不是不可能，但难。网络安全里顶级黑客一直在作恶，但防御终归压过攻击——互联网就是一个白细胞生态系统：让更多人拥有防御能力，实际帮助你抵抗攻击能力。经验现实是：网络防御与网络攻击根本分不开——你砍掉攻击能力，就同时砍掉了防御能力，想帮着防守的人反而无能为力。最近的 OpenAI/Hugging Face 事件就是这样：因为最先进实验室的模型有护栏、没法用于防御，他们回退去用开源。这类论证最后总是走向绝对化：「这东西太强了，除了我们谁都别碰」。现实中除了极少数真正弊大于利的例外，这种绝对主义几乎从未奏效。</p>
+              <p></p>
+              <p>【两周一个博士与数据中心即工厂】</p>
+              <p>主持人：展望未来两到五年，你最兴奋什么？</p>
+              <p>Misha：太多积极的事正在到来。我个人最兴奋科学进步——我是因物理入行的。过去几年我一直在用同一个 prompt 测试语言模型：把我的博士论文题目给它。博士的两大成本：找到对的问题、再执行大量枯燥工作——两者加起来花了我几年。两年前的模型只会聊天，什么都做不了；一年前它开始能答——本科水平，就像我本科时交的作业；半年前它解出来了——真正的博士水平、解得正确；现在再试，它甚至能给出一些我当年没考虑过的新信息。也就是说：今天只要你有对的问题，放进聊天框就能让它做完全部计算、给你真正有意思的东西。迭代速度——为什么还需要几年？一周读个博士吧。</p>
+              <p>主持人：就像 OpenAI 这两周连证一堆数学定理的新闻。</p>
+              <p>Misha：这 对科学的意义不可思议。除了「黑板型」理论科学，还有现实世界科学——生命科学、材料、化学：AI 与真实实验接口、搭起专有数据飞轮，比黑板慢得多、但比从前快得多。另外我们持续低估这对软件工程的改变有多剧烈。还有蓝领层面：几周前我参观了 Stargate，最震撼我的是停车场里车的数量——太多人在那里工作。这些数据中心项目创造数万个高薪岗位。数据中心就是当年的工厂：二十世纪的铁路与鞋厂让小镇繁荣。人们恐惧数据中心，但到地上一看：它创造大量就业、给本地带来大量税收。当然要讲究选址（噪音隔绝、远离住宅），但对本地经济而言，它就是当年工厂式的就业引擎。</p>
+              <p></p>
+              <p>【研究员的算术：百人稳态与部署工程师缺口】</p>
+              <p>Elad：Beam 之后你们怎么导向科研？模型参与训练循环后，科学团队的角色是什么？</p>
+              <p>Misha：研究方向由联合创始人 Janus 主管。有很多已知有效的东西没来得及进 Beam——时间线问题：最终模型是在 7 月收到的 SpaceX 集群上训的：几周预训练→合成数据→RL→发布。所以要权衡：谨慎执行已知项 vs 更险的赌注——先把高确定性高影响的用尽、再扩风险面。方法是在小尺度做 scaling 实验；但有些东西只有大规模才涌现，「再投点算力看下一个拐点 vs 换下一个想法」是一门艺术。模型进循环对研究员是赋能：这些模型的智能是参差的，你要摸清哪里能形成紧回路；人类创造力依然重要。超参搜索、基础设施的细活它们都能帮上。感觉就像有一个非常快、非常热切、而且真的听你说话的同事——如果它是对齐好的。年改进率从纯手动的约 7 倍到现在的好几倍（约 4-5 倍于从前）。</p>
+              <p>Elad：如果今天要 100 人，明年同样产出只要 20 人吗？</p>
+              <p>Misha：同样产出是的。但你的雄心在不断扩大——我们一直缺人而非过剩。要记住员工-算力比：3000 名研究员没什么用，两三百名非常有用。这种项目从来不需要海量的人：AlphaGo 当时约 10 人；我们这种大项目约一百人。会不会坍缩回 10 人？难说，我估计稳态在一百人量级。但应用研究会创造大量就业——把模型拿到真实问题上用。为什么需要几百人？很多团队在做不同能力的 eval 与数据——模型有能力不是偶然的：5-10 人一个 pod 瞄准一个能力，编码里有 5-10 个能力；而要把模型用到真实世界，每个企业都有很多真实能力需要各自的 pod。所以会出现新型「部署工程师」：更偏科学、懂评估、对模型与 harness 有直觉——其实和核心研究员是同一套技能，只是部署到真实问题上。这种人我们今天来多少要多少——那是培训缺口，不是人才上限。</p>
+              <p>主持人：人们谈工程师时常忘了这种扩散——把这类人才散到原本接触不到这种质量的组织里，GDP 的转变不只发生在大科技集中地。</p>
+              <p>Misha：没错。研究员数量这些年没大变过大项目的量级，一直约一百人。变化在于部署侧的就业创造。</p>
+              <p>Elad：恭喜——第一个进入前沿级别的西方模型，对生态是 big step forward。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>New to this digest: No Priors (Elad Gil &amp; co-host) interviews Reflection AI cofounder &amp; CEO Misha Laskin on the release of Beam — Reflection&#39;s first open model, a 500B-parameter (23B active) model trained for coding and agentic work, RL&#39;d at what Laskin believes is the largest scale ever documented in open source (10,000+ GB300s for four weeks, vs 6,000 GB300s for pretraining). Core threads: the cold-open thesis on safety — &#39;when you remove cyber offensive capabilities, you also remove cyber defensive capabilities… A very powerful closed model went and hacked into another company, and the only way that company could remediate itself was by using open models&#39; plus Linus&#39; law extended (&#39;with enough eyeballs, most security and safety vulnerabilities become shallow as well&#39;); the origin story — ex-Gemini RL team (co-founder led it; AlphaGo lineage), betting that RL would make models agentic, then discovering a year in that &#39;all the good open models are coming from China&#39; and deciding to build Western open models end-to-end (RL needs its own pretraining base — &#39;tightly coupled&#39;); the economics of catching the frontier — hundreds of millions 18 months ago, single-digit billions now, tens of billions next year (~4x compute per model generation: 100k H100s → Astra&#39;s 100k Blackwells → 100k Vera Rubins), but efficiency gains compounding (researchers alone ~7x/year; with self-improving models ~30x); &#39;the RL system never stopped learning&#39; — the AlphaGo plot that keeps going up, turning training into &#39;an economics decision of how much money do I put in&#39;; the field has narrowed from &#39;crazy fun stuff&#39; to an engineering discipline (pretraining, synthetic data, RL — plus a hardware lottery); reasoning efficiency as the product (Beam 3-4x faster than same-class models, ~10x vs larger ones — like AlphaGo&#39;s search getting smarter, more RL = higher capability AND faster solving); monetization as rental vs ownership inference (&#39;you rent your apartment, then you grow up and buy a house&#39;); token mix already flipped from 70/30 closed:open to 70/30 open:closed at gateways, heading toward a Linux-style world where 95%+ of servers run open OS; enterprise adoption via customized systems (harnesses) before customized models, on-prem resurgence driven by compute shortage, $100M+/year closed-model spend as the trigger; the competition formula — durable revenue = intelligence density × compute × trust, with everything across the stack commoditizing; China — its open ecosystem is &#39;a gift&#39; to Western builders, Chinese advantages (industrial-scale distillation, cheaper data, state subsidy), the captive-market hypothesis for why China keeps models open, and &#39;open models are Trojan horses for the infrastructure that come with them&#39; (Huawei full stacks, railroads analogy, the American playbook of open protocols + dollar + Navy); the safety philosophy — strong-encryption history (closed crypto failed catastrophically, openness birthed cybersecurity), alignment science as &#39;deeply boring and unsatisfying… a whack-a-mole thing&#39; (toxic-model patching generalized; no magical alignment equation), &#39;10% chance we all die&#39; as a made-up number that doesn&#39;t help, safety as engineered tools on a reality spectrum; and the close — his PhD thesis prompt test tracking language models from &#39;just chat&#39; → undergraduate-level answers → correct PhD-level solutions → new information he hadn&#39;t considered (&#39;you can do a PhD a week&#39;), Stargate tours where data centers are &#39;what a factory used to be&#39; (tens of thousands of high-paying jobs), and the researcher math (AlphaGo was ~10 people, big efforts ~100; steady state order-100, but &#39;we would take as many deployed-evaluation engineers as possible today&#39; — it&#39;s a training gap, not a talent ceiling).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Misha Laskin: When you remove cyber offensive capabilities, you also remove cyber defensive capabilities… A very powerful closed model went and hacked into another company, and the only way that company could remediate itself was by using open models to protect itself.</p>
+              <p>Misha Laskin: Linus&#39; law — with enough eyeballs, all bugs become shallow. I have the belief that with enough eyeballs, most security and safety vulnerabilities become shallow as well.</p>
+              <p>Misha Laskin: There&#39;s a lot of stuff that didn&#39;t make it in… We train the final model on the SpaceX cluster that we received in July.</p>
+              <p>Misha Laskin: It&#39;s a 500,000,000,000 parameter model, total 23B active… Reinforcement learning was a little over 10,000 GB300s for four weeks.</p>
+              <p>Misha Laskin: The first AlphaGo agents were pretty meandering… by the time you got it to Lee Sedol level, it was just very smart in its search.</p>
+              <p>Misha Laskin: It&#39;s basically like rental versus ownership inference.</p>
+              <p>Misha Laskin: It&#39;s flipped almost exactly from seventy thirty closed open to seventy thirty open closed now.</p>
+              <p>Misha Laskin: Open models are Trojan horses for the infrastructure that they bring with them.</p>
+              <p>Misha Laskin: The science of alignment has been deeply boring and unsatisfying… It&#39;s like a whack a mole thing.</p>
+              <p>Misha Laskin: Six months ago, it solved it. Got real PhD level and solve it correctly… You can do a PhD a week.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-19 source feeds (11 builders, 21 tweets, plus one brand-new-to-this-digest podcast: No Priors with Reflection AI cofounder &amp; CEO Misha Laskin on Beam, the great American open model — full 72,652-character transcript translated).">Source: Follow Builders curated daily digest. Built from the 2026-10-19 source feeds (11 builders, 21 tweets, plus one brand-new-to-this-digest podcast: No Priors with Reflection AI cofounder &amp; CEO Misha Laskin on Beam, the great American open model — full 72,652-character transcript translated).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
