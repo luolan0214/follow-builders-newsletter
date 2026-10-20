@@ -1,0 +1,91 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-20",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游未更新：今日 X 与播客快照均与 10-19 完全相同（11 位 builders、21 条推文 + No Priors × Reflection AI CEO Misha Laskin 的 Beam 特辑）——全部内容已在昨日期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。昨日主线：Beam——美国开源前沿模型登场（500B 总参/23B 激活、RL 规模开源史上最大）；「砍掉网络攻击能力、也就砍掉防御能力」的安全冷开场与 Sottiaux 的 OpenCode 善后（3862 赞）互文；Rauchg 的域名经济学「.md→Markdown→摩尔多瓦、.ai→AI→安圭拉」（**6334 赞**）；Thariq「宁愿 vibe code 也不玩游戏」（1469 赞）；Levie「agent 集群让算力成为经济任务的关键变量」（121 赞）。"
+  },
+  "archive": {
+    "title": "重播日：Beam 与域名经济学",
+    "desc": "上游快照与 10-19 相同：Beam 美国开源模型、OpenCode 善后、域名经济学（6334 赞）——完整版见 10-19 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-10-20 source feeds are byte-identical to 2026-10-19 (11 builders, 21 tweets; No Priors with Misha Laskin on Beam) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Beam Day / 重播：Beam 日要点",
+      "desc": "上游未更新，昨日完整版的要点回顾：Beam 发布、OpenCode 善后与 Daybreak Blue、域名经济学、宁愿造游戏也不玩游戏、agent swarms。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-10-19-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 10-19 相同",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-10-19 — the same 11 builders and 21 tweets, fully covered in yesterday's issue. Headlines: Rauchg's domain economics at 6334 ('Every once in a while, some unsuspecting country's domain economy goes vertical 😂 .md → Markdown → Moldova, .ai → AI → Anguilla…') with the .sh/.ar sequel at 437; Turck's France meme at 5508; Sottiaux's OpenCode recovery + Daybreak Blue access at 3862 and the 'I bought a new domain' tease at 2948; Thariq's 'I would prefer to vibe code little parts of games than actually play games' at 1469; Steipete's 'AI;DR' at 828; Garry Tan's AsideAI prediction at 424; Levie's agent-swarms essay at 121 ('the only parameter that matters is how much compute you throw at the problem')."
+            ],
+            "original": [
+              "Guillermo Rauch: Every once in a while, some unsuspecting country's domain economy goes vertical 😂 .𝚌𝚘 → Colombia / .𝚖𝚍 → Markdown → Moldova / .𝚊𝚒 → AI → Anguilla",
+              "Thibault Sottiaux: Our team worked with OpenCode to have their users who are also OpenAI API customers back in business… you can request Daybreak Blue access to use our cyber permissive setup for defense.",
+              "Thariq: I've realized I often would prefer to vibe code little parts of games than actually play games these days.",
+              "Aaron Levie: Agent swarms are the first real ability to parallelize this work in a way where - in theory - the only parameter that matters is how much compute you throw at the problem."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 10-19 完全相同（11 位 builders、21 条推文，昨日已完整收录）。要点回顾：Rauchg 的域名经济学（**6334 赞**）——「每隔一阵，某国的域名经济就垂直起飞：.md→Markdown→摩尔多瓦、.ai→AI→安圭拉」+ .sh/.ar 续集（437 赞）；Turck 的法国梗（5508 赞）；Sottiaux 的 OpenCode 恢复 + Daybreak Blue（3862 赞）与「买了新域名」预告（2948 赞）；Thariq「宁愿 vibe code 游戏部件也不想玩」（1469 赞）；Steipete「AI;DR」（828 赞）；Garry Tan 的 AsideAI 预测（424 赞）；Levie 的 agent swarms 长文（121 赞）——「理论上唯一重要的参数是你往问题上砸多少算力」。"
+            ],
+            "original": [
+              "Rauchg：某国域名经济垂直起飞。Sottiaux：OpenCode 恢复营业、Daybreak Blue 可申请。Thariq：宁愿 vibe code 也不想玩游戏。Levie：agent 集群让算力成为唯一关键变量。详见 10-19 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Misha Laskin on Beam / 播客重播：Laskin 论 Beam",
+      "desc": "播客快照与 10-19 相同：No Priors × Reflection AI CEO Misha Laskin——Beam 美国开源前沿模型特辑。完整中文译文（72652 字符、86 段）已收录于 10-19 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-misha-laskin-replay",
+          "authorName": "No Priors Podcast",
+          "authorTag": "Misha Laskin（Reflection AI 联合创始人 & CEO）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-10-19 — the No Priors episode with Reflection AI cofounder & CEO Misha Laskin on Beam, the 500B-parameter open model (RL'd on 10,000+ GB300s for four weeks). The full Chinese translation (86 paragraphs) was published in yesterday's issue; today we keep a quote replay."
+            ],
+            "original": [
+              "Misha Laskin: When you remove cyber offensive capabilities, you also remove cyber defensive capabilities… the only way that company could remediate itself was by using open models to protect itself.",
+              "Misha Laskin: Linus' law — with enough eyeballs, all bugs become shallow. I have the belief that with enough eyeballs, most security and safety vulnerabilities become shallow as well.",
+              "Misha Laskin: It's flipped almost exactly from seventy thirty closed open to seventy thirty open closed now.",
+              "Misha Laskin: Open models are Trojan horses for the infrastructure that they bring with them.",
+              "Misha Laskin: The science of alignment has been deeply boring and unsatisfying… It's like a whack a mole thing.",
+              "Misha Laskin: Six months ago, it solved it. Got real PhD level and solve it correctly… You can do a PhD a week."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 10-19 完全相同——No Priors 对话 Reflection AI CEO Misha Laskin 的 Beam 特辑（500B 总参开源模型、1 万张 GB300 跑四周的 RL）。完整中文译文（86 段）已收录于 10-19 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「当你移除网络攻击能力时，你也就移除了网络防御能力……那家公司唯一能自救的方式，是用开源模型保护自己。」",
+              "「林纳斯定律——眼球够多，所有 bug 都会变浅。我相信：眼球够多，大多数安全与安全性漏洞也会变浅。」",
+              "「token 结构已几乎精确翻转：从七三闭:开变成七三开:闭。」",
+              "「开源模型是随行之基础设施的特洛伊木马。」",
+              "「对齐的科学至今深刻地无聊而不令人满足——就是打地鼠。」",
+              "「半年前它解出了我的博士论文——真正的博士水平。一周一个博士。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
