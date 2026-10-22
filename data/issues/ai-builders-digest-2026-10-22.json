@@ -1,0 +1,93 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-22",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游未更新：今日 X 与播客快照均与 10-21 完全相同（17 位 builders、36 条推文 + Every 前沿小队纪录片）——全部内容已在昨日期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。昨日主线：Claude Duet 发布日——官方三连（**3673/3248/2120 赞**）「围绕 Opus 5.5 设计：判断什么需要你、什么可以等」+ Shipper 的 vibe check（**670 赞**）「第一个 pro tool 级个人 agent」+ Sottiaux 的「Dot, Dotter, Dottest」（**3981 赞**）；php2shell 日——Steipete「造成浩劫的 PHP 漏洞是 GPT-5.6 Sol 找到的」（**11229 赞，近期之最**）、Rauchg 的 Vercel 抢先防御（1449 赞）与「产业联手的幕后是一个 Slack 频道」（386 赞）、Levie「网络循环将烧 100 倍 token」（418 赞）。"
+  },
+  "archive": {
+    "title": "重播日：Duet 与 php2shell",
+    "desc": "上游快照与 10-21 相同：Claude Duet 发布、GPT-5.6 Sol 找出 PHP 漏洞（11229 赞）、Every 前沿小队纪录片——完整版见 10-21 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-10-22 source feeds are byte-identical to 2026-10-21 (17 builders, 36 tweets; Every's Frontier Team documentary) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Duet & php2shell / 重播：Duet 与 php2shell 要点",
+      "desc": "上游未更新，昨日完整版的要点回顾：Claude Duet 发布、PHP 漏洞网安日、quant 与立体卡。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-10-21-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 10-21 相同",
+          "sourceUrl": "https://x.com/AnthropicAI",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-10-21 — the same 17 builders and 36 tweets, fully covered in yesterday's issue. Headlines: the Claude Duet launch (official trio at 3673/3248/2120 — 'designed around Claude Opus 5.5, which gives it the judgment to decide what needs you, what can wait, and when to check with you first'; Shipper's vibe check at 670 — 'the first personal agent I'd call a pro tool… from mostly ChatGPT to roughly 50/50'; Sottiaux's 'Dot, Dotter, Dottest' at 3981) and php2shell day (Steipete's 'That PHP vulnerability that's gonna cause havoc this week was found with… GPT-5.6 Sol' at 11229; Rauchg's preemptive Vercel firewall mitigations at 1449 and the 'a Slack channel' industry-coordination peek at 386; Levie's '100X more tokens on this loop' at 418), plus Swyx's quant joke (1116) and Zara's photo-to-3D popup card (284)."
+            ],
+            "original": [
+              "Claude: We designed Claude Duet around Claude Opus 5.5, which gives it the judgment to decide what needs you, what can wait, and when to check with you first.",
+              "Dan Shipper: It's the first personal agent I'd call a pro tool… It's not a chief of staff yet.",
+              "Thibault Sottiaux: Dot, Dotter, Dottest",
+              "Peter Steinberger: That PHP vulnerability that's gonna cause havoc this week was found with… GPT-5.6 Sol.",
+              "Guillermo Rauch: ¹ A Slack channel. Thank you @SlackHQ!",
+              "Aaron Levie: we'll probably use 100X more tokens on this loop than we're imagining right now."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 10-21 完全相同（17 位 builders、36 条推文，昨日已完整收录）。要点回顾：Claude Duet 发布——官方三连（**3673/3248/2120 赞**）「围绕 Opus 5.5 设计：判断什么需要你、什么可以等、什么时候先问你；不看密码、重要决策留给你」+ Shipper 的 vibe check（**670 赞**）「第一个 pro tool 级个人 agent——从几乎只用 ChatGPT 变成五五开，但还不是幕僚长」+ Sottiaux 的「Dot, Dotter, Dottest」（**3981 赞**）；php2shell 日——Steipete「造成浩劫的 PHP 漏洞是 GPT-5.6 Sol 找到的」（**11229 赞，近期之最**）、Aditya「永远是 fucking PHP」（285 赞）、Rauchg 的 Vercel 抢先防火墙缓解（1449 赞）与「产业联手的幕后是一个 Slack 频道」（386 赞）、Levie「网络循环将烧 100 倍 token」（418 赞）；另有 Swyx 的 quant 梗（1116 赞）与 Zara 的照片变 3D 立体卡（284 赞）。"
+            ],
+            "original": [
+              "Claude：Duet 围绕 Opus 5.5 设计。Shipper：第一个 pro tool 级个人 agent。Sottiaux：Dot, Dotter, Dottest。Steipete：PHP 漏洞是 GPT-5.6 Sol 找到的。Rauchg：产业联手是一个 Slack 频道。Levie：网络循环烧 100 倍 token。详见 10-21 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Every's Frontier Team / 播客重播：Every 前沿小队",
+      "desc": "播客快照与 10-21 相同：Every 前沿小队纪录片。完整中文译文（38255 字符、62 段）已收录于 10-21 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:every-frontier-team-replay",
+          "authorName": "Every（Dan Shipper & Natalia）",
+          "authorTag": "Frontier Team 纪录片（重播）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-10-21 — Every's documentary on its Frontier Team (pirates & architects; personal benchmarks; the Wrangler's usage dashboard; the tabless browser; audience.md; the Minga orchestrator; the capability ladder from GPT-4 to Fable 5.1). The full Chinese translation (62 paragraphs) was published in yesterday's issue; today we keep a quote replay."
+            ],
+            "original": [
+              "Dan Shipper: Do I get my work done or do I stay up to date with AI and figure out what all these new tools and workflows mean for what work I should do? That's just crazy.",
+              "Dan Shipper: There's still a lot of capability overhang… the models are able to do much more than we have had time to try.",
+              "Mike Taylor: It's your job now to protect other people's context… I'm regularly accused of saturating the company LinkedIn.",
+              "Arielle Shipper: Being able to take some of the ideas that I have and will them into existence is actually a totally new thing.",
+              "Jack Cheng: I've never felt such strain on my ability to focus.",
+              "Kieran Klaassen: It's very easy to overwhelm the entire organization by just dumping 100 experiments in a channel. Make sure some stick."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 10-21 完全相同——Every 编辑部的前沿小队纪录片（海盗与建筑师；个人基准；牧人的用量仪表盘；无标签页浏览器；audience.md；Minga 编排器；从 GPT-4 到 Fable 5.1 的能力阶梯）。完整中文译文（62 段）已收录于 10-21 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「是干活、还是跟上 AI？——这太疯狂了。」",
+              "「能力过剩还很多：模型能做的远多于我们来得及试的。」",
+              "「现在你的工作是保护别人的注意力——我经常被指控灌满公司 Slack。」",
+              "「把脑子里的想法『意志成真』，是全新的事。」",
+              "「我从未感到专注力承受如此重压。」",
+              "「往频道里倒 100 个实验太容易压垮全公司——要确保有些能粘住。这就是前沿小队的工作。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

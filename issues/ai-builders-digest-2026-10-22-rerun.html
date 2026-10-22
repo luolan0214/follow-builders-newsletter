@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-22" data-issue-number="150" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 150 期｜2026-10-22｜双语精选版｜2 条精选｜2 位作者｜2 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="上游未更新：今日 X 与播客快照均与 10-21 完全相同（17 位 builders、36 条推文 + Every 前沿小队纪录片）——全部内容已在昨日期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。昨日主线：Claude Duet 发布日——官方三连（**3673/3248/2120 赞**）「围绕 Opus 5.5 设计：判断什么需要你、什么可以等」+ Shipper 的 vibe check（**670 赞**）「第一个 pro tool 级个人 agent」+ Sottiaux 的「Dot, Dotter, Dottest」（**3981 赞**）；php2shell 日——Steipete「造成浩劫的 PHP 漏洞是 GPT-5.6 Sol 找到的」（**11229 赞，近期之最**）、Rauchg 的 Vercel 抢先防御（1449 赞）与「产业联手的幕后是一个 Slack 频道」（386 赞）、Levie「网络循环将烧 100 倍 token」（418 赞）。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">上游未更新：今日 X 与播客快照均与 10-21 完全相同（17 位 builders、36 条推文 + Every 前沿小队纪录片）——全部内容已在昨日期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。昨日主线：Claude Duet 发布日——官方三连（**3673/3248/2120 赞**）「围绕 Opus 5.5 设计：判断什么需要你、什么可以等」+ Shipper 的 vibe check（**670 赞**）「第一个 pro tool 级个人 agent」+ Sottiaux 的「Dot, Dotter, Dottest」（**3981 赞**）；php2shell 日——Steipete「造成浩劫的 PHP 漏洞是 GPT-5.6 Sol 找到的」（**11229 赞，近期之最**）、Rauchg 的 Vercel 抢先防御（1449 赞）与「产业联手的幕后是一个 Slack 频道」（386 赞）、Levie「网络循环将烧 100 倍 token」（418 赞）。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Replay: Duet &amp; php2shell / 重播：Duet 与 php2shell 要点</h2>
+    <p class="section-desc">上游未更新，昨日完整版的要点回顾：Claude Duet 发布、PHP 漏洞网安日、quant 与立体卡。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="replay-2026-10-21-x" data-author-name="Follow Builders（重播）" data-author-tag="X feed 与 10-21 相同" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Follow Builders（重播） avatar"><span class="avatar-fallback">FB</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Follow Builders（重播）</div>
+            <div class="author-tag is-inline">X feed 与 10-21 相同</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>重播说明：今日 X feed 与 10-21 完全相同（17 位 builders、36 条推文，昨日已完整收录）。要点回顾：Claude Duet 发布——官方三连（**3673/3248/2120 赞**）「围绕 Opus 5.5 设计：判断什么需要你、什么可以等、什么时候先问你；不看密码、重要决策留给你」+ Shipper 的 vibe check（**670 赞**）「第一个 pro tool 级个人 agent——从几乎只用 ChatGPT 变成五五开，但还不是幕僚长」+ Sottiaux 的「Dot, Dotter, Dottest」（**3981 赞**）；php2shell 日——Steipete「造成浩劫的 PHP 漏洞是 GPT-5.6 Sol 找到的」（**11229 赞，近期之最**）、Aditya「永远是 fucking PHP」（285 赞）、Rauchg 的 Vercel 抢先防火墙缓解（1449 赞）与「产业联手的幕后是一个 Slack 频道」（386 赞）、Levie「网络循环将烧 100 倍 token」（418 赞）；另有 Swyx 的 quant 梗（1116 赞）与 Zara 的照片变 3D 立体卡（284 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude：Duet 围绕 Opus 5.5 设计。Shipper：第一个 pro tool 级个人 agent。Sottiaux：Dot, Dotter, Dottest。Steipete：PHP 漏洞是 GPT-5.6 Sol 找到的。Rauchg：产业联手是一个 Slack 频道。Levie：网络循环烧 100 倍 token。详见 10-21 期。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Replay note: today&#39;s X feed is unchanged from 2026-10-21 — the same 17 builders and 36 tweets, fully covered in yesterday&#39;s issue. Headlines: the Claude Duet launch (official trio at 3673/3248/2120 — &#39;designed around Claude Opus 5.5, which gives it the judgment to decide what needs you, what can wait, and when to check with you first&#39;; Shipper&#39;s vibe check at 670 — &#39;the first personal agent I&#39;d call a pro tool… from mostly ChatGPT to roughly 50/50&#39;; Sottiaux&#39;s &#39;Dot, Dotter, Dottest&#39; at 3981) and php2shell day (Steipete&#39;s &#39;That PHP vulnerability that&#39;s gonna cause havoc this week was found with… GPT-5.6 Sol&#39; at 11229; Rauchg&#39;s preemptive Vercel firewall mitigations at 1449 and the &#39;a Slack channel&#39; industry-coordination peek at 386; Levie&#39;s &#39;100X more tokens on this loop&#39; at 418), plus Swyx&#39;s quant joke (1116) and Zara&#39;s photo-to-3D popup card (284).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude: We designed Claude Duet around Claude Opus 5.5, which gives it the judgment to decide what needs you, what can wait, and when to check with you first.</p>
+              <p>Dan Shipper: It&#39;s the first personal agent I&#39;d call a pro tool… It&#39;s not a chief of staff yet.</p>
+              <p>Thibault Sottiaux: Dot, Dotter, Dottest</p>
+              <p>Peter Steinberger: That PHP vulnerability that&#39;s gonna cause havoc this week was found with… GPT-5.6 Sol.</p>
+              <p>Guillermo Rauch: ¹ A Slack channel. Thank you @SlackHQ!</p>
+              <p>Aaron Levie: we&#39;ll probably use 100X more tokens on this loop than we&#39;re imagining right now.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/AnthropicAI" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Podcast Replay: Every&#39;s Frontier Team / 播客重播：Every 前沿小队</h2>
+    <p class="section-desc">播客快照与 10-21 相同：Every 前沿小队纪录片。完整中文译文（38255 字符、62 段）已收录于 10-21 期；今日保留金句回顾。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:every-frontier-team-replay" data-author-name="Every（Dan Shipper &amp; Natalia）" data-author-tag="Frontier Team 纪录片（重播）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Every（Dan Shipper &amp; Natalia） avatar"><span class="avatar-fallback">ES</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Every（Dan Shipper &amp; Natalia）</div>
+            <div class="author-tag is-inline">Frontier Team 纪录片（重播）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>重播说明：今日播客快照与 10-21 完全相同——Every 编辑部的前沿小队纪录片（海盗与建筑师；个人基准；牧人的用量仪表盘；无标签页浏览器；audience.md；Minga 编排器；从 GPT-4 到 Fable 5.1 的能力阶梯）。完整中文译文（62 段）已收录于 10-21 期播客卡，今日不重复刊出。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【金句回顾】</p>
+              <p>「是干活、还是跟上 AI？——这太疯狂了。」</p>
+              <p>「能力过剩还很多：模型能做的远多于我们来得及试的。」</p>
+              <p>「现在你的工作是保护别人的注意力——我经常被指控灌满公司 Slack。」</p>
+              <p>「把脑子里的想法『意志成真』，是全新的事。」</p>
+              <p>「我从未感到专注力承受如此重压。」</p>
+              <p>「往频道里倒 100 个实验太容易压垮全公司——要确保有些能粘住。这就是前沿小队的工作。」</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Replay note: today&#39;s podcast feed is unchanged from 2026-10-21 — Every&#39;s documentary on its Frontier Team (pirates &amp; architects; personal benchmarks; the Wrangler&#39;s usage dashboard; the tabless browser; audience.md; the Minga orchestrator; the capability ladder from GPT-4 to Fable 5.1). The full Chinese translation (62 paragraphs) was published in yesterday&#39;s issue; today we keep a quote replay.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper: Do I get my work done or do I stay up to date with AI and figure out what all these new tools and workflows mean for what work I should do? That&#39;s just crazy.</p>
+              <p>Dan Shipper: There&#39;s still a lot of capability overhang… the models are able to do much more than we have had time to try.</p>
+              <p>Mike Taylor: It&#39;s your job now to protect other people&#39;s context… I&#39;m regularly accused of saturating the company LinkedIn.</p>
+              <p>Arielle Shipper: Being able to take some of the ideas that I have and will them into existence is actually a totally new thing.</p>
+              <p>Jack Cheng: I&#39;ve never felt such strain on my ability to focus.</p>
+              <p>Kieran Klaassen: It&#39;s very easy to overwhelm the entire organization by just dumping 100 experiments in a channel. Make sure some stick.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Both 2026-10-22 source feeds are byte-identical to 2026-10-21 (17 builders, 36 tweets; Every&#39;s Frontier Team documentary) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.">Source: Follow Builders curated daily digest. Both 2026-10-22 source feeds are byte-identical to 2026-10-21 (17 builders, 36 tweets; Every&#39;s Frontier Team documentary) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
