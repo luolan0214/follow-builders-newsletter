@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-21" data-issue-number="149" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 149 期｜2026-10-21｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Duet 日 + php2shell 日。Anthropic 发布 Claude Duet——常驻个人 agent：官方三连（**3673/3248/2120 赞**）：「围绕 Claude Opus 5.5 设计，让它有判断力决定什么需要你、什么可以等、什么时候先问你」+「早期研究预览、Pro/Max 美国区候补」+ 安全设计（永不直视密码、分类器守敏感信息、重要决策留给你）；Shipper 的抢先 vibe check（**670 赞**）：「这是我第一个愿意称为 pro tool 的个人 agent——两周测试后我从几乎只用 ChatGPT 变成五五开」；Sottiaux 的命名玩梗（**3981 赞**）：「Dot, Dotter, Dottest」+「完整包含在 Pro 计划内、不占每周用量」（1840 赞）。安全侧今日最高：Steipete（**11229 赞，近期之最**）：「本周将造成浩劫的那个 PHP 漏洞是……GPT-5.6 Sol 找到的」；Aditya（285 赞）：「Fucking PHP。永远是 fucking PHP」；Rauchg 的 Vercel 三连（**1449/544/386 赞**）：提前于官方补丁为 Node.js RCE 部署防火墙级缓解 + php2shell 幕后产业协作（「一个 Slack 频道而已」）+ DeepSeek Flash 进 Token Pass（「把 TypeScript 移植成 Rust 十次也不会用光额度 😂」）；Levie 双发（**418/187 赞**）：「网络将成 AI 最深刻的切面……这个循环上的 token 用量会是我们现在想象的 100 倍」。Swyx 的 quant 梗（1116 赞）；Zara 的照片变 3D 立体卡（284 赞）。播客全新一期（本刊首次收录）：Every 编辑部的 Frontier Team 纪录片——38255 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Duet 日 + php2shell 日。Anthropic 发布 Claude Duet——常驻个人 agent：官方三连（**3673/3248/2120 赞**）：「围绕 Claude Opus 5.5 设计，让它有判断力决定什么需要你、什么可以等、什么时候先问你」+「早期研究预览、Pro/Max 美国区候补」+ 安全设计（永不直视密码、分类器守敏感信息、重要决策留给你）；Shipper 的抢先 vibe check（**670 赞**）：「这是我第一个愿意称为 pro tool 的个人 agent——两周测试后我从几乎只用 ChatGPT 变成五五开」；Sottiaux 的命名玩梗（**3981 赞**）：「Dot, Dotter, Dottest」+「完整包含在 Pro 计划内、不占每周用量」（1840 赞）。安全侧今日最高：Steipete（**11229 赞，近期之最**）：「本周将造成浩劫的那个 PHP 漏洞是……GPT-5.6 Sol 找到的」；Aditya（285 赞）：「Fucking PHP。永远是 fucking PHP」；Rauchg 的 Vercel 三连（**1449/544/386 赞**）：提前于官方补丁为 Node.js RCE 部署防火墙级缓解 + php2shell 幕后产业协作（「一个 Slack 频道而已」）+ DeepSeek Flash 进 Token Pass（「把 TypeScript 移植成 Rust 十次也不会用光额度 😂」）；Levie 双发（**418/187 赞**）：「网络将成 AI 最深刻的切面……这个循环上的 token 用量会是我们现在想象的 100 倍」。Swyx 的 quant 梗（1116 赞）；Zara 的照片变 3D 立体卡（284 赞）。播客全新一期（本刊首次收录）：Every 编辑部的 Frontier Team 纪录片——38255 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Claude Duet Day / Duet 发布日</h2>
+    <p class="section-desc">Anthropic 官方三连（**3673/3248/2120 赞**）：Opus 5.5 的判断力 + 早期研究预览 + 安全设计；Cat Wu（728 赞）：「主动注意需要做的工作、在你开口前做掉」；Shipper 的 vibe check（**670 赞**）：独立 app、频道制、todo list、写文档——但还当不了幕僚长（看得见 Claude 会话却不能指挥、邮件草稿不如 dot、语音只有转写）；Sottiaux（**3981/1840 赞**）：「Dot, Dotter, Dottest」+「完整包含在 Pro 计划内」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="claudeai+_catwu+danshipper+thsottiaux" data-author-name="Claude / Cat Wu / Dan Shipper / Sottiaux" data-author-tag="Anthropic / Anthropic / Every CEO / Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Claude / Cat Wu / Dan Shipper / Sottiaux avatar"><span class="avatar-fallback">C/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Claude / Cat Wu / Dan Shipper / Sottiaux</div>
+            <div class="author-tag is-inline">Anthropic / Anthropic / Every CEO / Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Duet 发布——官方三连：围绕 Claude Opus 5.5 设计（「判断力决定什么需要你、什么可以等、什么时候先问你；继承你 Claude 账户的记忆、技能与已连接应用，几乎不用设置」）；早期研究预览、Pro/Max 美国区候补（「它仍会误判紧急性，我们会按早期用户反馈持续调校」）；安全设计（「从不直接看你的密码、新分类器防止敏感信息外泄、重要决策留给你」）。Cat Wu 的框架（728 赞）——「你想要 Claude 主动多卸下一些工作的反馈我们听到了：Duet 是这个方向上的一大步——它会注意到需要做的工作、在你开口之前做掉。」Shipper 的抢先 vibe check（**670 赞**）——「突发：Anthropic 发布 Duet——它的常驻个人 agent。这是我第一个愿意称为 pro tool 的个人 agent。测了两周，我从几乎只用 ChatGPT 变成跟 Claude 五五开——近一年里我在 Anthropic 上花的时间之最。独立 app（iOS/Android/Web）、按工作与生活分频道（而非单一聊天）、todo list 永不丢线索、直接写改文档与幻灯片。但它还不是幕僚长：看得见我电脑上的 Claude 会话却不能指挥它们；邮件草稿不如 dot 的；语音只有转写、不能对话。」Sottiaux 的命名玩梗（**3981 赞**）——「Dot, Dotter, Dottest」+ 计划说明（1840 赞）——「完整包含在 Pro 计划内、不占你的每周用量。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude：Duet 围绕 Opus 5.5 设计——判断什么需要你、什么可以等；不看密码、重要决策留给你。Cat Wu：注意需要做的工作、开口前做掉。Shipper：第一个 pro tool 级个人 agent；独立 app、频道制、todo；还不是幕僚长。Sottiaux：Dot, Dotter, Dottest；Pro 计划全含。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The Duet drop: official Claude trio — designed around Opus 5.5 (&#39;the judgment to decide what needs you, what can wait, and when to check with you first… carries over the memory, skills, and connected apps from your Claude account&#39;), early research preview on Pro/Max in the US (&#39;It can still misjudge what&#39;s urgent&#39;), and the safety design (&#39;never directly sees your passwords, a new classifier guards against sharing sensitive information, and the important decisions stay with you&#39;). Cat Wu&#39;s framing (728): &#39;Claude Duet is a large step in this direction — it&#39;ll notice work that needs to be done, and then do it before you ask.&#39; Shipper&#39;s early vibe check (670): &#39;BREAKING: @AnthropicAI just launched Duet, its always-on personal agent. It&#39;s the first personal agent I&#39;d call a pro tool… I&#39;ve gone from mostly using ChatGPT to roughly 50/50… • It lives in its own app… • It has channels for specific areas of your work and life • It has a todo list… • It&#39;s not a chief of staff yet. It can see the Claude sessions on my computers but can&#39;t direct them. Its email drafts are worse than dot&#39;s, and voice is transcription only.&#39; And Sottiaux&#39;s naming joke (3981): &#39;Dot, Dotter, Dottest&#39; — plus the plan note (1840): &#39;Fully included in the Pro plan, doesn&#39;t draw on your weekly usage.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Claude: We designed Claude Duet around Claude Opus 5.5, which gives it the judgment to decide what needs you, what can wait, and when to check with you first.</p>
+              <p>Claude: Claude Duet draws on years of our safety and security work on agents. It never directly sees your passwords, a new classifier guards against sharing sensitive information, and the important decisions stay with you.</p>
+              <p>Cat Wu: We heard your feedback that you want Claude to proactively take more off your plate! Claude Duet is a large step in this direction - it&#39;ll notice work that needs to be done, and then do it before you ask.</p>
+              <p>Dan Shipper: It&#39;s the first personal agent I&#39;d call a pro tool… It&#39;s not a chief of staff yet. It can see the Claude sessions on my computers but can&#39;t direct them. Its email drafts are worse than dot&#39;s, and voice is transcription only.</p>
+              <p>Thibault Sottiaux: Dot, Dotter, Dottest</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/AnthropicAI" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">php2shell Day / PHP 漏洞日</h2>
+    <p class="section-desc">Steipete（**11229 赞，近期之最**）：「本周将造成浩劫的那个 PHP 漏洞是……GPT-5.6 Sol 找到的」；Aditya（285 赞）：「Fucking PHP。永远是 fucking PHP」；Rauchg 三连（**1449/544/386 赞**）：Vercel 提前为 Node.js RCE 部署防火墙级缓解 + DeepSeek Flash 进 Token Pass + php2shell 幕后产业协作；Levie 双发（**418/187 赞**）：「网络将成 AI 最深刻的切面——100 倍 token」+ 网安岗位论；Nikunj（68 赞）：「谁能想到获得超级智能的代价是整个互联网的信任织物被慢慢撕碎。」</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="steipete+adityaag+rauchg+levie+nikunj" data-author-name="Steipete / Aditya / Rauchg / Levie / Nikunj" data-author-tag="OpenClaw / SPC / Vercel CEO / Box CEO / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Steipete / Aditya / Rauchg / Levie / Nikunj avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Steipete / Aditya / Rauchg / Levie / Nikunj</div>
+            <div class="author-tag is-inline">OpenClaw / SPC / Vercel CEO / Box CEO / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>php2shell 浪潮——Steipete 的重磅（**11229 赞，近期之最**）：「本周将造成浩劫的那个 PHP 漏洞是……GPT-5.6 Sol 找到的。」Aditya 的条件反射（285 赞）——「Fucking PHP。永远是 fucking PHP。」Rauchg 三连——预防性防御（1449 赞）：「Vercel 已抢在官方补丁发布之前，为今天的 Node.js RCE 漏洞主动部署了防火墙级缓解。所有部署的全部流量自动受保护，我们正积极监控并推出托管运行时升级」；省钱经（544 赞）：「DeepSeek v4.1 Flash（1017）现已包含在 ▲ Token Pass——快、便宜得离谱、零数据保留。作为跑子 agent 的模型堪称绝佳（执行更大更贵模型制定的计划）——把 TypeScript 移植成 Rust 十次额度也用不完 😂」；产业协作幕后（386 赞）：「见证产业提前数周联手保护世界基础设施、缓解 php2shell 的幕后¹很受启发。我们的 Vercel WAF 缓解已成功挡下针对 PHP 源站的尝试。假设还有更多漏洞在路上：练好补丁→重部署的肌肉。¹一个 Slack 频道而已。谢谢 @SlackHQ！」Levie 双发（418/187 赞）——「网络将成 AI 最深刻的切面之一。我们现在有了一支不知疲倦的劳动力：能追猎、发现、修补、或攻击人类造过的任何系统与软件。用 agent 找出存量系统的陈年风险；攻击者用 agent 加速发现环境缺口；我们同样用 agent 防御、发现异常模式。我们正进入新的网络 regime——这个循环上的 token 用量大概会是我们现在想象的 100 倍：每条日志都能扫、每行代码都能看、全部流量都能过一遍——从前的数据处理规模不可想象」+ 岗位论：「想知道 AI 会创造哪些工作？看网安。它将成企业最大的投资领域之一——即使工作更 agentic 化，也需要更多人才给 agent 指方向、审发现、打补丁、响应事件。」Nikunj 的感叹（68 赞）——「谁能想到获得超级智能的代价是整个互联网的信任织物被慢慢撕碎……外面真是狂野得没边。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Steipete：造成浩劫的 PHP 漏洞是 GPT-5.6 Sol 找到的。Aditya：永远是 PHP。Rauchg：Vercel 抢先部署防火墙缓解；DeepSeek Flash 进 Token Pass、跑子 agent 绝佳；产业联手其实是一个 Slack 频道。Levie：网络循环将烧 100 倍 token。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The php2shell wave: Steipete&#39;s bombshell (11229): &#39;That PHP vulnerability that&#39;s gonna cause havoc this week was found with… GPT-5.6 Sol.&#39; Aditya&#39;s reaction (285): &#39;Fucking PHP. It&#39;s always fucking PHP.&#39; Rauchg&#39;s trio: the preemptive defense (1449) — &#39;Vercel has proactively rolled out Firewall-level mitigations for today&#39;s Node.js RCE vulnerability, in advance of the official patch release. All traffic for all deployments is automatically protected&#39; — the budget build (544): &#39;DeepSeek v4.1 Flash (1017) is now included in ▲ Token Pass. Fast, mind-bogglingly cheap, and served with ZDR… a phenomenal model to run subagents that execute plans conceived by larger and more expensive models. You can port TypeScript to Rust 10 times and not run out of credits 😂&#39; — and the industry-coordination peek (386): &#39;It was inspiring to watch the behind-the-scenes¹ of the industry coming together, weeks in advance, to protect the world&#39;s infrastructure and mitigate php2shell… ¹A Slack channel. Thank you @SlackHQ!&#39; Levie&#39;s pair (418/187): &#39;Cyber is going to be one of the most profound aspects of AI. We now have a tireless workforce that can hunt down, discover, patch, or attack any system and software ever created… we&#39;ll probably use 100X more tokens on this loop than we&#39;re imagining right now, because we can scan every log, look at every line of code…&#39; — and the jobs note: cybersecurity becomes one of the biggest enterprise investment areas, with more talent needed to point agents at critical work. Nikunj&#39;s lament (68): &#39;Who knew acquiring super intelligence could lead to the entire fabric and trust of the internet being slowly broken… It&#39;s truly wild and batsh!t bananas out there.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: That PHP vulnerability that&#39;s gonna cause havoc this week was found with… GPT-5.6 Sol.</p>
+              <p>Aditya Agarwal: Fucking PHP. It&#39;s always fucking PHP</p>
+              <p>Guillermo Rauch: Vercel has proactively rolled out Firewall-level mitigations for today&#39;s Node.js RCE vulnerability, in advance of the official patch release.</p>
+              <p>Guillermo Rauch: You can port TypeScript to Rust 10 times and not run out of credits 😂</p>
+              <p>Aaron Levie: Cyber is going to be one of the most profound aspects of AI… we&#39;ll probably use 100X more tokens on this loop than we&#39;re imagining right now.</p>
+              <p>Nikunj Kothari: Who knew acquiring super intelligence could lead to the entire fabric and trust of the internet being slowly broken..</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Quant, Popups &amp; the Rest / Quant、立体卡与其余</h2>
+    <p class="section-desc">Swyx 的 quant 梗（**1116 赞**）；Zara 三连（**284/48/27 赞**）：照片变 3D 立体卡 +「个人网站是新的简历」+ 一条 prompt 生成网站；Amjad（99 赞）：「prompt -&gt; corporation」；Aditya（28 赞）：儿子看完《星球大战》后花 20 小时做相关游戏、却几乎不玩——「编程的快乐也许现在人人可得」；Peter Yang 双发（**103/6 赞**）：用 AI 加 1Password 加固账户 +《边缘行者 2》观感；Turck 双发（24/16 赞）：Pigment $250M 与 Legora $550M Series E；Garry Tan 双发（63/9 赞）：Zucman 与加州 Prop 40；Nan Yu（18 赞）与 Nikunj（49 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="swyx+zarazhangrui+amasad+adityaag+petergyang+mattturck+garrytan+thenanyu+nikunj" data-author-name="Swyx / Zara / Amjad / Aditya / Peter Yang / Turck / Garry Tan / Nan Yu / Nikunj" data-author-tag="Latent Space / Design Engineer / Replit CEO / SPC / Builder / FirstMark / YC CEO / OpenAI / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Swyx / Zara / Amjad / Aditya / Peter Yang / Turck / Garry Tan / Nan Yu / Nikunj avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx / Zara / Amjad / Aditya / Peter Yang / Turck / Garry Tan / Nan Yu / Nikunj</div>
+            <div class="author-tag is-inline">Latent Space / Design Engineer / Replit CEO / SPC / Builder / FirstMark / YC CEO / OpenAI / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 的 quant 梗（**1116 赞**）——「这就是我的 quant（量化基金）。」Zara 三连——照片变 3D 立体贺卡（284 赞）、「个人网站是新的简历」（48 赞）、一条 prompt 生成网站（27 赞）。Amjad 的两个词论文（99 赞）——「prompt -&gt; corporation（公司）」。Aditya 的育儿观察（28 赞）——「我儿子看了约 3 小时《星球大战》（第四集）……然后花了约 20 小时做关于它的游戏。奇怪的是游戏他几乎没怎么玩——他更感兴趣的只是造游戏。作为程序员我直觉懂其中部分：编程这件事本身就快乐（大部分时候）。我一直为无法体验这种快乐的人感到遗憾……也许现在人人都能体验了？」Peter Yang 双发——加固账户（103 赞）：「今晚趁还没出事，用 AI 把我所有账户加固一遍。也终于不再抠门、付了 @1Password 的钱」+《赛博朋克：边缘行者 2》第 1 集（6 赞）——「居然有点……治愈？」Turck 双发（24/16 赞）——Pigment $250M Series E（「在 token、API 与 agent 的时代，世界正转向持续财务规划」）与 Legora $550M Series E。Garry Tan 双发（63/9 赞）——Gabriel Zucman 与加州 Prop 40（「他的理念会毁掉加州」）。Nan Yu（18 赞）——「测量仪器问题」；Nikunj（49 赞）——「该要孩子的第 347 号证据 🥰」。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx：这是我的 quant。Zara：个人网站是新简历。Amjad：prompt -&gt; 公司。Aditya：儿子造游戏 20 小时、只玩一会儿——编程的快乐或将人人可得。Peter Yang：用 AI 加 1Password 加固账户。Turck：Pigment 与 Legora 大额 Series E。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx&#39;s quant joke (1116): &#39;this is my quant.&#39; Zara&#39;s trio: the photo-to-3D-popup-card demo (284), &#39;Your personal website is the new resume&#39; (48), and the one-prompt site (27) — &#39;Made with just one prompt!&#39; Amjad&#39;s two-word essay (99): &#39;prompt -&gt; corporation.&#39; Aditya&#39;s parenting observation (28): &#39;My son watched Star Wars (EP IV) for ~3 hours… but then spent ~20 hours making games about what he had seen. But weirdly, he only played the games a little bit… he was more interested in just building the game. As a programmer, I understand parts of this intuitively… the very act of programming is fun (most of the time). And I have always felt bad for people who couldn&#39;t experience that joy… But maybe everyone will now get to experience that?&#39; Peter Yang&#39;s pair: hardening his accounts (103): &#39;Securing all my accounts with AI&#39;s help tonight before something bad happens. Also finally stopped being cheap and paid for @1Password&#39; — and the Edgerunners 2 note (6): &#39;Just finished episode 1… It&#39;s actually kind of…happy?&#39; Turck&#39;s double (24/16): Pigment&#39;s $250M Series E (&#39;In an era of tokens, APIs and agents, the world is shifting towards continuous financial planning&#39;) and Legora&#39;s $550M Series E. Garry Tan&#39;s pair (63/9) on Gabriel Zucman and California&#39;s Prop 40 (&#39;His ideas will destroy California&#39;). Nan Yu&#39;s &#39;Instrumentation problem&#39; (18), and Nikunj&#39;s kid joy (49): &#39;Exhibit 347 of why you should have kids 🥰.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx: this is my quant</p>
+              <p>Zara Zhang: Your personal website is the new resume</p>
+              <p>Amjad Masad: prompt -&gt; corporation</p>
+              <p>Aditya Agarwal: My son watched Star Wars (EP IV) for ~3 hours...but then spent ~20 hours making games about what he had seen… he was more interested in just building the game… maybe everyone will now get to experience that?</p>
+              <p>Peter Yang: Securing all my accounts with AI&#39;s help tonight before something bad happens. Also finally stopped being cheap and paid for @1Password</p>
+              <p>Matt Turck: In an era of tokens, APIs and agents, the world is shifting towards continuous financial planning, and Pigment is the platform for it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Every&#39;s Frontier Team / 播客：Every 前沿小队纪录片</h2>
+    <p class="section-desc">本刊首次收录：Every 编辑部的 Frontier Team 纪录片——「每个公司都需要一支前沿小队」。海盗与建筑师两种原型；Mike Taylor 的个人基准与「能力过剩」、Opus+UltraCode 几百 agent 做讲解视频、速查表（全部上下文给 AI；保护别人的注意力）；Arielle 的 Wrangler 用量仪表盘；Jack Cheng 的无标签页浏览器与 ADHD 注意力保卫战；Katie Parrott 的 audience.md；Yannik 的 Minga 编排器；Kieran 的能力阶梯（GPT-4→Sonnet 3.5→agent 交接→Opus 4.5 CRDT→GPT-5.5 proof 时代→Fable 5.1）与「让实验粘住」。38255 字符 transcript 全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:every-frontier-team" data-author-name="Every（Dan Shipper &amp; Natalia）" data-author-tag="Frontier Team 纪录片视频（Every 编辑部全员出镜）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Every（Dan Shipper &amp; Natalia） avatar"><span class="avatar-fallback">ES</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Every（Dan Shipper &amp; Natalia）</div>
+            <div class="author-tag is-inline">Frontier Team 纪录片视频（Every 编辑部全员出镜）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>本刊首次收录：Every 编辑部的 Frontier Team（前沿小队）纪录片——Dan Shipper 与 Natalia（企业 AI 采用负责人）带队参观自家「前沿小队」的每个成员与工作流。核心论点：公司里每个人都困在两难里——是干活、还是跟进 AI？前沿小队就是关注点分离：无视前沿、早晚被某个你没看见的 agent 原生竞品颠覆；追着前沿跑、又永远建不成能留下来的东西。小队靠两种原型运转——海盗（快、糙、狂试）与建筑师（把混乱压缩成可维护的系统再推给全公司）。成员巡礼：自封「评估负责人」的 Mike Taylor 把 vibe check 变成个人基准（「能力过剩还很多——模型能做的远多于我们来得及试的」），用 UltraCode 的几百个 agent 扫全部 Slack 与 Granola 笔记做出带「证据链」的讲解视频；他的速查表：把全部上下文交给 AI；产能放大后「你的新工作是保护别人的注意力」。Wrangler Arielle 的用量仪表盘（按人跨 harness 收割 token、按工作桶归类、算「值不值」）；Jack Cheng 的无标签页浏览器与 ADHD 注意力保卫战；Katie Parrott 给写作插件加 audience.md；建筑师 Yannik 的 Minga 编排器；Kieran 的能力阶梯（GPT-4 会写码→Sonnet 3.5 跨文件→3.7/4.4.1 agent 交接→Opus 4.5 一周做出 CRDT 协同编辑器→GPT-5.5 的 proof 时代→Fable 5.1 更长更深）与收尾金句：「往频道里倒 100 个实验太容易压垮全公司——要确保有些能粘住。这就是前沿小队的工作。」完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：每个公司都需要一支前沿小队】</p>
+              <p>Dan Shipper：你需要一支前沿小队（frontier team）。原因如下：你公司里的每一个人都被困在这个两难里——我到底是把活干完，还是跟上 AI 的最新进展、搞清楚这些新工具新流程对我该做什么工作意味着什么？这太疯狂了、太难了。每家公司都在被这件事折磨：一方面你可以无视前沿——短期内大概没事，直到某个你没料到的 agent 原生版产品把你颠覆；另一方面你可以死盯前沿——于是追逐闪光物、永远建不成任何能留下的东西。前沿小队的意义就是把它分开：既跟住前沿、又把活干完，一个漂亮的关注点分离。</p>
+              <p>Natalia（主持人，Every 企业 AI 采用负责人）来队里做一番「挖掘」。我们在 Every 跑前沿小队大约几个月了，效果近乎变革性的。</p>
+              <p>Dan：说来这其实是你的主意。前沿小队是个巨大的解锁，原因就是这种分离。Every 有很多像我一样就爱玩新东西的人——这很重要，但若只做这个、公司就难有业务进展：你确实需要去执行产品与服务、做出人们能依赖的东西。以前我们好像只能二选一：要么不停玩新东西，要么做一个产品然后永远加功能养着它。前沿小队就是一次尝试：把所有爱玩新东西的人集中起来、放开手脚跑实验。实验的下限是特别好的内容——教会我们一些有意思的东西、变成好推文或视频；上限是被从前沿推升进我们做的产品与服务——而公司其他人不必一直盯每一个新模型、每一个新实验。它给了我们空间去弄清未来长什么样，又不把它强加给全公司、直到真的值得他们关注。</p>
+              <p></p>
+              <p>【海盗与建筑师】</p>
+              <p>Natalia：组队早期你就想清楚要同时有海盗与建筑师，展开讲讲？</p>
+              <p>Dan：有两种原型配合得极好。海盗是我这种人：只想跑得飞快、有点糙没关系，几天内试十亿件事、弄清什么有用——但成果会是一团糟。建筑师擅长的是：这有一大坨乱东西——能不能压缩一下、塑形成一个真正能用、能维护的形状？前沿小队的大量实验会被扔掉，一部分会被推给团队其他人试用——而就在推送前那一刻，建筑师变得极其关键：进来指出「这个太乱了、没法维护、对内部五种人都不 work」，然后把它变成一个我们能理解、能在其上继续建造的系统——而不是一个一次性的 vibe code 项目。</p>
+              <p>Natalia：Dan，你觉得前沿小队给 Every 带来的最大影响是什么？</p>
+              <p>Dan：它让我们在「新东西」上移动得极快、又不让全队分心。这对团队是深层的信心建设：你会觉得「变了我会知道、我们应付得了」——而不是一直又疯又忙又涣散。我认为这是在当下这种环境里建公司、经营公司、日常工作的核心体验。</p>
+              <p></p>
+              <p>【Mike Taylor：自封评估负责人】</p>
+              <p>Natalia：欢迎 Mike Taylor——前沿小队的 Head of Evals（评估负责人）。你在做什么？</p>
+              <p>Mike：感觉每周都不同、有时每天甚至每小时都不同。前沿小队的目标就是把模型推到极限、看现在可能做到什么、工作方式有什么新的可能，因为模型在持续变强。而且「能力过剩」（capability overhang）还非常多——我的意思是：模型能做的远多于我们来得及尝试的。我们要去找那些边缘。</p>
+              <p>我的头衔是我自己编的（很我的风格）：Head of Evals。Evals 是 evaluations（评估）的缩写。我的工作是把我们对模型做的那些偏定性的 vibe check，试着变成有数字的东西。我一直在帮团队很多人构建他们自己的个人基准——包括你（Natalia）——我们先做成内部产品、再推广给更多人测模型。除此之外就是跑更多实验：当我们说「AI 谄媚」时到底指什么？怎么定义？能不能测？然后把边界再推远一点。</p>
+              <p>Natalia：你现在最兴奋什么？</p>
+              <p>Mike：我最近的发现之一是 Opus 特别擅长视频剪辑。对一直测的人来说也许显然，但我测 AI 视频剪辑很久了（我有门热门的 Udemy 课程，那个副项目最痛苦的就是事后剪视频）。我最近做的一件事：为 Chex 产品（我们在做的个人基准产品）做了个讲解视频。我让 Opus 回溯我全部的 Slack 消息、全部 Granola 会议笔记，把视频叙事拉出来——而且是带「回执」（receipts）的：能引用我在 Slack 或会议里说过的具体原话。然后它把整条视频剪了出来。对像我这样忙着跑实验、永远没空告诉别人我们在干嘛的人，这打开了很多。</p>
+              <p>演示：这个 prompt 来回改了很久。最初用的是 UltraCode——如果你不熟悉，那是最高档的努力设置，它会编排几百个 agent 来做任务。我选它是因为上下文太多、单模型读不完：它给每个会议派一个 agent，然后把所有东西汇成一个「资料库」。这里全是信源——我开过的各种会、它找出的相关片段。然后它不只做了资料库：它还造了「故事主线」——把叙事浓缩成 12 句话（比如：个人基准是一小撮你自己的真实工作、存下来让 am.org 可以反复在上面跑——就是我之前给你的定义）。而现在有了回执：点进任何一句，能回到洞察卡、再从洞察卡回到我在某次会议里说过的原话——全程可审计。然后它把一切组装起来、找出我发在 Slack 里的截图、给屏幕加注释、做配音（我给了它 Gemini API key）——12 句话的讲解视频就成了。分享给全公司，大家就懂了 Chex 是什么、分数是怎么算的。</p>
+              <p>Natalia：最后一个问题：作为评估负责人，给一份速查表吧——我知道现在是 2026 年 10 月底、可能几天后就过时。</p>
+              <p>Mike：我的速查表：第一，人们做得还不够的一件事是把全部上下文交给 AI。如果你过去试过、让它看你的会议记录、或者犹豫要不要给它 Google Drive 权限——今年年初我还是那种人：Gmail、Slack 都没接。而现在我是「AI 拥有一切访问权」。迈出这一步吧：一旦给它访问权，它挑上下文的能力好得惊人。可以更信任它的判断。</p>
+              <p>第二：既然你用 AI 产出变多了——保护其他人的上下文（context/注意力）现在成了你的工作。我经常被指控「灌满公司 Slack」——我发的每个频道都是 Mike Mike Mike。我对此很自觉：所以做那条视频、把我的工作做得更可消化，现在真的是我的工作。我产出好想法、Claude 自动把它们从我说过的话里找出来——但我也在用新想法淹没人们。我觉得很多人的工作都会往这个方向走。</p>
+              <p></p>
+              <p>【Arielle Shipper：前沿小队牧人（Wrangler）】</p>
+              <p>Natalia：欢迎 Arielle。你的角色是？</p>
+              <p>Arielle：我的官方头衔是 Frontier Wrangler（前沿牧人）：确保我们的实验在组织层面足够有序，以便收割、综合学习成果、对外消化传播，并指引我们内部的探索方向。我做支撑这一切的系统与流程、和 Dan 紧密配合，同时也跑自己的实验。和队里其他人不同，我技术含量低——我是运营者（operator），所以内部实用系统上有大量有趣机会可以持续玩。</p>
+              <p>为什么前沿小队需要牧人？这队人全是元思考者：极有创造力、追新追得极兴奋——这很好、我们需要这样的人。但也需要一个组织层来问：我们从中到底学到了什么？怎么把实验产出的一切消化成给受众的东西？需要一个层把大家的所作所为映射成可消化的主题、在所有实验里找出意义，再转成内容、产品、甚至我们咨询里教的概念——把这一切收割掉、翻译到业务的其他区域。</p>
+              <p>我在做的东西：模型不断发布、前沿不断前推，令人兴奋；但这也意味着可玩的东西太多，我们在像野火一样烧 token。这是业务与实验上重要的投资——但元层面上搞清「我们在做什么实验、花了多少钱、换回了什么」也很重要。演示用量仪表盘：总花费金额、token 数、按人分解。我们做了个 skill，扫你电脑上所有 harness、收割你在每个 harness 用的 token；实时采集数据——具体模型与努力档位都看得到。仪表盘还带一个工作流：扫你全部会话、归类你把这些 token 花在了哪类工作上、再交给你审批——你能看到每个工作桶的 token 占比与估计金额，快速心算「这波值不值」。</p>
+              <p>Natalia：作为牧人，你接下来最兴奋什么？</p>
+              <p>Arielle：最兴奋的是：模型越聪明、我实际建造这种能力的本事就越大。这是我从前没有过的力量，感觉像魔法。把脑子里的想法「意志成真」是全新的事。以前做运营，我要么等模型公司加这种追踪能力、要么找个工程师合作；现在我自己就能造出一部分。所以模型越好、我建造干活的系统的能力就越好——我特别期待扎进去。</p>
+              <p></p>
+              <p>【广告口播：Gemini Audio】</p>
+              <p>旁白：与 AI 协作的妙处之一是现在可以直接跟它说话。如果你对突破性的语音体验感兴趣，去看 Gemini Audio——Google DeepMind 的新语音模型。Gemini 3.5 Transcribe 把语音变成干净的格式化文本：你说「周二见、不、周三」，它能检测修正并自动处理、去掉口头禅——从粗糙想法到可用文本之间的清理量大幅减少。Gemini 3.8 Live 扩展思考让你可以口头推进更复杂的工作：边推理边说话、后台持续替你干活，你随时追问、随时给反馈——语音成了发展想法的实用方式、还留给你改变主意的余地。链接在描述栏。</p>
+              <p></p>
+              <p>【Jack Cheng：无标签页浏览器】</p>
+              <p>Jack（Every 高级编辑）：我在队里主要测早期访问的新模型，最近做得更多的是创造交互体验、小游戏之类——推一推每次新发布到底能做到什么、以前根本想不到去试的。另一个方向是做自己的应用：我发现自己总被浏览器的标签页淹没、被迫不停切换上下文。我就想：要是浏览器没有标签页、还能关掉标签页呢？以前我可能会写个 Chrome 扩展；但现在模型强到——不，我直接自己造个浏览器。这是我的浏览器：无标签页浏览器。最初意图就是不被诱惑去开后台标签、永远不看。但要用起来日常，我还有整套编辑流程（以前在浏览器里用 ChatGPT）——所以加了一个 agent 面板：可以选任何模型提供商、用任何模型做编辑（Claude 和 Gemini 的 Chrome 插件都没这么好使）。日常里也确实有需要瞄一眼的时刻，于是最新加了 peek 模式：临时快速开一页、查完就回文档。</p>
+              <p>我从中开始学到的是：插件与扩展这个概念我们谈了很多年，但它们从未让你真正接近应用本身、改变应用的运作方式。而现在这代前沿模型，真的可能造出完全按你、或按你团队的工作流个性化的应用——以前做不到。</p>
+              <p>Natalia：收尾问题：接下来最想造什么？</p>
+              <p>Jack：最想造更多保护我注意力的东西。我有 ADHD（确诊），这辈子都是巨大的挑战、多年来想出各种应对策略。现在想同时做一百万件事的诱惑更大了；我也确实做得比以前多得多——但我从未感到专注力承受如此重压：把注意力维持得足够久、久到对生活产生实质影响，太难了。实验对我很重要，但我心里还有另一面：我想造帮我写更多东西的东西、造更多世界上美好的东西、造把我与本地社区连得更近的东西——不只是为创造而创造，而是用它强化、服务、深化我的价值观。</p>
+              <p></p>
+              <p>【Katie Parrott：驻队作家与 audience.md】</p>
+              <p>Katie（驻队作家）：我在前沿小队有几条线。第一：新前沿模型的测试队（OpenAI、Anthropic、Gemini、Grok）——我们拿到早期访问、把模型塞进自己的工作流，看「正确使用这个模型是什么体验」，再把信息传给读我们 vibe check 的读者。第二条线：写 vibe check 本身、以各种方式把前沿小队的所学传播出去——我是嵌在前沿小队里写前沿小队的驻队作家。第三：自己也造东西——比如我的 Compound Writing 插件、用新的写作微调模型，还包括给队里其他人（Kieran、Mike）当碰撞测试假人。</p>
+              <p>现在在做的：继续扩展 Compound Writing——带你走完写作全程（构思→规划→大纲→起草→定稿）的插件，迄今围绕两份核心文档构建：voice guide（句子层面你的声音听感、用词选择）与 style.md（你写什么、怎么谈你的主题）。现在我在加第三份——事后看非常显然——audience.md：最终接收这些内容的读者是谁。加进插件后看：使用体验怎么变？更有用了吗？</p>
+              <p>演示：给我的专栏 Working Over Time（写我把 AI 用到自己工作里的胡闹与奇遇）设置 audience.md：它给出读者画像——主要读者是「早期探索者」（对 AI 好奇）与「运营者」（找日常工作的实际应用）的组合。我特意把「英雄之旅」烤进结构里：每一篇阅读都应该带读者走一趟他们自己的英雄之旅——你总想在读者身上实现某种转变。解锁的能力：我让它用新 audience.md 预审我最近一篇稿（写我如何本想改善上下文、结果把上下文全搞砸了）：先讲哪里已经 work——清晰、有背景解释、修复是个人化的而非普世的（我说过我不爱开处方、爱描述）；然后指出「在哪里失去了探索者那一侧」——对我可能想触达的早期读者不够友好。这是极好的反馈。还有一些运营者向的小注：损失是什么？AI 不听话时我的代价是什么？——这就是 compound writing 能赋能人们写得更好的高细节反馈。</p>
+              <p>Natalia：下一个实验是什么？</p>
+              <p>Katie：我要试 Kieran 的 Every Type——他让大家别再用 Google Docs 的项目；我会当碰撞测试假人、用我作家的挑剔给反馈。另外我在造自己的文字处理器——我常开玩笑这是成年礼：每个人到某个阶段都会 vibe code 一个自己的文字处理器。我在旁边做我的 Word Better，因为如今直接自己造反而更容易说清我要什么，造完拿给 Kieran 看：这才叫讲得通。我正处在觉得自己能造出比 Kieran 更好的文字处理器的旅程阶段。</p>
+              <p></p>
+              <p>【Yannik Jung：建筑师与 Minga 编排器】</p>
+              <p>Yannik（内部工程师）：我主要做几个项目的建筑师，从 Dan 手里接了不少项目——第一个是 Proof：把它做到生产就绪、救活。现在主要做 compounding，以及 Cakebench——一个试图复刻我们主编判断力与品味、帮我们减负的 skill。</p>
+              <p>Natalia：很多人 vibe code 过产品、然后它以各种方式坏掉——你就是被叫来收拾残局、看看底下到底有什么的人。这个体验是什么样的？</p>
+              <p>Yannik：AI 极擅长把东西「带活」：做假设、查该用什么、造出一个好看、大概率在 demo 场景能跑的东西。但仍然需要建筑师这个角色——有背景知识、知道怎么建可靠且长期可维护的东西：代码怎么组织、用什么库、怎么部署、软件侧什么才叫为未来准备好。</p>
+              <p>演示（Minga 编排器）：我建了个新项目 Replyguy——想法是给同事 Becky 一个工具：探索推特上什么在热、然后用我们新的 vibe check 去回复。这个工具的主要目标是：把我的工作抬到更高层级——在目标与计划的层面工作、而不是陷进单个编码会话。这里有一个编排 agent 作为我的主界面：我跟它讨论要建什么、说需求、定技术栈；它把一切拆解成计划——计划有分步、有依赖、有先后；它有自主权在后台开工；需要我时就 ping 我做决定；给我看 UI 草稿或样机、我给反馈、它继续自己干。</p>
+              <p>下周想探索：多人模式——把队友甚至全公司邀请进来、共享工作上下文，各自带强项：海盗带想法、建筑师带技术知识，同时建同一个项目、不用等谁做完再交接。</p>
+              <p></p>
+              <p>【Kieran Klaassen：能力阶梯与「让实验粘住」】</p>
+              <p>Kieran（compound engineer）：我爱前沿小队。我进 Every 时就开始造 Quora、实验各种东西——compound engineering 等等都是那时长出来的。我总觉得这支队伍早就存在、只是没起名。现在说「我们是前沿小队、我们被允许做实验、弄清什么行什么不行」——太好了。我现在的做法：每周至少一个实验（通常多个），学到的最重要部分是分享给团队与 Every 订阅者——让大家更大胆：如果有人已经做过并说「这个 pattern 行」或「别走那条路」，就不那么可怕了。</p>
+              <p>能力演化：每次都有新东西，关键就是看它在哪里失败——推到失败为止。刚开始的问题是「它会写代码吗？哇，会」。GPT-4 突然能写挺像样的代码——第一个解锁。然后 Sonnet 3.5 能跨多文件写代码、把多块代码拼起来、还能做 UI。再往后我们开始看到 agent 式工作：模型能把活往下传——以前是一段 prompt 进、东西出、你再迭代；3.7、Opus 3.7、4.4.1 时 agent 突然能干活了。Opus 4.5 又一变：能做更复杂的活——我们突然能做带 CRDT 与实时协同的文本编辑器（非常复杂），AI 一周就做出来了。然后 Dan 做出 Proof——那是「proof 时代」、GPT-5.5：突然我们可以更有野心、不用怎么手把手就造更大的东西。尤其现在 Fable 5.1：一个能跑更久、更深、更可托付的模型。我是音乐人，总想造 DAW（数字音频工作站）——一年前开始，每次新模型出来就再试一次。现在已经真能做到了，这太疯了。也许我该做个视频编辑器，我们正需要。</p>
+              <p>最近造的：一个是视频工具——不只是视频编辑器，还是直播、会议录制一整套。Every 有太多人在会议里说出精彩想法、然后就丢了——这既是把它们全录下来的方式，也是变成编辑们熟悉的格式（当然也是 agent 原生的）。另一个是写作编辑器——类似 Proof：我在实验能不能做出 Proof 的下一代、做得更好、做得更多。</p>
+              <p>Natalia：给其他公司前沿小队的一条建议？</p>
+              <p>Kieran：最重要的：激励你的团队，但也要倾听你的团队。跑一百个实验却不落地、不整合，等于零。要倾听团队、被团队激发、去做东西、然后确保有些被采纳。核心是整合（integration）：你确实应该有做任何事的自由，但归根结底是把成果带回组织。我劝所有人：确保大家理解你做的事、别把大家淹没——往频道里倒 100 个实验太容易压垮整个组织了。要确保有些能粘住、确保人们懂你在干嘛。这就是前沿小队的工作。</p>
+              <p></p>
+              <p>【片尾】</p>
+              <p>旁白：喜欢这个视频的话去看看 every.to——描述栏有两周免费试用。Every 是你留在 AI 边缘唯一需要的订阅：教育侧我们评测每个新模型告诉你什么好用；装备侧有专为你做的软件工具——比如帮你把全公司 AI 化的 agent——全部打包在一个订阅里。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>New to this digest: Every&#39;s documentary on its own Frontier Team — Dan Shipper and Natalia (head of enterprise AI adoption) tour the members and their workflows. The thesis: every person in your company is caught in a dilemma — do my work, or stay up to date with AI? The frontier team is a separation of concerns: ignore the frontier and get disrupted by an agent-native version of your product; chase it and never build anything lasting. The team runs on two archetypes — pirates (go fast, try a billion things, messy) and architects (compress the mess into maintainable systems before it&#39;s pushed to the rest of the company). Tour highlights: Mike Taylor, self-titled Head of Evals, turns vibe checks into personal benchmarks (&#39;there&#39;s still a lot of capability overhang — the models are able to do much more than we have had time to try&#39;), and had Opus build an explainer video by unleashing hundreds of UltraCode agents across all his Slack messages and Granola notes into a source library, story spine, and receipts-annotated video; his cheat sheet: give AI ALL your context (Gmail, Slack, everything), and now that you produce more, &#39;it&#39;s your job to protect other people&#39;s context&#39; — being accused of saturating the company&#39;s Slack is the new occupational hazard. Arielle Shipper, the Frontier Wrangler, runs a usage dashboard harvesting token spend across every harness per person, categorizing sessions into work buckets with approval — &#39;was that worth it?&#39; — and notes that as models get smarter, a non-technical operator can now build capacity herself (&#39;I would have had to wait for a model company or partner with an engineer… now I can will ideas into existence&#39;). Jack Cheng built a tabless browser (with an agent pane for any model, and peek mode) because plugins never let you get close to the application — and with ADHD, &#39;I&#39;ve never felt such strain on my ability to focus… I want to build things that reinforce and serve and deepen my values.&#39; Katie Parrott, resident writer, adds audience.md to her Compound Writing plugin (voice.md + style.md + who-is-the-reader, with a hero&#39;s-journey transformation baked in) and is vibe-coding her own word processor (&#39;a rite of passage&#39;). Yannik Jung, the architect who cleans up vibe-coded messes (getting Proof production-ready; Cakebench replicating the editor-in-chief&#39;s taste), demos Minga, his orchestrator — work at the level of goals and plans, background autonomy, pings for decisions — heading multiplayer with shared context. Kieran Klaassen traces the capability ladder (GPT-4 writes code → Sonnet 3.5 multi-file + UI → 3.7/4.4.1 agentic handoffs → Opus 4.5 CRDT text editors in a week → the GPT-5.5 &#39;proof era&#39; → Fable 5.1 longer, deeper runs), rebuilds his DAW with every model drop, and closes with the frontier team&#39;s real job: &#39;inspire your team, but also listen… it&#39;s very easy to overwhelm the entire organization by dumping 100 experiments in a channel. Make sure some stick.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Do I get my work done or do I stay up to date with AI and figure out what all these new tools and workflows mean for what work I should do? That&#39;s just crazy.</p>
+              <p>Dan Shipper: There&#39;s still a lot of capability overhang… the models are able to do much more than we have had time to try.</p>
+              <p>Mike Taylor: It&#39;s your job now to protect other people&#39;s context… I&#39;m regularly accused of saturating the company LinkedIn.</p>
+              <p>Arielle Shipper: As these models get smarter and smarter, my ability to actually build the capacity for that grows… being able to take some of the ideas that I have and will them into existence is actually a totally new thing.</p>
+              <p>Jack Cheng: I&#39;ve never felt such strain on my ability to focus… I want to build things that connect me closer to like my local community… reinforce and serve and deepen my values.</p>
+              <p>Katie Parrott: Everyone at a certain point decides to vibe code their own word processor.</p>
+              <p>Kieran Klaassen: It&#39;s very easy to overwhelm the entire organization by just dumping 100 experiments in a channel. Make sure some stick. Make sure people understand what you do. That&#39;s your job as a frontier team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-21 source feeds (17 builders, 36 tweets, plus one brand-new-to-this-digest podcast: Every&#39;s documentary on its Frontier Team — full 38,255-character transcript translated).">Source: Follow Builders curated daily digest. Built from the 2026-10-21 source feeds (17 builders, 36 tweets, plus one brand-new-to-this-digest podcast: Every&#39;s documentary on its Frontier Team — full 38,255-character transcript translated).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
