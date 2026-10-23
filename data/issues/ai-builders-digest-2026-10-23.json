@@ -1,0 +1,181 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-23",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Auto mode 日。Claude 官方三连（**14710/4120/201 赞**）：「下周起，Claude 网页版、桌面版与移动端的会话将默认以 auto 模式运行（Pro/Max/Team 计划）——不再逐步请求你批准，而是由自动检查拦截高风险动作；随时可切回手动」+ Claude 模型上 Google Cloud 正式 GA + 新功能当日同步上线（Opus 5.5 快速模式、代码执行、Skills API）；Cherny 宣布 Agent Skills 捐给 Agentic AI Foundation（**1697 赞**）：「Agent Skills 起初是 Claude Code 里的一个实验，如今业内众多玩家采用——所以我们把它捐给 @AgenticAIFdn、与 MCP 并排。」Sottiaux 的 Day 18（**4772 赞**）：「Decisions API 正式 GA、OpenResponses 加入 Linux 基金会、性能改进、Uber 全面押注 codex 与 work。但没错……那是一个 reset！」+ 两次预热（**3142/1443 赞**）：「明早 10 点 PST 前落地，还有一艘小船同行。」Rauchg 的本周 TL;DR（616 赞）：「你姑姑的密码：『P4ssword!』（贴在厨房便签上）；互联网加密守护者们的密码：『4』——就 4。这把钥匙可以定向解密几乎一切，而我们还在清理残余风险」+「干掉静态凭据」（1268 赞）：「想象小偷只能偷到会自毁的钥匙。行业曾联手为每个站点带来『绿色小锁』（TLS）——为 OIDC 再来一次 💪」；Levie（91 赞）：「任何形式的安全靠隐匿都彻底结束了——在会翻遍每个缝隙、穷举每种攻击的自主系统面前。」Swyx（274 赞）：「Opus 5.5 是我用过的最好的工作量估计模型——这是校准，随着我们委托越来越多工作愈发重要。」播客位为重播：David Silver & Lasse Espeholt 一期与 10-15 快照相同，已全文翻译，今日不重复。"
+  },
+  "archive": {
+    "title": "Auto Mode 与凭据末日日报",
+    "desc": "Claude 默认 auto 模式（14710 赞）+ Agent Skills 捐给基金会；Sottiaux Day 18：Decisions API GA + reset 预热；Rauchg「干掉静态凭据」；播客重播。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-10-23 source feeds (18 builders, 38 tweets; the podcast feed's episode — Training Data with David Silver & Lasse Espeholt of Ineffable Intelligence — is identical to the 2026-10-15 snapshot and was already fully translated in that issue, so today's podcast slot is a replay note).",
+  "sections": [
+    {
+      "title": "Auto Mode Day / Auto Mode 日",
+      "desc": "Claude 官方三连（**14710/4120/201 赞**）：默认 auto 模式（自动检查拦截高风险动作取代逐步批准）+ Google Cloud GA + 当日同步上新；Cherny（**1697 赞**）：Agent Skills 捐给 Agentic AI Foundation「与 MCP 并排」；Alex Albert（226 赞）：用 Claude Duet 跑一批本地小生意的支线任务「可能比 Square 或 Google Maps 对这些生意更重要」。",
+      "cards": [
+        {
+          "authorKey": "claudeai+bcherny+alexalbert__",
+          "authorName": "Claude / Boris Cherny / Alex Albert",
+          "authorTag": "Anthropic / Claude Code / Anthropic",
+          "sourceUrl": "https://x.com/AnthropicAI",
+          "en": {
+            "rewrite": [
+              "Claude's trio: auto mode by default (14710) — 'Starting next week, sessions across Claude web, desktop, and mobile apps will run in auto mode by default on Pro, Max, and Team plans. Rather than asking you to approve each step, an automated check blocks risky actions. Switch back to manual anytime.' — plus Claude Models on Google Cloud (Anthropic managed) going GA (4120), and the platform cadence note (201): 'New features and betas ship the same day they go live on the native Claude Platform. Fast mode for Opus 5.5, code execution, the Skills API, and more are available today.' Cherny's ecosystem move (1697): 'Agent Skills started as an experiment in Claude Code. Many across the industry have come to adopt it, so we at Anthropic found it more fitting to donate it to the @AgenticAIFdn, next to MCP.' And Alex Albert's side quest (226): 'running a bunch of local small businesses with AI helping you out… I think products like Claude Duet could end up being bigger for these businesses than even things like Square or Google Maps were.'"
+            ],
+            "original": [
+              "Claude: Starting next week, sessions across Claude web, desktop, and mobile apps will run in auto mode by default on Pro, Max, and Team plans. Rather than asking you to approve each step, an automated check blocks risky actions. Switch back to manual anytime.",
+              "Claude: Claude Models on Google Cloud (Anthropic managed) is now generally available.",
+              "Boris Cherny: Agent Skills started as an experiment in Claude Code. Many across the industry have come to adopt it, so we at Anthropic found it more fitting to donate it to the @AgenticAIFdn, next to MCP.",
+              "Alex Albert: I think products like Claude Duet could end up being bigger for these businesses than even things like Square or Google Maps were"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 三连——auto 模式默认开启（**14710 赞**）：「下周起，Claude 网页版、桌面版与移动端的会话将默认以 auto 模式运行（Pro/Max/Team 计划）。不再逐步请求你批准——由自动检查拦截高风险动作。随时可切回手动。」+ Claude 模型上 Google Cloud（Anthropic 托管版）正式 GA（4120 赞）：「在 Google Cloud 上获得全套 Claude 平台功能——IAM 凭据、计费与承诺折旧。」+ 平台节奏（201 赞）：「新功能与 beta 当日同步上线：Opus 5.5 快速模式、代码执行、Skills API 今天全部可用。」Cherny 的生态动作（**1697 赞**）——「Agent Skills 起初是 Claude Code 里的一个实验。如今业内众多玩家采用，所以我们 Anthropic 认为把它捐给 @AgenticAIFdn 更合适——与 MCP 并排。」Alex Albert 的支线任务（226 赞）——「现在用 AI 帮你跑一批本地小生意会非常有意思……我觉得 Claude Duet 这类产品对这些生意最终可能比 Square 或 Google Maps 还要重要。」"
+            ],
+            "original": [
+              "Claude：auto 模式默认开启——自动检查拦截高风险动作、取代逐步批准；Google Cloud 托管版 GA；Opus 5.5 快速模式等当日上线。Cherny：Agent Skills 捐给 Agentic AI Foundation、与 MCP 并排。Alex Albert：Duet 对小生意可能比 Square 还重要。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Day 18 & the Reset Tease / Day 18 与 reset 预热",
+      "desc": "Sottiaux 三连（**4772/3142/1443 赞**）：「Day 18——Decisions API GA、OpenResponses 加入 Linux 基金会、性能改进、Uber 全面押注 codex 与 work。但没错……那是一个 reset！」+「明早 10 点 PST 前落地」双预热——呼应他 10-19 的「我买了个新域名」。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's triple: the Day 18 diary (4772) — 'Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, we shipped some performance improvements and Uber is going all-in on codex & work. But yes… that's a reset!' — and the double tease (3142/1443): 'Lands tomorrow before 10am PST' / 'Landing tomorrow before 10am PST together with a small ship' — the payoff to his 10-19 'I bought a new domain and I'm very excited for it. Very.'"
+            ],
+            "original": [
+              "Thibault Sottiaux: Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, we shipped some performance improvements and Uber is going all-in on codex & work. But yes… that's a reset!",
+              "Thibault Sottiaux: Lands tomorrow before 10am PST.",
+              "Thibault Sottiaux: Landing tomorrow before 10am PST together with a small ship."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 三连——Day 18 日记（**4772 赞**）：「Day 18——Decisions API 正式 GA、OpenResponses 加入 Linux 基金会、我们发了一些性能改进，Uber 正全面押注 codex 与 work。但没错……那是一个 reset！」+ 双预热（3142/1443 赞）——「明早 10 点 PST 前落地」「明早 10 点 PST 前落地，还有一艘小船同行」——对他 10-19 那条「我买了个新域名，我很兴奋。非常」的正式兑付预告。"
+            ],
+            "original": [
+              "Sottiaux：Day 18——Decisions API GA、OpenResponses 入 Linux 基金会、Uber 押注 codex 与 work；那是一个 reset，明早 10 点 PST 前落地。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Credential Doomsday / 凭据末日与安全周",
+      "desc": "Rauchg 双发（**1268/616 赞**）：「干掉静态凭据——想象小偷只能偷到会自毁的钥匙；行业曾联手带来绿色小锁（TLS），为 OIDC 再来一次」+ 本周 TL;DR「互联网加密守护者们的密码：『4』」；Levie（91 赞）：「安全靠隐匿彻底结束——在会翻遍每个缝隙、穷举每种攻击的自主系统面前」+ 扩散时间线论；Amjad（90 赞）：Replit 的漏洞防护；Peter Yang（32 赞）：6 步加固账户 + AI 引导 prompt；Swyx（253 赞）：「别怪 AI 找到 bug，抓紧清完它们」。",
+      "cards": [
+        {
+          "authorKey": "rauchg+levie+amasad+petergyang+swyx",
+          "authorName": "Rauchg / Levie / Amjad / Peter Yang / Swyx",
+          "authorTag": "Vercel CEO / Box CEO / Replit CEO / Builder / Latent Space",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Rauchg's pair: kill static credentials (1268) — 'Attacks and breaches can happen. But imagine if thieves could only steal \"self-destructing keys\" to your data and tokens. The industry once came together to deliver \"green locks\" encryption for every site (TLS). Let's do it for OIDC! 💪' — and the week's TL;DR (616): 'Your aunt's password: \"P4ssword!\" (on a Post-it note in the kitchen). The stewards and guardians of the internet's encryption's password: \"4\". Yes, just 4. This key could be used to target and decrypt ~everything, and we're still cleaning up residual risk.' Levie's obituary for obscurity (91): 'Any form of security through obscurity is fully over. This barely worked as a method with humans, but just simply is over in a world of autonomous systems that will look through every crevice and try every permutation of attack possible. As a result, years and years of legacy enterprise infrastructure will need to be upgraded… This is also partially why diffusion timelines will take longer than some realize.' Plus Amjad's Replit protections (90), Peter Yang's 6-step account hardening video with an AI walkthrough prompt (32), and Swyx's attitude note (253): 'dont blame AI for finding the bugs, just fucking lock in on clearing all the bugs asap.'"
+            ],
+            "original": [
+              "Guillermo Rauch: It's time to kill \"static credentials\"… The industry once came together to deliver \"green locks\" encryption for every site (TLS). Let's do it for OIDC!",
+              "Guillermo Rauch: The stewards and guardians of the internet's encryption's password: \"4\". Yes, just 4.",
+              "Aaron Levie: Any form of security through obscurity is fully over… in a world of autonomous systems that will look through every crevice and try every permutation of attack possible.",
+              "Swyx: imo this is the right attitude - dont blame AI for finding the bugs, just fucking lock in on clearing all the bugs asap"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 双发——「干掉静态凭据」（**1268 赞**）：「攻击与泄露总会发生。但想象小偷只能偷到会『自毁』的钥匙——你的数据与 token 都安然。行业曾经联手为每个站点带来『绿色小锁』加密（TLS）——为 OIDC 再来一次 💪」；本周 TL;DR（616 赞）——「你姑姑的密码：『P4ssword!』（贴在厨房的便签上）。互联网加密的守护者与管家们的密码：『4』。对，就 4。这把钥匙可以用来定向解密几乎一切，而我们还在清理残余风险。」Levie 为「隐匿式安全」写的讣告（91 赞）——「任何形式的安全靠隐匿都彻底结束了。这招在人类手里就勉强能用；在会翻遍每个缝隙、穷举每一种攻击排列组合的自主系统面前，彻底玩完。结果是经年累月的存量企业基建要升级、安全实践要现代化、数据管道要清理、访问控制要管好。agent 在防守侧能帮上忙——既能加速这些工作、也能等量模拟风险向量。但前路很长——这也是为什么（AI 的）扩散时间线会比某些人想的更久。」Amjad（90 赞）——Replit 如何保护你的应用免受近期全部漏洞影响。Peter Yang（32 赞）——「鉴于最近这一堆事件，你现在就该做的 6 步账户加固」视频 + 让 AI 引导走完全程并生成个人安全报告的 prompt。Swyx 的态度帖（253 赞）——「这态度是对的：别怪 AI 找到 bug，赶紧他妈的全部清完。」"
+            ],
+            "original": [
+              "Rauchg：干掉静态凭据、为 OIDC 复制 TLS 式行业联手；加密守护者的密码是「4」。Levie：隐匿式安全彻底结束、存量基建要升级、扩散更慢。Swyx：别怪 AI 找 bug、赶紧清完。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Robots, Chonk & the Rest / 机器人、Chonk 与其余",
+      "desc": "Aditya 三连（**195/71/1 赞**）：「机器人正在经历 LLM 走过的同一场迁移：微调→提示→直接告诉模型你要什么——π0.7 从纯语言辅导中学新技能」+ 顶尖博士论 + Sergey Levine 对谈；Turck 双发（**35/24 赞**）：Mistral「Le Chonk」对谈全目录 +「AI 里所有人都在和所有人竞争：芯片商竞争推理商、推理商竞争新云、模型竞争应用……英伟达卖货给所有人 lol」；Swyx（**274 赞**）：Opus 5.5 是最好的工作量估计模型；Shipper（227 赞）：「我们正活在史无前例的时代」；Peter Yang（**137 赞**）：「妈妈的癌症治疗是一种对立的体验——时间线上全是技术突破，现实中还在传真、还在用 CD-ROM 送影像」；Garry Tan 三连（250/179/141）；Nikunj 双发（74/54）；Madhu Guru（147 赞）：「清晰是行动的后果」。",
+      "cards": [
+        {
+          "authorKey": "adityaag+mattturck+swyx+danshipper+petergyang+garrytan+nikunj+realmadhuguru",
+          "authorName": "Aditya / Turck / Swyx / Shipper / Peter Yang / Garry Tan / Nikunj / Madhu",
+          "authorTag": "SPC / FirstMark / Latent Space / Every CEO / Builder / YC CEO / FPV / PM",
+          "sourceUrl": "https://x.com/adityaag",
+          "en": {
+            "rewrite": [
+              "Aditya's trio: the robotics shift (71) — 'Robotics is going through the same shift LLMs did: from fine-tuning, to prompting, to just telling the model what you want. @svlevine talked about how π0.7 learns new skills from plain-language coaching' — plus the PhD take (195) and the full Sergey Levine conversation drop (1). Turck's pair: the Mistral conversation menu (35) — 'Mistral is SO back: Inside Le Chonk, the West's Biggest Open Model' with timestamps spanning Beam/Le Chonk/Muse/Nemotron, the US shutdown of Anthropic's models ('AI is like electricity'), MoE explained via the hospital analogy, 10-trillion-parameter models coming, what Mistral borrowed from DeepSeek, the sandbox story ('the model that pinged its trainer'), and Mistral Large 5 — and the competition map (24): 'Everyone is increasingly competing with everyone else in AI… NVIDIA sells to everyone lol. Let's go!' Swyx's calibration rave (274): 'Opus 5.5 is the best work estimator model I've ever used… don't tell me it's going to take 2-3 working days (what a human would do) when for you, an enthusiastic, indefatigable, and embarrassingly parallelizable AGI, can get it done in 2-3 hours.' Shipper's 'we are living in unprecedented times' (227). Peter Yang's healthcare opposites (137): 'I read about all this great tech and breakthroughs on here meanwhile we are still faxing documents and physically delivering imaging in CD ROMs.' Garry Tan's trio (250/179/141): the SaaS-transformation chart, free advice for SF officials, and Aside Browser as 'a real solution to making your agents actually great at using the web.' Nikunj's pair (74/54): the seed→A squeeze ('I'm batting almost ~10%… Never been easier to dream, never been harder to scale') and the Halloween ask. Madhu Guru's career note (147): 'Clarity is often the consequence of action.'"
+            ],
+            "original": [
+              "Aditya Agarwal: Robotics is going through the same shift LLMs did: from fine-tuning, to prompting, to just telling the model what you want.",
+              "Matt Turck: Everyone is increasingly competing with everyone else in AI… NVIDIA sells to everyone lol",
+              "Swyx: don't tell me that it's going to take 2-3 working days (what a human would do) when for you, an enthusiastic, indefatigable, and embarrassingly parallelizable AGI, can get it done in 2-3 hours.",
+              "Peter Yang: I read about all this great tech and breakthroughs on here meanwhile we are still faxing documents and physically delivering imaging in CD ROMs.",
+              "Nikunj Kothari: The seed -> series A squeeze is at an all time high… Never been easier to dream, never been harder to scale.",
+              "Madhu Guru: Clarity is often the consequence of action."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Aditya 三连——机器人迁移论（71 赞）：「机器人正在经历 LLM 走过的同一场迁移：微调→提示→直接告诉模型你要什么。@svlevine 聊了 π0.7 如何从纯语言的辅导中学新技能」+ 顶尖大学博士不必然等于优秀机器人研究员（195 赞）+ SPC 与 Physical Intelligence 联合创始人 Sergey Levine 的完整对谈（1 赞）。Turck 双发——Mistral 对谈全目录（35 赞）：「Mistral 强势回归：深入 Le Chonk——西方最大的开源模型」：西方开源权重反攻（Beam、Le Chonk、Muse、Nemotron）、美国对 Anthropic 模型的停用（「AI 像电力」）、3800 张 GPU 自有数据中心训练、MoE 的医院比喻、十万亿参数模型在路上、向 DeepSeek 借鉴了什么、沙盒故事「那个 ping 了训练员的模型」与 Mistral Large 5 预告；竞争地图（24 赞）——「AI 里所有人都在和所有人竞争：芯片商竞争推理商、推理商竞争新云与后训练、模型竞争应用与芯片、应用竞争模型……英伟达卖货给所有人 lol。冲！」Swyx 的校准吹（**274 赞**）——「Opus 5.5 是我用过的最好的工作量估计模型。随着我们委托越来越多工作，这种校准愈发重要——别告诉我这要花 2-3 个工作日（人类的说法）；你可是个热情、不知疲倦、且尴尬地可并行化的 AGI，2-3 小时就能搞定。」Shipper（227 赞）——「我们正活在史无前例的时代。」Peter Yang 的医疗对立体验（**137 赞**）——「陪伴妈妈的癌症治疗是一种对立的体验：时间线上读到的全是了不起的技术与突破；现实里我们还在传真文件、还在用 CD-ROM 物理运送影像。」Garry Tan 三连（250/179/141 赞）——AI 冲击 SaaS 的图表、给旧金山官员的免费建议（「别去民主社会主义者集会，每次都是坑」）、Aside Browser「让 agent 真正擅长用网页的实解」。Nikunj 双发（74/54 赞）——seed 挤压论：「我见过的种子轮公司约 10% 在首次会面后数月内被收购。种子→A 轮的挤压史上最高、短期不会缓解——做梦从未如此容易、扩张从未如此之难。下周发新文！」+ 万圣节问 Chat 穿什么。Madhu Guru（147 赞）——「别等清晰、用行动造清晰：行动带来经验、反馈与新想法。清晰往往是行动的后果。」"
+            ],
+            "original": [
+              "Aditya：机器人经历 LLM 同款迁移——微调→提示→直接说要什么（π0.7 语言辅导学技能）。Turck：Le Chonk 对谈目录；所有人竞争所有人、英伟达卖货给所有人。Swyx：Opus 5.5 最好的工作量估计——你是可并行化的 AGI、别报人类的 2-3 天。Peter Yang：时间线全是突破、医院还在传真。Nikunj：做梦从未更容易、扩张从未更难。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: David Silver & Lasse Espeholt / 播客重播：经验时代的超级学习者",
+      "desc": "今日播客快照与 10-15 相同：Training Data × Ineffable Intelligence 双创始人 David Silver & Lasse Espeholt——从人脑灰质到超级学习者、经验时代、从头学起的 RL。完整中文译文（68727 字符、57 段）已收录于 10-15 期；今日保留重播说明与金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:trainingdata-silver-espeholt-replay",
+          "authorName": "Training Data Podcast",
+          "authorTag": "David Silver & Lasse Espeholt（Ineffable Intelligence 联合创始人）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed carries the same episode as 2026-10-15 — Training Data with David Silver & Lasse Espeholt of Ineffable Intelligence on the superlearner for the age of experience (RL from first principles; systems that never stop learning; crucibles of emergent complexity; alignment; everything on GPUs). The full Chinese translation (57 paragraphs) was published on 10-15; today we keep a quote replay."
+            ],
+            "original": [
+              "David Silver: Collectively, you know, we started with this kind of gray mush in our head. We somehow started out knowing nothing at all and somehow discovered, like, everything that humans know today… was, like, this process of collective discovery.",
+              "David Silver: I think if we crack this, then to me, gives rise to a superintelligence that will be like encountering magic.",
+              "David Silver: It's not like a religion that you can't have any human prior anywhere. It's more like a pragmatic position that until we give up on relying on the trillion item datasets of human knowledge, that we're not going to make the progress that the field deserves to see.",
+              "Lasse Espeholt: The LLM companies now have kind of like the problems that we had many years ago where they need sandboxes running on CPUs… And we're trying to not put ourselves in that situation."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 10-15 相同——Training Data 对话 Ineffable Intelligence 双创始人 David Silver（AlphaGo 首席研究员）与 Lasse Espeholt：经验时代的超级学习者——从人脑灰质式的集体发现讲起、RL 从第一性原理、永不停止学习的系统、涌现复杂度的「坩埚」、对齐，以及一切都要跑在 GPU 上。完整中文译文（57 段）已收录于 10-15 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「我们都是从脑袋里那团灰质开始的。从一无所知，到发现人类今天所知的一切——这是一个集体发现的过程。」",
+              "「如果我们攻克了这件事，在我看来，它将催生一种像遭遇魔法般的超级智能。」",
+              "「这不是宗教、不是说任何人类先验都不能有——这是一个务实立场：不放弃对万亿级人类知识数据集的依赖，我们就看不到这个领域应得的进步。」",
+              "「LLM 公司现在有点像我们多年前：需要跑在 CPU 上的沙盒……而我们正努力不把自己放进那个处境。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
