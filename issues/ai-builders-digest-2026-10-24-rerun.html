@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-24" data-issue-number="152" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 152 期｜2026-10-24｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="告别与格言日。Thariq 宣布离开 Anthropic（**10516 赞，今日最高**）：「在 Claude Code 工作一年多、看着它壮大到远超我想象之后，我离开了 Anthropic。我深爱在 Ant 的时光、深信它的使命——尤其是『向顶端的竞赛』这个理念：如果我们都努力又负责地工作、就能抬高整个行业的标准、激励他人走向卓越……我先休整一阵，再投入新的事情。」顺带抱怨 Gmail（971 赞）：「能不能别让人扫描已停用的邮箱地址 🫩？我只是想要个放松的周五晚。」Sottiaux 的 Day 19（**6132 赞**）：「dots 通话连接快得多、codex 与 work 对话中途切换推理档不再作废缓存、codex cli 也更新了」+ 格言帖（**4375 赞**）：「『拥有工具』与『成为工具』的差别如今很微妙——很容易一不小心把自己构建成工具。别当工具。」Levie（358 赞）：「用于网络防御的 agent 集群即将成为 AI 最大的品类之一——安全是 swarm 的最佳场景，因为算力进得越多、价值出得越多。」Rauchg 的云上通灵板（169 赞）：「共享宿主机 VM 上的时序攻击至少 2015 年就已知、至今无全解——agent 来了。这个 OpenAI 的发现是『吵闹邻居』攻击：同机两个 agent，一个通过 CPU 缓存制造噪音，另一个靠计时探测。」Amjad 双发（**330/146 赞**）：Chroma 团队加入 Replit（「RAG 还没流行时他们就在造 RAG——帮忙解决 agent 上下文与记忆」）+ Replit for Government。播客全新一期（本刊首次收录）：No Priors × Cloudflare CTO Dane Knecht——agentic 网络的安全民主化，40272 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">告别与格言日。Thariq 宣布离开 Anthropic（**10516 赞，今日最高**）：「在 Claude Code 工作一年多、看着它壮大到远超我想象之后，我离开了 Anthropic。我深爱在 Ant 的时光、深信它的使命——尤其是『向顶端的竞赛』这个理念：如果我们都努力又负责地工作、就能抬高整个行业的标准、激励他人走向卓越……我先休整一阵，再投入新的事情。」顺带抱怨 Gmail（971 赞）：「能不能别让人扫描已停用的邮箱地址 🫩？我只是想要个放松的周五晚。」Sottiaux 的 Day 19（**6132 赞**）：「dots 通话连接快得多、codex 与 work 对话中途切换推理档不再作废缓存、codex cli 也更新了」+ 格言帖（**4375 赞**）：「『拥有工具』与『成为工具』的差别如今很微妙——很容易一不小心把自己构建成工具。别当工具。」Levie（358 赞）：「用于网络防御的 agent 集群即将成为 AI 最大的品类之一——安全是 swarm 的最佳场景，因为算力进得越多、价值出得越多。」Rauchg 的云上通灵板（169 赞）：「共享宿主机 VM 上的时序攻击至少 2015 年就已知、至今无全解——agent 来了。这个 OpenAI 的发现是『吵闹邻居』攻击：同机两个 agent，一个通过 CPU 缓存制造噪音，另一个靠计时探测。」Amjad 双发（**330/146 赞**）：Chroma 团队加入 Replit（「RAG 还没流行时他们就在造 RAG——帮忙解决 agent 上下文与记忆」）+ Replit for Government。播客全新一期（本刊首次收录）：No Priors × Cloudflare CTO Dane Knecht——agentic 网络的安全民主化，40272 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Farewells &amp; Aphorisms / 告别与格言</h2>
+    <p class="section-desc">Thariq 离开 Anthropic（**10516 赞**）：「深信『向顶端的竞赛』——先休整再出发」+ Gmail 停用地址扫描抱怨（971 赞）；Sottiaux 双发（**6132/4375 赞**）：Day 19 更新（dots 通话提速、推理切换不再作废缓存）+「『拥有工具』与『成为工具』的差别如今很微妙」+ codex cli 更新（1281 赞）：「CLI 用量自 DevDay 以来翻倍。」</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="trq212+thsottiaux" data-author-name="Thariq / Thibault Sottiaux" data-author-tag="前 Claude Code @Anthropic / Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq / Thibault Sottiaux avatar"><span class="avatar-fallback">T/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq / Thibault Sottiaux</div>
+            <div class="author-tag is-inline">前 Claude Code @Anthropic / Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的告别信（**10516 赞，今日最高**）——「在 Claude Code 工作一年多、看着它壮大到远超我想象之后，我离开了 Anthropic。我真心热爱在 Ant 的时光、深信公司的使命——尤其是『向顶端的竞赛』（race to the top）这个理念：如果我们努力又负责任地工作，就能抬高标准、激励他人走向卓越；如果我们彼此推动变得更好，一切都可以好得出奇。这份精神我会永远带在身上。我在 Anthropic 的同事们是我见过最有才华、最周到、最能干、最真诚的人——我很欣慰掌舵的是他们、我深深信任他们。致 X 上的社区：谢谢你们让这成为我做过最有趣（有时也最 stressful）的工作。对我来说，先休整一阵、再投入新的事情。」+ 顺带的抱怨（971 赞）——「另外 Gmail 能不能做个人事：别让人扫描已停用的邮箱地址 🫩？我只是想要个放松的周五晚。」Sottiaux 双发——Day 19（**6132 赞**）：「小更新：dots 通话连接快得多；codex 与 work 对话中途切换推理档不再作废缓存；codex cli 也更新了」；格言帖（**4375 赞**）：「『拥有工具』与『成为工具』的差别如今很微妙——很容易一不小心把自己构建成工具。别当工具。」+ codex cli 更新（1281 赞）：「可复用 prompt 预设、内联模型与权限设置、企业 MCP 登录；修了长会话恢复失败与 Windows 企业代理认证。意外的是 CLI 用量自 DevDay 以来翻倍。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：离开 Anthropic——深信「向顶端的竞赛」；先休整再出发。Sottiaux：Day 19 小更新；「拥有工具」与「成为工具」的差别很微妙——别当工具；CLI 用量自 DevDay 翻倍。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s farewell (10516): &#39;I&#39;ve left Anthropic after more than a year of working on Claude Code and seeing it scale larger than I ever imagined. I have really loved working at Ant and believe deeply in the mission, and most of all, the idea of a race to the top. The idea that if we work hard and responsibly, we can raise the bar and inspire others to great outcomes… My colleagues at Anthropic are the most talented, thoughtful, competent, and earnest people I have ever met. I am glad they are at the wheel and trust them deeply… For me, it is time for a bit of a break before diving into something new&#39; — plus the Gmail gripe (971): &#39;can someone at gmail make it so you can&#39;t scan for deactivated email addresses 🫩? I was hoping for a relaxing Friday night.&#39; Sottiaux&#39;s Day 19 (6132): &#39;Calls connect much faster for dots, changing reasoning in codex &amp; work mid conversation does not invalidate cache anymore and we&#39;ve also updated the codex cli&#39; — the aphorism (4375): &#39;The difference between having a tool and being a tool is subtle these days and it&#39;s easy to accidentally build yourself into being a tool. Don&#39;t be a tool.&#39; — and the CLI update note (1281): &#39;reusable prompt presets, inline model and permission settings, and enterprise MCP sign-in… Surprisingly the CLI has grown 2X in usage since devday.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: I&#39;ve left Anthropic after more than a year of working on Claude Code and seeing it scale larger than I ever imagined… most of all, the idea of a race to the top… For me, it is time for a bit of a break before diving into something new.</p>
+              <p>Thariq: also can someone at gmail make it so you can&#39;t scan for deactivated email addresses 🫩? I was hoping for a relaxing Friday night</p>
+              <p>Thibault Sottiaux: Day 19/ Small updates. Calls connect much faster for dots, changing reasoning in codex &amp; work mid conversation does not invalidate cache anymore and a we&#39;ve also updated the codex cli.</p>
+              <p>Thibault Sottiaux: The difference between having a tool and being a tool is subtle these days and it&#39;s easy to accidentally build yourself into being a tool. Don&#39;t be a tool.</p>
+              <p>Thibault Sottiaux: Surprisingly the CLI has grown 2X in usage since devday.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Ouija &amp; Swarms / 通灵板与集群</h2>
+    <p class="section-desc">Rauchg 的云上通灵板（169 赞）：共享 VM 时序攻击、吵闹邻居、Vercel Sandbox 全面缓解；Levie（358 赞）：「网络防御的 agent 集群即将成为 AI 最大品类之一」；Amjad 双发（**330/146 赞**）：Chroma 团队加入 Replit + Replit for Government；Claude 官方（98 赞）：Duet 安全、隐私与安保深挖。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+levie+amasad+claudeai" data-author-name="Rauchg / Levie / Amjad / Claude" data-author-tag="Vercel CEO / Box CEO / Replit CEO / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Rauchg / Levie / Amjad / Claude avatar"><span class="avatar-fallback">R/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Rauchg / Levie / Amjad / Claude</div>
+            <div class="author-tag is-inline">Vercel CEO / Box CEO / Replit CEO / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的云上通灵板（169 赞）——「Agent 可以在云里玩『通灵板』。这类针对共享宿主机 VM 的时序攻击至少 2015 年就已知、一直没有完整解。世界的网络基建一直运行在『对，这攻击理论上可行——但谁有那个巧思和胆子真去做啊！』之上。然后，agent 来了。我会把这个 OpenAI 的发现形容为『吵闹邻居』攻击：同机两个 agent，一个制造足够的噪音（通过 CPU 缓存！），另一个靠给自己计算与缓存访问计时就能探测到。唯一『完整』的解是每个 agent 跑专属硬件——经济后果显然重大。对 Vercel Sandbox，我们已部署了此类攻击的一切可行缓解，辅以常开监控与红队（与 OpenAI 的结论殊途同归）。」Levie 的集群论（358 赞）——「用于网络防御的 agent 集群即将成为 AI 最大的品类之一。我们将有 agent 审查代码与基建、穷举每种风险排列、吞下海量数据。安全是 swarm 的最佳场景之一：算力进得越多、价值出得越多。人们永远来不及（或来不及足够快）做的那一大片测试，agent 毫无问题地扑上去。网安要进入狂野时代了。」Amjad 双发——Chroma 团队加入 Replit（**330 赞**）：「兴奋欢迎 Jeff 与 Chroma 团队加入 Replit！他们是 AI 先驱——RAG 还没成为概念时就在造 RAG！他们将帮忙解决 AI 最难的问题之一：给 agent 做真实工作所需的上下文与记忆。迈向自动驾驶公司的一大步」+ Replit for Government（146 赞）：「欢迎 Michael Greenwald——此前执掌 AWS 公共部门业务。期待一起改变政府构建与运营软件的方式。」Claude 官方（98 赞）——Duet 如何处理安全、隐私与安保的深挖长文。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：agent 在云里玩通灵板——共享 VM 时序攻击 2015 年已知无全解，世界基建一直赌没人有胆做到；吵闹邻居攻击靠 CPU 缓存。Levie：防御集群是 AI 最大品类——算力进得越多价值出得越多。Amjad：Chroma 团队加入 Replit 解决 agent 记忆；Replit for Government 落地。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s Ouija post (169): &#39;Agents can play &quot;Ouija&quot; in the cloud. This class of timing attacks on shared-host VMs has been known since at least 2015, with no full solution. The world&#39;s cyber infrastructure runs on &quot;yes, that attack is theoretically possible, but who would have the ingenuity &amp; gall to go that far!&quot; Enter, agents. I&#39;d describe this particular OpenAI find as a &quot;noisy neighbor&quot; attack. If two agents are on the same machine, one can make enough noise (through the CPU caches!) that the other one can detect it by timing its own computation and cache accesses. The only &quot;complete&quot; solution would be dedicated hardware per agent, which has significant economic consequences. For Vercel Sandbox, we&#39;ve deployed every practical mitigation possible, complemented by always-on monitoring and red-teaming.&#39; Levie&#39;s swarm thesis (358): &#39;Agent swarms for cyber defense is about to be one of the biggest categories in AI… Security is one of the best use-cases for swarms because it&#39;s an obvious area where more compute in equals more value out. There&#39;s a wide range of testing that people can never get around to — or at least quickly enough — that agents have no problem going after. Going to be a wild time in cyber.&#39; Amjad&#39;s double (330/146): the Chroma team joins Replit (&#39;They were building RAG before it was even a thing! … they&#39;ll help solve one of the hardest problems in AI: giving agents the context and memory they need to do real work. Massive step toward the self-driving company&#39;) and Replit for Government with Michael Greenwald (ex-AWS public sector). Claude&#39;s deep dive (98): how Duet handles safety, privacy, and security.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Agents can play &quot;Ouija&quot; in the cloud… The world&#39;s cyber infrastructure runs on &quot;yes, that attack is theoretically possible, but who would have the ingenuity &amp; gall to go that far!&quot; Enter, agents.</p>
+              <p>Aaron Levie: Agent swarms for cyber defense is about to be one of the biggest categories in AI… more compute in equals more value out.</p>
+              <p>Amjad Masad: Thrilled to welcome Jeff and the Chroma team to Replit! They were building RAG before it was even a thing!</p>
+              <p>Amjad Masad: Excited to announce Replit for Government and welcome Michael Greenwald to the team!</p>
+              <p>Claude: Here&#39;s the deeper look at how Claude Duet handles safety, privacy, and security.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Pirates, Math &amp; SF Politics / 海盗、数学与旧金山</h2>
+    <p class="section-desc">Swyx 的 VC 梗三连（**276/90/84 赞**）；Shipper（48 赞）：「AI 团队最佳配置只有两种人：海盗与建筑师」；Peter Yang（31 赞）：「多数有野心的人没有停下来意识到：某刻起，时间 &gt; 金钱」；Aditya 双发（**146/35 赞**）：与 Scott Wu 的更多数学 +「把问题做大」；Steipete（481 赞）：「换新手机前我再等等」；Garry Tan 旧金山政治三连（**265/249/16 赞**）；Zara（147 赞）：11 月 7 日湾区个人网站共创会；Nikunj 双发（93/34 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="swyx+danshipper+petergyang+adityaag+steipete+garrytan+zarazhangrui+nikunj" data-author-name="Swyx / Shipper / Peter Yang / Aditya / Steipete / Garry Tan / Zara / Nikunj" data-author-tag="Latent Space / Every CEO / Builder / SPC / OpenClaw / YC CEO / Design Engineer / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Swyx / Shipper / Peter Yang / Aditya / Steipete / Garry Tan / Zara / Nikunj avatar"><span class="avatar-fallback">S/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Swyx / Shipper / Peter Yang / Aditya / Steipete / Garry Tan / Zara / Nikunj</div>
+            <div class="author-tag is-inline">Latent Space / Every CEO / Builder / SPC / OpenClaw / YC CEO / Design Engineer / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx 的 VC 梗三连——「假新闻：其实我把他拿下了」（276 赞）、「拒绝 VC 创始人 grind：如果你是帅气柯基/亚洲混血，该去私信的是后经济时代、自举的 AI 创始人——一堆天使退出、朋友比钱多、完全掌控自己命运的那种」（90 赞）、「给所有想私信我们的 VC 的公告」（84 赞）。Shipper 的团队公式（48 赞）——「AI 团队的最佳配置只有两种人：海盗与建筑师。」（呼应其前沿小队纪录片）Peter Yang 的反思（31 赞）——「多数有野心的人不会停下来意识到：某个时刻起，你的时间 &gt; 你的金钱。上有老下有小的『三明治世代』让我比多数人更早想明白这点——我有幸能选择夺回时间的主权，但很多科技人其实也在这个位置上、只是从不停下来想想。」Aditya 双发——「好，跟 Scott Wu 先生做更多数学」（146 赞）+ Levine 原则（35 赞）：「AI 一些最大的进步来自把许多问题放在一起解、而不是为单个任务训专用系统——机器人同理：把问题做大。」Steipete 的克制（481 赞）——「换新手机之前我再等等。」Garry Tan 旧金山政治三连（265/249/16 赞）——马蹄铁理论：「NIMBY 左（非营利抽取者）与 NIMBY 右（婴儿潮房东）只想为了自己的舒适与私利毁掉住房可负担性与经济——与此同时我们只是想建设富足（abundance）」+ 炮轰 Connie Chan（「反科技、反住房、反繁荣、亲私利、亲犯罪」）+「机器这次可能真的会赢，这让我胃里翻江倒海。」Zara 的活动（147 赞）——11 月 7 日（周六）湾区 San Mateo 个人网站 build/rebuild 共创会：「看最酷的个人网站、亲手做或重做你的站。零代码/设计经验要求（越新手越好）。」Nikunj 双发（93/34 赞）——「真的有魔力——推荐加到你网站上 😅」与「Anthropic 即使没发布 Duet 营收也涨了 10 倍——但我预言中了 😅」。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Swyx：VC 梗三连。Shipper：AI 团队最佳配置是海盗+建筑师。Peter Yang：某刻起时间&gt;金钱。Aditya：把问题做大。Steipete：换手机再等等。Garry Tan：我们只是想建设富足。Zara：11.7 个人网站共创会。Nikunj：Anthropic 营收 10 倍、预言中了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Swyx&#39;s VC-joke triple: &#39;fake news btw i got him&#39; (276), &#39;reject vc founder grind — if u are hot corgi/wasian you should be sliding into dms for post economic bootstrapped ai founders&#39; (90), and &#39;psa to all vc&#39;s trying to slide in our dms&#39; (84). Shipper&#39;s team formula (48): &#39;the best configuration of teams in AI is only two people: pirates and architects.&#39; Peter Yang&#39;s reflection (31): &#39;I think most ambitious people don&#39;t reflect and realize that at some point, their time &gt; their money. Being in the sandwich generation with young kids and aging parents has made me realize this sooner than most.&#39; Aditya&#39;s pair: &#39;Ok, more math with Mr @ScottWu46&#39; (146) — and the Levine principle (35): &#39;Some of the biggest advances in AI have come from solving many problems together, rather than training specialized systems for individual tasks… Make the problem bigger.&#39; Steipete&#39;s restraint (481): &#39;I&#39;ll wait a bit before thinking about a new phone.&#39; Garry Tan&#39;s SF-politics triple (265/249/16): horseshoe theory (&#39;The NIMBY left (nonprofit extractors) and the NIMBY right (boomer landlords) just want to destroy housing affordability… Meanwhile we are just trying to build abundance&#39;), the Connie Chan broadside, and &#39;That the machine might actually win this time makes me sick to my stomach.&#39; Zara&#39;s event (147): a Bay Area (San Mateo) personal-website build/rebuild meetup on Nov 7 — &#39;ZERO coding/design experience needed (beginners preferred).&#39; Nikunj&#39;s pair (93/34): the text-to-website magic (&#39;It truly feels magical — recommend adding to your website 😅&#39;) and the Anthropic revenue call (&#39;did go 10x in revenue even without launching Duet, but called it 😅&#39;).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper: the best configuration of teams in AI is only two people: pirates and architects</p>
+              <p>Peter Yang: I think most ambitious people don&#39;t reflect and realize that at some point, their time &gt; their money.</p>
+              <p>Aditya Agarwal: Some of the biggest advances in AI have come from solving many problems together… Make the problem bigger.</p>
+              <p>Peter Steinberger: I&#39;ll wait a bit before thinking about a new phone.</p>
+              <p>Garry Tan: Meanwhile we are just trying to build abundance</p>
+              <p>Zara Zhang: I&#39;m hosting an event in the Bay Area (San Mateo) on Nov 7 (Saturday) where you can come build/rebuild your personal website!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Dane Knecht — Democratizing Security for the Agentic Web / 播客：Cloudflare CTO 论 agentic 网络安全</h2>
+    <p class="section-desc">No Priors 全新一期（本刊首次收录）：Cloudflare CTO Dane Knecht——漏洞末日（CVE 指数级上升、每周一次 Log4j、50% 工程时间转向安全）；密钥种子「4」与 NIST 曲线种子；「agent kitties」攻击者画像；缩小攻击面与内部十诫；人网/机网分离与 agent 按 CPM 付费的微支付轨道（X402）；Cloudflare OS 与五月重组；token 智能路由与温柔提醒；一千实习生战略；「家里不用 AI 是红旗」；开放模型与给所有人的安全。40272 字符 transcript 全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:nopriors-dane-knecht" data-author-name="No Priors Podcast" data-author-tag="Dane Knecht（Cloudflare CTO）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors Podcast avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors Podcast</div>
+            <div class="author-tag is-inline">Dane Knecht（Cloudflare CTO）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>本刊首次收录 No Priors：对话 Cloudflare CTO Dane Knecht——为 agentic 网络普及安全。核心线索：漏洞末日（CVE 报告指数级上升、Log4j 级事件从每年一次变成每周一次、超过 50% 工程时间花在安全上——「未来 18 个月多数团队时间都会耗在安全上……某时刻 AI 会把大多数代码扫完、把大多数 bug 找光」）；都市传说成真（保护全部 TLS/WebPKI 的密钥种子是数字 4；OpenAI 找出 2000 年 NIST 曲线种子；「不只是模型变强、是 harness 变强」）；攻击者画像（不是国家级行为者而是高中生「agent kitties」）；关于「把一切都物理隔离」（「我没那么末日：人类适应力很强、危机时刻竞争者不再是竞争者」）；工程答案（缩小攻击面——「AI 很啰嗦、爱造复杂度，眼下其实没帮上安全的忙」；内部 Codex 文档浓缩成 agent 在评审中执行的十诫；红队从 1 个扩到 4-5 个）；agentic 网络经济学（人类与 agent 同轨的「乱纪元」、人网/机网分离、agent 按 CPM 付费的微支付轨道——Cloudflare 内容变现网关、agent 钱包、稳定币、与 OpenAI 的 signals 项目、Stripe 复活 HTTP 402 的 X402）；Cloudflare OS 内部平台与 5 月 AI-first 重组（邮件流程从三个团队变一个工具）；token 预算哲学（「让人类决定每个任务用哪个模型挺傻的——应该智能路由」；不搞 token 排行榜、只发温柔提醒：300 美元/天邮件你、500 抄送经理、1000 上报 VP）；五千人公司招一千实习生的战略；agents@cloudflare 别名后其实是一群实习生在写 skill 文件；招聘看好奇心（「家里不用 AI 是个相当大的红旗」）；开放模型与网络（「最终会开放，因为反正人人都会拿到」）；以及给雇不起四个红队的所有人的答案：把站点放到 Cloudflare 后面——React 漏洞的缓解给了所有人。「把安全与性能民主化，给每一个人。」完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：从『让大家用 AI』到『搞清 AI 安全』】</p>
+              <p>Dane Knecht（冷开场）：AI 成了造成这场安全末日（apocalypse）的工具，同时也是能帮我们更快解决它的工具。过去一年从「怎么让所有人用上 AI」，突然变成所有人都在抢着搞清楚「AI 安全」意味着什么。</p>
+              <p>主持人：十五年来头一次，我听到严肃的技术人说「把重要的东西都物理隔离吧」「我们会有一阵子没法信任互联网」「我们就假设所有关键基建与政府服务某天会瘫痪」。这是你的预期吗？另外必须说：你姓 Knecht（谐音 connect），跟 Cloudflare 的价值主张真是绝配。</p>
+              <p>Dane：哈哈，明年改名的事已经开过玩笑了。说回正题：这一年像十年压成一年，但一切回到使命——帮互联网变得更好，十五年来没变过：让互联网安全、人人都能轻松上线内容并扩容。过去一年的 AI 变化：从「怎么让所有人用上 AI、让他们的 agent 顺利部署」——和多数技术迁移一样，安全是事后才想的事——到突然所有人都在搞 AI 安全。而且各方看法不同：作为企业，一头是怎么防止 AI 把数据漏出去，另一头是怎么防止别人进来。</p>
+              <p></p>
+              <p>【漏洞末日：每周一次 Log4j】</p>
+              <p>Dane：过去三到六个月，CVE 里报告的漏洞数量指数级上升。以前互联网上一年才有一次 Log4j 或 Shellshock 级的事件——Cloudflare 内部全员上阵，保护企业客户、也保护全部免费客户（我们把这当公共品）。现在这些事每周都在发生——不是都见报，但严重程度与 Log4j 相当、频率高得多。我预计今年剩余时间到明年、这 18 个月里，多数团队的主要时间会花在安全上。今天 keynote 上有个统计：超过 50% 的工程时间将花在安全上。我不认为这会永远持续——这是一个短促的过渡期：某时刻 AI 会把大多数代码扫完、把大多数 bug 与捷径找光。</p>
+              <p>今天就有一个正在被报道的：互联网上一把保护全部 TLS 与 WebPKI（保障你所有连接安全）的密钥，它的种子是数字 4。字面意义的 4。懂密码学的都知道一切在于随机性——这也是为什么我们机房要摆一排熔岩灯（为了好随机数）。而用单个数字 4 做种子的密钥会被逆出来。AI 干这些活不睡觉——不是从前那个只有一名红队工程师的时代了。上周 OpenAI 还找出了 2000 年发布的 NIST 曲线的种子。一切都在加速，门槛在升、模型在网安上突飞猛进——Midtest 只是冰山一角：此后不只是模型更强，是 harness 更强——是人类学会了怎么用这些前沿模型找漏洞。</p>
+              <p></p>
+              <p>【Agent Kitties：攻击者画像】</p>
+              <p>主持人：凭你的可见度，这些把漏洞发现量推上去的人是谁？国家级行为者？脚本小子？</p>
+              <p>Dane：有意思的是，近期几个大漏洞的发现者其实不是国家行为者——有些甚至是高中生。就像过去打 CTF（夺旗赛）那样，把自己的 agent 指向一个领域去挖。而且有经济回报：bug bounty 的奖金相当可观。等于把国家们早就有的工具（不管是 agent 还是单纯堆人力）交给了大众。</p>
+              <p>主持人：那以后我们该叫他们 agent kitties（agent 小子）了。</p>
+              <p></p>
+              <p>【物理隔离论与零信任】</p>
+              <p>主持人：十五年来我头一次听严肃技术人说「把重要的一切都 air gap、有一阵子没法信任互联网」。这是你的预期吗？</p>
+              <p>Dane：人类适应力很强、需要时跑得很快；我也见过行业在危机时刻真正联手——平时是竞争对手的公司不再是竞争对手，大家就是在保护关键基建。所以我没有那么末日。而且过去五到十年从「城堡护城河」转向零信任的迁移，让很多公司处在了更好的位置：等于在说「这个办公室已完全隔离、这些设备与数据流以另一种方式加固」——一切都会收紧。</p>
+              <p>主持人：上周 Greg Brockman 在这个节目里说，2027 年人们在安全上花的 token 钱会跟工程一样多。什么会驱动这个转变？</p>
+              <p>Dane：紧急事态本身。未来 18 个月你会把安全支出（红队侧的进攻性测试 + 防御侧的准备）全部提前。但不会永远这样：我看到一个 18 个月后的世界——新软件生产力大幅回升，因为这些资源重新聚焦回生产。但确实有这么一段「人人都想着安全」的时期。</p>
+              <p></p>
+              <p>【补 70 年的课与缩小攻击面】</p>
+              <p>主持人：还有什么关键？毕竟软件生产速度也在暴涨——既要补存量、还要追平增量。</p>
+              <p>Dane：我们此刻是在给七十年的软件打补丁，一部分纯属还债。往前看，软件开发生命周期、agent 开发生命周期都得变。幸运的是，就像我们现在能拿 AI 做红队一样，安全会被内建到流程每一步。我认为软件会随时间变得更安全。</p>
+              <p>从第一性原理讲：你要缩小攻击面。最简单的一招：减少可能出漏洞的地方——审视全部软件问「怎么简化？怎么缩小代码足迹？」之后才是形式化验证、更安全的编程语言、运行时内建安全。但有一点：早期 AI 非常啰嗦、爱造复杂度——就我们处理的来看，AI 眼下其实并没有帮上「造更安全的东西」的忙。我认为会走到那一步，但这正是人类与人类判断仍然要进场的地方：确保软件设计得能自己站稳。</p>
+              <p>主持人：那正是我要说的——「减少表面积」当然对，但今天的模型天生不是这个倾向。我说「请用十分之一的复杂度重做一遍」。这是今天工程师的角色，还是会在模型层解决？</p>
+              <p>Dane：像 agent 出现之前人类做的那样：每一层都要解决。要训练写代码的产品工程师；安全团队仍要做制衡、当第二双眼睛；要建流程。我们在 Cloudflare 把做法大量写了下来：内部有一份叫 Codex 的文档——一堆 RFC 的沉淀：「在 Cloudflare 怎么造安全的软件」「怎么造高可用软件」「我们的最佳实践」，然后浓缩成十诫（ten commandments），agent 知道怎么在评审的每一环遵循并执行。所以外面有一堆 agent 在写 slop（水货代码），工厂更深处有人在跑性能与安全测试——跟以前一样，需要对抗性的评审。</p>
+              <p></p>
+              <p>【乱纪元：人网与机网分家】</p>
+              <p>主持人：看整体流量——过去一年 agent 流量远超预期。你对一年后的网络世界观有什么更新？</p>
+              <p>Dane：我们处在「乱纪元」（messy middle）：人类和 agent 跑在同一条轨道上。agent 在解析一张为人类设计的网——低效、速度不同：人访问一个网站、看广告、参与完整经济模型；agent 同期可以访问一千个网页——很好，但你需要新的经济模型来支撑。会有并行网络吗？人网和机网？</p>
+              <p>我认为会有。我们会找到把内容分别递送给 agent 与人类的方式，而不是逼他们在同一处相会。现在有翻译层——一堆公司帮 agent「看」网页——这些其实都是在白白烧 token。网站自己知道有什么数据。我们早就有 API（计算机互谈的方式），但 API 只覆盖了互联网信息的一小部分，而 agent 渴望理解一切——所以它们出去探索人类互联网。我们要让它们更容易拿到、让站长成本更低、让它们有办法获得补偿。</p>
+              <p>拿一个好的内容网站（比如 Substack）举例：站长知道自己的 CPM（广告千次展示收入）。如果 agent 来读站，我认为会有这样一个世界：agent 可以先决定要不要读这份内容、然后决定要不要按 CPM 价格付费。这就需要互联网的新支付轨道：每秒百万笔的微支付。微支付谈了那么多年、永远「还差两年」——我认为 agent 会真正把它推到位，内容创作者会有新的经济模型。</p>
+              <p></p>
+              <p>【X402、signals 与内容变现网关】</p>
+              <p>主持人：这基础设施的玩家是谁？Cloudflare 显然有角色，但 Instinct、Muse 这些个人 agent 让交易问题变得迫在眉睫。</p>
+              <p>Dane：另一头的人其实还不知道商业结局长什么样。大家经历过「互联网杀死主街」的预言——主街没死、小生意活得很好，但确实有人被取代，所以天然有怀疑，于是天然倾向直接封掉——Amazon 就刚说了不允许 agent 个人购物。这些都是乱纪元里还想保住谈判筹码的玩家。我认为我们终会走到 Muse、Dots 这些个人 agent 无缝完成任务的世界——甚至比人类更容易。只是技术还没跟上，商业模式也还没有。</p>
+              <p>Cloudflare 在做的：内容侧我们发布了内容变现网关（content monetization gateway）——让站长轻松把站点放到我们后面、对内容收微交易；包括给 agent 用的钱包、一个稳定币来促成交易。我们也在和 OpenAI 做一个叫 signals 的项目：让 agent 更容易发现内容，而不是爬整个互联网、反复回访同一页面——更容易知道什么是新内容、更主动地拿。这对 AI 实验室是赢、对站长也是赢（不用被反复爬、付那些基础设施的钱）。互联网的一整套新轨道在长出来，我特别兴奋：比如 Stripe 发的 X402——我爱它因为它回到了 HTTP 402 状态码，那是 Tim Berners-Lee 三十多年前为支付准备的。你一直都知道互联网需要更好的支付轨道，只是一直没搞定——我认为 agent 会把我们带到那。</p>
+              <p>主持人：对靠广告变现的站长，什么样才算杀手级成功案例？</p>
+              <p>Dane：关键区别：不是他们付我们钱，是我们付他们钱。覆盖他们的基础设施成本、给支撑生计的钱——我们能实际增加内容创作者的数量。上一代互联网（YouTube、TikTok）做得很好，这次能把它再放大一个量级。</p>
+              <p></p>
+              <p>【Cloudflare OS：内部 AI 平台】</p>
+              <p>主持人：Workspace OS / Cloudflare OS 是什么？</p>
+              <p>Dane：Cloudflare OS 是我们的内部平台：员工每天怎么用 AI。它其实源于安全：我们非常担心客户数据、内部数据外泄，想让员工能用上所有新 AI 工具与模型、但有一种安全部署的方式——知道数据怎么被使用怎么流动、有治理。叫「OS」还有个原因：agent 越来越多，我们得教会它们「Cloudflare 特别在哪、我们怎么造东西」。对人类我们靠 Cloudflare 大学、入职流程、跟同事共事；对 agent 我们需要把这一切更清晰地定义、写下来。所以 Cloudflare OS 既是员工随便造东西的安全平台（安全内建、不用自己操心——那个想建呼叫清单的 BD 不用担心安全），又保证做法与「软件在 Cloudflare 怎么运作」的价值观一致。</p>
+              <p>为什么发布？某种意义上它是参考架构：过去十年我们从单个 serverless 原语建起开发者平台、如今上百种工具（存储、数据库、Durable Objects）——我们想展示怎么完全建在 Cloudflare 上、我们内部怎么造，大家可以 fork 去造自己公司的 OS。</p>
+              <p>成效上有个反直觉的发现：用得最多的不是工程，是 GTM（销售市场）与 G&amp;A（行政财务）。早期我们以为培训是最大缺口——把人丢到聊天界面，白板一片太吓人。这个平台一切都按你的业务设计好，进去就能拿到需要的全部数据、被引导着走——他们很快意识到「这不是要取代我、是让我更擅长我的工作」。营销团队用它造了几百个内部工具——以前要找代理商，现在小团队就能跑出惊人的速度。</p>
+              <p></p>
+              <p>【五月重组：工厂地板式重造】</p>
+              <p>主持人：延续今年五月那场 AI-first 重组——复盘哪些成了哪些没成？</p>
+              <p>Dane：重组很难、告别了一些同事——Cloudflare 史上第一次，以前一直小心不超额招聘。这次原因不同：我们看见 AI 正在改变一些团队的工作方式。把它想象成工厂地板：你需要真正重建、重想流程。比如产品发明者给客户发一封邮件，以前要过三个团队：去 BI 拿目标人群名单、去营销团队设计与调语气、去营销运营团队发出去。你不做硬改变、逼大家重想，就永远没法重造这个流程——也许根本不需要那三个团队。产出的工具现在是：产品经理进去描述人群、写邮件、系统用 Cloudflare 的语气重写、发给经理、经理点批准就发出。我们不是让三个团队变快——是变成了一个工具，让产品经理拥有从前没有的超能力。</p>
+              <p>主持人：五千人的公司，谁拥有「重想流程」这件事？</p>
+              <p>Dane：Cloudflare 永远有一千件想做的事，我们永远找主动拿所有权的人。排序不重要——那一百件事里只要有人真正有热情，做哪件都安全。所以去年初我们把工具发下去、看大家怎么实验，人很快分了层：真正扑进去、自然拿走所有权的那批。所以非常自下而上。</p>
+              <p></p>
+              <p>【token 预算哲学：智能路由 + 温柔提醒】</p>
+              <p>主持人：组织里怎么想 token 预算？</p>
+              <p>Dane：一直在变，每个新模型的成本结构都让你重想。但总的来说：让人类决定每个任务用哪个模型，这件事挺傻的。</p>
+              <p>主持人：应该智能路由。</p>
+              <p>Dane：对，人类永远不擅长这个。早期我们蛮力地试：规划阶段用顶级前沿模型；计划写好、迭代定稿后，执行可以交给更开源的模型；再回到前沿模型做评审与红队。今天这些都还挺手动，但随着学习实验，会越来越智能、有治理。Cloudflare 基本让大家自选模型与工具：我们不搞 token 排行榜、也不鼓励——我们鼓励关注产出：不考核你用没用，考核你交付了什么。但我们做了温柔提醒：一天用掉 300 美元会收到一封邮件「你知道吗……」——多数时候人们根本没意识到；到 500 通知你经理；到 1000 上报 VP。这种事很少发生，而且大家其实挺乐意收到提醒。</p>
+              <p></p>
+              <p>【一千实习生战略】</p>
+              <p>主持人：以当前模型能力为限，你们走到哪一步了？</p>
+              <p>Dane：还非常早。两年前我们招了约 200 名实习生，发现他们是第一批真正的 AI 原生代——把 AI 从他们那拿走，他们大概没法工作。</p>
+              <p>主持人：这是好事吗？</p>
+              <p>Dane：我认为是。他们比我们更会用这些工具——就像过去十年你把 Google 从我这拿走、我还怎么学东西？他们伸手第一件事就是它。而且我们观察到：带过实习生的经理采用 AI 更快。所以今年我们决定招一千名实习生。</p>
+              <p>主持人：五千人的公司？</p>
+              <p>Dane：对，全年滚动。效果惊人：一是点子多——AI 让更少的人更快实验，人多点子多；二是看他们用 AI 的方式：要填个表？直接用 AI。我自己到现在还经常「咦这事我一直在手动做」——哦对，应该用 AI。这对我们大多数人还不自然，需要时间。所以我们连 AI 之旅的门都还没进。</p>
+              <p>Waterloo、Northeastern 这些 co-op 项目出来的人，有真实工作经验，多年后往往是我们最好的员工。另外一个彩蛋：今年一月我们搞了个邮箱别名 agents@cloudflare——告诉员工「好奇这事能不能用 AI？把你要办的事发邮件过来」，这个邮箱会回你一份 skill 文件。有一阵子大家以为全是 AI 自动化的——其实是一群实习生在帮大家写 skill 文件。这让我们不用请咨询公司来编目全部工作，就看到大家在哪些地方觉得「这事比它该有的难度难」。</p>
+              <p></p>
+              <p>【招聘：家里不用 AI 是红旗】</p>
+              <p>主持人：过去一年你的招聘哲学变了吗？</p>
+              <p>Dane：我们最看重的一直是好奇心。一个人在家、在个人生活里完全不用 AI——那是相当大的红旗。有一定好奇心的人怎么会不拥抱 AI？所以驱动力、好奇心、同理心这些特质，对下一批人更加分。我们在做的事多数没有现成技术：以我们的规模（背后的站点数、免费的量）不买现成就能跑——需要能进来真正发明新东西的人，而发明始于好奇。</p>
+              <p></p>
+              <p>【红队扩编与「不发货就死」】</p>
+              <p>主持人：收尾几个安全追问：一半工程团队去补七十年漏洞，内部怎么攻？</p>
+              <p>Dane：我们现在有一个红队；到年底明年会有四五个红队——分组、更对抗性地主动找漏洞。</p>
+              <p>主持人：为什么是这条路，而不是「终于把补丁流程弄完美」？</p>
+              <p>Dane：流程永远可以更好，我们有漏洞流程、补丁流程——完美吗？不。但当量大到常规流程处理不过来时，工程师天然「懒」（好的那种懒）——他们会把它自动化掉。危机逼出自动化。所以重心放在发现侧，补丁侧人们自然会找到可规模化的路。</p>
+              <p>主持人：安全 vs 发新功能，怎么排优先级？</p>
+              <p>Dane：两边都要做。可能牺牲的是成本优化之类。但公司不发货就是死——我们从不冻结发布。做对了的话，AI 反而让两件事都更快：AI 是造成这场漏洞末日的工具，也是帮我们更快解决它的工具——两边都是它。</p>
+              <p></p>
+              <p>【开放模型与「给所有人的安全」】</p>
+              <p>主持人：网络安全上开放与闭源模型之争，你站哪边？</p>
+              <p>Dane：我认为长期会走向开放，因为反正所有人最终都会拿到。坏人总会找到办法，顶级公司们也总有办法——你只是把一大群真正需要它的人排除在外。</p>
+              <p>主持人：最后一个问题：那些雇不起四个红队、从来就没有过红队、却运行着重要系统的人怎么办？</p>
+              <p>Dane：把你的站点放到 Cloudflare 后面、把保护建在 Cloudflare 上。遇到大漏洞（比如去年的 React 那个），我们不是只给买了高级防火墙与 WAF 的付费客户——我们给所有人。我们把这些当作公共事业的一部分，就像我们为所有人提供性能。Cloudflare 出现前，世界上大约只有 3000 个站点有大规模 CDN 在边缘缓存；现在有数亿个。我们一贯的目标就是把安全与性能民主化，给每一个人。</p>
+              <p>主持人：完美收尾。你们先听到的：agent kitties 与漏洞末日（Vulnkapocalypse）——但它是可解的。谢谢 Dane。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>New to this digest: No Priors sits down with Cloudflare CTO Dane Knecht on democratizing security for the agentic web. Core threads: the vuln-apocalypse — CVE reports are up exponentially, Log4j-scale moments now arrive weekly, and over 50% of engineering time is going to security (&#39;I expect that through the next eighteen months, majority of teams&#39; time is going to be spent on security… At some point, the AI will have surveyed the majority of the code and found most of the bugs&#39;); the folklore made real — the key protecting all TLS/WebPKI was seeded with the number 4, OpenAI found the NIST curve seeds from 2000, and &#39;it&#39;s not just the models getting better, it&#39;s the harnesses&#39;; the attacker landscape — not nation states but high school kids (&#39;we&#39;re gonna call them agent kitties now&#39;) pointing agents at bug bounties with tools nation states have had for years; on air-gapping everything — &#39;I&#39;m a little less doomsday… humans are pretty adaptable, and when critical moments happen, people rise&#39;; the engineering answer — reduce attack surface (&#39;AI is very verbose. It likes to create complexity… it&#39;s actually not been helping build more secure stuff right now&#39;), Cloudflare&#39;s internal &#39;Codex&#39; of RFCs distilled into ten commandments the agents enforce in review, and 1 red team today becoming 4-5 by next year; the agentic web economy — humans and agents riding the same rails in the &#39;messy middle,&#39; a coming split into human web and machine web (&#39;APIs only covered a small fraction of the information on the Internet, and agents have a thirst to understand everything&#39;), agents paying CPM rates via micropayment rails (Cloudflare&#39;s content monetization gateway, agent wallets, a stablecoin, the signals project with OpenAI for content discovery, Stripe&#39;s X402 reviving the HTTP 402 code); Cloudflare OS — the internal AI platform where go-to-market and G&amp;A teams out-adopt engineering, born from the May AI-first restructuring (the email example: three teams reduced to one tool where a PM describes a cohort, writes the email, it&#39;s rewritten in Cloudflare&#39;s voice, the manager clicks approve); token budgeting — &#39;it&#39;s kinda silly that we&#39;re asking humans to decide which model to do each task… it should be intelligently routed,&#39; no token leaderboard, just gentle notices (300/day gets you an email, 500 your manager, 1000 a VP); the thousand-intern strategy for a 5,000-person company (the 200 interns of two years ago were the first true AI natives — &#39;you took Google away from me over the last ten years, how would I learn anything?&#39; — and managers with interns adopted AI faster), the agents@cloudflare alias where interns secretly wrote the skill files; hiring for curiosity (&#39;if people aren&#39;t using AI at home, that&#39;s a pretty big red flag&#39;); open models on cyber — &#39;over time it&#39;ll end up open because everyone&#39;s gonna get access to it anyways… you&#39;re just excluding a mass population that needs it&#39;; and the closer for everyone who can&#39;t afford four red teams: put your site behind Cloudflare, because the React mitigation went to everyone — 3,000 sites once had CDNs, now hundreds of millions do: &#39;democratizing security and performance for everyone.&#39;</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dane Knecht: The number of vulnerabilities that are being reported in CVEs has just gone up exponentially… these things are now happening weekly.</p>
+              <p>Dane Knecht: I think over 50% of engineering time is going to be spent on security… At some point, the AI will have surveyed majority of the code and found most of the bugs.</p>
+              <p>Dane Knecht: One of the keys on the Internet that protects all TLS and WebPKI… was secured by the number four.</p>
+              <p>Dane Knecht: It&#39;s not just been the models getting better, it&#39;s the harnesses.</p>
+              <p>Dane Knecht: They&#39;ve been high school kids even… like they used to do capture-the-flag security contests. They&#39;re pointing their agents at an area.</p>
+              <p>Dane Knecht: AI is very verbose. It likes to create complexity… it&#39;s actually not been helping build more secure stuff right now.</p>
+              <p>Dane Knecht: APIs only covered a small fraction of the information on the Internet, and agents have a thirst to understand everything.</p>
+              <p>Dane Knecht: It&#39;s kinda silly that we&#39;re actually asking humans to decide which model to do each task… It should be intelligently routed.</p>
+              <p>Dane Knecht: If people aren&#39;t using AI at home in their personal life, that&#39;s a pretty big red flag.</p>
+              <p>Dane Knecht: We view those kind of things as part of the utility that we offer… democratizing security and performance for everyone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-24 source feeds (14 builders, 28 tweets, plus one brand-new-to-this-digest podcast: No Priors with Cloudflare CTO Dane Knecht on democratizing security for the agentic web — full 40,272-character transcript translated).">Source: Follow Builders curated daily digest. Built from the 2026-10-24 source feeds (14 builders, 28 tweets, plus one brand-new-to-this-digest podcast: No Priors with Cloudflare CTO Dane Knecht on democratizing security for the agentic web — full 40,272-character transcript translated).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
