@@ -1,0 +1,88 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-26",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游未更新：今日 X 与播客快照均与 10-25 完全相同（11 位 builders、23 条推文 + Jev/MAD 播客）——全部内容已在昨日期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。昨日主线：Reset 落地日——Sottiaux 三连（**6524/1470/1398 赞**）：「Day 20/ Rest and reset」「By midnight PST」「全部已生效，明天享受疯狂的 codexing」；Rauchg 的第 0 号技能帖（**2087 赞**）：「有时你会过度引导 AI——它比你更懂；有时会引导不足——它可能跑偏。管理这个超能力是我最看重的第 0 号技能」；Ryo Lu 的长文《struggle together》（**511 赞**）：「我不想过没有挣扎的生活。我想要可以一起挣扎的人。」Levie：「网络 agent 的 token 流量将是一千倍。」"
+  },
+  "archive": {
+    "title": "重播日：Reset 与第 0 号技能",
+    "desc": "上游快照与 10-25 相同：Sottiaux「Day 20: Rest and reset」、Rauchg「第 0 号技能」（2087 赞）、Ryo Lu《struggle together》——完整版见 10-25 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-10-26 source feeds are byte-identical to 2026-10-25 (11 builders, 23 tweets; the Jev/MAD Podcast episode) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Reset Lands / 重播：Reset 落地要点",
+      "desc": "上游未更新，昨日完整版的要点回顾：Reset 落地、第 0 号技能、struggle together、千倍网安 token。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-10-25-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 10-25 相同",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-10-25 — the same 11 builders and 23 tweets, fully covered in yesterday's issue. Headlines: Sottiaux's reset landing triple (Day 20 'Rest and reset' at 6524, 'By midnight PST' at 1470, 'It is all propagated. Enjoy some mad codexing tomorrow' at 1398); Rauchg's #0 skill post at 2087 ('There'll be times where you over-guide the AI… How well you manage this superpower is the #0 skill I look for'); Ryo Lu's 'struggle together' essay at 511 ('I don't want a life without struggle. I want people to struggle with'); Levie's 1000X cyber tokens at 88; Peter Yang's Once reading ode at 157 and the Anthropic exodus note at 139; Aditya's 'dear god, celebrate humans' at 80; and Swyx's Latent Space editorial hiring call at 171."
+            ],
+            "original": [
+              "Thibault Sottiaux: Day 20/ Rest and reset",
+              "Thibault Sottiaux: It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.",
+              "Guillermo Rauch: How well you manage this superpower is the #0 skill I look for.",
+              "Ryo Lu: I don't want a life without struggle. I want people to struggle with… music we couldn't have made alone, instead of the silent static of the server farm.",
+              "Aaron Levie: We'll likely have 1,000X more tokens flowing through cyber agents soon than we do today."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 10-25 完全相同（11 位 builders、23 条推文，昨日已完整收录）。要点回顾：Sottiaux 的 Reset 落地三连（**6524/1470/1398 赞**）——「Day 20/ Rest and reset」「By midnight PST」「全部已生效，明天享受疯狂的 codexing，接下来一周也会很有趣」；Rauchg 的第 0 号技能帖（**2087 赞**）——「有时你会过度引导 AI——它比你更懂；有时会引导不足——它可能跑偏。管理这个超能力是我最看重的第 0 号技能」+ 工程黑话帖（219 赞）；Ryo Lu 的《struggle together》（**511 赞**）——「agent 永远耐心——但友谊从哪里开始？我不想过没有挣扎的生活，我想要可以一起挣扎的人」；Levie 的千倍论（88 赞）；Peter Yang 的 Once 阅读颂（157 赞）与「Anthony 与 Thariq 离开是 Claude 用户的大损失」（139 赞）；Aditya 的「为人类庆祝」（80 赞）；Swyx 的 Latent Space 编辑团队招聘（171 赞）。"
+            ],
+            "original": [
+              "Sottiaux：Day 20——Rest and reset、全部已生效。Rauchg：管理过度引导/引导不足是第 0 号技能。Ryo Lu：我想要可以一起挣扎的人。Levie：网安 token 千倍。详见 10-25 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Jev / 播客重播：Jev 决策模型",
+      "desc": "播客快照与 10-25 相同（即 10-16 的 Jev/MAD 一期）。完整中文译文（68 段）已收录于 10-16 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:mad-diogo-almeida-replay3",
+          "authorName": "MAD Podcast（DataDrivenNYC）",
+          "authorTag": "Diogo Almeida（TypeSafe CEO、RLHF 共同发明人）",
+          "sourceUrl": "https://www.youtube.com/watch?v=zvXGR81FBZc",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-10-25 — the MAD Podcast episode with Diogo Almeida on Jev (identical to the 2026-10-16 snapshot; fully translated in that issue). Quote replay today."
+            ],
+            "original": [
+              "Diogo Almeida: 95% Einstein, 5% mister Bean. And if it doesn't tell you when it's the mister Bean, then how are you gonna automate anything?",
+              "Diogo Almeida: AI is very strong at system one… we have not come even close to solving the jaggedness of system two.",
+              "Diogo Almeida: Classification is AI complete.",
+              "Diogo Almeida: We're building prod, not god."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 10-25 相同——即 10-16 的 MAD Podcast × Diogo Almeida（Jev 决策模型全解，70940 字符）。完整中文译文（68 段）已收录于 10-16 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「95% 爱因斯坦、5% 憨豆先生——它不告诉你什么时候是憨豆，你怎么敢自动化任何东西？」",
+              "「AI 在系统一上非常强……而我们远未解决系统二的参差性。」",
+              "「分类是 AI 完备的。」",
+              "「我们造产品，不造神。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
