@@ -1,0 +1,83 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-27",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游未更新：今日 X 与播客快照均与刷新后的 10-25 完全相同（9 位 builders、14 条推文 + No Priors × Greg Brockman）——全部内容已在 10-25 期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。当日主线：Sottiaux 的 Day 21（**5168 赞**）：「想知道剩下七天会发生什么。但今天是 reset」+「把网页版 ChatGPT 调成舒缓的」（1136 赞）；Levie 的企业安全长文（244 赞）：「先做好把数据与基建收拾干净的基本功，agent 才有机会帮你守护环境」；Zara 的出版观（**256 赞**）：「每天做一条视频的系统 > 花几万美元做一条发布视频」；Nan Yu 的名声预警（129 赞）：「等它出现在数据或访谈里就太晚了」。"
+  },
+  "archive": {
+    "title": "重播日：Day 21 与企业安全",
+    "desc": "上游快照与 10-25 相同：Sottiaux「Day 21: 但今天是 reset」（5168 赞）、Levie 企业安全长文、Zara「每天出现 > 大发布」——完整版见 10-25 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-10-27 source feeds are byte-identical to the refreshed 2026-10-25 feeds (9 builders, 14 tweets; the No Priors episode with OpenAI President Greg Brockman) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Day 21 Highlights / 重播：Day 21 要点",
+      "desc": "上游未更新，10-25 期完整版的要点回顾：Day 21、企业安全实录、每天出现。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-10-25-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 10-25 相同",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-10-25 — the same 9 builders and 14 tweets, fully covered in that issue. Headlines: Sottiaux's Day 21 at 5168 ('Wonder what happens the remaining seven days. But today is a reset') and the soothing-appearance tip at 1136; Levie's on-the-ground enterprise security essay at 244 ('Once you can get your data and infra into a better spot, at least you have a chance for agents to help you secure the environment… everyone does need to do the hard work of getting the basics right at the start'); Zara's showing-up philosophy at 256 ('Develop a system where you make a video every day > spending tens of thousands of dollars on a single launch video'); Nan Yu's reputation warning at 129; Peter Yang's Claude shorts tutorial at 245; Matt Turck's VC remix at 53."
+            ],
+            "original": [
+              "Thibault Sottiaux: Day 21/ Wonder what happens the remaining seven days. But today is a reset.",
+              "Aaron Levie: But everyone does need to do the hard work of getting the basics right at the start.",
+              "Zara Zhang: Develop a system where you make a video every day > spending tens of thousands of dollars on a single launch video",
+              "Nan Yu: By the time it shows up in the data or UXR interviews it's too late. The damage has been done and the reputation tarnished"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 10-25 完全相同（9 位 builders、14 条推文，该期已完整收录）。要点回顾：Sottiaux 的 Day 21（**5168 赞**）——「想知道剩下七天会发生什么。但今天是 reset」+ 疗愈小贴士（1136 赞）——「可以把网页版 ChatGPT 调成舒缓的外观」；Levie 的企业安全长文（244 赞）——「数据与基建收拾到位，agent 至少有机会帮你守护环境——但所有人得先做好开局的苦功」；Zara（**256 赞**）——「建立每天做一条视频的系统 > 花几万美元做一条发布视频」；Nan Yu（129 赞）——「等它出现在数据或 UXR 访谈里就太晚了——损害已经造成、名声已经受损」；Peter Yang 的 Claude 复刻 shorts 教程（245 赞）；Matt Turck 的「2021 年的机器改造成任务关键型 AI 基础设施」梗（53 赞）。"
+            ],
+            "original": [
+              "Sottiaux：Day 21——仍是 reset。Levie：先做基本功。Zara：每天出现 > 大发布。Nan Yu：数据里出现就太晚了。详见 10-25 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Greg Brockman / 播客重播：Brockman",
+      "desc": "播客快照与 10-25（即 10-18）相同：No Priors × OpenAI 总裁 Greg Brockman。完整中文译文（64 段）已收录于 10-18 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-greg-brockman-replay3",
+          "authorName": "No Priors Podcast",
+          "authorTag": "Greg Brockman（OpenAI 总裁）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-10-25 — the No Priors episode with OpenAI President Greg Brockman (identical to the 2026-10-18 snapshot; fully translated in that issue). Quote replay today."
+            ],
+            "original": [
+              "Greg Brockman: To ensure AGI benefits all of humanity, we think that humans should be firmly in the driver's seat, should have control over the future, and this technology should amplify human agency.",
+              "Greg Brockman: You don't just want software. You want software that is reliable, that is secure, that you can believe in. And so cyber spend, security spend should actually vastly outstrip software spend."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 10-25 相同——即 10-18 的 No Priors × Greg Brockman（网络安全与药物研发的物理规律之变，45000 字符）。完整中文译文（64 段）已收录于 10-18 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「人类应牢牢坐在驾驶座上、掌控未来，这项技术应放大人类的能动性。」",
+              "「你要的是可靠、安全、可信的软件——安全支出应当远超软件支出。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
