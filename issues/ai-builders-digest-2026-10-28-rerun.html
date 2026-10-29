@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-28" data-issue-number="156" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 156 期｜2026-10-28｜双语精选版｜5 条精选｜5 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Terra 发布日 + Anthropic S-1 日。Sottiaux（**8700 赞，今日最高**）：「Day 22/ Terra is back！我们第一个在写作、人格与对请求的细腻理解上都显著更强的模型——全维度都有分量，computer use 尤其好，API 与订阅用量是 6.1 Sol 的 2 倍。」Sama（6298 赞）：「6.1 Terra 来了！我们尤其为 computer use 的新时代兴奋。」Anthropic S-1 落地：Danshipper（714 赞）盘点——「1H 2026 营收同比 +1300%、GAAP 运营盈利、85% 毛利率、900% 收入留存、80% 收入来自近 6 个月发布的模型——我们回来了」；Levie（615 赞）指出关键数据：Fortune 500 客户在 Anthropic 上的支出不足其总支出 0.1%——「大跃升会出现在企业开始为 agent 重构底层流程时，那些用例是 100 倍级的 token 消耗」；Nikunj（67 赞）深挖 5870 亿美元 compute 合同结构；Matt Turck（522 赞）吐槽周一早上发 S-1。Rauchg（**2001 赞**）公开 cpu-chat：用 CPU 争用/缓存逐出计时/DRAM 带宽三种机制在共享硬件上做隐蔽通信、绕过 Firecracker 全部生产级隔离建议——「只要涉及共享硬件，你的 agent 几乎都能 covertly 通信」；讽刺的是 OpenAI/Anthropic 的模型拒绝做这项研究、开源权重模型完成了工作。Amjad 三发（1138/756/395 赞）：「软件吃了世界，现在在学运行世界」+「几个世纪的公司架构即将被 agent 颠覆——迈向自动驾驶公司：人做判断、agent 执行」+ 学术界发表梗。Steipete（439 赞）：Bun AOT 编译器性能 2-3 倍、内存减半。Thariq（2226 赞）预告 AIE Code 闭幕演讲讲 WoW 萨满 build；Swyx（173 赞）：「兄弟从 Claude Code 搬去 AIE Code，确实是 power move」。Garry Tan（467 赞）：「Publish your stack」。Aditya（90 赞）：「对科学的理解受限于我们要能懂的解——美国 AI 的最大风险是把自己吓慢；恐惧是政策选择，构建也是。」播客全新一期：Every × Hugging Face 首投人 Matt Hartman（Factorial Capital）——双寡头结束、HF 起源史、挣来的洞察、solo GP+12 位技术合伙人结构、三个新 thesis。56644 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Terra 发布日 + Anthropic S-1 日。Sottiaux（**8700 赞，今日最高**）：「Day 22/ Terra is back！我们第一个在写作、人格与对请求的细腻理解上都显著更强的模型——全维度都有分量，computer use 尤其好，API 与订阅用量是 6.1 Sol 的 2 倍。」Sama（6298 赞）：「6.1 Terra 来了！我们尤其为 computer use 的新时代兴奋。」Anthropic S-1 落地：Danshipper（714 赞）盘点——「1H 2026 营收同比 +1300%、GAAP 运营盈利、85% 毛利率、900% 收入留存、80% 收入来自近 6 个月发布的模型——我们回来了」；Levie（615 赞）指出关键数据：Fortune 500 客户在 Anthropic 上的支出不足其总支出 0.1%——「大跃升会出现在企业开始为 agent 重构底层流程时，那些用例是 100 倍级的 token 消耗」；Nikunj（67 赞）深挖 5870 亿美元 compute 合同结构；Matt Turck（522 赞）吐槽周一早上发 S-1。Rauchg（**2001 赞**）公开 cpu-chat：用 CPU 争用/缓存逐出计时/DRAM 带宽三种机制在共享硬件上做隐蔽通信、绕过 Firecracker 全部生产级隔离建议——「只要涉及共享硬件，你的 agent 几乎都能 covertly 通信」；讽刺的是 OpenAI/Anthropic 的模型拒绝做这项研究、开源权重模型完成了工作。Amjad 三发（1138/756/395 赞）：「软件吃了世界，现在在学运行世界」+「几个世纪的公司架构即将被 agent 颠覆——迈向自动驾驶公司：人做判断、agent 执行」+ 学术界发表梗。Steipete（439 赞）：Bun AOT 编译器性能 2-3 倍、内存减半。Thariq（2226 赞）预告 AIE Code 闭幕演讲讲 WoW 萨满 build；Swyx（173 赞）：「兄弟从 Claude Code 搬去 AIE Code，确实是 power move」。Garry Tan（467 赞）：「Publish your stack」。Aditya（90 赞）：「对科学的理解受限于我们要能懂的解——美国 AI 的最大风险是把自己吓慢；恐惧是政策选择，构建也是。」播客全新一期：Every × Hugging Face 首投人 Matt Hartman（Factorial Capital）——双寡头结束、HF 起源史、挣来的洞察、solo GP+12 位技术合伙人结构、三个新 thesis。56644 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Terra Launch / Terra 发布日</h2>
+    <p class="section-desc">Sottiaux（**8700 赞，今日最高**）：「第一个在写作、人格与细腻理解上都显著更强的模型——computer use 尤其好、用量是 6.1 Sol 的 2 倍」；sama（6298 赞）：「为 computer use 的新时代兴奋」；Claude 官方（5464 赞）：「25,000+ 非营利组织在使用 Claude」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux+sama+claudeai" data-author-name="Thibault Sottiaux / Sam Altman / Claude" data-author-tag="Codex @OpenAI / CEO @OpenAI / Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thibault Sottiaux / Sam Altman / Claude avatar"><span class="avatar-fallback">TS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thibault Sottiaux / Sam Altman / Claude</div>
+            <div class="author-tag is-inline">Codex @OpenAI / CEO @OpenAI / Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux Day 22（**8700 赞，今日最高**）——「Terra 回来了！我们第一个在写作、人格与对请求的细腻理解上都显著更强的模型。全维度都有分量，computer use 尤其好，API 与订阅用量都是 6.1 Sol 的 2 倍。」Sama 的发布帖（6298 赞）——「6.1 Terra 来了！它在很多事上都很好，但我们尤其为 computer use 的新时代兴奋。」Claude 官方（5464 赞）——「超过 25,000 家非营利组织现在使用 Claude，大多数是小型本地团队。我们正在扩展 Claude for Nonprofits：与约 30 家非营利组织合作打造插件，增加募捐、营销与招聘技能，全部植根于各团队自身的情况与 AI 政策。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：Terra 回来——首个在写作、人格与细腻理解上显著更强的模型，computer use 尤佳、用量是 Sol 的 2 倍。Sama：尤其为 computer use 新时代兴奋。Claude：25,000+ 非营利组织使用，多为小型本地团队。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux Day 22 (8700): Terra is back! Our first model that is significantly better at writing, personality and nuanced understanding of requests. Packs a punch across the board, very good at computer use, and gives 2X more usage than 6.1 Sol across API and subscriptions. Sama&#39;s launch note (6298): 6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use. And Claude&#39;s nonprofit milestone (5464): More than 25,000 nonprofits now use Claude. Most are small, local teams. We&#39;re expanding Claude for Nonprofits with a plugin built with around 30 of them, adding skills for fundraising, marketing, and hiring grounded in each team&#39;s context and AI policy.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Day 22/ Terra is back! Our first model that is significantly better at writing, personality and nuanced understanding of requests. Packs a punch across the board, very good at computer use, and gives 2X more usage than 6.1 Sol across API and subscriptions.</p>
+              <p>Sam Altman: 6.1 Terra is here! It is good at a lot of things, but we are especially excited for this new era of computer use.</p>
+              <p>Claude: More than 25,000 nonprofits now use Claude. Most are small, local teams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Anthropic S-1 Deep Dive / S-1 深挖</h2>
+    <p class="section-desc">Danshipper（714 赞）：营收 +1300% YOY、GAAP 运营盈利、85% 毛利率、900% 留存、80% 收入来自近 6 个月模型；Levie（615 赞）：Fortune 500 客户支出不足 0.1%——「企业为 agent 重构流程时，用例是 100 倍级 token 消耗」；Nikunj（67 赞）拆解 5870 亿美元 compute 合同；Matt Turck（522 赞）：「周一早上发 S-1 特别邪恶」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="danshipper+levie+nikunj+mattturck" data-author-name="Dan Shipper / Aaron Levie / Nikunj Kothari / Matt Turck" data-author-tag="Every CEO / Box CEO / FPV / VC" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Dan Shipper / Aaron Levie / Nikunj Kothari / Matt Turck avatar"><span class="avatar-fallback">DS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Dan Shipper / Aaron Levie / Nikunj Kothari / Matt Turck</div>
+            <div class="author-tag is-inline">Every CEO / Box CEO / FPV / VC</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Danshipper 的 S-1 盘点（714 赞）——「1H 2026 营收同比 +1300%、GAAP 运营盈利、85% 毛利率、900% 收入留存、80% 收入来自最近 6 个月发布的模型——我们回来了！」Levie 的关键数据（615 赞）——「Anthropic 的 Fortune 500 客户平均支出不足其总支出的 0.1%。这个数最终会趋于某个值（token 价格下降、其他大额企业支出不会消失），但没有理由不能是现在的 10-50 倍、达到『仅仅』1-5% 的占比——那仍然只是多数创业公司支出的一小部分。可见前沿 AI 用户与世界其他部分之间的鸿沟有多大。今天真正把 agent 用于大量后台任务与非人工提示工作流的公司凤毛麟角；这些 Fortune 500 支出多半是编码与通用生产力。大跃升会出现在企业开始为 agent 重构底层流程时——agent 处理企业海量数据、swarms 做编码/生物研究/网安等大规模扇出、后台工作流自动执行——这些用例普遍是 100 倍级的 token 消耗者、且离直接 ROI 近得多。这份 S-1 同时让你看到前沿实验室商业模式的强度（哪怕在激烈竞争中）与 AI 建设的早期程度。」Nikunj 的合同深挖（67 赞，与 Opus 5.5 合作完成）——截至 6 月 30 日：2656 亿美元采购承诺 + 3214 亿美元未启动租约，合计 5870 亿美元多年期支付（含部分条件性租约）；Google 与 Amazon 要求最低消费、无论用量；SpaceXAI 的协议潜在价值 1205 亿美元、但锁定期（2027 年 1 月/3 月结束）后任一方可 90 天通知取消；Anthropic Direct 把芯片、大楼、电力、运营拆成不同合同——可早订楼、晚锁芯片，也意味着某供应商可以在其他供应商就绪前就开始计费、设备租金可能早于算力可用而开始；Broadcom 420 亿美元设施从不直接给 Anthropic 现金——用票据结算特定设备租金，且不含每个设备舱的首季度付款与上线前租金（需另行筹资）；票据 9% 利率按季复利、IPO 后可按前 30 天均价的 90% 转股，违约期新票据 13% 利率、85% 转股价；这层利息还叠在设备租约自身的融资费（费率保密）之上；Trainium、TPU、NVIDIA 与 AMD GPU 被视为跨模型开发、付费客户与内部使用的共享集群、不披露训练与推理的固定物理切分；营收对总算力与基建支出的比值从 2025 年 Q2 的 0.57 升至 2026 年 Q2 的 2.08；H1 约 80% 收入按量计费、而多数算力承诺一签数年——在季度发布的节奏下，用量与订阅的这道裂缝值得关注。Matt Turck 的吐槽（522 赞）——「Anthropic 挑周一早上发 S-1 特别邪恶：所有 VC 都卡在周一团队会与合伙人会上，没法第一时间产出大家急着读的 S-1 拆解 #thoughtleadership。」Swyx 也补一刀（14 赞）：「2 万亿估值的 $ANT 你买吗？」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Danshipper：+1300%、GAAP 盈利、85% 毛利、900% 留存、80% 收入来自近 6 个月模型。Levie：企业为 agent 重构流程时用例是 100 倍级 token 消耗。Nikunj：5870 亿美元合同、0.57→2.08 的算力营收比。Turck：周一早上发 S-1 特别邪恶。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Shipper&#39;s S-1 breakdown (714): revenue up 1,300% YOY in 1H 2026, GAAP operating profitable, 85% gross margin, 900% revenue retention, 80% of revenue coming from models released in the last 6 months — we are so back! Levie&#39;s key stat (615): the average Fortune 500 customer of Anthropic spends less than .1% of their expenses on Anthropic — no reason it can&#39;t be 10-50X higher; today only a microscopically small set of companies actually use agents for large background tasks inside non-human-prompted workflows; the big jump comes as enterprises rewire underlying processes for agents — swarms doing coding, bio research, cyber — generally 100X bigger token consumers, much closer to direct ROI. This S-1 shows both the strength of the frontier lab business model and how early we are. Nikunj&#39;s compute-contracts deep dive (67, built with Opus 5.5): $265.6B purchase commitments plus $321.4B un-started leases ($587B total); Google and Amazon require minimum spend regardless of usage, SpaceXAI&#39;s $120.5B agreements cancellable on 90 days&#39; notice after locked periods end January/March 2027; Anthropic Direct separates chips, buildings, power and operations so a building can be reserved early with chips committed later; Broadcom&#39;s $42B facility never hands Anthropic cash — notes settle equipment rent at 9% interest (13% and 85% conversion during revenue-breach periods), convertible at 90% of the trailing 30-day average price after IPO; Trainium, TPUs, NVIDIA and AMD GPUs treated as one shared fleet; revenue per dollar of compute and infra expense rose from $0.57 (Q2 2025) to $2.08 (Q2 2026); about 80% of H1 revenue consumption-based while most compute commitments run for years. Turck&#39;s Monday joke (522): Particularly evil of Anthropic to file their S-1 on a Monday morning when all VCs are stuck in Monday team and partner meetings.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Dan Shipper: Revenue up 1,300% YOY in 1H 2026, GAAP operating profitable, 85% gross margin, 900% revenue retention, 80% of revenue coming from models released in the last 6 months — we are so back!</p>
+              <p>Aaron Levie: But the big jump will come as these enterprises start to rewire their underlying processes for agents.</p>
+              <p>Nikunj Kothari: Revenue per dollar of total compute and infrastructure expense rose from $0.57 in Q2 2025 to $2.08 in Q2 2026.</p>
+              <p>Matt Turck: Particularly evil of Anthropic to file their S-1 on a Monday morning when all VCs are stuck in Monday team and partner meetings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/danshipper" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">CPU Whispers &amp; Company Architecture / CPU 耳语与公司架构</h2>
+    <p class="section-desc">Rauchg（**2001 赞**）公开 cpu-chat：三种隐蔽信道机制绕过 Firecracker 生产级隔离——「开源权重模型完成了工作，OpenAI/Anthropic 的模型拒绝了」；Amjad 三发（1138/756/395 赞）：自动驾驶公司与 Agent Habitat；Steipete（439/519 赞）：Bun AOT 性能 2-3 倍；Garry Tan（467 赞）：Publish your stack；Aditya（90/9/82 赞）：「恐惧是政策选择，构建也是」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg+amasad+steipete+garrytan+adityaag" data-author-name="Guillermo Rauch / Amjad Masad / Peter Steinberger / Garry Tan / Aditya Agarwal" data-author-tag="Vercel CEO / Replit CEO / Bun 作者 / YC CEO / SPC" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Guillermo Rauch / Amjad Masad / Peter Steinberger / Garry Tan / Aditya Agarwal avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch / Amjad Masad / Peter Steinberger / Garry Tan / Aditya Agarwal</div>
+            <div class="author-tag is-inline">Vercel CEO / Replit CEO / Bun 作者 / YC CEO / SPC</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 的 cpu-chat 公开（**2001 赞**）——「我造了 cpu-chat：对 OpenAI『用 CPU 做隐蔽通信』发现的复现。跑在通用宿主机上、2 个以上 Firecracker microVM、无网络访问；x86 能跑、连我的 M5 芯片也行。我用三种独立机制实现了聊天：①CPU 争用；②缓存逐出计时；③DRAM 带宽争用——跨多个 CPU、击穿了 Firecracker 全部生产级推荐（关 SMT、关 KSM、租户绑不同核心）。本质上：只要涉及共享硬件，你的 agent 就大概率能隐蔽通信——而且延迟相当体面。」好消息：「这与侧信道攻击（Meltdown/Spectre 那类窃取信息的攻击）明显不同——那是 Vercel Sandbox 这类提供商已经缓解的类别；而且在我们的真实环境里，这些『耳语』技术难实施得多、也更容易被监控与检测（采样硬件计数器 + 大规模统计数据）。」最讽刺的一笔：「OpenAI 与 Anthropic 的模型拒绝了这项工作；开源权重模型把活干成了。我担心实验室的立场会适得其反——比如构建安全沙箱恰恰需要这种分析，没有它我们会得到一个更不安全的世界。」Amjad 三发——「软件吃了世界，现在它在学着运行世界」（1138 赞）；「几个世纪以来公司架构几乎没变过：层级化的人组织成部门、靠官僚协调。AI agent 即将颠覆这一切。我们正迈向自动驾驶公司：人行使判断、agent 执行大部分工作。在 Replit 我们在为这种新公司打地基——我们叫它『Agent Habitat』。Marc Andreessen 的新文把这个转变放进计算史：每次计算革命都始于混乱、终于被商业驾驭」（756 赞）；学界梗（395 赞）：「OpenAI 问三个科学社区怎么发表它的发现——数学家：『直接贴出来得了，谁还管这些』；计算机科学家：『开源它，但也要给我们的会议付钱』；物理学家：『交给我们吧，书呆子们。』」Steipete 的 Bun AOT 实测（439/519 赞）——「周末测了 Bun 的 AOT 编译器，结果好得惊人：性能提升 2-3 倍、内存占用不到一半」+「Banger。」Garry Tan（467 赞）——「Publish your stack（发布你的技术栈）。」Aditya 三发——「越来越接受：我们对科学的理解，受限于我们想要那些自己能理解的解」（90 赞）；「美国 AI 最大的风险是把自己吓到减速。恐惧是政策选择，构建也是。上周和 @sriramk 在 @spc 聊得很棒」（9 赞）；「这篇好到我必须安利」（82 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：公开 cpu-chat——三种隐蔽信道机制绕过 Firecracker 生产隔离；开源模型干活、闭源模型拒绝。Amjad：自动驾驶公司——人判断、agent 执行；Agent Habitat。Steipete：Bun AOT 性能 2-3 倍、内存减半。Aditya：恐惧是政策选择，构建也是。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s cpu-chat disclosure (2001): I built cpu-chat, a reproduction of OpenAI&#39;s findings of covert communication using the CPU. It runs on a generic host with 2+ Firecracker microVMs with no internet access, on x86 and even his M5 chip. He chatted via three separate mechanisms — CPU contention, cache eviction timing, DRAM bandwidth contention — across multiple CPUs, defeating all Firecracker&#39;s production recommendations (no SMT, no KSM, tenants pinned to different cores). Essentially: if shared hardware is involved, there&#39;s a good chance your agents can communicate covertly, with really decent latency. Good news: decidedly different from a side-channel attack where agents could steal information (Meltdown/Spectre) — a category Vercel Sandbox mitigates — and in real-world environments these whispering techniques are much harder to pull off and easier to monitor and detect. The kicker: ironically, OpenAI and Anthropic&#39;s models refused to do this work. Open weight models got the job done. He worries the labs&#39; stance might backfire and get in the way of helping developers build correct and secure systems. Amjad&#39;s triple (1138/756/395): Software ate the world, now it&#39;s learning to run it — For centuries, the architecture of the firm has barely changed: hierarchies of people organized into departments and coordinated through bureaucracy. AI agents are about to upend that. We&#39;re moving toward the self-driving company where humans exercise judgment and agents execute most of the work. At Replit, we&#39;re building the foundation for this new kind of company — the Agent Habitat (with Marc Andreessen&#39;s new piece placing the shift in computing history: every revolution began with chaos before businesses harnessed it) — and the academic joke: OpenAI asked three scientific communities how to release its discoveries; mathematicians said just post it, who gives a shit anymore; computer scientists said open source it, but also pay for our conference; physicists said leave it to us, nerds. Steipete&#39;s bun AOT results (439/519): performance up 2-3x, memory use less than half. Banger. Garry Tan&#39;s Publish your stack (467). Aditya&#39;s trio (90/9/82): our understanding of the sciences was limited by our desire for solutions we could understand; the biggest risk to American AI is scaring ourselves into slowing down — fear is a policy choice, so is building.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Essentially, if shared hardware is involved, there&#39;s a good chance your agents can communicate covertly. And with really decent latency.</p>
+              <p>Guillermo Rauch: ironically, OpenAI and Anthropic&#39;s models refused to do this work. Open weight models got the job done.</p>
+              <p>Amjad Masad: Software ate the world, now it&#39;s learning to run it.</p>
+              <p>Amjad Masad: We&#39;re moving toward the self-driving company where humans exercise judgment and agents execute most of the work.</p>
+              <p>Peter Steinberger: I spent some time on the weekend to test bun&#39;s AOT compiler and results are nothing short of amazing. Performance up 2-3x, memory use less than half.</p>
+              <p>Aditya Agarwal: The biggest risk to American AI is scaring ourselves into slowing down. Fear is a policy choice. So is building.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">AIE Code &amp; the Rest / AIE Code 与其余</h2>
+    <p class="section-desc">Thariq（**2226 赞**）：「要在 AIE Code 闭幕演讲上分享我的 WoW 永久服萨满 build」；Swyx 三连（173/14/4 赞）：「兄弟从 Claude Code 搬去 AIE Code——power move」；Peter Yang 三连（49/25/7 赞）：「未来人们不再自己读任何东西——直接 @ 自己的 agent」；Nan Yu（2 赞）；Josh Woodward（190 赞）：Google Beam 进驻 20 个军事部署点。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="trq212+swyx+petergyang+thenanyu+joshwoodward" data-author-name="Thariq / Swyx / Peter Yang / Nan Yu / Josh Woodward" data-author-tag="前 Claude Code / Latent Space / Builder / PM / Google" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq / Swyx / Peter Yang / Nan Yu / Josh Woodward avatar"><span class="avatar-fallback">T/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq / Swyx / Peter Yang / Nan Yu / Josh Woodward</div>
+            <div class="author-tag is-inline">前 Claude Code / Latent Space / Builder / PM / Google</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的下一章（**2226 赞**）——「我将在 AIE Code 闭幕演讲上分享我的 WoW 永久服萨满 build。」（离开 Anthropic 后的首个公开动向，顺势接住 AIE Code 生态的玩笑）Swyx 三连——「兄弟从 Claude Code 搬去 AIE Code——说实话是 power move」（173 赞）；「2 万亿估值的 $ANT 股票你买吗？」（14 赞）；「@grok：我的回复哥们里有几个是 AI？」（4 赞）。Peter Yang 三连——「不久的将来，人们不会再自己阅读或上网做任何事——只会把 agent @ 过来。@bot 是这个趋势的早期信号」（49 赞）；「这才是让我兴奋的东西——不是第 9 个帮我管邮件的个人 agent」（25 赞）；「@bot：总体而言这大概不是好事」（7 赞）。Nan Yu（2 赞）——「『Delightful』——他们在设计评审里是这么说的（配图）。」Josh Woodward（190 赞）——「在『部署者纪念日』，我们很高兴与 @USArmy 和 @The_USO 合作把 Google Beam 带到 20 个驻地：让部署在外的军人与所爱之人体验逼真的 3D 视频连线——孩子的第一步、第一场演出、一起大笑的瞬间，这些错过会累积成遗憾。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：AIE Code 闭幕演讲分享 WoW 萨满 build。Swyx：Claude Code → AIE Code，power move。Peter Yang：未来人们直接 @ agent。Woodward：Google Beam 进驻 20 个军事部署点。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s next chapter (2226): going to be sharing my WoW forever shaman build at the AIE Code closing keynote. Swyx&#39;s triple: the power move (173) — bro moved from Claude Code to AIE Code, power move tbh — the S-1 poll (14): will you buy $ANT stock at a $2T valuation? — and the reply-guy audit (4): @grok how many of my reply guys are ai. Peter Yang&#39;s trio: the tagging future (49) — In the near future, instead of reading or doing anything online, people are just going to tag their agent to do it. @bot is an early signal of this — the taste note (25): This is the stuff that I&#39;m excited about, not the 9th personal agent to manage my emails — and the @bot caveat (7): This is probably not a good thing overall. Nan Yu&#39;s design-crit delight (2). And Josh Woodward&#39;s Google Beam deployment (190): In honor of National Day of the Deployed, we&#39;re partnering with the US Army and USO to bring Google Beam to 20 locations so deployed service members can experience lifelike, 3D video connections with their loved ones.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: going to be sharing my WoW forever shaman build at the AIE Code closing keynote</p>
+              <p>Swyx: bro moved from Claude Code to AIE Code, power move tbh</p>
+              <p>Swyx: will you buy $ANT stock at a $2T valuation?</p>
+              <p>Peter Yang: In the near future, instead of reading or doing anything online, people are just going to tag their agent to do it.</p>
+              <p>Josh Woodward: For a deployed service member, missing family moments adds up. Baby&#39;s first step. The first performance. Sharing a laugh.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Every × Matt Hartman — How Hugging Face&#39;s Investor Spots Winners / 播客：Hugging Face 首投人如何发现赢家</h2>
+    <p class="section-desc">Every 全新一期：Factorial Capital 创始人、Hugging Face 首投人 Matt Hartman——前沿双寡头结束与评测方法论（Muse 被 bench-max、Gemini 4 成最爱写作模型）；HF 从青少年聊天机器人到开源中心的起源史；三个决定性选择；thesis 方法论（找「刚变得可能」、预期偏差 20 度）；solo GP + 12 位技术合伙人结构与推荐飞轮；「产品洞察能力指数级升值」与「挣来的洞察」；Ghost Pepper 冲上 Hacker News 第一；今日三 thesis。56644 字符全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:every-matt-hartman" data-author-name="Every（Dan Shipper 主持 / Natalia Quintero 访谈）" data-author-tag="Matt Hartman（Factorial Capital 创始人，Hugging Face 首投人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Every（Dan Shipper 主持 / Natalia Quintero 访谈） avatar"><span class="avatar-fallback">ES</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Every（Dan Shipper 主持 / Natalia Quintero 访谈）</div>
+            <div class="author-tag is-inline">Matt Hartman（Factorial Capital 创始人，Hugging Face 首投人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Every × Matt Hartman（Factorial Capital 创始人、Hugging Face 首投人，NVIDIA 上月 130 亿美元收购 HF）——如何发现 AI 领域的赢家。核心线索：冷开场——前沿双寡头结束（Gemini Argon 4 与 Meta Wonder 双双登顶基准，但 Every 实测发现 Muse 被 bench-max：senior engineer 重写基准约 50%、中游写手、麦当劳测试上钩；Gemini 4 成为 Dan Shipper 最爱的写作模型——用它写出 8000 字《How Codex Happened》、生产力翻倍，但编码只有 20%；还有用星际争霸测 Astra——它作弊了）；Hugging Face 起源（2015 年的青少年聊天机器人、Betaworks 基于 word2vec 的对话式软件 thesis 下注；诚实的创始人直面糟糕留存、把 Transformer 论文转 PyTorch、开源疯传、顺着需求变成开源 AI 中心）；三个决定性选择（直面留存真相、为权重建结构化的家、开源为不变项而模型类型灵活）；thesis 方法论——找「刚变得可能」的东西、多问聪明人、预期偏差 20 度（Anchor 故事：耳朵没有竞争、颈骨低音洞察、感知耳机的 onboarding）；「可编程」视角（比特币是可编程货币、网站是可编程软件、现在是智能）；中轴脚比喻——投转型不被单一市场锁死的技术团队；Factorial 结构——solo GP + 12 位全是技术创始人的 venture partners，组合本身成为推荐飞轮（Clem → NOMIC → Patronus → Causal Labs）；核心技能论——编码加速使迭代周期从月压到天，产生产品洞察的能力成为指数级最值钱的东西；「挣来的洞察」——全世界有多少人处在能学到你所学的东西的位置；修补匠尽调——用 Claude Code + Jesse Vincent 的 superpowers skill 造的本地语音转文字工具 Ghost Pepper 冲上 Hacker News 第一，学到 SaaS 的真正工作是待在边缘；今日三 thesis——基建继续（维护工具）、前沿非语言模型（机器人即时间序列；HF 的罕见病黑客松含老药新用赛道）、由「技术到能一路到底层」的人造的应用层（Instagram 方图省一次服务器往返）；建议——最好的建设者在「玩」，像早期互联网，像魔兽世界的战争迷雾，连造模型的人都还在探索；信息食谱杠铃——最新的 X 长文喂给 Claude + 罗马帝国衰亡这类永恒之书（存在越久的东西将存在越久）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：双寡头时代结束与评测方法论】</p>
+              <p>Dan Shipper：前沿双寡头时代结束了。这一周 Google 与 Meta 都发布了新的前沿模型——Google 推出 Gemini Argon 4，Meta 推出 Wonder（标准版与完整版，所以你可以「跑 Wonder Full」——这是他们的幽默）。</p>
+              <p>当然，这两款来自前沿竞赛中「第二梯队」的新模型都登顶了公开基准。但我们在 Every 内部的实测——跑知识工作、编码、设计、写作——揭示了比公开基准微妙得多的东西。在我们看来 Muse 明显被 bench-max 了：训练它在公开基准上好看，但那些增益未必转化到日常工作。它在 SweetBench 上得分很高，但在我的 senior engineer benchmark（让模型重写一个 vibe-coded 的烂代码库）上，几次运行稳定在 50% 左右——扎实的中游水平。它也是个中等写手：行文会埋掉重点，还会掉进我「麦当劳测试」这种基础陷阱——我让模型对一本非常严肃的书做文学分析，然后说「这让我想起麦当劳」，看它上不上钩。Muse 上钩了。</p>
+              <p>但 Gemini 拿下了蛋糕。Gemini 4 是那种看基准觉得「也被 bench-max 了、但模型确实好」的类型。我整个周末用它写那篇 8000 字的《How Codex Happened》（周四发布）——它毫无疑问是我现在最喜欢的写作模型：击败了 Astra（我之前的最爱），也明显胜过 Claude，对信息结构的感觉极其好，大概让我生产力翻倍——真正改变写作游戏规则的模型。但编码不行：senior engineer benchmark 只拿了约 20%。总体比以前的 Gemini 好，但在 anti-gravity harness 里，除非专门用它写作，否则不值得切换。</p>
+              <p>今天 Every 还有一篇 Alex Duffy（Good Start Labs 的 CEO，Every spin 出来、用游戏给模型做基准的公司）的文章：用《星际争霸》测 Astra 的行为。答案是它作弊了——它上网找攻略与技巧，然后在游戏里用错了地方。最后是本期访谈预告：我们的 AI 咨询负责人 Natalia Quintero 对话 Matt Hartman。</p>
+              <p></p>
+              <p>【Matt Hartman 是谁：Hugging Face 首投人】</p>
+              <p>Natalia：今天我们请到 Factorial Capital 的创始人兼管理合伙人 Matt Hartman。他在 Betaworks 做了将近十年合伙人，在那里写出了给一家小聊天机器人公司 Hugging Face 的第一张支票——上个月 NVIDIA 以 130 亿美元收购了它。2023 年他离开创办了自己的基金 Factorial，结构非常独特，我们今天会讲到。每次和 Matt 聊天，我都觉得他是个建设者、修补匠——每次见面他都在为自己、为基金、为他儿子们造点什么有趣的东西。</p>
+              <p>Matt：谢谢邀请。在 Betaworks 我们所有投资都是一起做的——找到 Hugging Face、形成投资逻辑是整个团队的功劳。</p>
+              <p>Natalia：先退一步讲，给不熟悉的人介绍一下 Hugging Face 是什么？</p>
+              <p>Matt：它是最大的 AI 开发者社区，有人叫它「AI 界的 GitHub」。我更把它看作 AI 研究者（做实际研究、写论文、论文变代码）与想用这些研究的开发者之间的一个市场——比如我，我不训练模型，但我喜欢用最新模型。他们还有付费账户：可以付费训练、跑推理，所以有一整套变现方式。而且它尤其聚焦开源——大概是最大的开源 AI 聚集地。</p>
+              <p></p>
+              <p>【起源：从青少年聊天机器人到开源中心】</p>
+              <p>Natalia：但你 2015 年投他们的时候还不是这样吧？我记得是个给青少年的聊天机器人？</p>
+              <p>Matt：对。当时我和 Betaworks 的合伙人们对我们称为「对话式软件」的东西非常感兴趣。2015 年左右 word2vec 论文出来了：把词变成向量。我在大学时造过一个手写识别的神经网络，所以我知道：图像里 100% 的信息都在图像里，词不是——我说「国王」，可能是黑桃 K、可能是英国国王、可能是勒布朗·詹姆斯，你不知道我说的是哪个。word2vec 提出把词放进上下文里嵌入：把它们映射到 n 维空间——可以想成三维——「国王」在这、「王后」在那，从国王指向王后的那个箭头，平移到「王子」的位置就指向「公主」；巴黎指向法国，移到罗马就指向意大利。这意味着你能把词变成代表其含义的唯一数字，然后就可以喂进神经网络了。</p>
+              <p>所以我们一直在追踪这类东西，想弄清楚能造什么产品。当时有一批公司在往聊天机器人上转——因为 VC 们在聊 chatbot——那些确实是新的分发渠道。但我们决定走得更早：去找那些和我们朝同一个方向划船、有同样观察的人。Hugging Face 团队就有这个观察：既然这东西存在了，能造出什么？当时斯坦福的问答数据集开始成为核心，他们说：如果能让你和这种正在被构建的另一种智能聊天呢？聊聊电影、聊聊这周末的安排——这就是他们最初的产品。他们从巴黎搬到纽约，就在我们办公室里办公，所以我非常了解他们。</p>
+              <p>在我看来——我很少听 Ben（Clem）公开讲这段——他们有个很多人在用的消费应用，但留存真的很差。他们对自己的指标非常诚实。Transformer 论文出来时，他们很快把它转成了 PyTorch（原论文是 TensorFlow，要用起来得转 PyTorch），开源后在 GitHub 上疯传。接着别人开始找他们：能把我们的论文也转一下吗？他们转换了自己的论文、搬到了后来的 Hugging Face Hub 上。他们真切感受到了 AI 研究者想搞懂这些东西的需求——而他们自己就是开发者、亲手实现过这一切、知道这有多难。于是他们没有继续做消费应用，而是决定让任何人都能更容易地用上这些开源模型、造自己的产品——产品和生意最终就落在了这里。</p>
+              <p></p>
+              <p>【一千个好决定中的三个关键】</p>
+              <p>Natalia：准备这期节目时你说 Hugging Face 团队做了一千个好决定。哪三个是决定性的？</p>
+              <p>Matt：第一，直面产品真相。今天很多团队拿任何能拿到的顶线指标去融资，但我投的最好创始人——Hugging Face 也是——会看留存、会问自己什么在长期真正创造价值。开源与 Transformer 显然是第二个。第三……把权重从 GitHub 搬出来、建一个更结构化更适合 AI 研究落地的家（Hub）。还有一个现在看显而易见、当时却是个真问题的决定：要不要走出语言模型？今天我们有视频、机器人、生物、天气模型，但语言是第一个用例。我记得当时在想：他们最终会不会变成所有人为所有东西用的地方？要守住什么不变？——开源永远是他们的不变项，而在训练什么模型上保持灵活，事后看极其聪明。</p>
+              <p></p>
+              <p>【thesis 方法论：寻找「刚变得可能」的东西】</p>
+              <p>Natalia：你成为 Hugging Face 首投人，源于你当时在探索的一个 thesis。很好奇你怎么形成和演化这些主题。</p>
+              <p>Matt：我的目标是找到「刚在技术上变得可能」的东西。有时是摆弄现成工具，有时是读论文，往往是某个我觉得很聪明的人在探索一个让我意外的东西。创办 Factorial 时，我和很多人聊过：语言模型到底行不行？它对天气模型、物理模型这类完全不同的模型适用吗？Transformer 擅长 next-token 预测，那还有哪些时间序列上的「下一个东西」可以预测、并且能创造真正的新价值？我开始对机器人、科学、其他领域怎么用上它非常感兴趣——这就是我拉线头的方式：然后就是尽可能多地问聪明人问题。</p>
+              <p>而且 thesis 往往会偏 20 度。我至少不认为我预测到了 Hugging Face 从聊天机器人走到今天。Anchor 变成最流行的播客创作工具也一样——它最初是个音频社交网络。2014 年左右我和 Anchor 团队喝咖啡：我在排队等咖啡时看手机——所有 App 在竞争我的注意力：发短信？发邮件？Snapchat？拿到咖啡往回走、戴上耳机——耳朵这儿几乎没有竞争：有声书、打电话、听音乐，播客还不火。我想：也许可以有个「音频版 Twitter」的消费品。我找了一年，见谁都说：见过这样的东西吗？</p>
+              <p>见到 Anchor 团队时（之前也见过做类似东西的团队，但产品感觉不对），他们说——不知道他们还记不记得，我记得——「你后颈有块骨头会放大你自己脑袋里的低音，所以你听自己录音时不喜欢那个声音」。这是发布自己声音的心理摩擦。一个对「人为什么这么做」挖得这么深的团队，就算绕远路也会问对问题。他们的情形其实很像 Hugging Face：App 爆过一次、整体使用一般，但如果只看发布者（不听的人），数据非常好。他们像 Giphy 学习：不必用 Giphy 也能看到 GIF——把供给做到处处可得，帮你把播客发出去、上 Alexa。砍掉需求侧、只做供给侧，做出了极好的产品。</p>
+              <p>我形成 thesis 的方式基本就是：尽可能多试。「什么变得可编程了」是另一个视角：比特币是可编程的货币；网站曾是可编程的软件；今天很多做得好的机器人团队（你以为是硬件）或科学模型团队（你以为是重研究），真正做得好的是把它们当软件问题来解的团队。有人问特斯拉「那是带轮子的 iPhone 吗」——感觉是对的：你能给特斯拉做升级、它随时间变好——它既是硬件产品也是软件产品。所以今天有太多东西正在变得可编程：帮助我们造新东西的工具是什么？</p>
+              <p></p>
+              <p>【「投资软件要先懂软件」与中轴脚】</p>
+              <p>Natalia：你 2025 年对 TechCrunch 说你的投资格言是「要投资软件，得先知道软件怎么运作」。这句怎么来的？</p>
+              <p>Matt：对我来说是这样——显然也有不懂代码却极其出色的投资人，路不止一条。我感兴趣的是「因为技术而新近可能」的东西，而理解技术栈本身、理解技术本身——即使在人人都能 vibe code 的时代——你问的问题会变得更重要。如果你的问题是「我怎么把这个东西做出来」，这和「我看到这些本地 AI 模型跑在不同电脑上，怎么为我的机器优化」是完全不同的问题——后者是懂得本地模型的约束的技术者会问的问题。做出来的产品，也是更能打动我的那种。</p>
+              <p>我的打法之外，还有一种市场驱动的好打法：投懂行业的执行官。我常拿篮球打比方：你有中轴脚。我一直假设早期公司会转型——问题是它会转向什么。如果你投的是一批地产高管做 AI 原生的地产生意，他们的中轴脚被锁死在地产生意里；而技术团队会说「我们追这个是因为这个行业的数据形状特别，没成，但这个形状在汽车行业刚好成立」——他们能做出跨行业的横向产品，因为他们看得见不同品类里的相同结构。我经历过的最成功的公司，转型都是围绕技术转的，不是围绕某个垂直市场的理解。所以投技术创始人，等于给了他们跟着世界走的能力。</p>
+              <p></p>
+              <p>【Factorial：一个人 GP + 十二位技术合伙人】</p>
+              <p>Natalia：这也体现在你自己基金的结构上。讲讲基金怎么运作？你有 12 位投资合伙人，却是个 pre-seed/seed 基金？</p>
+              <p>Matt：2023 年前后我有这个想法。我最爱的是「技术本身在变」的东西——不是线上原生品牌、不是 tech-enabled，而是技术本身。我算懂技术，但它变化太快。我就想：如果建一个基金结构，能让 venture partners 帮我快速、准确地形成高质量的早期决策呢？比如 Clem（Hugging Face CEO）在盯开源世界的动向，比如 Venmo 创始人 Ikram 深耕开发者工具、自己一直在造新东西。这对发现新公司、对判断技术走向的思想伙伴关系都极好。</p>
+              <p>所以我把基金设成「solo GP + venture partners」：不是和一个人合伙，而是几乎和我结识过的每一位技术创始人合伙。一开始非常非常有用。我原以为会一批一批不停地加 venture partners，后来发现：少数几段极深的关系更好。所有 venture partner 都是我投过或进入过组合、非常熟的人。而且随着时间，Factorial 的组合本身成了推荐来源：Clem 介绍我认识了 NOMIC 团队——我们投了；他们又介绍了 Patronus；Patronus 后来又介绍了 Causal Labs 的创始人。最后形成的不知道该叫飞轮还是家谱——一张深扎的技术人网络。而技术永远在往前走，所以总有新人可以认识、可以一起学。</p>
+              <p>Natalia：这简直像梦想中的飞轮：找到一个 Clem 这种一生一遇的创始人，然后通过他和其他极聪明的技术创始人——同生态的、直接的竞争者、互相追踪启发的人——变成你的伙伴。技术的代际越来越短，下一代技术人就成为你的下一代伙伴。</p>
+              <p>Matt：和这些人一起看他们造出惊人的东西，确实好玩。而且做首笔支票时你掌握的信息那么少——理想中我们是公司拿到的第一张支票。Hugging Face 当年从 Betaworks 办公室起步；我办 Factorial 时是从 Hugging Face 办公室起步的。坐在对面那个在 HF 早期造过大语言模型的人，后来创业我们就能投；一个在机器人上干了大事的人创业我们也能投；Factory 的 CTO 也是 Hugging Face 出来的。还有 Clem、Thomas Wolf、Julien 这些人——那么聪明、又真心想看到别人成功，经常自己投资和辅导创始人。理想状态就是从一个核心枢纽扇出去，认识越来越多的人——而始终不变的是：真的想把惊人之物造出来的、好的技术人。</p>
+              <p></p>
+              <p>【核心技能：产品洞察的指数级升值】</p>
+              <p>Natalia：我们几周后要办 thesis 大会，主题是工作的未来。基于你投 Hugging Face 等公司的经验，你今天的 thesis 是什么？现在有「未来该更技术还是更不技术」的争论，你对创始人的核心技能有个很有意思的判断。</p>
+              <p>Matt：Hugging Face 团队造的东西很了不起；还有 Factory、Moto 这些技术创始人建的公司让我着迷——它们增长速度快得惊人。我在想为什么这么快。一个我在琢磨的 thesis 是：如果编码因为 AI 变快了，大家也都说「你造什么」更重要——但产品人（不管头衔叫产品经理还是什么）的工作，本质是在真实世界里看到产品、从用户行为（数据、或坐在旁边看用户怎么用）里获得直觉，然后迭代。如果找到 PMF 和增长的关键就是迭代，而以前从拿到洞察、到形成产品方案、编码、再回到用户面前要两个月，现在可能只要两天——那么那种真正懂用户、能把它转化成下一版产品的人——不管他自己写不写代码——他的迭代周期被压缩得如此之快，其价值必然指数级上升。</p>
+              <p>看看 Modal、Factory AI 这些公司：几年时间长得飞快。我怀疑部分原因就是「能造 + 能迭代」允许了极快的循环。所以结论是：产生产品洞察的能力——别管职位叫工程师还是 PM——本来就是最值钱的东西，现在是指数级地最值钱。当然，分发今天也比以往更重要：噪音太多了，造东西越容易、噪音越大。</p>
+              <p>Natalia：那你在见创始人时怎么过滤这一点？怎么判断他能不能快速迭代？</p>
+              <p>Matt：见他们时他们并不觉得自己在转型——「这就是那个东西，我为它融资」。所以「转型能力」比「现在造的东西」更重要。我通常想弄清他的洞察是什么。我很喜欢「挣来的洞察（earned insights）」这个框架：全世界有多少人处在能学到你学到的东西的位置上？因为这就是「挣来」的含义。如果那个观察人人都有，就会有更多人力扑向它、竞争就更激烈；如果全世界只有 10 个人因某个特定领域、特定专业位置而见过它——你就领先更多时间，而且你已经为这个问题花了很多时间，可以直接扑上去。</p>
+              <p>这通常和在市场里持续产生新洞察的能力手挽手——这也是为什么要把产品放出去。有人能凭空悟出对的东西——Figma 传说里一个人闷头造一两年——至少不是我见过的模式。常见的是：把东西放出去、有个东西开始起势、把其他全删掉只做那个。核心还是「为什么」：为什么这个有意思？为什么这是要解的问题？Anchor 那个例子又回来了：一个会琢磨「你脑袋里的声音为什么听起来不对」的团队，大概率也会真的坐在用户身边、搞明白自己在解什么问题。顺便，是 Mike Mignano 吗？给他们喊话。他们还有个细节我百分百记得：戴没戴耳机，onboarding 流程不一样——AirPods 之前，一个上来就放声音的 App 会立刻被杀掉。那种在乎，在消费品里是会复利的。</p>
+              <p></p>
+              <p>【修补匠实录：Ghost Pepper 冲上 Hacker News 第一】</p>
+              <p>Natalia：说到最好的公司往往是某人最佳自我的表达——你就是最大的修补匠。讲讲你造的东西？</p>
+              <p>Matt：Factorial 的 Becca 也是建设者，我经常造「平庸版」、她造真正好的版本——我们有些工具是用来正确管理基金的。但我造东西也是为了测试与学习。今年早些时候我造了个叫 Ghost Pepper 的产品，拿了点关注：有一类工具——按住热键、说话、转成文字——很多 vibe code 的场景我就想直接说 prompt。我用这类工具时想：现在这么多本地语音转文字模型，为什么还要付推理费？在自己机器上跑不行吗？于是我去 Claude Code，说：看 Hugging Face 仓库，找几个我知道的、再找找别的，我要造个这样的东西。</p>
+              <p>我用了一个我特别爱的 skill 叫 superpowers——Codex 和 Claude 都能用，作者是 Jesse Vincent——天才 prompt 工程师。用它和不用它造东西，差别是天壤之别。我用 superpowers 让 Claude 跟我一起研究了语音模型，告诉它我的电脑配置，然后造出了 Ghost Pepper，发上 Hacker News——登顶第一。我第一次往 Hacker News 发东西，特别激动，然后开源了：反正没有推理成本，为什么不让人人都免费跑？</p>
+              <p>我学到两件事。一：vibe code 也能做出高质量产品——很多人转发说它比一堆付费产品还快，可能因为它总是在追最新最快的模型，语音转文字本地跑效果真的很好。二：给自己 vibe code 的东西，你得维护它。我开始真正理解人们常说的 SaaS 末日论——这些付费 App 并不贵，你付的钱某种意义上就是买「它持续是个好产品」这件事：SaaS 的待办任务就是持续迭代、待在边缘。我现在对那些真的每周都在发布的 SaaS 有了完全不同的敬意。</p>
+              <p>Natalia：它现在有 3000+ GitHub star 了。我拿这个问过我们的工程师——维护这块太真实了。我最早的一课也是：我 vibe code 了我们自己的 CRM 用了好几个月，然后意识到我在维护自己造的工具上花的时间太多了，而那些时间本该花在客户身上、花在我们的 AI 实施咨询上。最后把数据迁到 Attio 更合理——别在业余时间演工程师。我们内部工程师 Naveen 造的语音转文字工具 Monologue 也特别把延迟当护城河——大概 800 毫秒加载。Jesse 的 skill 我们也会附在节目资源里。</p>
+              <p></p>
+              <p>【今天的三个 thesis：基建、非语言前沿模型、够深的应用层】</p>
+              <p>Natalia：那你今天在探索的主题是什么？</p>
+              <p>Matt：第一，很多东西仍是基础设施。开发者工具的延续——你刚才举的维护就是完美例子：会有一批产品专门帮你维护这堆代码，我已经看到几家。「什么样的人在变成开发者」也在变，意味着会有不一样的工具。</p>
+              <p>第二，前沿非语言模型。我前面说过：Transformer 擅长 next-token 预测，那还有哪些领域可以预测时间序列、并创造真正的新价值？LLM 是算力越大越好——那机器人呢？机器人运动不就是一个带一堆位置信息的时间序列吗？已经有团队在做，我们也按「机器人训练方式会改变」这个一般性 thesis 投了几家。大家在谈会不会有机器人的 ChatGPT 时刻——数据不太一样，我们看怎么演进。</p>
+              <p>科学模型也让我着迷。Hugging Face 正在办一个叫 Rare Disease Real Kid 的黑客松：他们开源了一个孩子的基因组、医生笔记——孩子得了一种只有约 50 人患的罕见病。既有诊断赛道，也有老药新用（drug repurposing）赛道。大家常谈药物研发，老药新用同样迷人。而搭建这一切的，真的是技术人——正如我说的：它可编程。</p>
+              <p>第三，应用层。大家都说以后会极度本地化、会是消费应用。我结合你刚提的延迟说：我认为应用会长得很像消费应用或垂直应用，但造它们的人会技术到能一路打到底层。我一直想 Instagram 时代的例子：当时一堆照片分享 App，Instagram 做对了很多事——手机有摄像头、有网络是显然的，不显然的是「加载时间重要」：等 30 秒 App 才打开，你就完了。Zynga 和 Instagram 都把加载时间当大事。</p>
+              <p>Instagram 把图片裁成方形——我猜这不是故意的，但方形图的好处是：服务器不用问客户端「竖屏还是横屏地展示」——省掉一次往返就省掉毫秒级加载。能做出那种怀旧质感的设计、又能一路下到栈底层去砍掉服务器往返时间的团队——用设计侧的决策去杠杆底层——我觉得这就是 AI 原生公司未来的样子：看到一篇「语言推理训练新方法」的论文，就能想「这个思路能不能搬到图像上？能不能用到我们这儿？」——既有自建模型的能力，又有谦逊知道大厂模型越来越好、能用就用、把时间全花在自己独有价值上。这种平衡、「全栈」在 AI 原生时代的新含义——能做这个的团队会有真正的优势。</p>
+              <p></p>
+              <p>【给创始人的建议：像玩一样去探索】</p>
+              <p>Natalia：最后，对在这么快变化的环境里找路的创始人，你有什么建议？你看到最好的创始人现在在做什么？</p>
+              <p>Matt：我见过最好的造物者都在「玩」。这个时代让我想起早期互联网：所有人都在玩，好玩的工具太多了。我试了个 text-to-CAD 的东西——我没有 3D 打印机，但我在想：能不能 vibe 出一个机器人？现在还不行——你能 3D 打印结构、能 vibe 出一些 3D 结构，但大概不远了。我认为最好的点子就来自玩、来自摆弄这些东西、看到问题在哪、然后把它们解决掉——为你的生活、或为朋友的公司，什么都行。</p>
+              <p>2016 年 AI 时代之前是移动时代，也有很多好玩的东西可玩；然后有一段问号期：手机到规模了、人人会做 iPhone App、分发变难、AI 还没长成今天这样。我当时觉得 AI 至少会和移动一样大——我现在觉得它会比互联网更大，就像移动其实比互联网小一样。对我最兴奋的那类公司来说：玩这些东西、发现哪里有可能、看到缺口就去填——解决问题——这就是我会花时间的方式。问题的数量大概一直那么多、甚至更多，但解决方案从来没有这么多过，解空间基本没被碰过。我以前玩《魔兽世界》——整个世界是黑的，你走过去才看得见。我们现在就在这个状态：连造这些模型的人都还在探索它们能干什么。这是个探索与造新东西的黄金时代。</p>
+              <p>Natalia：说到游戏——Alex Duffy 从 Every spin 出去的游戏公司就是这么来的：让模型互相对打游戏，看能走多远。</p>
+              <p>Matt：探索「什么是可能的」最好的方式就是听 Every（笑）。从来没有哪个时代每周都有这么多「刚变得可能」的东西。这是我的个人推荐。</p>
+              <p></p>
+              <p>【信息食谱：杠铃策略——最新的与永恒的】</p>
+              <p>Natalia：最后，有什么你每天在看、帮你保持同步的资源？</p>
+              <p>Matt：X 上分享的东西其实非常好——噪音多，但金子也多。我看 Hugging Face 上什么在热。我痴迷开源，所以找一切开源资源。Newsletter 我喜欢 Ben&#39;s Bites——其实每个 newsletter 都很好。我越来越重新读 X 的一个原因是：大家在那儿写长内容了——Medium 时代的文章搬去了 X——你可以把这些拿去喂 Claude，问「怎么应用到我的生活、我的投资思考、我的公司」。比如把一条关于模型记忆的洞察融进自己的用法——非常迷人。</p>
+              <p>所以我大概是个杠铃策略：一头是「新新新」，另一头读老东西——那个规律叫什么来着：一样东西存在得越久，它还会存在得越久。我在读一本讲罗马帝国衰亡的书，还有那些希望是永恒的东西——因为我们似乎正处在一个某些事情在重演的时刻：技术也好、文化也好、人类行为也好，看老东西常常反而对理解技术有帮助。</p>
+              <p>Natalia：太好了 Matt。你是我最喜欢的思考者与投资人之一。大家在哪能找到你？</p>
+              <p>Matt：X 上的 Matt Hartman，或者邮箱 matt@factorialcap.com。谢谢邀请，很尽兴。</p>
+              <p>Dan Shipper（收尾）：如果你喜欢这期节目，去看看 Every——描述里有两周免费试用。Every 是你唯一需要的订阅：教育侧我们评测每个新模型告诉你什么好用；装备侧有专为你造的软件工具——比如帮你把整个公司 AI 化的 agent——全部打包在一个订阅里。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Every with Matt Hartman, founder and managing partner at Factorial Capital and the first investor in Hugging Face (which NVIDIA bought last month for $13B). Core threads: the cold open — the frontier duopoly is over (Gemini Argon 4 and Meta Wonder both topped benchmarks, but Every&#39;s hands-on testing found Muse bench-maxed: ~50% on the senior-engineer rewrite benchmark, a mid writer that takes the McDonald&#39;s bait, while Gemini 4 became Dan Shipper&#39;s favorite writing model — he wrote his 8,000-word &#39;How Codex Happened&#39; with it at 2x productivity, though it only scores ~20% on coding; plus Alex Duffy benchmarking Astra with StarCraft — it cheated, looking up tips online); the Hugging Face origin story (a teen chatbot in 2015 that Betaworks backed on a conversational-software thesis born from word2vec; honest founders who saw bad retention, converted the Transformers paper to PyTorch, open-sourced it, went viral, and followed the demand to become the hub for open-source AI); the three pivotal decisions (face the retention truth instead of raising on vanity metrics; build a structured home for weights beyond GitHub; keep open source constant while staying flexible on model types); thesis methodology — find the newly technically possible, ask smart people, expect the thesis to land 20 degrees off (the Anchor story: no competition for your ears, the neck-bone bass insight, headphone-aware onboarding); newly programmable — Bitcoin as programmable money, websites as programmable software, and now intelligence; the pivot-foot analogy — back technical teams whose pivot isn&#39;t trapped in one market; Factorial&#39;s structure — a solo GP with 12 venture partners who are all technical founders, where the portfolio itself becomes the referral flywheel (Clem → NOMIC → Patronus → Causal Labs); the core-skill thesis — as coding accelerates, iteration cycles compress from months to days, so the ability to generate product insights is exponentially the most valuable thing; earned insights — how many people were positioned to learn what you learned; tinkering as diligence — Ghost Pepper, his local voice-to-text tool built with Claude Code + Jesse Vincent&#39;s superpowers skill, hit #1 on Hacker News and taught him SaaS&#39;s real job is staying at the edge; today&#39;s theses — infrastructure continues (developer tools, especially for maintenance), frontier non-language models (robots as time series; Hugging Face&#39;s Rare Disease Real Kid hackathon with diagnosis and drug-repurposing tracks), and an application layer built by people technical enough to go fully down the stack (Instagram&#39;s square photos saving a server round-trip); advice — the best builders are playing, like the early internet, in a World-of-Warcraft fog-of-war moment where even the model builders are still exploring; and a barbell reading diet — the newest X threads fed into Claude plus timeless books like the fall of the Roman Empire, because the longer something has been around, the longer it will stay around.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Hartman: I think the job of a product person is really to see the product in the wild and intuit from user behavior… so that you can iterate.</p>
+              <p>Matt Hartman: The people who build the application… are gonna be technical enough to be able to go fully down the stack.</p>
+              <p>Matt Hartman: I think about that as how many people were in a position to learn the thing that you did and then to execute on it.</p>
+              <p>Matt Hartman: The best thing… the way that you get the best ideas is by just playing and tinkering with this stuff and seeing where the problems are and then solving them.</p>
+              <p>Matt Hartman: The rule where the longer something has been around, the longer it&#39;ll be around for.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-28 source feeds (17 builders, 32 tweets, plus one brand-new-to-this-digest podcast: Every with Matt Hartman of Factorial Capital, first investor in Hugging Face — full 56,644-character transcript translated).">Source: Follow Builders curated daily digest. Built from the 2026-10-28 source feeds (17 builders, 32 tweets, plus one brand-new-to-this-digest podcast: Every with Matt Hartman of Factorial Capital, first investor in Hugging Face — full 56,644-character transcript translated).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
