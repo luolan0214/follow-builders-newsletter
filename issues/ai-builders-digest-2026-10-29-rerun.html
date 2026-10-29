@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-10-29</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-10-29" data-issue-number="157" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 157 期｜2026-10-29｜双语精选版｜4 条精选｜4 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="Thariq 的新篇章日。离开 Anthropic 后的首个大动作（**8262 赞，今日最高**）：「实验一个小个人项目：AI 原生的 macOS dock——带自定义模式（写作、构建等）帮我保持专注。我的 agent 能自定义模式行为、添加新模式；它用 Jev 实时分类我的活动与通知、并据此行动。」配套还有开源分发思考（2465 赞）：「需要一种新的开源软件分发方式——让人能用 agent 修改、上游又能自动合并回来。」Sottiaux 的 Terra 落地链（**5209/1622/305 赞**）：「已落地」「午夜 PST 前落地」「搞定。明天见，有好消息」——Day 23 还有悬念。Levie 长文（186 赞）：「整个经济体的 agent 部署率可能不足 1%——未来是组织重构工作流，不是用户提示 agent。」Amjad（**592 赞**）：「投资前沿 AI 我会押『新发现』与医药——编码与多数知识工作正被次前沿模型饱和。」Turck 联合创始人悖论（220 赞）：「常规建议说联合创始人太多不好——Anthropic 7 位、OpenAI 11 位、Databricks 7 位。」Swyx 的 5 亿美元错过（**1437 赞**）：「SpaceX IPO 时大家晒 Cursor 错过——小孩把戏。轮到我：估计 5 亿美元的错过，而且我很可能早早上车 Claude Code（我一直是个 TypeScript CLI 维护者）。fml。」Danshipper 预测（227 赞）：「视频创作与游戏制作将成为知识工作的基础——就像今天的文档与幻灯片。」注：今日播客 feed 为空（上游 transcript 抓取失败，仅错误元数据），故本期无播客卡。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">Thariq 的新篇章日。离开 Anthropic 后的首个大动作（**8262 赞，今日最高**）：「实验一个小个人项目：AI 原生的 macOS dock——带自定义模式（写作、构建等）帮我保持专注。我的 agent 能自定义模式行为、添加新模式；它用 Jev 实时分类我的活动与通知、并据此行动。」配套还有开源分发思考（2465 赞）：「需要一种新的开源软件分发方式——让人能用 agent 修改、上游又能自动合并回来。」Sottiaux 的 Terra 落地链（**5209/1622/305 赞**）：「已落地」「午夜 PST 前落地」「搞定。明天见，有好消息」——Day 23 还有悬念。Levie 长文（186 赞）：「整个经济体的 agent 部署率可能不足 1%——未来是组织重构工作流，不是用户提示 agent。」Amjad（**592 赞**）：「投资前沿 AI 我会押『新发现』与医药——编码与多数知识工作正被次前沿模型饱和。」Turck 联合创始人悖论（220 赞）：「常规建议说联合创始人太多不好——Anthropic 7 位、OpenAI 11 位、Databricks 7 位。」Swyx 的 5 亿美元错过（**1437 赞**）：「SpaceX IPO 时大家晒 Cursor 错过——小孩把戏。轮到我：估计 5 亿美元的错过，而且我很可能早早上车 Claude Code（我一直是个 TypeScript CLI 维护者）。fml。」Danshipper 预测（227 赞）：「视频创作与游戏制作将成为知识工作的基础——就像今天的文档与幻灯片。」注：今日播客 feed 为空（上游 transcript 抓取失败，仅错误元数据），故本期无播客卡。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Terra Has Landed / Terra 已落地</h2>
+    <p class="section-desc">Sottiaux 三连（**5209/1622/305 赞**）：「已落地」「午夜 PST 前落地」「搞定。明天见，有好消息」——Terra 发布次日的时间线，以及 Day 23 的预告。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux" data-author-name="Thibault Sottiaux" data-author-tag="Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thibault Sottiaux avatar"><span class="avatar-fallback">TS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thibault Sottiaux</div>
+            <div class="author-tag is-inline">Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 的落地时间线——确认帖（**5209 赞**）：「已落地。」时刻表（1622 赞）：「午夜 PST 前落地。」以及 Day 23 预告（305 赞）：「搞定了。明天见，有好消息。」——Terra（第一个在写作、人格与细腻理解上显著更强的模型）发布后的完整落地链路，明天还有新悬念。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：已落地；午夜 PST 前生效；搞定，明天见、有好消息。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s landing timeline: the all-clear (5209) — has landed. The schedule note (1622) — Lands by midnight PST. And the Day 23 teaser (305): And it&#39;s done. See you tomorrow for some good news.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: https://t.co/Fgy0dBAHsJ has landed</p>
+              <p>Thibault Sottiaux: Lands by midnight PST.</p>
+              <p>Thibault Sottiaux: And it&#39;s done. See you tomorrow for some good news.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">The AI-Native macOS Dock / AI 原生 macOS Dock</h2>
+    <p class="section-desc">Thariq 三连（**8262/2465/628 赞**）：实验性 AI 原生 macOS dock（写作/构建等自定义模式、agent 可改行为加新模式、用 Jev 实时分类活动与通知并行动）；「需要一种新的开源软件分发方式：让人能用 agent 修改、又能自动合并上游」；「这是我一直想做的 HCI 工作——OS 内核改造终于不再耗时间」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="trq212" data-author-name="Thariq" data-author-tag="前 Claude Code @Anthropic" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thariq avatar"><span class="avatar-fallback">T</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thariq</div>
+            <div class="author-tag is-inline">前 Claude Code @Anthropic</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq 的个人实验（**8262 赞，今日最高**）——「实验一个小个人项目：AI 原生的 macOS dock——带自定义模式（写作、构建等）帮我保持专注。我的 agent 能自定义模式行为、添加新模式；它用 Jev 实时分类我的活动与通知、并据此行动。」这是他离开 Anthropic 后的首个大动作演示。配套说明（628 赞）——「这是我一直想做的 HCI 工作，但改 OS 内核向来非常耗时。还没分享——边缘情况仍很多（不建议使用），但实验很有趣！」基建思考（2465 赞）——「感觉需要一种新的开源软件分发方式：让人能用 agent 修改、又能自动把上游合并回来。编码 agent 做得到这些，但不会自动做。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq：AI 原生 macOS dock——自定义专注模式、agent 可改行为、Jev 实时分类活动与通知；HCI 之梦终于可行；开源软件需要 agent 时代的新分发方式。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Thariq&#39;s personal project (8262): experimenting with a lil personal project: an AI-native macOS dock with custom modes (writing, building, etc.) to help me stay focused — my agent is able to customize mode behavior and add new modes, it uses jev to classify my activity + notifications in real time and act on them. The caveat (628): this is the kind of HCI work I&#39;ve been wanting to do for a while, but messing with OS internals has always been very time consuming — not sharing yet, there are still many edge cases (would not recommend using), but fun to experiment with! And the infrastructure thought (2465): feels like there needs to be a new way to distribute opensource software such that people can modify via agents but also get upstream automatically merged in — coding agents can do this but they won&#39;t do it automatically.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thariq: experimenting with a lil personal project: an AI-native macOS dock with custom modes (writing, building, etc.) to help me stay focused. my agent is able to customize mode behavior and add new modes, it uses jev to classify my activity + notifications in real time &amp; act on them</p>
+              <p>Thariq: this is the kind of HCI work I&#39;ve been wanting to do for a while, but messing with OS internals has always been very time consuming</p>
+              <p>Thariq: feels like there needs to be a new way to distribute opensource software such that people can modify via agents but also get upstream automatically merged in</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/trq212" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Under 1% Deployed / 企业自动化不足 1%</h2>
+    <p class="section-desc">Levie 长文（186 赞）：「绝大多数企业工作流从未真正用上 agent——经济体的部署率可能不足 1%。这不是用户提示 agent 做任务，而是组织重构底层工作流」；Amjad（**592 赞**）：「投资前沿 AI 我会主要押注新发现及其应用（如医药）——编码与多数知识工作正迅速被次前沿模型饱和」；Danshipper 双发（**442/227 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie+amasad+danshipper" data-author-name="Aaron Levie / Amjad Masad / Dan Shipper" data-author-tag="Box CEO / Replit CEO / Every CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aaron Levie / Amjad Masad / Dan Shipper avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie / Amjad Masad / Dan Shipper</div>
+            <div class="author-tag is-inline">Box CEO / Replit CEO / Every CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 的企业现实核查（186 赞）——「没错。绝大多数企业工作流从未真正用上 agent——整个经济体的部署率现在可能不足 1%。最好的情况也就是企业里有几个自动化系统、对工作做一次单轮 LLM 判断或反馈——真正的『自动化』极少。一部分是企业技术采用速度的问题，但大头其实是 AI 自身能力的问题。这一切正在改变：现在有了 computer use、长时 agent、harness 改进与周边基建，我们终于可以开始把 agent 用到更复杂的工作流上。我们将看到自改进系统：对任意工作流目标、在一批量实例上不断提高执行率；再加上 agent 集群这个新形态——你想往问题上投多少算力都行，agent 会自己干活。这不是终端用户提示 agent 完成任务，而是组织重构底层工作流来利用 agent——对金融、生命科学、医疗与其他信息密集领域影响巨大。现在就有大量机会去构建与部署这些系统。」Amjad 的前沿投资观（**592 赞**）——「如果让我投前沿 AI，我会把定价主要押在『新发现』及其应用（比如医药）上——因为编码与多数知识工作正迅速被次前沿模型饱和。」Danshipper 双发——转发一个「极好的解释」（442 赞，本周 Every 会有更多）+ 预测（227 赞）：「视频创作与游戏制作将成为广泛分布的知识工作基础——就像今天的文档与幻灯片一样。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：经济体 agent 部署率不足 1%；未来是组织重构工作流，不是用户提示 agent。Amjad：前沿 AI 押新发现与医药——编码正被次前沿模型饱和。Shipper：视频与游戏制作将成为知识工作基础。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s enterprise reality check (186): the vast majority of enterprise workflows have not actually had agents applied in any meaningful way — the economy probably has this deployed under 1% right now. At best a few automated systems do a single LLM pass to make a decision; very little real automation. Now with computer use, long running agents, harness improvements and surrounding infrastructure, we can start applying agents to more complex workflows: self-improving systems that improve execution rates over a volume of instances, and agent swarms where you deploy any amount of compute at a problem. This won&#39;t be end users prompting agents — it will be organizations reengineering underlying workflows, with massive impact in finance, life sciences, healthcare, and other information-heavy domains. Amjad&#39;s frontier-investing take (592): if he&#39;s investing in frontier AI he would underwrite it mostly on new discovery and its applications like medicine, because coding and most of knowledge work is quickly being saturated by sub-frontier models. Shipper&#39;s pair: an extremely good explanation he&#39;s amplifying (442), and the forecast (227): video creation and game making are going to become widely distributed foundations of knowledge work in the same way doc and deck creation are today (more coming in Every this week).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: The economy probably has this deployed &lt; 1% right now.</p>
+              <p>Aaron Levie: This won&#39;t be about end users prompting agents to complete a specific task for them, but instead the organization reengineering the underlying workflows to take advantage of agents in their processes.</p>
+              <p>Amjad Masad: If I&#39;m investing in frontier AI I would underwrite it mostly on new discovery and its applications like medicine because coding and most of knowledge work is quickly being saturated by sub-frontier models.</p>
+              <p>Dan Shipper: video creation and game making are going to become widely distributed foundations of knowledge work in the same way doc and deck creation are today</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Seven Co-founders &amp; the Rest / 七位联合创始人与其余</h2>
+    <p class="section-desc">Matt Turck（220 赞）：「常规创业建议：联合创始人太多不好！——Anthropic 7 位、OpenAI 11 位、Databricks 7 位」；Nikunj 双发（97/41 赞）；Swyx 的 5 亿美元错过（**1437 赞**）；Garry Tan 三连（114/92/8 赞）：Capy 软件工厂把 GitHub 贡献图「重正则化」；Rauchg 双发（454/196 赞）：用 Dockerfile 一条命令跑起 bun 服务；Peter Yang 三连（65/16/12 赞）；Zara（75 赞）；Aditya（25 赞）；Amjad 双梗（265/102 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="mattturck+nikunj+swyx+garrytan+rauchg+petergyang+zarazhangrui+adityaag+amasad" data-author-name="Matt Turck / Nikunj / Swyx / Garry Tan / Rauchg / Peter Yang / Zara / Aditya / Amjad" data-author-tag="VC / FPV / Latent Space / YC CEO / Vercel CEO / Builder / Design Engineer / SPC / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Matt Turck / Nikunj / Swyx / Garry Tan / Rauchg / Peter Yang / Zara / Aditya / Amjad avatar"><span class="avatar-fallback">MT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Matt Turck / Nikunj / Swyx / Garry Tan / Rauchg / Peter Yang / Zara / Aditya / Amjad</div>
+            <div class="author-tag is-inline">VC / FPV / Latent Space / YC CEO / Vercel CEO / Builder / Design Engineer / SPC / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Turck 的联合创始人悖论（220 赞）——「常规创业建议：联合创始人太多不好！！稀释太多！创始人摩擦风险！分析瘫痪！然后：Anthropic 7 位联合创始人、OpenAI 11 位、Databricks 7 位。」Nikunj 双发——「VC 爱谈联合创始人数量、有时说太多……Anthropic 与 Databricks 都是 7 位，证明最好的创业公司真是离群值。所有关于『识别或建立创业公司的正确方式』的定义都是错的——没有『正确』方式，只有对你有效的方式」（97 赞）；黑话审计（41 赞）：「这些我以为自己相当懂、但每次深挖都会得到 10 个天差地别定义的词：long horizon、out of distribution（尤其数据）、intelligence per watt、RL environments、『forward deployed』、revenue、『frontier』、self improving——有些确实该主观，但答案的方差会吓到你 😅」Swyx 的错过（**1437 赞**）——「SpaceX IPO 时大家都在晒自己的 Cursor 错过——小孩把戏。轮到我了：我估计这是一次 5 亿美元的错过 lol。而且我很可能早就会用上 Claude Code（毕竟我一直是 TypeScript CLI 维护者）。fml。」+ 反驳（53 赞）：「你是忽略了 2024 年一封邮件没错——但你在 2019 年就 pitch 过类似 Claude Code 的东西、然后 7 年没做？」+「总之这是我的 soundcloud」（22 赞）。Garry Tan 三连——「@capydotai 软件工厂对你 GitHub 贡献图颜色的重正则化是真实的——这是我的 👀 我以前 token 用量就不含糊，但现在 PR 又热又重：GStack 与 GBrain 上常驻 10 到 20 个子 agent（Capy Captains）」（114 赞）；「我在给 GStack 瘦身、降 token 用量与任务延迟」（92 赞）；「我的 Capy 软件工厂在最绿的日子里做了什么？」（8 赞）。Rauchg 双发——转发「极好的解释」（454 赞）；一条命令的艺术（196 赞）：「alias now=vercel；cat 进 Dockerfile——FROM oven/bun:alpine、CMD bun -e Bun.serve({port: 80, fetch: () =&gt; new Response(we are so back)})——now」，用 Now CLI 一行把 Bun 服务跑上 Vercel。Peter Yang 三连——「今天试了最不可思议的 Grok @bot 功能——近来我与 AI 相处最有趣（最好笑）的时刻之一。还没全量开放、但很快。我会专门为这个功能做期视频」（65 赞）；「其他该改的招聘惯例：①按年限或公司名筛人；②把简历与求职信置于作品证明与真实项目之上；③把『管了多少人』当成就本身；④无止境的面试轮次而不是短期的试用——我还能列下去」（16 赞）；「如果要做假 ARR 视频，那就干脆做讽刺媒体公司吧，我还敬你三分」（12 赞）。Zara（75 赞）——「完全没想到这会成为我史上浏览量最高的推文 😂」。Aditya（25 赞）——「非常期待 @centai_health 在做的事——让印度每个人获得更好的健康，潜力巨大。」Amjad 双梗——「设计师对代码库的贡献（配图）」（265 赞）；「斯坦福诉 Anthropic 盗版案里法官的名字是 Alsup——快速念像极了 AI slop」（102 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Turck：7/11/7 位联合创始人的反例。Nikunj：没有正确方式。Swyx：5 亿美元错过 Claude Code。Garry Tan：Capy 工厂常驻 10-20 个子 agent。Rauchg：一行 Dockerfile 跑 bun。Peter Yang：Grok @bot 功能与招聘该改的惯例。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Turck&#39;s co-founder paradox (220): usual startup advice says too many co-founders is bad — dilution, friction, analysis paralysis. Also: Anthropic 7 co-founders, OpenAI 11, Databricks 7. Nikunj&#39;s echo (97): all definitions of the right way to identify or build startups are wrong — there&#39;s only the way that works for you; plus the jargon audit (41): terms he thought he understood but gets 10 wildly different definitions for — long horizon, out of distribution, intelligence per watt, RL environments, forward deployed, revenue, frontier, self improving. Swyx&#39;s bag fumble (1437): at the SpaceX IPO everyone was posting their Cursor bag fumbles — kid stuff — his turn: he estimates a $500M bag fumble, and would very probably have been on Claude Code early (he&#39;s been a TypeScript CLI maintainer). Plus the Micronaut rebuttal (53) and the soundcloud drop (22). Garry Tan&#39;s Capy factory (114/92/8): the capydotai software factory renormalization of your GitHub contribution colors is real — 10 to 20 subagents running at all times on GStack and GBrain; slimming GStack down to cut token usage and latency. Rauchg&#39;s pair (454/196): an extremely good explanation he&#39;s boosting, and the one-liner Dockerfile: alias now=vercel, cat into Dockerfile — FROM oven/bun:alpine, CMD bun -e Bun.serve({port: 80, fetch: () =&gt; new Response(&#39;we are so back&#39;)}) — now. Peter Yang&#39;s trio: the incredible Grok @bot feature coming soon (65), hiring practices that need to change — filter on proof of work, not years of experience (16), and the satirical media company take (12). Zara&#39;s surprise (75): had no idea this would become her most viewed tweet of all time. Aditya&#39;s excitement (25): centai_health bringing better health to everyone in India. And Amjad&#39;s pair of jokes: designers&#39; contribution to the codebase (265), and the Stanford piracy case judge named Alsup — suspiciously close to AI slop when you say it fast (102).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Matt Turck: Usual startup advice: too many co-founders is bad!!!… Also: Anthropic: 7 co-founders, OpenAI: 11 co-founders, Databricks: 7 co-founders</p>
+              <p>Nikunj Kothari: There&#39;s no &quot;right&quot; way, there&#39;s only the way that works for you!</p>
+              <p>Swyx: i estimate this was a $500m bag fumble lol. and very probably wouldve been on claude code early (bc i&#39;ve been a typescript cli maintainer). fml.</p>
+              <p>Garry Tan: The @capydotai software factory renormalization of your GitHub contribution colors is real… 10 to 20 subagents running at all times on GStack and GBrain</p>
+              <p>Guillermo Rauch: $ 𝚊𝚕𝚒𝚊𝚜 𝚗𝚘𝚠=𝚟𝚎𝚛𝚌𝚎𝚕… 𝙲𝙼𝙳 [&quot;𝚋𝚞𝚗&quot;,&quot;-𝚎&quot;,&quot;𝙱𝚞𝚗.𝚜𝚎𝚛𝚟𝚎({𝚙𝚘𝚛𝚝:𝟾𝟶,𝚏𝚎𝚝𝚌𝚑:()=&gt;𝚗𝚎𝚠 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚎(&#39;𝚠𝚎 𝚊𝚛𝚎 𝚜𝚘 𝚋𝚊𝚌𝚔&#39;)})&quot;]</p>
+              <p>Peter Yang: Other hiring practices that need to change: 1. Filtering candidates based on years of experience or some company name…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/mattturck" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-10-29 source feeds (13 builders, 29 tweets). Note: today&#39;s podcast feed contained no episodes — the upstream transcript fetch failed with an HTTP 500 error for the scheduled episode (per the feed&#39;s own error metadata), so this issue has no podcast card.">Source: Follow Builders curated daily digest. Built from the 2026-10-29 source feeds (13 builders, 29 tweets). Note: today&#39;s podcast feed contained no episodes — the upstream transcript fetch failed with an HTTP 500 error for the scheduled episode (per the feed&#39;s own error metadata), so this issue has no podcast card.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
