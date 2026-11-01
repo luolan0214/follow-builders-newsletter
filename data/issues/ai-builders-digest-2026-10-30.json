@@ -1,0 +1,186 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-10-30",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "万圣节轻量日 + Banked 1/2。Sottiaux（**6582 赞，今日最高**）：「Banked 1/2」——在昨天「明天见、有好消息」之后，Day 23 的谜面继续。Levie 的试金石长文（**618 赞**）：「直到半年前，AI 最多帮你把本来就会做的东西做快点；但现在与 AI 协作的产出应该大幅超越你以前能做到的——原型该有以前不可能的功能、研究该穷尽一切维度的一切事实。简单测试：如果你现在做的事、AI 出现之前也能做到，那你推得还不够。」Swyx 的光明面宣言（135 赞）：「低努力 + 批评循环 > 超级无敌最高档」+ Karpathy 目击（35 赞）：「Karpathy 在 Hackertube 上用的也是 Opus 5.5 的 medium——努力档位之争就是我们时代的 tabs vs spaces。」Rauchg（**673 赞**）：「这要是在 SF 会炸场。」Peter Yang：「万圣节是最好的节日、应该每季度过一次」（25 赞）。Garry Tan 的政治引用（119 赞）：「这个系统提拔的不是最好的；它筛选的是没有顾忌的人。」播客全新一期：Latent Space 在 AI Engineer NY 2026 现场对话 Arca（AI 原生财富管理、融资 6400 万美元）的 Aman Singh——「我们不是 SaaS 公司，我们就是公司本身；agent 提示人的次数比人提示 agent 还多。」27722 字符全文翻译随卡附上。"
+  },
+  "archive": {
+    "title": "Banked 1/2 与长程金融 agent",
+    "desc": "Sottiaux「Banked 1/2」（6582 赞）延续 Day 23 悬念；Levie「AI 前能做到=推得不够」；播客：Arca 谈用 agent 跑十天级财富管理长程工作流。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-10-30 source feeds (8 builders, 13 tweets — a light Halloween day; plus one brand-new-to-this-digest podcast: Latent Space live at AI Engineer New York 2026 with Aman Singh of Arca on agents for long-horizon financial work — full 27,722-character transcript translated).",
+  "sections": [
+    {
+      "title": "Banked 1/2 & Halloween / Banked 1/2 与万圣节",
+      "desc": "Sottiaux（**6582 赞，今日最高**）：「Banked 1/2」——Day 23 悬念继续；万圣节杂闻：Peter Yang 三连（25/13/3 赞）、Rauchg（**673 赞**）：「这要是在 SF 会炸场」、Matt Turck（17 赞）、Nikunj 双发（74/6 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux+petergyang+rauchg+mattturck+nikunj+garrytan",
+          "authorName": "Thibault Sottiaux / Peter Yang / Rauchg / Matt Turck / Nikunj / Garry Tan",
+          "authorTag": "Codex @OpenAI / Builder / Vercel CEO / VC / FPV / YC CEO",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's Day 23 mystery (6582): Banked 1/2 — after See you tomorrow for some good news, the saga continues. Halloween notes: Peter Yang's trio — Halloween is honestly the best holiday and should be held every quarter (25); preferring this over Spotify (13); the best part is just being able to dress up as whatever you want (3). Rauchg's (673): This would go so hard in SF. Turck's classic (17). Nikunj's pair: first snow is always special (74); what do you mean you dressed up as cybersecurity awareness month for halloween — i hate sf (6). And Garry Tan's political quote (119): When the plan fails — and it always fails — coercion is needed. You need people willing to do what honest people refuse to do. The system doesn't promote the best; it selects those with no scruples. And to rally a majority around the plan, nothing works better than a common enemy: the rich, the foreigner, the dissenter."
+            ],
+            "original": [
+              "Thibault Sottiaux: Banked 1/2",
+              "Peter Yang: Halloween is honestly the best holiday and should be held every quarter",
+              "Guillermo Rauch: This would go so hard in SF",
+              "Nikunj Kothari: what do you mean you dressed up as cybersecurity awareness month for halloween. i hate sf",
+              "Garry Tan: The system doesn't promote the best; it selects those with no scruples."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 的 Day 23 悬念（**6582 赞，今日最高**）——「Banked 1/2（存了一半）。」在昨天「搞定，明天见、有好消息」之后，谜面继续：什么存了一半？万圣节杂闻——Peter Yang 三连：「万圣节真心是最好的节日、应该每季度过一次」（25 赞）；「我更喜欢听这个而不是 Spotify，会不会很怪」（13 赞）；「不太在乎要不要糖的部分——能随便打扮成什么都才是最棒的」（3 赞）。Rauchg（**673 赞**）——「这要是在 SF 会炸场（配图）。」Turck（17 赞）——「永不过时的经典 🎃👻」。Nikunj 双发——「初雪永远特别 ❄️」（74 赞）；「你万圣节装扮成『网络安全意识月』是什么意思——我恨 SF」（6 赞）。Garry Tan 的政治引用（119 赞）——「『为什么在政治破碎的社会里，最坏的人总能上位？』——当计划失败时（计划总会失败），就需要强制。你需要愿意做诚实之人拒绝之事的人。这个系统提拔的不是最好的；它筛选的是没有顾忌的人。而要把多数人团结在计划周围，没有什么比一个共同的敌人更好用了：富人、外国人、异见者。」"
+            ],
+            "original": [
+              "Sottiaux：Banked 1/2——Day 23 悬念继续。Peter Yang：万圣节该每季度过。Rauchg：这在 SF 会炸场。Garry Tan：系统筛选的是没有顾忌的人。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Litmus Test / 推得够不够的试金石",
+      "desc": "Levie 长文（**618 赞**）：「如果你做的事在 AI 出现前也能做到，那你大概率推得还不够——原型该功能完整还该有以前不可能有的功能，研究该穷尽每个维度的一切事实」；Swyx 双发（135/35 赞）：「低努力 + 批判循环 > 超级无敌高努力（给吞吐受限者的 babysit-runs skill）」+「Karpathy 最新项目用的也是 Opus 5.5 上的 medium——对努力档位的执念就是我们这个时代的 tabs vs spaces」。",
+      "cards": [
+        {
+          "authorKey": "levie+swyx",
+          "authorName": "Aaron Levie / Swyx",
+          "authorTag": "Box CEO / Latent Space",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie's litmus test (618): up until maybe six months ago the best you could do with AI was pull off something you already would produce, just a little faster. But now the output of working with AI can and should dramatically exceed what you would have been able to do before, in a fraction of the time — the prototype should not only be fully functional and interactive but have meaningfully better features; the engineering architecture should deliver performance gains you couldn't have gone after otherwise; the research should consume every single fact on the subject across every dimension of analysis; the business process should operate entirely differently and learn from all its past failures in a way no human could. The simple test: if you could have done what you're doing before AI, you're likely not pushing it enough. Swyx's pair: the light-side manifesto (135) — join me all the way on the light side guys: low effort + critique loop > superultramaxhighwhatever (for the throughput-constrained; see swyxio/skills/babysit-runs) — and the Karpathy sighting (35): btw Karpathy uses medium on Opus 5.5 on his latest project (Hackertube, launched today). Overall I think having strong opinions on effort levels is like the tabs vs spaces of our time. Just tweak to taste. Altho mine is definitely superior to yours."
+            ],
+            "original": [
+              "Aaron Levie: So the simple test is: if you could have done what you're doing before AI, you're likely not pushing it enough.",
+              "Swyx: low effort + critique loop > superultramaxhighwhatever",
+              "Swyx: i think having strong opinions on effort levels is like the tabs vs spaces of our time. just tweak to taste. altho mine is definitely superior to yours."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 的试金石长文（**618 赞**）——「这是检验你把 AI 用得够不够狠的最好试金石之一。直到大约六个月前，AI 最多帮你把本来就会做的东西做得快一点。但现在我们正在进入这样一个阶段：与 AI 协作的产出可以、也应该大幅超越你以前能做到的——而且只用零头时间。产品原型不该只是功能完整、可交互——它应该拥有以前根本不可能有的更好的功能；工程架构应该能拿下你以前没法追求的性能提升；一个项目的研究应该穷尽这个主题在一切分析维度上的每一个事实；你用 AI 实现的业务流程应该以完全不同的方式运转、并从它过去所有的失败中学习——没有任何人类做得到。我们毫无疑问正在进入 AI 在大多数轴上都比我们聪明的时期：也许不是每一个重要维度（智能仍然很参差），但至少在足够多的维度上——当它与我们的长处结合，你得到的是质变的结果。所以简单的测试是：如果你现在做的事、在 AI 出现之前也能做到，那你大概率推得还不够。」Swyx 双发——光明面宣言（135 赞）：「兄弟们都来光明面吧：低努力 + 批判循环 > 超级无敌最高档随便什么（给吞吐受限的朋友：见 swyxio/skills/babysit-runs）」；Karpathy 目击（35 赞）：「顺便说 Karpathy 最新项目（今天发布的 Hackertube）用的也是 Opus 5.5 上的 medium 档。总之我觉得对努力档位的强执念就是我们这个时代的 tabs vs spaces——按口味调就好。虽然我的口味肯定比你的高级。」"
+            ],
+            "original": [
+              "Levie：AI 前能做到的事=推得不够——原型该有以前不可能的功能、研究该穷尽每个维度的一切事实。Swyx：低努力+批判循环>超级高努力；努力档位之争是这个时代的 tabs vs spaces。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Latent Space × Aman Singh, Arca — Agents for Long-Horizon Financial Work / 播客：用 agent 做长程金融工作",
+      "desc": "Latent Space 全新一期（AI Engineer NY 2026 现场）：Arca（AI 原生财富管理，融资 6400 万美元）AI 平台负责人 Aman Singh——「我们不是 SaaS 公司，我们就是公司本身；agent 提示人多于人提示 agent」；模型分档与内部基准；十天税单工作流与 human-in-the-loop；记忆系统与「做梦」反思；确定性护栏与默认可审计；为什么不用托管 agent；沙箱代码翻译与产物验证器；决策模型拦截过时税率；反馈即评估与每晚 meta agent；客户案例：抓出隐藏费用与非受托人。27722 字符全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:latentspace-aman-singh",
+          "authorName": "Latent Space Podcast（AI Engineer NY 2026 现场）",
+          "authorTag": "Aman Singh（Arca AI 平台团队负责人）",
+          "sourceUrl": "https://www.youtube.com/@LatentSpacePod",
+          "en": {
+            "rewrite": [
+              "Latent Space live at AI Engineer New York 2026 with Aman Singh, who leads the AI platform team at Arca — the AI-native wealth management firm that recently raised $64M. The thesis in one line: We're actually not a SaaS company. We are the firm ourselves. Agents prompt people more than people prompt agents — a proactive service running 24/7. Key threads: AI replaces the work around the advisor, not the advisor — clients never touch AI directly, they just experience a previously impossible level of service through human empathy; model selection is tiered by task complexity (tax analysis gets the heaviest Opus/Sonnet/GPT tier, background work gets cheaper models) and fully abstracted away from advisors — internal benchmarks over external ones (Luna benchmarked great externally but was way too slow and costly in practice; Claude is primary, model-agnostic is the principle, and the harness is self-built); the 10-day tax-bill workflow — agents do all the analysis (where money sits, the optimal way to liquidate $100k) but deterministic guardrails require a human in the loop for anything that moves money, liquidates assets, or contacts clients; long-horizon resumption via memory systems (per-client state: what's happening, who owns what, what's next) plus a dreaming process that reflects and persists, so a fresh agent woken by a new phone-call signal ramps up instantly; safety — deterministic restrictions first, LLM verification on every database write, prompt-injection detection at the edges, PII checks plus small-model consensus against exfiltration on every outbound byte, and auditability by default (every agent and human action produces a changelog that also feeds the agentic loop); why not managed agents — owning your memory and operational knowledge is owning your intelligence, and handing it to a provider forfeits the control needed to build something that can actually impact the business; sandboxes — the agent is not inside the sandbox, it offloads computation there: generated code is translated to a strict format and thrown away before touching the backend, and every produced artifact (the financial-plan PDF) passes deterministic checks (no raw account numbers) plus fast models (small models, or JEV) catching non-compliance like promised returns — AI compliance beats humans because it is tireless at finding the smallest violation; decision models — frontier models are confidently wrong (happily using 2025 tax brackets), so a decision model intercepts financial recommendations and nudges to the verified-facts knowledge base or web search; no autonomous trading — agents propose, experts execute; feedback as evals — every staff edit and cancellation carries a why, gets coupled with the agent trace, and every night a meta agent replays the wild traces to suggest harness changes (with a human engineer still gating prompt changes, because unsupervised agents turn every small fix into a whole-prompt rewrite); the firm's knowledge base is a first-class product tab curated by experts and cited by agents; and the client story — agents reading a prospective client's statements discovered hidden fees and that the incumbent advisor charging $1,500 wasn't even a fiduciary. Proactive deadline and RMD alerts are the default behavior of agents at Arca — hard for humans at scale."
+            ],
+            "original": [
+              "Aman Singh: We're actually not a SaaS company. We are the firm ourselves. Agents prompt people more than people prompt agents.",
+              "Aman Singh: The role of AI at Arca is not to replace the advisor. It is to replace all of the work around the advisor.",
+              "Aman Singh: We have strict guardrails around human in the loop for things that would either move money or liquidate assets, or even directly communicate with our end clients.",
+              "Aman Singh: Owning your intelligence gives you the ability to impact the business.",
+              "Aman Singh: Agents will make really nasty prompt changes if you leave them to it. Every little fix becomes the whole prompt."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Latent Space 在 AI Engineer New York 2026 现场对话 Arca 的 AI 平台团队负责人 Aman Singh——这家 AI 原生财富管理公司最近融资 6400 万美元。一句话论点：「我们不是 SaaS 公司，我们就是公司本身。agent 提示人的次数比人提示 agent 还多——主动式 24×7 服务。」核心线索：AI 取代的是「围绕顾问的工作」而非顾问本人——客户完全不直接接触 AI，只是体验到以前不可能的服务水准；模型按任务复杂度分档（税务分析用最重的 Opus/Sonnet/GPT 档、后台活动用低档），且对顾问完全透明——内部基准高于外部基准（Luna 外部跑分很好、实际又慢又贵；Claude 主力、模型无关是原则、harness 自建）；十天税单工作流——分析全归 agent、但动钱/变现/直接联系客户强制 human-in-the-loop；长程任务靠记忆系统（每客户的状态、归属、下一步）+「做梦」反思过程延续，新信号唤醒的 agent 秒速上手；安全——确定性限制优先、每次写库都有 LLM 校验、边缘检测 prompt 注入、出站数据过 PII 检查 + 小模型共识防外泄、默认可审计（agent 与人的每个动作都产变更日志）；为什么不用托管 agent——「拥有你的记忆与运营知识就是拥有你的智能」；沙箱——agent 不在沙箱里、把计算卸载进去：生成的代码被翻译成严格格式后丢弃原码，财务计划 PDF 产出即过确定性检查（禁裸账号）+ 快速模型（小模型或 JEV）查合规（禁承诺收益）——「AI 做合规比人强，因为它找最小违规时不知疲倦」；决策模型——前沿模型会自信地用错年份税率档，决策模型在金融建议前拦截、推向已验证事实库；不做自主交易——agent 提议、专家执行；反馈即评估——每次编辑取消带 why、与 trace 配对、每晚 meta agent 复盘建议 harness 改动（人类工程师仍把关 prompt，因为放任 agent 会把每个小修变成整个 prompt 重写）；公司知识库是产品一等公民标签页、专家策展、agent 引用；客户案例——agent 读准客户的报表，发现隐藏费用、且原顾问根本不是受托人；截止日与 RMD 提醒是 agent 的默认行为——人类在规模上做不到。完整译文见下。"
+            ],
+            "original": [
+              "【冷开场：我们不是 SaaS 公司，我们就是公司本身】",
+              "「我们其实不是一家 SaaS 公司。我们就是这家公司本身。在我们的系统里，agent 提示人的次数比人提示 agent 还多——这是一种主动式的服务，为客户 24×7 不间断地运行。」",
+              "（现场）这里是 2026 年 AI Engineer New York 大会，我和 Arca 的 Aman Singh 坐在一起。Arca 最近为这家 AI 原生的财富管理公司融资 6400 万美元。",
+              "",
+              "【Arca 是什么：AI 原生财富管理】",
+              "问：Aman，先介绍你在 Arca 的角色、你们提供的金融服务，以及怎么用 AI agent 来跑这些业务？",
+              "Aman：谢谢邀请。我在 Arca 带领 AI 平台团队——我们在造底层的 harness 与能力，最终目标是「用 AI 来经营这家公司」。",
+              "我们给客户提供的是很宽谱系的金融服务：财务咨询与财务规划、税务规划、保险、以及财富增长后的遗产规划。客户画像也很广：比如刚卖掉公司的人——各种合作方与复杂性一团乱麻，我们帮你理清；也有大型科技企业的高管，在认真规划提前退休；也有正想买第一套房的小家庭。",
+              "问：目前的客户，你们需要跟他们解释「你们在用 agent」这件事吗？",
+              "Aman：AI 在 Arca 的角色不是取代顾问，而是取代「围绕顾问的所有工作」。我们的客户并不直接接触 AI——他们体验到的只是一种这个行业以前从未有过的服务水平，通过人类顾问的共情与关怀交付。我们为每个客户背后造了一台不停运转的机器：市场在发生什么、这对 Richard（客户）意味着什么？你的生活里还有什么事在发生——哪些「生活的纹理」会影响你的财务？用 AI 干完所有后台工作之后，我们能主动得多、响应快得多、客户服务好得多。",
+              "",
+              "【模型选型：内部基准说了算，模型无关是原则】",
+              "问：技术上，你们用哪些模型驱动 agent？怎么决定哪个模型干哪件事？",
+              "Aman：现在用的是前沿实验室的前沿模型，主要是 Anthropic 和 OpenAI。Claude 是我们的主力模型——这些年来我们迭代过好几代：最早用 Gemini，后来 OpenAI，再后来 Anthropic。指引所有决策的是我们的内部基准——针对我们 harness 在经营业务时必须表达的各种能力建的基准。",
+              "举个例子：最近 Luna 这个模型，尽管外部基准把它夸上天，在我们这儿实际表现远不及预期——太慢了，而且成本很高。所以是内部基准在指导模型决策。原则上我们保持模型无关：不对某一家供应商或某家的 harness 形成依赖，把这个可选择性留在自己手里。",
+              "问：你刚提到 harness——你们按模型配不同 harness？",
+              "Aman：不。我们有自己的 harness，内部自建、模型无关。",
+              "问：那当顾问做税务报告之类的事时，harness 怎么决定用哪个模型？自动的吗？",
+              "Aman：是的。我们按任务复杂度分了几档模型。像「协助税务规划/税务分析」这种任务会用最重的一档——这一档内部有一定灵活性，可以是 Opus 档、Sonnet 档或重量级 GPT。而 agent 们在后台做的大量背景活动，就按复杂度用更低档的模型。模型怎么配任务，是我们内部决定的。",
+              "问：是财务顾问自己在产品里选模型吗？",
+              "Aman：不是。他们根本感知不到这一层——我们把它完全抽象掉了。他们就像平常一样用产品，这些决策由我们在内部完成。",
+              "",
+              "【税单案例：十天的长程任务怎么分工】",
+              "问：你今天大会演讲里讲了税单的例子。能不能带我们走一遍「调整客户投资组合」的完整流程——从发现需要再平衡，到执行交易——哪部分是 agent 做、哪部分是人做？",
+              "Aman：就像演讲里说的，这类事情会横跨十天。最终为交付结果负责的是 agent，但有些部分它们做、有些不做。",
+              "这个例子里，客户发邮件来说有这么一笔税单。其中有一块分析是：客户的钱现在配置在哪、liquidate 哪些、怎么 liquidate 最优，才能凑出这十万美元？这种分析任务最适合 agent——它们就干这个。",
+              "问：但它们有权限限制对吧？不能自己执行交易？",
+              "Aman：对。分析环节全自动，但它们不能自动执行任何资金移动或资产变现。我们与托管方有很深的集成、有相应 API 能做这件事——但对「会动钱、会变现资产、甚至直接联系终端客户」的事，我们有严格的 human-in-the-loop 护栏，因为我们要求的服务与质量水准摆在那里。所有内部分析由 agent 完成；需要执行交易时，它们会把对的人拉进来，把一份可供审阅与调整的方案交给那个人。",
+              "问：这些流程动辄十天，比现在大多数 agent 任务都长。当 agent 隔了几天再恢复任务时，怎么检查计划仍然符合客户需要？",
+              "Aman：这个很有意思。我们有大量信号。比如一个邮件 thread 在持续收到回复、有讨论在发生——任何新的回复都会进入那个正在跟读、正在响应这个 thread 的同一个 agent。但一个全新的信号——比如中间来了通电话——是没附着在任何进行中流程上的：会有一个全新的 agent 被唤醒，去搞明白这是什么。",
+              "它们理解「现在正在发生什么」靠的是我们的内部记忆系统：对每个客户——现在在发生什么？我们在服务什么事项？谁拥有什么？到目前为止发生过什么？接下来几天要立刻发生什么？长期在追踪什么？每个行动由谁负责？——全部由我们的记忆系统追踪，agent 们向它贡献。",
+              "还有一个类似「做梦」的过程：反思与 Richard 有关的世界的状态，并更新这些记忆系统，让长程任务得以延续。所以那个接到新信号的 agent 能快速 ramp up：哦，我们正在处理一笔大税单——我的信号和它相关——让我为这个世界的状态添砖加瓦。",
+              "",
+              "【安全护栏：确定性优先，围堵在能力边缘】",
+              "问：安全方面呢？怎么确保路上不丢钱？",
+              "Aman：我们所有的安全限制都是完全确定性的——把决策从 agent 手里拿走。比如某些工具允许 agent 直接执行（简单的记账类工具）；而每次调用写数据的工具，我们都有一个基于 LLM 的校验在跑——用快速的 LLM 调用分析每一次对数据库的写入。这是又一层验证。",
+              "另外我们摄入大量外部信息：进来的邮件、文档、打来的电话——这些都是 prompt injection（提示注入）的靶子。所以我们在边缘跑检测，识别某些注入类型的存在。",
+              "还有任何数据要离开系统的时刻——最典型是网页搜索，但给 Richard 发日历邀请也算——我们既有对已知 PII 的确定性检查，也有一组小模型做共识判断，确保没有数据外泄的企图。我们的原则是：把护栏围堵在「能力的边缘」，而不是更早的地方。",
+              "问：金融业有监管要求吗？",
+              "Aman：这个行业关心结果，而合规关心可审计性。我们的系统是「默认可审计」：agent 的每一个动作都会产生变更日志——改了什么、谁改的、从系统哪个部分改的、什么时候。顺带说，这不只适用于 agent，也适用于人类：你在 UI 里改了任何影响客户的东西，我们都会记录。这既给了我们默认的可审计性，也反哺了 agentic 能力——追踪 UI 变更的同一套东西，也可以用来告诉 agent「刚刚发生了这件事」。可审计性既是合规与监管的故事，也是我们 agentic 循环的一部分。",
+              "",
+              "【「Agent 提示人」与为什么不托管给实验室】",
+              "问：你演讲里有句好话：「Agent 提示人的次数比人提示 agent 还多。」agent 怎么决定拉谁进来、给那个人多少上下文？",
+              "Aman：这和我们这个行业里人与人的协作方式很像：一个十天的流程、多个参与者，第七步的那个人此刻未必需要知道这件事——他在正确的时机被拉进来。我们的 agent 依靠长记忆的持久化 + 对世界状态的每日反思，判断当下世界到哪一步了、什么信号意味着该把谁拉进来。",
+              "而这一切的前提，是我们把「这个行业怎么运转」、以及「Arca 希望它怎么运转、我们的工作原则是什么」做了操作化。这也是我们不是 SaaS 公司的又一个优势：我们能标准化工作发生的方式，让 agent 以标准方式参与其中。",
+              "问：今天早上 Anthropic 做了他们托管 agent 基础设施的 workshop，连编排都越来越自动了。你们会用这类东西吗？毕竟人未必总在环里，有风险。",
+              "Aman：我们对 Anthropic 和 OpenAI 这些实验室的模型非常看好——但对依赖「托管 agent 产品」这件事不那么看好。因为托管 agent 的核心之一是模型怎么持久化与贡献记忆、以及它们要成功所需的全部运营知识。把这部分交给别人，等于把「你的智能」交了出去——而拥有自己的智能，才有能力影响业务。交出去，你就失去了构建「高度独特、深度贴合你业务、真正能影响业务」的东西所需的控制力。",
+              "问：Anthropic 最近也发布了金融服务方案、在跟一堆金融机构合作。他们跟你做的是竞争吗？",
+              "Aman：Anthropic 进入我们这个行业，对整个行业是很大的验证。但我的看法是：「一家用着 AI 工具的服务公司」和「一家为 AI 原生而生的公司」非常不同。前者要求用户去提示 agent 才产出工作；而在 Arca，agent 提示人的次数比人提示 agent 还多——是主动式、24×7 的服务，以我们期望的服务水准、以最标准的方式经营着业务。如果你是「有 AI 工具的公司」，看起来会完全不一样。",
+              "",
+              "【沙箱、验证器与决策模型】",
+              "问：安全再说深一点：什么跑在沙箱里？怎么在任何人行动之前验证一份财务计划的变更？",
+              "Aman：沙箱是我们 harness 的一个组件。我们的 agent 并不在沙箱里面——它把计算卸载到沙箱。我们做了系统让沙箱里的代码能安全地访问我们的数据：agent 写的代码会被翻译成我们期望的严格格式、把原代码扔掉、在触达后端之前对格式施加护栏。这样 agent 可以用代码查询我们的数据——聚合、清洗、随心所欲地加工——来产出比如一份财务计划；同一个沙箱里它还产出漂亮的交付物：一份 PDF——「这是你的财务计划、这是我们打算如何在财务上安排你的人生」。产出的那一刻，我们就跑验证器：有确定性的——「你是不是把裸账号放进去了？不许这样」；也有快速模型（小模型或 JEV）——检查会不会让这份产物不合规的东西，比如你真的不应该在里面承诺收益。AI 做合规其实比人做得更好——它在找出最小的一处不合规表述上是不知疲倦的。我们会继续在这里投入、继续在能力边缘围堵。",
+              "问：你提到 JEV——你们开始用决策模型了。除了 Jev 还在看什么？",
+              "Aman：我们注意到：当模型处理金融数据、回答需要金融知识的问题时，它们对自己掌握的知识非常自信。一个小例子：模型会开开心心地用 2025 年的税率档来做分析、然后说「好了就这样」——这显然是错的。所以我们在 harness 里用决策模型的方式之一就是：当模型即将做出金融建议、或任何需要金融严谨性的动作时——检测它，并把它推向我们「今天为真的已验证事实」知识库、和/或让它做网页搜索。这也是「拥有自己的 harness」的又一个好处：你能让你的模型在要紧的地方保持准确。",
+              "问：交易失败时，恢复环节有决策模型参与吗？",
+              "Aman：现在没有，不是我们在探索的用例。而且我们目前不做 agent 自主交易：agent 提议交易，是否正确、是否执行，完全由我们的专家判断和执行。",
+              "",
+              "【反馈即评估：每晚的 meta agent 例会】",
+              "问：你的幻灯片说「每次员工编辑或取消都带着一个 why、并变成一条 eval」。这个反馈怎么变成可度量的改进？",
+              "Aman：这也是「我们自己就是业务、不是 SaaS 公司」的优势：我们有能力要求他们给反馈。反馈回流改进的方式如你所料：所有反馈被管道送进一个数据存储，和产出它的 agent 的 trace 配对。每天晚上，我们收集真实世界里 agent 的 trace，在其上跑一个 meta agent——它建议对 harness 的修改：哪些工具有误导性、哪些地方出错了、知识库里缺什么知识——把这些浮出来给我们，然后我们改进。",
+              "今天，在真正上线一条 prompt 修改之前，我们仍然保留一位人类工程师在环里。因为把 agent 放任自流，它们会把 prompt 改得非常难看——每个小修小补都变成重写整个 prompt，它们没法保持元层面、把修法泛化成一条可泛化的规则。",
+              "问：你也讲了把「公司怎么运转的知识」变成 agent 上下文——很多 forward deployed 工程师都在做这件事。你们技术上长什么样、怎么保持最新？",
+              "Aman：我们有一个以文件形式呈现的知识库。保持更新的方式：交给我们的专家来策展和更新——它是产品里的一等公民功能：左边有个叫 Knowledge 的标签页，装着我们 agent 在用的全部运营上下文。agent 工作时会引用知识，于是形成了循环：发现知识有误，在我们的 trace 分析里浮出来；因为知识库就是产品本身的一部分，人们可以直接进去改。",
+              "",
+              "【客户案例：抓出隐藏费用与受托义务缺失】",
+              "问：最后，能不能举一个客户因 agent 架构获得可度量改善的例子？",
+              "Aman：讲个最近的。这个人当时还不是客户、正处在签约边缘——我们拿到了他的全部文件、报表、现有投资。他已经在跟一位顾问合作，见面时说：「我有顾问了，收我 1500 美元服务费，但响应很不及时，所以来跟你们聊聊。」",
+              "我们的 agent 读完了所有文件并分析：他声明的目标是什么、这位现任顾问的报表是什么、收了他多少钱——然后发现：这位顾问在收他一些他根本不知道的费用；并让他意识到：这个人甚至都不是 fiduciary（受托人）——没有法律义务按他的利益行事。这就是我们的 agent 在分析财务图景时带来的那种注意力细节——没有它们不可能做到。",
+              "还有一堆主动性的例子：某人有截止日期要到了、有人有错过 RMD（最低分配额）的风险——这类事让人类在规模上全部盯住极难，但在 Arca，这是 agent 的默认行为。",
+              "问：好，差不多到这儿。非常感谢 Aman 来 Latent Space。",
+              "Aman：谢谢邀请。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
