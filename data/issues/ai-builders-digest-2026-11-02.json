@@ -1,0 +1,85 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-02",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游连续第三天未更新：今日 X 与播客快照仍与 10-30 完全相同（8 位 builders、13 条推文 + Latent Space × Arca 播客）——完整版已在 10-30 期收录、10-31 与 11-01 已分别为首次与第二次重播。本日继续重播轻量版：保留要点重播与播客金句回顾，不重复全文。当日主线：Sottiaux「Banked 1/2」（**6582 赞**）；Levie 试金石（618 赞）：「AI 出现前能做到的事=推得不够」；Swyx 光明面宣言（135 赞）；Rauchg「这要是在 SF 会炸场」（673 赞）；播客金句：「我们不是 SaaS 公司，我们就是公司本身——agent 提示人多于人提示 agent。」"
+  },
+  "archive": {
+    "title": "重播日：Banked 1/2（第三天）",
+    "desc": "上游快照连续第三天与 10-30 相同：Sottiaux「Banked 1/2」、Levie 试金石、Arca 长程金融 agent——完整版见 10-30 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-11-02 source feeds remain byte-identical to 2026-10-30 (8 builders, 13 tweets; the Latent Space episode with Aman Singh of Arca) — fully covered in that issue and first replayed on 10-31 (second replay on 11-01). Today is a third replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Banked 1/2 Highlights / 重播：Banked 1/2 要点",
+      "desc": "上游连续第三天未更新（快照与 10-30 完全相同，10-30 期完整收录、10-31 与 11-01 为首次与第二次重播）：Sottiaux「Banked 1/2」（6582 赞）、Levie 试金石（618 赞）、Swyx 光明面宣言（135 赞）。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-10-30-x-3",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 连续第三天与 10-30 相同",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Replay note (day three): today's X feed remains identical to 2026-10-30 — the same 8 builders and 13 tweets, fully covered in that issue (first replayed on 10-31, second replayed on 11-01). Headlines: Sottiaux's Banked 1/2 at 6582; Levie's litmus test at 618 (if you could have done what you're doing before AI, you're likely not pushing it enough); Swyx's light-side manifesto at 135 (low effort + critique loop > superultramaxhighwhatever) plus the Karpathy medium-on-Opus-5.5 sighting at 35; Rauchg's This would go so hard in SF at 673; Peter Yang's Halloween-should-be-quarterly at 25; Garry Tan's political quote at 119."
+            ],
+            "original": [
+              "Thibault Sottiaux: Banked 1/2",
+              "Aaron Levie: if you could have done what you're doing before AI, you're likely not pushing it enough.",
+              "Swyx: low effort + critique loop > superultramaxhighwhatever",
+              "Guillermo Rauch: This would go so hard in SF"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明（第三天）：今日 X feed 仍与 10-30 完全相同（8 位 builders、13 条推文；10-30 期完整收录、10-31 与 11-01 已分别为首次与第二次重播）。要点回顾：Sottiaux 的「Banked 1/2」（**6582 赞，当日最高**）——Day 23 悬念继续；Levie 的试金石（618 赞）——「AI 出现前能做到的事=推得不够：原型该有以前不可能有的功能、研究应穷尽一切维度的一切事实」；Swyx 的光明面宣言（135 赞）——「低努力 + 批评循环 > 超级无敌最高档」+ Karpathy 也在用 Opus 5.5 的 medium 档（35 赞）；Rauchg 的「这要是在 SF 会炸场」（673 赞）；Peter Yang 的「万圣节该每季度过」（25 赞）；Garry Tan 的政治引用（119 赞）——「系统提拔的不是最好的；它筛选的是没有顾忌的人。」"
+            ],
+            "original": [
+              "Sottiaux：Banked 1/2。Levie：AI 前能做到=推得不够。Swyx：低努力+批判循环。Rauchg：这在 SF 会炸场。详见 10-30 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Arca / 播客重播：Arca 长程金融 agent",
+      "desc": "播客快照连续第三天与 10-30 相同：Latent Space × Arca 的 Aman Singh。完整中文译文（72 段）已收录于 10-30 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:latentspace-aman-singh-replay3",
+          "authorName": "Latent Space Podcast（重播）",
+          "authorTag": "Aman Singh（Arca AI 平台团队负责人）",
+          "sourceUrl": "https://www.youtube.com/@LatentSpacePod",
+          "en": {
+            "rewrite": [
+              "Replay note (day three): today's podcast feed remains identical to 2026-10-30 — Latent Space live at AI Engineer New York 2026 with Aman Singh of Arca on agents for long-horizon financial work. The full Chinese translation (72 paragraphs) was published on 10-30; today we keep a quote replay."
+            ],
+            "original": [
+              "Aman Singh: We're actually not a SaaS company. We are the firm ourselves. Agents prompt people more than people prompt agents.",
+              "Aman Singh: The role of AI at Arca is not to replace the advisor. It is to replace all of the work around the advisor.",
+              "Aman Singh: Owning your intelligence gives you the ability to impact the business."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明（第三天）：今日播客快照仍与 10-30 相同——Latent Space × Arca AI 平台负责人 Aman Singh：用 agent 跑十天级财富管理长程工作流（27722 字符）。完整中文译文（72 段）已收录于 10-30 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「我们不是 SaaS 公司，我们就是公司本身。agent 提示人的次数比人提示 agent 还多。」",
+              "「AI 在 Arca 的角色不是取代顾问，而是取代围绕顾问的所有工作。」",
+              "「拥有你的智能，才有能力影响业务。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
