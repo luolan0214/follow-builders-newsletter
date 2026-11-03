@@ -1,0 +1,363 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-03",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "重磅回归日。Karpathy 的周末 hack（**36797 赞，今日最高**）：HackerTube——让 Claude 把 HN 二十年 4300 万条评论过滤成 6454 支视频，「只跟 Claude 说话、让它干所有事：建 API key、开 VPS、买域名，然后让它更新、加固、部署、优化——它全干了。约 2 小时、Opus 5.5 medium 档。」Sottiaux 悬念完结（**7495 赞**）：「Day 28/ Banked 2/2」。Rauchg（**2251 赞**）：「Own your intelligence——反对的人都有东西要卖你。拥有你的 harness、数据、连接、运行时：你的 agents。」Amjad（**2266 赞**）：「享受补贴 AI 订阅的准备好被 rug pull。」Levie：「我们正从『agent 帮我们干活』转向『我们帮 agent 干活』——每个人都变成 agent 团队的管理者、杠杆与工时脱钩。」Peter Yang 工具榜（190 赞）：浏览器=ChatGPT+Codex、品味=Claude、7×24=Grok Bot。Thariq 火系空手道大师（990 赞）。播客全新一期：Redpoint Unsupervised Learning × Modal CEO Erik Bernhardsson——GPU 市场像露天毒品市场、沙箱是 3 亿美元年化的非对称赌注、95% 合并代码由 agent 写、Anthropic S-1 让他把 GPU 租金预期改为看涨。79052 字符全文翻译随卡附上。"
+  },
+  "archive": {
+    "title": "HackerTube 与算力荒野",
+    "desc": "Karpathy 两小时用 Claude 造 HackerTube（36797 赞）、Sottiaux「Banked 2/2」完结、Rauchg「Own your intelligence」；播客：Modal CEO 谈推理未来、GPU 市场乱象与沙箱赌注。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-11-03 source feeds (11 builders, 22 tweets; plus one brand-new-to-this-digest podcast: Redpoint's Unsupervised Learning Ep 95 with Modal CEO Erik Bernhardsson on the future of inference, the GPU market and the sandbox bet — full 79,052-character transcript translated). Two other podcast episodes in the feed failed transcript retrieval upstream (HTTP 500) and are noted but not covered.",
+  "sections": [
+    {
+      "title": "HackerTube Day / HackerTube 日",
+      "desc": "Karpathy 周末 hack（**36797 赞，今日最高**）：让 Claude 把 HN 二十年 4300 万条评论过滤成 6454 支视频——「~2 小时、Opus 5.5」；Sottiaux（**7495 赞**）：「Day 28/ Banked 2/2」——悬念揭晓续集；配套梗图双发（509/403 赞）。",
+      "cards": [
+        {
+          "authorKey": "karpathy+swyx",
+          "authorName": "Andrej Karpathy / Swyx",
+          "authorTag": "Founder Eureka Labs / Latent Space",
+          "sourceUrl": "https://x.com/karpathy",
+          "en": {
+            "rewrite": [
+              "Karpathy's weekend hack, HackerTube (36797 — today's top): annoyed with YouTube's recommendations, he had Claude filter 43M comments over 20 years of Hacker News down to 6,454 videos that keep being recommended — a significantly better viewing experience, ~2 hours with Opus 5.5. Details: excellent recs without any logins (state kept in local browser session); the thumbnail is a representative frame from the middle of the video instead of super-duper A/B-test hyper-optimized user uploads; the underlying comment-analysis data ships as a zip — point your Claude at it and ask for your own version; plus HackerTube Longs. On process: Claude Code (Mac desktop app), Opus 5.5 on Medium effort as default; he only talks to Claude and has it do everything — the only manual work, done in tandem in the browser (reminiscent of MenuGen): creating an API key in the Google Cloud UI to query YouTube metadata, booting a VPS, buying the domain. Once the box was up he gave Claude the IP and told it to update, secure, harden, deploy and optimize the code — and it did the whole thing. Many awesome projects that would normally take weeks/months can now be few-shotted for breakfast. What else are we not thinking of. Swyx replied (21) with a link. Related: yesterday Swyx noted Karpathy uses medium on Opus 5.5."
+            ],
+            "original": [
+              "Andrej Karpathy: Weekend hack: HackerTube. I was annoyed with YouTube's recommendations so I had Claude filter down 43M comments over 20 years of HN to 6,454 videos that keep being recommended. *Significantly* better viewing experience, ~2 hours with Opus 5.5.",
+              "Andrej Karpathy: Once the box was up I gave Claude the IP and told it update, secure, harden, deploy and optimize the code, and it did the whole thing.",
+              "Andrej Karpathy: Many awesome projects that would have normally taken weeks/months even can now be few-shotted for breakfast. What else are we not thinking of."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Karpathy 的周末 hack：HackerTube（**36797 赞，今日最高**）——「我被 YouTube 的推荐烦到了，所以让 Claude 把 Hacker News 二十年里的 4300 万条评论过滤成 6454 支被反复推荐的视频——观看体验显著变好，全程约 2 小时、Opus 5.5。」细节：无登录的优质推荐（状态保存在本地浏览器 session）；缩略图取视频中间的代表性帧、而不是 A/B 测试超优化的用户上传封面；底层评论分析数据打包成一个 zip——「把你的 Claude 指向它、让它给你做个你自己的版本」；另有 HackerTube Longs。过程自述：用 Claude Code（Mac 桌面版）、默认 Opus 5.5 Medium 档——「我只跟 Claude 说话、让它干所有事」；唯一的手动活是在浏览器里并行的三件小事（ reminiscent of MenuGen）：在 Google Cloud 控制台建 API key 查 YouTube 元数据、开一台 VPS、买域名。「机器起来之后我把 IP 给 Claude，让它更新、加固、部署、优化代码——它把整件事全干了。很多以前要几周/几个月的 awesome 项目现在早餐时间就能 few-shot 出来。还有什么我们没想到的？」Swyx 回帖附链接（21 赞）。呼应昨天 Swyx 的观察：Karpathy 用的就是 Opus 5.5 的 medium 档。"
+            ],
+            "original": [
+              "Karpathy：周末 hack：HackerTube。我烦透了 YouTube 的推荐，于是让 Claude 把 HN 二十年 4300 万条评论过滤成 6454 支被反复推荐的视频。观看体验显著更好，约 2 小时，Opus 5.5。",
+              "Karpathy：机器起来后我把 IP 给 Claude，让它更新、安全加固、部署、优化代码——它把整件事全干完了。",
+              "Karpathy：很多正常要几周/几个月的 awesome 项目，现在早餐时间就能 few-shot 出来。还有什么我们没想到的？"
+            ]
+          }
+        },
+        {
+          "authorKey": "thsottiaux-banked22",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "The Banked saga resolves (7495): Day 28/ Banked 2/2 — after Day 23's See you tomorrow for some good news and Day 25's Banked 1/2, the second half is banked. The mystery spanned the whole Halloween weekend; whatever was banked is now 2/2. Meanwhile the dog memes: My dog just patched that bug we couldn't find for two weeks. Clever dog (509); My dog sent you the meeting notes from yesterday, did you see them? (403)."
+            ],
+            "original": [
+              "Thibault Sottiaux: Day 28/ Banked 2/2",
+              "Thibault Sottiaux: My dog just patched that bug we couldn't find for two weeks. Clever dog",
+              "Thibault Sottiaux: My dog sent you the meeting notes from yesterday, did you see them?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Banked 悬念揭晓（**7495 赞**）：「Day 28/ Banked 2/2」——从 Day 23 的「搞定，明天见、有好新闻」、到 Day 25 的「Banked 1/2」，这个横跨整个万圣节周末的谜终于存满了：2/2。至于存的是什么（新模型？新功能？）他没细说，但连续剧正式完结。配套梗图双发：「我的狗刚把我们两周找不到的 bug 修了。聪明的狗」（509 赞）；「我的狗把昨天的会议纪要发给你了，看到了吗？」（403 赞）——agent 时代的三行段子。"
+            ],
+            "original": [
+              "Sottiaux：Day 28/ Banked 2/2——Banked 连剧完结，存满 2/2。配套：聪明的狗修 bug、狗发会议纪要。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Own Your Intelligence / 拥有你的智能",
+      "desc": "Rauchg（**2251 赞**）：「Own your intelligence——反对的人都有东西要卖你（可能是把你自己的智能卖回给你）」；Amjad（**2266 赞**）：「享受补贴 AI 订阅的准备好被 rug pull」；Rauchg 用 Gemini 的高强度实测（381 赞）；Shipper：「这是反竞争的，不酷」（108 赞）。",
+      "cards": [
+        {
+          "authorKey": "rauchg-own-intelligence",
+          "authorName": "Guillermo Rauch",
+          "authorTag": "Vercel CEO",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "Own your intelligence (2251): Anyone that opposes this has something to sell you (perhaps your own intelligence back to you). Local models need to continue proliferating. The absolute unit massive models may be out of reach locally for now, so your best option is to keep your options open. Own your harness, data, connections, runtime: your agents. Embrace open source. Also from Rauchg: Working with Gemini on v0 is hilarious (381) — other than being SUPER EXCITED!, tested on two high-complexity projects and it's doing great; and F1 is basically the perfect competition for our times (555) — the celebration of extraordinary technology and extraordinary human ability. That's what Vercel stands for! (also: winning)."
+            ],
+            "original": [
+              "Guillermo Rauch: Own your intelligence. Anyone that opposes this has something to sell you (perhaps your own intelligence back to you.) Local models need to continue proliferating. Own your harness, data, connections, runtime: your agents. Embrace open source.",
+              "Guillermo Rauch: Working with Gemini on v0 is hilarious. Other than being SUPER EXCITED!, I've been testing it on two high complexity projects and it's doing great.",
+              "Guillermo Rauch: F1 is basically the perfect competition for our times. The celebration of extraordinary technology and extraordinary human ability. That's what Vercel stands for! (also: winning)"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "「拥有你的智能」（**2251 赞**）——「反对这件事的人，都有东西要卖给你（很可能是把你自己的智能卖回给你）。本地模型需要继续扩散。那些『绝对单位』级的巨型模型眼下本地跑不动，所以你最好的选择就是保持选择权：拥有你的 harness、数据、连接、运行时——你的 agents。拥抱开源。」配套双发：在 v0 上跟 Gemini 协作「笑死」（381 赞）——「除了极度兴奋之外，我在两个高复杂度项目上实测，表现很好」；以及 F1 观赛感言（555 赞）——「F1 基本就是我们这个时代的完美竞赛：非凡技术与非凡人类能力的共同庆典。这就是 Vercel 代表的东西！（以及：赢。）」与昨天 Arca 播客的「拥有你的智能，才有能力影响业务」形成隔空互文。"
+            ],
+            "original": [
+              "Rauchg：拥有你的智能。反对的人都有东西要卖你。本地模型需要继续扩散。拥有你的 harness、数据、连接、运行时：你的 agents。拥抱开源。"
+            ]
+          }
+        },
+        {
+          "authorKey": "amasad+danshipper",
+          "authorName": "Amjad Masad / Dan Shipper",
+          "authorTag": "Replit CEO / Every CEO",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Amjad (2266): If you're enjoying a subsidized AI subscription get ready to get rug pulled. The economics of AI subscriptions are currently heavily subsidized; enjoy it while it lasts. Follow-up (245): Replit's one-toggle version — if you enable the feedback widget on your site, users' feedback becomes prompts for the agents to build. Shipper's pair: this is anti competitive and not cool (108, on some competitive practice); and argon cooks (116, a video titled argon cooks)."
+            ],
+            "original": [
+              "Amjad Masad: If you're enjoying a subsidized AI subscription get ready to get rug pulled.",
+              "Amjad Masad: You can enable this on Replit with one toggle. If you enable the \"feedback widget\" on your site, users' feedback become prompts for the agents to build.",
+              "Dan Shipper: this is anti competitive and not cool"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad（**2266 赞**）：「如果你正在享受补贴价的 AI 订阅——准备好被 rug pull（抽地毯）吧。」AI 订阅的经济模型目前被重度补贴，享受要趁早。跟进一条（245 赞）：Replit 一个开关就能开启的「反馈小组件」——「如果你在网站上启用 feedback widget，用户的反馈就会变成 agent 构建产品的 prompt」——把用户反馈直接接进 agent 开发循环。Shipper 双发：「这是反竞争的，不酷」（108 赞）；「argon cooks」（116 赞，配视频）。"
+            ],
+            "original": [
+              "Amjad：享受补贴 AI 订阅的，准备好被 rug pull。Shipper：这是反竞争的、不酷。Replit：反馈小组件让用户反馈变成 agent 的 prompt。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Managers of Agents / Agent 管理者时代",
+      "desc": "Levie 长文（67 赞）：「我们正从『agent 帮我们更好更快地干活』转向『我们帮 agent 干它们的活』——每个人都变成一支 agent 团队的管理者」；Peter Yang 工具分门别类（**190 赞**）：浏览器/电脑操作=ChatGPT+Codex、设计/剪辑/品味=Claude、7×24 agent 与定时任务=Grok Bot；Google Labs 产品总监论「产品里为什么还要有人」（17 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie-agent-managers",
+          "authorName": "Aaron Levie",
+          "authorTag": "Box CEO",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie (67): Increasingly this will be the new job description for a lot of roles, not just coding. We're clearly moving from a world where agents help us do our work incrementally better or faster, to us helping agents do their work. This turns everyone in one of these positions into a manager of a team of agents, instead of an individual contributor with some added leverage from AI. The biggest impact: information-heavy jobs — coding, cybersecurity, legal work, biotech, engineering. As a result, your leverage decouples from the ratio of hours worked to output generated. For essentially the history of knowledge work, the main variable was hours of work done (fixed talent/coordination/strategy). Now we've separated these variables, because agents can parallelize work — in theory execute as much as needed for whatever goal. The people and organizations that discover this sooner, and orient their operations around it, will see compounding gains in their workflows."
+            ],
+            "original": [
+              "Aaron Levie: We're clearly moving from a world where agents help us do our work incrementally better or faster, to us helping agents do their work.",
+              "Aaron Levie: This turns everyone in one of these positions to that of a manager of a team of agents, instead of an individual contributor with just some added leverage from AI.",
+              "Aaron Levie: The people and organizations that discover this sooner, and orient their operations around it, will see compounding gains in their workflows."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 长文（67 赞）——「这会越来越成为很多岗位的新职位描述，不只是写代码。我们显然正在从一个『agent 帮我们把活干得更好更快』的世界，转向『我们帮 agent 干它们的活』。这把这些岗位上的每个人都变成了 agent 团队的管理者，而不是一个多了点 AI 杠杆的个人贡献者。影响最大的是信息密集型工作：编码、网络安全、法务、生物科技、工程等等。由此，你的杠杆开始与『工时/产出比』脱钩。知识工作有史以来，你能调的主要变量就是投入工时（天赋/协作/策略固定的情况下）；现在这些变量被拆开了——因为 agent 可以并行干活，理论上你想达成什么目标就能执行多少。越早发现这一点、并围绕它重构运营的人和组织，会在工作流里看到复利级的收益。」"
+            ],
+            "original": [
+              "Levie：从 agent 帮我们干活，转向我们帮 agent 干活——每个人都变成 agent 团队的管理者。杠杆与工时脱钩。早发现者得复利。"
+            ]
+          }
+        },
+        {
+          "authorKey": "petergyang-tools-ui",
+          "authorName": "Peter Yang",
+          "authorTag": "Behind the Craft 主播",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "The tool leaderboard (190): I wish I could just use one AI tool but right now there are clear winners in each category: Browser/computer use = ChatGPT + Codex; Design/video editing/taste = Claude; 24/7 agents and scheduled jobs = Grok Bot. Also, Gemini is underrated for writing but need to test it more. From his interview with jacalulu (product director at Google Labs, 17): It really makes you question, why do you want a person in your product? Is your product something that needs a UI? — Anything that involves me creating something, anything where I want to learn something, there might be a reason for me to interact. Anytime I want to be entertained or consume something, I'm still the one using the product. But there are definitely products that I use today that I would be more than happy to not use, or at least not be the main person interacting with the interface. Plus the Behind the Craft lineup (40): Ashley Alexander (VP Product at OpenAI — caring for parents through cancer and where ChatGPT and AI can help), Nate Parrott (Anthropic designer behind Claude Design — avoiding AI slop live), Matt Pocock (300K+ GitHub stars in AI skills for coding agents — building software factories the right way), Jacob Sansbury (per a16z's illscience, the most AI-pilled gaming company in the world: 10 people, $32M/year in Claude spend)."
+            ],
+            "original": [
+              "Peter Yang: Browser/computer use = ChatGPT + Codex. Design/video editing/\"taste\" = Claude. 24/7 agents and scheduled jobs = Grok Bot. Also, Gemini is underrated for writing.",
+              "jacalulu: It really makes you question, why do you want a person in your product? Is your product something that needs a UI?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "工具排行榜（**190 赞**）——「我倒是想只用一个 AI 工具，但现在每个类目都有明确的赢家：浏览器/电脑操作 = ChatGPT + Codex；设计/视频剪辑/『品味』= Claude；7×24 agent 和定时任务 = Grok Bot。另外 Gemini 的写作被低估了，但还需要多测测。」他采访 Google Labs 产品总监 jacalulu 的金句（17 赞）——「这真的让你反思：你为什么要在产品里放一个人？你的产品需要 UI 吗？——凡是我要创造什么、或我要学什么的时候，也许有理由让我交互；凡是我想被娱乐、消费内容的时候，用产品的还是我。但我今天用的产品里，确实有一堆我很乐意不再用、或至少不再当主要交互者的。」另附 Behind the Craft 节目预告（40 赞）：OpenAI 产品 VP Ashley Alexander（照顾患癌父母、AI 能帮什么）；Anthropic 设计师 Nate Parrott（现场演示怎么让 Claude 不做出 AI slop）；Matt Pocock（coding agent 技能包 30 万+ GitHub 星——怎么正确建软件工厂）；Jacob Sansbury（据 a16z 的 illscience：全世界最 AI-pilled 的游戏公司——10 个人、每年 3200 万美元的 Claude 账单）。"
+            ],
+            "original": [
+              "Peter Yang：浏览器/电脑操作=ChatGPT+Codex；设计/剪辑/品味=Claude；7×24 agent=Grok Bot；Gemini 写作被低估。jacalulu：你为什么要在产品里放人？你的产品需要 UI 吗？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Hard Tech & Sideloads / 硬科技与杂闻",
+      "desc": "Garry Tan 三连：「YC 是硬科技的 YC」（**498 赞**）、「实用机器人将至」（296 赞）、Particle-1 检索性价比（30 赞）；Thariq 空手道大师新角色（**990 赞**）；Zara 的 Linktree 树（83 赞）。",
+      "cards": [
+        {
+          "authorKey": "garrytan+trq212+zarazhangrui",
+          "authorName": "Garry Tan / Thariq / Zara Zhang",
+          "authorTag": "YC CEO / 独立开发 / 出海传媒",
+          "sourceUrl": "https://x.com/garrytan",
+          "en": {
+            "rewrite": [
+              "Garry Tan's trio: YC is the YC for hard tech (498); Practical robotics is nigh (296); Particle-1 is as good as much larger models for agentic retrieval but 1/23 the price (30). Thariq's indie game devlog (990): adding a new character — a taekwondo master that fights with fire; also updated the art style from 3d models to generated sprites (43): a little highlight intro video — I like how its all coming together! hoping to have a vertical slice sometime next week. Zara Zhang (83): What if your Linktree were an actual tree."
+            ],
+            "original": [
+              "Garry Tan: YC is the YC for hard tech",
+              "Garry Tan: Practical robotics is nigh",
+              "Garry Tan: Particle-1 is as good as much larger models for agentic retrieval but 1/23 the price",
+              "Thariq: adding a new character: a taekwondo master that fights with fire. I also updated the art style from 3d models to use generated sprites",
+              "Zara Zhang: What if your Linktree were an actual tree"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 三连——「YC 就是硬科技界的 YC」（**498 赞**）；「实用机器人时代将至」（296 赞）；「Particle-1 在 agentic 检索上跟大得多的模型一样好、价格只有 1/23」（30 赞）。Thariq 的独立游戏开发日志（**990 赞**）——「加一个新角色：用火战斗的空手道大师；同时把美术风格从 3D 模型换成了生成式精灵图」；进度汇报（43 赞）——「做了个集锦开场视频，一切开始成型了！希望下周能出垂直切片。」Zara Zhang（83 赞）——「如果你的 Linktree 是一棵真正的树呢。」"
+            ],
+            "original": [
+              "Garry Tan：YC 是硬科技的 YC；实用机器人将至；Particle-1 检索性价比 1/23。Thariq：火系空手道大师、3D 转生成精灵图。Zara：Linktree 真树版。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Modal CEO on Inference & the GPU Market / 播客：Modal CEO 谈推理与 GPU 市场",
+      "desc": "Redpoint Unsupervised Learning Ep 95：Modal 创始人 & CEO Erik Bernhardsson 三年二登——年化从 200 万到 10 亿+；GPU 采购像露天毒品市场；沙箱：3 亿美元年化的非对称赌注；自建文件系统/运行时/调度器不用 K8s；95% 代码由 agent 写、资深工程师受益最大；neo cloud 是融资机器；Anthropic S-1 改变 GPU 租金预期。79052 字符全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:redpoint-unsupervised-95",
+          "authorName": "Unsupervised Learning（Redpoint）Ep 95",
+          "authorTag": "Erik Bernhardsson（Modal 创始人 & CEO）",
+          "sourceUrl": "https://www.youtube.com/@RedpointAI",
+          "en": {
+            "rewrite": [
+              "Erik Bernhardsson (Modal founder & CEO) returns to Redpoint's Unsupervised Learning three years after his first appearance — the company has gone from $2M to $1B+ run rate in that time. The full tour: GPU sourcing is an open air drug market (GTC; the VP of sales' cousin golfing story; 25 clouds; 2-3 compute deals a week; reliability as the differentiator when neo clouds die); the Modal journey (Stable Diffusion powered year one; Sandbox launched 2023 as an asymmetric bet — a few days of prototyping — exploding 1000x in 2025 to a $300M run rate, a third of revenue; the DeepSeek moment triggering the inference push, now also a third of revenue; dedicated single-tenant inference + token-priced shared endpoints); hardcore tech as alpha (own file system, container runtime, scheduler; no Kubernetes or Docker; gVisor + KVM; ultra-fast cold starts, CPU/GPU snapshotting, peer-to-peer RDMA); inference as empirical science (disaggregated prefill, KV cache complexity, 20-30 people on LLM perf); leaning into open source (vLLM, SGLang) because the alpha is in the proprietary infra layer; chips (NVIDIA is king; H100 still the most common GPU at Modal; older chips cheaper for voice/pharma workloads; future auto chip-switching under a stable $/token); betting bigger models keep eating memory (LLMs as crude world models — giant lookup tables of facts); differentiation (naked token serving is a race to the bottom commoditized by OpenRouter — the durable moat is the multi-product platform: Cognition, Ramp, Suno, Runway, Decagon, DoorDash, biotech and robotics customers); 95% of merged lines at Modal now agent-written, with senior engineers benefiting most (10 interns; POSIX test suite to a new file system in three days); agent-specific product work (longer deprecation windows because training data never forgets; LLM pipelines continuously writing Modal code; agent optimization as the new SEO — incumbency power of being in the training data); what's next (low latency / a CDN for inference, mid-model training + RL, full-OS VMs); all software becomes agentic; neo clouds are fine business models but financing vehicles with a cost-of-capital problem (Elon's take is bullshit but the SpaceX point stands; GPU residual value higher than expected); neo labs' implicit leverage (30% upfront GPU commitments, dependence on follow-on fundraising, the Mistral-style pivot to neo cloud if it breaks); RL-as-a-service tension — can you ship a product rather than a services business; more boxes on the market map than you expect, but every winner becomes multiproduct; and the quickfire round (changed his mind on sandbox scale; hiring unchanged — demand rises with productivity, short-term pain for new grads; biggest mistake was sequential thinking while growing 15x in 12 months; a Swedish House Mafia member was his classmate; GPU rental prices up over 12 months — because the Anthropic S-1 revealed a profitable company with zero incentive to slow capacity buying; Modal as a 20-year project, year 10-15 looking like a conglomerate)."
+            ],
+            "original": [
+              "Erik: I went to GTC last year. It was like an open air drug market, but, like, GPUs.",
+              "Erik: A massive source of alpha in this market is just not being afraid to do hard things.",
+              "Erik: Sandboxes... grown, like, a thousand x almost. It's about a third of our revenue right now. Standalone is a 300,000,000 run rate business.",
+              "Erik: Probably, like, 95% of the lines of code that gets merged at Modal is probably written by agents to some extent.",
+              "Erik: I thought it would be the junior people that would adopt agents the most. I've actually seen almost the other way around. It's like the very senior people. Because for them, it's like giving them, like, 10 interns.",
+              "Erik: If you get inside the training data and you get the models to recommend a certain framework... that staying power is actually very, very valuable now.",
+              "Erik: The neo clouds are, like, fine business models... they're at their core financing vehicles.",
+              "Erik: I read the Anthropic S-1... it was kind of incredible how profitable that company is. They have, like, zero incentive to slow down on capacity acquisition."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Modal 创始人 & CEO Erik Bernhardsson 三年后重返 Redpoint 的 Unsupervised Learning——这三年 Modal 从 200 万年化涨到 10 亿+。全程高能：GPU 采购像露天毒品市场（GTC 现场见闻、销售 VP 表亲打高尔夫牵线、25 家云、每周两三笔算力交易、neo cloud 挂掉时的可靠性兜底）；Modal 历程（第一年靠 Stable Diffusion；2023 年沙箱是几天就做出原型的非对称赌注、2025 年涨一千倍成 3 亿美元年化、占收入三分之一；DeepSeek 时刻触发推理入场、如今也占三分之一；单租户专用推理 + 按 token 计价的共享端点）；硬核技术即 alpha（自建文件系统、容器运行时、调度器、不用 K8s/Docker、gVisor+KVM、极快冷启动、CPU/GPU 快照、点对点 RDMA）；推理是实验科学；引擎开源（vLLM/SGLang）、alpha 在专有基础设施；芯片（NVIDIA 是王、H100 仍是 Modal 最常见卡、语音/制药跑旧卡更划算）；赌模型继续变大吃满内存；差异化（裸卖 token 被 OpenRouter 商品化、持久护城河是多产品平台——Cognition、Ramp、Suno、Runway、Decagon、DoorDash、生物与机器人客户）；95% 合并代码由 agent 写、资深工程师受益最大（等于 10 个实习生、POSIX 测试套件三天写出新文件系统）；agent 特有的产品问题（训练数据不遗忘→弃用窗口拉长、LLM 持续写 Modal 代码的管道、agent 优化=新 SEO——进入训练数据=在位优势）；下一步（低延迟/推理 CDN、中型模型训练+RL、完整 OS 虚拟机）；neo cloud 是好生意但有资本成本困境（马斯克的话是胡扯但 SpaceX 观点成立）；neo lab 的 30% 首付隐性杠杆与 Mistral 式转型；RL 即服务的「产品 vs 服务业」张力；快问快答（Anthropic S-1 揭示惊人盈利→GPU 租金看涨；20 年项目、第 10-15 年像企业集团）。完整译文见下。"
+            ],
+            "original": [
+              "【冷开场：GPU 市场像露天毒品市场】",
+              "问：现在的算力市场，有多少是有组织的、多少是蛮荒西部？",
+              "Erik：我去年去了 GTC（NVIDIA 大会），那简直像一个露天毒品市场——只不过货是 GPU。走来走去跟人搭话、想搞到 GPU、在酒店大堂碰头、交换电话号码。这离有效市场非常远。算力有太多种形态，而且结构上它在很长时间里都会有点笨重——它不是那种能在交易所里买卖的同质化合约。",
+              "",
+              "【找算力：每周两三笔交易，25 家云】",
+              "主持人（Patrick Chase，Redpoint GP，代班 Jacob）：现在市场上找算力是什么体验？",
+              "Erik：挺难的。难不是说找不到——算力确实稀缺，但总有产能可拿，只是你得看得更远、接受更高的价格、接受更长的合约期。我们就是这么干的：现在大概每周做两到三笔算力交易，不断往上叠。这正是 Modal 的美妙之处：我们把所有需求聚合起来，在总体上更高效地管理产能。Modal 的价值主张从来都是「别为我的产能操心」——把获取产能这种日常肉搏战的破事都交给我们。我们现在跟 25 家不同的云合作，而且还在不断增加。",
+              "（细节有多离谱？我们跟一个有 GPU 的人搭上了线——因为好像是我们销售 VP 的表亲跟那人一起打高尔夫。这种案例比比皆是。）",
+              "算力市场极度异质：磁盘、网络、CPU、内存都不一样，地域遍布全球——美国各地、印尼、欧洲各地。可靠性也是差异点：这正是我们做得特别好的地方——聚合所有产能，当 neo cloud 死掉或出故障时（经常发生，有些是前矿场老板，压根没想过怎么跑 7×24 运营），我们就把它摘出轮换；GPU 掉总线了，很多时候我们自动开工单、有人去处理。",
+              "问：GPU 价格数据商有用吗？",
+              "Erik：有一点用。价格我不太信，但他们认识所有 neo cloud 的能力挺值钱，我们有时靠他们牵线。我们的内部采购价跟公开指数对不上——希望以后外部指数会越来越准。",
+              "",
+              "【Modal 五年：从 Stable Diffusion 到十亿美金】",
+              "问：聊聊 Modal 的历程。你第一次上节目时说过不太想做 LLM 推理 API，最近却发了推理产品——为什么？",
+              "Erik：我们 2021 年底开始做，最初的产品是 serverless 函数，面向数据、AI、机器学习一大类场景。然后 2022 年底 ChatGPT 来了，Stable Diffusion 同期爆发——结果我们的位置好到爆：第一年的增长全是托管 Stable Diffusion 应用，之后扩展到音频、视频等相邻场景。早期客户都在部署 Jan AI 之类的东西，不想碰数据基础设施、只想跑得快——我们从那时起就在跨多家云聚合 GPU。我们一直知道要多产品，但先做了 serverless 这种最通用的计算原语，专注 ML 工程师和研究者这种高代码场景，做栈的更低层；很早就建了存储层、文件系统来存数据、特别是容器镜像。",
+              "2023 年我们上线了 Sandbox（沙箱）产品。原因：我们看到有人开始用 LLM 生成代码，意识到我们在基础设施侧造的东西非常适合运行这些代码——它们会需要一个隔离的运行环境。一开始不是一夜爆红，但 2025 年它彻底炸了，因为模型那时候真正学会了写代码。Sandbox 增长了差不多一千倍，现在是独立 3 亿美元年化收入的业务、占我们收入的三分之一。这让我们真正变成了多产品公司。",
+              "我们刚又发了训练产品。我们在把所有积木铺开：AI 应用这个新世界需要一整套新原语，我们想把它们全都做出来。",
+              "至于 LLM 推理：我们观望了一阵子，直到 DeepSeek 时刻——2025 年初，第一个真正强的中国开源模型出来，我当时就想「妈的，必须进场了」。我们组了团队做推理优化（现在有二三十个人专攻 LLM 性能），过去 18 个月需求暴涨，LLM 推理现在也占收入三分之一。几个月前我们上线了专用推理产品：单租户模型——最先进的中国模型加一堆美国模型，一条命令部署到 Modal——以及共享端点：免部署直接调用、按 token 计价。这只是往上走的栈的第一批产品——因为我们坐在计算与存储这个极其扎实的地基上。",
+              "",
+              "【硬核技术的 alpha：自建文件系统、容器运行时、调度器】",
+              "问：你们早期投了很硬的技术——自建文件系统、容器运行时。这今天在产品里怎么体现？",
+              "Erik：这个市场一个巨大的 alpha 来源就是：不怕做难的事。为了在早期就交付我们想要的开发者体验，我们意识到必须自建文件系统来极速加载容器镜像。这是条更长的路：自建文件系统、容器运行时、调度器——我们不用 Kubernetes、不用 Docker，现成软件用得极少（我们用 Google 的 gVisor 做隔离，最近也开始在某些任务用 KVM）。",
+              "它换来的东西很酷：冷启动极快。这对快速反馈的开发体验是关键，对需要极速扩缩容的应用也一样。除了容器加载快，我们还做了 CPU 快照与 GPU 快照：可以从磁盘或网络把数据直接灌进 GPU、几秒钟拉起大模型。过去六个月我们还造了一套极其复杂的系统：用节点间点对点 RDMA 极速拷贝数据。多年投资在累积兑现——我们现在有一些极难复制的独家技术。",
+              "",
+              "【推理的未解难题：一门实验科学】",
+              "问：推理栈还有哪些没解决的问题？",
+              "Erik：推理还相当早期，它是一门实验科学：大家都在试各种东西看什么有效。比如 disaggreated prefill（预填充分离）——在一组节点做 prefill、通过 RDMA 拷贝数据、在另一组做 decode——非常反直觉但有效。KV cache 有大量复杂度；更高效的 kernel 也是。我们得追论文、盯所有新软件。模型本身也在飞快变化——现在是 MoE，以后说不定 transformer 被换掉、KV cache 的玩法整个改变；还有量化等等。外面是个狂野世界。",
+              "",
+              "【开源策略：alpha 在基础设施，引擎交给开源】",
+              "问：作为 CEO，怎么划分「自己攻」和「吃社区红利」？",
+              "Erik：我们热爱开源，因为我们真正的 alpha 在专有的基础设施层——比如自动扩缩容这些。跟其他推理服务商不同，我们深度拥抱开源引擎：跟 vLLM 和 SGLang 团队都合作密切、持续贡献代码、一起做优化。几年前这些引擎还不是最先进，现在是了——我们当然要借力。",
+              "",
+              "【芯片：NVIDIA 是王，但旧卡别扔】",
+              "问：非 NVIDIA 的长尾芯片对你重要吗？",
+              "Erik：NVIDIA 仍是王者——最好的芯片、远超其他家的需求。我们对 AMD、Trainium、TPU 保持好奇、做过实验。但有意思的是旧芯片：最新的 LLM 总是要塞满整机甚至多机（八张 B300），但旧模型、小模型、以及语言之外的东西——语音转写、语音合成、制药、生物——这些不需要最新 GPU，跑在 Hopper 甚至更老更便宜的卡上（A 系、L40X、RTX Pro 6000）反而更划算。我们在激进上 Blackwell（主要是 GB 系列），但 H100 仍是 Modal 当前最常见的卡，很多超大型生产负载就跑在 Hopper 上。",
+              "问：模型-芯片匹配现在行业里高效吗？",
+              "Erik：有改进空间，实践里比看起来简单：通常受内存约束，启发式就是「能装下你模型的最便宜的 GPU」。我们接下来六个月想做的是：你部署一个模型，我们在底下自动切换不同芯片、保持单位价格一致——让我们聚合产能、跑更高利用率。",
+              "",
+              "【赌更大的模型：内存吃满为止】",
+              "问：你的机群规划——未来两年大模型还是小模型当道？",
+              "Erik：过去三四年是越来越大的趋势，我认为会继续。如果 B300 内存更大，Kimi K3 肯定会做得更大——人们就是照着芯片的训练容量来训模型的。LLM 在某种意义上是一种粗糙的世界模型：你要把尽可能多的信息编码进去，本质像一张巨大的事实查找表——这把内存需求推得极高。也许某天会到顶，但目前：内存给多少，参数就训多少。",
+              "",
+              "【差异化：裸卖 token 是绞肉机，平台才是护城河】",
+              "问：推理市场最终谁赢？",
+              "Erik：大部分推理市场会相当惨烈。直来直去卖 token——你看 OpenRouter 已经在把底层服务商商品化了。效率竞争是真差异化，但那是往底部的竞赛，技巧会扩散。更持久的差异化是提供整个平台：我们有沙箱、强化学习、微调、批处理。客户不想买单功能产品，他们要一整套工具箱——这是最大的差异化来源。日常还得肉搏（最新 kernel、更高效的 KV cache），钱太多了会一直有人卷，但那不是持久优势。持久的，是围绕推理的整个产品组合。",
+              "我们的客户挺能说明问题：Cognition 大规模用我们做推理+沙箱，跑强化学习 rollout；Ramp 用我们跑后台 agent，他们内部编码 agent 今天刚作为独立产品发布开卖；Suno、Runway 用我们做生成式音频视频；Decagon 用我们做客服（语音+文本）；DoorDash 一堆内部应用；一堆计算生物公司在上面做药物发现——分子模拟、序列比对；还有机器人公司（1X 等）在上面训模型、批量处理视频；还有数据生成公司——在沙箱里跑环境和基准测试。",
+              "",
+              "【优先级：CEO 的头号工作就是无情地分配资源】",
+              "问：多产品公司怎么排优先级？",
+              "Erik：这是极难的问题。我们 150 个工程师，我每天都在挣扎。就算有一万个工程师也一样——想干的事永远比资源多。所以必须对优先级绝对无情：最高 ROI 是什么、线画在哪。有时得说：我知道你很兴奋，但那件事先暂停，以后再回来。资源分配基本就是 CEO 的头号工作——把工作分配给正确的资源，价值就在这里被创造或毁灭。",
+              "",
+              "【95% 的代码由 agent 写：资深工程师受益最大】",
+              "问：ChatGPT 前后，造软件的方式变了吗？",
+              "Erik：现在 Modal 合并的代码行里，大概 95% 在某种程度上是 agent 写的。基础设施尤其如此——agent 挺擅长这个。但仍然需要人类大量监督：基础设施有大量可靠性、可扩展性方面的尾部风险。所以至少眼下软件工程师还很安全，而且我们受益于有极强的工程师来监督这些 agent——未来几年大概都如此。",
+              "有意思的是采用模式跟我预期的相反：我以为初级工程师会用得最凶，实际几乎反过来——是最资深的人。因为对资深工程师来说，agent 像给了他们 10 个实习生：他们一直受限于打字速度，脑子里全是想法，现在可以快速倒出来了。他们特别擅长建测试套件：给 agent 一套完整测试——「实现 POSIX 文件系统标准的全部」——然后说「去写个新文件系统吧」，agent 就真写出来了，三天搞定。有的资深工程师完全 agent maxing。人类软件工程师未来几年还是安全的——走着瞧吧。",
+              "问：CICD、代码审查这些变了吗？",
+              "Erik：有一点。我们在 CICD 上投入更多了。我当 CTO 那些年一直执迷于自动化部署、自动化测试——现在 agent 也挺会写测试了（一年前还不会）。Anthropic 前几天宣布弃用 Git/GitHub——等每天 commit 数量再涨 10 倍，我们可能会撞上这些基础工具的极限。",
+              "",
+              "【Agent 是客户：弃用更痛、还要做「Agent 搜索优化」】",
+              "问：当 Modal 的用户越来越多是 agent 时，业务决策变了吗？",
+              "Erik：变化比我预期小得多。我们建 Modal 就是为了给工程师更好的体验和速度——结果 agent 想要一模一样的东西：快反馈、清晰报错、好文档。大部分东西不用改。",
+              "变难的几件事：弃用。agent 的训练数据里有大量网上的旧代码，所以砍功能比以前难得多——不能只从文档里删掉等三个月，因为它在训练数据里，LLM 生成的 Modal 代码会一直用被弃用的特性。我们只好把弃用窗口大幅拉长。我们还搭了很多自动化管道：让 LLM 持续不断地写 Modal 代码、确保它能构建能运行——专门抓 agent 容易卡住的地方。",
+              "还有一件我们花很多时间的：类似搜索引擎优化的「agent 优化」。你可以去问 Claude Code「我想部署个模型做推理」——不提 Modal——看它推荐什么工具。我们当然希望它推荐 Modal，所以内部在持续追踪这件事。我认为这会深刻改变软件工程，也许往坏的方向：训练数据和训练循环给现有玩家带来了更强的在位优势。有人说「我就全用 React，因为 agent 写 React 最熟，新的前端框架不碰」——今天的各种框架都有类似效应。进入训练数据、让模型推荐你——这种留存力现在非常值钱。我们显然想让 agent 尽可能多地推荐 Modal，这会形成飞轮。",
+              "",
+              "【沙箱是怎么赌出来的：非对称下注】",
+              "问：2023 年那个先见的沙箱赌注——今天还有什么类似的早期下注？",
+              "Erik：说实话，沙箱给我们立了个高杆——人人都问「下一个秘密武器是什么」。我wish我有简单答案。回头看，沙箱当年是个非对称赌注：原型 Akshat 几天就做出来了，投入很低、下行很小；2025 年爆发后我们重写了五遍来扛规模。今天我看好但代表更大投入的：低延迟——voice-to-voice、实时视频会逼我们重新思考全球算力管理：怎么减少跳数、怎么跨区域扩缩——像给推理建一个 CDN。训练——中型模型和强化学习被低估了，我们过去两年在 RDMA/InfiniBand 上砸了大钱。还有完整的虚拟机——跑真正的 macOS、Windows、Android、iOS 会有很大上行空间。我不知道有没有哪个有沙箱那种爆发潜力——也许三年后再上这档节目回头看。",
+              "",
+              "【五年视角：所有软件都会 agentic 化】",
+              "问：编码 agent 之外，你们会往 agent 工具链更深处建吗？",
+              "Erik：我们从基础设施视角想这事。看 agent harness 的架构——演化太快，我们还太早。我们的工作某种程度上是判断：哪些是未来五年都会被需要、能沉淀下来的核心积木。我们对 agent 编排这个类目感兴趣，也对 evals、模型网关、agent 全生命周期感兴趣；我的直觉是它会更云中心化、更像 durable objects + 工作流引擎。但很难准确画出五年后 agentic 开发长什么样——部分因为我觉得所有软件都会 agentic 化。我其实有点讨厌 agentic 这个词：用 AI 做决策？那不是所有软件都该这样吗？五年后所有软件都 agentic 了，软件长什么样？我不知道，但我希望我们能造出支撑这一切的大量积木。RAG 就是个好例子：两年前要是重注 RAG 就傻了——做基础设施的好处是能看长线、滤掉噪音找模式。",
+              "",
+              "【多模态与机器人：为什么 2026 年的语音助手还这么烂】",
+              "问：多模态推理、机器人推理跟今天的推理市场像吗？",
+              "Erik：都像，又各有各的雪花样。机器人大部分在端侧跑，我们不指望支撑它的主体，但能支撑它的测试、开发、训练和大量仿真环境——这个我很兴奋。多模态方面，音频、音乐、图像没多少人聊，但一直在疯长。LLM 霸占话语权好几年了，可你看：为什么 2026 年了语音助手还这么烂？我实在不懂。我家有 Google Home，问什么问题都答非所问——我只好去问 ChatGPT。为什么不能端到端串起来训一个 speech-to-speech 系统？这块会出非常多酷应用。回头看，三年前谁能猜到 Suno、Runway、Cognition 这些公司？没人能。往后三年也一样没人知道世界什么样——但按过去三年的经验：一定会有很酷的应用，我只是不知道是什么。希望它们用 Modal。",
+              "",
+              "【三年 500 倍：2M 到 10 亿+ 年化】",
+              "主持人：我翻到你当年 A 轮后发的邮件——你说「顺便我们从没给你看过 Modal 的 deck，这是之前做的一个、刚更新了数字」。那时你们年化 200 万美元；现在破了 10 亿美元年化。三年支撑这个规模最大的变化是什么？",
+              "Erik：先澄清：我说过从没做过 pitch deck，后来想起来 A 轮后有几个天使要投、要我做个东西——所以其实做过一份，只发给过天使，没发给过投资人。算半个谎。",
+              "规模上：三年收入涨了差不多 500 倍。我的经历基本都在超高速成长的公司——Spotify 待了七年——每六个月重写所有系统、重想所有流程、总觉得自己落后。我挺喜欢戴这个面具的。",
+              "",
+              "【Neo Cloud：商业模式没问题，但别用 VC 估值法看】",
+              "问：最近几周 neo cloud 的债务被热议——你怎么看这个格局？",
+              "Erik：neo cloud 是没问题的商业模式，只是人们看混了：哇需求这么大、收入涨这么快——然后用 VC 的收入倍数思维去看。但它们的增长其实很贵：要举大量债。这些公司本质是融资机器——做硬资产的租赁——资本上天然难规模化。现在市场说「我们已经投了太多资本进去、先缓缓」，利率开始上行。加上它们杠杆极高，股票当然随 GPU 价格大起大落。但它们锁定了客户合同、举债买卡、还债——很多情况下残值比预期高：GPU 寿命比人们预期的长，还完债再卖掉能卖出比预想高的价。所以它们会赚到钱，只是要几年。neo cloud 会活得不错，但不是特别有差异化。",
+              "马斯克前几天发推说「所有 neo cloud 都会死」——我觉得是胡扯。但他隐含有个观点是对的：SpaceX 的资本成本低得多。你看三家成功的超大规模云——AWS、Azure、GCP——全都依附于现金流极稳的上市公司，资本成本低。这是 neo cloud 的结构性困境：高资本成本让它们难快长。也许可以抄底，不好说。",
+              "",
+              "【Neo Lab 的隐性杠杆：30% 首付的 GPU 账单】",
+              "主持人：你发过一条有意思的推：neo lab（模型实验室）如果模型做不成，可以转型 neo cloud。",
+              "Erik：Mistral 基本就这么干了，看起来还行。很多人做超大规模采购决策时会自我合理化：「用不上 GPU 也可以转手卖嘛」——像一种保险。外面一堆 neo lab，每家都融了「正好 10 亿美元」（不知道为什么都喜欢这个数），然后买 GPU。有的会很成功；有的不会——不会的那些手里就攥着一堆 GPU，那就转卖呗。尤其是如果 VC 融资环境收缩的话。",
+              "这些 GPU 承诺里有个挺吓人的结构性风险：现在签 GPU 合同首付只要 30% 左右。意思是：你融 10 亿，可以锁定 30 亿的 GPU、只付 10 亿首付。但一年后你欠着几亿，每个月都要付。这在公司里制造了隐性杠杆、以及对后续融资的依赖。只要还能融到 VC 的钱付 GPU 账单就没事；哪天融不到了，你会看到二级市场活跃起来——有些 neo lab 会转向 neo cloud 模式或者直接把卡卖回给云。整体上我对 AI 非常看多，但我总在找这类结构性风险：应用会很惊艳、需求会很真实，但 100% 的 neo lab 都成为万亿公司？大概不会。",
+              "",
+              "【RL 即服务：别把产品做成服务业】",
+              "问：Satya 说每家公司都会有自己的模型——你同意吗？",
+              "Erik：有些公司会有。按收入加权，大部分 token 会来自后训练的模型；但按公司数量加权，大部分公司不需要自己做后训练。大玩家——Cognition 在训自己的代码模型、Cursor 也一样——恰恰是 token 吞吐最大的。RL 和后训练里有些部分很有吸引力：帮客户服务更好的模型、更低成本、更高吞吐。但有些看起来就是服务业。未来几年这个市场的张力就是：能不能把它做成产品卖——而不是沦为服务生意。这是我们天天想的问题。",
+              "",
+              "【市场地图：永远有比你预期更多的格子】",
+              "问：有哪些 AI 基础设施类目会独立存在？",
+              "Erik：我们不会去做模型预训练。应用层会有大量不可思议的公司；会有很多聚焦软件开发的公司；其他模态（音频、视频、音乐）也是。我的总体观感：市场地图上的格子永远比你预期的多。但我也认为每家最终成功的公司某种程度上都得变成多产品公司。人们有个错误假设：看 Anthropic、OpenAI 就问「他们为什么不往上游做、自己开律所」——他们极其擅长的是规模化地服务模型，那是他们的护城河。不是每家公司都该什么都做。我们也一样：我们不会什么都做，但会做一大簇相邻的事并做到极致——这个市场足够大，容得下一批千亿、万亿美金级别的机会。",
+              "",
+              "【快问快答】",
+              "问：过去一年你在 AI 上改变看法的一件事？",
+              "Erik：沙箱的机会规模。我真没想到能到这个量级。",
+              "问：编码 agent 改变了工程师的定义，改变你的招聘观了吗？",
+              "Erik：没什么变。人类的需求会随生产力上升——过去四五十年一直如此：编译器、高级语言、CICD，每次让工程师更高效，需求就更大。我们会需要更多工程师。短期内应届生会更难（除了最顶尖的那批），但长期我非常看好计算机科学——虽然我自己不是 CS 出身，如果我的孩子想学，我一定鼓励。",
+              "问：建 Modal 以来最大的错误？",
+              "Erik：我以前总想串行做事：「先做 A，A 解锁了再做 B」。但在一切飞速变化的世界里，我学到的是有时必须两件同时做——为了速度。我天性不算激进——虽然我们过去 12 个月涨了 15 倍——我不得不重新训练自己的大脑：这是巨大的市场机会，必须更激进地招人、部署资本、并行推进一切。",
+              "问：瑞典出了那么多创业公司，瑞典科技黑帮取代瑞典浩室黑帮了吗？",
+              "Erik：说个好玩的：瑞典浩室黑帮的成员之一是我小学同学。九十年代初、我八岁的时候，他说我的自行车丑，我伤心极了。瑞典确实有很多科技——Klarna、一堆游戏工作室、最近的 Lovable 等。我的理论是成功孕育成功：很多人进科技行业是因为听说某个表亲的朋友在科技上赚了大钱——飞轮效应。加上瑞典一直是欧洲里挺有创业和商业精神的——可能要追溯到维京人「去征服世界」的基因，过去通过音乐和家具，现在越来越多通过科技。斯德哥尔摩有个好笑的地方：所有人都觉得自己是全球级都市、全世界都关心斯德哥尔摩——实际未必，但我喜欢这种自大狂：从第一天就说「我们要征服世界」，这种劲儿是好的。",
+              "问：GPU 租金 12 个月后更高还是更低？",
+              "Erik：更高。有意思的是我 48 小时前刚改了看法：我读了 Anthropic 的 S-1（让 agent 帮我总结的）。那家公司的盈利能力强得惊人——超出我预期。我原以为他们毛利虽好但训练烧钱太猛，上市后会被迫放缓训练和产能采购。结果发现他们基本是家盈利公司——完全没有放缓产能采购的理由。OpenAI 大概同样。这两家是最大的算力买家，它们不减速，意味着需求继续暴增——所以未来 12 个月价格大概率上涨。",
+              "问：你说 Modal 是你的二十年项目，现在第五年。第十到二十年长什么样？",
+              "Erik：第十到十五年我们会更像一个企业集团：一堆不同的产品，可能还有些去月球去火星的疯狂赌注。我现在陷在太多细节里，到时候会雇人来干这些。但高层的资源分配——我们把注押在哪——是最有意思的部分，我希望再做二十年，甚至更久。",
+              "最后打个广告：去 modal.com，终端里跑 pip install modal 玩一玩。正在做创业或想做创业的朋友尽管联系我——我一直喜欢跟客户聊。期待看到大家造出什么。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
