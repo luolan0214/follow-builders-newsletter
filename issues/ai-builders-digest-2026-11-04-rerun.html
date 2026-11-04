@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-11-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-11-04" data-issue-number="163" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 163 期｜2026-11-04｜双语精选版｜7 条精选｜7 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="宣言与告别日。sama（**10173 赞，今日最高**）：「人民应永远掌控未来——人不该被贬为做『AI 系统认为值得奖励的事』的角色，这一要求最终应约束 AI 进展。」Thariq（**6154 赞**）：「苦涩教训本尊——最聪明的模型 token 越来越少、无需验证、直接就是对的。」Cat Wu 告别 Anthropic（**9473 赞**）：「两年前让 Claude Code 搭 RL 环境、一行代码没手写过就上瘾入伙；今天默认已是信任 Claude 判断自动放行。」Sottiaux（**8425 赞**）：「一切还会一变再变——我们仍在极早期。」Boris Cherny（**1941 赞**）：Claude 插件自动连接。Rauchg（**694 赞**）：「把安全团队当软件下载——每行代码自动审计。」Levie（391 赞）：「生产率上限两年从 30-50% 到 5-10 倍——前沿与否差一个数量级。」播客全新一期：Latent Space × Legora CTO Jacob Lauritzen——不能看任何 trace 的盲飞、Tabular Review 单日百万单元格、「agent 能不能就是 API」。91946 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">宣言与告别日。sama（**10173 赞，今日最高**）：「人民应永远掌控未来——人不该被贬为做『AI 系统认为值得奖励的事』的角色，这一要求最终应约束 AI 进展。」Thariq（**6154 赞**）：「苦涩教训本尊——最聪明的模型 token 越来越少、无需验证、直接就是对的。」Cat Wu 告别 Anthropic（**9473 赞**）：「两年前让 Claude Code 搭 RL 环境、一行代码没手写过就上瘾入伙；今天默认已是信任 Claude 判断自动放行。」Sottiaux（**8425 赞**）：「一切还会一变再变——我们仍在极早期。」Boris Cherny（**1941 赞**）：Claude 插件自动连接。Rauchg（**694 赞**）：「把安全团队当软件下载——每行代码自动审计。」Levie（391 赞）：「生产率上限两年从 30-50% 到 5-10 倍——前沿与否差一个数量级。」播客全新一期：Latent Space × Legora CTO Jacob Lauritzen——不能看任何 trace 的盲飞、Tabular Review 单日百万单元格、「agent 能不能就是 API」。91946 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Human Sovereignty / 人类主权宣言</h2>
+    <p class="section-desc">sama（**10173 赞，今日最高**）：「人民应永远掌控未来——人不该被贬为『做 AI 系统认为值得奖励的事』的角色，这一要求最终应约束 AI 进展」；Thariq（**6154 赞**）：「这就是苦涩教训本尊：最聪明的模型需要的 token 越来越少、不需要验证、直接就是对的」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="sama+trq212" data-author-name="Sam Altman / Thariq" data-author-tag="OpenAI CEO / 独立开发" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Sam Altman / Thariq avatar"><span class="avatar-fallback">SA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Sam Altman / Thariq</div>
+            <div class="author-tag is-inline">OpenAI CEO / 独立开发</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>sama 的宣言（**10173 赞，今日最高**）——「人民应永远掌控未来。OpenAI 反对这样一种观念：把人贬为『做那些 AI 系统认为对人类给予奖励是合理的事』的角色是可以接受的。人民不应把未来的控制权让渡给超级智能——而这一要求，最终应当约束 AI 的进展。」与 Thariq 的解读（**6154 赞**）——「这基本上就是苦涩教训（bitter lesson）本尊在工作：最聪明的模型需要的 token 会越来越少、不需要验证自己的工作、不需要查 bug——它们直接就是对的。」两条并读，是今天关于「人机主权」与「能力轨迹」的两个极端视角。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>sama：人民应永远掌控未来；人不应被贬为做「AI 认为值得奖励的事」的角色；这一要求最终应约束 AI 进展。Thariq：苦涩教训本尊——最聪明的模型 token 越来越少、无需验证、直接就是对的。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>sama&#39;s manifesto (10173 — today&#39;s top): People should always be in control of the future. OpenAI is against the notion that it would be acceptable for people to be relegated to a role of doing things that AI systems think makes sense to reward in humans. People should not cede control of the future to superintelligence, and that requirement should ultimately constrain AI progress. And Thariq&#39;s reading (6154): this is basically the bitter lesson at work — the smartest models will need fewer and fewer tokens, they won&#39;t need to verify their work or check it for bugs, they will just be right.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: People should always be in control of the future. OpenAI is against the notion that it would be acceptable for people to be relegated to a role of doing things that &quot;AI systems think makes sense to reward in humans&quot;. People should not cede control of the future to superintelligence, and that requirement should ultimately constrain AI progress.</p>
+              <p>Thariq: this is basically the bitter lesson at work. the smartest models will need fewer and fewer tokens, they won&#39;t need to verify their work or check it for bugs, they will just be right</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Farewells / 告别日</h2>
+    <p class="section-desc">Cat Wu（**9473 赞**）告别 Anthropic：从手握内部小工具到行业定义产品——「默认已变成信任 Claude 的判断自动放行」；Sottiaux（**8425 赞**）：「一切还会一变再变。我们仍处于极早期」；Peter Yang：离开 Anthropic 去玩 WoW Forever 的玩笑（212 赞）与「1-2 年就离职的新常态」（74 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="_catwu+thsottiaux" data-author-name="Cat Wu / Thibault Sottiaux" data-author-tag="Claude Code 负责人（前）/ Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Cat Wu / Thibault Sottiaux avatar"><span class="avatar-fallback">CW</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Cat Wu / Thibault Sottiaux</div>
+            <div class="author-tag is-inline">Claude Code 负责人（前）/ Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cat Wu（**9473 赞**）——「上周五是我在 Anthropic 的最后一天。两年前，Claude Code 还是个小小的内部工具。我让它搭一个 RL 环境，我引导了它几十个小时、但一行代码都没手写过。它成了，我上瘾了，于是我加入了团队。刚发布那会儿，大多数人每个权限弹窗都手动点确认、主要拿 Claude 问问题和写测试。今天，默认已变成信任 Claude 的判断自动放行——Claude 做大型迁移、构建新产品。把 Claude Code 建成一个定义行业的产品，是此生难忘的旅程。感谢 Claude Code、Cowork 和 Tag 背后的非凡团队——这些产品是你们上千个好点子的总和。期待看你们做出什么。」Peter Yang 的送别玩笑（212 赞）——「不敢相信这么多人离开 Anthropic 去玩《魔兽世界：无限》（World of Warcraft Forever）——开玩笑的，cat 这波是世代级的 run。」Sottiaux（**8425 赞**）——「一切还会一变再变再变。我们仍处于极早期；今天的 agent 已经不可思议、却仍然令人抓狂。等不及把难题一一破解、把心流找回来。前路漫长。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cat Wu：今天默认是信任 Claude 判断自动放行；把 Claude Code 建成定义行业的产品是此生之旅。Sottiaux：一切还会一变再变，我们仍在极早期，等不及找回心流。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Cat Wu (9473): Friday was my last day at Anthropic. Two years ago, when Claude Code was a small internal tool, I asked it to build an RL env. I steered it for tens of hours but never manually wrote a line of code. It worked, I was hooked, and I joined the team. When we first launched, most people approved every permission prompt by hand and mostly used Claude to answer questions and write tests. Today, the default is trusting Claude&#39;s judgment to auto-approve. Claude does large migrations and builds new products. Helping build Claude Code into an industry-defining product has been the journey of a lifetime... Thank you to the incredible team behind Claude Code, Cowork, and Tag. Excited to see what you all make next! And Peter Yang&#39;s joke (212): Can&#39;t believe how many people are leaving Anthropic to play World of Warcraft Forever smh — j/k what a generational run from cat.</p>
+              <p>Sottiaux (8425): Things will change again and again and again. We&#39;re still very early and agents today are incredible, and yet so frustrating still. Can&#39;t wait to crack things to get that flow state back. Long journey ahead.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cat Wu: Today, the default is trusting Claude&#39;s judgment to auto-approve. Claude does large migrations and builds new products.</p>
+              <p>Cat Wu: Helping build Claude Code into an industry-defining product has been the journey of a lifetime.</p>
+              <p>Thibault Sottiaux: Things will change again and again and again. We&#39;re still very early and agents today are incredible, and yet so frustrating still. Can&#39;t wait to crack things to get that flow state back. Long journey ahead.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/_catwu" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="petergyang-jobhopper" data-author-name="Peter Yang" data-author-tag="Behind the Craft 主播" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Peter Yang avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang</div>
+            <div class="author-tag is-inline">Behind the Craft 主播</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>新常态（74 赞）——「还记得 2-3 年内离职会被看成 job hopper（跳槽惯犯）的年代吗？现在越来越常见的是：非常有才华的人在 AI 原生公司干 1-2 年甚至更短就走。离开的原因五花八门。但我确实好奇：这类工作到底可不可持续——尤其是对有孩子的人。」与他的 WoW 玩笑（212 赞）连读，是 AI 原生公司离职潮的严肃一问。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：AI 原生公司 1-2 年离职越来越常态化——这类工作可持续吗，尤其对父母们？</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The new normal (74): Remember when leaving a company before 2-3 years made you look like a job hopper? It feels increasingly normal to see very talented people leave AI-native companies after 1-2 years or less. People leave for all kinds of reasons. But I do wonder how sustainable these jobs are, especially for parents.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang: Remember when leaving a company before 2-3 years made you look like a job hopper? It feels increasingly normal to see very talented people leave AI-native companies after 1-2 years or less.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Security Agents &amp; Enterprise Chaos / 安全 agent 与企业混战</h2>
+    <p class="section-desc">Boris Cherny（**1941 赞**）：Claude 插件自动连接——「一个个登录太烦了」；Rauchg（**694 赞**）：Vercel 内部安全 agent hacker 开放给所有仓库——「下载一支安全团队」；Amjad（**468 赞**）：「我们深陷企业 agent 与 vibe coding 采纳的混沌阶段」；swyx 转推 addyosmani 的 Anthropic「暗工厂」（17 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="bcherny+rauchg+amasad" data-author-name="Boris Cherny / Guillermo Rauch / Amjad Masad" data-author-tag="Claude Code @Anthropic / Vercel CEO / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Boris Cherny / Guillermo Rauch / Amjad Masad avatar"><span class="avatar-fallback">BC</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Boris Cherny / Guillermo Rauch / Amjad Masad</div>
+            <div class="author-tag is-inline">Claude Code @Anthropic / Vercel CEO / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny（**1941 赞**）——「一个一个登录你们公司的插件太烦了，所以我们现在让 Claude 自动连接它们。Team 和 Enterprise 管理员配置一次，队友第一次使用时自动连上。」Rauchg 的安全 agent 开放（**694 赞**）——「Vercel 内部有个效果惊人（的爱称 @hacker）的安全 agent：每一行代码都会被自动审计。现在所有人都能用上这股力量：对所有仓库一键开启（不管你托管在不在 Vercel）。为什么需要它：你不能赌你的工程师恰好装了那个 skill、不能靠 prompt 里写一句『请确保安全』、也不能掷权重骰子赌代码天生没问题。这整个产品由我们的安全团队独立开发——如果你想把一支安全团队『当软件下载』，这是今天最接近的东西。」配套：`vercel doctor`（132 赞）——「建议你们都给自己的 CLI 加 doctor 子命令」；Vercel CI 提速任意仓库 + Security Review 保护它们（88 赞）。Amjad（**468 赞**）——「我们深陷企业采纳 agent 与 vibe coding 的混沌阶段。」swyx（17 赞）转 addyosmani 讲 Anthropic 如何以「暗工厂」方式一天 yolo 三万次代码变更、Sonar 的 Kap Mani 讲为什么每个循环都需要独立验证——已是 AIE NYC 最热演讲之一。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Cherny：让 Claude 自动连接公司插件。Rauchg：每行代码自动审计——把安全团队当软件下载。Amjad：企业采纳 agent 深陷混沌阶段。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Boris Cherny (1941): Signing in to your company&#39;s plugins one by one is annoying, so we let Claude auto-connect to them now. Team and Enterprise admins can set them up, and teammates are connected automatically the first time they use the plugins. Rauchg&#39;s security agent launch (694): Vercel has an internal security agent that is astonishingly effective (lovingly called hacker). Every single line of code gets audited, automatically. You can now get the same power — enable it on all your repos (works whether you host on Vercel or not). You cannot just bank on your engineers having a skill installed, prompting please make secure, or rolling the weights&#39; dice that the code is good out of the gate. Entirely developed by the security team — if you wanted to download a security team as software, this is the closest you get today. Also: vercel doctor (132) — recommend you ship doctor subcommands in your CLIs; and Vercel CI accelerates any repo / Vercel Security Review protects them (88). Amjad (468): We&#39;re deep in the chaotic phase of enterprise adoption of agents and vibe coding.</p>
+              <p>And swyx (17) pointing to addyosmani&#39;s talk on how Anthropic yolos 30k code changes a day in a dark factory approach, with SonarSource&#39;s Kap Mani on why every loop needs independent verification — already one of the top talks of AIE NYC.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Boris Cherny: Signing in to your company&#39;s plugins one by one is annoying, so we let Claude auto-connect to them now.</p>
+              <p>Guillermo Rauch: Every single line of code gets audited, automatically... If you wanted to &#39;download a security team&#39; as software, this is the closest you get today.</p>
+              <p>Amjad Masad: We&#39;re deep in the chaotic phase of enterprise adoption of agents and vibe coding.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/bcherny" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Divergence Year / 产出分化年</h2>
+    <p class="section-desc">Levie 长文（**391 赞**）：「生产率上限两年内从 30-50% 涨到 5-10 倍——住在前沿与否的差距已达一个数量级，RSI 之下只会更宽」；Nikunj 的 Claude Code 私藏 skills（80 赞）；Turck 双发：SurrealDB 4「agentic 时代的现代数据库」（42 赞）+「挂进卢浮宫」（**447 赞**）；Garry Tan「RIP Popular Mechanics」（**962 赞**）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie-divergence" data-author-name="Aaron Levie" data-author-tag="Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 长文（**391 赞**）——「AI 产出的分化，奇怪地正处于史上最高——尽管普及度也是史上最广。几年前，就算在最对口的领域（比如编码），你能拿到的最好生产率提升也就 30-50%：相当一部分时间花在收拾模型的错误上、上下文窗口小到干不了长任务、界面高度同步。现在：模型能在极少人工干预下干长得多的任务；harness 支撑起承接大型任务的 agentic 工作；训练数据在越来越多领域大幅变好、你几乎不用插手；系统也更好地支持同时指挥多个 agent。仅仅两年，生产率增益的上限从 30-50% 涨到了视领域而定的 5-10 倍。于是环境变成了：住在前沿 vs 完全不关注，产出可以差一个数量级。而以 RSI（递归自我改进）大概率带来的进步速度，这个距离只会越拉越宽。疯狂年代。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：AI 产出分化史上最高；生产率上限两年从 30-50% 到 5-10 倍；前沿与否差一个数量级，RSI 之下只会更宽。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The divergence (391): weirdly may be the highest it&#39;s ever been, even though adoption is the broadest it&#39;s ever been. A few years ago the best productivity gains you could get, even in the most capability-aligned field (like coding), was maybe 30-50% better productivity if you were very good at it — you&#39;d spend a decent chunk of time cleaning up mistakes, context windows were too limited for long-running work, interfaces were highly synchronous. Now models do far longer tasks with limited human interaction, harnesses support agentic work on larger tasks, training datasets are vastly better across domains so you intervene far less, and systems better support working with many agents at once. In a two-year timespan, the upper limits on productivity gains have gone from 30-50% to likely 5-10X depending on the field. We&#39;ve gone from an environment where living at the frontier vs. not paying attention at all could be an order of magnitude difference in your output. This distance is only getting wider from here given the rate of progress we&#39;re likely to see with RSI. Crazy times.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: The divergence in AI output weirdly may be the highest it&#39;s ever been, even though adoption is the broadest it&#39;s ever been.</p>
+              <p>Aaron Levie: In just a two year timespan, the upper limits on productivity gains have gone from 30-50% to now likely 5-10X depending on the field.</p>
+              <p>Aaron Levie: This distance is only getting wider from here given the rate of progress we&#39;re likely to see with RSI. Crazy times.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="nikunj+mattturck+garrytan+misc" data-author-name="Nikunj / Matt Turck / Garry Tan / 杂闻" data-author-tag="FPV / VC / YC CEO / 其他 builders" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Nikunj / Matt Turck / Garry Tan / 杂闻 avatar"><span class="avatar-fallback">N/</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nikunj / Matt Turck / Garry Tan / 杂闻</div>
+            <div class="author-tag is-inline">FPV / VC / YC CEO / 其他 builders</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj 的 Claude Code 私藏 skills（80 赞）——「最被低估的两个默认 skill：/insights 和 /playground。insights 我挂了 cron 每两周跑一次，告诉我升级工作流的全部最佳做法，再配上 X 书签里行业的新玩法——一个自我改进的循环。playground 是可视化工作流的最佳方式：从冷门 GitHub 仓库的架构图到给业余项目模拟完整学习循环。新欢：让 Codex 和 Claude Code 配对这个 skill，找死代码、热点路径、延迟优化。」多 App 共存宣言（43 赞）——「我们活在特殊年代：ChatGPT Codex、Claude 桌面版、Bot、Muse 我全都在用、全都爱——每个都在模型和体验上推着前沿走。」Turck 双发——SurrealDB 4（42 赞）：「建数据库是漫长的苦役；SurrealDB 4 终于是那个产品：多模型（向量/图/文档）、ACID、重建的引擎、原生 Postgres/MySQL 支持、经 Cloudflare 每秒百亿行峰值——agentic 时代的现代数据库」；「挂进卢浮宫」（**447 赞**）。Garry Tan 三连——「RIP Popular Mechanics」（**962 赞**）；「蓝州自焚案例研究：国家归国家、地方归地方——多关注能切实改善本地民生的事。左 vs 更左帮不了我们，我们需要常识」（151 赞）；「听这里」（14 赞）。其余：Google Labs 把 Dreambeans 推向印度（191 赞）——「接下来去哪？」；steipete「很妙」（143 赞）；Zara「做演示可以像刺绣一样」（40 赞）；Nan Yu 双发（14/58 赞）；Shipper「去拿下它」（14 赞）；Nikunj「死互联网理论在 X 上如此真实」（2 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj：/insights+/playground 两个被低估的 skill，cron 自改进循环。Turck：SurrealDB 4——agentic 时代的现代数据库；卢浮宫。Garry Tan：RIP Popular Mechanics。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nikunj&#39;s favorite Claude Code skills (80): a) /insights and b) /playground — for insights, a cron job runs every two weeks telling him all the best ways to upgrade his setup, paired with X bookmarks: a self-improving loop on how he uses Claude Code + what the industry thinks he should move to; for playground, the best way to visualize what&#39;s happening in the workflow — from the architecture of esoteric GitHub repos to simulating a full learning loop on his side project; his new favorite: pair Codex + Claude Code on this skill to find dead code, hot pathways, latency improvements. Also from him (43): I love using the ChatGPT Codex app AND the Claude desktop app AND the Bot app AND the Muse app — all delightfully designed, each pushing the frontier on models + customer experience. Turck&#39;s pair: Major moment for SurrealDB (42) — building a database is an incredible grind; SurrealDB 4 is now a truly world-class product: multi-model (vector, graph, document), ACID compliant, rebuilt engine, native Postgres/MySQL support, 10B+ peak rows/sec via Cloudflare — the modern database for the agentic era; and Hang it in the Louvre (447). Garry Tan&#39;s trio: RIP Popular Mechanics (962); Case study in how blue states self-immolate — there&#39;s national and there&#39;s local... Left vs lefter is not helping us. We need common sense (151); Listen here (14). And the rest: Google Labs rolling out Dreambeans to India (191); steipete&#39;s very neat (143); Zara Zhang&#39;s a presentation can feel like embroidery (40); Nan Yu&#39;s Wow Mom, yoy (14) and Super-retweet (58); Dan Shipper&#39;s go get it (14); Nikunj&#39;s dead-internet grumble about bots on X (2).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nikunj Kothari: My two favorite default skills on Claude Code, still, that seem relatively less used are a) /insights and b) /playground.</p>
+              <p>Nikunj Kothari: I love using @ChatGPT Codex app AND @claudeai desktop app AND the @bot app AND the @Muse app.</p>
+              <p>Matt Turck: SurrealDB 4 is now that product... The modern database for the agentic era.</p>
+              <p>Garry Tan: RIP Popular Mechanics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/nikunj" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Legora CTO on Legal Agents / 播客：看不见数据时怎么造法律 agent</h2>
+    <p class="section-desc">Latent Space 全新一期：Legora CTO Jacob Lauritzen——带瑞典法律的 ChatGPT 起家、Tabular Review 成行业术语、单日百万单元格、Lists 原语让 agent 群落活了、不能看任何 trace 的盲飞评估、Azure 全家桶因为律所说 AWS 不行、「agent 能不能就是 API」、4 亿美元并购还是得用 Legora。91946 字符全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:latentspace-legora-cto" data-author-name="Latent Space Podcast" data-author-tag="Jacob Lauritzen（Legora CTO）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Latent Space Podcast avatar"><span class="avatar-fallback">LS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Latent Space Podcast</div>
+            <div class="author-tag is-inline">Jacob Lauritzen（Legora CTO）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Latent Space 对话 Legora CTO Jacob Lauritzen——斯德哥尔摩出身、YC 24、史上增长最快的 legal tech 之一、如今约 100 名工程师。要点：起源是「带瑞典法律的 ChatGPT」；Tabular Review 成了行业术语（连 Claude for Legal 都在用）；约一年前从助手切到 agent；模型选择器是抗争很久后妥协的（「你的 credits 会 10 倍速烧」）；60% 法律工作已经做得很好、剩下拼成本延迟；引注问题等一次模型发布就从 70% 到 99%；evals 团队=3 工程师+3 律师+100 人法律工程师池；模型×执业领域×任务热力图里「一些变好另一些回退」比想象常见；合伙制存在是因为唯一资本是人力资本（「不能拥有人、只能租」）、想帮律所把做事方式 codify 成自改进知识图谱但被 eat-what-you-kill 激励卡住；Tabular Review 单日百万单元格、永远先测前 10 行再放开跑；Lists 原语让 agent 群落活了（「agent 建 list、list 建 agent、agent 读 list」）；吃自家狗粮做收购尽调并真踩过刹车；盲飞困境（不能看任何 trace——数据属于律所的客户）；全部架在 Azure 因为律所说「AWS 不行」；模型套利五维优化；转写翻车现场（澳洲法庭称谓→condom、Claude Code→Cloud Clo-Code）；刚开放做有界任务后训练（法律检索 fan-out）；Fable/Opus 出名啰嗦、Astra 简洁；引注系统多层下钻+律师如今像 code review 一样抽查；长文档推理仍难（MapReduce↔全文钟摆、两页 nuance 丢失）；「agent 能不能就是 API」的开放实验；两年后律所直接用 Legora、企业用 Claude 调 API——「4 亿美元并购，你要的是 Legora」。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【冷开场：Mythos 级智能并不是法律行业的刚需】</p>
+              <p>「人们不断问我们 Mythos 怎么样——但现实是，大量法律工作并不需要 Mythos 级别的智能。」</p>
+              <p>「初级律师完蛋了？我们不需要他们了？」——「不，这其实不是我们看到的现状。我们曾经有个引注不规范的问题，结果下一次模型发布直接解决了：什么都不用做，引注准确率从 70% 干到 99%。但如果你在做一笔 4 亿美元的并购交易，你还是想要 Legora。」</p>
+              <p>「我们曾想：公司整个历史里就保持 20 个工程师、以小博大打赢所有人。我们现在 100 个工程师了，还觉得人太少了。有个我一直在琢磨的问题：我们的产品里，有多大比例可以直接就是 agent 本身？」</p>
+              <p></p>
+              <p>【起源：一个懂瑞典法律的 ChatGPT】</p>
+              <p>Swyx（主持人，Latent Space）：今天嘉宾是 Legora 的 CTO Jacob Lauritzen。Legora 是史上增长最快的 legal tech 之一。你在开播前说你们的起源「非常欧洲」——文化上有什么不一样？</p>
+              <p>Jacob：核心大概是谦逊。我们从一开始就是 underdog——没人相信斯德哥尔摩一间地下室里最小的创业公司能干掉美国那个巨大的 behemoth。所以我们一直很谦卑、一直为生存而战。随着进美国市场，我们才学着稍微 bold 一点、告诉世界我们有多好——这对我们来说并不自然。</p>
+              <p>产品怎么起源的？最早就是「带瑞典法律和搜索工具的 ChatGPT」，这就是全部。我们从法律检索（legal research）起步——这是全世界的大市场：律师花大量时间搞清楚「有哪些先例像这个案子？之前的人在这种情形下怎么做的？」最初就是一个能问问题、然后去查法条的 agent。</p>
+              <p>然后不断扩展 agent 的能力：起草文书、编辑 Word 文件、整理归档文件、跑复杂分析。其中一个功能叫 Tabular Review（表格审查）——现在这个名字成了行业用语，我们很高兴看到 Claude for Legal 在用我们的术语来命名他们做的东西。它本质是批量提取、批量审查海量合同——尽调、融资时用的。除了「干活」，我们现在也做「编排工作」：Lists（类似 Linear 的任务系统）、Intake（与客户协作）、Portal（律师对律师、客户对律师、律师对 agent、甚至 agent 对 agent 的协作）。十年前乃至今天跟律师协作的方式都很痛苦，这里有大量空间。</p>
+              <p>从助手切到 agent 是什么时候？大概一年前。时间线：YC 2024（当时叫 Leia）。今天的产品就是「给律师的 ChatGPT/Cowork」，侧边栏带 Tabular View、Intake 等定制工具。</p>
+              <p></p>
+              <p>【模型策略：律师不需要选模型，但非要坚持给】</p>
+              <p>用什么模型？看任务路由到不同模型。agent 里有个主模型选择器，但特定工具用不同模型——我们发现把问题拆开、按子任务路由最有效。</p>
+              <p>Swyx：我给 Cognition 当顾问时的论点是：agent lab 本质是「领域专用的 GPT wrapper」——我们是领域专家，替你做判断、始终把你放在帕累托前沿上。你问律师「起草这份合同是 Sonnet high 还是 Opus mid 的活？」他们不知道，也不该知道——我时薪一千美元，让它直接跑就完了。</p>
+              <p>Jacob：完全同意。我们抵制模型选择器抵制了很久，最后还是妥协了：「行，你要这个控制权就给你——但你的 credits 会 10 倍速地烧。」现在选五个模型，包括 Fable、Opus、Astra。法律行业对尝鲜新模型的欲望远低于工程界，但确实有人上来就要 Fable。虽然现实是大部分法律工作根本不需要 Mythos 级智能。</p>
+              <p>模型已经够好了吗？我认为是个幂律分布：约 60% 的工作现在就能做得非常好——之后拼的是成本和延迟；剩下的部分，尤其是超复杂分析，还需要更多智能。而且工作本身会随智能扩容——蛋糕变大。</p>
+              <p>早期（Sonnet 4.6/Opus 4.6 时代）agent 什么不行、现在行了？子 agent 委派——fan-out 型检索查询，现在做得非常好，以前很难。</p>
+              <p></p>
+              <p>【评估团队：三工程师+三律师+一百「法律工程师」】</p>
+              <p>我们有专职 evals 团队，追踪所有模型在各执业领域（法律的子领域）×各任务上的表现——一张大热力图，能看见每次模型发布的移动。通常全都变好，但很多次发布是「一些变好、另一些回退」——这比你想象的常见得多。</p>
+              <p>eval 怎么建？像 RL 环境：「这是一个一万份文件的数据室，你在做尽调，一份好报告长这样——包含所有这些红旗、不包含乱七八糟的东西、要简洁」。任务拆成起草（报告好不好、分析对不对）和找红旗（前置分析）。</p>
+              <p>evals 团队构成：3 个工程师+3 个律师混编，外加一个约 100 人的「法律工程师」池——在 Big Law 干过三四年、有 CS 学位、技术前瞻、想改变行业的人。这是韦恩图里最难招的那一档，但他们是力量倍增器：既做 eval 又做产品开发——100 个每天用产品、每天见客户的专家随叫随到。</p>
+              <p>有一段时间做复杂 eval 不划算——模型每两三个月就免费解决一切（引注从 70% 到 99% 就是等来的）。现在的工作更多是：搞清楚 5-10 年后律师行业长什么样。编码领先法律一到两年，可以参考。如果模型能力继续涨、价格继续降——五年后登录进来是不是「指挥中心」：agent 们干了一堆事，你只需要对五件事做反应、审查、改进？</p>
+              <p></p>
+              <p>【行业未来：合伙人制与「知识资产化」】</p>
+              <p>律师会变得远比从前高产：更高质量、更低成本、把时间花在「当初当律师想做的事」上——风险判断、战略、客户关系；少做在巨量文档里捞针的那种苦活。</p>
+              <p>合伙人制怎么变？我想过很多。合伙制之所以存在，是因为这类公司唯一的资本就是人力资本——你不能拥有人（奴隶制废除了），只能租。合伙制就是让人力资本成为公司所有者、从而留下的结构。这不一定要变，但我们想帮律所沉淀「无形资本」：把「X 律所的做事方式」编码进系统——自改进的知识图谱、判例库、产出高质量成果的工作流——这可以是他们的 IP。问题在激励：现在是 eat-what-you-kill，合伙人一走、沉淀的资产一分股息都拿不到，所以没人有动力去 codify。得设计新激励。</p>
+              <p>底端呢？paralegal 完蛋了？初级律师不需要了？——「这其实不是我们看到的。」（Swyx：工程界初级是真的『有点熟透了』——你得从大学退学时就 fully baked。）现状是两极化：好的初级（律师/工程师）比两年前值钱得多，因为他们能产出多得多。</p>
+              <p>计费模式：小时费在变，尤其美国——低端工作已经在按项目费甚至免费做。钱在哪？战略工作+客户关系。律所历史上就愿意免费干活换关系——现在可以继续维护关系、还不用亏钱。</p>
+              <p></p>
+              <p>【Tabular Review：一天百万单元格】</p>
+              <p>流程：尽调场景——一万份雇佣合同。每行一份合同，每列一个问题：「通知期多久」「有没有 IP 转让条款」「解雇要赔多少」——一次填满整张表。也可以直接把一万份文件丢给 agent 说「做个尽调」，它会自己拉起 Tabular Review、跑完、分析结果、标红旗（CEO 薪酬离谱、奇怪的奖金结构），再起草给客户的备忘录。表格可协作、可评论，所有产出带回到源文档的引注（PDF 里的 bounding box 高亮）。</p>
+              <p>为什么选表格形态？fan-out 提取+审阅的最佳形态：一眼看全貌、极易复核。单日最高跑到约一百万个单元格。底层用 ag-Grid。工程上有个好习惯：永远先跑前 10 行——结果对不对、迭代到满意，然后再 go HAM（放开跑）。</p>
+              <p></p>
+              <p>【Intake 与 Lists：agent 群落活了】</p>
+              <p>Intake 是法律专用的 Slack bot：它不只触发一个 agent，而是把任务加进 intake 列表——律师和 agent 们在 Legora 里认领、协作、标完成、结果回到 Slack。像「店面」：进一张票、回一个成品。</p>
+              <p>Lists 是我们的核心原语——像 Notion database：可配置、可挂触发器和自动化，是把一切粘起来的胶水。关键在于：agent 可以创建 list、list 可以创建 agent、agent 可以读 list——agent 群落就活了。这就是终端用户编程：有人会为此走火入魔（像 Clay 有自己的 influencer 一样，我们也许会有 Legora influencer）。但即使不对终端用户开放，灵活性本身也值钱——我们的法律工程师能拿它快速搭定制产品：基金管理看板、生成式 UI，甚至一个内部版的 Lovable。出去见客户：「你想要自己的版本？容易。」</p>
+              <p></p>
+              <p>【两起收购与吃自家狗粮】</p>
+              <p>我们收购了 Kira，并且用自家产品做尽调——一直这么干。Tabular Review 扫完，战略风险（澳大利亚的 payroll 之类）还是请外部律师做 sparring partner。我们真发现过红旗、踩过刹车（不能细说）。</p>
+              <p>另一起收购是英国的 Wexler，做「事实智能」（fact intelligence），主要服务诉讼：上传百万份文件，抽取带命名实体和日期的事实，然后互相比对——哪些被佐证、哪些互相矛盾。可以转录庭审：「他在庭上这么说，但这封邮件显示他当时不在场。」现场看效果相当震撼。这些都能架在 Lists 原语上。</p>
+              <p></p>
+              <p>【瑞典 vs 美国：定制化的胃口】</p>
+              <p>欧洲客户慢热，美国客户激进、AI 高优先级。美国公司（律所和法务部）极想定制：自建 CRM、自建文档管理，然后做触发器——Salesforce 里做完审查自动流转给某人、进 Legora、再回去；甚至想跟我们共建全新产品（这个真做不了）。欧洲人「拿来就用就行」。两边都知道这事关生死。</p>
+              <p></p>
+              <p>【盲飞：不能看任何 trace 的评估】</p>
+              <p>常规产品指标外（DAU/MAU、月使用时长在企业软件里极高、续费率），我们做在线 eval：用超便宜的 LLM 消息判断「问题解决了吗」，feature flag 灰度时对比有没有灾难性劣化。</p>
+              <p>但这个业务最拧巴的一点：我们基本不能看任何 trace、任何数据——全部高度保密，而且很多数据甚至不属于律所、属于律所的客户。你造了一个无所不能的 agent，却完全不知道人们拿它在干什么。evals 团队只能「近似模拟」大家可能在干什么。做 paraphrase/合成数据？我们按最保守的方式自我设限——零风险原则。可行的信号：把失败归类到已知的十几种 failure mode、按任务类型和执业领域分类。</p>
+              <p></p>
+              <p>【数据主权：AWS 滚，Azure 留】</p>
+              <p>起步时律所说「AWS？不行。Amazon、Google——我们的数据一秒都不能给他们」。但 Microsoft 是已审批供应商（365 早做了全套安全审查），所以我们全部基础设施架在 Azure 上。这几年变了：on-prem 的声音彻底消失，大家明白云端反而更安全。三年完成这个转变，其实挺快的。</p>
+              <p></p>
+              <p>【模型套利与转写翻车现场】</p>
+              <p>我们的活儿就是把客户带到帕累托前沿上：能力×延迟×成本×治理×区域可用性做全局优化。开放权重模型某些任务极好就用；某些做后训练；其余用前沿模型。</p>
+              <p>冷知识：早期某个 Gemini 在特定转写+说话人归属上极强，我们拿它做转写。数据安全协议（DPA）名单必须极短（所以没有 ElevenLabs）。一站式的价值巨大——Gemini/OpenAI「来我这儿，啥都有」：治理合规、可扩展、大部分任务够好——这比单项 SOTA 更值钱。微软的转写模型也值得点名，比老 Gemini 还好。</p>
+              <p>转写远未解决：某个澳洲法庭称谓被稳定转写成「condom」；Whisper 和 ElevenLabs 至今把 Claude Code 转成「Cloud Clo-Code」。我的工作流：上面跑一层 LLM 抽关键词，再带着关键词重跑转写模型。</p>
+              <p></p>
+              <p>【微调、检索与「下一个模型会解决」】</p>
+              <p>到现在为止没微调过模型。最近几个月开放权重变得极强，我们会给「有巨大 delta 的有界任务」做后训练——比如法律检索是 fan-out 检索问题，可以训出超快超便宜的低延迟专用模型。但我们不会去训自己的 Fable 当主 agent——跟 Anthropic 竞争这个赢不了。</p>
+              <p>检索方向仍有大量不那么性感的研究：late interaction、多向量（我们团队的 Song 促成了 Turbo 加多向量支持）。其实 harness 里低垂的果实比模型层还多：文件怎么编辑、分析怎么做、法律检索怎么烘焙进去、治理怎么包起来。最重要的三件事：搜索、分析、起草。起草巨型合同其实也是搜索问题——先找对判例（同行业？同类型交易？），再决定哪段抄哪份。</p>
+              <p>哪个模型起草最好？Fable 和 Opus 出名地啰嗦（这不是好事），Astra 相当好且简洁——啰嗦这个毛病很难用 prompt 压下去，大概下一个 Anthropic 模型会解决。（他们都知道，我们有 Slack 通道。）</p>
+              <p></p>
+              <p>【幻觉与长文档：热力图之外的难题】</p>
+              <p>幻觉对策是一套引注系统：每个产出带可点击的源文档高亮（bounding box），多层下钻——agent 基于 Tabular Review 写的结论可以引用到具体单元格。律师会去核验引注吗？一开始会，现在跟 code review 一样：知道哪几处必须查、其余「听起来合理就过了」——跟审初级律师的产出一个道理。</p>
+              <p>长文档推理仍然难：巨型合同跨全文的修改——定义变了、顺序变了、上面改过的要记住。所以不 one-shot，而是编排式分块修改。有趣的是脚手架随模型来回换：MapReduce ↔ 全文进 context，Word 插件的架构改过好几轮。搜索还有个细微难题：某件事分散写在两页上，每个分块单独看都不相关、合起来才极相关——MapReduce 会丢掉这种 nuance。</p>
+              <p></p>
+              <p>【买律所买数据？】</p>
+              <p>拿数据难：只能请客户匿名化文档和问题，能复现就修。买一家律所？有人在考虑——但数据到底归律所还是归客户是个问题。另外律所数据「输入好用、输出难用」：只拿到最终成果，得逆向工程它是怎么得出的。真实使用的真实 trace 是最高价值的数据。（顺带：Google 买 Spirit Airlines、失败创业公司的 Slack 都能卖——YC 系里就有收失败公司的。）</p>
+              <p>还有个 alpha：embedding。RAG 重的工作负载如果只看 MTEB 榜拿第一名，桌上留了很多钱——用 Voyage 或定制 embedding。唯一的麻烦：我们要多语言（欧洲是这件事之王）。Mistral 帮上忙了吗？——「到目前还没有。」（刚又融了一大笔，看看吧。欧洲需要多得多的模型公司。）</p>
+              <p></p>
+              <p>【两年后的格局与收尾】</p>
+              <p>两年后，律师会在 Legora 里干活，还是用 Claude 调 Legora 的 API？都有。大企业可能像我用 Linear——有时通过 Claude 调，但还是回到 Linear 本体。律所会直接用 Legora，更简单更好。编码圈发生过两次「实验室把 agent lab 掐掉」的事，法律不会——知识工作太大了，法律跟数据分析、销售、市场、财务一样必须是其中一部分；实验室会做，但永远做不到我们这么深。Claude 服务小企业法务？挺好。4 亿美元的并购？你要的是 Legora。</p>
+              <p>法学院：已经开始有项目教 Legora。（Swyx 建议：给 CS 毕业生发法学院奖学金，造一批 JD-CS——JD-MBA 有，JD-CS 还没有。）</p>
+              <p>最后：纽约约 100 人，工程在纽约、斯德哥尔摩、伦敦激进招人中。每个顶级行业——医生、律师、程序员——最终都会有两三家完全统治该领域的 agent lab。法律市场只会越来越大，而且说到底，现代社会就是跑在法律上的。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Latent Space sits down with Jacob Lauritzen, CTO of Legora — the Stockholm-origin, YC-24 legal-tech rocket now ~100 engineers and one of the fastest-growing legal tech companies in history. The full tour: the origin (a ChatGPT with Swedish laws and a search tool; legal research first, then drafting, Word editing, Tabular Review — a term the industry now uses, and they&#39;re happy Claude for Legal adopted it); the assistant-to-agent transition about a year ago; model routing (a model picker they fought for a long time and finally caved on — your credits will burn 10x faster; a power distribution: ~60% of legal work is already done really well, the rest is a cost/latency game plus complex analysis needing more intelligence; the citation problem that went 70% to 99% just waiting for the next model release); the evals team (3 engineers + 3 lawyers + a pool of ~100 legal engineers — Big Law veterans with CS degrees, the hardest hires and the biggest force multipliers; RL-environment style evals: here&#39;s a 10k-file data room, a great report looks like this; a model×practice-area×task heatmap where releases often improve some things and regress others); what the profession looks like in 5-10 years (lawyers spend time on judgment, strategy and clients; the partnership model exists because human capital is the only capital — you can&#39;t own people, you rent them; the ambition to help firms codify their way of working into self-improving knowledge graphs as durable IP — blocked by eat-what-you-kill incentives; juniors polarize rather than vanish; billing shifts to project fees; money moves to strategic work and client relationships); Tabular Review in depth (10,000 employment contracts, one question per column, red flags surfaced, memo drafted, a million cells a day, always test the first 10 rows before going HAM); Lists as the Notion-database-like primitive where agents create lists, lists create agents, agents read lists — the swarm comes alive (a Lovable inside Legora); the Kira and Wexler acquisitions and dogfooding their own M&amp;A (they found red flags and pulled brakes); Sweden vs US (Europeans take off-the-shelf, Americans want to custom-build everything — triggers, integrations, even whole co-built products); building while blind (they cannot look at any traces — the data is confidential and often belongs to the firm&#39;s clients; online evals with cheap LLM messages, failure-mode classification, zero-risk self-restriction on paraphrase); infrastructure on Azure because law firms said AWS? No (Microsoft was the approved 365 vendor; on-prem talk vanished in three years); model arbitrage across capability/latency/cost/governance/regional availability (early Gemini quietly excellent at transcription + speaker attribution; the Australian court title transcribed as condom; Whisper still writes Cloud Clo-Code; rerun with extracted keywords); post-training only now (open weights for bounded fan-out retrieval tasks like legal research; never training their own main agent — they won&#39;t win that vs Anthropic); drafting (Fable and Opus are notoriously chatty, Astra is concise; chattiness resists prompting — next model will fix it); the citation system with bounding boxes and multi-layer drilldown (lawyers now review like code review — check the critical bits, the rest sounds reasonable); long-document reasoning still hard (chunk-orchestrated edits; the MapReduce-to-context pendulum; the two-page nuance MapReduce loses); buying a law firm for data (ownership questions; inputs valuable, outputs need reverse-engineering); embeddings alpha (MTEB leaders leave money on the table — customize, e.g. Voyage; multilingual is the European tax; Mistral hasn&#39;t helped yet); and the two-year view (enterprises use Claude and call Legora&#39;s API like using Linear through Claude; law firms just use Legora; the labs won&#39;t kill them off — legal is one slice of a knowledge-work surface too big to go deep on; a $400M M&amp;A deal wants Legora; law-school programs teaching Legora are starting; and modern society runs on legal).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Jacob: We basically had to switch from the assistant to the agent... a year ago probably.</p>
+              <p>Jacob: We have one problem where it wouldn&#39;t cite properly, and it was like next model release solved. It went from like 70% to, like, 99%.</p>
+              <p>Jacob: We can&#39;t look at any traces, basically. We can&#39;t look at any data &#39;cause it&#39;s all super confidential.</p>
+              <p>Jacob: Agents can create lists, and lists can create agents, and agents can read lists, and so it&#39;s like the agent swarm comes alive.</p>
+              <p>Jacob: Can the agent be the API? ... How much of our product can just be the agent versus all the other stuff?</p>
+              <p>Jacob: If you&#39;re doing a $400 million M&amp;A transaction, you&#39;re gonna want Legora.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@LatentSpacePod" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-11-04 source feeds (18 builders, 29 tweets; plus one brand-new-to-this-digest podcast: Latent Space with Jacob Lauritzen, CTO of Legora, on building legal agents when you can&#39;t see the data — full 91,946-character transcript translated).">Source: Follow Builders curated daily digest. Built from the 2026-11-04 source feeds (18 builders, 29 tweets; plus one brand-new-to-this-digest podcast: Latent Space with Jacob Lauritzen, CTO of Legora, on building legal agents when you can&#39;t see the data — full 91,946-character transcript translated).</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
