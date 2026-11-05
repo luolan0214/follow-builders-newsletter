@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-11-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-11-05" data-issue-number="164" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 164 期｜2026-11-05｜双语精选版｜2 条精选｜2 位作者｜2 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="X 重播 + 播客重磅日。今日 X feed 与 11-04 完全相同（18 位 builders、29 条推文——sama 宣言 10173 赞、Cat Wu 告别 9473 赞等，完整版见 11-04 期），以要点重播带过。主菜是播客全新一期：Redpoint Unsupervised Learning Ep 96 × Nebius CTO——「我们是 AI Cloud，下一个对手是 AWS 与 Google Cloud；收入是 AWS 的 1%，但三年需求看涨十倍到百倍」；NVIDIA 新芯片从原理图到机架上线的完整流水线；单一客户能吃掉 30 兆瓦、单卷打出 700 GB/s；「整个行业啥都没优化——95% 客户跑的不是原版开源模型，限定领域也许根本不需要前沿尺寸」；唯一瓶颈是执行力（变压器交期数年）；「现代 AI 工作负载正在重新变回代码——agent 跑几分钟不调一次 LLM」。62067 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">X 重播 + 播客重磅日。今日 X feed 与 11-04 完全相同（18 位 builders、29 条推文——sama 宣言 10173 赞、Cat Wu 告别 9473 赞等，完整版见 11-04 期），以要点重播带过。主菜是播客全新一期：Redpoint Unsupervised Learning Ep 96 × Nebius CTO——「我们是 AI Cloud，下一个对手是 AWS 与 Google Cloud；收入是 AWS 的 1%，但三年需求看涨十倍到百倍」；NVIDIA 新芯片从原理图到机架上线的完整流水线；单一客户能吃掉 30 兆瓦、单卷打出 700 GB/s；「整个行业啥都没优化——95% 客户跑的不是原版开源模型，限定领域也许根本不需要前沿尺寸」；唯一瓶颈是执行力（变压器交期数年）；「现代 AI 工作负载正在重新变回代码——agent 跑几分钟不调一次 LLM」。62067 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">X Replay: 人类主权与告别日 / X 重播：宣言与告别</h2>
+    <p class="section-desc">上游 X feed 与 11-04 完全相同（18 位 builders、29 条推文，该期已完整收录）：sama 宣言（10173 赞）、Cat Wu 告别（9473 赞）、Sottiaux（8425 赞）、Cherny 插件自动连接（1941 赞）等。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="replay-2026-11-04-x" data-author-name="Follow Builders（重播）" data-author-tag="X feed 与 11-04 相同" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Follow Builders（重播） avatar"><span class="avatar-fallback">FB</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Follow Builders（重播）</div>
+            <div class="author-tag is-inline">X feed 与 11-04 相同</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>重播说明：今日 X feed 与 11-04 完全相同（18 位 builders、29 条推文，完整版已收录于 11-04 期）。要点回顾：sama 宣言（**10173 赞**）——「人民应永远掌控未来；人民不应把未来控制权让渡给超级智能，这一要求最终应约束 AI 进展」；Thariq（6154 赞）——「苦涩教训本尊：最聪明的模型 token 越来越少、无需验证、直接就是对的」；Cat Wu 告别 Anthropic（**9473 赞**）——「今天默认已是信任 Claude 判断自动放行」；Sottiaux（8425 赞）——「一切还会一变再变，仍在极早期」；Cherny（1941 赞）——Claude 自动连接公司插件；Rauchg（694 赞）——「把安全团队当软件下载」；Levie（391 赞）——「生产率上限两年从 30-50% 到 5-10 倍」；Garry Tan「RIP Popular Mechanics」（962 赞）。今日主菜是播客全新一期（见下卡）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>sama：人民应永远掌控未来。Cat Wu：默认信任自动放行。Levie：产出分化史上最高。详见 11-04 期。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Replay note: today&#39;s X feed is identical to 2026-11-04 — the same 18 builders and 29 tweets, fully covered in that issue. Headlines: sama&#39;s manifesto at 10173 (People should always be in control of the future; people should not cede control to superintelligence, and that requirement should ultimately constrain AI progress); Thariq at 6154 (the bitter lesson at work — the smartest models need fewer tokens, no verification, just right); Cat Wu&#39;s farewell to Anthropic at 9473 (the default is now trusting Claude&#39;s judgment to auto-approve); Sottiaux at 8425 (things will change again and again; still very early); Boris Cherny at 1941 (Claude auto-connects company plugins); Rauchg&#39;s security agent at 694 (download a security team as software); Levie&#39;s divergence at 391 (productivity upper limits 30-50% to 5-10X in two years); Garry Tan&#39;s RIP Popular Mechanics at 962.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sam Altman: People should always be in control of the future.</p>
+              <p>Cat Wu: Today, the default is trusting Claude&#39;s judgment to auto-approve.</p>
+              <p>Aaron Levie: The divergence in AI output weirdly may be the highest it&#39;s ever been, even though adoption is the broadest it&#39;s ever been.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/sama" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Podcast: Nebius CTO on Racing the Hyperscalers / 播客：在 AWS 醒来之前</h2>
+    <p class="section-desc">Redpoint Unsupervised Learning Ep 96：Nebius CTO——「我们是 AI Cloud 不是 Neo Cloud；收入是 AWS 的 1%、三年需求看涨百倍」；NVIDIA 新芯片流水线；700 GB/s 单卷吞吐；「整个行业啥都没优化：95% 客户跑的不是原版开源模型」；唯一瓶颈是执行力；AI 负载正在重新变成代码。62067 字符全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:redpoint-unsupervised-96" data-author-name="Unsupervised Learning（Redpoint）Ep 96" data-author-tag="Nebius CTO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Unsupervised Learning（Redpoint）Ep 96 avatar"><span class="avatar-fallback">UL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Unsupervised Learning（Redpoint）Ep 96</div>
+            <div class="author-tag is-inline">Nebius CTO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Redpoint 的 Jacob Efron 对话 Nebius CTO——从 Yandex 拆出的 AI 云、如今正面追赶 AWS 和 Google Cloud。要点：软件即护城河（同一平台既服务数万卡互联集群、也服务跑半小时单卡的自助用户）；痛恨 Neo Cloud 一词（玩家从五七家膨胀到三五百家）——「我们是 AI Cloud，下一个对手是 AWS」；收入约为 AWS 的 1%、但三年需求看涨十倍到百倍；Yandex 拆分起源与全部推倒重写；软件优先（2024 年硬件 40-50 人 vs 软件 200 人）；NVIDIA 新芯片流水线（提前一年看原理图、样片与上月不同、首批建集群撞没人见过的 bug、提补丁上游）；客户分化在成熟度而非规模（neo lab 十亿美元合同不在乎 GPU 在法国还是冰岛；企业要认证与源码审查）；存储意外（单一共享卷打出 700 GB/s）；延迟与成本是 100% 软件问题；disagg 推理人人谈没人做对；「整个行业啥都没优化」——95% 客户跑的不是原版开源模型、限定领域也许不需要前沿尺寸；收购（模型优化人才并购、Tavily 与自研沙箱）；数据中心墙内全按自家标准；唯一瓶颈是执行力（变压器交期数年、项目经理最稀缺）；超大规模云为何没赢（芯片短缺+内部腾挪+改造惯性，走出短缺后全销售火力进场——赌自己长得够快）；终局（三五百家不会全活、但利基不等于小）；OpenAI×Baseten（账单震惊的回应、单一触点策略）；管理组织保守前进（agent 产出是你的责任、完全自主 agent 不碰核心服务——「见过香肠怎么做的」）；最大失误是低估单一客户规模（30 兆瓦不够一个客户用）；现在盯「结果优化」（按结果竞价、harness 随任务演化、AI 负载重新变成代码——agent 跑几分钟不调一次 LLM）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【冷开场：如果 NVIDIA 产能是十倍】</p>
+              <p>「如果 NVIDIA 能多造十倍的芯片，这整个市场的形态都会不一样。对超大规模云来说，这不只是销售问题——还牵涉把为其他负载大规模建好的基础设施改掉。这是一笔必须由潜在业务规模来证明合理性的巨额投资，而眼下还到不了那个量级。」</p>
+              <p></p>
+              <p>【市场格局：我们是 AI Cloud，不是 Neo Cloud】</p>
+              <p>主持人 Jacob Efron（Redpoint）：聊聊 AI 云市场的格局？有人说「重要的是拿到 GPU，哪有去哪」。</p>
+              <p>Nebius CTO：我显然有立场——我是软件出身，我们的产品从第一天起就建立在「软件即护城河」上：用同一个平台，既能服务消耗数万张 GPU、单一互联互通集群的大客户，也能服务跑半小时单卡的自助用户。大规模建设、却几乎像零售一样出售——这是我们从一开始的价值主张，也是我们与市场所有人的区别。</p>
+              <p>顺便说：我痛恨 Neo Cloud 这个词。它最初是区分「做这件奇怪新事的云公司」，后来人人都想挤进这个市场——起步时这个领域五到七家，现在三到五百家（取决于你愿意把什么算进来）。我们不再要这个被撑大的伞形术语：我们是 AI Cloud，我们过了那个阶段，下一个竞争对象是 AWS 和 Google Cloud。是的，我们小得多——收入大概是 AWS 的 1%——但我们跑得快，服务一个非常特定的市场，并且押注这个市场即将爆炸：未来三年总需求会涨十倍、甚至百倍。我们才刚挠到表面。现在那些巨大的算力设施很多是自有自用的（马斯克的 Colossus 是真大规模，但不面向公开市场）；Anthropic 和 OpenAI 在搅动产能，但那是为自家产品。Google、Meta、微软则在「租给市场 vs 留给内部团队」之间不停腾挪。我们的赌注：存在一个独立于大厂（没有巨额内部消耗）的玩家生态位，服务那些「想成为大公司的中型玩家」。</p>
+              <p></p>
+              <p>【起源：与 Yandex 分家，全部推倒重写】</p>
+              <p>公司 2024 年完成与 Yandex 的拆分——与俄罗斯资产再无关联、白纸一张。</p>
+              <p>Yandex 的遗产有多重要？硬件侧：核心团队从 Yandex 带来「真规模」的运维经验——几十万、上百万台服务器、多个机房，他们是初期建设与扩张的骨干，没有他们我们不会这么成功。软件侧则一言难尽：一切必须从零重写（旧经验基本作废）；而且扩张太快，到 2024 年底新平台上线时，软件工程团队里相当一部分已经不是 Yandex 的人了。</p>
+              <p>方向上我们笃定：不做托管裸金属、不做第三方服务拼盘，要做整体统一的云平台。自建服务器与机箱、写固件、建网络——2024 年硬件团队四五十人时，软件组织已经两百人。我们自认是软件优先的公司：在坚实的硬件地基上造云。那些从加密货币等背景进来的人，思路多是「买 GPU、跑起来、找到买家」。</p>
+              <p></p>
+              <p>【新芯片上线流水线：一年预演、样片、补丁】</p>
+              <p>和 NVIDIA 的流程「乱——是好意义上的乱」。远在发布前一年，NVIDIA 会给你看原型和原理图：内部怎么优化、PCI 连接在哪、下一代平台长什么样。过一阵来说「我们优化过了、会不一样」；再来「有实验室样片了，要看吗」——「当然」——「哦对了，它跟两个月前给你们看的不一样」。所有人在时间上都被压缩，NVIDIA 也在流片过程中持续迭代。不像消费市场：今天的 iPhone 三年前就规划好、一年前定稿、最后一年打磨。AI 市场的节奏是：发布都只是指示性的。</p>
+              <p>到样片接近量产版，你开始建设：把新硬件的支持、新限制/新能力整合进软件平台；解决负载隔离（我们是云、不是裸金属——虚拟化、存储、网络都得工作）。有时我们冲在最前面——某些代际可能是最早建成某规模集群的团队之一，撞上没人见过的软件问题，报回 NVIDIA、提补丁、等修复。比如从 B300 到 GB300：隔离架构不同、以「机架」而非「服务器」为单位——得想出机架级维护的办法、把负载迁走。总之每天推一点，最后就有产品、有客户在用。</p>
+              <p></p>
+              <p>【客户差异：成熟度，而非规模】</p>
+              <p>负载本身差异不大——训练或推理，长得都差不多。我们当年低估的是存储：GPU 固然最重要，但伴随训练的是海量存储需求——拼的是吞吐与延迟。以前谈网络存储用 GB/s，现在客户 routinely 从单个共享卷打出五六七百 GB/s 的吞吐、接上千台 GPU 服务器——两年前我根本不敢想，现在成了预期。而基线拉到这么高，你就能服务任何人。</p>
+              <p>真正的客户分化在成熟度：新建的 neo lab 动辄数十亿融资、大部分预算进算力——十亿美元的合同，人家只在乎 GPU、存储、性能、可用性，连位置都不在乎（美国？法国？冰岛？无所谓）。而企业客户合同小得多、但有下游客户、有合规要求——认证、安全审计、「让我们看你们源码」「你们怎么防攻击向量 Y」。这才是做「真正的云」的部分，也是与规模和性能相比真正差异化的东西。</p>
+              <p></p>
+              <p>【延迟与成本：100% 在软件层解决】</p>
+              <p>延迟敏感客户小 batch、后台 agent 客户无所谓——这不是靠硬件或集群构造解决的。前提自始至终：通用云平台、基线高到装下绝大多数负载。之后的 SLA 游戏（首 token 延迟、请求总延迟）全部发生在软件层：编排层、模型层、一路往上到请求从端点到推理器的路径与沿途损耗。100% 软件。</p>
+              <p></p>
+              <p>【Disagg 推理：人人都在谈、没人做对】</p>
+              <p>预填充分离（prefill/decode 分离）这个阶段人人谈、没人做对——这是个复杂问题，而且推理里有大量低垂得多的果子可以先摘。我们很谨慎：它不是所有客户所有负载的默认解；围绕它做 SLA 到今天都很难。原型服务里有不错的成果；最有需求的客户的生产环境里也有分离式部署——但偏手工。有意思的是：对于新一代 GB 级 NVLink 机架（机架内互连快到飞起），以前分离式的很多难题在「能塞进一个机架」的前提下就自动解决了——剩下的是按客户流量模式配平 prefill/decode 节点、以及一 rack 两负载的装箱问题。云侧这个产品只按整机架卖；托管推理侧则可以混布。</p>
+              <p></p>
+              <p>【低垂的果子：「整个行业啥都没优化」】</p>
+              <p>恕我直言：整个行业根本没怎么优化。跑推理——尤其是跑如今这批开放权重模型——远不是已解决的问题：拿开源推理服务器对新模型的初始支持直接跑，结果多半乏善可陈——不够快、不够便宜（按现在的基建价格），还不如直接用 Fable 5.1、Astra 6。但正因为架构开放，你可以优化请求处理、推理服务器配置、针对特定流量模式做内核优化（有时是过度优化）；模型权重侧的潜力也远未挖完：不止投机解码，还有剪枝、选择性剪枝、压缩。</p>
+              <p>我们客户里 95% 不跑原版开源模型——全是改过的、微调过的。这意味它们面向特定用例；特定用例通常是限定领域；限定领域意味着：你只需要在特定子任务上保留前沿智能与推理能力，其余不在乎——也许你根本不需要这么大的模型，只需要一个「对该任务选择性压缩」的模型。这当然不适用于开放式 deep research 或宽域编码。但我坚信：真正的企业级 AI 落地会越来越走向专业 agent、限定领域——那时你甚至不再在乎成本，而在乎结果的可预测性与拿到结果的分秒级时间。这里还会出几个漂亮突破。</p>
+              <p></p>
+              <p>【收购与平台化：Tavily、沙箱与 agentic 工具】</p>
+              <p>我们想在一切前沿。这些优化是加法甚至乘法。今夏初的一笔收购就是冲着人才去的——模型优化、压缩、投机解码——与既有团队合并后规模翻倍：数十人专攻，内核优化、模型压缩各有专项小组。想认真做推理即服务，今天这是唯一路径。</p>
+              <p>Tavily 那笔：一年前就被产品和 go-to-market 惊艳；我们知道自己底层技术与大规模网页索引的专长能让他们跑得更快（跑一个网页搜索引擎一点也不简单）。它与现有产品线的整合在探索中——我们在为托管推理配 agentic 工具：我们如今也自研沙箱，这是人们搭 agent 的积木之一，还有几个更早期产品在路上。</p>
+              <p></p>
+              <p>【数据中心：墙里的一切都归我们控】</p>
+              <p>老实说我不知道机房的墙是什么造的。但墙内的一切完全由我们掌控：我们不租「自带网络、自带 GPU」的机房；租的话只租楼和电，内部建设全部按我们的标准来。最近还宣布了「轻资产模式」：第三方出资本建设施和 GPU，我们把平台架上去跑——体验完全一致。我们从不把租来的东西包装成自己的云：在 Nebius 开一台虚机，可以确定它从上到下跑在我们的栈上。</p>
+              <p></p>
+              <p>【瓶颈只有一个人：你的执行力】</p>
+              <p>问哪个是关键瓶颈——电力？人力？散热？网络？HBM？我只能说一个：你的执行力。GPU 短缺、组件短缺、如今 CPU 短缺、NVMe 短缺、机房不够、电不够、合格工人不够、网络收发器不够、变压器——你知道变压器现在交期多久吗？好几年。所以一切都是问题，而唯一能筑起的护城河是：围绕这一切的执行能力——采购能力、在该抄近路的地方抄近路、在设施之间灵活腾挪（把这个挪过去、把这个推迟、那个就能赶上）。这个领域里，有经验的项目经理大概是我职业生涯里见过最稀缺的：脑子里装着全局问题、还能在其中导航——这本身就是护城河。</p>
+              <p></p>
+              <p>【负载变了又怎样：负载就是负载】</p>
+              <p>长程 agent、后训练、开源模型——负载就是负载。基线够高就不受约束，剩下是优化问题：怎么装箱、怎么切分、怎么混布、暴露哪些原语。新一代 NVIDIA 互连架构（转写含混，与 Groq 交易相关）也只是「再加半代」：连接方式新、有些限制，效率有增益，是平台的一个小众补充。定制的部分远比你想象的少。</p>
+              <p></p>
+              <p>【超大规模云为什么没赢：产能、内部消耗与改造惯性】</p>
+              <p>首先纠正「他们没试」的印象——他们从这个市场拿到可观的大单，真实成交价远比挂牌价有竞争力。两个原因：一、内部消耗与对外出租的腾挪，且我们身处芯片短缺的世界——如果 NVIDIA 产能是十倍，微软和 Google 会既自用又供给市场，整个市场形态都会不同；因为产能对他们的规模而言不够，这块业务在他们的盘子里相对就小：对 AWS 这种体量，几十亿美元不是小钱但也不够改造「为其他负载建成的网络/吞吐/存储」这套基础设施——那是必须由业务规模证明合理性的巨额投资，而它还不到那一步。等两三年、五年后走出芯片短缺，他们会更重视、会投入、会重组内部去适配这些需求，然后用全部销售火力来抢这个市场。问题是：到那天，我们这些新玩家长得够不够快、能不能以平等身份同场竞技。我们的赌注是：够快。</p>
+              <p></p>
+              <p>【三到五百家 Neo Cloud 的终局】</p>
+              <p>AI 消费会无处不在，就像今天的 web 服务。市场会有 AWS，也会有 Hetzner、DigitalOcean、Linode 和长尾本地托管商。现在这三五百家五年后全活着？不一定——会有整合、有死亡、有新玩家。但这个市场会持续吸引资本，五年后仍会有几百家玩家各有所长。DigitalOcean 并没有因为 AWS 增长而死。</p>
+              <p></p>
+              <p>【什么会被吞并、什么会独立】</p>
+              <p>会复刻上一代云的剧本：增长压力逼你扩品类（否则撑不起估值预测）。OpenAI 有模型、有推理、有搜索（不对外暴露、但平台上的 agent 能用）、有各种沙箱与本地/云端 agent，还在投资 forward deployed 组织去吃传统上德勤、埃森哲的蛋糕——大厂自然会无处不在。但这不意味着一家通吃：今天照样有独立的对象存储玩家、独立算力玩家、小型推理玩家、独立数据库——BigQuery 之外出了 Snowflake，Aurora/Redshift 之外出了 MongoDB 和 ClickHouse。市场太大，利基不等于小——利基可以是solid company。</p>
+              <p></p>
+              <p>【OpenAI × Baseten：单一触点的灵活性】</p>
+              <p>大家对「模型太贵、月底账单吓人」抱怨很多——这可能正是个回应：想试开放模型就去试；反正开放模型仍落后于闭源，给你「降档试用+随时切回前沿」的选项。我喜欢这步棋：说明 OpenAI 不僵化、在探索。而这一切服务于同一个目标：成为单一触点。只要用户还在你的生态里，你总有办法引导他、追加销售、介绍新服务。能消除一个顾虑，何乐不为。</p>
+              <p></p>
+              <p>【一年内改变看法的事：AI 编码】</p>
+              <p>明显的答案是软件工程：一年前是「彻底的胡扯」，现在是日常工具的扎实部分。更个人的：我开始更多依赖本地 agent 与 harness 分担认知负荷。</p>
+              <p></p>
+              <p>【管理工程组织：保守地前进】</p>
+              <p> cautiously、conservatively。slop 在聊天里、merge request 里到处渗出，我试着把控节奏、保持警觉。我们不限制工具使用——预算相当大、不设人均/部门限额——但同时观察使用方式、找出最无效的用法；并且立了一套政策：你用 agent 做的，仍然是你的结果、你的责任、你的 PR、你的代码、你 on call、半夜被叫起来的是你。完全自主 agent 的产出必须打标；完全自主的 agent 暂时不能碰核心服务。有人惊讶于身处 AI 革命公司的我如此保守——但我见过香肠是怎么做的，我会谨慎。</p>
+              <p></p>
+              <p>【最大的失误：低估了单一客户的规模】</p>
+              <p>说出来好笑：我们低估了规模。不是公司增长——我们从一开始就很乐观——而是当今单一客户运转的规模。五年前 30 兆瓦是严肃设施、装几十万台服务器；现在 30 兆瓦有时不够一个客户用，我至今没完全适应。存储同理：四年前网络存储谈的是几百 MB/s，现在客户 routinely 从单一共享文件系统拉七百 GB/s。我是基础设施出身的人，见过各种数字——突然在后面加两个零就叫新常态。仍然费解。</p>
+              <p></p>
+              <p>【盯什么：结果优化与「负载重新变成代码」】</p>
+              <p>我已经不关心新模型更大更聪明——接受它是给定。也在留意新架构，但今天看不到任何值得下小注的东西（希望某个 stealth 实验室里正在憋）。</p>
+              <p>我越来越感兴趣的是 agent 侧的「结果优化」：我们从谈模型、模型大小、模型家族，转向多轮长程 agent——谈的不再是请求而是结果，公司在按结果竞价。内部有个小组在研究：怎么提高达成结果的概率——不是靠换更大的模型（那当然是一部分），而是引入更复杂（或更简单）的工具、让 harness 随任务演化。这把我们带回可观的 CPU 消耗：现代 AI 工作负载正在重新变回代码——形式化、质量门、复杂工具；有时你的 agent 跑好几分钟都不向后端 LLM 发一个请求。未来 AI 落地很大程度取决于 agentic 场景的可靠性、能否可靠达成结果——模型之外这整圈优化循环，是重要的一环。</p>
+              <p></p>
+              <p>（主持人 Jacob Efron 收尾：这是 Unsupervised Learning——我的夜间与周末项目，白天我是 Redpoint 的投资人。订阅与分享让这一切成立，下期见。）</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Redpoint&#39;s Jacob Efron sits down with the CTO of Nebius — the Yandex-spinout AI cloud now racing AWS and Google Cloud head-on. The full tour: the market thesis (software is the moat — serving tens of thousands of GPUs in one interconnected cluster on the same platform as a half-hour single-GPU self-service customer; hating the neo-cloud term with a passion — 5-7 players became 300-500 — We are the AI Cloud; revenue ~1% of AWS but demand up 10-100x in three years; a niche for an independent player serving mid-tier players who want to become large ones); the Yandex origin (separation finalized 2024, clean slate; the core hardware team that ran millions of servers; everything rewritten from scratch; software-first — 40-50 hardware people vs 200 software engineers in 2024, own chassis and firmware); the NVIDIA chip pipeline (prototypes a year out, schematics, iterations that change everything, lab samples that don&#39;t match two months prior, being first to hit never-seen bugs at cluster scale, proposing patches upstream, B300-to-GB300 rack-level maintenance); customer differences (maturity, not scale — neo labs sign billion-dollar contracts and don&#39;t care if the GPUs are in France or Iceland; enterprises need certifications, source reviews, security postures); the storage surprise (customers pulling 500-700 GB/s from a single shared volume — two years ago unthinkable, now the baseline); latency/cost as a 100% software problem at the orchestration layer; disagg inference (everyone talks, no one does it properly; selective production deployments; NVLink racks dissolve many of the old problems); the low-hanging fruit (as an industry we didn&#39;t optimize shit; vanilla OSS inference servers are underwhelming — optimize kernels per traffic pattern, prune, compress; 95% of customers run modified fine-tuned models; scoped domains might not need frontier size; enterprises care about predictability and time-to-outcome over cost); acquisitions (a talent buy in model optimization/compression/speculative decoding; Tavily — helping them run faster with low-level and web-index expertise, feeding managed inference + agentic tools, plus in-house sandboxes); data centers (walls don&#39;t matter, everything inside is built to their spec, asset-light model with third-party capital, never reselling someone else&#39;s cloud); the single bottleneck (your ability to execute — GPUs, CPUs, NVMe, transformers with multi-year lead times; experienced project managers are the scarcest thing; navigation is the moat); why hyperscalers didn&#39;t win (chip shortage + internal consumption juggling + infrastructure built for other workloads needing massive reinvestment; when the shortage ends in 2-5 years they&#39;ll come with full sales power — the bet is being fast enough to fight as equals); the end state (300-500 neo clouds won&#39;t all survive, but DigitalOcean didn&#39;t die because AWS grew; niche doesn&#39;t mean small — Snowflake, MongoDB, ClickHouse); OpenAI x Baseten (an answer to bill shock; flexibility in service of being the single touchpoint); what changed his mind (AI coding went from total bullshit to everyday tooling in a year); running the org conservatively (no tool limits, but whatever you did with the agent is your result — your PR, your on-call; fully autonomous agents marked as such and kept off core services; I&#39;ve seen how the sausage is made); the biggest mistake (underestimating single-client scale — 30MW once hosted hundreds of thousands of servers, now sometimes not enough for one client; 700 GB/s from one filesystem); and what he watches now (stopped caring about bigger models; outcome optimization for long-running agents — companies bidding per outcome, harnesses evolving per task, and AI workloads becoming code again — agents running for minutes without a single LLM call).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>CTO: Our product and business was launched on the idea that software is the moat.</p>
+              <p>CTO: Neo Clouds. Hate that term, like, with a passion... We are the AI Cloud. We are not competing with the Neo Cloud markets. We kind of believe we are past that. Our next competition point is taking on AWS and Google Cloud.</p>
+              <p>CTO: There is one single bottleneck, and that&#39;s your ability to execute.</p>
+              <p>CTO: First of all I think as an industry, we didn&#39;t optimize shit.</p>
+              <p>CTO: A lot of modern AI workloads actually go back to becoming code... sometimes your agent works for minutes and minutes without even issuing a back end request to an LLM.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@RedpointAI" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-11-05 source feeds: the X feed is byte-identical to 2026-11-04 (18 builders, 29 tweets — replayed, full coverage on 11-04); plus one brand-new-to-this-digest podcast: Redpoint&#39;s Unsupervised Learning Ep 96 with the Nebius CTO on racing the hyperscalers before AWS wakes up — full 62,067-character transcript translated. One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.">Source: Follow Builders curated daily digest. Built from the 2026-11-05 source feeds: the X feed is byte-identical to 2026-11-04 (18 builders, 29 tweets — replayed, full coverage on 11-04); plus one brand-new-to-this-digest podcast: Redpoint&#39;s Unsupervised Learning Ep 96 with the Nebius CTO on racing the hyperscalers before AWS wakes up — full 62,067-character transcript translated. One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
