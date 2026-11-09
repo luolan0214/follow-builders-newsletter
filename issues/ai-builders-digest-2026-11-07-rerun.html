@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-11-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-11-07" data-issue-number="165" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 165 期｜2026-11-07｜双语精选版｜7 条精选｜7 位作者｜5 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="三分钟与所有权日。Karpathy（**6445 赞，今日最高**）：Tristan 发布最佳 YouTube 频道榜单——「显然我得把它做成 TristanTube：4.7 万支极客视频+TV 模式，Claude Code 一次 prompt 三分钟搞定。」Sottiaux（**2756 赞**）：「所有 Pro 档都没有 5 小时限制：Pro 100=10 倍、Pro 200=20 倍、Pro 500=50 倍+ultrafast」+「Pro 50 有人要吗？」steipete（**1053 赞**）：「Asahi 的一切在于开放封闭之物——加新限制不是正路，AI rejection 更是无厘头。」Levie（**582 赞**）：「比 AI 前高一两个数量级的产出已大量出现——差距不但不收敛、还在复利」+「agent 推理可跑在任何地方：AI 工厂选址自由是巨大经济机会。」Garry Tan（314 赞）：「丰裕 vs 黑暗是下个十年最重要的政治议题。」播客全新一期：No Priors × Robinhood CEO Vlad Tenev——「一个词概括 Robinhood：所有权」；agentic trading 15 万账户、日均 3000 万工具调用；预测市场是新闻的进化；从 Ventures 基金到 Trump 账户。48817 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">三分钟与所有权日。Karpathy（**6445 赞，今日最高**）：Tristan 发布最佳 YouTube 频道榜单——「显然我得把它做成 TristanTube：4.7 万支极客视频+TV 模式，Claude Code 一次 prompt 三分钟搞定。」Sottiaux（**2756 赞**）：「所有 Pro 档都没有 5 小时限制：Pro 100=10 倍、Pro 200=20 倍、Pro 500=50 倍+ultrafast」+「Pro 50 有人要吗？」steipete（**1053 赞**）：「Asahi 的一切在于开放封闭之物——加新限制不是正路，AI rejection 更是无厘头。」Levie（**582 赞**）：「比 AI 前高一两个数量级的产出已大量出现——差距不但不收敛、还在复利」+「agent 推理可跑在任何地方：AI 工厂选址自由是巨大经济机会。」Garry Tan（314 赞）：「丰裕 vs 黑暗是下个十年最重要的政治议题。」播客全新一期：No Priors × Robinhood CEO Vlad Tenev——「一个词概括 Robinhood：所有权」；agentic trading 15 万账户、日均 3000 万工具调用；预测市场是新闻的进化；从 Ventures 基金到 Trump 账户。48817 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">TristanTube, 3 Minutes / 三分钟新宇宙</h2>
+    <p class="section-desc">Karpathy（**6445 赞，今日最高**）：Tristan 的最佳 YouTube 频道榜单「看着太棒了、显然我得把它做成 TristanTube」——4.7 万支超级极客视频 + TV 模式，「Claude Code 一次 prompt 三分钟搞定」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="karpathy-tristantube" data-author-name="Andrej Karpathy" data-author-tag="Founder Eureka Labs" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Andrej Karpathy avatar"><span class="avatar-fallback">AK</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Andrej Karpathy</div>
+            <div class="author-tag is-inline">Founder Eureka Labs</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>HackerTube 续集来了（**6445 赞，今日最高**）——「本周早些时候 Tristan 发布了他的最佳 YouTube 频道榜单，看着太棒了——显然我得把它做成 TristanTube：4.7 万支超级极客视频 + 适合躺着看的 TV 模式。（Claude Code 一次 prompt、三分钟搞定。）」从周一 HackerTube 的 6454 支精选视频，到周末一个 47000 支的新宇宙——「把 Claude 指向一份好榜单、得到互联网的新首页」正在成为 Karpathy 的固定节目。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Karpathy：Tristan 的最佳频道榜单太棒了——显然得做成 TristanTube：4.7 万支极客视频+TV 模式，Claude Code 三分钟 one-shot。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The sequel to HackerTube arrives (6445 — today&#39;s top): Earlier this week Tristan published his top YouTube channels, which looked excellent — so clearly I had to turn it into TristanTube: 47K super nerdy videos + TV mode for laid back watching. One-shotted with Claude Code in 3 minutes. From 6,454 curated videos on Monday to a 47,000-video universe by the weekend — the HackerTube pattern is now a franchise: point Claude at a good list, get a new front page for the internet.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Andrej Karpathy: Earlier this week Tristan published his top YouTube channels... Which looked excellent so clearly I had to turn it into TristanTube: 47K super nerdy videos +TV mode for laid back watching. (One-shotted with Claude Code in 3 minutes)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/karpathy" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">Pro Tiers &amp; Open Gatekeeping / Pro 档位与开源围栏</h2>
+    <p class="section-desc">Sottiaux 三连（**2756 赞**）：「所有 Pro 档都没有 5 小时限制：Pro 100=10 倍、Pro 200=20 倍、Pro 500=50 倍+ultrafast」；「Pro 50 有人要吗？」（1369 赞）；梗图「Cyber」（1601 赞）。steipete（**1053 赞**）：「Asahi 项目的一切在于开放封闭之物——加新限制挡住后来者不是正路，那个 AI rejection 条款更是无厘头」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="thsottiaux-pro-tiers" data-author-name="Thibault Sottiaux" data-author-tag="Codex @OpenAI" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Thibault Sottiaux avatar"><span class="avatar-fallback">TS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Thibault Sottiaux</div>
+            <div class="author-tag is-inline">Codex @OpenAI</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux 三连——探风（1369 赞）：「出个 Pro 50 有意义吗？你们说呢？」——疑似在为更便宜的入门档试探；澄清（**2756 赞**）：「看到一些困惑，澄清下：所有 Pro 档都没有 5 小时限制，用量相对 Plus 为——Pro 100 = 10 倍；Pro 200 = 20 倍；Pro 500 = 50 倍，且有 ultrafast 权限」；今日梗图（1601 赞）：「Cyber（配图）」。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Sottiaux：Pro 50 有意义吗？所有 Pro 档无 5 小时限制：10 倍/20 倍/50 倍+ultrafast。梗图：Cyber。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Sottiaux&#39;s trio: Would a Pro 50 make sense? Wdyt? (1369) — floating a new cheaper tier; the clarification (2756): Saw some confusions, but all Pro plans have no 5-hour limits, and give the following usage compared to Plus — Pro 100 = 10X, Pro 200 = 20X, Pro 500 = 50X, access to ultrafast; and the meme of the day (1601): Cyber.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Thibault Sottiaux: Would a Pro 50 make sense? Wdyt?</p>
+              <p>Thibault Sottiaux: Saw some confusions, but all Pro plans have no 5-hour limits... Pro 100 = 10X, Pro 200 = 20X, Pro 500 = 50X, access to ultrafast</p>
+              <p>Thibault Sottiaux: Cyber</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thsottiaux" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="steipete-asahi" data-author-name="Peter Steinberger" data-author-tag="独立开发者" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Peter Steinberger avatar"><span class="avatar-fallback">PS</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Steinberger</div>
+            <div class="author-tag is-inline">独立开发者</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>steipete（**1053 赞**）——「Asahi 项目的一切意义就在于把封闭受限的东西打开。加上新的限制、让其他项目更难在其上构建——这不是正路。而那个 AI rejection（拒绝 AI）条款更是无厘头。」——针对 Asahi Linux 项目新加的下游限制与拒绝 AI 条款的开源社区之辩。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>steipete：Asahi 的意义是开放封闭之物；加限制挡后来者不是正路；AI rejection 条款无厘头。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>steipete (1053): The Asahi project was all about taking something closed and restricted and opening it up. Adding new restrictions that make it harder for other projects to build on that is not the way. And that AI rejection is just silly. — on the Asahi Linux project reportedly adding clauses that block downstream builders and an AI-rejection clause.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Steinberger: The Asahi project was all about taking something closed and restricted and opening it up. Adding new restrictions that make it harder for other projects to build on that is not the way. And that AI rejection is just silly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/steipete" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">An Order of Magnitude or Two / 一两个数量级</h2>
+    <p class="section-desc">Levie 双发（**582 赞**）：「我们已看到比 AI 前高一到两个数量级的生产率——差距不但没收敛还在复利」+「agent 推理可以跑在任何地方——AI 工厂与选址自由」；Aditya Agarwal（41 赞）：「该超级做多手里已有产能的人」；Zara（146 赞）：「创业公司的命运是被做出来的、不是注定的」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie-order-of-magnitude" data-author-name="Aaron Levie" data-author-tag="Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 双发。增益篇（**582 赞**）——「这话听着极端、一年前我自己都不会信，但我们已开始看到大量比 AI 前高一到两个数量级的产出案例。前提：对的 harness、对你所在领域的深理解、一个相对新的代码库（有例外）、同时指挥多个 agent 的熟练度、一套低摩擦的测试部署管线——满足这些，编码上这个量级的产出是现实的。疯狂的是：这差距并没有随时间收敛。你以为 AI 会带来趋同，结果是你此前钻研越深、如今越愿意换打法——杠杆越离谱，而且随着模型接下更大更难的活还在复利。眼下最显著的是软件工程，但其他对 computer-use 敏感的领域——其他科学、建筑/工程/施工、金融、网络安全——都会来。会非常野。」选址篇（256 赞）——「AI agent 的推理理论上可以跑在任何地方——AI 是少数对返回用户延迟不那么敏感的技术。长程 agent 将成常态：把活发给某个『AI 工厂』，数据加密传入、被 agent 梳理、随即丢弃。任务经济价值远高于延迟敏感度（自动任务多花一秒、换回 500 美元价值），推理不必贴近用户；推理是临时过程、不需长期存敏感数据——AI 工厂可当临时系统对待，数据驻留的动力学也随之改变。合起来：AI 数据中心的选址获得了前所未有的灵活度——对抓住机会的州/国家（或太空）是巨大经济机会，对放弃者是损失。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：比 AI 前高一两个数量级的案例大量出现、差距在复利；agent 推理可跑在任何地方——AI 工厂选址自由是巨大经济机会。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s pair. The gains (582): This sounds extreme and I wouldn&#39;t have believed it even a year ago, but we&#39;re starting to see plenty of examples of productivity gains that are an order of magnitude or two above output levels pre-AI. With the right harness, a deep understanding of your domain, likely a relatively new codebase (with some exceptions), fluency in working with multiple agents at once, and a setup for testing and deploying with limited friction — outputs on this level feel realistic in coding. What&#39;s crazy is this gap doesn&#39;t appear to be diminishing over time. You&#39;d think we&#39;d see convergence because of AI, but it turns out the more depth you had before — and willingness now to take a different approach — gives you crazy leverage, compounding as models take on larger work and harder problems. Most pronounced in software engineering for obvious reasons, but coming for other computer-use-sensitive domains: other scientific fields, AEC, finance, cyber. Going to get quite wild. The inference-anywhere thesis (256): AI agents&#39; inference can kind of run anywhere — AI is one of the few technologies not that sensitive to latency back to the user. Long-running agents are the norm: send work to an AI factory somewhere, data passes in encrypted, combed through by agents, discarded right after. And since the economic value is high relative to latency sensitivity ($500 back from an automated task that takes an extra second), inference doesn&#39;t need to be near the user. Inference is temporary with no sensitive data stored long-term — treat AI factories as ephemeral systems, changing data-residency dynamics. Combined: more flexibility in where to deploy AI data centers — a huge economic opportunity for the states or countries (or space) that take advantage, and a loss for those that forgo it.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: we&#39;re starting to see plenty of examples of productivity gains that are an order of magnitude or two above output levels pre-AI.</p>
+              <p>Aaron Levie: The interesting thing about AI agents is that as a theoretical matter, their inference can kind of run anywhere.</p>
+              <p>Aaron Levie: It&#39;s a huge economic opportunity for the states or countries (or space) that want to take advantage of this fact. And it&#39;s a loss to the states or countries that decide to forgo the opportunity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="adityaag+zara+amasad" data-author-name="Aditya Agarwal / Zara Zhang / Amjad Masad" data-author-tag="VC / 出海传媒 / Replit CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aditya Agarwal / Zara Zhang / Amjad Masad avatar"><span class="avatar-fallback">AA</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aditya Agarwal / Zara Zhang / Amjad Masad</div>
+            <div class="author-tag is-inline">VC / 出海传媒 / Replit CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aditya Agarwal（41 赞）——「如果建数据中心变得更难，显然该超级做多手里已有产能的人（即超大规模云）。对『香料』的需求不会消失、只会继续涨——香料持有者将大赢。受苦的是新模型训练的节奏。看来我们终归要给前沿踩踩刹车了。政治共同体发话了。」Zara（146 赞）——「太多人谈论创业公司仿佛命运天定：X 创意永远做不成、Y 市场太小……但创业公司的命运是被做出来的、不是注定的。同一个创意有一千种执行方式，一百个人有一百种打法。杰出的人配杰出的执行，往往能在无中生出有、或让事后看来的不可能显得理所当然。」Amjad 双发——「真心喜欢哈萨克斯坦——政府超级 AI pilled。也是 Network School 的好去处」（454 赞）；「The Better Lesson（链接）」（255 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aditya：该超级做多已有产能的超大规模云——受苦的是新模型训练节奏。Zara：创业命运是被做出来的。Amjad：哈萨克斯坦政府超级 AI pilled。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Aditya Agarwal (41): If building datacenters becomes harder, it is obvious that you should be super long anyone who has existing capacity (aka hyperscalers). It&#39;s not like the demand for the spice is going away — it is only continuing to go up. Thus the spice holders will win big. What will suffer is the rate of new model training. I guess we will pace the frontier after all. The body politic speaketh. Zara Zhang (146): So many people speak of startup as if their fates are predestined: X idea will never work out; the market for Y is too niche... But startups&#39; fates are MADE, not predetermined. Given one idea, there are 1000 ways to execute it, 100 people will have 100 different approaches. Brilliant people with brilliant execution often create something when there was nothing, or make the impossible seem obvious in hindsight. And Amjad&#39;s pair: Really enjoyed Kazakhstan — super AI pilled government. And a great place for the Network School (454); The Better Lesson (255, link).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aditya Agarwal: If building datacenters becomes harder, it is obvious that you should be super long anyone who has existing capacity (aka hyperscalers).</p>
+              <p>Zara Zhang: But startups&#39; fates are MADE, not predetermined.</p>
+              <p>Amjad Masad: Really enjoyed Kazakhstan — super AI pilled government.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/adityaag" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Sideloads / 杂闻</h2>
+    <p class="section-desc">Garry Tan 三连：「我们可以拥有丰裕——这是下一个十年最重要的政治议题」（**314 赞**）、「WIRED 已是昔日空壳」（110 赞）；Nikunj 的讽刺融资教学（80 赞）——「整篇是 satire，但每一行单拎出来都是真的」；Swyx 的 AIE 物料（92/74 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="garrytan+nikunj+swyx" data-author-name="Garry Tan / Nikunj / Swyx" data-author-tag="YC CEO / FPV / Latent Space" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Nikunj / Swyx avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Nikunj / Swyx</div>
+            <div class="author-tag is-inline">YC CEO / FPV / Latent Space</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 三连——「我们可以拥有丰裕。这将成为下一个十年最重要的政治议题：我们能否通过超级智能实现科学、医学与工程的人类进步？还是选择黑暗？」（**314 赞**）；「WIRED 已是昔日空壳」（110 赞）；「千万别把这篇文章拿给 NIMBY 们看」（84 赞）。Nikunj 的讽刺融资教学（80 赞）——「好了，教你怎么让投资人 FOMO 我们的 A 轮、拿七份 term sheet：首先，必须 vague post 收入或客户——绝对不能有 y 轴，只要数字一路向右；让投资人转推邀功，他们本来就爱。然后多发产品视频、最好一个功能发一条；案例研究很关键——让潮流公司谈你、最好让实验室在文章里提你；『顶级』出版物的『文章』是可以买的，还能只对投资人定向投广告——开玩笑？认真的 bro。然后念咒语：『远大抱负』+『长程 agent 群 肢体冲突 世界模型 物理 AI』的组合词。最重要的是：没有 deck——因为我们没在融资、想着明年年初呢；当然我们还是被 preempt 了所以连 data room 都没有。上不上车你看着办。最后一句魔法台词：『我们要选最好的 partner』——但咱俩都知道我只想要最好的估值。（整篇是 satire，但每一行单拎出来都是真的。）」另预告 fireside（13 赞）：11 月 11 日周三中午 SF，嘉宾 Arcanum Labs 联创 Daniel Rupawalla，聊数据生意的一切。Swyx 三连：贴纸游戏（74 赞）；「刚到货……业内最佳 swag。下周大家有福了」（92 赞）——AIE 大会预热；及一个链接（1 赞）。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：丰裕 vs 黑暗是下个十年最重要的政治议题。Nikunj：satire 融资教学——每行单拎都是真的。Swyx：AIE swag 预热。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s trio: We could have abundance — This is going to be the defining political issue of the next decade: can we have human progress in science, medicine and engineering through superintelligence? Or will we choose the darkness? (314); WIRED is a shell of its former self (110); Man don&#39;t show this essay to the NIMBYs (84). Nikunj&#39;s satire fundraising masterclass (80): ok here&#39;s how we get investors to fomo our series A and get seven term sheets — first, we have to vague post revenue or customers. No y axis, just keep showing numbers and to the right... get your investors to quote tweet it and take credit. Then launch videos, case studies, labs mentioning you in articles. You can even buy articles in premier publications and run ads targeted to just investors. Then the magic mantras of large ambition and long horizon agent swarms altercated world models physical ai. And most importantly you don&#39;t have a deck because we&#39;re not raising, we were thinking early next year — and of course we still got preempted so we don&#39;t have a data room either. You get on or not it&#39;s your call. And then the magic words: optimizing for the best partner, but let&#39;s be honest we both know I just want the best valuation. (again the whole thing is satire, but individually each line is true) Plus his fireside chat announcement (13): next guest Daniel Rupawalla, cofounder of Arcanum Labs, Wednesday Nov 11 at noon in SF — all things data: what the labs are buying, who is selling, how to get into this business, will this market even last. And swyx&#39;s trio: sticker game inspired by dexhorthy and CompleteSkeptic (74); just arrived… best swag game in the business. u guys are in for a treat next week (92); and a link (1).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: We could have abundance. This is going to be the defining political issue of the next decade: can we have human progress in science, medicine and engineering through superintelligence? Or will we choose the darkness?</p>
+              <p>Nikunj Kothari: (again the whole thing is satire, but individually each line is true)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 05</div>
+    <h2 class="section-title">Podcast: Robinhood&#39;s Vlad Tenev on Expanding Ownership / 播客：扩张所有权的版图</h2>
+    <p class="section-desc">No Priors 全新一期：Robinhood CEO Vlad Tenev——「一个词概括 Robinhood：所有权」；祖父的铜锅柜；Harmonic 与 AI 数学的中心化之忧；Robinhood Chain 与股票代币；预测市场是新闻的进化；agentic trading 15 万账户、日均 3000 万工具调用；Ventures 基金与 Trump 账户。48817 字符全文翻译。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:nopriors-vlad-tenev" data-author-name="No Priors Podcast" data-author-tag="Vlad Tenev（Robinhood 创始人 &amp; CEO、Harmonic 联创）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="No Priors Podcast avatar"><span class="avatar-fallback">NP</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">No Priors Podcast</div>
+            <div class="author-tag is-inline">Vlad Tenev（Robinhood 创始人 &amp; CEO、Harmonic 联创）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors 对话 Robinhood 创始人 &amp; CEO、Harmonic 联创 Vlad Tenev——覆盖 120+ 国的金融集团、一个词概括：所有权。要点：保加利亚起源（1991 年 170% 通胀、1997 年 2000% 全球第一、祖父工资全换铜锅——「我见过的第一种真实资产」；签证家庭「不拿奖学金就没学上」的童年；数学如通关游戏）；Harmonic 与 AI 数学革命（Aristotle 拿 IMO 金牌、用户解 Erdős 问题；不满太中心化——「普通人对 AI 证明纳维-斯托克斯会被庆祝，这是一年内的剧本」）；代币化（稳定币盒子模式推广到一切资产；完全 DeFi 化股票代币 + Robinhood Chain 史上增长最快、开发者活跃第一；长尾国家手机+非托管钱包即可低门槛获得美股敞口）；预测市场（变现独特认知、KPI 合约直接交易 EPS 数字本身、「预测市场是新闻的进化」）；agentic trading（15 万账户、日均 3000 万工具调用；Robinhood Agents=交易版 Claude Code——循环、skills、卫星数据应用商店；北极星是把对冲基金能力装进所有人口袋）；风控（隔离沙箱账户、市场早已全电子化、Citadel/Jane Street/Jump 会扩容）；AI 所有权问题（AI 实验室一两万亿上市散户拿不到千倍收益、数据中心惹众怒 vs crypto 广泛拥有权影响选举——「AI 正相反」）；解法（Ventures Fund I 公募 VC：OpenAI 在列；Fund II 与 YC 合作做种子轮敞口；私营公司 7×24 碎股交易的北极星；SEC/FINRA 知识型合格投资者考试）；Trump 账户（唯一初始受托人、新生儿每人 1000 美元、Dell 夫妇加 60 亿+、家庭持股 65%→95%——「做成政府有史以来最好的产品」）；冷静之道（童年挑战即训练、贝索斯「长出厚皮肤——这是你唯一能控制的」）。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【冷开场：预测市场是新闻的进化】</p>
+              <p>「预测市场是新闻的进化。你通过赔率就能看到正在发生什么、未来可能发生什么。」「AI 带来的数学革命？我有点不满的是它太中心化了——AI 公司、大数据中心、员工用着秘密模型做所有工作。」「Agentic trading？产品市场契合度毋庸置疑：上线几个月，超过 15 万客户开了 agentic 交易账户。」</p>
+              <p></p>
+              <p>【Robinhood 是什么：所有权公司】</p>
+              <p>主持人（No Priors）：欢迎 Vlad Tenev，Robinhood 创始人 &amp; CEO。今天的 Robinhood 已经进化了很多——怎么向听众描述它？</p>
+              <p>Vlad：我们做很多东西、以某种形式覆盖 120 多个国家。如果用一个词概括 Robinhood，那就是「所有权」（ownership）——我们是最与这个词绑定的公司。为什么所有权重要？在个人层面：拥有资产是通往财务自由的老路；你拥有的东西也定义了你——车、收藏卡、股票组合，几乎成为身份的一部分。在集体层面：一个没有广泛所有权的社会天然不稳定、脆弱；拥有资产的人更投入、对结果更有切身利害，会成为体系的捍卫者与保护者。尤其在当下——AI 与各种颠覆让人对体系产生动摇——让人们更早地拥有公司股权越来越重要。所以我们的一切都串在这条线上：Trump 账户（从零岁开始的所有权）、Robinhood Ventures（上市前的私营公司所有权）、代币化（所有权全球化——让没有正常银行体系的 120 多国人民接入经济结构）。我们从「手机上零佣金买股票的简单 App」起步，长成了一个日益全球化的金融集团。</p>
+              <p></p>
+              <p>【起源：保加利亚、铜锅与数学阶梯】</p>
+              <p>主持人：你怎么走到这一步的？你师从 Terence Tao 学数学、做过高频交易——听起来都不像「传教士」。</p>
+              <p>Vlad：往更早倒——我生在 80 年代末的东欧、苏联解体与铁幕揭开的前夜。九十年代我随父母移民美国：父亲先去特拉华大学读硕士、随后留下，母亲晚一年、我再晚半年。有一年半我没见过父亲、半年没见过母亲——家里没钱一次把全家搬过来，也不确定父亲能不能长期留下来。我在保加利亚的最后一年（1991），通胀率大约 170%：轮番停电、全家围着电池收音机听新闻；从我窗口能看到杂货店门口排着买奶买蛋的长队，牛奶装在大塑料袋里；一年能有一次从其他共产主义国家来的香蕉——古巴香蕉，记忆里好吃极了；到美国后到处都是香蕉，反而没那么好。1997 年保加利亚拿下全球第一通胀率：年化约 2000%，每几个月就往货币后面加零。</p>
+              <p>所以我对「钱」的理解从小就建立起来。父母要给国内的祖父母寄钱应对通胀；我祖父——船厂系统的医生、常年在船上——在港口有门路，工资一到手就换成铜锅铜盆，存在那个柜子里。那是我见到的第一种真实世界资产：锅碗瓢盆，比当时的本币保值多了。我就是在「没有自由市场与健康资本市场体系会发生什么」的环境中长大的。</p>
+              <p>我很快发现自己在学业上很强、也很独立——父母请不起保姆和课后班、都打着几份工、父亲还是全日制研究生。五岁时我一个人放学走回家、去邻居家待几个小时，后来干脆自己拿钥匙开门、做作业、出去玩。压力也一直都在：家里经济状况很不稳，「想上大学就得拿奖学金、要拿奖学金就得成绩非常好；而且我们是签证持有者——失业就得回保加利亚」。数学对我像通关一个好游戏：永远知道下一个最难的关卡是什么——多快能爬到代数几何、代数拓扑；而且如果我能创立一个新数学理论，也许几百年后孩子们还会学我的东西——像高斯和黎曼那样。</p>
+              <p></p>
+              <p>【Harmonic 与 AI 数学的「中心化之忧」】</p>
+              <p>主持人：结合你的背景（还有 Harmonic 这个项目）——你怎么看 AI 正在带来的数学革命？</p>
+              <p>Vlad：一方面非常兴奋、也完全可预见：AI 模型崛起 + 输出可验证，两者叠加正在自动化数学研究的流水线。数学这个领域几千年来几乎没变过——我读研时大部分工作还是粉笔加黑板、没人用计算机协作。现在数学与编码合流了：数学家们用版本控制、用 Lean 做验证，整个领域在加速。</p>
+              <p>Harmonic 是我几年前联合创办的公司，目标是造「数学超级智能」。去年我们的模型 Aristotle 是拿下国际数学奥林匹克金牌的三个模型之一；随后向公众开放，人们用 Aristotle 攻未解数学题——解出了若干 Erdős 问题，也有数学家拿它出新结果。</p>
+              <p>然后我开始想：数学的未来是什么、这些工具该怎么用。对我而言，我造的任何工具——Harmonic 也好、Robinhood 也好——都必须是「赋能个人」的。而这波 AI 解数学题的浪潮里我最不喜欢的一点，就是它太中心化了：AI 公司、他们的数据中心、他们的员工用着秘而不宣的模型做完所有工作。把工具真正交到人们手里、让用户做出有趣的发现与发明——这个模式更有吸引力、也终将胜出。</p>
+              <p>主持人：我是分权 believers，但大厂的人会说这是「Cope（自我安慰）」——人马组合（centaur）终究会被更大算力的 agent 循环碾压。你怎么看？</p>
+              <p>Vlad：这是两件事。一是「个体数学家还有什么角色」；二是「这到底是一个人人可用的产品，还是 AI 实验室自己生产产品」。后者更有意思：一个由 OpenAI/Anthropic 们以专有方式包办所有发现的世界——他们的数据中心跑代码、员工管理、垂直整合、连药都自己造自己卖、发表所有数学与物理论文——那有点反乌托邦，而且不太可能发生：不只是技术与市场原因，真走到那一步，人们会收回他们的「社会许可」。</p>
+              <p>同样的结果——纳维-斯托克斯被证明、黎曼假设部分证明——如果是「某个普通人用 AI 做出来的」，会被广泛接受得多、甚至会庆祝。我认为这就是一年内的现实剧本。还有一个混乱因素：进这些实验室的很多人是前研究者，他们本来就是被招来「做研究」的，很困惑学术界为什么愤怒——早知如此，找几位数学家合作出场，观感会好得多。</p>
+              <p></p>
+              <p>【代币化：把一切放进盒子里】</p>
+              <p>主持人：聊聊代币化的愿景？</p>
+              <p>Vlad：代币化的原理和稳定币几乎一样：把美元或国债放进一个「盒子」，对着盒子铸造/销毁 token；传统资产托管在传统机构（比如银行），token 则在 DeFi 上自由流通——全球流转、碎股交易、进各种协议和借贷池。这个概念可以推广到一切真实资产：股票（我们已做）、私营公司（SPV 持股、行为类似）、艺术品、收藏品、房地产。</p>
+              <p>去年我们在南法办的活动上推出了股票代币（tokenized US stocks）、先在欧洲：用起来像真股票，但不能提到以太坊上、不能进池子。今年我们更进一步：完全 DeFi 化的股票代币 + 自家的 Robinhood Chain——为真实世界资产而建的区块链，现在是多项指标史上增长最快的链、开发者活跃度第一。开发者把股票代币当乐高：meme 币挂股票代币的交易对、各种 NFT——这才第一两个月。金融原语作为开发者平台的地基会变得非常大。</p>
+              <p>但比这更让我兴奋的是：Robinhood Chain 是服务「长尾国家」的方式。南美、非洲这些资本市场不发达的地方——任何人拿一部手机和一个非托管钱包，就能以极低成本获得美股敞口。就像稳定币成了这些国家获得美元的默认方式，股票代币将成为他们获得美股敞口的默认方式。</p>
+              <p>主持人：愿他们拥有的不只是铜锅，还有财富创造。</p>
+              <p>Vlad：正是——还包括私营公司。我们对链的批评不陌生：被叫「企业链」（corpo chain）——「最好的链都是去中心化组织的」。也许在组织去中心化的纯度上我们牺牲了一点，换来的是专注的领导层与清晰的方向。而且有 Robinhood 背书的原语在链上本身就是好事：人们知道这些原语可信、不会消失——比两三个工程师的小团队更能给人建造的信心。组合的例子：智能合约原生的期权——传统市场的创新被大型机与「系统必须可预测且缓慢」的惯性困住了；我们只管提供原语、让开发者自由拼装。说实话股票代币 NFT、meme 配对这些东西的爆发速度，我完全没法预见。</p>
+              <p></p>
+              <p>【预测市场：KPI 合约与「新闻的进化」】</p>
+              <p>预测市场其实也和所有权相连：很多人有独特的知识与观点——比如你是 AI 模型研发专家，我们有「本周/本月/本年最强模型」的合约让你直接变现这个认知；以前只能绕道买卖英伟达股票。所以我们宣布了 KPI 合约：你研究一家公司、确信它会超 EPS——过去买股票或期权，公司 beat 了股价却因别的原因跌；现在可以直接交易 EPS 或营收的「数字本身」。还有「加州亿万富翁税会不会通过」的合约——对某些人是很好对冲工具（我本人没拿来对冲，但可以）。</p>
+              <p>更重要的是它是一种新的信息源。纯粹形态下，预测市场就是新闻的进化：未来的「新闻」可能仍有头版、财经版、体育版——但你是通过赔率看到正在发生什么、什么可能发生。很多人根本不交易，就是打开 App 看看。</p>
+              <p></p>
+              <p>【Agentic Trading：15 万账户、日均 3000 万次工具调用】</p>
+              <p>主持人：人们会让 agent 替自己交易吗？</p>
+              <p>Vlad：我们今年早些时候上线了 Robinhood MCP，叫 Agentic Trading（另有 agentic 信用卡）。Agentic 金融里有两个明显 PMF 的东西，agentic trading 是其中之一：上线几个月，超过 15 万客户开户；工具调用次数平滑指数增长——最近公布的数字是每天约 3000 万次。</p>
+              <p>起步只是个 MCP；几周前的 Hood Summit 上我们发布了 Robinhood Agents——往前一大步：harness 与整个 UI 都进了 Robinhood 账户。可以理解为「为交易优化的 Claude Code/Codex」：跑循环——每天执行一遍我的策略、再平衡组合、找机会；有 skills（组合再平衡等）；有 agent 应用商店——接卫星数据源、数零售商停车场的车、做策略。我们的路线就是照着编码 harness 的全部能力清单，做干净、交易者原生的版本。</p>
+              <p>主持人：这些能力机构都有但昂贵复杂——民主化之后意味着什么？</p>
+              <p>Vlad：这正是北极星：把对冲基金、专业量化机构的能力装进普通人的口袋。就像以前你得是个很强的 CS 研究生才能写策略、还得费劲拿到机房机架连交易所——我们把这一切流水线化，让更多人能当 quant 交易者。结果就是交易活动更多：先集中在一小撮专业者、他们的活动量会大涨；然后逐渐扩散到更多人。编码是很好的类比：先是程序员用 agent、产出翻倍；然后是本来不会碰 VS Code 的人，被教会用 Claude 后也能轻松建网站——水涨船高。</p>
+              <p>主持人：「想从自己的判断里赚钱」比「想做软件」普遍得多。</p>
+              <p>Vlad：很多人都有想法。如果把想法变成策略的摩擦降到接近「买一只股票」，做的人会多得多。</p>
+              <p></p>
+              <p>【基础设施与风控：沙箱、隔离账户与新世纪的 HFT】</p>
+              <p>主持人：金融基础设施需要为此改变吗？</p>
+              <p>Vlad：第一天的防护：必须开独立的 agentic 账户（与主账户隔离）、把钱转进去；默认每笔交易需确认（可以关掉——有点像「危险地跳过权限」，但没那么危险：它碰不到你的其他账户，接近 air-gap；沙箱与 harness 基础设施大量是 Robinhood 自研）。</p>
+              <p>我不觉得需要什么大改造：高频交易已经存在二十年、市场早已全电子化——交易所、券商都适应了「大多数工作流是发生在新泽西机房的算法交易」而非纸质票据与交易池。变大之后可能有特例需要监管澄清，但基本面不用动。</p>
+              <p>主持人：用编码做类比——没人预料到 CICD 会被数量级增长的代码生成压垮。如果人人都是高频交易者，那是新负载吧？</p>
+              <p>Vlad：栈要分层看。链上：Robinhood Chain 不只是真实资产最好的链，也是 AI agent 最好的链——链上 agentic 交易已经很多。中心化金融这边：我们对全链路端到端可控——数据库、策略跑的代码、沙箱都是我们的、我们自己优化。再往下是算法做市商——Citadel、Jane Street、Jump 这些低延迟高频行家，我不担心他们的扩容。交易所的 API 也早被 HFT 压力测试过。目前 agentic 交易占比还很低，离「两位数百分比」还很远——我们有的是时间看到它来。</p>
+              <p></p>
+              <p>【AI 革命不该只属于少数人：从 Ventures 到 Trump 账户】</p>
+              <p>主持人：你如此相信广泛所有权——但 AI 革命显然不是被广泛拥有的。解法是什么？</p>
+              <p>Vlad：这个问题我们去年就识别了。首先：主要的 AI 创新公司全是私营的（英伟达和 Google 例外，但它们进入 AI 新阶段前就已巨大）——几年前想投 OpenAI 或 Anthropic 的个人投资者基本没戏。私营市场融资太容易、规模太大：八十年代的微软、九十年代的亚马逊，IPO 估值才几亿美元——散户在 IPO 进场能赚一千倍；现在 AI 实验室一两万亿估值上市，散户要赚同样倍数得涨到千万亿。收益越来越集中在更小的 VC 与机构圈里。然后我们纳闷「大家为什么讨厌数据中心」——你想想：作为个人，我从这一切里得不到任何经济利益；它威胁我的饭碗、污染我的社区、制造噪音。对比 crypto：并不是人人赚钱（比特币现在 8.5 万，几个月前 12 万买的正套着；2022、2023 更是惨烈），但 2024 年他们倾巢而出、实实在在地影响了选举；监管敢越界，就有一支大军在社交媒体上猛轰、给议员发消息。很大程度因为 crypto 从第一天起就是广泛分布的个人所有权、机构是后来者——AI 正相反。</p>
+              <p>解法上我们发了几件东西。Robinhood Ventures 的信念是「人人都该能投私营公司」——让「种子轮和 A 轮 cap table 里没有散户」成为反常。Fund I 的结构是个创新：可以理解为「公开交易的 VC 公司」——我们用自家 IPO 渠道（全美最大散户 IPO 渠道）向 Robinhood 客户募资、投创业公司，基金在纽交所像股票一样交易。Fund I 是晚期私营：OpenAI 在里面，还有一批 AI 与金融科技公司、11、Crusoe 等。然后我们问：能不能做到极致、给人们种子轮和 A 轮敞口？于是有了与 YC 合作的 Fund II——风险最高、机会也最大，Rich Aberman 在管。加上私营公司代币化（目前美国以外）从另一条路解决同一问题。北极星是：让一家私营公司能像股票或加密货币一样 7×24 实时、碎股交易——任何人都该能低门槛地「交易 Anthropic」。这需要推动一系列规则，accredited investor（合格投资者）规则是其中之一。</p>
+              <p>主持人：SEC 上周有动作？</p>
+              <p>Vlad：SEC 指示 FINRA 开辟一条新路径：一场基于知识的合格投资者考试——去考试中心坐两个小时，通过即可认证，不再纯看资产。这绝对是积极一步，但摩擦还是高——有多少人会专门去考一场试？还有很多要做，我们会继续推。</p>
+              <p>至于「家长式保护」的反对理由：我们跟客户聊得非常多，「我的钱该我做主、没人有权告诉我怎么花怎么投」这一句得到压倒性认同。产品当然要讲清楚是什么、给足信息——但 meme 币有完美清晰的监管地位（SEC 都发函说它们是收藏品不是证券）、随便买不限量，私营公司反而被卡死，从风险角度看毫无道理。这些规则是前互联网时代定的——那时你根本获取不到信息；现在信息泛滥、还有 AI 模型帮你检索综合。</p>
+              <p></p>
+              <p>【Trump 账户：从 65% 到 95% 的家庭持股】</p>
+              <p>Robinhood 被选为 Trump 账户唯一的初始受托人与经纪商，与 BNY（美国最古老的银行）、财政部和 IRS 合作推进：让每个孩子从出生起就通过低成本的标普 500 ETF 拥有一块美国经济——2025 年 1 月及之后三年内出生的每个新生儿，财政部注入 1000 美元；Michael 与 Susan Dell 夫妇的基金会向低收入邮编区的孩子追加了超过 60 亿美元；Gwynne Shotwell 承诺捐 SpaceX 股份；Brad Gerstner 是这个项目的智囊与架构师、还给印第安纳州的孩子们捐了一大笔。我们负责基础设施和 App。这是把家庭持股率从 65% 推到 95% 的最好路径——成功的话会带来几十年更稳定繁荣的社会。我们的目标是把它做成「政府有史以来最好的产品」、以及特朗普总统任期内最持久的正面遗产。</p>
+              <p></p>
+              <p>【冷静从何而来：厚皮肤是可以自己长出来的】</p>
+              <p>主持人：Andrew Reed 形容你是「无限 IQ + 最稳的手」的结合。你的冷静从哪来？</p>
+              <p>Vlad：小时候经历了太多挑战，让我对挑战习以为常。家庭很支持我，但我们是一起扛的——我不是被给予一切的孩子，而是「这个家的成员、各有各的分工」。Robinhood 和 Harmonic 也会遇到很多商业挑战，但退一步想：这比得上被驱逐出境的威胁吗？我们如今为 5% 的通胀恐慌——我小时候经历的是 2000%。</p>
+              <p>我也试着给自己的孩子们制造挑战——但得刻意构造：他们有家教、能去博物馆、有安全感。我觉得「必须挣扎与忍耐」里有很重要的东西，但我还没完全想明白怎么造出来。当然也可能是天生——nature vs nurture，谁知道呢。</p>
+              <p>给领导者的建议，贝索斯说过：长出厚皮肤。外界的风浪你控制不了，但这个你能控制——它是一种不是人人都能拥有的超能力。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>No Priors sits down with Vlad Tenev, founder and CEO of Robinhood, now a financial conglomerate live in 120+ countries summed up in one word: ownership. The full tour: the origin (born in Bulgaria on the brink of the Iron Curtain lifting; 170% inflation in 1991 and the world&#39;s-worst 2000% in 1997; the grandfather who converted every paycheck into copper cookware — the first real-world asset Vlad ever knew; the scholarship-or-bust childhood of a visa-holder&#39;s son; math as a video-game ladder to algebraic geometry); Harmonic and the AI math revolution (Aristotle won IMO gold; users solving Erdős problems; his complaint: it&#39;s too centralized — AI companies and secret models — versus putting tools in people&#39;s hands; a lay person proving Navier-Stokes with AI would be celebrated, and that&#39;s the likely one-year scenario; labs should have partnered with mathematicians instead of puzzling over the backlash); tokenization (the stablecoin box pattern extended to any real asset; fully DeFi-enabled stock tokens + Robinhood Chain, now the fastest-growing chain and #1 in developer activity; stock tokens as Legos — meme pairs and NFTs nobody foresaw; the long tail of countries getting US equity exposure with a phone and a non-custodial wallet, the way stablecoins became the default dollar access; the corpo-chain critique answered — focus beats decentralization purity, and Robinhood-backed primitives give builders confidence); prediction markets (monetizing unique knowledge — best-AI-model contracts; KPI contracts trading the EPS print itself; prediction markets as the evolution of news — people who never trade just check the odds); agentic trading (Robinhood MCP: 150,000+ accounts in months, 30M tool calls a day; Robinhood Agents — a Claude Code for trading with loops, skills, and an agent app store of satellite data and parking-lot car counting; the north star: hedge-fund capabilities in everyone&#39;s pocket; adoption mirroring coding agents — sophisticated users first, then the tide lifts); risk and infrastructure (segregated sandboxed accounts, in-house harnesses; no overhaul needed — markets went fully electronic 20 years ago; Citadel/Jane Street/Jump and exchanges will scale; agentic share of trading is still tiny); the AI-ownership problem (AI labs IPO at $1-2T so retail can&#39;t get the 1000x; gains concentrate while data centers pollute neighborhoods — contrast crypto&#39;s broad ownership swinging an election); the fixes (Robinhood Ventures Fund I — a publicly traded VC firm raised through their retail IPO channel with OpenAI in the portfolio; Fund II with YC for seed/Series A exposure run by Rich Aberman; tokenized privates; the north star of trading Anthropic 24/7 fractionally; the SEC/FINRA knowledge-based accreditation exam as a positive but high-friction step); Trump accounts (Robinhood as sole initial trustee with BNY, Treasury and the IRS; $1,000 seeded for every newborn for three years; the Dells adding $6B+ for lower-income zip codes; Shotwell donating SpaceX shares; Gerstner as architect; pushing household stock ownership from 65% to 95% — aiming for the best product government has ever launched); and the level-headedness question (childhood challenges as training; constructing struggle for his own kids; Bezos: grow thick skin — it&#39;s the one thing you can control).</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Vlad Tenev: If I had to sum up Robinhood in one word or one idea, it would be ownership.</p>
+              <p>Vlad Tenev: It&#39;s too centralized, right? It&#39;s like AI companies with their big data centers and their employees using secret models to sort of do all this work.</p>
+              <p>Vlad Tenev: Over a 150,000 customers have opened agentic trading accounts with us... the last number we announced was something like 30,000,000 tool calls per day.</p>
+              <p>Vlad Tenev: A society without broad ownership is inherently very unstable. It&#39;s a fragile society.</p>
+              <p>Vlad Tenev: Our goal is to make this like the best product the government&#39;s ever launched.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-11-07 source feeds (10 builders, 19 tweets; plus one brand-new-to-this-digest podcast: No Priors with Vlad Tenev, founder and CEO of Robinhood, on tokenization, prediction markets, agentic trading and Harmonic — full 48,817-character transcript translated). One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.">Source: Follow Builders curated daily digest. Built from the 2026-11-07 source feeds (10 builders, 19 tweets; plus one brand-new-to-this-digest podcast: No Priors with Vlad Tenev, founder and CEO of Robinhood, on tokenization, prediction markets, agentic trading and Harmonic — full 48,817-character transcript translated). One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
