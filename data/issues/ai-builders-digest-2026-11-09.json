@@ -1,0 +1,84 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-09",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游连续第二天未更新：今日 X 与播客快照仍与 11-07 完全相同（10 位 builders、19 条推文 + No Priors × Vlad Tenev 播客）——完整版已在 11-07 期收录、11-08 期首次重播。本日继续重播轻量版：保留要点重播与播客金句回顾，不重复全文。当日主线：Karpathy 三分钟 one-shot 的 TristanTube（6445 赞）；Sottiaux「Pro 档无 5 小时限制」；Levie「一两个数量级」；播客金句：「一个词概括 Robinhood：所有权。」"
+  },
+  "archive": {
+    "title": "重播日：TristanTube（第二天）",
+    "desc": "上游快照连续第二天与 11-07 相同：Karpathy 三分钟 TristanTube、Sottiaux Pro 档澄清、Levie「一两个数量级」、Robinhood CEO 谈扩张所有权——完整版见 11-07 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-11-09 source feeds remain byte-identical to 2026-11-07 (10 builders, 19 tweets; the No Priors episode with Vlad Tenev of Robinhood) — fully covered in that issue and first replayed on 11-08. Today is a second replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: TristanTube Highlights / 重播：三分钟新宇宙要点",
+      "desc": "上游连续第二天未更新（快照与 11-07 完全相同，11-07 期完整收录、11-08 期首次重播）：TristanTube（6445 赞）、Pro 档澄清（2756 赞）、一两个数量级（582 赞）。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-11-07-x-2",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 连续第二天与 11-07 相同",
+          "sourceUrl": "https://x.com/karpathy",
+          "en": {
+            "rewrite": [
+              "Replay note (day two): today's X feed remains identical to 2026-11-07 — the same 10 builders and 19 tweets, fully covered in that issue (first replayed on 11-08). Headlines: Karpathy's TristanTube at 6445 (47K super-nerdy videos + TV mode, one-shotted with Claude Code in 3 minutes); Sottiaux's Pro-tier clarification at 2756 (all Pro plans have no 5-hour limits: Pro 100 = 10X, Pro 200 = 20X, Pro 500 = 50X + ultrafast) plus the Pro 50 probe at 1369; steipete's Asahi defense at 1053; Levie's order-of-magnitude-or-two at 582 and the inference-anywhere thesis at 256; Garry Tan's abundance-versus-darkness at 314; Nikunj's satire fundraising masterclass at 80."
+            ],
+            "original": [
+              "Andrej Karpathy: Which looked excellent so clearly I had to turn it into TristanTube: 47K super nerdy videos +TV mode for laid back watching. (One-shotted with Claude Code in 3 minutes)",
+              "Thibault Sottiaux: all Pro plans have no 5-hour limits... Pro 500 = 50X, access to ultrafast",
+              "Aaron Levie: we're starting to see plenty of examples of productivity gains that are an order of magnitude or two above output levels pre-AI."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明（第二天）：今日 X feed 仍与 11-07 完全相同（10 位 builders、19 条推文；11-07 期完整收录、11-08 期首次重播）。要点回顾：Karpathy 的 TristanTube（**6445 赞，当日最高**）——「4.7 万支极客视频+TV 模式，Claude Code 三分钟 one-shot」；Sottiaux（2756 赞）——「所有 Pro 档都没有 5 小时限制：Pro 100=10 倍、Pro 200=20 倍、Pro 500=50 倍+ultrafast」+「Pro 50 有人要吗？」（1369 赞）；steipete（1053 赞）Asahi 开源之辩；Levie（582 赞）「一两个数量级、差距在复利」+「AI 工厂选址自由」（256 赞）；Garry Tan「丰裕 vs 黑暗」（314 赞）；Nikunj 讽刺融资教学（80 赞）。"
+            ],
+            "original": [
+              "Karpathy：TristanTube 三分钟 one-shot。Sottiaux：Pro 档无 5 小时限制。Levie：一两个数量级。详见 11-07 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Vlad Tenev / 播客重播：扩张所有权",
+      "desc": "播客快照连续第二天与 11-07 相同：No Priors × Robinhood CEO Vlad Tenev。完整中文译文（66 段）已收录于 11-07 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:nopriors-vlad-tenev-replay2",
+          "authorName": "No Priors Podcast（重播）",
+          "authorTag": "Vlad Tenev（Robinhood 创始人 & CEO、Harmonic 联创）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "Replay note (day two): today's podcast feed remains identical to 2026-11-07 — No Priors with Vlad Tenev of Robinhood on tokenization, prediction markets, agentic trading, Harmonic and Trump accounts. The full Chinese translation (66 paragraphs) was published on 11-07; today we keep a quote replay."
+            ],
+            "original": [
+              "Vlad Tenev: If I had to sum up Robinhood in one word or one idea, it would be ownership.",
+              "Vlad Tenev: A society without broad ownership is inherently very unstable. It's a fragile society.",
+              "Vlad Tenev: Our goal is to make this like the best product the government's ever launched."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明（第二天）：今日播客快照仍与 11-07 相同——No Priors × Robinhood CEO Vlad Tenev：代币化、预测市场、agentic trading、Harmonic 与 Trump 账户（48817 字符）。完整中文译文（66 段）已收录于 11-07 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「如果用一个词概括 Robinhood，那就是：所有权。」",
+              "「一个没有广泛所有权的社会，天然非常不稳定——是个脆弱的社会。」",
+              "「我们的目标是把它做成政府有史以来发布的最好的产品。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
