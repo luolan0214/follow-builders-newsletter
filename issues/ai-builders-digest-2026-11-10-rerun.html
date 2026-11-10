@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builders Digest · 2026-11-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f6f3ed;
+    --accent: #c0392b;
+    --accent-light: #e8d5c4;
+    --border: #d4cdc0;
+    --muted: #7a7265;
+    --tag-bg: #e8e2d6;
+    --en-bg: #ffffff;
+    --cn-bg: #faf7f2;
+    --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.7;
+  }
+
+  .masthead, .intro, .section-header, .feed, footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .masthead { padding-top: 48px; }
+  .masthead-rule { border: none; border-top: 3px solid var(--ink); margin: 0 0 12px; }
+  .masthead-inner { display: flex; justify-content: center; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; letter-spacing: -0.4px; }
+  .masthead-subtitle { margin-top: 8px; padding-bottom: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  .edition-strip {
+    position: relative;
+    margin-top: 8px;
+    min-height: 46px;
+    padding: 10px 132px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-align: center;
+  }
+
+  .edition-strip .edition-sep { margin: 0 8px; color: #b8ae9f; }
+  .edition-strip-text { display: block; }
+  .edition-return-link { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px dashed rgba(192, 57, 43, 0.55); border-radius: 999px; color: var(--accent); text-decoration: none; font-size: 12px; line-height: 1; letter-spacing: 0.06em; background: rgba(255, 255, 255, 0.45); transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  .edition-return-link:hover, .edition-return-link:focus-visible { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); transform: translateY(-50%) translateX(-1px); }
+  .edition-return-link:focus-visible { outline: none; }
+  .intro { padding-top: 22px; }
+  .intro-inner { max-width: 920px; margin: 0 auto; padding: 0 0 0 18px; border-left: 3px solid #d9cdbc; }
+  .intro-kicker { margin: 0 0 8px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; }
+  .intro p { margin: 0; max-width: none; color: var(--muted); font-size: clamp(15px, 1.6vw, 16px); line-height: 1.9; text-wrap: pretty; font-family: 'Noto Serif SC', serif; overflow-wrap: anywhere; }
+
+  .section-header { margin-top: 40px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 24px; margin: 0 0 6px; }
+  .section-desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+  .feed { display: flex; flex-direction: column; gap: 20px; }
+  .card { background: var(--en-bg); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px 12px; border-bottom: 1px solid #eee7dd; flex-wrap: wrap; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .avatar-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .avatar.is-fallback img { display: none; }
+  .avatar.is-fallback .avatar-fallback { display: flex; }
+
+  .author-info { flex: 1; min-width: 160px; }
+  .author-name { font-weight: 600; font-size: 15px; }
+  .author-name-row { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .author-handle { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+  .author-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; background: var(--tag-bg); color: var(--muted); padding: 4px 8px; border-radius: 999px; }
+  .author-tag.is-inline { padding: 3px 8px; }
+
+  .card-controls { margin-left: auto; display: inline-flex; gap: 8px; }
+  .view-toggle { border: 1px solid var(--border); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; line-height: 1; cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 160ms ease; }
+  .view-toggle.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .lang-col { padding: 18px 20px 22px; }
+  .lang-col.cn { background: var(--cn-bg); border-right: 1px solid #f0ece4; font-family: 'Noto Serif SC', serif; }
+  .lang-col.en { background: var(--en-bg); }
+  .lang-label { margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+  .content-shell { position: relative; transition: height 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .content-variant { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px); transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms; will-change: opacity, transform; }
+  .content-variant.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1), transform 200ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s; }
+  .content-variant p, .content-variant li { margin: 0 0 12px; font-size: 14px; }
+  .content-variant ol { margin: 0 0 12px 20px; padding: 0; }
+  .inline-code { display: inline-block; font-family: 'IBM Plex Mono', monospace; background: #f4efe7; padding: 3px 6px; border-radius: 6px; margin-bottom: 8px; }
+
+  .card-footer { padding: 12px 20px 16px; border-top: 1px solid #eee7dd; background: #fcfaf6; }
+  .card-footer a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  footer { padding-top: 24px; padding-bottom: 48px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 680px) {
+    .masthead-inner { align-items: center; }
+    .edition-strip { padding-right: 12px; padding-left: 12px; }
+    .edition-strip-text { padding-right: 0; }
+    .edition-return-link { position: static; transform: none; margin-top: 8px; font-size: 11px; }
+    .card-controls { margin-left: 0; }
+    .card-body { grid-template-columns: 1fr; }
+    .lang-col.cn { border-right: none; border-bottom: 1px solid #f0ece4; }
+    .edition-strip .edition-sep { margin: 0 5px; }
+    .intro-inner { padding-left: 14px; }
+    .intro p { line-height: 1.84; }
+  }
+</style>
+</head>
+<body data-publish-date="2026-11-10" data-issue-number="168" data-edition-name="双语精选版" data-view-label-rewrite="速读" data-view-label-original="原文" data-author-identities-path="/Users/mac/.follow-builders/assets/author-identities.json" data-avatar-manifest-path="/Users/mac/.follow-builders/assets/avatar-manifest.json">
+  <header class="masthead">
+    <hr class="masthead-rule">
+    <div class="masthead-inner">
+      <div class="masthead-title">AI Builders Digest</div>
+    </div>
+    <div class="masthead-subtitle">Bilingual edition · 双语对照版</div>
+    <div class="edition-strip">
+      <span class="edition-strip-text" id="edition-strip-text">第 168 期｜2026-11-10｜双语精选版｜7 条精选｜7 位作者｜4 个主题</span>
+      <a class="edition-return-link" href="../index.html">返回目录</a>
+    </div>
+  </header>
+
+  <section class="intro" data-kicker="编者导读 / Editor&#39;s Note" data-text="百万订阅特辑日。Rauchg（**2242 赞，今日最高**）：WebGL2+Web Audio 物理模拟唱片机——「把歌变成沟槽的物理形状、仿真唱针每秒骑墙 384000 次，噼啪与抖晃全是模拟的天然副产品」。Turck（2018 赞）：Elon 模仿秀。Ryo Lu（**704 赞**）：「当我们什么都能做时，还知道自己想要什么吗？」Levie 双发（278/256 赞）：「每 3-6 个月重试以前不可能的事」+「从 20-50% 增益到不设上限」。Garry Tan（344 赞）：「你会想要自己的软件工厂」。Zara（404 赞）：「我几乎不再用 vibe coding 一词——需要更好的词」。Nan Yu（263 赞）：「选最笨的架构——你的聪明用户也得同样聪明才能理解你」。播客重磅：AI Engineer 百万订阅特辑 × Stanford CS 146S 的 Mihail Eric（兼 Monaco AI 负责人）——十一周「现代软件开发者」课程逐周拆解：从零造 Claude 克隆、skills 之辩、杀死 code review、软件工厂与 psychosis 等级。159456 字符全文翻译随卡附上。">
+    <div class="intro-inner">
+      <div class="intro-kicker">编者导读 / Editor&#39;s Note</div>
+      <p class="intro-copy">百万订阅特辑日。Rauchg（**2242 赞，今日最高**）：WebGL2+Web Audio 物理模拟唱片机——「把歌变成沟槽的物理形状、仿真唱针每秒骑墙 384000 次，噼啪与抖晃全是模拟的天然副产品」。Turck（2018 赞）：Elon 模仿秀。Ryo Lu（**704 赞**）：「当我们什么都能做时，还知道自己想要什么吗？」Levie 双发（278/256 赞）：「每 3-6 个月重试以前不可能的事」+「从 20-50% 增益到不设上限」。Garry Tan（344 赞）：「你会想要自己的软件工厂」。Zara（404 赞）：「我几乎不再用 vibe coding 一词——需要更好的词」。Nan Yu（263 赞）：「选最笨的架构——你的聪明用户也得同样聪明才能理解你」。播客重磅：AI Engineer 百万订阅特辑 × Stanford CS 146S 的 Mihail Eric（兼 Monaco AI 负责人）——十一周「现代软件开发者」课程逐周拆解：从零造 Claude 克隆、skills 之辩、杀死 code review、软件工厂与 psychosis 等级。159456 字符全文翻译随卡附上。</p>
+    </div>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 01</div>
+    <h2 class="section-title">Record Player &amp; Dumbest Architecture / 唱片机与最笨架构</h2>
+    <p class="section-desc">Rauchg（**2242 赞，今日最高**）：WebGL2+Web Audio 物理模拟唱片机——「不播歌，把歌变成唱针沟槽的物理形状、仿真唱针每秒骑墙 384000 次」；Nan Yu 三连（**263 赞**）：「选能用的最笨架构——你的聪明用户也得同样聪明才能理解你的聪明」。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="rauchg-record-player" data-author-name="Guillermo Rauch" data-author-tag="Vercel CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Guillermo Rauch avatar"><span class="avatar-fallback">GR</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Guillermo Rauch</div>
+            <div class="author-tag is-inline">Vercel CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg 用 WebGL2 + Web Audio 做了一个唱片机的物理模拟（**2242 赞，今日最高**）——「准确得吓人。它不直接播放歌曲，而是把歌转换成唱针沟槽的物理形状；然后一枚仿真唱针每秒在沟槽壁上『骑』384,000 次，你听到的就是那运动会在唱头里感应出的电压。噼啪声、爆音、抖晃（wow/flutter）、内圈发闷——全是模拟的天然副产品。你还可以『DJ 打碟』这张唱片。（转换的歌曲均为公有领域或 CC 授权；代码已附，欢迎 remix 再部署。）」从昨天的安全 agent 到今天的物理模拟，Rauchg 的周末项目永远是展示「前端还能做什么」的行为艺术。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Rauchg：不播歌——把歌变成沟槽的物理形状，仿真唱针每秒骑墙 384000 次，听到的是唱头会感应出的电压；噼啪与抖晃都是模拟的天然副产品。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Rauchg&#39;s WebGL2 + Web Audio physical simulation of a record player (2242 — today&#39;s top): shockingly accurate. Instead of playing a song, it converts it into the physical shape of a groove; a simulated stylus rides those walls 384,000 times a second, and you hear the voltage that motion would induce in a cartridge. The crackle, the pops, the wow/flutter, the dull inner grooves are all natural byproducts of the simulation. You can also DJ the record. (Converted songs are public domain or CC-licensed; code linked for remix and re-deploy.)</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Guillermo Rauch: Built a physical simulation of a record player with WebGL2 and Web Audio. It&#39;s *shockingly* accurate... Instead of playing a song, it works by converting it into the physical shape of a groove. Then a simulated stylus rides those walls 384,000 times a second, and you hear the voltage that motion would induce in a cartridge.</p>
+              <p>Guillermo Rauch: So the crackle, the pops, the wow/flutter, the dull inner grooves are natural byproducts of the simulation. You can also &quot;DJ&quot; the record.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/rauchg" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="thenanyu-dumbest" data-author-name="Nan Yu" data-author-tag="Every 研究员" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Nan Yu avatar"><span class="avatar-fallback">NY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Nan Yu</div>
+            <div class="author-tag is-inline">Every 研究员</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nan Yu 三连——「这在软件的一切方面基本都成立（**263 赞）：选能用的最笨架构、选能干完活的最笨设计。你聪明，意味着你的用户也得同样聪明才能理解你的聪明。」推论（9 赞）：「该选『最笨』而不是『最简』——简单是迭代出来的，笨才是正确的起点，否则你会开始自作聪明。」以及 AI 时代的观察（193 赞）——「软件在你知道要造什么时变得容易多了、不知道时变得难多了。有清晰度就能直奔解法；没有它，你会运出一堆垃圾、还为此花掉一大笔钱。AI 之前你是什么都运不出来——这也算一种进步。」与 Rauchg 的唱片机对照读：一个在物理层炫技、一个在劝你别炫技。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nan Yu：选最笨架构与最笨设计；简单是迭代出来的、笨是起点；知道要什么变容易、不知道变难——没清晰度就运出一堆垃圾。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Nan Yu&#39;s trio: This is basically true in all aspects of software (263). Choose the dumbest architecture that&#39;ll work, choose the dumbest design that gets the job done. Being clever means your users also have to be just as clever to understand your cleverness. And the corollary (9): you should definitely pick dumbest over simplest — simple is something you iterate to; dumb is the correct starting point, otherwise you start to outsmart yourself. Plus the AI-era observation (193): Software got a lot easier if you know what you wanna build, and a lot harder if you don&#39;t. With clarity, you can straight-shot to the solution. Without it, you&#39;ll ship a pile of junk and spend a lot of money doing it. Pre-AI era you would ship nothing, which is an improvement.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Nan Yu: Choose the dumbest architecture that&#39;ll work. choose the dumbest design that gets the job done. Being clever means your users also have to be just as clever to understand your cleverness</p>
+              <p>Nan Yu: Simple is something you iterate to. Dumb is the correct starting point. Otherwise, you start to outsmart yourself.</p>
+              <p>Nan Yu: Software got a lot easier if you know what you wanna build, and a lot harder if you don&#39;t.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/thenanyu" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 02</div>
+    <h2 class="section-title">No Upper Limit / 不设上限</h2>
+    <p class="section-desc">Levie 双发（**278 赞**）：「每 3-6 个月回去重试以前不可能的事——agent 已能控制任何有 API 的系统」+「从聊天速率的 20-50% 增益到 agent 群不设上限——我们的脑子还没准备好『算力成为可伸缩变量』」；Garry Tan 三连：「你真的会想要自己的软件工厂」（**344 赞**）；Ryo Lu 上海演讲（**704 赞**）：「当我们什么都能做时，我们还知道自己想要什么吗？」</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="levie-no-upper-limit" data-author-name="Aaron Levie" data-author-tag="Box CEO" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Aaron Levie avatar"><span class="avatar-fallback">AL</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Aaron Levie</div>
+            <div class="author-tag is-inline">Box CEO</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie 双发。回访篇（**278 赞**）——「AI 的一个好教训：每 3-6 个月要回去重试一次『以前不可能的事』，看它现在成不成——今天比历史上任何时候都更如此。过去六个月在 computer/tool use、更少 context rot、更强推理、多模态与领域专长上的进步意味着：任何有 API 的东西（甚至很多没有的），agent 都能控制并当作底层能力来用——安全 agent 接现有数据源与安全工具、IT agent 跨软件栈可靠执行工作流、数据 agent 在系统间迁移数据或流程、架构与设计 agent 驱动 CAD——今天不好用的工具会被 agent 友好或开源的替代品换掉。叠加训练进 agent 的领域知识，你得到的是每个职能的自主协作者。」上限篇（256 赞）——「我们正从一个『AI 产出大致等于你跟它来回聊天的速率』的时代，进入『你给一组 agent 出题、它们去干任意大的工作量』的时期——生产率增益从 20-50% 变成没有实际上限。agent 群与并行扇出已经改造了编码；下一个是网络安全——『更多 agent 审更多东西几乎必然赢』；再往后是众多科学领域、几乎肯定包括生命科学。我们的脑子还没为『算力成为可伸缩来解决任何问题的变量』这个新场景布好线——我们习惯于投入时间与产出相关。这正在永远改变。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Levie：每 3-6 个月重试以前不可能的事；agent 可控制一切有 API 的系统；从 20-50% 增益到不设上限——时间投入与产出的相关性正在永远改变。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Levie&#39;s pair. Check back in (278): a good lesson in AI is that you need to check back in on the latest every 3 to 6 months to try something that wasn&#39;t possible before and see if it works again — never more true than today. Six months of progress on computer and tool use, less context rot, better reasoning, multimodality, deeper domain expertise means anything with an API (and even many things without) can now be controlled and utilized by an agent as an underlying capability: security agents leverage existing data feeds and cyber tooling, IT agents execute workflows reliably across software stacks, data agents migrate data or processes between systems, architect and design agents leverage CAD tools — and today&#39;s tools that don&#39;t work will be replaced by agent-friendly or OSS tooling. Combined with domain understanding trained into agents, you get autonomous collaborators for every job function.</p>
+              <p>No upper limit (256): we&#39;re moving from an era where AI output comes roughly at the rate you can chat back and forth, to a period where you set a problem for a set of agents to go off and do an arbitrarily large amount of work — productivity gains go from 20-50% to gains that don&#39;t really have an upper limit. Agent swarms and fan-out across parallel agents already transformed coding; next, cyber is almost entirely a problem space where more agents reviewing more things wins; then many scientific fields and almost certainly life sciences. Our brains aren&#39;t wired for the scenario we&#39;re heading into where compute becomes the variable we flex to solve any problem — we&#39;re used to time-in correlating with output. That&#39;s changing forever.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Aaron Levie: A good lesson in AI is that you need to check back in on the latest with every 3 to 6 months to try something that wasn&#39;t possible before and see if it works again.</p>
+              <p>Aaron Levie: This means productivity gains that are maybe 20-50% to gains that don&#39;t really have an upper limit.</p>
+              <p>Aaron Levie: We&#39;re used to thinking that the amount of time that goes into a task is correlated to the output that we get from it... That&#39;s changing forever.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/levie" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="garrytan+ryolu" data-author-name="Garry Tan / Ryo Lu" data-author-tag="YC CEO / AI Builder" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Garry Tan / Ryo Lu avatar"><span class="avatar-fallback">GT</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Garry Tan / Ryo Lu</div>
+            <div class="author-tag is-inline">YC CEO / AI Builder</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan 三连——「你会真的想要一座自己的软件工厂」（**344 赞**）；「我的 gstack-evals 项目试着复现一篇 Jev Engineering 的文章、又让它试了 particle-1——结果文章复现成立，particle-1 还更好」（140 赞）；「一旦意识到软件在前沿模型下改起来如此容易，这些 bug 就变得有点难以忍受了。同时，『个人的 just-in-time 软件』显然将不可避免」（22 赞）。Ryo Lu 的 AI Engineer Shanghai 演讲（**704 赞**）——「当我们什么都能做时，我们还知道自己想要什么吗？」——每页幻灯片都在 Keynote 手工制作、中英双语字幕。今日的哲学压舱石。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan：你会想要自己的软件工厂；just-in-time 个人软件不可避免。Ryo Lu：什么都能做时，还知道想要什么吗？</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Garry Tan&#39;s trio: You&#39;re really going to want your own software factory (344); his gstack-evals project took a look at a Jev Engineering article, tried to replicate it, also told it to try particle-1 — turns out the article replicates and particle-1 is even better (140); Once you realize software is so easily changed with frontier models, these bugs become a little bit unbearable. And simultaneously, it seems obvious personal just-in-time software will be inevitable (22). And Ryo Lu&#39;s talk from AI Engineer Shanghai (704): when we can do anything, do we still know what we want? — every slide handmade in Keynote, subtitles in Chinese and English.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Garry Tan: You&#39;re really going to want your own software factory</p>
+              <p>Garry Tan: Once you realize software is so easily changed with frontier models, these bugs become a little bit unbearable. And simultaneously, it seems obvious personal just-in-time software will be inevitable</p>
+              <p>Ryo Lu: when we can do anything, do we still know what we want?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/garrytan" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 03</div>
+    <h2 class="section-title">Rename Vibe Coding &amp; Sideloads / 为 Vibe Coding 正名与杂闻</h2>
+    <p class="section-desc">Zara（**404 赞**）：「我几乎不再用 vibe coding 一词——它暗示你没投入心血、只是 AI slop；但人们明明在倾注心血。我们需要一个更好的词」；Peter Yang 三连（**280 赞**）；Turck（**2018 赞**）：模仿 Tucker Carlson 之后的 Elon 模仿秀；Nikunj 的 SF 社交指南（17 赞）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="zarazhangrui+swyx+nikunj" data-author-name="Zara Zhang / Swyx / Nikunj" data-author-tag="出海传媒 / Latent Space / FPV" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Zara Zhang / Swyx / Nikunj avatar"><span class="avatar-fallback">ZZ</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Zara Zhang / Swyx / Nikunj</div>
+            <div class="author-tag is-inline">出海传媒 / Latent Space / FPV</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara 双发——「我几乎不再用『vibe coding』这个词了，因为它带着贬义（**404 赞**）：暗示你没投入多少心血与灵魂、产出只是 AI slop。但很多时候，人们即使在使用 AI 编码工具、也确实在往作品里倾注心血——两者并不矛盾。我们需要一个更好的词来描述这件事。」以及（168 赞）——「造产品的乐趣，来自『技术的行为可预测』与『人的行为不可预测』之间的碰撞。」swyx 三连（AIE 大会周预热）：「你在听吗，anon（配图）」（134 赞）；「还有一期特别播客！」（3 赞）；「想知道怎么做到的？去问他们的 FDE 副总裁 Pauline Brunet（感谢 @realbasilchatha 策展）」（1 赞）。Nikunj 的 SF 社交指南（17 赞）——「如果你来 SF 想多认识人，把这些词从词典里删掉：swap notes、synergies、pick your brain、networking、san fran（游客标志）、『有空喝杯咖啡』。想认识有意思的人，就展示你的作品——这个城市最有意思的人不在那个大型峰会上，多半在办公室里。作品可以是一封用心的冷邮件、五行一针见血的 DM、一个 ship 出去的 side project、一场你组织的小聚会。下了功夫是看得见的——哪怕在这个 AI 时代：我每天收到的 slop 还是那么多，以至于只要看到有人真下了功夫，我都会专门去见。最忙的人也有 15 分钟给你——只要你给他们一个理由。」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara：vibe coding 一词带贬义——人们明明在倾注心血，需要更好的词。Nikunj：来 SF 删掉社交黑话、用作品说话；最忙的人也有 15 分钟，只要你给个理由。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Zara&#39;s pair: I&#39;ve almost stopped using the term vibe coding because there&#39;s a negative connotation to it (404). It implies that you didn&#39;t put a lot of effort or soul into the output and it&#39;s just AI slop. But oftentimes people ARE putting their heart and soul into the work even when using AI coding tools. The 2 are not contradictory. We need a better word for describing this. And: The joy of building a product comes from the collision between the predictability of how technology behaves &amp; the unpredictability of how humans behave (168). swyx&#39;s trio (AIE Summit week): are you listening anon? (134); and a special pod! (3); how, ask their VP of FDE Pauline Brunet (1). Nikunj&#39;s SF social guide (17): if visiting SF, remove from your vocabulary — swap notes, synergies, pick your brain, networking, san fran (tourist tell), grab coffee if you&#39;re free. Show your work: the most interesting people are not at that fancy conference — they&#39;re probably at their office. A thoughtful cold email, a five-line pointed DM, side projects shipped, a meetup organized. Even the busiest people have 15 mins to give you, if you give them a reason to.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Zara Zhang: I&#39;ve almost stopped using the term &quot;vibe coding&quot; because there&#39;s a negative connotation to it. It implies that you didn&#39;t put a lot of effort or soul into the output and it&#39;s just AI slop... We need a better word for describing this.</p>
+              <p>Nikunj Kothari: If you want to meet interesting people here, show your work... Even the busiest people have 15 mins to give you, if you give them a reason to!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+
+    <article class="card" data-author-key="petergyang+mattturck" data-author-name="Peter Yang / Matt Turck" data-author-tag="Behind the Craft 主播 / VC" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="Peter Yang / Matt Turck avatar"><span class="avatar-fallback">PY</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">Peter Yang / Matt Turck</div>
+            <div class="author-tag is-inline">Behind the Craft 主播 / VC</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang 三连——「凭观察，我觉得出轨在亚洲普遍得多（**280 赞）：很多男人妻儿住在美/加、自己在亚洲做生意、还有一个女朋友甚至整个第二个家在『二奶村』。多数时候原配也知道。不是说这些对——只是我见过听过的。」；「这桩绯闻要毁掉几十亿美元股东价值了吧」（60 赞）；以及 OpenAI 产品 VP Ashley Yuki 的照护者节选（46 赞）——「『我父母在一周之内各自确诊两种癌症。』『我当即决定休假一个月——那是我当时能为照顾父母做的最好的决定之一。照护者也要照顾自己：我们谈得太少。认知负荷、情绪负荷、纯粹的时间负荷——你必须给自己的心理健康留出预算。』」Turck 双发——「不是吧、刚拿捏完 Tucker Carlson 现在又来 Elon（**2018 赞**）——Jeremy Culhane 这波 run 绝了」；补刀（21 赞）——「巨魔全员出动了：Elon 是商业天才、有远见、世界首富——喜剧演员试着开开玩笑没关系，放轻松！」</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang：这桩绯闻要毁掉几十亿股东价值了吧；照护者也要为自己留预算。Turck：刚拿捏 Tucker Carlson 又来 Elon——这波 run 绝了。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>Peter Yang&#39;s trio: Anecdotally, I think cheating is far more common in Asia (280) — plenty of guys who have their wife and kids living in the US/Canada while they do business in Asia and have another girlfriend or even family in a 二奶村; most of the time their wife knows about this too. Not saying any of this is right but just what I&#39;ve seen and heard; This affair is going to destroy billions in shareholder value isn&#39;t it (60); and the caregiver excerpt (46) — Both of my parents got diagnosed with two cancers each within a week of each other, from Ashley Yuki, VP of Product at OpenAI: I just decided to take a month off... You also have to care for yourself as a caregiver... You have to make sure you&#39;re budgeting time for your own mental health. And Turck&#39;s pair: the Elon impression after nailing the Tucker Carlson one (2018) — Absolutely epic run from Jeremy Culhane; and the follow-up (21): trolls coming out in full force — Elon is a business genius, a visionary and the richest man in the world, it&#39;s ok for comedians to attempt to poke some fun, relax!</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Peter Yang: This affair is going to destroy billions in shareholder value isn&#39;t it</p>
+              <p>Ashley Yuki (via Peter Yang): You also have to care for yourself as a caregiver... You have to make sure you&#39;re budgeting time for your own mental health.</p>
+              <p>Matt Turck: Lol not Elon now, after nailing the Tucker Carlson impersonation. Absolutely epic run from Jeremy Culhane</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://x.com/petergyang" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <section class="section-header">
+    <div class="section-label">Theme 04</div>
+    <h2 class="section-title">Podcast: Stanford&#39;s Modern Software Developer / 播客：斯坦福现代软件开发者课程全景</h2>
+    <p class="section-desc">AI Engineer 百万订阅特辑：swyx × Mihail Eric（Stanford CS 146S 客座教授 + Monaco AI 负责人）——「每家公司都需要你、但地板高得多：入职即准 senior」；十一周课程逐周拆解：从零造 Claude 克隆、skills 之辩、杀死 code review、零依赖安全观、God box 汇流、软件工厂与 psychosis；Monaco 的 GTM agentic harness 插曲。159456 字符全文翻译（对话体、已压缩口语水分）。</p>
+  </section>
+  <section class="feed">
+    <article class="card" data-author-key="podcast:aie-1m-mihail-eric" data-author-name="AI Engineer Podcast（100 万订阅特辑）" data-author-tag="Mihail Eric（Stanford CS 146S 客座教授、Monaco AI 负责人）" data-author-handle="" data-author-avatar="">
+      <div class="card-header">
+        <div class="avatar is-fallback"><img src="" alt="AI Engineer Podcast（100 万订阅特辑） avatar"><span class="avatar-fallback">AE</span></div>
+        <div class="author-info">
+          <div class="author-name-row">
+            <div class="author-name">AI Engineer Podcast（100 万订阅特辑）</div>
+            <div class="author-tag is-inline">Mihail Eric（Stanford CS 146S 客座教授、Monaco AI 负责人）</div>
+          </div>
+          <div class="author-handle"></div>
+        </div>
+        <div class="card-controls">
+          <button class="view-toggle is-active" type="button" data-view-target="rewrite">速读</button>
+          <button class="view-toggle" type="button" data-view-target="original">原文</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="lang-col cn">
+          <div class="lang-label">中文</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>AI Engineer 频道百万订阅特辑：swyx 对话 Mihail Eric——斯坦福 CS 146S《现代软件开发者》客座教授（正因覆盖全部 AI 原生开发最佳实践而疯传）+ Monaco AI 负责人，教师与实践者一体。要点：课程史（2024 年 11 月起源、九个月审批、2025 秋首讲于 Opus 4.5 之前）；去年「全景 odyssey」→今年「原则固化」（context engineering、设计架构）；「每家公司都需要你，但地板高得多——入职即准 senior」；周二调查：没有一个斯坦福学生还手写代码；开源贡献作业（弃九个可 one-shot 的教学作业、改为向 AI 原生仓库真贡献、维护者 review、学生被挖走）；十一周地图——W1 从零造 Claude 克隆、W2 上下文工程+MCP（「我仍 pro-MCP」）、W3 skills 之辩（实验室聪明人想让 skills 死掉 vs skills 园艺学）、W5 agent-ready 代码库、W6 杀死 code review（spec-as-PR、Basis Git artifacts、swyx 的「程序数据库替代 Git」、每家公司都会变成 coding agent 公司）、W7 安全（零依赖之辩、别在数据/计费/认证/授权写代码去学 IAM、五年只有 Wiz 和 Socket 跑出来）、W8 后台 agent（一切皆编码 agent）、W9 AI 原生团队（God box 汇流、Conway 定律、platform engineer 未来角色）、W11 软件工厂（人类只剩 intent 与 review 两个卡点、OpenAI 五个月零手写、Yegge「Gastown 建成的唯一有用之物是 Gastown」、Boris 五阶段：Anthropic 在第三）；Monaco 插曲（赢了域名官司、$6k/天飞机营销、GTM agentic harness、Parallel+Exa、世界数据库、fDAE、Monocoder 与 Hal、「buy to learn, build to keep」、Devin 的有机采纳）；结尾：benchmarks/evals 是进每家前沿实验室的敲门砖、拍照变 app 已不算野心。完整译文见下。</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>【开场：百万订阅特辑与双重身份】</p>
+              <p>Swyx：这是特别的一期——庆祝 AI Engineer YouTube 频道突破 100 万订阅。嘉宾 Mihail Eric 有双重身份：斯坦福 CS 146S《现代软件开发者》的客座教授——这门课正因为它覆盖的 AI 原生开发最佳实践而疯传；同时他还是 Monaco 的 AI 负责人。他不止是老师，更是实践者。</p>
+              <p></p>
+              <p>【课程史：从散落博客到正式课程】</p>
+              <p>这门课第二次开设。2024 年 11 月萌生想法：编码 agent 还在早期版本，但「开发者干活的方式正在剧变」已经显而易见，而当时所有方法论都散落在博客帖子里。Mihail 是斯坦福校友、一直梦想回校教书回馈，于是找到教《设计机器学习系统》的好友 Chip Hieatt 取经，花了九到十个月走完委员会审批、2025 年秋首讲（那还是 Opus 4.5/4.6 之前的时代），反响热烈、被 Business Insider 报道。今年自主编码 agent 以前所未见的方式起飞，于是全面刷新。</p>
+              <p>去年和今年的区别？去年更像是「全景 odyssey」：ISDLC（软件开发生命周期）的每个环节都在冒出专门的编码 agent 公司——code review 的、spec 设计的、SRE 的——课程偏向曝光与游览。今年有些原则开始固化：精细的 context engineering、把设计与架构当作处理复杂任务的手段。课程定位是「实践者课程」：不是给初学者的、不替代传统 CS（算法等反而是先修课），而是教你把好基础用到生产环境的巨型代码库上。</p>
+              <p></p>
+              <p>【学生焦虑与「地板高得多」】</p>
+              <p>学生焦虑吗？非常。第一堂课他就说：「我相信每家公司都需要你们——但地板比以前高得多。你以应届生身份入职，但只当『L3』已经不够了：你几乎要一进来就达到准 senior 水平。」所以课程要回答的是：怎么更快到达那里？核心软件工程的基础（系统怎么建、权衡是什么）仍然重要；在此之上，才是人类该有价值的地方——其余实现细节大多可以交给 agent。</p>
+              <p>Swyx 的暴论（他自己也承认是故意说狠话但真信）：「大多数学生是 cooked（完了），其中一些人会超级值钱。」斯坦福的孩子会没事——但「美国其他人怎么办」是个开放问题。Mihail 周二做的课堂调查：没有一个学生还手写代码——全是本科生二三年级。</p>
+              <p></p>
+              <p>【客座讲师与开源贡献作业】</p>
+              <p>课程大量使用客座讲师，这是 by design：「我是实践者，但宣称自己有全部答案就是 hubris。把真正在前沿、看得比我更远的人请上讲台。」（swyx：相比之下有些课是「名字大全」——而他真的会教你『Claude Code 就是 200 行代码』这种根本性的东西。）</p>
+              <p>今年最自豪的改动：开源贡献作业。去年九个教学作业（「拿个仓库、用 AI code review 工具发个 review、想想为什么好/不好」）太教学化、基本能被 one-shot——没用。今年改为：与一批最优秀的 AI 原生开源仓库合作（它们本身是编码 agent、或在为 agent 造工具），学生作业就是真的给这些项目贡献代码——维护者会 review 你的 PR、帮你建立好软件的心智模型。这是「好软件设计的接力棒传递」：避免「senior 们带着 pre-agent 时代的功底+agent 变得超强、而 junior 们不知所措」的断层。顺带：Factory、Cognition、OpenAI 都给学生提供了 credits；干得好的学生会被项目方直接挖走。</p>
+              <p></p>
+              <p>【课程地图：十周总览】</p>
+              <p>W1 编码 agent 内部原理——从零造一个编码 agent（「自己写个 Claude 克隆」，幸好它现在开源了）；W2 大规模 context engineering（超越 vanilla prompting）+ 工具设计与 MCP（「MCP 被骂了一阵，但我仍然 pro-MCP：它已是既存标准、会继续存在」）；W3 Skills——从单一用途工具扩展到「程序」，通往 agent 自动化；W4 定制 agent——AgentsMD、Claude MD、hooks、sub-agents 等现代 harness 机制；W5 agent-ready 代码库（最爱的主题之一）：什么是「准备好被 agent 摄入」的仓库——表层边界、文档、可验证性；W6 agentic code review；W7 security；W8 background agents；W9 AI-native 团队；W10/11 software factory——全部层层铺垫、通向工厂。</p>
+              <p></p>
+              <p>【W2 上下文工程：子代理扇出与「笨区」】</p>
+              <p>上下文工程的要点（这也是 AIE 大会一批研究论文的主题）：主 agent 的上下文是稀缺资源，重活应该扇出给子代理（retrieval 型 fan-out 现在已经做得很好）；Claude Code 的系统提示词一度 2 万 token、后来砍掉八成——「模型变强、prompt 变简」的跷跷板反复出现。还有「笨区」（dumb zone）概念：别把模型不需要聪明的地方喂给它。</p>
+              <p></p>
+              <p>【W3 Skills 之辩：想要 skills 死掉的人】</p>
+              <p>Skills 环节请了多位实践者。有趣的是行业分裂：聪明人里不少（OpenAI/Anthropic 内部）希望 skills 死掉——「感觉不 AI-native：说好的 AGI，结果每人抱着一堆 Markdown 文件？」但另一面，skills 确实在无数团队里创造真实价值：Grill Me（让 agent 拷问你的方案）、Explain Diff、网页技能等；写 skill 有手艺——swyx 甚至做了「帮你剪 skill 的 skill」，Eugene Yan 谈过 skill 的修剪园艺学（skills gardening/pruning）；Devin 把组织知识 codify 成 skills 的路线说不定反而活得最久。</p>
+              <p></p>
+              <p>【W6 杀死 code review】</p>
+              <p>编码 agent 时代的新瓶颈是 code review。这周请了 Aviator 的 Ankit（「杀死 code review」）、merge queue 实践、「把 spec 当 PR 描述写」等。讨论延伸到 Git 本身的形态：Basis 的「Git artifacts」——specs 与 canonical state 的分离；swyx 提出更激进的想法：用「程序数据库」替代 Git（Git 是面向 diff 的文本工具，agent 时代我们需要的可能是可查询的程序表示）；任务表示的赢家很可能是 Linear；以及那句结论：每家公司都会变成 coding agent 公司。</p>
+              <p></p>
+              <p>【W7 安全：零依赖、日光与 IAM】</p>
+              <p>安全周请了 Semgrep 的 Isaac。要点：依赖管理/供应链是主战场；「最安全的代码库=零依赖」的极端立场之辩（反方：日光是最好的消毒剂——开源依赖被全世界盯着）；有人主张把关键路径全部 Rust 化（Vercel 的 Malta 一派）；「实验室会给前沿踩刹车」与「模型终将修好所有安全」都未被证明。给学生的具体忠告：代码库里数据、计费、认证、授权这几块「别写代码、去学 IAM 和 DNS」；安全 VC 五年里真正跑出来的只有 Wiz 和 Socket 两家。</p>
+              <p></p>
+              <p>【W8 后台 agent：一切都是编码 agent】</p>
+              <p>Cloudflare 的 Rajesh 讲后台 agent：Stripe 的 Minions、Spotify、Ramp 的 Inspects 等案例；Grokbot 底下其实是 Cursor。swyx 分享自己的用法：把 SEO/AEO 当成一个代码库、在 Codex 里跑循环。趋势判断：everything is a coding agent——一切后台自动化最终都会长成编码 agent 的形态。</p>
+              <p></p>
+              <p>【W9 AI 原生团队：网关、MCP portal 与 God box】</p>
+              <p>这周讲团队与公司层的基建：LLM 网关（现在几乎每家都在自建或买）；MCP portal（「MCP 就是存在了」——swyx 曾向 Anthropic 提议做 portal、后来失去兴趣：portal 本身是门未验证的生意）；以及「God box」收敛论：所有基建最终汇流——MCP portal 折进 LLM 网关、网关再折进 authz 与计费。「N 到 M 再加 N」的架构；Conway 定律——你发布的就是你的组织架构图（你 buy 你的 org chart）；「为所有人做的东西就是为没有人做的」——AIE 的受众是真正在乎 AI 的工程师；未来角色是 platform engineer：一个人 owning 云、DevEx、SecOps（「大男孩做平台，产品同学调 CSS」）。</p>
+              <p></p>
+              <p>【W11 软件工厂：造机器的机器】</p>
+              <p>压轴主题：software factory——「造那台机器的机器」。人类只剩两个卡点：intent（意图）与 review（审查）。OpenAI 那篇 harness engineering 博文是标志：内部工具五个月零行手写代码。但 GTM 是 land-and-expand：没法把一座整厂直接空降给福特；Warp 给学生开了「在工厂里干活」的版本。开发者角色变成「agent 的管理者」、PM-工程师混合体（Anthropic 平台的产品负责人与工程负责人至今还没合并成一个岗位）。「写会写 prompt 的 prompt」——要向上搭到工厂、不要从工厂向下漏：slop 都是从向下搭里漏出来的。度量：今天还在用 PR 合并率，两年后会显得可笑；转向 CSAT 类指标。期末项目从 YC RFS 出题：有 EE 学生给 C 语言手册做了翻译器；有设计师把笔记本拍照变成 Vercel 应用、现在真的在 Vercel 做 Eve。Meta-harnesses：像模型路由器包 API 一样把 harness 包起来。</p>
+              <p>请了 Steve Yegge 讲「精神病等级」：十级、农场、Gastown 烧掉——「在 Gastown 建成的唯一有用的东西就是 Gastown。」swyx：我不会雇任何没经历过这种 psychosis 并走出来的人；学生版 psychosis 的仿品是「在 Notion 里画图但不 ship」。Boris Cherny 的班级分享给了五阶段框架（从零数）：gated→assisted→parallel→supervised autonomy→AI native——Anthropic 整体在第三阶段、Boris 本人第四。还有 Anthropic 内部术语 dynamic workflows：按需现场写一个 harness 作为子代理（比复制父 agent 写更多代码）；Monaco 给 GTM 场景造了一版。</p>
+              <p></p>
+              <p>【Monaco 插曲：一家 GTM 公司的 AI 原生实践】</p>
+              <p>（中段插播 Mihail 的本职。）Monaco：赢了 monaco.com 域名官司；两架飞机每天 6000 美元的营销事件正满天飞；Series B、总部 SF、all-in-one 的 AI 原生销售平台（客户从 seed 到 Series A、正在上探）。AI 侧：自建 GTM 的 agentic harness（灵感取自 Codex/Claude 这类编码 harness）——TAM/ICP 评分、pipeline 演进、会议纪要等销售琐事全由长/短程 agent 驱动。模型策略走了典型曲线：先用前沿模型探明可能性→（Harvey 毛利之争那类成本压力）→进入「post-train 开放权重」阶段，用 RL 环境后训专用模型。enrichment 供应商：Parallel 与 Exa（都是朋友，保持中立）；自建「世界数据库」——公司与联系人全景，ICP 构建时永远最新。Monaco 自认「demand 方向世界级」：找对买家、找对时机（比如检测到销售 VP 换工作的信号——换工作的人正处在最可能采购新平台的窗口）。最独特的资产是 forward-deploy AE：卖 Monaco 的世界级 GTM 团队同时就是帮客户 onboard agentic 工作流的顾问——把 Brex 系的 GTM 最佳实践 codify 进平台。</p>
+              <p>工程侧：Monocoder——架在 Coder 平台上的自家版后台 agent 基建（致敬 John Tracy）；Hal——Slack 里的 AI SRE+客户成功+QA 工程师三合一 bot（对不同受众展现不同人格；致敬 Yunja）。build vs buy 原则：「buy to learn, build to keep（买来学、留下的是自建的）」。code review 工具的采纳故事：一年多前系统调研过 CodeRabbit/Graphite/Ellipsis 等，都没过线；后来 Devin（Cognition）在课堂上被有机安利、团队一个个主动要求加入——第一次是统计驱动的选型（PR 饼图：解决什么、噪音换价值划算吗），第二次纯靠有机口碑。AI SRE 领域看好 Resolve 与 Night Shift（Greylock 投）。</p>
+              <p></p>
+              <p>【结尾：野心、招募与 benchmarks】</p>
+              <p>给学生的最后忠告：课程学分之外，最值钱的敲门砖是 benchmarks 和 evals——「能进每一家前沿实验室的门」；Sweet Bench 就是个本科生的项目；benchmarks 里有真金白银。还有招募故事：Cursor 的 Wilson 当年放话「我要写个浏览器」——这种野心本身就该被招募；今天「拍张照变成 app」已经不算野心了——标准在飞速抬高。</p>
+            </div>
+          </div>
+        </div>
+        <div class="lang-col en">
+          <div class="lang-label">English</div>
+          <div class="content-shell">
+            <div class="content-variant is-active" data-view="rewrite">
+              <p>The AI Engineer channel&#39;s 1M-subscriber special: swyx in studio with Mihail Eric — adjunct professor at Stanford teaching CS 146S The Modern Software Developer (viral for covering all AI-native development best practices) and Head of AI at Monaco — teacher and practitioner in one. The full tour: the course history (genesis November 2024 when methodology lived in scattered blog posts; nine-ten months through committee; first taught fall 2025 pre-Opus-4.5; a Business Insider feature; refreshed this year as autonomous coding agents took off); last year vs this year (from an odyssey surveying a coding-agent startup for every ISDLC stage to solidifying principles — careful context engineering, design and architecture as the way to handle complex tasks; a practitioner&#39;s course with CS prereqs); the anxiety talk (every company needs you, but the floor is much higher — you enter at near-senior level; swyx&#39;s most students are cooked, some will be super valuable; Tuesday&#39;s survey: not a single Stanford sophomore or junior types by hand anymore); guest lecturers by design (Boris Cherny and friends at the actual frontier); the open-source contribution homework (nine one-shottable pedagogical assignments replaced by real contributions to the best AI-native repos, with maintainers reviewing PRs — passing the guard of good software design; Factory/Cognition/OpenAI credits; students getting poached); the eleven-week map — W1 harness internals (build a Claude clone from scratch), W2 context engineering at scale + tool design/MCP (still pro-MCP), W3 skills (and the divide: smart people at the labs want skills to die — a giant bunch of Markdown files is not what AGI was supposed to look like — versus skills gardening, Grill Me, a skill that prunes skills, Devin codifying org knowledge), W4 customizing agents (AgentsMD, Claude MD, hooks, sub-agents), W5 agent-ready codebases, W6 agentic code review (the new bottleneck; kill-the-code-review; spec-as-PR; Basis Git artifacts; swyx&#39;s program-database-instead-of-Git pitch; Linear as the likely winner of task representation; every company becomes a coding-agent company), W7 security (Semgrep&#39;s Isaac; the zero-dependencies debate; sunlight as disinfectant; Rust porting; don&#39;t write code in data/billing/authn/authz — learn IAM; only Wiz and Socket worked as security VC bets in five years), W8 background agents (Cloudflare&#39;s Rajesh; Stripe Minions, Ramp Inspects; Grokbot is Cursor under the hood; everything is a coding agent), W9 AI-native teams (the gateway; MCP portal — MCP just is; the God-box convergence of MCP portal into LLM gateway into authz and billing; Conway&#39;s law — you ship your org chart; platform engineer as the role of the future), W11 the software factory (the machine that builds the machine; intent and review as the two human chokepoints; OpenAI&#39;s harness engineering post — five months, zero hand-written lines; land-and-expand GTM; Warp&#39;s student factory; the manager-of-agents PM-engineer hybrid; write prompts that write prompts — build up to the factory, slop leaks from building down; PR merge rate will look ridiculous in two years; YC-RFS capstones; Steve Yegge&#39;s levels of psychosis — the only useful thing built at Gastown was Gastown; swyx won&#39;t hire anyone who hasn&#39;t been through psychosis; Boris Cherny&#39;s five-stage zero-indexed artifact — gated, assisted, parallel, supervised autonomy, AI-native — Anthropic at stage three, Boris at four; dynamic workflows — writing a harness on demand as a sub-agent); and the Monaco intermission (won the monaco.com lawsuit; $6k/day planes marketing; the all-in-one AI-native sales platform; a bespoke GTM agentic harness; the frontier-to-post-training arc with open weights; Parallel and Exa for enrichment; the world database; demand world-class — target buyers at job-transition moments; forward-deploy AEs codifying Brex-grade GTM playbooks; Monocoder on the Coder platform; Hal the Slack bot — part AI SRE, part customer success, part QA; buy to learn, build to keep; the organic Devin code-review adoption story after CodeRabbit/Graphite/Ellipsis all missed the bar; Resolve and Night Shift in AI SRE) — closing with the career advice: benchmarks and evals get you in the door of every frontier lab; Sweet Bench was an undergrad project; and recruiting people who say things like I&#39;m gonna write a browser, because photo-to-app no longer counts as ambition.</p>
+            </div>
+            <div class="content-variant" data-view="original">
+              <p>Mihail Eric: Hey, I really believe that every company needs you, but the floor is much higher... you have to generally be better than, you know, almost at the senior level going into this.</p>
+              <p>swyx: most students are cooked, some of them are gonna be super valuable.</p>
+              <p>Mihail Eric: every student that I surveyed, you know, on Tuesday, not a single person really types by hand anymore.</p>
+              <p>Mihail Eric: I think for a while MCP was getting a lot of hate. I&#39;m still pro MCP... it&#39;s a standard that&#39;s existed, and I think it will continue to exist.</p>
+              <p>Mihail Eric: you buy to learn and you build to keep.</p>
+              <p>Mihail Eric: we are a very good demand company... Find buyer at the right time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.youtube.com/@AIEngineerYT" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a></div>
+    </article>
+  </section>
+
+  <footer data-source-note="Source: Follow Builders curated daily digest. Built from the 2026-11-10 source feeds (10 builders, 21 tweets; plus one brand-new-to-this-digest podcast: the AI Engineer 1M-subscriber special with Mihail Eric on Stanford&#39;s CS 146S Modern Software Developer and AI at Monaco — full 159,456-character transcript translated, with conversational filler trimmed). One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.">Source: Follow Builders curated daily digest. Built from the 2026-11-10 source feeds (10 builders, 21 tweets; plus one brand-new-to-this-digest podcast: the AI Engineer 1M-subscriber special with Mihail Eric on Stanford&#39;s CS 146S Modern Software Developer and AI at Monaco — full 159,456-character transcript translated, with conversational filler trimmed). One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.</footer>
+
+  <script>
+    function getTemplateAuthorSources() {
+      const sources = window.AI_BUILDERS_TEMPLATE_SOURCES || {};
+      return { identities: sources.identities || {}, avatars: sources.avatars || {} };
+    }
+
+    function getAuthorInitials(name) {
+      return (name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function(part) { return part[0]; }).join('').toUpperCase();
+    }
+
+    function hydrateTemplateCopy() {
+      const intro = document.querySelector('.intro');
+      if (intro) {
+        const kicker = intro.querySelector('.intro-kicker');
+        const copy = intro.querySelector('.intro-copy');
+        if (kicker) kicker.textContent = intro.dataset.kicker || '';
+        if (copy) copy.textContent = intro.dataset.text || '';
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = footer.dataset.sourceNote || '';
+
+      const rewriteLabel = document.body.dataset.viewLabelRewrite || '速读';
+      const originalLabel = document.body.dataset.viewLabelOriginal || '原文';
+      document.querySelectorAll('.view-toggle').forEach(function(button) {
+        if (button.dataset.viewTarget === 'rewrite') button.textContent = rewriteLabel;
+        if (button.dataset.viewTarget === 'original') button.textContent = originalLabel;
+      });
+    }
+
+    function hydrateAuthorMeta() {
+      const sources = getTemplateAuthorSources();
+      document.querySelectorAll('.card').forEach(function(card) {
+        const authorKey = card.dataset.authorKey || '';
+        const identity = sources.identities[authorKey] || {};
+        const avatarEntry = sources.avatars[authorKey] || {};
+
+        const name = identity.name || card.dataset.authorName || '';
+        const rawHandle = identity.handle || card.dataset.authorHandle || '';
+        const handle = rawHandle && rawHandle.startsWith('@') ? rawHandle : (rawHandle ? '@' + rawHandle : '');
+        const tag = identity.label || card.dataset.authorTag || '';
+        const avatar = avatarEntry.fileUrl || avatarEntry.localPath || card.dataset.authorAvatar || '';
+
+        const nameNode = card.querySelector('.author-name');
+        const tagNode = card.querySelector('.author-tag');
+        const handleNode = card.querySelector('.author-handle');
+        const avatarNode = card.querySelector('.avatar');
+        const avatarImg = card.querySelector('.avatar img');
+        const avatarFallback = card.querySelector('.avatar-fallback');
+
+        if (nameNode) nameNode.textContent = name;
+        if (tagNode) tagNode.textContent = tag;
+        if (handleNode) handleNode.textContent = handle;
+        if (avatarImg) {
+          avatarImg.src = avatar;
+          avatarImg.alt = name ? name + ' avatar' : 'Author avatar';
+        }
+        if (avatarNode) avatarNode.classList.toggle('is-fallback', !avatar);
+        if (avatarFallback) avatarFallback.textContent = getAuthorInitials(name);
+      });
+    }
+
+    function updateEditionStrip() {
+      const publishDate = document.body.dataset.publishDate;
+      const editionName = document.body.dataset.editionName || '双语精选版';
+      const editionStrip = document.getElementById('edition-strip-text');
+      if (!publishDate || !editionStrip) return;
+
+      const issueNumber = document.body.dataset.issueNumber || '';
+      if (!issueNumber) return;
+
+      const selectedCount = document.querySelectorAll('.card').length;
+      const authorCount = new Set([].slice.call(document.querySelectorAll('.author-handle')).map(function(node) { return node.textContent.trim(); }).filter(Boolean)).size;
+      const themeCount = document.querySelectorAll('.section-header').length;
+      const parts = ['第 ' + issueNumber + ' 期', publishDate, editionName, selectedCount + ' 条精选', authorCount + ' 位作者', themeCount + ' 个主题'];
+      editionStrip.innerHTML = parts.map(function(part) { return '<span class="edition-item">' + part + '</span>'; }).join('<span class="edition-sep">|</span>');
+    }
+
+    function measureVariantHeight(variant) {
+      const prevPosition = variant.style.position;
+      const prevInset = variant.style.inset;
+      const prevVisibility = variant.style.visibility;
+      const prevPointerEvents = variant.style.pointerEvents;
+      const prevOpacity = variant.style.opacity;
+      const prevTransform = variant.style.transform;
+      const prevTransition = variant.style.transition;
+      const prevOverflowY = variant.style.overflowY;
+      const prevDisplay = variant.style.display;
+
+      variant.style.position = 'relative';
+      variant.style.inset = 'auto';
+      variant.style.visibility = 'hidden';
+      variant.style.pointerEvents = 'none';
+      variant.style.opacity = '1';
+      variant.style.transform = 'none';
+      variant.style.transition = 'none';
+      variant.style.overflowY = 'visible';
+      variant.style.display = 'block';
+
+      const height = variant.scrollHeight;
+
+      variant.style.position = prevPosition;
+      variant.style.inset = prevInset;
+      variant.style.visibility = prevVisibility;
+      variant.style.pointerEvents = prevPointerEvents;
+      variant.style.opacity = prevOpacity;
+      variant.style.transform = prevTransform;
+      variant.style.transition = prevTransition;
+      variant.style.overflowY = prevOverflowY;
+      variant.style.display = prevDisplay;
+
+      return Math.ceil(height);
+    }
+
+    function getTargetHeight(shell, target) {
+      const variant = shell.querySelector('.content-variant[data-view="' + target + '"]');
+      return measureVariantHeight(variant);
+    }
+
+    function syncShellHeights() {
+      document.querySelectorAll('.content-shell').forEach(function(shell) {
+        const active = shell.querySelector('.content-variant.is-active');
+        const target = active ? active.dataset.view : 'rewrite';
+        shell.style.height = getTargetHeight(shell, target) + 'px';
+      });
+    }
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function() {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncShellHeights, 120);
+    });
+
+    document.querySelectorAll('.card').forEach(function(card) {
+      const buttons = card.querySelectorAll('.view-toggle');
+      const shells = card.querySelectorAll('.content-shell');
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = button.dataset.viewTarget;
+          if (button.classList.contains('is-active')) return;
+
+          buttons.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === button);
+          });
+
+          shells.forEach(function(shell) {
+            const current = shell.querySelector('.content-variant.is-active');
+            const next = shell.querySelector('.content-variant[data-view="' + target + '"]');
+            if (!current || !next || current === next) return;
+
+            shell.style.height = shell.offsetHeight + 'px';
+            requestAnimationFrame(function() {
+              current.classList.remove('is-active');
+              next.classList.add('is-active');
+              shell.style.height = getTargetHeight(shell, target) + 'px';
+            });
+          });
+        });
+      });
+    });
+
+    hydrateTemplateCopy();
+    hydrateAuthorMeta();
+    updateEditionStrip();
+    syncShellHeights();
+  </script>
+</body>
+</html>
