@@ -1,0 +1,252 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-11",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "Carbon 与 Claude 双发日。Sottiaux（**3892 赞，今日最高**）：「实验室们一起创新 ftw」；Claude 官方（**2885 赞**）：interactive connectors——在对话旁打开 Adobe/Atlassian/Box 完整版；Josh Woodward（689 赞）：Gemini 4 Carbon 向全球 Ultra 开放；Shipper 日零实测（143 赞）：「Senior Engineer 基准 44% vs Argon 21%——但不知道何时该停」。Thariq（**1590 赞**）：「更少一次性 demo、更多协作工具」。steipete（**1334 赞**）：GPT-6 Astra 复扫 35000 新漏洞——「彻底筋疲力尽」。Rauchg 双发（518/446 赞）：「Rust 是 agentic coding 之前发明的卓越语言——新语言将绽放」+Security Review 一周修复 14665 个漏洞。播客重磅：Latent Space × Resend CEO Zeno Rocha——npm 反超 SendGrid 两倍、MCP 月月翻倍、「反向工程钓鱼者」、定价计算器 .md 事故、「宁可 1000 万 ARR 女儿愿意跟我玩」。92680 字符全文翻译随卡附上。"
+  },
+  "archive": {
+    "title": "Carbon 日与为 Agent 设计",
+    "desc": "Gemini 4 Carbon 向 Ultra 开放、Claude interactive connectors、Sottiaux「实验室一起创新」；播客：Resend CEO 谈为 agent 设计产品与 AEO 实战。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-11-11 source feeds (15 builders, 32 tweets; plus one brand-new-to-this-digest podcast: Latent Space with Zeno Rocha, founder and CEO of Resend, on designing for agents — full 92,680-character transcript translated). One other podcast episode in the feed failed transcript retrieval upstream (HTTP 502) and is noted but not covered.",
+  "sections": [
+    {
+      "title": "Gemini 4 Carbon Day / Carbon 日",
+      "desc": "Josh Woodward（**689 赞**）：Gemini 4 Carbon 已向全球 Ultra 订阅者开放；Shipper 的 Every 日零实测（143 赞）：「Senior Engineer 基准 44% vs Argon 21%、3D 扫描建模、95% 的 Everycut 更新——但不知道何时该停」；Sottiaux 双发（**3892/3252 赞**）。",
+      "cards": [
+        {
+          "authorKey": "joshwoodward+danshipper",
+          "authorName": "Josh Woodward / Dan Shipper",
+          "authorTag": "Google VP / Every CEO",
+          "sourceUrl": "https://x.com/danshipper",
+          "en": {
+            "rewrite": [
+              "Carbon launch day (689): Right now, Gemini 4 Carbon is in the GeminiApp for Ultra subscribers worldwide. And Every's day-zero vibe check (143): Carbon is a much better coder than Argon — but Shipper is probably keeping Argon for writing. Coding: 44% vs Argon's 21% on their Senior Engineer benchmark; in a separate test it identified 6 tasks as ready then did 15 — including work someone else was already doing — stopped after 4.5 hours (doesn't always know when to stop). Big builds: from 3D scans of the podcast studio it built a browser model accurate enough to check whether new gear fits without entering the shot, and wrote ~95% of a big Everycut update. Code quality: excellent tests and documentation including records of approaches considered and rejected; Fable stays first choice; can produce huge files where Fable keeps things modular. Audio/video: caught issues other models missed; 6 titled shorts from a recorded meeting. Design: hyperrealistic ginkgo-leaf app icon; interfaces split the team (boxes within boxes). Writing: about even with Argon on the editorial benchmark, and Carbon costs more — not enough improvement to justify switching. Reach Test: yellow — use it sometimes; give it one big job with a clear finish line, worth a second opinion on audio and video."
+            ],
+            "original": [
+              "Josh Woodward: Right now, Gemini 4 Carbon is in the @GeminiApp for Ultra subscribers worldwide",
+              "Dan Shipper: It can work for hours on an ambitious project, but it doesn't always know when to stop.",
+              "Dan Shipper: My Reach Test: 🟨 I'll use it sometimes."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Carbon 上线日（**689 赞**）——「此刻，Gemini 4 Carbon 已向全球 GeminiApp 的 Ultra 订阅者开放。」Shipper 的 Every 日零实测（143 赞）——「Google 刚发 Gemini 4 Carbon。它比 Argon 强得多的编码者——但写作我大概还是留 Argon。我们横跨编码、写作、设计与知识工作实测：编码：Senior Engineer 基准一次跑分 44%（Argon 21%）——大幅提升、仍属中游；另一测试里它认定 6 个任务就绪、结果干了 15 个——包括别人正在做的活——跑了快 4.5 小时被叫停（能连干几小时，但不知道何时该停）。大型构建：给它播客棚的 3D 扫描与设备清单，一次就建出足以检查『新设备会不会入镜』的浏览器模型；Everycut 大更新约 95% 由它完成。代码质量：测试与文档极佳——包括它考虑过并否决的方案记录；Fable 仍是首选、Carbon 赢得一席，缺点是会产出巨型文件而 Fable 保持模块化。音视频：抓到了其他模型漏掉的音频剪辑问题；从会议录音回 6 条带标题的短视频。设计：超写实银杏叶 app 图标；界面设计团队意见分裂（有人一直收到『盒中盒』）。写作：编辑基准与 Argon 大致持平，但 Carbon 更贵——提升不足以 justify 换。Reach Test：🟨 偶尔会用；给它一件有明确终点的大活、审回来的东西；也值得当音视频的第二意见。」"
+            ],
+            "original": [
+              "Woodward：Carbon 已向全球 Ultra 开放。Shipper：比 Argon 强的编码者但写作不够换；不知道何时该停；Reach Test 🟨。"
+            ]
+          }
+        },
+        {
+          "authorKey": "thsottiaux-carbon-day",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's pair on launch day: Labs innovating together ftw (3892) — screenshots of the labs shipping in tandem; and How many of you have a small business? (3252) — the Codex angle on serving small businesses."
+            ],
+            "original": [
+              "Thibault Sottiaux: Labs innovating together ftw",
+              "Thibault Sottiaux: How many of you have a small business?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 上线日双发——「实验室们一起创新，万岁（ftw）」（**3892 赞，今日最高**）——各家实验室同日竞发的截图合集；「你们有多少人开着小生意？」（**3252 赞**）——从 Codex 视角问向小企业主。与 Carbon 上线同日，实验室竞争进入白热化。"
+            ],
+            "original": [
+              "Sottiaux：实验室一起创新 ftw；你们多少人开小生意？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Claude Whiteboards & Interactive Connectors / Claude 的白板与内嵌工具",
+      "desc": "Claude 官方三连（**2885/1683/1149 赞**）：interactive connectors 可在对话旁打开 Adobe、Atlassian、Box 的完整版工具；Claude Data GA；Whiteboards/Sheets/Data 开始滚动推出。Levie（**166 赞**）：Box×Anthropic——agent 对企业文件的读写将百倍于人类今天。",
+      "cards": [
+        {
+          "authorKey": "claudeai-connectors+levie-box",
+          "authorName": "Claude（官方）/ Aaron Levie",
+          "authorTag": "Anthropic / Box CEO",
+          "sourceUrl": "https://x.com/claudeai",
+          "en": {
+            "rewrite": [
+              "Claude's triple: with interactive connectors, you can now open the full version of a tool inside Claude (2885) — work in Adobe, Atlassian, and Box beside your conversation; make changes yourself, or ask Claude to make them with you. Claude Data (formerly Dashboards) is now generally available on paid plans (1683) — dashboards plus drafted data stories and narrated videos from your metrics, with certified queries and live sharing in beta. And Whiteboards, Sheets, Data and interactive connectors are rolling out today (1149). The enterprise angle from Levie (166): Agents are going to work with enterprise files 100X more than people do today — hence the Box×Anthropic partnership bringing full read/write interoperability to Box content via Claude: an agent can pull up content in a workflow and write file updates back to Box, viewable directly inside Claude — create, edit and update contracts, presentations and strategy docs, all via MCP. Plus his swarm essay (72): the progression from chat (rate-limited by our interactions) to agents (hours of work into minutes) to swarms (goal-seeking, no inherent limit) — big in game development, coding, trading, life sciences, IT automation, cyber, math, animation — an entire new field of FDE work."
+            ],
+            "original": [
+              "Claude: with interactive connectors, you can now open the full version of a tool inside Claude. Work in Adobe, Atlassian, and Box beside your conversation.",
+              "Claude: Claude Data (formerly Dashboards) is now generally available on paid plans.",
+              "Aaron Levie: Agents are going to work with enterprise files 100X more than people do today. This is why we're excited to partner with Anthropic to bring full read/write interoperability to Box content via Claude."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Claude 官方三连——interactive connectors（**2885 赞**）：「现在可以在 Claude 里打开工具的完整版：在对话旁边直接用 Adobe、Atlassian 和 Box 工作——自己动手改，或者让 Claude 跟你一起改。」Claude Data（原 Dashboards）付费版 GA（1683 赞）：「除仪表盘外，Claude 还能从你的指标起草数据故事与带旁白的视频、供你审阅后分享；certified queries 与实时共享 beta 中。」Whiteboards、Sheets、Data 与 interactive connectors 今日起滚动推出（1149 赞）。企业侧配套——Levie（**166 赞**）：「agent 对企业文件的操作量将是人类今天的一百倍——所以我们和 Anthropic 合作、通过 Claude 给 Box 内容带来完整读写互操作：agent 不仅能在工作流里调出内容，还能把文件更新写回 Box、直接在 Claude 里查看——创建、编辑、更新合同、演示文稿、战略文档，全走 MCP。」他的 agent 群长文（72 赞）——「从聊天（被交互速率限死）到 agent（几小时的活压进几分钟）再到 swarm（目标寻求、没有内在上限）：游戏开发、编码、交易、生命科学、IT 自动化、网络安全、数学突破、动画……这是一整个全新的 FDE 工作领域。」"
+            ],
+            "original": [
+              "Claude：在对话旁打开 Adobe/Atlassian/Box 完整版；Claude Data GA。Levie：agent 操作企业文件将百倍于人类；swarm 无上限、全新 FDE 领域。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Designing for Agents / 为 Agent 而设计",
+      "desc": "Thariq（**1590 赞**）：「我们需要更少的一次性 demo、更多展示如何与模型协作把愿景带到现实的工具」；Rauchg（**518 赞**）：「Rust 是卓越的语言——但它是 agentic coding 之前发明的。有了 agent，新语言将绽放」；swyx（83 赞）：「我终于问了 Resend 的 CEO，为什么我的 agent 一直选 Resend」；Ryo Lu（**314 赞**）：「魔法发生在人与人协作里，而不是各自躲在 agent 军团里」。",
+      "cards": [
+        {
+          "authorKey": "trq212+rauchg+ryolu+swyx",
+          "authorName": "Thariq / Rauchg / Ryo Lu / Swyx",
+          "authorTag": "独立开发 / Vercel CEO / AI Builder / Latent Space",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq (1590): we need fewer one shot demos and more tools that show how you can collaborate with models to bring your vision to life. Rauchg (518): Rust is a superb language and ecosystem, especially given it was invented pre-agentic coding. With agents, new languages will blossom, even purpose-built ones for specific use cases, and discretionary C or even LLVM IR, assembly… AI is fluid. No more one-size-fits-all. Ryo Lu (314): working together with other humans is where the magic happens, not each of us running our own army of agents in silos — glad to see this come alive (with a journal version in English, Chinese or Japanese). And swyx (83): I finally asked Zeno Rocha, the CEO of AEO, why tf my agents keep choosing Resend even when I don't want them to — the teaser for today's Latent Space episode. Plus his AIE notes: a keynote he previewed under embargo (71) and this is my engines thread (5)."
+            ],
+            "original": [
+              "Thariq: we need fewer one shot demos and more tools that show how you can collaborate with models to bring your vision to life",
+              "Guillermo Rauch: With agents, new languages will blossom, even purpose-built ones for specific usecases, and discretionary C or even LLVM IR, assembly… AI is fluid. No more one-size-fits-all.",
+              "Ryo Lu: working together with other humans is where the magic happens, not each of us running our own army of agents in silos",
+              "swyx: I finally asked @zenorocha, the CEO of AEO, why tf my agents keep choosing Resend even when I don't want them to"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq（**1590 赞**）——「我们需要更少的一次性（one-shot）demo，更多这样的工具：展示你可以怎样与模型协作、把你脑中的愿景带到现实。」Rauchg（**518 赞**）——「Rust 是门卓越的语言与生态——考虑到它发明于 agentic coding 时代之前，尤其如此。有了 agent，新语言将绽放——甚至会有为特定用例定制构建的语言，以及按需选择的 C、乃至 LLVM IR、汇编……AI 是流体的。不再有 一招鲜。」Ryo Lu（**314 赞**）——「魔法发生在人与人一起工作时，而不是我们各自躲在孤岛里指挥自己的 agent 军团——很高兴看到它活过来了（配图；英文/中文/日文版在他的 journal）。」swyx（83 赞）——「我终于问了 Zeno Rocha——AEO 的 CEO——为什么我的 agent 一直选 Resend、连我不想让它选的时候也是」——今天播客的预告片。另附 AIE 预热：「我提前看了他的 keynote、你们不知道周四等着你们的是什么（真的不得不签了 embargo）」（71 赞）；「这是我的引擎们 thread」（5 赞）。"
+            ],
+            "original": [
+              "Thariq：少一次性 demo、多协作工具。Rauchg：agent 时代新语言将绽放、不再一招鲜。Ryo Lu：魔法在人与人之间。swyx：为什么我的 agent 一直选 Resend？"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sideloads / 杂闻",
+      "desc": "steipete（**1334 赞**）：GPT-6 Astra 复扫出 35000 个新漏洞——「说实话，我们已经彻底筋疲力尽了」；Peter Yang（**437 赞**）：「如果 Anthropic 能加速治愈这些可怕的疾病、它将是史上最有影响力的公司之一」；Rauchg（**446 赞**）：Security Review 上线一周——57897 个漏洞、14665 个已被 agent 修复；Zara 双发（266/119 赞）。",
+      "cards": [
+        {
+          "authorKey": "steipete+petergyang+rauchg+zara+misc",
+          "authorName": "steipete / Peter Yang / Rauchg / Zara / 杂闻",
+          "authorTag": "独立开发者 / Behind the Craft / Vercel CEO / 出海传媒 / 其他",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "steipete (1334): When the company ran diagnostics on about 700 systems, it found 10,500 vulnerabilities and applied fixes over three months. However, when it re-ran diagnostics using GPT-6 Astra, the latest model, it confirmed 35,000 new vulnerabilities. Honestly, we're completely exhausted. Peter Yang (437): I don't really care about the stock price but if Anthropic can accelerate cures of all these terrible diseases it'll be one of the most impactful companies in history. I'm actually really glad Dario is focused on this vs. winning on viral shorts and TikTok memes. Rauchg (446): Vercel Security Review, less than 1 week since launch: 57,897 vulnerabilities identified, 6,029 critical or high, 14,665 already patched by Agent — shocked at ① the number of critical vulnerabilities that would go unnoticed and ② the ease at which the agent automatically fixes them; works for any repo no matter where you deploy. Zara's pair: Step 1 of sharing your work (266) — don't wait until it's done or perfect, share a work in progress; sometimes that's how you figure out if it's even worth finishing; and the retention split (119) — if users don't come back, 20% of the time they don't like your product, 80% of the time they forgot it even exists. Aditya Agarwal (190): strongly concur — my most successful friends also have the most intense hobbies. Nan Yu (16): the lovely detail of mapping the Apple dictation key (a special F5 variant), plus push-to-talk, double and single tap shortcuts — kudos for getting all the edges right. Peter Yang's game pair (27/5): game developers and gamers hating on tasteful use of AI is idiotic — there's a huge difference between pumping out slop and using AI as another tool to make a great game. Nikunj's trio: the Railway post-mortem a must-read for every infra provider with an MLK quote on the ultimate measure of a man (9); Mic drop / Gulp / Wow (41); Fable, make me a one shot banger video for Wrap2026 (6). And Dan Shipper's extras (143/9/2): live vibe check and the full Google×Every read."
+            ],
+            "original": [
+              "steipete: it confirmed 35,000 new vulnerabilities. \"Honestly, we're completely exhausted\"",
+              "Peter Yang: if @AnthropicAI can accelerate cures of all these terrible diseases it'll be one of the most impactful companies in history.",
+              "Guillermo Rauch: ✓ 57,897 vulnerabilities identified ✓ 6,029 critical or high ✓ 14,665 already patched by Agent",
+              "Zara Zhang: Don't wait until it's done or perfect. Share a work in progress."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "steipete（**1334 赞**）——引用新闻：「该公司对约 700 个系统跑诊断、发现 10500 个漏洞，开了紧急发布会、用三个月修复。然而换用最新模型 GPT-6 Astra 重跑诊断后，又确认了 35000 个新漏洞——『说实话，我们已经彻底筋疲力尽了。』」Peter Yang（**437 赞**）——「我其实不太在乎股价，但如果 Anthropic 能加速治愈这些可怕疾病，它将是史上最有影响力的公司之一。我真很高兴 Dario 专注于这件事、而不是去赢病毒短视频和 TikTok 梗。」Rauchg（**446 赞**）——「Vercel Security Review 上线不到一周：57897 个漏洞、其中 6029 个严重或高危、14665 个已被 Agent 自动修复。我震惊于①会漏掉的重大漏洞数量、②agent 自动修复它们的轻松程度；任何仓库都能开、无论你部署在哪。」Zara 双发——「分享作品/攒受众的第一步（266 赞）：别等做完或做完美——分享进行中的作品，有时这就是你搞清它值不值得做完的方式」；留存拆解（119 赞）——「用户不回来：20% 是不喜欢你的产品，80% 是忘了你的产品存在」。Aditya Agarwal（190 赞）——「强烈同意：我最成功的朋友们也都有最狂热的爱好。」Nan Yu（16 赞）——新 dictation 应用的细节：可映射 Apple 听写键（特殊的 F5 变体）、支持按键说话与单击双击快捷键。Peter Yang 的游戏观点（27 赞）——「游戏开发者与玩家对（有品位的）AI 使用一味仇恨是愚蠢的：用 AI 批量产 slop 与用 AI 作为又一个工具做出好游戏，天差地别。」Nikunj 三连——Railway 事故复盘配 MLK 名言「对一个人的终极衡量，不在舒适便利之时、而在挑战与争议之时的立场」（9 赞）+「Mic drop / Gulp / Wow」（41 赞）+「Fable，给 Wrap2026 做支 one-shot 爆款视频」（6 赞）。"
+            ],
+            "original": [
+              "steipete：GPT-6 Astra 复扫 35000 新漏洞——彻底筋疲力尽。Peter Yang：治愈疾病>股价/TikTok。Rauchg：一周 57897 漏洞、14665 已修。Zara：分享进行中的作品。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Resend's Zeno Rocha on Designing for Agents / 播客：为 Agent 而设计",
+      "desc": "Latent Space 全新一期：Resend CEO Zeno Rocha——npm 下载反超 SendGrid 两倍、430 万用户；「反向工程钓鱼者、做完全相反的事」；MCP 调用月月翻倍、80+ 工具路线；定价计算器 .md 事故；「宁可 1000 万 ARR 女儿愿意跟我玩」。92680 字符全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:latentspace-zeno-rocha",
+          "authorName": "Latent Space Podcast",
+          "authorTag": "Zeno Rocha（Resend 创始人 & CEO）",
+          "sourceUrl": "https://www.youtube.com/@LatentSpacePod",
+          "en": {
+            "rewrite": [
+              "Latent Space in studio with Zeno Rocha — creator of the Dracula theme, LottieFiles alum, YC W23, and founder/CEO of Resend, the email API now powering 4.3M users with 120k paid customers (Warner Brothers, HBO — WBD.com discovered by naively filtering domains in his own database on a Saturday). The full tour: the origin (a CSS front-ender with zero infra background asking what would the Stripe of email look like; swyx's angel memo: MailChimp exited, Postmark exited, SendGrid is under Twilio — who is doing this?); the AEO flywheel (swyx had Cloudflare email fully set up and models still said you must add Resend — Claude Code recommends it 60%+ of the time; every generation has its defining tools and the new generation distributes through new channels); the email infrastructure masterclass (Gmail/Outlook/Yahoo each behave differently; engagement-first queuing — most-engaged users first, batches spaced across providers; IP blocks, pools and histories; reverse-engineer phishers and do the exact opposite — the Japanese gang that brought 20,000 domains; auto-generating plain-text versions boosted deliverability massively; open tracking is dead thanks to Apple's pre-fetching; click-tracking URLs must match the sending domain; the noisy-neighbor blacklist problem; the born-free trust philosophy: trust by default, block fast on bounce/complaint signals — most offenders are misuse, not abuse — a skill issue); support at v4 (the only-with-a-link ticket policy that built the knowledge base; keeping the free tier because Heroku's free tier made him an engineer; DNS is always the top ticket — new Lovable/Bolt/V0 audiences can't troubleshoot CNAMEs; Domain Connect as OAuth for domains); React Email as their Next.js (write integrations for your competitors' docs; give give give then ask; it's a compiler — JSX templating, and CSS is Turing-complete); the competitors' lessons (Mailgun's Ev: 90% of R&D fighting abusers; crossing SendGrid's npm downloads and doubling; Twilio invented DevRel and is now sleeping; where are the economies of scale?; the hidden AWS SES bill — SNS, CloudWatch, SQS, webhooks; Resend now going down to the metal — own IPs, own pools, traffic control, and Go in the sending path because languages don't matter anymore); designing for agents (MCP is so back: 1.2M calls by end of August, doubling monthly; the first MCP built by a16z's Yoko; remote MCP forced them to rebuild OAuth, RBAC and observability; official ownership matters — swyx dropped Plausible because Sentry built its MCP; 80+ tools vs Cloudflare's minimal two — 100% dashboard coverage including billing and provisioning); the Next.js lesson (server components bound data to pages — always keep a headless backend; the dashboard is just another client; moved off Next partly because the bill was too high); CLI job applications get special treatment with hiring skills baked in; multiplayer editing (an all-hands of 20 writing the weekly email together) and inbound agent inboxes coming soon; deliverability now domain-reputation (subdomains to segregate marketing vs transactional vs confidential; stick to .com); the AEO playbook in depth (the .md-version pricing calculator incident that fixed the model's Resend-pricing-is-obscure claim; Opus 4.5's recency bias; four AEO subscriptions that are reporting tools, not action tools); enterprise starting carefully with one AE; contact-based pricing breaking under AI-native growth; and the personal close (youngest father of W23; the partner who said you worry too much about design; preferring a 1000-user product with identity to a 10000-user product he doesn't love; and rather $10M ARR with a daughter who wants to play with him than $100M ARR with a distant daughter — moved back to Brazil, second kid on the way)."
+            ],
+            "original": [
+              "Zeno Rocha: It's like, oh my gosh, how are we ever gonna beat SendGrid? It's just impossible. And then earlier this year, we crossed a number of downloads from SendGrid... and now we're more than double.",
+              "Zeno Rocha: I would rather live in that reality than live in a reality where we're a hundred million dollar company and my daughter doesn't wanna play with me.",
+              "Zeno Rocha: MailChimp has exited. Postmark has exited. SendGrid is under Twilio. Who is doing this?",
+              "Zeno Rocha: you kinda gotta reverse engineer how phishing works and build a platform that does exactly opposite of that.",
+              "Zeno Rocha: I wanna live in a society where I'm born free... we're gonna trust you by default.",
+              "Zeno Rocha: It's always DNS."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Latent Space 工作室对话 Resend 创始人 & CEO Zeno Rocha——Dracula 主题作者、LottieFiles 前产品负责人、YC W23。要点：430 万用户、12 万付费（华纳是在自家库里按域名傻筛出来的）；「邮件界的 Stripe」起点（swyx 的天使 memo：三家全卖了、谁在做这事？）；AEO 飞轮（swyx 配好了 Cloudflare 邮件、模型仍说「必须加 Resend」——Claude Code 推荐 60%+）；邮件基建内行课（互动优先排队、IP 池博弈、反向工程钓鱼者、自动纯文本救送达率、open tracking 已死、坏邻居黑名单、「生而自由」信任哲学：误用是 skill issue）；支持团队四代进化（「只能带链接回工单」政策）；DNS 永远是工单大头与 Domain Connect；React Email=他们的 Next.js（给竞品写文档、give give give）；前辈课（Mailgun 90% 研发打滥用者、npm 反超 SendGrid、Twilio 在睡觉、SES 的隐藏账单）；designing for agents（MCP 回魂：120 万调用月月翻倍、被迫重建 OAuth/RBAC、80+ 工具 vs Cloudflare 两个、官方所有权——swyx 因此弃用 Plausible）；Next.js 教训（永远 headless、dashboard 只是客户端之一）；CLI 招聘特殊通道；多人编辑与 inbound 收件箱；域名信誉时代（子域隔离、坚持 .com）；AEO 实战（定价计算器 .md 事故、Opus 4.5 recency bias、四家 AEO 订阅都是报告工具）；个人收尾（W23 最年轻父亲之一、「宁可 1000 万 ARR 女儿愿意跟我玩，不要一亿 ARR 女儿疏远」、搬回巴西）。完整译文见下。"
+            ],
+            "original": [
+              "【冷开场：怎么打败 SendGrid + 女儿优先】",
+              "「『天哪，我们怎么可能打败 SendGrid？不可能的。』今年早些时候，我们的 npm 下载量超过了 SendGrid——我当时想『这疯了吧』——现在是他们的两倍多。Resend 今早已服务 430 万用户。我们是家 1000 万美元 ARR 的公司。我宁愿活在这样的现实里，也不愿活在『公司做到一亿美金、但女儿不想跟我玩、对我没兴趣』的现实里。」",
+              "",
+              "【工作室开场：从 Dracula 到 Resend】",
+              "swyx：今天工作室嘉宾是 Resend 的 Zeno Rocha。我们认识要追溯到你的 VS Code 主题时代——当时我就想「不知道这人是干嘛的，但他做的一切都有品味」。现在你做了一家邮件基础设施公司。",
+              "Zeno：我到现在自我介绍还是只讲最近的经历。很长一段时间里，人们知道 Dracula（他创建的主题）多过知道 Resend——好在正在改变。（他还是 2020/2022 年 GitHub 最活跃的前二十名之一。）",
+              "为什么选邮件？说实话：如果当年知道邮件这行有多难，我大概根本不会创办这家公司。我是纯前端出身——CSS 开发者、没有基础设施背景、没有邮件行业背景。吸引我的是：这个市场规模巨大、玩家众多（Mailgun、MailChimp、SendGrid），但没有一家真正在乎开发者——他们服务营销人员、产品经理，就是不服务开发者。于是我的出发点就一句话：如果这是「邮件界的 Stripe」，它长什么样？",
+              "",
+              "【数字与「日记式」冷启动】",
+              "先让嘉宾炫耀一下：430 万用户（截至今晨）、12 万付费客户；客户从 Warner Brothers、HBO 到独立开发者。彩蛋：Warner Brothers 是他早期某个周六在自己数据库里「用最笨的办法」捞出来的——按域名过滤，看到一个叫 WBD 的域名，「这是啥？哦，华纳兄弟探索公司在用我们。」logo 墙就是从那时开始收集的。",
+              "swyx（声明自己是天使投资人）：你当年给我的 memo 是我投的三十多家公司里最直白的一份——「MailChimp 卖了、Postmark 卖了、SendGrid 归了 Twilio——现在谁在做这事？」我说「成立」。另一个必须聊的：我已经配好了 Cloudflare 的邮件域名、DNS/DKIM 全套，模型还是不停跟我说「你必须加 Resend」——「我根本不需要 Resend，它却一直让我加 Resend」。所以你到底贿赂了 OpenAI 和 Anthropic 的谁？",
+              "Zeno：我真希望有得贿赂。但这正是我当初想做这件事的原因：每一代都有定义那个时刻的工具——我们记得 Heroku 的年代、Netlify、Vercel——而新一代的发行渠道跟以前不一样了。所以从第一天起我就非常专注一件事：当有人（或 agent）问起这个品类，我们必须是第一。（swyx：你现在是第一——Claude Code 推荐 Resend 的比例超过 60%。）",
+              "",
+              "【邮件基础设施的内行课】",
+              "邮件落inbox与扩展普通应用完全不同：不能靠堆 GPU 或横向扩容，得「遵守游戏规则」——Gmail、Outlook、Yahoo 各有各的行为，这是个极其老派、极度依赖人脉与关系的行业。而「极度天真」是发生在我们身上最好的事：没有先入之见。比如别家开户新用户第一件事是填表单（发多少封、什么用途）、然后人工审核两天、多数还拒批——我说「这说不通，为什么拦人？」于是把摩擦全删掉、摩擦我们自己扛。当然干了三四年我现在懂他们为什么这么做了：欺诈、钓鱼、滥用泛滥，我们内部为此建了一堆疯狂系统。",
+              "给 10 万人发一封邮件：不能一口气砸给 Gmail——会被限流，因为它要先看互动信号。做法是排队：把互动最活跃的受众排到队首批次、批次间隔拉开、跨服务商错峰；买不同 IP 段、查 IP 段历史、把用户分进不同 IP 池、随时间均衡。整个一套疯狂的基建博弈。",
+              "反钓鱼的思路是「反向工程滥用者的行为、然后做完全相反的事」：滥用者买全新域名（新域名信誉差）、做仿冒域名（比如给 code outreach 单独弄个长得像主域的域名——那看起来就像钓鱼）、一次性海量发送然后沉默。所以要持续稳定地发、域名要有正常网站、信誉要养。有个日本「团伙」最近带来了两万个域名、在不同注册商用不同 TLD 注册——我们逐个因子地查。",
+              "平台应该替用户受教育：我们在产品里内置 insights、发送前的链接检查器、拼写检查器。一个早期决定：世界正在变化——agent 比以前多多了——于是我们自动为每封 HTML 邮件生成纯文本版（从 HTML 抽取 markdown 一起发）。送达率大涨：垃圾过滤器直接读内容、不用解析。",
+              "打开率已死：open tracking 靠 1×1 透明 GIF，但 Apple 隐私功能会预先读取所有邮件——这个指标整体不再可靠，只能靠点击跟踪。而点击跟踪有个大坑：链接与图片的 URL 必须与发送域一致（不然就是滥用者模式）；更糟的是共享点击域的「坏邻居」问题——同域一个客户发钓鱼、整域进黑名单、脱黑要几天到几周。我们自己也踩过。",
+              "信任哲学：别的平台像「出生在先坐十八年监狱、证明自己是好公民才放你出来」的社会。我想要「生而自由」的社会：默认信任你，但一旦从退信率、投诉率、邮箱服务商反馈里发现不对劲，立刻封锁、马上跟你聊。大多数时候是误用（misuse）不是滥用（abuse）——用swyx的话说「skill issue（技术不行）」。",
+              "",
+              "【支持团队四代进化与 DNS 之痛】",
+              "支持如果是个软件，我们已经第四个大版本：V1「随便找个人坐在椅子上」；V2 领域专家但不主动；然后立了个超酷的政策——「只能带链接回复工单」：不许直接给答案，先去写文档/知识库文章再回（一张工单也许一个半小时，但链接从此反复复用，知识库就这么建起来了）。去年 12 月破百万用户、现在四百万——不能再靠堆人，全部从头重构。免费层坚决保留：「我当年就是因为 Heroku 的免费层才成为工程师的。」",
+              "今天工单的大头是 DNS——「永远是 DNS」。新一代受众（Lovable、Bolt、V0 带来的用户）不知道 CNAME、A 记录、TXT 是什么、粘错值。swyx：我现在直接让 Codex/Claude Code 用 computer use 全权管理我的 DNS 记录，它自己 dig、自己调所有 DNS——美极了。解药还有 Domain Connect 协议——「域名的 OAuth」：点按钮、什么都不用填、没有出错机会。我们去说服了 Vercel 加入、Cloudflare 也在；GoDaddy 对此收费离谱、Ionos 谈了好几个月、协议几乎无人维护——但这个方向美极了。",
+              "",
+              "【React Email：他们的 Next.js】",
+              "React Email 是开源的获客渠道——相当于我们的 Next.js。我故意做了些事：文档里写了「怎么配 SendGrid、MailChimp、Mailgun」——每一篇都是我亲手写的。策略就是「给、给、给、然后再要」（Gary Vee 式）：先修好旅程第一段（写模板太痛苦：设计师给 Figma、你切成 HTML 表格、内联 CSS、Outlook 还有特殊注释——一团糟），React Email 本质是个编译器：Tailwind token 直接导入、TypeScript 校验、写一次到处能跑。有人质疑「你这根本不是 React，没有 state」——对，就是 JSX 模板：邮件里不能带 JavaScript，而 CSS 反而是图灵完备的（笑）。",
+              "",
+              "【前辈们的课：Mailgun、SendGrid、Twilio、SES】",
+              "Mailgun 创始人 Ev 的忠告：「我们 90% 的研发都在对抗滥用者——这生意糟透了，别进来。」这教会我：必须自动化，安全不能成为核心业务。SendGrid 一直是那个 behemoth——「怎么可能打败」——然后今年 npm 下载量反超、现在两倍。Twilio 是我极敬佩的公司、他们基本发明了 DevRel（「ask your developer」广告牌）；现在 Jeff 走了、CFO 去买了 The Onion——他们在 SendGrid 上睡着 了、SMS 上也是。我的思考：这个行业的规模经济到底在哪？他们比我们大一百倍，为什么不能用规模直接赢？也许根本没有规模优势——你只要做出更好的产品，慢慢就能到。",
+              "AWS SES：我们自己也是从 SES 起步（在其上做 DX 层创新：全语言 SDK、Serverless/Lambda 教程——当时没人写这些）。SES 的隐藏成本：5K 看似便宜，但事件要 SNS、日志要 CloudWatch、队列要 SQS、webhook 要自建——足迹迅速膨胀。AgentMail 就明确说了建在 SES 上不跟它竞争。而我们现在的方向相反：going down to the metal——自建底层基建（干了几个月、快宣布了）。最难的是 IP：整段购买、自管 IP 池、对各邮箱服务商做流量管制、维护关系。动机是可观测性：工程师想知道「这封真的送达了吗？进垃圾箱了还是促销标签页了？」——离金属越近、能透出的数据越多。性能也在重做：我们一直是 Node/TypeScript 公司，发送路径已换成 Go。swyx：现在语言不再重要了——我自己在跑 Rust 项目、但根本不会 Rust。",
+              "",
+              "【Designing for Agents：MCP 的正确姿势】",
+              "几个月前人人喊「MCP 死了、只有 CLI 才重要」。我不追潮流，我只想让产品「无形」（formless）：用户想怎么用就该怎么用——所以一直 API first（没想到这在后来帮了我们这么大）。MCP 调用量每月翻倍、8 月底已达 120 万次。冷知识：我们第一个 MCP 是投资人 a16z 的 Yoko 写的开源本地版，火了之后我问她「能不能转给我们组织」。要做对远程 MCP，被迫回炉整个权限体系：先建 OAuth、再理 RBAC、再上可观测性（Datadog 全套）、最后是发行——进各家官方商店与插件市场。官方性重要吗？swyx 现身说法：Plausible 的 MCP 是 Sentry 建的，「我爱 Sentry，但这段集成的所有权必须在软件主人手里」——所以我们把 Plausible 换成了 PostHog。",
+              "与 Cloudflare「只暴露两个 MCP 工具」的极简路线相反，我们走了 80+ 工具的大而全（还在加）：目标是仪表盘能做的 100% 都能通过 MCP 做——包括用量、计费、团队邀请、provisioning 这类敏感区（暴露与否的经典两难：90% 覆盖率留一手 vs 全暴露）。",
+              "",
+              "【Next.js 的教训与 CLI 招聘】",
+              "我们犯过的最大架构错误之一：dashboard 用 Next.js 的 server components 把数据绑死在页面上——默认没有公共 API。原则应该是：永远做 headless 后端，前端只是众多客户端之一（对人类是网页、对 agent 是 MCP）。现在 dashboard 是消费自家同一套 API 的私有客户端、monorepo 统一管理；另外当年从 Next 迁回 node server 有个朴素原因——账单太贵。",
+              "CLI 招聘：现在有三种方式加入 Resend——网页、CLI、API。用 CLI 来应聘的简历会被单独过滤、获得特别关注；招聘相关的 skills 直接烘焙进 CLI。",
+              "",
+              "【多人文档编辑与 Inbound 收件箱】",
+              "我们在 Resend 里内置了多人实时编辑：all-hands 全员（20 来人）在同一个文档里一起写周报邮件、一起发送。下一个抽象是 inbound：给 agent 们配几十上百个收件箱——已读/未读、星标、打标签的全套 API，产品很快发布（对标 Missive、Front、Help Scout 的 agent 原生版）。",
+              "",
+              "【送达率的现代玩法】",
+              "信誉体系已从 IP 转向域名。用子域名隔离信誉：marketing.、transactional.、confidential.resend.com 各管各的——营销邮件出事不连坐交易邮件。坚持用 .com：奇怪 TLD 看起来就像钓鱼。Apple 隐私邮箱地址也带来一堆适配活。",
+              "",
+              "【AEO 实战：让模型说对话】",
+              "我们的 AEO（agent engine optimization）打法：文档覆盖长尾（Django 等框架的接入 FAQ）、每个页面都有 .md 版本（URL 后缀直接加 .md、内容协商）、docs 用 Mintlify 挂 llms.txt——营销站也挂。经典事故：定价计算器是 JS widget、agent 不执行 JS，于是模型一度声称「Resend 定价不透明」——我们做了纯文本 .md 版把数据写死，模型的话术立刻被纠正。对比图、采用曲线全部转成文字版；404 页给最近邻推荐；为 Claude Code/Codex 专门做了接入页。还观察到 Opus 4.5 的推荐有 recency bias——新东西更容易冒头，所以持续有新动作、自然提及变得更重要；Reddit/HN/Twitter 的权重在下降。我们订了四家 AEO 工具（Profound 等）——但它们都是「报告工具」不是「行动工具」（swyx：像当年的 Moz，但 Moz 敢给观点）。swyx 自己的循环：CMO agent 再生 agent、开实验窗口、Ahrefs+dataforseo+自建 AEO 追踪器。",
+              "",
+              "【销售、定价与个人选择】",
+              "企业销售刚起步：只有一个 AE，小心翼翼一层层保护文化。企业版是「不同的产品」——不只是定价页上加 SSO/SCIM/审计日志。营销邮件与事务邮件的定价之争：按联系人计价的模式正在被 AI 公司打破（有的公司增长速度疯狂——比如 Mistral）。发送引擎对大批量做批次、间隔、按域限速：430 万订阅者的 newsletter 要发一天多——「多付钱进不同的队列」，跟 token 限速一个道理。",
+              "最后聊个人：我是 W23 那届最年轻的父亲之一。YC 那 250 家公司，我想当第一名——后来明白这是无限游戏。有位合伙人当年对我说：「你太在乎设计了，不然你早就更进一步了。」这话伤到我，但我决定跟随自己的信念：一个一千用户、有身份认同的产品，好过一万个用户、我不爱的产品。宁可 1000 万 ARR、女儿愿意跟我玩，不要一亿 ARR、女儿疏远我。我常觉得自己是个糟糕的爸爸/丈夫/CEO——居家办公、在三个角色间切换；我们搬回了巴西，第二个孩子快出生了。",
+              "",
+              "（尾声聊品类命名：swyx 是命名主义者；Resend 的路径更像「下一代/AI 原生的 SendGrid」——先做到品类统治、再谈品类创造；Dharmesh 的 inbound marketing 是榜样；名字要两个词能说完、不需要宣言。节目在此戛然而止。）"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
