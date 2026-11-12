@@ -1,0 +1,89 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-12",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游未更新：今日 X 与播客快照均与 11-11 完全相同（15 位 builders、32 条推文 + Latent Space × Resend CEO 播客）——全部内容已在 11-11 期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。当日主线：Gemini 4 Carbon 上线与 Claude interactive connectors 双发；Sottiaux「实验室一起创新」；播客金句：「反向工程钓鱼者、做完全相反的事。」"
+  },
+  "archive": {
+    "title": "重播日：Carbon 与 Connectors",
+    "desc": "上游快照与 11-11 相同：Gemini 4 Carbon 向 Ultra 开放、Claude interactive connectors、Sottiaux「实验室一起创新」、Resend CEO 谈为 agent 设计——完整版见 11-11 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-11-12 source feeds are byte-identical to 2026-11-11 (15 builders, 32 tweets; the Latent Space episode with Zeno Rocha of Resend on designing for agents) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Carbon Day Highlights / 重播：Carbon 日要点",
+      "desc": "上游未更新，快照与 11-11 完全相同（15 位 builders、32 条推文 + Latent Space × Resend CEO 播客）——11-11 期已完整收录。要点回顾：Carbon 上线、Claude connectors、为 agent 设计。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-11-11-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 11-11 相同",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-11-11 — the same 15 builders and 32 tweets, fully covered in that issue. Headlines: Sottiaux's Labs innovating together ftw at 3892 and the small-business question at 3252; Claude's interactive connectors at 2885 (open the full version of Adobe, Atlassian and Box beside your conversation) with Claude Data GA at 1683 and the rollout note at 1149; Josh Woodward's Gemini 4 Carbon for Ultra subscribers worldwide at 689 plus Dan Shipper's day-zero vibe check at 143 (44% vs Argon's 21% on the Senior Engineer benchmark — but it doesn't always know when to stop); Thariq at 1590 (fewer one-shot demos, more collaboration tools); steipete at 1334 (GPT-6 Astra re-scan finding 35,000 new vulnerabilities — completely exhausted); Rauchg's pair at 518 (Rust was invented pre-agentic coding; new languages will blossom) and 446 (Vercel Security Review: 14,665 vulnerabilities already patched by Agent in week one); Levie's Box×Anthropic read/write at 166 and the swarm/FDE essay at 72; Peter Yang's Anthropic-cures-diseases at 437; Ryo Lu at 314; Zara at 266/119."
+            ],
+            "original": [
+              "Thibault Sottiaux: Labs innovating together ftw",
+              "Claude: with interactive connectors, you can now open the full version of a tool inside Claude.",
+              "Josh Woodward: Right now, Gemini 4 Carbon is in the @GeminiApp for Ultra subscribers worldwide",
+              "Thariq: we need fewer one shot demos and more tools that show how you can collaborate with models to bring your vision to life"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 11-11 完全相同（15 位 builders、32 条推文，完整版已收录于 11-11 期）。要点回顾：Sottiaux「实验室一起创新 ftw」（**3892 赞，当日最高**）+「多少人开小生意」（3252 赞）；Claude interactive connectors（**2885 赞**）——对话旁打开 Adobe/Atlassian/Box 完整版；Gemini 4 Carbon 向全球 Ultra 开放（689 赞）+ Shipper 日零实测（143 赞）——「44% vs Argon 21%、但不知道何时该停」；Thariq「少一次性 demo、多协作工具」（**1590 赞**）；steipete「GPT-6 Astra 复扫 35000 新漏洞」（1334 赞）；Rauchg「新语言将绽放」（518 赞）+ Security Review 一周修 14665 个（446 赞）；Levie「agent 操作企业文件百倍于人类」（166 赞）；Peter Yang「治愈疾病>股价」（437 赞）；Ryo Lu「魔法在人与人之间」（314 赞）；Zara「分享进行中的作品」（266 赞）。今日主菜是播客（见下卡）。"
+            ],
+            "original": [
+              "Sottiaux：实验室一起创新。Claude：对话旁打开完整工具。Carbon 向 Ultra 开放。Thariq：多协作工具。详见 11-11 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Zeno Rocha / 播客重播：为 Agent 而设计",
+      "desc": "播客快照与 11-11 相同：Latent Space × Resend CEO Zeno Rocha「Designing for Agents」。完整中文译文（54 段）已收录于 11-11 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:latentspace-zeno-rocha-replay",
+          "authorName": "Latent Space Podcast（重播）",
+          "authorTag": "Zeno Rocha（Resend 创始人 & CEO）",
+          "sourceUrl": "https://www.youtube.com/@LatentSpacePod",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-11-11 — Latent Space with Zeno Rocha of Resend on designing for agents: the AEO flywheel, the email infrastructure masterclass, the MCP playbook and the personal close. The full Chinese translation (54 paragraphs) was published on 11-11; today we keep a quote replay."
+            ],
+            "original": [
+              "Zeno Rocha: It's like, oh my gosh, how are we ever gonna beat SendGrid? It's just impossible. And then earlier this year, we crossed a number of downloads from SendGrid... and now we're more than double.",
+              "Zeno Rocha: you kinda gotta reverse engineer how phishing works and build a platform that does exactly opposite of that.",
+              "Zeno Rocha: I wanna live in a society where I'm born free... we're gonna trust you by default.",
+              "Zeno Rocha: I would rather live in that reality than live in a reality where we're a hundred million dollar company and my daughter doesn't wanna play with me.",
+              "Zeno Rocha: It's always DNS."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 11-11 相同——Latent Space × Resend CEO Zeno Rocha「Designing for Agents」：AEO 飞轮、邮件基建内行课、MCP 实战与个人收尾（92680 字符）。完整中文译文（54 段）已收录于 11-11 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「『怎么可能打败 SendGrid？』——今年 npm 下载量反超、现在两倍多。」",
+              "「反向工程钓鱼者的行为，然后造一个做完全相反之事的平台。」",
+              "「我想活在一个『生而自由』的社会里——我们默认信任你。」",
+              "「我宁愿 1000 万 ARR 女儿愿意跟我玩，也不要一亿 ARR 女儿疏远我。」",
+              "「永远是 DNS。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
