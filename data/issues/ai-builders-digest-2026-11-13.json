@@ -1,0 +1,253 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-13",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "双主线日。Jensen 事件席卷时间线：amasad（**3430 赞**）「谁受益？」、Peter Yang（2019 赞）「太失望了」、Garry Tan「现在换掉他极不明智」（391 赞）；Sottiaux 双发登顶（**17211/10507 赞**）：「周四感觉 codexy……也许该从地下室出来了」；Claude 官方 Mariko Mori 回顾展（**3408 赞**）；Rauchg PSA（**3292 赞**）：「好产品仍需超量的人类专注、动力与爱」；Google Labs 新实验 Tabletop（1113 赞）；Thariq 领走 AIE 闭幕 keynote「苦涩教训的甜面」（1242 赞）。播客重磅：Every「AI & I」——Dan Shipper 大会闭幕演讲：总体 vs 切近、「生成便宜排序难」、分配经济与度量翻转。21980 字符全文翻译随卡附上。"
+  },
+  "archive": {
+    "title": "Jensen 事件与切近方法论",
+    "desc": "Jensen 风暴（amasad「谁受益」、Garry Tan「别现在换人」）、Sottiaux 的 Codex 谜语双发登顶；播客：Dan Shipper「生成便宜、排序难」的切近方法论。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-11-13 source feeds (16 builders, 32 tweets; plus one brand-new-to-this-digest podcast: AI & I by Every — Dan Shipper's Thesis: 2027 closing keynote, A New Vision for Human Work After Automation, full 21,980-character transcript translated).",
+  "sections": [
+    {
+      "title": "The Jensen Story & Cui Bono / Jensen 事件与谁受益",
+      "desc": "Amjad Masad（**3430 赞**）：「一个藏得也不怎么好的旧故事为何突然变成国际地缘政治新闻？时间点可疑——谁受益？如果 Jensen——开放模型的首要旗手——被拿下，想 AI 封闭、中心化、受控的人就受益」；Peter Yang（2019 赞）：「我太失望了」；Garry Tan（391 赞）：「现在换掉他极不明智」。",
+      "cards": [
+        {
+          "authorKey": "amasad+petergyang+garrytan+mattturck",
+          "authorName": "Amjad Masad / Peter Yang / Garry Tan / Matt Turck",
+          "authorTag": "Replit CEO / Behind the Craft / YC 总裁 / FirstMark",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "amasad (3430): Why are old stories that were not even covered up all that well becoming sudden international and geopolitical news? The timing is suspicious, so worth asking: who benefits and why now? If Jensen, the premier champion of open models, is taken out then anyone who wants AI closed, centralized, and controlled might benefit. Why now? The midterms seem relevant. But also perhaps the upcoming IPOs. Peter Yang's pair (2019): Man I am so disappointed in Jensen. So many people looked up to him including me. The story of rising from a dishwasher and waiter to the CEO of the most valuable company in the world. The story of a 41-year marriage to his college sweetheart. What the hell happened man? And of all the people to have affairs with you have to choose a spy and a freakin' NVIDIA executive? Come on dude. — and his follow-up for the anons (19): I think his cheating is appalling but that's different from getting fired over it. Before the board takes action they should do a proper investigation and involve shareholders in the decision. There's no denying that Jensen built a generational company. Garry Tan (391): Seems ill advised for Nvidia's board to oust Jensen Huang given how central his leadership is to the operations of an engine of our future abundance. His day to day is prime actor work. Would be hard to believe a transition happens without massive market cap implosion. Turck's aside (88): French execs as a second Jensen story surfaces."
+            ],
+            "original": [
+              "Amjad Masad: If Jensen, the premier champion of open models, is taken out then anyone who wants AI closed, centralized, and controlled might benefit. Why now? The midterms seem relevant. But also perhaps the upcoming IPOs.",
+              "Peter Yang: Man I am so disappointed in Jensen. So many people looked up to him including me... And of all the people to have affairs with you have to choose a spy and a freakin' NVIDIA executive? Come on dude.",
+              "Garry Tan: Seems ill advised for Nvidia's board to oust Jensen Huang given how central his leadership is to the operations of an engine of our future abundance."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad Masad（**3430 赞**）——「为什么那些藏得也不怎么好的旧故事，突然变成了国际与地缘政治新闻？时间点很可疑，值得问一句：谁受益、为什么是现在？如果 Jensen——开放模型的首要旗手——被拿下，那想要 AI 封闭、中心化、受控的人可能受益。为什么是现在？中期选举看起来相关，但也许还有即将到来的 IPO。」Peter Yang（**2019 赞**）——「我对 Jensen 太失望了。那么多人崇拜他、包括我。从洗碗工和服务生做到全球市值第一公司的 CEO；与大学恋人 41 年的婚姻——这到底怎么回事？要出轨的话，还偏偏选一个间谍和一个 NVIDIA 高管？拜托。」他对匿名回复者的补充（19 赞）——「给回复区的所有匿名者：我认为他的出轨令人震惊，但这与因此被解雇是两回事。董事会行动之前应该做正当调查、让股东参与决策。Jensen 建了一家划时代的公司，这一点无可否认。」Garry Tan（391 赞）——「NVIDIA 董事会现在赶走 Jensen 极不明智：他的领导对我们未来丰裕引擎的运营太核心了。他的日常就是主演级工作。很难想象这场交接不引发大规模市值崩塌。」Turck 侧记（88 赞）——「第二个 Jensen 故事出现：法国高管们。」"
+            ],
+            "original": [
+              "amasad：旧故事突然变地缘新闻——谁受益？开放模型旗手被拿下、封闭派受益；中期选举与 IPO。Peter Yang：太失望了——洗碗工到市值第一、41 年婚姻。Garry Tan：现在换掉他不明智、恐市值崩塌。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Codexy Thursday & AIE Wrap / Codex 星期四与 AIE 现场",
+      "desc": "Sottiaux 双发登顶全日：「周四感觉 codexy。也许也是个 banked reset 的好时候」（10507 赞）、「好久没有 resets 了。也许我该从地下室出来了」（**17211 赞，今日最高**）；AIE 大会：swyx 记录 poteto keynote 全场站满（620 赞）；Thariq 领了「闭幕 keynote」（1242 赞）——「苦涩教训的甜面」。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux-reset",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux's cryptic pair, the top tweets of the day: Thursday is feeling codexy to me. Perhaps also a good time for a banked reset. (10507) — and the follow-up: It's been a while without resets. Maybe I should come back out of the basement (17211). The teaser language (banked resets, coming out of the basement) reads as a hint at whatever Codex ships next."
+            ],
+            "original": [
+              "Thibault Sottiaux: Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
+              "Thibault Sottiaux: It's been a while without resets. Maybe I should come back out of the basement"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux 深奥双发、双双登顶全日——「周四感觉 codexy（很有 Codex 味）。也许也是个 banked reset 的好时候。」（10507 赞）接着——「好久没有 resets 了。也许我该从地下室里出来了。」（**17211 赞，今日最高**）「banked reset（可存档的重置）」「从地下室出来」这类谜语式措辞，被广泛解读为 Codex 下一步发布的预告。"
+            ],
+            "original": [
+              "Sottiaux：周四感觉 codexy、是 banked reset 的好时候；好久没 resets 了、也许该从地下室出来了。"
+            ]
+          }
+        },
+        {
+          "authorKey": "swyx+trq212-aie",
+          "authorName": "Swyx / Thariq",
+          "authorTag": "AI Engineer / 独立开发",
+          "sourceUrl": "https://x.com/swyx",
+          "en": {
+            "rewrite": [
+              "AIE conference wrap from swyx: standing room only for @poteto's keynote (620) — the room overflowing for the Ember creator's keynote. Thariq takes the last slot: Swyx gave me the closing keynote of AIE code, aka everyone is tired or flying out — so if you're not one of those please come to mine tomorrow at 5pm — it's called the sweet side of the bitter lesson (1242) — and his framing of the talk: it's about how I think the experience of using coding agents could be like next year and how we get to shape it (117). Also from swyx: next on stream — @CompleteSkeptic and @typesafeai take over for Jev Day! (26), and a security note after an impersonation attempt: this person is a real former employee that we parted ways with — that email domain is not one we use (66)."
+            ],
+            "original": [
+              "Swyx: standing room only for @poteto's keynote",
+              "Thariq: Swyx gave me the \"closing keynote\" of AIE code, aka everyone is tired or flying out... it's called \"the sweet side of the bitter lesson\""
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "AIE 大会现场——swyx（620 赞）：「poteto 的 keynote 全场站满（standing room only）」——Ember 作者的演讲挤爆会场。Thariq 接过最后一棒（**1242 赞**）——「swyx 把 AIE code 的『闭幕 keynote』给了我——aka 大家都累了或者已经在赶飞机——所以如果你不是这两种人，明天下午 5 点来听我的：题目叫『苦涩教训的甜面』。」他对演讲的定位（117 赞）——「它讲的是：我认为明年使用 coding agent 的体验可能是什么样、以及我们如何亲手塑造它。」swyx 另有：「下一场直播——CompleteSkeptic 和 typesafeai 接管 Jev 日！」（26 赞）；以及一条安全提醒（66 赞）——「这个人确实是我们已分道扬镳的前员工；那个邮箱域名不是我们在用的」——针对一次冒名事件。"
+            ],
+            "original": [
+              "swyx：poteto keynote 站满全场。Thariq：闭幕 keynote「苦涩教训的甜面」——明年 coding agent 体验与我们如何塑造它。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Tabletop & Claude at the Museum / Tabletop 与 Claude 进美术馆",
+      "desc": "Google Labs 新实验 Tabletop（**1113 赞**）：把链接和文件丢进共享空间、拉上你的 crew、按需生成自定义空间；Claude 官方（**3408 赞**）：Mariko Mori 三十年回顾展用 Claude 写计算机生成动画的代码；Zara：「技术只有被观众遗忘时，才完成它最重要的工作」。",
+      "cards": [
+        {
+          "authorKey": "googlelabs+claudeai+zara",
+          "authorName": "Google Labs / Claude / Zara Zhang",
+          "authorTag": "Google / Anthropic / 出海传媒",
+          "sourceUrl": "https://x.com/GoogleLabs",
+          "en": {
+            "rewrite": [
+              "Google Labs' new experiment (1113): 🚨 Introducing Tabletop 🎲 — built to get your crew from we should totally do that to we're actually doing this. Drop links and files into one shared space, add your crew, and ask Tabletop for whatever you need to create custom spaces on the fly: interactive road trip maps and dinner-decider wheels, live pickleball brackets and merch voting boards, drag-and-drop seating charts (so you don't get stuck next to your boss). US waitlist, 18+. Follow-up tour (100): founding engineer @romannurik shows his family's space — interactive chore charts and piggy banks, a rainy-day scavenger hunt with live score tracking, on-a-whim LEGO maps, a fantasy book-themed NYC trip. And Claude at the museum (3408): Mariko Mori has pushed the boundaries of art for three decades. For her retrospective All That Shines, she used Claude to write code for a computer-generated animation, presented as a new video installation. Zara's quote to close (49): Technology only finishes its most important work once the audience forgets the technology."
+            ],
+            "original": [
+              "Google Labs: Introducing Tabletop 🎲— our newest experiment built to get your crew from \"we should totally do that\" to \"we're actually doing this.\"",
+              "Claude: Mariko Mori has pushed the boundaries of art for three decades. For her retrospective \"All That Shines,\" she used Claude to write code for a computer-generated animation, presented as a new video installation.",
+              "Zara Zhang: \"Technology only finishes its most important work once the audience forgets the technology\""
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Google Labs 新实验（**1113 赞**）——「🚨 全新 Labs 实验：Tabletop 🎲——为把你的 crew 从『我们真该搞一次』带到『我们真在搞了』而生。把链接和文件丢进一个共享空间、拉上你的 crew、然后向 Tabletop 要任何你需要的：现场生成自定义空间——🗺️ 交互式公路旅行地图与『晚饭吃啥』转盘；🏆 实时 pickleball 对阵表与周边投票板；🪑 拖拽式座位表（免得你被排到老板旁边）。美国区等候名单、18+。」跟进（100 赞）——「想看看我们团队自己怎么用 Tabletop？创始工程师 Romannurik 带你逛他家的空间：🪙 交互式家务表与小猪存钱罐；🔍 雨天寻宝游戏（实时计分）；🗺️ 随心所欲的 LEGO 地图；🧝‍♀️ 奇幻小说主题纽约之旅。」Claude 进美术馆（**3408 赞**）——「Mariko Mori 三十年来不断拓展艺术的边界。在她的回顾展《All That Shines》中，她用 Claude 为一段计算机生成动画编写代码、以全新视频装置的形式呈现。」Zara 收尾（49 赞）——「『技术只有当观众遗忘了技术本身时，才完成它最重要的工作。』」"
+            ],
+            "original": [
+              "Google Labs：Tabletop——从『真该搞一次』到『真在搞了』。Claude：Mariko Mori 用 Claude 写动画代码办回顾展。Zara：观众遗忘技术时，技术才完成最重要的工作。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Two Kinds of Companies & Sideloads / 两类公司与杂闻",
+      "desc": "Aditya Agarwal（240 赞）：现在基本有两类公司可建——「AI 扩散」（今天的 vertical SaaS）与「AI 前沿」（用 AI 加速科学进步再做成产品——模型驱动回报的绝大多数将来自这里）；Rauchg PSA（**3292 赞**）；Nikunj 爬了 803 家公司的子处理商清单；Shipper 的「切近 vs 总体」长推。",
+      "cards": [
+        {
+          "authorKey": "adityaag+rauchg",
+          "authorName": "Aditya Agarwal / Guillermo Rauch",
+          "authorTag": "SPC / Vercel CEO",
+          "sourceUrl": "https://x.com/adityaag",
+          "en": {
+            "rewrite": [
+              "adityaag (240): There are basically two kinds of companies to build right now. 1. Diffusion of AI — the vertical SaaS of today; many models (FDE company, rollup, horizontal product) but it all boils down to getting AI diffused very close to where the work is done — Profound, Cognition, Harvey etc.; a lot of great companies will get built here. 2. Frontier of AI — where the really interesting action is: use AI to accelerate scientific progress, then build products from that progress — harder to see, but much more of it at SPC: Externa is adding hundreds of new chemical building blocks to proteins (engineer a drug to match the disease instead of settling for what nature gave you); Epana Bio designs autoimmune therapies that go after the cellular origin of the disease; VenomicsAI does AI-accelerated drug discovery from venoms; Equivariant does multi-physics modeling for semiconductors. Category 2 is not well understood or much talked about externally — it should be, because that is where the vast majority of model-driven returns will come from. (Also: partnering with Rox from the earliest days, and learning what it means to run a company at AI-pace from ishanmkh, 26.) Rauchg's PSA (3292): creating wonderful products still requires extraordinary amounts of human focus, effort, motivation, and love. And an attention span. Plus: a benchmark that makes 𝚏𝚡 bootup compete with an ultra-optimized pure-assembly 𝚏𝚡.𝚜 version (100), and Beam by Reflection is free until Nov 12 — American open weights, zero data retention (143)."
+            ],
+            "original": [
+              "Aditya Agarwal: 2. Frontier of AI... Use AI to accelerate scientific progress, then build products from that progress... Category 2 is not well understood or much talked about externally. It should be because I think that is where the vast majority of model driven returns will come from.",
+              "Guillermo Rauch: PSA: creating wonderful products still requires extraordinary amounts of human focus, effort, motivation, and love. And an attention span."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Aditya Agarwal（240 赞）——「现在基本有两类公司可建。1. AI 扩散（Diffusion of AI）——今天的『vertical SaaS』：形态很多（FDE 公司、rollup、横向产品），但归根结底是一件事：让 AI 渗透到离工作被完成的地方非常近——Profound、Cognition、Harvey 等；这里会出很多好公司。2. AI 前沿（Frontier of AI）——真正有趣之所在：用 AI 加速科学进步、再从进步里做产品。这个品类更难看见，但我们在 SPC 看到越来越多：Externa 在给蛋白质加数百种新化学构件（为疾病量身工程药物、而不是将就自然界给的）；Epana Bio 用基因组学与 AI 设计直击疾病细胞源头的自免疫疗法；VenomicsAI 从毒液做 AI 加速药物发现；Equivariant 给半导体行业做多物理场建模。第二类在外面不被理解、少被谈论——但它应该被：我认为模型驱动回报的绝大多数将来自这里。」（另：与 Rox 从最早期合作的感想、从 ishanmkh 学到什么叫以 AI 节奏运营公司，26 赞。）Rauchg PSA（**3292 赞**）——「公告：创造出色的产品，仍然需要超量的人类专注、努力、动力与爱。还有注意力时长。」另附：「我们有个 benchmark、让 𝚏𝚢 启动和纯手写汇编的终极优化版 𝚏𝚢.𝚜 对打 😂」（100 赞）；「Beam by Reflection 在 11 月 12 日前免费——美国开放权重、零数据留存，享受吧 🇺🇸」（143 赞）。"
+            ],
+            "original": [
+              "adityaag：两类公司——AI 扩散（vertical SaaS）与 AI 前沿（加速科学再做成产品）；模型回报的大头在前沿。Rauchg：好产品仍需人类专注、努力、动力、爱与注意力时长。"
+            ]
+          }
+        },
+        {
+          "authorKey": "nikunj+danshipper+steipete+misc",
+          "authorName": "Nikunj Kothari / Dan Shipper / steipete / 杂闻",
+          "authorTag": "Builder / Every CEO / 独立开发者 / 其他",
+          "sourceUrl": "https://x.com/nikunj",
+          "en": {
+            "rewrite": [
+              "Nikunj's scrape (32): I scraped 803 companies' sub-processors to investigate what AI-native companies use for infrastructure. Findings vs March: 44% of companies list two+ model providers (up from 33%) — small n, but Anthropic grew twice as fast as OpenAI; 86 pairs where each company names the other as a subprocessor (AnthropicAI+Cloudflare, vercel+spacexai); 33% list an inference provider (up from 22%) — Modal continues to crush; Chinese models primarily arrive through video (think ByteDance) rather than text; typesafeai is the breakout hit, 0 to many companies in a short period. Caveat: subprocessor lists are a lagging indicator but a sure shot way of knowing a company uses something. Full data at deploygraph.com. Plus his RFS thread (15). Shipper's essay-tweet (118): the companion to today's podcast — five people and $200,000 done in the cracks of a week with Fable 5.2; GDPval 12.4%→83%; but zoom in: same survey, same AI, different humans find different things (Yash: churn from too much email; Dan Brundage: readers feel lonely; Jack: a Claymation game show). Generation is cheap, ranking is hard; the value is pushing past the default answer with your perspective and responsibility — the aggregate shows the capability curve, the intimate shows what we might build and who we might become (full talk on the Every podcast). Sideloads: steipete (309) — reading some of these comments makes my brain hurt. oss is already hard enough without politics; Turck's founder gems thread (30) — strong attract, strong repel; Josh Woodward (240) — We love this and build with it regularly ♥️ It makes our apps faster and smarter; Garry Tan (83) — come out next week for the Acts 17 event with @hubermanlab."
+            ],
+            "original": [
+              "Nikunj Kothari: > 44% of companies list two+ model providers (up from 33%). Small n, but Anthropic grew twice as fast as OpenAI. > @typesafeai is the breakout hit, going from 0 to many companies in a short period.",
+              "Dan Shipper: Generating possibilities is cheap. Knowing which ones matter is hard.",
+              "Peter Steinberger: reading some of these comments makes my brain hurt. oss is already hard enough without politics."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Nikunj 爬虫报告（32 赞）——「我爬了 803 家公司的 sub-processor 清单，调查 AI native 公司的基础设施用谁。与三月的上次相比：44% 的公司列出两个以上模型供应商（从 33% 上升）——样本小，但 Anthropic 的增长速度是 OpenAI 的两倍；86 对公司互相把对方列为 sub-processor（AnthropicAI+Cloudflare、vercel+spacexai）；33% 列了推理供应商（从 22% 上升）——Modal 继续碾压；中国模型主要经视频进来（想想字节）而非文本；typesafeai 是爆款、短时间从 0 到一批公司。注意：sub-processor 清单是滞后指标、但确定能证明公司在用。全部数据在 deploygraph.com。」另附他的 RFS 创业点子 thread（15 赞）。Shipper 的长推（118 赞）——今天播客的姊妹篇：「我用 Fable 5.2 在一周缝隙里干完了五个人 20 万美金的活；GDPval 从 12.4% 涨到 83%。但要贴近看：同一份调研、同一个 AI、不同的人发现不同的东西（Yash 看到邮件过多导致流失；Dan Brundage 看到读者感到孤独；Jack 做了黏土动画游戏节目）。生成可能性很便宜、知道哪些重要很难；价值在你用视角与责任越过默认答案——总体给你能力曲线、切近给你看我们可能造出什么、成为谁（完整演讲在 Every 播客）。」杂闻——steipete（309 赞）：「读这些评论让我脑仁疼。开源已经够难了、别再掺政治。」Turck 的创始人经验帖（30 赞）：「强吸引、强排斥。」Josh Woodward（240 赞）：「我们爱这个、经常拿它来构建 ♥️ 它让我们的应用更快更聪明。」Garry Tan（83 赞）：「下周来 Acts 17 活动、嘉宾有 Huberman。」"
+            ],
+            "original": [
+              "Nikunj：803 家公司 sub-processor——44% 双模型商、Anthropic 增速两倍、typesafeai 爆款。Shipper：生成便宜、排序难。steipete：开源别掺政治。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Dan Shipper at Thesis 2027 / 播客：总体、切近与分配经济",
+      "desc": "Every「AI & I」全新一期：Dan Shipper 大会闭幕演讲——「生成很便宜，排序很难」；「2027 Claude vs 2026 Yash 两边都做了手脚——约掉 Claude、我每天都选 Yash」；分配经济与度量翻转。21980 字符全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:every-thesis-2027-shipper",
+          "authorName": "AI & I by Every",
+          "authorTag": "Dan Shipper（Every 联合创始人 & CEO）",
+          "sourceUrl": "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL",
+          "en": {
+            "rewrite": [
+              "Every's first conference (Thesis: 2027, Brooklyn — speakers from Anthropic, OpenAI, Notion, Lovable, Ode) closed with Dan Shipper's answer to what great human work looks like after automation. The frame: two ways to predict the future — the aggregate (gather data, extrapolate a trendline; it gave us scaling laws and the GDPval curve where AI went from beating human experts 12.4% of the time in 2024 to ~83% in 2026) and the intimate (zoom into one real messy case and extrapolate from there). His own week as evidence: the Q4 customer survey analyzed like a data scientist, a live video game for the all-hands, a sell-to-teams opportunity, a vibe-coded CRM and outreach — the 2020 cost of that table: five people and $200K, all inside one Claude subscription. Stare at it and you conclude we are so fucked — it creates an agency rupture, because we identify with our work. But the aggregate misses what only closeness reveals: give the same survey and the same Claude to the whole team and everyone finds something different — Dan the team-selling opportunity; Yash (the growth monomaniac) that first-month churners get too much email; Douglas that readers feel lonely (they love AI while everyone around them thinks they're crazy — Every is the place that says you can do great stuff with this); Jack a Claymation Family Feud game show. Claude's default answer (writing is the business, the bundle retains, risk is focus and volume) is all true — and cheap, because everyone has it. Mike Taylor's Slack experiment: Claude can predict what Dan would say 93% of the time — but only by generating 400 answers, and ranking puts the real one in the top 10% just ~60% of the time. Generation is cheap; ranking is hard. On a team, responsibility narrows where you look and perspective lights up what matters — a team explores a vastly larger possibility space than a default prompt. The rigged comparison (2027 Claude vs 2026 Yash): 2027 Yash exists too and uses 2027 Claude, and someone has to set up that Claude — cancel it from both sides and you're choosing Yash over the default prompt every day. The floor rises but is distributed to everyone, so the alpha is pushing the model with your perspective and responsibility — new capabilities rapidly become cheap; how you use them is what stays expensive. Hence the allocation economy (judged not on what you know but how well you allocate the resources of intelligence) and the measurement flip: stop testing consensus problems and ask how good is it at my work from my perspective. The aggregate has to freeze you in 2020; the intimate empowers you to see what you might build and who you might become."
+            ],
+            "original": [
+              "Dan Shipper: There's two, I think, real methods for predicting the future. One is what I'll call the aggregate... The other is called the intimate, where you zoom in on one real case or real situation, and then you extrapolate from there.",
+              "Dan Shipper: In 2024, with GPT-4-0, experts, or AI, won against a human expert 12.4% of the time. In 2025 it was 47.6 and in 2026 it was about 83%.",
+              "Dan Shipper: It creates an agency rupture because we identify ourselves with the things that we do.",
+              "Dan Shipper: Generation is really cheap, but ranking is hard.",
+              "Dan Shipper: There's no immaculate conception of Claude happening in 2027, I don't think.",
+              "Dan Shipper: I pick Yash every day, every time.",
+              "Dan Shipper: You won't be judged on how much you know, but instead on how well you can allocate and manage the resources to get work done, the resources of intelligence."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Every 首届大会（Thesis: 2027）闭幕演讲成篇：Dan Shipper 回答「自动化之后伟大的人类工作是什么」。核心框架——预测未来有两种方法：总体（外推趋势线：GDPval 上 AI 胜率从 2024 的 12.4% 涨到 2026 的 83%）与切近（放大到一个真实案例往外推）。他拿自己一周干完五个人 20 万美金的活作证——「盯着看只会得出：我们完蛋了」；但同一份调研给全团队+同一个 Claude，人人发现不同的东西（增长狂人看到流失原因、营销负责人看到读者的孤独、编辑做出黏土动画游戏节目）；Claude 默认答案人人可得所以廉价。金句：「生成很便宜、排序很难」（Slack 预测实验：400 个答案里 93% 命中、排序只有 60% 进 top 10%）；「2027 Claude vs 2026 Yash 是两边都做了手脚的对比——约掉 Claude，我每天都选 Yash」；地板抬升且分发所有人、alpha 在你用视角推模型的地方；「分配经济」与度量翻转：别测共识问题、测「从我视角做我的工作有多好」；「总体必须把你冻在 2020，切近让你看见你可能会成为谁」。完整译文见下。"
+            ],
+            "original": [
+              "【开场（主持人 Natalia Quintero）】",
+              "欢迎回到 Every 播客——我们聊工作的未来。我是 Natalia Quintero。在 Every，我们的写作者与构建者每天都在用 AI，所以能告诉你前沿在怎么移动、什么真的有效、你需要知道什么。",
+              "上周 Every 办了我们的第一次大会（V.C.S.S.）——布鲁克林全天演讲，讲者来自 Anthropic、OpenAI、Notion、Lovable、Ode 等等。错过的话，所有演讲会在 every.to/tv 上。我们围绕一个问题搭建了整场大会：自动化之后，伟大的人类工作长什么样？Every 联合创始人 & CEO Dan Shipper 用他的回答为大会收尾——也就是你接下来要听的这一集。他拿我们的季度客户调研结果，搭了一个定制 CRM、又做了个游戏，然后亲自触达了数量可观的客户。用前 AI 时代的话说：他一个人干了大约五个人的活——数据科学家、游戏开发者、营销、工程师、销售。而他用的只是一个 Claude 订阅、一周时间。如果你问 Claude「这份调研里有什么」，你会得到任何人都能得到的通用答案——而这恰恰就是 Dan 的论点：伟大的工作，是你带给模型的视角。请听 Dan 在大会上的闭幕演讲「Thesis: 2027」。",
+              "",
+              "【两种预测未来的方法：总体与切近】",
+              "大家好。我们聚在这里回答一个问题：自动化之后，伟大的人类工作的未来是什么？我想给出我的版本，希望能把今天的内容串起来。我真的很爱这个问题——它本质上是在预测未来。而预测未来有两种方法：一种我叫「总体」（aggregate）：收集海量数据、外推一条趋势线；另一种叫「切近」（intimate）：放大到一个真实案例、一个真实情境里，从那里往外推。我们的文化偏爱总体——总体是客观的、定量的；切近总显得有点轶事化。",
+              "总体极其强大。我们有 AI 就是因为总体——比如 scaling law：发现往系统一端灌更多数据与算力、另一端就会产出更多能力。在座的各位都在骑这条曲线。我们也用总体来回答今天的问题：自动化之后工作什么样？好例子是 OpenAI 的 GDPval——一个衡量模型做「经济上有价值的任务」有多好的基准：专家们从自己工作里挑真实任务、做成 prompt；一份给模型、一份给不用 AI 的人类；然后盲评专家挑选哪个更好。2024 年用 GPT-4o，AI 赢人类专家 12.4% 的次数；2025 年 47.6%；2026 年大约 83%——这是 GPT 5.4，我确定现在更高、这个基准肯定饱和了。AI 在专家工作上 83% 的时间击败人类——而我在自己的工作里也能看到这件事。",
+              "",
+              "【我的一周：五个人的活，一个订阅】",
+              "看上周我的周历：我们跑了季度客户调研。在我日程的缝隙里，我用曾经需要数据科学家或增长分析师的方式分析了调研数据——问了一堆问题、出了一堆报告；我给团队做了个视频游戏，全员大会上实时对战、看谁最懂我们的客户；我从这些工作里发现一个把 Every 卖给团队的机会；然后顺手 vibe code 了自己的 CRM、开始用它触达客户（你上周可能收到过我的邮件——抱歉）。对照 2020 年的岗位表：数据科学家、游戏开发者、产品营销、工程师、BDR——五个人、20 万美金。而这一切都包含在我的 Claude 订阅里。",
+              "你真的盯着这张表看，只会得出一个结论：我们完蛋了（we are so fucked）。而且它会造成一种我称之为「能动性断裂」（agency rupture）的东西——我们用「做的事」来认同自己；看到模型做着像你一样的工作，它打击的是你的自我认同。",
+              "但总体这个透镜虽然有用、也会漏掉东西、甚至误导人。而漏掉的东西只有贴近了才看得见。所以我们进入切近。",
+              "",
+              "【切近实验：同一份调研，同一个 Claude，不同的发现】",
+              "回到 2022 年（ChatGPT 之前、只有 GPT-3）：很多人看着总体曲线说「这不会持续，只是随机鹦鹉」；另一些人说「所有工作两年内全没了、去新西兰挖地堡吧」。而 Every 走切近路线：我当年用 GPT-3，从使用体验外推——「用几年，用 AI 就会像用一支团队」。我当时写下：与其说 AI 取代个体，不如说它将赋能个体、以匹敌当今最大企业、研究实验室与创意组织的规模产生影响。今天看，这已经成真。",
+              "那为什么 Every 还有 30 个人的团队？（顺便：这次大会就是这个团队办的，掌声给他们。）把镜头拉近那份客户调研：我把数据给了全团队——人人都能访问、都能自己分析。我（Dan）从中得到：卖 Every 给团队的机会 + 我的定制 CRM。Yash（我们的 GTM 工程师、对增长的痴迷到了 monomaniac 的程度）从中得到：大量首次订阅者第一个月就流失，因为我们邮件发太多。Douglas（营销负责人、这次大会的操盘手）从中得到：很多读者感到孤独——他们爱 AI、什么都拿 AI 做，但身边人都当他们疯了；很多读者来 Every，是因为这是唯一一个说「你用它真能做出好东西」的地方。Jack（高级编辑）把结果做成了一档黏土动画家庭问答游戏节目——《问卷对决！今晚：vibe check 对阵 context window！》——信息量极大还特别好笑。",
+              "重点：他们全用了 AI、用同一份调研、同一个 Claude——不同的人发现并强调了非常不同的重要东西。而任何人把调研直接丢给 Claude 默认 prompt，它说的是：「写作就是这门生意、bundle 是留存关键、风险在于焦点分散与量太大」——全是真 insight，但人人可得，所以廉价。团队里没有一个人交上来的分析长得像默认答案。",
+              "他们还是在筹备这场大会的间隙做的这些分析——办过大会的人都知道那是多吞噬人心的事。Yash 一边做分析，一边还搭了整场直播的自定义播放器——成千上万人看了一整天。",
+              "",
+              "【生成很便宜，排序很难】",
+              "你可能会想：我不能直接 prompt Claude「Yash/Douglas/Jack 会发现什么」吗？我们真实验过。我们负责评测的 Mike Taylor 试着预测我在 Slack 里会说什么——能预测到：93% 的时候，我说的东西在 Claude 的答案里。但有个致命附加条件：Claude 每个问题得生成 400 个答案。让它排序呢？我真正说的那句只落在它 top 10% 里的概率约 60%——基本是抛硬币。",
+              "这说明关于「AI 时代团队为什么有价值、人为什么有价值」的某件极重要的事：生成很便宜，排序很难。我自己在 400 个答案的噪声里根本淘不出 Yash 会得到的那个东西。",
+              "如果你是团队里的人：你对世界的某个特定区域负有责任——这收窄了你往哪看、怎么 prompt 模型；你还有自己的视角——它决定你从那里挑出什么、称什么为重要、重要到愿意为它负责、为它行动。对上周分析调研的我们每个人来说：数据里潜伏着千百万条路径、千百万个可提取的 insight；责任收窄了我们看的范围；视角点亮了其中几条；然后你选一条、带它往前走——从千百万种潜在可能性，到一件「只有你会这么排」的事。放大来看：一支团队探索的可能性空间，远大于任何默认 prompt 的答案。",
+              "",
+              "【两边都做了手脚的对比】",
+              "你还会反驳：Claude 现在不会排序，给它一年。可能对，它大概率会排序得更好。那我们通常会把问题摆成：2027 年的 Claude 对上 2026 年的 Yash——但这个等式两边都彻底做了手脚。第一：为什么拿 2026 年的 Yash？2027 年的 Yash 也存在——带着一整年新的经验与视角、而且也在用 2027 年的 Claude（也许是 ChatGPT、也许是 Gemini，反正他在用模型）。第二：等式右边的 2027 Claude，总得有人把它设置起来——持久 agent 也好、跑个 harness 也罢——Claude 不会无 immaculate conception 地凭空出现。所以你真正比较的是：2027 Yash + 2027 Claude vs 2027 Claude 的默认 prompt。两边都有 2027 Claude——直接约掉（这就是切近里的数学，规则不是我定的）。约掉之后，你真正在选的是：我要一个对世界某区域负有责任、带着自己视角的 Yash，还是要一个所有人都拿得到的平均答案？我的答案：每一天、每一次，我都选 Yash。",
+              "",
+              "【分配经济与度量的翻转】",
+              "当人人都能用上模型（2026、2027、2028 Astra 都一样），地板就被抬高并分发给了所有人：模型的默认答案今天看着惊艳，但因为人人都有，它就是基线、就是 status quo。地板会持续抬升、但抬升的部分也会持续分发出去。所以真正有价值的 alpha，是你用自己的视角与责任、把模型推到哪里。新能力会迅速变便宜；真正贵而稀有的，是你带着自己的视角怎么用它。",
+              "这就回到我几年来一直在写的「分配经济」（allocation economy）——2024 年那篇文章里我写：你不会再以「知道多少」被评判，而是以「你能多好地分配与管理把工作做成的资源——智能的资源」被评判。你会把工作分配给 AI 模型、并确保工作被做好。",
+              "相信这件事的第一个推论：应该翻转我们度量 AI 的方式。现在我们按「共识」测能力——大家都同意值得解决的问题（数学、编程，因为可验证）。但按这套逻辑，这些能力已被分发、不再值钱。该测的是：它从我特定的视角出发、做我的工作，做得有多好？这是个奇怪的文化倒转：过去价值在「定论」（数学、科学、编程里你的视角无关紧要）；我的看法是那些东西已经被商品化、价值大减；现在价值来自你持有一个非共识的视角、并用它把模型推向你认为好的东西。内化了这一点，你就会把模型进步看作「为你工作的东西」而非「取代你的东西」——它变好，你就变好。",
+              "",
+              "【结尾】",
+              "这就是切近之所以重要：总体必须把你冻结——为了度量模型进步，它必须拿 2020 年的模型对比 2020 年的人类；而切近给你力量、去看你可能会造出什么、可能会成为谁。今天这一整天我们都在切近——亲身用这些工具工作、和同样在用这些工具的人待在一起。你们都知道这有价值：如果你光看能力图表就能知道一切该知道的，你今天就不会来。现在，把这个带出去、传给世界上其他人。谢谢大家。"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
