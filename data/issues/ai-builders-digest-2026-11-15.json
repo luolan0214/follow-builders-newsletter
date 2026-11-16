@@ -1,0 +1,91 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-15",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游未更新：今日 X 与播客快照均与 11-14 完全相同（13 位 builders、26 条推文 + Unsupervised Learning × TypeSafe CEO 播客）——全部内容已在 11-14 期完整收录。本日为重播轻量版：保留要点重播与播客金句回顾，不重复全文。当日主线：amasad「墨菲世界」与自治企业；Rauchg 的 uisdk/subagents 三连；播客金句：「让他们去治愈癌症=让他们吃蛋糕。」"
+  },
+  "archive": {
+    "title": "重播日：墨菲世界",
+    "desc": "上游快照与 11-14 相同：amasad「墨菲世界」、Daybreak 征求反馈、Rauchg uisdk 三连、TypeSafe CEO 谈决策模型与 KV cache 暴政——完整版见 11-14 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Both 2026-11-15 source feeds are byte-identical to 2026-11-14 (13 builders, 26 tweets; Unsupervised Learning Ep 97 with the CEO of TypeSafe) and were fully covered in that issue — today is a replay edition with highlight notes and podcast quote replays only. Backfill edition generated on 2026-11-16.",
+  "sections": [
+    {
+      "title": "Replay: Murphy's World Highlights / 重播：墨菲世界要点",
+      "desc": "上游未更新，快照与 11-14 完全相同（13 位 builders、26 条推文 + Unsupervised Learning × TypeSafe CEO 播客）——11-14 期已完整收录。要点回顾：墨菲世界、Daybreak、uisdk 三连。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-11-14-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 11-14 相同",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-11-14 — the same 13 builders and 26 tweets, fully covered in that issue. Headlines: amasad's Murphy's world at 1115 (anything that can go wrong will — rare failures become daily things among billions of recursively interdependent accelerating events) plus Autonomous Businesses are here at 298 and the Engelbart frame at 277; Sottiaux's Daybreak feedback request at 737 (models, codex plugins, blue/red access, documentation, red teaming & defense factory); Rauchg's triple — the uisdk magic at 616 (two prompts of fx + Gemini Argon, pure Web Components, 14 UI SDK behaviors reused out of the box), subagents on fx at 275 (one line in AGENTS.md: plan with the smartest model, delegate to fast subagents), and an awesome day for humanity at 404; steipete's popcorn at 485; Gemini × Google Wallet at 462; Peter Yang's /doctor prompt-audit at 440; Garry Tan's gbrain/Aside Browser/Modernize the FAA at 455/120/167; Levie's coding-shaped essay at 206; swyx on AI UX suboptimality at 225; Shipper's frontier feed for agents at 199."
+            ],
+            "original": [
+              "Amjad Masad: We've entered Murphy's world. Anything that can go wrong will go wrong.",
+              "Thibault Sottiaux: Cyber team wants your feedback on Daybreak.",
+              "Guillermo Rauch: Got to experience the magic of @uisdk. Two prompts of fx + Gemini Argon. Pure Web Components. No framework.",
+              "Aaron Levie: more and more work just becomes coding-shaped to adapt to what agents are good at."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 11-14 完全相同（13 位 builders、26 条推文，完整版已收录于 11-14 期）。要点回顾：amasad「墨菲世界」（**1115 赞，当日最高**）+「自治企业来了」（298 赞）+ Engelbart 框架（277 赞）；Sottiaux 为 Daybreak 征求反馈（737 赞）；Rauchg 三连——uisdk 魔法（**616 赞**）、fx subagents（275 赞）、「人类的美妙一天」（404 赞）；steipete 🍿（485 赞）；Gemini 接 Google Wallet（462 赞）；Peter Yang「/doctor prompt-audit」（440 赞）；Garry Tan 三连（gbrain/Aside Browser/现代化 FAA）；Levie「工作变 coding 形状」（206 赞）；swyx「AI UX 次优到疯狂」（225 赞）；Shipper「让 agent 读 frontier feed」（199 赞）。今日主菜是播客（见下卡）。"
+            ],
+            "original": [
+              "amasad：墨菲世界。Sottiaux：Daybreak 征求反馈。Rauchg：uisdk 两 prompt 十四种行为。Levie：工作变 coding 形状。详见 11-14 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: TypeSafe's Jogo / 播客重播：决策模型与 KV Cache 暴政",
+      "desc": "播客快照与 11-14 相同：Unsupervised Learning Ep 97 × TypeSafe CEO Jogo。完整中文译文（70 段）已收录于 11-14 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:unsupervised-learning-jogo-typesafe-replay",
+          "authorName": "Unsupervised Learning（重播）",
+          "authorTag": "Jogo（TypeSafe 联合创始人 & CEO，Jev 之父）",
+          "sourceUrl": "https://www.youtube.com/@RedpointAI",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed is unchanged from 2026-11-14 — Unsupervised Learning Ep 97 with the CEO of TypeSafe on decision models, benchmark fatigue, the KV cache tyranny and the Anthropic IPO. The full Chinese translation (70 paragraphs) was published on 11-14; today we keep a quote replay."
+            ],
+            "original": [
+              "Jogo: What percentage of those calls going into the LLMs are actually meant for human consumption...? Even the most string-pilled of people will give many nines of percent for the machine native component.",
+              "Jogo: Why can we solve Millennium Prize problems in math but not automate anything touching accounting?",
+              "Jogo: I wrote a document at OpenAI that was titled, We Could Have Had AGI a Year Ago, at least by OpenAI's definition of AGI.",
+              "Jogo: the let them cure cancer is going to be like Marie Antoinette's, like, let them eat cake.",
+              "Jogo: I get the sense that the greatest strength of the labs is not models or product or distribution, but financial engineering.",
+              "Jogo: we need to start untraining ourselves of this lack of agency that LLMs have kind of taught us about AI and start really building again."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照与 11-14 相同——Unsupervised Learning Ep 97 × TypeSafe CEO Jogo（Jev 之父）：决策模型、benchmark 疲劳、KV cache 暴政与 Anthropic IPO 冷评（74442 字符）。完整中文译文（70 段）已收录于 11-14 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「进入 LLM 的调用里，多大比例是给机器消费的？最 string 上头的人也会答好多个 9。」",
+              "「为什么能解千禧年难题、却不能自动化任何碰会计的活？」",
+              "「我在 OpenAI 写过一份文档，标题就叫《我们一年前就能有 AGI》。」",
+              "「『让他们去治愈癌症』——会是这个时代的『让他们吃蛋糕』。」",
+              "「实验室们最大的强项不是模型、产品或分发——是金融工程。」",
+              "「戒掉 LLM 教给我们的无能动性，重新开始真正地构建。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
