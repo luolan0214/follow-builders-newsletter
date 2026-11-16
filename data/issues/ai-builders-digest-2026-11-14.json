@@ -1,0 +1,289 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-14",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "amasad 领跑全日（**1115 赞**）：「我们进入了墨菲世界——亿万个递归相依的事件里，罕见故障成了日常」+「自治企业来了」；Sottiaux 替 Cyber 团队为 Daybreak 征求反馈（737 赞）；Rauchg 三连：uisdk 魔法（**616 赞**，fx+Argon 两 prompt 复用 14 种 UI 行为）、fx subagents 一行指令（275 赞）；steipete 🍿（485 赞）围观 Jensen 连续剧；Gemini 接 Google Wallet（462 赞）；Peter Yang 的 Fable prompt 审计（440 赞）；Garry Tan「Aside Browser 是 agent 的巨大解锁」；Levie「工作会变 coding 形状」。播客重磅：Unsupervised Learning × TypeSafe CEO Jogo（Jev 之父）——「让他们去治愈癌症=让他们吃蛋糕」、KV cache 暴政、「我们一年前就能有 AGI」。74442 字符全文翻译随卡附上。（周六补跑版）"
+  },
+  "archive": {
+    "title": "墨菲世界与决策模型",
+    "desc": "amasad「墨菲世界、自治企业来了」、Rauchg 的 uisdk/subagents 三连、Daybreak 征求反馈；播客：TypeSafe CEO 谈 KV cache 暴政与「造神定价」。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-11-14 source feeds (13 builders, 26 tweets; plus one brand-new-to-this-digest podcast: Unsupervised Learning Ep 97 with the CEO of TypeSafe on decision models, benchmark fatigue & why the labs missed it, full 74,442-character transcript translated). Backfill edition generated on 2026-11-16.",
+  "sections": [
+    {
+      "title": "Murphy's World / 墨菲世界与自治企业",
+      "desc": "Amjad Masad 三连：墨菲世界（**1115 赞**）——「亿万个递归相依、加速运转的事件里，曾经的罕见故障成了日常」；Autonomous Businesses 来了（298 赞）；技术天生递归自我改进（277 赞）——「Engelbart 早就懂了」。",
+      "cards": [
+        {
+          "authorKey": "amasad-murphy",
+          "authorName": "Amjad Masad",
+          "authorTag": "Replit CEO",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "amasad's triple. Murphy's world (1115): We've entered Murphy's world. Anything that can go wrong will go wrong. With billions of things happening at once, recursively interdependent and accelerating rapidly, what's once considered a rare failure is now a daily thing. Autonomous Businesses (298): Autonomous Businesses are here. And the frame behind it (277): Technology is inherently recursively self-improving and the degree of autonomy has been going up over time. AI is an accelerant but it didn't start this cycle. Douglas Engelbart understood this."
+            ],
+            "original": [
+              "Amjad Masad: We've entered Murphy's world. Anything that can go wrong will go wrong. With billions of things happening at once, recursively interdependent and accelerating rapidly, what's once considered a rare failure is now a daily thing.",
+              "Amjad Masad: Technology is inherently recursively self-improving and the degree of autonomy has been going up overtime. AI is an accelerant but it didn't not start this cycle. Douglas Engelbart understood this."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Amjad Masad 三连——「墨菲世界」（**1115 赞**）：「我们已经进入墨菲的世界。凡是可能出错的都会出错。当亿万个事件同时发生、递归相依、加速运转——曾经被视为罕见的故障，如今成了日常。」「自治企业来了」（298 赞）：「Autonomous Businesses are here.」背后的框架（277 赞）——「技术天生就是递归自我改进的、自治程度一直在上升。AI 是加速剂，但这个循环不是它开启的。Douglas Engelbart 早就明白这一点。」"
+            ],
+            "original": [
+              "amasad：墨菲世界——亿万个递归相依的加速事件里，罕见故障成日常；自治企业来了；技术天生递归自我改进、Engelbart 早就懂了。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Daybreak, uisdk & fx / Daybreak、uisdk 与 fx 三连",
+      "desc": "Sottiaux（737 赞）：OpenAI Cyber 团队就「Daybreak」征求反馈——模型、codex 插件、蓝队红队权限、防御工厂；Rauchg 三连：uisdk 魔法（**616 赞**）、fx subagents（275 赞）、「人类的美妙一天」（404 赞）；swyx：AI UX 严重次优（225 赞）。",
+      "cards": [
+        {
+          "authorKey": "thsottiaux-daybreak",
+          "authorName": "Thibault Sottiaux",
+          "authorTag": "Codex @OpenAI",
+          "sourceUrl": "https://x.com/thsottiaux",
+          "en": {
+            "rewrite": [
+              "Sottiaux (737): Cyber team wants your feedback on Daybreak. Models, codex plugins, blue/red access, documentation, red teaming & defense factory... What can we do better or improve? — OpenAI's security org openly soliciting feedback on Daybreak, its security suite spanning models, Codex plugins, blue/red-team access, docs and the defense factory."
+            ],
+            "original": [
+              "Thibault Sottiaux: Cyber team wants your feedback on Daybreak. Models, codex plugins, blue/red access, documentation, red teaming & defense factory... What can we do better or improve?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Sottiaux（737 赞）——「Cyber 团队想要大家对 Daybreak 的反馈：模型、codex 插件、蓝队/红队权限、文档、红队测试与防御工厂……我们能做得更好或改进什么？」——OpenAI 安全团队为 Daybreak 公开征集反馈，覆盖模型、Codex 插件、攻防两队权限、文档与「防御工厂」全套。"
+            ],
+            "original": [
+              "Sottiaux：Cyber 团队就 Daybreak 征求反馈——模型、codex 插件、蓝红权限、文档、红队与防御工厂。"
+            ]
+          }
+        },
+        {
+          "authorKey": "rauchg-uisdk+swyx-ux",
+          "authorName": "Guillermo Rauch / Swyx",
+          "authorTag": "Vercel CEO / AI Engineer",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "rauchg's triple. The uisdk magic (616): Got to experience the magic of @uisdk. Two prompts of fx + Gemini Argon. Pure Web Components. No framework. The agent reused 14 UI SDK behaviors out of the box 🤯: window resizing, drag, menubar hover-switching, typeahead, roving toolbar focus, 10-band EQ sliders, scoped hotkeys, ARIA, and WebMCP agent control. Subagents (275): Subagents on fx work so well… extremely delightful. Amazing how much goodness fits in 6.33mb — All my projects are built by planning with the smartest model + delegating to fast model subagents. It's a 1-line instruction in AGENTS.md. And (404): An awesome day for humanity — with a stardust ASCII art. swyx's agreement (225): obviously correct, we are so suboptimal in AI UX rn it is crazy esp given existence of models too cheap to meter. Plus: holy shit u guys like a lot of poteto (62) and there WILL be audience participation (2).",
+              "Also from swyx's AIE stream: the poteto keynote love keeps pouring in."
+            ],
+            "original": [
+              "Guillermo Rauch: Got to experience the magic of @uisdk. Two prompts of fx + Gemini Argon. Pure Web Components. No framework. The agent reused 14 UI SDK behaviors out of the box 🤯",
+              "Guillermo Rauch: All my projects are built by planning with the smartest model + delegating to fast model subagents. It's a 1-line instruction in ~/.𝚏𝚡/𝙰𝙶𝙴𝙽𝚃𝚂.𝚖𝚍.",
+              "Swyx: obviously correct, we are so suboptimal in AI UX rn it is crazy esp given existence of models too cheap to meter"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 三连——uisdk 魔法（**616 赞**）：「体验了 @uisdk 的魔法：fx 的两个 prompt + Gemini Argon。纯 Web Components、零框架。agent 开箱即用复用了 14 种 UI SDK 行为 🤯：窗口缩放、拖拽、菜单栏悬停切换、typeahead、工具栏漫游焦点、十段均衡器滑块、作用域热键、ARIA、还有 WebMCP 的 agent 控制。」（配乐来自 Suno。）subagents（275 赞）——「fx 上的 subagents 好用到爆……6.33mb 里塞进了这么多美好 😁。我所有项目都这么建：用最聪明的模型做规划 + 委派给快模型 subagents——AGENTS.md 里一行指令的事。」以及（404 赞）——「人类的美妙一天」+ 一幅星尘 ASCII 艺术。swyx 呼应（225 赞）——「显然正确：现在的 AI UX 次优到疯狂，尤其考虑到已经存在便宜到不用计费的模型。」另有：「卧槽你们是真的喜欢 poteto 啊」（62 赞）；「现场 WILL 有观众参与环节」（2 赞）。"
+            ],
+            "original": [
+              "Rauchg：fx+Argon 两 prompt 纯 Web Components 复用 14 种 UI 行为；subagents 一行指令、聪明模型规划+快模型干活。swyx：AI UX 次优到疯狂。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Wallet, Prompt Audits & Frontier Feed / 接钱包、审计 Prompt 与前沿投喂",
+      "desc": "Josh Woodward（462 赞）：Gemini 可连接 Google Wallet 做个人财务洞察；Peter Yang（440 赞）：Fable 5.2 的两个实用 prompt——「/doctor prompt-audit」与「/claude-api prompt-audit」；Shipper（199 赞）：让你的 agent 读 Every 的 frontier feed——「获取 raw alpha 最快的方式」。",
+      "cards": [
+        {
+          "authorKey": "joshwoodward+petergyang+danshipper",
+          "authorName": "Josh Woodward / Peter Yang / Dan Shipper",
+          "authorTag": "Google VP / Behind the Craft / Every CEO",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Woodward (462): New in Gemini — Connect Google Wallet for personal finance insights. Powerful for: instant charts to visualize your spend; finding sneaky subscription price hikes; making a holiday budget based on what you actually spent last year. (Available to all Gemini app users in the USA to start, 24.) Peter Yang (440): Two very useful prompts to try with Fable 5.2 — /doctor prompt-audit: audits your Claude Code setup (Claude md, skills, commands) and proposes fixes; /claude-api prompt-audit [skill name]: audits one skill in depth. I wish Claude Code auto-suggested running these every time Anthropic releases a new model. (Star the repo, 12.) Shipper's pair: live look of how Fable wrote an email for me this morning (93, with the experiment writeup + code at 6) and the AEO play (199): if you want all of the raw alpha from @every you should have your agent read our frontier feed — we publish all of our frontier team's experiments with AI including raw code and short writeups. No faster way to get inspired."
+            ],
+            "original": [
+              "Josh Woodward: New in Gemini: Connect Google Wallet for personal finance insights... finding sneaky subscription price hikes",
+              "Peter Yang: \"/doctor prompt-audit\": Audits your Claude Code setup (Claude md, skills, commands) and proposes fixes.",
+              "Dan Shipper: if you want all of the raw alpha from @every you should have your agent read our frontier feed"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Woodward（462 赞）——「Gemini 新功能：连接 Google Wallet 获取个人财务洞察。擅长：即时生成消费可视化图表；揪出偷偷涨价的订阅；基于你去年实际开销制定节日预算。」（先向全美 Gemini 用户开放，24 赞。）Peter Yang（440 赞）——「Fable 5.2 的两个实用 prompt：『/doctor prompt-audit』——审计你的 Claude Code 配置（Claude md、skills、commands）并给出修复建议；『/claude-api prompt-audit [skill 名]』——深入审计单个 skill。真希望每次 Anthropic 发新模型时 Claude Code 都自动建议跑一遍这些。」（求 star 仓库，12 赞。）Shipper 双发——「今早 Fable 替我写邮件的实时画面」（93 赞，实验复现与代码见 6 赞那条）；AEO 打法（199 赞）——「想要 @every 的全部 raw alpha？让你的 agent 读我们的 frontier feed——我们发布前沿团队的全部 AI 实验、含原始代码与短篇 writeup。没有比这更快获得灵感的方式了。」"
+            ],
+            "original": [
+              "Woodward：Gemini 接 Google Wallet——可视化消费、揪订阅涨价、按去年实开销做预算。Peter Yang：/doctor prompt-audit 审计 Claude Code。Shipper：让 agent 读 frontier feed、拿 raw alpha。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Coding-Shaped Work & Sideloads / 一切工作皆代码形状与杂闻",
+      "desc": "Levie（206 赞）：「越来越多的工作会变『coding-shaped』来适应 agent 擅长的事」；Garry Tan：gbrain（455 赞）、Aside Browser 是 agent 的巨大解锁（120 赞）、现代化 FAA（167 赞）；steipete 🍿（485 赞）；Nikunj 2026 书架（136 赞）。",
+      "cards": [
+        {
+          "authorKey": "levie-coding-shaped",
+          "authorName": "Aaron Levie",
+          "authorTag": "Box CEO",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie's essay (206): AI models are inevitably going to keep getting better at coding, tool and computer use, math and other coding-related tasks — so agents that can use software or generate code from scratch will improve faster than all other domains of knowledge work. That could mean only a small subset of work gets automated — but probably more and more work just becomes coding-shaped to adapt to what agents are good at. Recent releases already generate animated videos, games, 3D models from code; tool use lets agents work with the same software people use, helping cyber, life sciences, finance. The old mental model said models must know everything about anything to generate value; in reality they have to know how to use or generate software effectively, combined with deep domain expertise for the right judgment calls inside workflows. With that combination, almost everything else gets unlocked — which is why the acceleration of agents in knowledge work only increases from here."
+            ],
+            "original": [
+              "Aaron Levie: probably what happens is that more and more work just becomes coding-shaped to adapt to what agents are good at."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 长文（206 赞）——「AI 模型在编码、工具与计算机使用、数学及一切编码相关任务上必然持续变强——因此能用软件干活、或从零生成代码的 agent，改进速度将快于知识工作的其他一切领域。一种解读：只有一小撮工作能被自动化；但更可能发生的是——越来越多工作直接变成『coding 形状』来适应 agent 擅长的事。近几个月的模型发布已经能看到：agent 生成的代码变成动画视频、游戏、产品 3D 模型；工具使用让 agent 能操作人们已在用的软件——助力网络安全、生命科学、金融等。传统心智模型说模型必须什么都懂才能创造价值；现实是：它们真正必须懂的是『有效使用或生成软件』、再叠加领域深度专长来做工作流里的正确判断。这个组合一旦成立、其他一切几乎都被解锁——所以 agent 在知识工作里的加速只会从这里继续上升。」"
+            ],
+            "original": [
+              "Levie：越来越多工作会变 coding 形状来适应 agent；会用/会生成软件 × 领域专长 = 全解锁。"
+            ]
+          }
+        },
+        {
+          "authorKey": "garrytan+steipete+nikunj+misc",
+          "authorName": "Garry Tan / steipete / Nikunj / 杂闻",
+          "authorTag": "YC 总裁 / 独立开发者 / Builder / 其他",
+          "sourceUrl": "https://x.com/garrytan",
+          "en": {
+            "rewrite": [
+              "Garry Tan's triple: Do all this and use it with gbrain :-) (455); Aside Browser is a huge unlock for every AI agent (120); and the FAA take (167) — It turns out paper chart and copper wire and an antiquated system that's brittle and doesn't have enough failsafe let alone any modern software is not serving the people of America properly. Modernize the FAA. Sideloads: steipete 🍿 (485) — popcorn over the ongoing Jensen drama; Nikunj's 2026 Startup Bookshelf 📕 (136) and his aside — Eagerly looking forward to reading the incident reports from this week.. (9); Turck (18) — Great take. NVIDIA is the one deep pocketed player that has a clear business interest in open weights AI, and was willing to make founder-type big bets. What happens now?; Zara (60) — True."
+            ],
+            "original": [
+              "Garry Tan: Aside Browser is a huge unlock for every AI agent",
+              "Garry Tan: It turns out paper chart and copper wire and an antiquated system that's brittle and doesn't have enough failsafe let alone any modern software is not serving the people of America properly. Modernize the FAA.",
+              "Matt Turck: NVIDIA is the one deep pocketed player that has a clear business interest in open weights AI, and was willing to make founder-type big bets. What happens now?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 三连——「这些全做完、再配上 gbrain 用 :-)」（455 赞）；「Aside Browser 是每个 AI agent 的巨大解锁」（120 赞）；FAA 吐槽（167 赞）——「事实证明：纸海图、铜线、一个脆弱到没有足够失效保护、更别提现代软件的老古董系统，没能好好服务美国人民。现代化 FAA。」杂闻——steipete 🍿（**485 赞**）：一桶爆米花，围观 Jensen 连续剧；Nikunj「2026 创业书架 📕」（136 赞）+「热切期待本周的事故报告……」（9 赞）；Turck（18 赞）——「说得好：NVIDIA 是唯一一个对开放权重 AI 有明确商业利益、又敢下创始人式大注的深口袋玩家。接下来会怎样？」；Zara（60 赞）：「True。」"
+            ],
+            "original": [
+              "Garry Tan：gbrain；Aside Browser 是 agent 巨大解锁；现代化 FAA。steipete：🍿。Turck：NVIDIA 是唯一深口袋的开放权重玩家。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: TypeSafe's Jogo / 播客：决策模型与 KV Cache 暴政",
+      "desc": "Unsupervised Learning Ep 97 全新一期：TypeSafe CEO Jogo——「让他们去治愈癌症=让他们吃蛋糕」；KV cache 暴政全解与科幻愿望单；「我们一年前就能有 AGI」；coding agent 增益 20-40%。74442 字符全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:unsupervised-learning-jogo-typesafe",
+          "authorName": "Unsupervised Learning",
+          "authorTag": "Jogo（TypeSafe 联合创始人 & CEO，Jev 之父）",
+          "sourceUrl": "https://www.youtube.com/@RedpointAI",
+          "en": {
+            "rewrite": [
+              "Redpoint's Unsupervised Learning Ep 97 with the CEO of TypeSafe — the company behind Jev, the decision models that took the AI world by storm a month before taping. The tour: the founding question (what percentage of LLM calls are meant for computer consumption rather than human? even the most string-pilled give many nines — work backwards from that machine-native cognitive core); why they launched during the pacing-the-frontier discourse over everyone's objections (coevolve use cases, find weaknesses, handle jaggedness); the system-one naming fight and the north star (why can we solve Millennium Prize problems but not automate anything touching accounting?); the field's Stockholm syndrome (almost no real-world feedback reaches the roadmap — people should complain so much more; the number one way to reach him is to complain about model jaggedness); against mental models of submodels (intelligence should be like SQL — provider-agnostic; locking systems into theories of mind of submodels is really bad); the warning on shapes (the shape took a week to make, as he predicted — but people are overfocused on shapes of tasks rather than utility and reliability; overpromise-underdeliver burns the goodwill that is the only thing that matters); benchmark fatigue arriving faster than expected (people stopped caring about new releases in this class — they've been lied to so many times — except when it's an OpenAI or Anthropic model, apparently); the KV cache tyranny (coding agent UX is append-only by construction — like an iPython notebook you can never delete from; it blocks routing, subagents and more — with the sci-fi wishlist: shared context across agents, live read-only visualizers, semantic compaction with ROI calculations, cross-coworker history MapReduce); semantic dependent typing and org-semantic security checks on every tool call; the image model at maybe 10% of the way the text model is (no seal of approval yet); his old OpenAI doc titled We Could Have Had AGI a Year Ago (GPQA saturated ~2023 — that intelligence was never put to work, super tragic); moats (other people are digging our moat for us) and Jevons paradox (rebound yes, backfire absolutely not); raising for people not money (we have no fucking clue how to do this); the Anthropic IPO cold open (the labs' greatest strength is financial engineering, and let them cure cancer will be this era's let them eat cake); the trust question (what decisions can you delegate — math has no downside, code has git, but no one has automated a drive-through despite trying hard); his coding-agent productivity estimate (20-40% with error bars); AI safety as separate slices (ASI folks divorced from reality since day one; two gigantic breakthroughs from true agency; Bostrom read as reality instead of very interesting sci-fi); and the close (untrain the lack of agency LLMs taught us — get back to building and playing)."
+            ],
+            "original": [
+              "Jogo: What percentage of those calls going into the LLMs are actually meant for human consumption...? Even the most string-pilled of people will give many nines of percent for the machine native component.",
+              "Jogo: Why can we solve Millennium Prize problems in math but not automate anything touching accounting? That should be really weird to a lot of people.",
+              "Jogo: Almost all design decisions around the UX of coding agents... is built around the KV cache.",
+              "Jogo: I wrote a document at OpenAI that was titled, We Could Have Had AGI a Year Ago, at least by OpenAI's definition of AGI.",
+              "Jogo: the let them cure cancer is going to be like Marie Antoinette's, like, let them eat cake.",
+              "Jogo: I get the sense that the greatest strength of the labs is not models or product or distribution, but financial engineering.",
+              "Jogo: my estimates are in the 20 to 40% speed up range.",
+              "Jogo: we need to start untraining ourselves of this lack of agency that LLMs have kind of taught us about AI and start really building again."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Redpoint「Unsupervised Learning」× TypeSafe CEO Jogo（一个月前席卷 AI 世界的决策模型 Jev 之父）一小时长谈：创业原点问题（「进入 LLM 的调用里多大比例是给机器消费的？最 string 上头的人也会答好多个 9」）；顶着 pacing-the-frontier 舆论发布的理由；「为什么能解千禧年难题、却不能自动化任何碰会计的活」；领域患上斯德哥尔摩综合征（「真实反馈几乎不进 roadmap——大家该多抱怨；约我的第一方式就是谈模型锯齿度」）；反心智模型（「智能该像 SQL、提供商无关」）；对「造形状热」的警告（形状一周就能做出来、可靠性才是唯一重要的事）；benchmark 疲劳来得比预想快；KV cache 暴政全解 + 科幻愿望单（共享上下文、实时观察者、语义压缩、跨同事历史）；图像模型只走了 10%；旧文档《我们一年前就能有 AGI》；护城河与 Jevons 猜想；Anthropic IPO 冷评（「实验室最大强项是金融工程」「让他们去治愈癌症=让他们吃蛋糕」）；coding agent 增益估计 20-40%；AI 安全切片论（「距离真正能动性还有两个巨型突破」）；结语：把 LLM 教会的无能动性戒掉、重新开始构建与玩。完整译文见下。"
+            ],
+            "original": [
+              "【冷开场：Anthropic IPO 的估值问题】",
+              "主持人：随着你思考 Anthropic，你乐观吗？觉得被低估了？还是不知道它会怎样？",
+              "Jogo：「我的感觉是：很多被烤进价格的预期不只停留在产品层面，而是建立在对 AI 未来及其能力边界的误解上。我猜因为有些人把『造出神』定价为基本无限大，那里会有一定程度的错校。而且我认为——『让他们去治愈癌症』（let them cure cancer）将会像玛丽·安托瓦内特的『让他们吃蛋糕』一样。」",
+              "",
+              "【开场】",
+              "Jacob Efron（Redpoint，「Unsupervised Learning」主理人）：Jev 大约一个月前席卷了 AI 世界，我一直想和 TypeSafe 的 CEO Jogo 聊聊——现在更有意思：距爆发已数周，可以带着回望聊。我们谈了很多：他仍然认为需要被解决的问题形状、如何继续推进 Jev 模型、Anthropic 的 IPO、AI 安全等等。",
+              "",
+              "【早期信心从哪来：为机器而生的调用】",
+              "Efron：早期结果不如预期时，是什么让你对这条研究方向保持信心？",
+              "Jogo：「说实话，我有点激动。有个有趣的角度：我联合创始人曾争论我在 OpenAI 时是否 mission-driven——事后看我会把自己归为使命驱动最低百分位的人，因为 OpenAI 的使命被刻意留得很模糊、很多人的使命都能塞进去。宏大使命从来不是我超级相信的东西，尽管我真心希望 AI 极具变革性。我现在倒是真 mission-driven 了。」",
+              "「答案就是大量工作，试图把两件事对齐：AI 真的很牛，与 AI 在各种生产力统计里真的没什么用。大多数人只盯着其中一边、从来没有一个像样的桥接答案。『分发』在这里是个无意义的答案——太多公司 all in 分发然后被烧。对我而言，桥接是：相信 AI 明显聪明、且未来明显是机器原生（machine native）的。我过去常问早期员工、甚至天使轮投资人一个问题：想象 LLM 是个 API、一个被软件调用的子模块（即使在最 string-model 的尽头，它们也得被某个 harness 调用——哪怕是个 while 循环）——那么进入 LLM 的调用里，多大比例是给人消费的（文风、散文很重要），多大比例是给机器消费的？计算机其实根本不想要字符串——除非那个字符串恰好是个超高基数枚举（这确实是合法用例、但很少见）——因为它们操作的是比特。哪怕最『string 上头』的人，回答也会给出好多个 9 的机器原生占比。只是何时发生的问题。所以我们的做法是：从那个认知内核往回推、把它做出来。Jev 还没到那儿——还有很多很多工作要做，这就是驱动我们所有人的东西。」",
+              "",
+              "【为什么现在发布：与领域共同进化】",
+              "「Jev 还没到那儿，一部分在等用例进化、一部分在推模型本身——像一支交互舞。这也是我们发布那些『dreamer ready』功能的原因（不推荐给最求稳的用途）：我们要诚实面对模型属性。最懂下游应用需要多少可靠性/鲁棒性/智能的，不是我们、是开发者自己——只要我们给出正确的旋钮，而 string 模型往往不给。两者需要共同进化。我们发布的时机不是因为『AI 的好时刻』——FYI 当时所有人都叫我们别发——而是我们觉得：这已经是我们真为之骄傲的东西了、prompt 得当时在很多事情上聪明得惊人，我们准备好与整个领域一起继续推极限、共同进化用例、找出弱点、处理锯齿度（jaggedness）。」",
+              "Efron：为什么大家叫你们别发？",
+              "Jogo：「我们发的时候正值『pacing the frontier』（给前沿降速）大讨论，大家说：在这种全是 doom and gloom 的氛围里发能力产品、vibe 不对。而我们的看法是：那个讨论本身从一开始就没说通、至多是不完整的。」",
+              "",
+              "【System One 与『千禧年难题 vs 会计』】",
+              "「有些东西模型是真弱，这就回到 taste。我们把它们叫 system one 模型——人们当时也不想让我们这么命名，因为 system one thinking 常被当贬义、当骂人的话。但 AI 被压缩成的形状恰恰非常 system one，所以诚实的事就是沟通它的弱点——这本身对软件就可以极其有价值，而且人们需要的多数其实正是 system one 的东西。为什么我们能解决千禧年数学难题、却不能自动化任何碰会计的活？这件事本身就该让大家觉得很奇怪。这仍是我们的北极星——即使大家总被成本、速度这类东西分心。在我看来那些都是干扰项。」",
+              "",
+              "【领域该多抱怨：斯德哥尔摩综合征】",
+              "Efron：真实世界使用反馈有多少进入 roadmap？",
+              "Jogo：「几乎没有。大家应该对我们抱怨得多的多。这个领域还处在一种斯德哥尔摩综合征里：『哦，模型提供商就在自己的单行道上做事，而我们就像《机器人总动员》里坐在椅子上被喂食的人。』大家围绕『AI 会变』做规划，却对能把领域带向哪里没有能动感。这很削弱人、也很逊。我们作为领域能一起做的多得多：不只是往模型里塞东西，而是共同研究怎么 prompt、怎么挖掘能力、一起做科幻级用例——未来就该是这样。我内部有个玩笑：让我回复某件事的第一方式就是谈模型锯齿度。很高层级的人说『能约 Jogo 吗』，我说不行、约我 CTO 或 GTM 负责人吧；但如果他们抱怨模型智能，我会亲自上去 debug——因为那才是长期真正拨动指针的东西。另外大家对模型商有深层不信任（他们拿你的数据训练），『GPT 套壳能不能活』这种讨论也很削弱人——因为整个应用最后变成一个 chatbot、护城河变成你每次发的那条 system message，而智能、行为与专业化本应存在于软件里、替你做无数微小决策。」",
+              "",
+              "【别给子模型建心智模型：智能该像 SQL】",
+              "Efron：大家现在有了「这类事用 Opus、那类事用 Jev」的心智模型——",
+              "Jogo：「ish（算是有吧）。你描述的东西其实让我有点难过，虽然我们也在其中扮演了角色。让大家对子模型建立『心智理论』并把系统锁死在上面，在我看来是非常坏的事。智能的北极星应该很像 SQL：可靠到提供商无关。我们当然想要最好的模型，但不希望被锁死在『只有 Jev 才行』的东西上。还有——『RLVR 在代码和数学上效果很好』这种话我要审问一下：好是相对的。据我所见，即便最好的公司在这些事上仍然全部需要人在环里，尽管某些轴上已超人。大家应该对『为什么』有个答案：如果它们在软件上好到难以置信，为什么普通软件工程师还有活干？不是我想让他们失业——他们显然还在、显然缺了什么。把智能当成当天基准衡量的单轴，是完全错误的；不理解这种细微差别而 all in 的人会烧得很惨。RLVR 很强，但它仍然只在人在环的事上强。短期内务实地分场景用、甚至搞脏 hack——绝对支持：『为了给世界提供价值，你需要做最脏的 hack？我们不会拦你，那很棒。』但如果你得做太多 hack，那仍然是我们的错。我们要造的不是新式正则（write-only code），而是漂亮的可组合原语——Unix 哲学：极小而有用的东西，因为人们有心智模型、就能组合成大家伙。还有件怪事：大家热衷升级到最新模型——我讨厌升级依赖！生产软件里升级依赖是最糟的事。人们之所以持续踩『下一个模型会修好我』的跑步机，只因为这些问题从未被解决到『可以在后台跑、然后彻底不管、每隔几个月回来瞄一眼有没有更便宜更好的替代』的程度。这是世界的一个悲哀状态，跟软件工程的本能完全相反。」",
+              "",
+              "【工具箱论与「形状」的警告】",
+              "Efron：十年后 LLM、chatbot、coding agent 还有位置吗？",
+              "Jogo：「绝对有。如果它们没位置了，那一定存在严格更好的东西。我不反对 LLM——chatbot 和 coding agent 是完全不同的东西，我完全不想活在它们不存在的世界。只是人们把两者用在了太多任务上。chatbot 在我心里的用例：我需要『伪专家级、不需要正确』的答案；coding agent：我想要临时定制仪表盘时瞬间生成一次性软件。这俩应该永远存在，我们要继续扩充工具箱。」",
+              "Efron：未来会不会有很多其他形状的模型、其他 RL 缩写？",
+              "Jogo：「我要说点辣的了。首发时我对新形状的出现无比兴奋——现在依然认为会如此，我们自己也计划继续发。但我有点担心 ML 圈丢掉了我真正想说的信息：人们现在过度聚焦『任务的形状』而不是可靠性。形状超容易做——我当年以为做一个形状要一周、事实上就是一周，现在别人也在一两周里做出相似形状。但形状跟『真的有用』比起来根本不重要。现在有太多人在造新形状、却不够在乎效用。我担心这会烧掉善意——人们不喜欢被过度承诺、不足交付；这些东西就是纯粹的过度承诺、不足交付。这对世界不好。有创造与玩耍能量的人，不该把能量浪费在明显不行的东西上。我希望人们开始为效用、有用性、可靠性付出难以置信的在乎——站在开发者想要什么的角度想，而不是 ML 人想要的：『我要插旗、我要成为命名被引用的那个、我要短期营收、我要做每家 AI 公司都在做的事』——为了注意力过度承诺、不足交付。AI 经济很大程度上被这种注意力驱动，而这对开发者是最糟的：他们没时间自己测、于是被卷进去。这也是我反 benchmark 的原因。」",
+              "",
+              "【还缺的问题形状：KV cache 暴政】",
+              "Efron：还有哪些今天没有任何东西能做好的问题？",
+              "Jogo：「太多了。很多人还困在相当基础的模式里；我们要同时推模型智能/可靠性的前沿与教育（研究与产品的交叉处正是一切大 ML 胜利来源——这块几乎是未开垦地），我们甚至想资助那些『应该存在』的东西。举几个例子（也算个未来发布的小剧透）：一，我最热衷的之一：从 KV cache 暴政中解放出来的 coding agent。今天的 coding agent 几乎所有 UX 设计决策都围绕着 KV cache 构建——这很自然（ML 最大的胜利永远是硬件感知的），高效但也极其受限。有状态 KV cache 本质是 append-only（像永远不能删格的 iPython notebook），而模型就是带着它训练的：你真对状态做花式操作、模型就会死循环。这挡住了有效路由（对『任务进任务出、用完即弃』的指令型调用，路由极佳：便宜模型试一把、超便宜的 judge 判一下、不行就换大的或多试取最优）；也挡住了 subagent（传什么上下文给子代理？全传是巨大的输入 token 开销 vs 缓存读取；传多少需要智能来判断；最安全的做法是无限追加——等价于全局变量、永远传一本巨型字典，模型随时间越来越笨——context rot 是真的）。这本身没什么悲剧——悲剧的是它是唯一的方式。本来可以有远更高级的模式：如果智能可以铺满这些操作的话。」",
+              "「几个很酷的科幻：多个 agent 真正共享同一个上下文读写；一个只读的『观察者 agent』在主力 agent 干活时实时写可视化（用 Sonnet 这种稍笨的模型把 Opus 正在做的事写出来，不用去读那些 gibberish 更新）；语义化压缩——压缩本质不可完全解，但可以按『当前在解什么问题』做 ROI 计算（在代码里算缓存读写期望值）、为新任务重算一份 KV cache、旧的那份还保温；还有跨同事共享代码库历史（第一步就自动对全部历史跑个超便宜的 MapReduce、再和同事共享 insight）。这些全是可做的软件问题——只是与 append-only 的 KV cache 不合。」",
+              "「还有语义依赖类型（dependent typing）：函数不只返回 int，还能约束『大于零的 int』、下游拿到保证；更进一步——用自然语言声明输出的语义属性、让 Jev 类模型做类型检查器验证一切咬合。在人人用 coding agent 的世界里也许不重要，但我们该做——就因为『是我们』。这才叫早期互联网能量。还有安全：模型越来越便宜，为什么不能对每一次工具调用做语义化的组织级检查（这个代码区不该调用那个区）——需要满地都是的超快超便宜的安全层。（顺带：Cohere 的 Qwen 3.8 Next Flash 那个『可疑的 phone home 调用』之争——我读得不够多、不下判断，但为什么不能有这种检查？）我们的哲学是：让那些软件玩家赢——我们不想要他们的数据，但他们该告诉我们『这个轴上有锯齿、让我的东西不可靠了』，哪怕只给任务粗略形状让我们修——我会说 hell yes 谢谢你。」",
+              "",
+              "【多模态与图像：只走了 10%】",
+              "「必须清醒认识 AI 的现实：就像长上下文必然降低智能，多模态也必然降低智能——ML 圈人人皆知、每个模态的衰减率还不同；只是进了 chatbot（按人类偏好优化）就变得模糊不可测。文本任务会先于图像任务被自动化。我们在文本上投入极重、图像上做得很少——图像模型能做到现在这样我已经挺兴奋；我们在图像上的领先没有文本上大、但整体仍领先（我的体感、可能全错）。但我必须说图像模型完全不足：说它 prod-ready 我会真尴尬——锯齿还太多，没有我的盖章，还需要很多轮。它大概只走到我们文本模型的 10%。」",
+              "「图像侧我最期待的：游戏（我有游戏背景、还玩过 bot 自动化——纯粹因为自动化很酷）与 computer use——后者会超级超级有价值：很多人不喜欢用电脑却不得不用；AI 明明可能比他们雇得起的助手更擅长一堆电脑活，为什么 AI 作为界面还这么糟？我想要它可靠到人们能当作界面来信任。另外（所以今天穿了 unsloppable 恤）：我想要一个 slop stopper——让我别再看到 slop。虽然互联网靠广告养活、这对互联网也许是好事，但那对我很可爱。」",
+              "",
+              "【「我们一年前就能有 AGI」】",
+              "Efron：这些进展依赖近两三年的 LLM 进步吗？五年前能做吗？",
+              "Jogo：「五年前会更难、但做得到。我当年天真地以为这活一周能干完。我在 OpenAI 写过一份文档，标题就叫《我们一年前就能有 AGI》——按 OpenAI 自己对 AGI 的字面定义（完成世界上大部分有经济价值的工作，我按体量理解其精神）。从 GPT-3.5 时代、甚至 GPT-3 时代的模型起，就可能在当时的定义下达到——这些模型聪明得难以置信，中位数智力之上的一堆事都超了，难道不该至少把容易的活自动化掉？GPQA 大约 2023 年就饱和了（PhD 级的 Google-proof 问答）——那个水平的智能竟然没被投入使用，超级悲剧。我们手里的智能原材料早就在那里很久了。」",
+              "",
+              "【护城河、Jevons 悖论与融资】",
+              "Efron：OpenAI、Cloudflare、微软都跟进了决策模型——护城河呢？",
+              "Jogo：「感觉像是别人在替我们挖护城河——我没想到会这样，而且这对领域是坏事：发那些 benchmark 优化而非真实世界优化的模型，烧掉的是人们愿意尝试的善意——而善意才是唯一重要的东西。现在谈竞争太早了，就像 OpenAI 在 GPT-3.5 时操心护城河——谁在乎啊，那个市场（与大局比）什么都不是。我们真心相信 Jevons 悖论——所以模型叫 Jev。反弹效应（因为便宜所以需求更多）？绝对在发生，我认为所有好商品都会反弹。但 backfire（总市场变大）？绝对没有——那需要『好到便宜到我要到处乱撒、AI 预算因此真的增加』。」",
+              "「融资上，说出来大家可能不信：我们能盈利地运营服务。我希望永远不用『临时补贴换锁定』——那种手法阴暗又鬼祟（虽然我是务实的人、不把话说死）。我们其实不需要钱；目标是把最有价值的人拉到身边帮我们建这家公司——因为我们真的完全不知道怎么做这生意。你看我们董事会里都有谁就知道了。」",
+              "",
+              "【六周里改变了什么想法】",
+              "「我们真担心过『在乎智能真实可靠性』的哲学是不是个错误。七周前团队里还有人提议：干脆发个 benchmark 拉满、大力 hype 的版本——显然不行、但至少测测市场在不在。谢天谢地没做。那是我们的一次大信念之跃；如果做了同样过度承诺、不足交付的事，我没法为自己骄傲。结果证明这品牌的回报好极了——而且我发现：benchmark 疲劳、『发布会没真东西』的厌倦，到来得远比我想的快。本来我以为人们还会一次次上 benchmark 的当——但除了 OpenAI/Anthropic 的模型『显然例外』之外，大家对我们这一类模型的新发布已经不关心了——因为被骗太多次。这对我们公司是好事、对领域是坏事：真做出好东西的人，反而没了被承认与喊出来的通道。」",
+              "",
+              "【Anthropic IPO：造神定价与金融工程】",
+              "Efron：Anthropic 作为 1.52 万亿美元的公司，你乐观吗？",
+              "Jogo：「coding agent 巨有价值，这毫无疑问。但『净值为正』与『值回所有投进去的钱』是两回事——那是他们的产品问题：是不是有人 token 灌太狠了？我对不同项目/水平工程师的 coding agent 增益有自己的猜测。软件远没被解决，不代表它们不值钱——要的是务实判断。coding agent 市场我看得上下皆可：往上，人们学会榨出更多价值；往下，很多人 FOMO 灌过头了。我对 AI 状态的感知不是一个向上指数，而是无数上上下下的山丘、每次幻灭低谷略高于上一次，最终趋于稳定使用——flatline 的收入可能正说明人们意识到自己花多了。还有：我感觉实验室们最大的强项不是模型、不是产品、不是分发——是金融工程。尤其是算力交易的结构化：以极其有利自己的方式设计条款，让搭火箭的人去承担风险。谁知道那里面有多少老鼠窝、对市场任何方向有多脆弱——泡沫可以仅仅因为预期没兑现而破，哪怕技术真有变革性。所以我对 Anthropic 的回答回到开头：很多烤进价格的预期建立在对 AI 未来与能力边界的误解上；有人把『造出神』定价成无限大，就一定有错校。『让他们去治愈癌症』——会是这个时代的『让他们吃蛋糕』。」",
+              "",
+              "【什么决策可以托付：得来速都没自动化】",
+              "「理解 agent（乃至当下全部 AI）的细腻方式也许是：你能把什么决策托付给它——以公司风险计。数学是极端：除了算力没有下行；代码次之：有 git、有人在环、有办法挡副作用。而其他很多领域根本没有同级别的防护、回滚与追踪——这就是为什么据我所知还没人自动化得了一家得来速（drive-through），尽管大家真的非常努力试过——而得来速的风险比多数知识工作低得多。大赢家不会是 YOLO all in 的人，而是理解技术现实、按现实部署的人。大多数人 FOMO 驱动、对 AI 状态缺乏理解，会烧在过度乐观上；或者过度悲观、一切照旧——那正是这轮 AI 热潮里多数企业的常态。」",
+              "Efron：那你估计 coding agent 到底提升多少工程生产力？",
+              "Jogo：「带误差棒：20% 到 40% 的加速。取决于用例与用户水平；有的场景是无穷大加速——你能做过去根本做不了的事；有的跟手写一样糟。平均是个不错但有限的增益——我相信这也是目前领域的共识。」",
+              "",
+              "【AI 安全：不是铁板一块】",
+              "「AI 安全不是一个整体：ASI 讨论、生物风险、网络安全风险、信任与安全，是完全不同的切片。我感觉大多数关心 ASI 的人从第一天起就与技术现实有点脱节：你得先真正用 AI 建过一个可靠系统，才有资格说某种东西会可靠到——不必邪恶、只是失配——就能毁灭世界。我们离那很远。ASI、RSI、模型自发能动性这些还有很多细微差别：回形针最大化器与『坏人给超级员工编程搞破坏』是两种完全不同的威胁模型。我猜我们距离真正的能动性还有大约两个巨型突破之远——一个可能都不够。相信 RSI 的人往往既没好好研究过 AI 历史、也不尊重 Amdahl 定律：把智能当唯一重要的单轴光谱、再把人和黑猩猩映射上去——在我看来是个糟糕透顶的论证。AI 研究快 10% 不叫 RSI——如果它不随时间复利的话。我非常愿意被证据说服，但我认为这更多是个哲学问题而非技术问题：把博斯特罗姆的《超级智能》当现实而非非常有意思的科幻来读的人，让我有点担心。」",
+              "",
+              "【结语：把能动性拿回来】",
+              "「软件加 AI 会他妈的不可思议。我们需要开始戒掉 LLM 教给我们的这种『无能动性』，重新开始真正地构建。有那么多可能性要被打开，我们应该回到玩（playing）、而不是当受害者。我会尽一切所能做 playable AI——重新思考软件、重新思考界面、重新思考一切。但这需要真正的 builder。我们一起，能让 AI 成为善、创造与全方位美好（有时甚至是怪诞离谱的东西）的力量——那才是技术真正闪光的地方。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
