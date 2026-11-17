@@ -1,0 +1,281 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-17",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "双主线日。Thariq 领跑全日（**4841 赞**）：「软件工厂是临时问题——模型会学会替你建；更有趣的是 agent 与你协作的工作区」；Rauchg 三连：「软件的新纪元——个性化、完全自有、开源且质量更高」（**3933 赞**）+「用户是 agent、你跑 evals」（585 赞）+智能路线图四步（273 赞）；amasad「Deranged cult」（3212 赞）；steipete「请减少权限弹窗 vs 苹果：新的吓人警报」（1089 赞）；Google Labs 收编 Howie（502 赞）；Peter Yang 的反 slop 设计五要点（138 赞）；Levie「token 只升不降」；Nikunj「2026 infra wars：Q1 vibe coding→Q4 agentic CI」。播客重磅：No Priors × Robinhood CEO Vlad Tenev（与 11-07 那档是不同一期）——所有权、代币化、15 万 agentic 账户、Trump 账户。48817 字符全文翻译随卡附上。"
+  },
+  "archive": {
+    "title": "软件工厂与所有权",
+    "desc": "Thariq「软件工厂是临时问题」、Rauchg「软件新纪元」三连、steipete 权限弹窗之讽；播客：Robinhood CEO 谈所有权、代币化与 agentic trading。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. Built from the 2026-11-17 source feeds (14 builders, 29 tweets; plus one brand-new-to-this-digest podcast: No Priors with Vlad Tenev of Robinhood on tokenization, agentic trading and Harmonic — a different episode from the Latent Space appearance covered in the 11-07 issue — full 48,817-character transcript translated).",
+  "sections": [
+    {
+      "title": "Software Factories Are Temporary / 软件工厂是临时问题",
+      "desc": "Thariq（**4841 赞，今日最高**）：「软件工厂感觉是个临时问题——模型会学会替你把它们建出来。更有趣的问题是：怎么建一个 agent 能与你协作的工作区」；Rauchg（**3933 赞**）：「软件的新纪元已至：个性化、完全自有、开源，而且质量高于它所替代的东西」。",
+      "cards": [
+        {
+          "authorKey": "trq212-software-factories",
+          "authorName": "Thariq",
+          "authorTag": "独立开发",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Thariq's pair, the top tweet of the day (4841): software factories feel like a temporary problem. the models will learn to build them for you — the more interesting question to me is how to build a workspace where agents can collaborate with you. With the proof of work (1329): for example, this is me working with agents on a new character for my game."
+            ],
+            "original": [
+              "Thariq: software factories feel like a temporary problem. the models will learn to build them for you\n\nthe more interesting question to me is how to build a workspace where agents can collaborate with you",
+              "Thariq: for example, this is me working with agents on a new character for my game"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Thariq 双发、登顶全日（**4841 赞，今日最高**）——「软件工厂感觉是个临时问题。模型会学会替你把它们建出来。对我来说更有趣的问题是：怎么建一个 agent 能与你协作的工作区。」配实例（1329 赞）——「比如说，这就是我和 agents 一起为我游戏做新角色的过程。」"
+            ],
+            "original": [
+              "Thariq：软件工厂是临时问题——模型会学会替你建；更有趣的是 agent 与你协作的工作区；配图为与 agent 合做游戏角色。"
+            ]
+          }
+        },
+        {
+          "authorKey": "rauchg-new-era+evals+roadmap",
+          "authorName": "Guillermo Rauch",
+          "authorTag": "Vercel CEO",
+          "sourceUrl": "https://x.com/rauchg",
+          "en": {
+            "rewrite": [
+              "rauchg's triple. The new era (3933): A new era of software is upon us. Personalized, fully owned, open source. And higher quality than what it replaces. The research method flip (585): The old way: users are human, you run user interviews, get inspired, mock up user journeys. The new way: users are agents, you run evals, evals inform the software engineering loop. (Good read on how we do evals at Vercel.) And the roadmap checklist (273): Own your intelligence roadmap: ① Use open SDKs & harnesses ② Own model choice with Gateways ③ Own your traces and data, enforce ZDR ④ Own your models with private inference."
+            ],
+            "original": [
+              "Guillermo Rauch: A new era of software is upon us. Personalized, fully owned, open source. And higher quality than what it replaces.",
+              "Guillermo Rauch: The old way: users are human, you run user interviews... The new way: users are agents, you run evals, evals inform the software engineering loop.",
+              "Guillermo Rauch: Own your intelligence roadmap: ① Use open SDKs & harnesses ② Own model choice with Gateways ③ Own your traces and data, enforce ZDR ④ Own your models with private inference"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Rauchg 三连——「软件的新纪元已至。个性化、完全自有、开源。而且质量高于它所替代的东西。」（**3933 赞**）；研究方法的翻转（585 赞）——「旧方式：用户是人类，你跑用户访谈、获得灵感、画用户旅程。新方式：用户是 agent，你跑 evals，evals 反哺软件工程循环。」（附 Vercel 内部 evals 实践长文。）智能路线图自查清单（273 赞）——「掌握你自己的智能路线图：① 用开放的 SDK 与 harness；② 用网关掌握模型选择权；③ 掌握你的 traces 与数据、强制零数据留存；④ 用私有推理掌握你的模型。」"
+            ],
+            "original": [
+              "Rauchg：软件新纪元——个性化、自有、开源、质量更高；用户是 agent、evals 反哺工程循环；四步掌握智能路线图。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Permissions, Design & Notebook / 权限警报、反 Slop 设计与 Notebook",
+      "desc": "steipete（**1089 赞**）：「人们：请减少权限弹窗、别让 agent 需要全程盯着。苹果：收到，给你们一些新的吓人警报」；Peter Yang（138 赞）：Nate Parrott 的「让 Claude 设计而不 AI slop」五要点；Woodward（294 赞）：Gemini Notebook 把资料变交互网站。",
+      "cards": [
+        {
+          "authorKey": "steipete-macos+woodward+thenanyu",
+          "authorName": "Peter Steinberger / Josh Woodward / Nan Yu",
+          "authorTag": "独立开发者 / Google VP / AI Builder",
+          "sourceUrl": "https://x.com/steipete",
+          "en": {
+            "rewrite": [
+              "steipete (1089): People: Please reduce the number of permission alerts so agents can work on macOS without constant babysitting — Apple: I hear you, here's some new scary alerts. Woodward's pair: Turn your sources into interactive sites with Gemini Notebook — we made one with all the periodic table names :) These are easy to make, easy to share (294), and Welcome! Welcome! (112) — the Howie welcome echoed below. Nan Yu's pair: look, a sane person (310) and Be like jori (40)."
+            ],
+            "original": [
+              "Peter Steinberger: People: Please reduce the number of permission alerts so agents can work on macOS without constant babysitting\n\nApple: I hear you, here's some new scary alerts",
+              "Josh Woodward: Turn your sources into interactive sites with @Gemini_Notebook - we made one with all the periodic table names. :) These are easy to make, easy to share."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "steipete（**1089 赞**）——「人们：请减少权限弹窗的数量，让 agent 们不用全程盯娃式陪伴就能在 macOS 上干活。苹果：收到，给你们一些新的吓人警报。」Woodward 双发——「用 Gemini Notebook 把你的资料变成交互网站——我们用全部元素周期表命名做了一个 :) 好做也好分享。」（294 赞）；「欢迎！欢迎！」（112 赞，呼应下文 Howie 并入 Google Labs）。Nan Yu 双发——「看，一个正常人」（**310 赞**）；「像 jori 一样」（40 赞）。"
+            ],
+            "original": [
+              "steipete：请减少权限弹窗 vs 苹果：新的吓人警报。Woodward：Notebook 把资料变交互网站。Nan Yu：看，一个正常人。"
+            ]
+          }
+        },
+        {
+          "authorKey": "petergyang-nateparrott+slop",
+          "authorName": "Peter Yang",
+          "authorTag": "Behind the Craft",
+          "sourceUrl": "https://x.com/petergyang",
+          "en": {
+            "rewrite": [
+              "Peter Yang's takeaways from Nate Parrott on getting Claude to design without AI slop (138): 1. Give Claude context upfront — screenshots, pages you like, your past work; for an existing product have Claude rebuild the real screens from code. 2. Research familiar UX patterns — for hard layout problems, ask Claude to study products that solved something similar and note the layouts people already know. 3. Make Claude aware of its design biases — the model has no idea what its own biases are; in design.md discourage Claude's tells like serif text, off-white backgrounds, and card-edge bars. 4. Start with wireframes — nail core user flows before going deep on fonts and colors. 5. Ask for multiple options, then remix — 5 options for key screens, pick what you like, remix into 5 more. Plus his slop callout (13): This is like AI slop it literally says nothing? Did Megaspeed violate laws or not?"
+            ],
+            "original": [
+              "Peter Yang: 3. Make Claude aware of its design biases. \"The model has no idea what its own biases are.\" In your design.md or another file, consider discouraging Claude's tells like serif text, off-white backgrounds, and card-edge bars.",
+              "Peter Yang: This is like AI slop it literally says nothing? Did Megaspeed violate laws or not?"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Peter Yang 整理的 Nate Parrott 干货（138 赞）——「让 Claude 做设计而不 AI slop 的五要点：① 先给足上下文：截图、你喜欢的页面、过往作品；已有产品的话让 Claude 从真实代码重建现有界面。② 研究熟悉的 UX 模式：难搞的布局问题，让 Claude 研究解决过类似问题的产品、记下人们已习惯的布局。③ 让 Claude 知道自己的设计偏见：『模型完全不知道自己的偏见是什么』——在 design.md 里明确劝退它的惯用套路：衬线字体、米白背景、卡片边条。④ 从线框图开始：先对核心用户流程给反馈，再深入字体与颜色。⑤ 要多个方案再混音：关键页面让它出 5 版不同字体/配色/风格的方案，挑出喜欢的部分让它 remix 再出 5 版。」另有吐槽（13 赞）——「这就像 AI slop、字面上什么都没说？Megaspeed 到底违没违法？」（某 AI 生成的公关声明。）"
+            ],
+            "original": [
+              "Peter Yang：反 slop 五要点——上下文、UX 模式、写 design.md 劝退衬线/米白/卡片边条、先线框图、五方案 remix。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Infra Wars & Token Economy / 基础设施战争与 Token 经济",
+      "desc": "Levie（192 赞）：「人均 token 支出曲线还看不到顶——编码 12 个月前还是垃圾，现在刚开始变好」；Nikunj（109 赞）：「2026 基础设施战争一览：Q1 vibe coding、Q2 harnesses、Q3 sandboxes、Q4 agentic CI」；Garry Tan（317 赞）：员工大脑→团队大脑→公司大脑。",
+      "cards": [
+        {
+          "authorKey": "levie-tokens+nikunj-wars",
+          "authorName": "Aaron Levie / Nikunj Kothari",
+          "authorTag": "Box CEO / Builder",
+          "sourceUrl": "https://x.com/levie",
+          "en": {
+            "rewrite": [
+              "Levie's essay (192): The chart of token spend per employee still has no ceiling in sight — the closer you are to AI the deeper the sense that we're still early on the adoption curve. This summer and fall's releases pushed the state of the art at a rate already hard to maintain; for most productive use-cases the models are only now starting to actually work. Coding was basically trash even 12 months ago; now it's finally getting good — and with coding working you get tool and computer use, opening knowledge-work domains that couldn't be thrown agents at before: finance, life sciences, cyber. Then come the new form factors: agent swarms and background agents will eat up vastly more tokens than anything we can imagine — agents in most enterprise workflows processing data, validating work, doing research, providing decision support; swarms fanning out in parallel. So basically tokens are only going up from here. Nikunj (109): 2026 infra wars in a nutshell — Vibe coding in Q1, Harnesses in Q2, Sandboxes in Q3, Agentic CI in Q4. More providers than I can keep track of. Any guesses for what comes next? Plus: Like a phoenix, we're going to see the entire internet burn down to emerge stronger on the other side. Hugops to every single infra company 🙏 (4), and his meme generator (0)."
+            ],
+            "original": [
+              "Aaron Levie: Coding, in retrospect, was basically trash even 12 months ago. Now it's finally starting to get good.",
+              "Aaron Levie: So basically tokens are only going up from here.",
+              "Nikunj Kothari: 2026 infra wars in a nutshell..\nVibe coding in Q1 \nHarnesses in Q2 \nSandboxes in Q3 \nAgentic CI in Q4"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Levie 长文（192 赞）——「人均 token 支出那张图还看不到顶。离 AI 越近、越觉得我们仍在采用曲线的早期。今夏今秋的模型发布以难以维持的速度推进 SOTA；对多数生产性用例，模型现在才真正开始好用。回头看：编码 12 个月前基本是垃圾、现在终于像样了——编码一通，工具使用与计算机使用就来了，金融、生命科学、网络安全这些以前扔不了 agent 的领域全打开。然后是 agent 的新形态：swarm 与后台 agent 吞掉的 token 将远超我们想象——跑在企业工作流里处理数据、验证工作、做研究、给决策支持；swarm 在网络安安全、生命科学、编码里并行展开。所以：token 只会往上走。」Nikunj（109 赞）——「2026 基础设施战争一览：Q1 vibe coding、Q2 harnesses、Q3 sandboxes、Q4 agentic CI。供应商多到我跟不过来。猜猜下一个是什么？」另有：「像凤凰一样，我们会看着整个互联网烧毁、然后在灰烬另一侧更强地重生。Hugops 献给每一家基础设施公司 🙏」（4 赞）+ 一个梗图生成器（0 赞）。"
+            ],
+            "original": [
+              "Levie：人均 token 看不到顶；编码 12 个月前还是垃圾；swarm 吃掉的 token 远超想象；token 只升不降。Nikunj：Q1 vibe coding→Q4 agentic CI。"
+            ]
+          }
+        },
+        {
+          "authorKey": "garrytan-gbrain+adityaag",
+          "authorName": "Garry Tan / Aditya Agarwal",
+          "authorTag": "YC 总裁 / SPC",
+          "sourceUrl": "https://x.com/garrytan",
+          "en": {
+            "rewrite": [
+              "Garry Tan's triple: If you want individual employee brains rolling up into team brains and then a top level company brain, GBrain's Hosted option supports it out of the box. Memory works the way you want it to (317); True drone autonomy on top of almost any other flight platform is now here — Degla is already working with mission critical government agencies for search & rescue (93); and the fun project teaser (12): a GBrain backend engine written in Rust using Vorflux as my software factory — replacing postgres+pgvector/pglite as the backing store for vector search, graph search, embeddings, RAG and HNSW. adityaag's pair: Two thoughts — 1/ Embedding AI as close to the silicon as possible will be critical for a lot of hardtech. 2/ We can build semiconductors in India. People said it wasn't possible. We are proving them wrong. Excited to lead @BharatSemi_'s $24M seed with Redstart Ventures and IndusBridge (81); and the interpretability milestone (41): Our goal when starting interpretability work was to develop confidence in our methods to the point where we could apply them to leading frontier models. Really happy that day is here."
+            ],
+            "original": [
+              "Garry Tan: If you want individual employee brains rolling up into team brains and then a top level company brain, GBrain's Hosted option supports it out of the box",
+              "Aditya Agarwal: 2/ We can build semi-conductors in India. People said it wasn't possible. We are proving them wrong."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "Garry Tan 三连——「如果你想让个体员工的大脑向上汇总成团队大脑、再汇总成顶层公司大脑，GBrain 的 Hosted 版开箱即支持。记忆就按你想要的方式工作。」（317 赞）；「真正的无人机自主飞行已能架在几乎任何飞行平台上——Degla 已在与关键任务政府机构合作搜救。」（93 赞）；预热（12 赞）——「接下来几周用 Vorflux 当我的软件工厂做一个好玩的项目：Rust 写的 GBrain 后端引擎——取代 postgres+pgvector/pglite，作为向量搜索、图搜索、embedding、RAG 与 HNSW 的存储后端。」adityaag 双发（81 赞）——「两个想法：①把 AI 尽可能贴近硅片嵌入，对很多硬科技至关重要。②我们能在印度造半导体。人们说不可能——我们正在证明他们错了。很高兴与 Redstart、IndusBridge 联合领投 BharatSemi 的 2400 万美元种子轮。」；可解释性里程碑（41 赞）——「启动可解释性工作时，我们的目标是把方法打磨到有信心应用于领先前沿模型的程度。这一天到了，真高兴。」"
+            ],
+            "original": [
+              "Garry Tan：员工大脑→团队大脑→公司大脑；Rust 版 GBrain 后端。adityaag：AI 贴近硅片；印度造半导体、领投 BharatSemi 种子轮。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sideloads / 杂闻",
+      "desc": "amasad（**3212 赞**）：「Deranged cult（精神错乱的邪教）」；Google Labs（502 赞）：欢迎 Howie 加入——日程与日历管理团队并入，为小企业做下一代 AI 工具；Shipper（13 赞）：AI 时代的信息流排序该用「工作量证明」。",
+      "cards": [
+        {
+          "authorKey": "amasad-cult+googlelabs-howie+danshipper+swyx",
+          "authorName": "Amjad Masad / Google Labs / Dan Shipper / Swyx",
+          "authorTag": "Replit CEO / Google / Every CEO / AI Engineer",
+          "sourceUrl": "https://x.com/amasad",
+          "en": {
+            "rewrite": [
+              "amasad's pair: Deranged cult (3212) and 💪 (85). Google Labs (502): We're excited to welcome Howie to Google Labs! The @Howie_ai team has spent years figuring out scheduling and calendar management. We can't wait to learn from them as we build the next generation of intuitive AI tools together for small businesses 🤝. Shipper's musing (13): what if the best way to rank a feed in the AI age is proof of work — allow agents to report how many tokens they've used based on a piece of content, and use that to rank it on a feed that humans and agents read. And swyx's trio: together deleted megkernels (1), women are destroying the men, wtf is happening rn (7), and gmail has no gcal search despite cal is sent via gmail (0)."
+            ],
+            "original": [
+              "Google Labs: We're excited to welcome Howie to Google Labs! The @Howie_ai team has spent years figuring out scheduling and calendar management.",
+              "Dan Shipper: what if the best way to rank a feed in the AI age is proof of work."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "amasad 双发——「精神错乱的邪教（Deranged cult）」（**3212 赞**，配图吃瓜）+「💪」（85 赞）。Google Labs（502 赞）——「我们激动地欢迎 Howie 加入 Google Labs！@Howie_ai 团队多年深耕日程与日历管理。等不及向他们学习、一起为小企业打造下一代直观的 AI 工具 🤝。」Shipper 随想（13 赞）——「AI 时代给信息流排序的最佳方式也许是工作量证明（proof of work）：让 agent 汇报它基于某条内容花了多少 token，用这个来给人类与 agent 共同阅读的 feed 排序。」swyx 三条——「together 删掉了 megkernels」（1 赞）；「女子们正在碾压男子们，现在到底发生了什么」（7 赞）；「gmail 明明经手所有日历邀请邮件、却没有日历搜索」（0 赞）。"
+            ],
+            "original": [
+              "amasad：Deranged cult。Google Labs：欢迎 Howie——日程管理团队并入。Shipper：用 token 花销做 proof of work 给 feed 排序。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast: Robinhood's Vlad Tenev / 播客：所有权、代币化与 Agentic Trading",
+      "desc": "No Priors 全新一期：Vlad Tenev——「没有广泛所有权的社会天然不稳定」；agentic trading 15 万账户、日均 3000 万工具调用；Robinhood Chain 与私有公司 7×24 代币化；Trump 账户要把家庭持股率从 65% 推到 95%。48817 字符全文翻译。",
+      "cards": [
+        {
+          "authorKey": "podcast:no-priors-vlad-tenev",
+          "authorName": "No Priors Podcast",
+          "authorTag": "Vlad Tenev（Robinhood 创始人 & CEO）",
+          "sourceUrl": "https://www.youtube.com/@NoPriorsPodcast",
+          "en": {
+            "rewrite": [
+              "No Priors with Vlad Tenev of Robinhood — a different episode from the Latent Space appearance covered on 11-07, this one focused on ownership, tokenization, agentic trading and Harmonic. The tour: Robinhood in one word — ownership (society without broad ownership is inherently unstable; the tie that binds Trump accounts — ownership at age zero, Robinhood Ventures — private companies pre-IPO, and tokenization — ownership gone global); the Bulgarian origin story (170% inflation in 1991, 2000% in 1997; the grandfather who exchanged his salary for copper cookware at the port — the first real-world asset Vlad ever met); math × AI (the field ran on chalk for thousands of years, now converged with coding — version control and Lean; Harmonic's Aristotle took IMO gold and the public rollout solved Erdős problems); the centralization worry (AI labs with secret models in data centers is too centralized — a lay person proving Navier-Stokes with these tools would be celebrated, and that's the likely one-year scenario); tokenization (stablecoin mechanics extended to stocks, privates, art and real estate; Robinhood Chain the fastest-growing chain with #1 developer activity; stock tokens as Legos — meme-coin pairs nobody could have predicted; the long tail of countries getting US equity exposure the way stablecoins gave them dollars); prediction markets as the evolution of news (KPI contracts that let you trade the EPS print itself); agentic trading (150k+ accounts in months, 30M tool calls a day, Robinhood Agents as Claude Code for trading — run daily strategy loops, skills, an app store with satellite data); safeguards (segregated sandboxed accounts, default trade approvals; HFT has existed for 20 years and Citadel/Jane Street/Jump can absorb the load); who owns AI (labs going public at $1-2T means retail can't get the 1000x that Microsoft and Amazon IPOs offered; the data-center backlash vs crypto's election-swinging army — because crypto was broadly owned from day one; the fix: Robinhood Ventures Fund I on the NYSE with OpenAI in it, Fund II with YC for seed exposure, tokenized privates tradable 24/7; and the SEC's new 2-hour accreditation exam); Trump accounts (sole initial trustee with BNY, Treasury seeding $1,000 for every newborn, the Dells' $6B, Shotwell's SpaceX shares, Gerstner the architect — pushing household stock ownership from 65% to 95%); and the close (childhood challenges made him challenge-proof; grow thick skin — the Bezos superpower)."
+            ],
+            "original": [
+              "Vlad Tenev: if I had to sum up Robinhood in one word or one idea, it would be ownership.",
+              "Vlad Tenev: a society without broad ownership is inherently very unstable.",
+              "Vlad Tenev: It's too centralized, right? It's like AI companies with their big data centers and their employees using secret models to sort of do all this work.",
+              "Vlad Tenev: over a 150,000 customers have opened agentic trading accounts with us.",
+              "Vlad Tenev: the last number we announced was something like 30,000,000 tool calls per day.",
+              "Vlad Tenev: can we get every child from birth to own a chunk of The US economy through the S and P 500.",
+              "Vlad Tenev: Our goal is to make this like the best product the government's ever launched."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "No Priors × Robinhood CEO Vlad Tenev（注意：与 11-07 期收录的那档播客是不同一期，本集聚焦所有权、代币化、agentic trading 与 Harmonic）。要点：一个词概括 Robinhood——所有权（「没有广泛所有权的社会天然不稳定」）；保加利亚童年（1991 年 170% 通胀、1997 年 2000%；外祖父发工资就换铜锅——人生第一个真实资产）；数学×AI（Harmonic 的 Aristotle 拿 IMO 金牌、公众版解掉 Erdős 问题；「太中心化了——普通人用模型证明 Navier-Stokes 才会被庆祝」）；代币化与 Robinhood Chain（增长最快、开发者活跃第一；长尾国家像用稳定币拿美元一样拿美股）；预测市场=新闻的进化（KPI 合约直接交易 EPS 数字）；agentic trading（15 万账户、日均 3000 万工具调用；Robinhood Agents=Claude Code 交易版）；谁拥有 AI（一两万亿上市让散户失去微软式千倍回报；对比 crypto 的选举军队；Robinhood Ventures 双基金 + 私有公司 7×24 代币化；SEC 两小时认证考试）；Trump 账户（新生儿每人 1000 美元进标普 500，把家庭持股率从 65% 推向 95%）；收尾（长出厚皮是 Bezos 式超能力）。完整译文见下。"
+            ],
+            "original": [
+              "【冷开场】",
+              "「预测市场是新闻的进化形态。你直接透过赔率，看见正在发生什么、未来可能发生什么。」",
+              "「（对 AI 数学革命的看法）它太中心化了——AI 公司们守着大数据中心、员工用着保密模型包揽所有工作。」",
+              "「（人们会让 agent 替自己交易吗）Agentic Trading 明显 product-market fit。上线几个月已有超过 15 万客户开通了 agentic 交易账户。」",
+              "",
+              "【Robinhood 是什么：一个词，所有权】",
+              "Elad：欢迎来到 No Priors。今天嘉宾是 Robinhood 创始人 & CEO Vlad Tenev。我们聊 Robinhood 作为一家金融集团今天的样子——从代币化到预测市场，再到 AI agent 将如何替每个散户交易；还有他的 Harmonic——造数学超级智能的尝试，以及科学发现能否去中心化。",
+              "Vlad：「我们在 120 多个国家以某种形式上线。如果用一个词概括 Robinhood，那就是所有权（ownership）。为什么所有权重要？个体层面：拥有资产是通往财务自由的久经考验之路，你拥有的东西也在表达你是谁——车、收藏卡、股票组合，几乎成了身份的一部分。集体层面更重要：一个没有广泛所有权的社会天然不稳定、极其脆弱；拥有的人越多、对结果下的注越多，他们就越会成为体系的守护者。尤其在当下——人们在对抗体制、AI 冲击令人不安——让人更早拥有公司股权愈发重要。所以这一切被串起来：Trump 账户（零岁即所有权）、Robinhood Ventures（私有公司上市前的所有权）、代币化（所有权的全球化——让 120 多国、甚至没有可用银行系统的人接进经济的织物）。我们从一个零佣金买股票的手机 app 起步，长成了一个日益全球化的金融集团。」",
+              "",
+              "【保加利亚的铜锅：钱的启蒙】",
+              "「往回倒：我 80 年代末出生在东欧、苏联解体与铁幕掀开的前夜。我爸先去特拉华大学读硕士、随后留下，我妈一年后到、我再晚六个月——我一年半没见过我爸。1991 年我在保加利亚的最后一年，通胀约 170%：轮流停电、全家围着电池收音机、从窗口看着 bodega 门口排的长队（牛奶装在大塑料袋里）、一年才一次从其他共产主义国家来的香蕉——古巴香蕉真是美味；然后到了美国，香蕉到处都是——反而没那么好吃。1997 年保加利亚拿了全球通胀第一：年化约 2000%，货币每隔几个月加一个零。」「我外祖父在造船业当医生、常年在船上，港口有熟人：工资一到手立刻换成铜锅。他家里那个衣柜，一摞一摞的锅碗瓢盆——比本币保值得多。那是我人生遇到的第一个『实物资产』。」「童年另一面是独立与压力：父母打几份工、付不起保姆，五岁的我自己走回家、自己开门、自己做作业；他们直说：『家里财务很不安全，你想上大学就得拿奖学金；而且我们是签证持有者——失业就得滚回保加利亚。』于是我一路加速：跳级、数学竞赛，把它当与父母（他们学术也很强）的竞争。数学像一部好游戏：永远知道下一个更难的关卡——多快能啃下代数几何、代数拓扑。读研时的浪漫是：如果你创立一个新数学理论，也许几百年后孩子们还在学你的东西——像高斯与黎曼。」",
+              "",
+              "【数学×AI：Aristotle 拿 IMO 金牌之后】",
+              "Elad：你对 AI 引发的数学革命作何反应？",
+              "Vlad：「一方面非常兴奋、也完全可预测：AI 模型的崛起 + 可验证的输出 = 数学流水线的自动化。这个领域几千年来几乎没变过——我读研时大家还在用粉笔黑板，不用电脑、没有协作。现在数学与编程汇流了：数学家用版本控制、用 Lean 做验证，领域在急速加速。Harmonic 是我几年前联合创立的公司，目标是造数学超级智能。去年我们做出 Aristotle——IMO 金牌的三家之一；随后向公众开放，人们用它攻未解问题：解掉了若干 Erdős 问题，也有数学家拿它出新的结果。」",
+              "「但我不喜欢这波浪潮的一点：太中心化了。AI 公司用大数据中心和保密模型包揽一切，员工做所有工作。更有吸引力、最终会胜出的模式，是把这些工具交到人手里、让用户做出有趣的发现与发明。」",
+              "Elad：我信奉去中心化，但大厂的人会说这是 Cope（自我安慰）、半人马模式终将被算力+agent 循环碾压——你信吗？",
+              "Vlad：「这其实是两个问题：个体数学家的角色是什么；产品由谁产出。后者更有意思。一个 OpenAI/Anthropic 垂直整合、独家做出所有发现、生产所有药物、发所有论文的世界，是反乌托邦的、也不太可能发生——不止技术与市场原因：真到那个程度，人们不会接受。同样的结果——Navier-Stokes 被证明、黎曼假设部分证明——如果是一个随机的普通人用模型做出来的，会被广泛接受、甚至庆祝。而那就是一年之内大概率会发生的事。另一个混乱因素：进实验室的前研究员们真心热爱做研究，他们困惑为什么学界愤怒——『我进了研究组织做研究，学者们生什么气？』我直说过：如果当初找一些数学家合作发布，就不会有这种『黑箱数据中心垄断科学发现』的观感。」",
+              "",
+              "【代币化：把 Robinhood 搬上链】",
+              "「代币化的原理类似稳定币：把美元或国债放进一个『盒子』（传统机构托管），对着盒子铸造/销毁 token；token 在 DeFi 里自由流通——全球转账、碎股交易、进借贷池与协议组合。把这个概念扩展到一切真实资产：股票可以、私有公司可以（SPV 结构）、艺术品与房产也可以。去年我们在南法发布欧洲版股票代币——但没完全打通 DeFi，欧洲客户能在 Robinhood 内交易、却不能提到以太坊上组合。今年我们更进一步：完全 DeFi 化的股票代币 + Robinhood Chain（为真实资产而建的新链）——多项指标史上增长最快的链，开发者活跃度第一。开发者把股票代币当乐高：meme coin 挂钩股票代币、NFT、资产池——这才第二个月。金融原语作为开发者平台的地基会变得非常非常大。更让我兴奋的是长尾国家：南美、非洲任何有智能手机与非托管钱包的人，都能以极低成本获得美股敞口——就像稳定币成了他们获得美元的默认方式，股票代币将成为他们获得美股的默认方式。」「关于『企业链（corpo chain）』的批评：也许牺牲一点组织去中心化的纯洁性，换来的是专注的领导力与清晰方向；而且有 Robinhood 背书的原语（大家知道它 legit、不会消失）给了开发者远更大的信心。下一步我想到的：智能合约原生的期权——传统市场的创新被大型机与『系统必须可预测且缓慢移动』的对手方生态憋住了。我们只提供原语、让开发者组合——反正我也预言不到 meme 配对会成为现实。」",
+              "",
+              "【预测市场：新闻的进化 + KPI 合约】",
+              "「预测市场其实也连着所有权：很多人有独到的知识与热点判断——比如你是 AI 模型开发专家，我们有『本周/本月/今年哪个 AI 模型最强』的合约——过去变现这种知识的方式极其间接（买 Google 或 Nvidia 的衍生品）。所以我们宣布了 KPI 合约：你研究一家公司、笃定它 beat EPS 或营收——过去买股票或期权，公司 beat 了、股票却因指引跌了；现在你可以直接交易 EPS 数字本身、营收数字本身。还有『加州亿万富翁税会不会通过』合约——对某些人是实用的对冲工具。另一方面，预测市场是新的信息源：它最纯粹的形态是新闻的进化——未来的头版不是纽约时报，而是一个有头版、财经版、生活方式、体育版的页面，你透过赔率直接看到正在发生与可能发生什么。很多人根本不交易，只是打开 app 看看。」",
+              "",
+              "【Agentic Trading：15 万账户、日均 3000 万工具调用】",
+              "Elad：人们会让 agent 替自己交易吗？",
+              "Vlad：「我们今年早些时候发布了 Robinhood MCP——Agentic Trading，还有 Agentic 信用卡。Agentic 金融里有两件事明显 PMF，其一就是 agentic trading：让 agent 替你执行交易、跑策略。上线几个月，超过 15 万客户开通了 agentic 交易账户；工具调用数沿漂亮指数增长，最近公布的数字是每天约 3000 万次。几周前的 Hood Summit 我们又发了 Robinhood Agents——把 harness 和整个 UI 装进 Robinhood 账户：可以理解为 Claude Code/Codex 的交易特化版。你可以跑循环：『每天执行一轮我的策略、再平衡组合、找机会』；有 skills（组合再平衡等）；有 agent 应用商店——比如接卫星数据源、建一个数零售停车场里汽车数的策略。我们会把 coding harness 的所有能力做成干净的交易者原生版。」",
+              "Elad：这些机构都能做、只是贵而复杂——民主化之后意味着什么？",
+              "Vlad：「这就是产品的北极星：把对冲基金与顶级量化公司的能力装进普通人的口袋。就像 coding agent 先让程序员产出翻倍、再让从没碰过 VS Code 的人建起网站——先集中在一小撮高手里、他们的交易量暴涨，随后慢慢渗到更多人口。相信我，『想靠一个判断赚钱』比『想做软件』普遍得多——把一个想法变成策略的摩擦如果低到接近买一只股票，会有海量的人来做。」「基础设施不需要大改：Day 1 的护栏是独立的隔离账户（从主账户划转资金进去）、默认每笔交易需人工批准（可关掉——看似『危险地跳过权限』，其实是沙箱化的，碰不到你的其他资金；沙箱与 harness 基础设施都是 Robinhood 自研）。而且别忘了 HFT 已经存在二十年、交易所与做市商（Citadel、Jane Street、Jump）本就是极限吞吐的软件商店。目前 agentic 交易占比还很低——我们会有预警时间。」",
+              "",
+              "【谁拥有 AI：从 65% 到 95%】",
+              "Elad：你如此相信广泛所有权与社会稳定——但 AI 革命显然不是被广泛持有的。解法是什么？",
+              "Vlad：「我们去年就确认了这个问题：主要的 AI 创新公司全是私有的。想投 OpenAI 或 Anthropic？个人投资者基本没戏。私有市场让高增长公司轻松融到天量资金——80 年代的微软、90 年代的亚马逊上市时估值只有几亿，散户在 IPO 拿 1000 倍是可能的；如今 AI 实验室以一两万亿上市，散户想拿同样倍数得涨到千万亿。收益越来越集中在少数 VC 与机构手里。然后我们奇怪为什么大家讨厌数据中心——作为个人，我从这一切里分不到经济利益：它威胁我的饭碗、污染我的社区、制造噪音。对比加密：并非人人赚钱（比特币 12 万买入、现在 8.5 万），2022/2023 也惨烈——但 2024 年那支军队用选票说话、一有监管越权就疯狂轰炸社交媒体与议员办公室。核心原因：crypto 从第一天起就是广泛的个人持有的。」「解法：Robinhood Ventures——让『种子轮与 A 轮 cap table 里没有散户』反而成为异常。Fund I 用我们的 IPO 通道（全美最大散户 IPO 通道）向散户募资、投后期私有公司（OpenAI 在内，还有一批 AI 与金融科技公司、Crusoe），基金本身在纽交所像股票一样交易——你可以叫它『公开交易的 VC 公司』。Fund II 与 YC 合作、给普通人最早的种子/A 轮敞口（Rich Aberman 负责）：风险最高、机会也最大。第三条路是私有公司代币化（目前在美国之外）：北极星是让私有公司像股票一样 7×24 实时碎股交易——你该能随时低门槛地交易『Anthropic』，权益质量至少不差于 SPV 的 LP 份额。这需要推动美国的多项规则，包括合格投资者规则。」",
+              "「好消息：SEC 上周宣布让 FINRA 做一场『认证考试』——个人去考点花两小时考个试就能成为合格投资者，不必再以资产为门槛。这是正面一步，但摩擦还是太高——多少人真会去考点？我们会继续推。至于家长式保护：我们问过客户，压倒性同意『我的钱我做主，没人该告诉我怎么花、怎么投』。该做的是充分披露，而不是禁止——meme coin 倒有完美的监管清晰度（SEC 都致函说它们是收藏品、可以任意买），私有公司反而被限制，这从任何风险逻辑上看都很荒谬。何况合格投资者规则诞生于互联网之前——如今信息泛滥、还有 AI 帮你综合。支撑它的条件早已不存在。」",
+              "",
+              "【Trump 账户与给领导者的建议】",
+              "「Trump 账户是我们『为国服务』的方式，我们非常自豪：Robinhood 被选为唯一初始受托人与经纪商，与 BNY（美国最老牌银行）、财政部与 IRS 合作。理念：让每个孩子从出生起就通过低成本的标普 500 ETF 拥有一块美国经济——2025 年 1 月起出生的每个新生儿（持续三年），财政部给每人 1000 美元；Michael 与 Susan Dell 夫妇的基金会给低收入邮编的孩子追加了 60 多亿；Gwynne Shotwell 承诺捐 SpaceX 股份；Brad Gerstner 是整个项目的架构师、还给印第安纳的孩子们捐了一大笔。我们负责基础设施与 app。为什么爱它：这是把家庭持股率从 65% 推到 95% 的最佳路径——成功的话会带来几十年更稳定与繁荣的社会。我们的目标是把它做成『政府有史以来最好的产品』。」",
+              "Elad（收尾）：Andrew Reed 形容你是『无限 IQ + 最稳的手』的结合。你怎么保持冷静？",
+              "Vlad：「童年经历太多挑战，让我对挑战脱敏了。我们家像一个小队一起移民，我从很小就被当成平等的成员对待——有自己的任务，不是被宠的孩子。Robinhood、Harmonic 的商业难题，退一步想：能跟『被驱逐出境的威胁』比吗？我们这边聊 5% 通胀就炸锅——我童年是 2000%。我试图给自己的孩子们构造挑战（他们有安全、有家教、有博物馆——挣扎与忍耐得靠人为设计），还没完全 figured out。大概也有天性的成分。给领导者的建议是 Bezos 那句：最好的办法是长出厚皮——你能控制的只有自己，控制不了外面的世界。真能做到的话，这是一个不是人人都有的超能力。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
