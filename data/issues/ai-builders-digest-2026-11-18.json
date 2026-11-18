@@ -1,0 +1,83 @@
+{
+  "title": "AI Builders Digest",
+  "subtitle": "Bilingual edition · 双语对照版",
+  "publishDate": "2026-11-18",
+  "editionName": "双语精选版",
+  "intro": {
+    "kicker": "编者导读 / Editor's Note",
+    "text": "上游混合重播日：X feed 与 11-17 完全相同（软件工厂/软件新纪元主线，完整版见 11-17 期）；播客换回了 11-10 期已完整收录的 Latent Space「Mihail Eric：Stanford 如何教 AI 原生工程」（同 GUID、transcript 逐字一致）。本日为重播轻量版：X 要点重播 + 播客金句回顾，不重复全文。"
+  },
+  "archive": {
+    "title": "重播日：软件工厂与 Stanford 课",
+    "desc": "X 快照与 11-17 相同（Thariq 软件工厂、Rauchg 软件新纪元）；播客为 11-10 期的 Mihail Eric Stanford 课重播——完整版分别见 11-17 与 11-10 期。"
+  },
+  "viewLabels": {
+    "rewrite": "速读",
+    "original": "原文"
+  },
+  "footerNote": "Source: Follow Builders curated daily digest. The 2026-11-18 X feed is byte-identical to 2026-11-17 (14 builders, 29 tweets, fully covered there), and the podcast snapshot carries the same episode (identical GUID and transcript) as the Latent Space One Million AI Engineer Special with Mihail Eric fully covered in the 11-10 issue — today is a replay edition with highlight notes and podcast quote replays only.",
+  "sections": [
+    {
+      "title": "Replay: Software Factories Highlights / 重播：软件工厂要点",
+      "desc": "上游 X feed 未更新，与 11-17 完全相同（14 位 builders、29 条推文）——11-17 期已完整收录。要点回顾：软件工厂、软件新纪元、Deranged cult。",
+      "cards": [
+        {
+          "authorKey": "replay-2026-11-17-x",
+          "authorName": "Follow Builders（重播）",
+          "authorTag": "X feed 与 11-17 相同",
+          "sourceUrl": "https://x.com/trq212",
+          "en": {
+            "rewrite": [
+              "Replay note: today's X feed is unchanged from 2026-11-17 — the same 14 builders and 29 tweets, fully covered in that issue. Headlines: Thariq's software factories feel like a temporary problem at 4841 (the models will learn to build them for you — the more interesting question is a workspace where agents collaborate with you) plus the game-character agents demo at 1329; Rauchg's triple — a new era of software at 3933 (personalized, fully owned, open source, higher quality than what it replaces), users are agents / run evals at 585, and the own-your-intelligence-roadmap checklist at 273; amasad's Deranged cult at 3212; steipete's permission-alerts satire at 1089 (Apple: here's some new scary alerts); Google Labs welcoming Howie at 502; Woodward's Gemini Notebook interactive sites at 294; Peter Yang's Nate Parrott anti-slop design takeaways at 138; Levie's tokens-only-going-up essay at 192; Nikunj's 2026 infra wars at 109 (Q1 vibe coding → Q4 agentic CI); Garry Tan's employee-brains → team-brains → company-brain at 317."
+            ],
+            "original": [
+              "Thariq: software factories feel like a temporary problem. the models will learn to build them for you",
+              "Guillermo Rauch: A new era of software is upon us. Personalized, fully owned, open source. And higher quality than what it replaces.",
+              "Peter Steinberger: People: Please reduce the number of permission alerts... Apple: I hear you, here's some new scary alerts"
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日 X feed 与 11-17 完全相同（14 位 builders、29 条推文，完整版已收录于 11-17 期）。要点回顾：Thariq「软件工厂是临时问题——模型会学会替你建；更有趣的是 agent 与你协作的工作区」（**4841 赞，当日最高**）+ 游戏 character 实例（1329 赞）；Rauchg 三连——「软件新纪元：个性化、自有、开源、质量更高」（**3933 赞**）、「用户是 agent、你跑 evals」（585 赞）、智能路线图四步（273 赞）；amasad「Deranged cult」（3212 赞）；steipete 权限弹窗之讽（1089 赞）；Google Labs 收编 Howie（502 赞）；Woodward 的 Notebook 交互网站（294 赞）；Peter Yang 反 slop 设计五要点（138 赞）；Levie「token 只升不降」（192 赞）；Nikunj「2026 infra wars」（109 赞）；Garry Tan「员工大脑→团队大脑→公司大脑」（317 赞）。播客见下卡。"
+            ],
+            "original": [
+              "Thariq：软件工厂是临时问题。Rauchg：软件新纪元。steipete：减少权限弹窗之讽。详见 11-17 期。"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Podcast Replay: Mihail Eric / 播客重播：Stanford AI 原生工程课",
+      "desc": "今日播客与 11-10 期收录的 Latent Space「百万订阅特辑 × Mihail Eric」为同一集（相同 GUID、transcript 一致）。完整中文译文（46 段）已在 11-10 期；今日保留金句回顾。",
+      "cards": [
+        {
+          "authorKey": "podcast:latentspace-mihail-eric-replay",
+          "authorName": "Latent Space Podcast（重播）",
+          "authorTag": "Mihail Eric（Stanford CS 146S / Monaco AI 负责人）",
+          "sourceUrl": "https://www.youtube.com/@LatentSpacePod",
+          "en": {
+            "rewrite": [
+              "Replay note: today's podcast feed carries the same Latent Space episode already fully covered in the 11-10 issue — the One Million AI Engineer Special with Mihail Eric on how Stanford teaches AI-native engineering (same GUID, identical 159,456-character transcript). The full Chinese translation (46 paragraphs) was published on 11-10; today we keep a quote replay."
+            ],
+            "original": [
+              "Mihail Eric: the TLDR is like there is a way to do this that actually does scale out to code bases that are millions of lines long. And it's not just the vanilla prompt.",
+              "swyx & Mihail Eric on the Stanford course: from building a Claude clone to background agents, security attack vectors and context engineering at scale."
+            ]
+          },
+          "cn": {
+            "rewrite": [
+              "重播说明：今日播客快照携带的仍是 11-10 期已完整收录的同一集 Latent Space——「百万订阅特辑：Stanford 如何教 AI 原生工程」（相同 GUID、159456 字符 transcript 逐字一致）。完整中文译文（46 段）已收录于 11-10 期播客卡，今日不重复刊出。"
+            ],
+            "original": [
+              "【金句回顾】",
+              "「每家公司都需要你，但地板比以前高得多。」",
+              "「有一个办法真的能扩展到几百万行的代码库——而且不只是 vanilla prompt。」",
+              "「十一周逐周拆解：从零造 Claude 克隆、skills 之辩、安全攻击面、background agents、规模化上下文工程。」"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
